@@ -229,3 +229,42 @@ def feldman_online_greedy(
             matched[target] = True
             size += 1
     return size
+
+
+def feldman_online_mpd(
+    instance_adj: list[list[int]],
+    types: np.ndarray,
+    n_right: int,
+    Mb: np.ndarray,
+    Mr: np.ndarray,
+    rank: np.ndarray,
+) -> int:
+    """FeldmanEtAl(MPD) — ACI §7 augmentation.
+
+    Identical to the greedy variant, except that when the advice slot is
+    unavailable (or this is a 3rd+ arrival) it falls back to the unmatched
+    neighbor of MINIMUM MPD rank instead of an arbitrary one. `rank` is the
+    MPD rank array (mpd_rank(mu, rng)).
+    """
+    matched = np.zeros(n_right, dtype=bool)
+    arrivals = np.zeros(len(Mb), dtype=np.int64)
+    size = 0
+    for i, neighbors in enumerate(instance_adj):
+        l = int(types[i])
+        z = arrivals[l]
+        arrivals[l] += 1
+        target = -1
+        if z == 0 and Mb[l] != -1 and not matched[Mb[l]]:
+            target = int(Mb[l])
+        elif z == 1 and Mr[l] != -1 and not matched[Mr[l]]:
+            target = int(Mr[l])
+        if target == -1:
+            best_rank = np.iinfo(np.int64).max
+            for r in neighbors:
+                if not matched[r] and rank[r] < best_rank:
+                    best_rank = rank[r]
+                    target = r
+        if target != -1:
+            matched[target] = True
+            size += 1
+    return size

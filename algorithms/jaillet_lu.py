@@ -132,3 +132,40 @@ def jaillet_lu_online_greedy(
             matched[target] = True
             size += 1
     return size
+
+
+def jaillet_lu_online_mpd(
+    instance_adj: list[list[int]],
+    types: np.ndarray,
+    n_right: int,
+    rn: list[list[int]],
+    rp: list[list[float]],
+    rng: np.random.Generator,
+    rank: np.ndarray,
+) -> int:
+    """JailletLu(MPD) — ACI §7 augmentation.
+
+    Identical to the greedy variant, except the fallback (when the sampled list
+    has no available neighbor) picks the unmatched neighbor of MINIMUM MPD rank
+    instead of an arbitrary one. `rank` is the MPD rank array (mpd_rank(mu, rng)).
+    """
+    matched = np.zeros(n_right, dtype=bool)
+    size = 0
+    for i, neighbors in enumerate(instance_adj):
+        l = int(types[i])
+        lst = _sample_list(rn[l], rp[l], rng)
+        target = -1
+        for r in lst:
+            if not matched[r]:
+                target = r
+                break
+        if target == -1:
+            best_rank = np.iinfo(np.int64).max
+            for r in neighbors:
+                if not matched[r] and rank[r] < best_rank:
+                    best_rank = rank[r]
+                    target = r
+        if target != -1:
+            matched[target] = True
+            size += 1
+    return size
