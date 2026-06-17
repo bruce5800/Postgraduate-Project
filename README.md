@@ -20,7 +20,7 @@ report and result analysis.
 | 1 | Scaffolding + first verified number | done |
 | 2 | Core 4 algorithms + ER & Left-Regular reproduction | done |
 | 3a | MinPredictedDegree + 4 error models + RQ2 spectrum | done — see [`docs/PHASE3_REPORT.md`](docs/PHASE3_REPORT.md) |
-| 3b | (MPD)-augmented Feldman/JailletLu comparison | code in place, comparison pending |
+| 3b | (MPD)-augmented Feldman/JailletLu comparison | done — (MPD)≥(g)≥base confirmed |
 | 3c | Choo (TestAndMatch) + BEM adaptive fallback | deferred (spec'd) |
 
 ## Directory layout

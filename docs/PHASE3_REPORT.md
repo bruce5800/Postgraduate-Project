@@ -15,6 +15,7 @@ MPD + (MPD)-augmentation hooks). Choo/BEM adaptive frameworks deferred.
 | (MPD) augmentations | `algorithms/feldman.py`, `algorithms/jaillet_lu.py` | `*_online_mpd`: fall back via MPD rule instead of arbitrary (ACI §7) |
 | Tests | `tests/test_mpd_small.py` | 6 tests, all pass |
 | RQ2 experiment | `scripts/run_mpd_error_spectrum.py` | ratio vs η, 4 models × 2 graphs |
+| (MPD)-augmentation comparison | `scripts/run_mpd_augmentation.py` | base/(g)/(MPD) × Feldman/JailletLu, 2 graphs (§3.3) |
 
 **Unifying observation:** SimpleGreedy, Ranking, and MPD are now *one* online
 primitive (`greedy_with_permutation`) with three rank sources — identity,
@@ -84,6 +85,39 @@ Consequences, each a concrete instance of the proposal §5 thesis ("error
 This finding was not reported by ACI (they evaluated a single subsample-noise
 model) and is novel to this study.
 
+### 3.3 (MPD)-augmentation bridge to Phase 2 (Phase 3b)
+
+`scripts/run_mpd_augmentation.py` compares, for FeldmanEtAl and JailletLu, the
+base (non-greedy) / greedy `(g)` / `(MPD)` variants, with MPD, MinDegree, and
+Ranking as references. The `(MPD)` variant applies the min-predicted-degree rule
+(type-graph degrees) wherever the base algorithm would skip. Paired trials share
+the JailletLu list-sampling and MPD tie-break randomness.
+
+**ACI §7 claim — `(MPD) ≥ (g) ≥ base` — confirmed in all 4 cases (n=1000, 100 trials):**
+
+| | base | (g) | (MPD) |
+|---|---|---|---|
+| FeldmanEtAl, Zipf | 0.886 | 0.977 | **0.981** |
+| JailletLu, Zipf | 0.900 | 0.974 | **0.977** |
+| FeldmanEtAl, Left-Regular | 0.759 | 0.899 | **0.904** |
+| JailletLu, Left-Regular | 0.790 | 0.900 | **0.903** |
+
+(The small-scale n=300 run showed one 0.0009 "violation" for JailletLu on
+Left-Regular — pure noise; it resolves cleanly at n=1000.)
+
+![(MPD)-augmentation — Zipf](../results/mpd_augment_clvb_zipf.png)
+
+**Two narrative payoffs:**
+1. The `(MPD)` lift over `(g)` is small but consistent (+0.003–0.005); the
+   base→`(g)` greedy lift is the large one (e.g. Feldman 0.886→0.977 on Zipf).
+   This re-confirms Borodin's "greediness is the dominant property", now with
+   degree-aware tie-breaking as a second-order refinement.
+2. **Plain MPD outranks every `(MPD)`-augmented complex algorithm** (Zipf:
+   MPD 0.989 > FeldmanEtAl(MPD) 0.981; Left-Regular: MPD 0.933 >
+   FeldmanEtAl(MPD) 0.904). The expensive LP / max-flow preprocessing of
+   Feldman/JailletLu adds nothing beyond a simple degree ordering — echoing
+   ACI's headline that first-order degree information alone suffices.
+
 ## 4. Consistency / robustness read-off (RQ2)
 
 For MPD the consistency→robustness interpolation is *automatic* (no engineered
@@ -96,9 +130,6 @@ degrees) is MPD's worst case.
 
 ## 5. Limitations / not yet done
 
-- **(MPD)-augmented Feldman/JailletLu** are implemented and unit-reachable but
-  not yet run in a head-to-head comparison vs their (g) variants — the natural
-  next experiment bridging Phase 2 and 3.
 - **Choo (TestAndMatch) and BEM** — deferred. They require the type-histogram
   prediction object (object B), a predicted-matching construction, and a
   test-and-fallback (or practical surrogate). The collapse finding above
