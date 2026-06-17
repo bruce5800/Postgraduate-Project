@@ -16,6 +16,7 @@ MPD + (MPD)-augmentation hooks). Choo/BEM adaptive frameworks deferred.
 | Tests | `tests/test_mpd_small.py` | 6 tests, all pass |
 | RQ2 experiment | `scripts/run_mpd_error_spectrum.py` | ratio vs η, 4 models × 2 graphs |
 | (MPD)-augmentation comparison | `scripts/run_mpd_augmentation.py` | base/(g)/(MPD) × Feldman/JailletLu, 2 graphs (§3.3) |
+| Real-world loader + experiment | `graphs/realworld.py`, `scripts/run_realworld.py` | 6 Network Repository graphs, 2 conversions, Borodin Tables 3/4 + MPD (§3.4) |
 
 **Unifying observation:** SimpleGreedy, Ranking, and MPD are now *one* online
 primitive (`greedy_with_permutation`) with three rank sources — identity,
@@ -118,6 +119,46 @@ Left-Regular — pure noise; it resolves cleanly at n=1000.)
    Feldman/JailletLu adds nothing beyond a simple degree ordering — echoing
    ACI's headline that first-order degree information alone suffices.
 
+### 3.4 Real-world graphs — Borodin Tables 3/4 validation + MPD (Phase 3d)
+
+`graphs/realworld.py` loads six Network Repository graphs (MatrixMarket `.mtx`
+and `.edges`, weights/direction dropped, ids densified) and applies the two
+Borodin §3.3 bipartite conversions: **random balanced partition** (→ Table 3)
+and **duplicating / bipartite double cover** (→ Table 4).
+`scripts/run_realworld.py` runs all six algorithms plus MPD/MinDegree and
+compares to the paper's reported values (50 trials each).
+
+**Random-partition: clean reproduction.** All six graphs match Borodin Table 3
+with max per-cell deviation ≤ 0.058, algorithm ordering preserved.
+
+| graph | SG ours/paper | Rk | F | Fg | J | Jg |
+|---|---|---|---|---|---|---|
+| Caltech36 | 0.914/0.87 | 0.913/0.86 | 0.751/0.78 | 0.939/0.91 | 0.785/0.81 | 0.941/0.91 |
+| CE-PG | 0.882/0.94 | 0.882/0.94 | 0.790/0.81 | 0.943/0.96 | 0.817/0.82 | 0.944/0.96 |
+| mbeaw | 0.980/0.95 | 0.978/0.95 | 0.734/0.74 | 0.980/0.95 | 0.766/0.77 | 0.980/0.96 |
+
+**Duplicating: complex algorithms reproduce, greedy does not.** Feldman/JailletLu
+(base and (g)) match Table 4 within ≤0.05 on all six graphs, but the *greedy*
+algorithms (SimpleGreedy, Ranking) deviate in a **graph-dependent direction**:
+socfb high (Caltech36 SG 0.93 vs 0.72, +0.21), bio low (CE-PG SG 0.80 vs 0.95,
+−0.15), econ slightly high. Diagnostics ruled out an ordering artifact (SG under
+duplicating is order-insensitive here: identity, random-relabel, and Ranking all
+give ~0.93) and a uniform "too easy/hard" bias (the deviation flips sign across
+families). This points to a structural difference between our bipartite
+double-cover construction and the paper's that specifically affects greedy
+(sensitive to fine local structure) but not the flow-based algorithms (robust to
+it). Without the paper's source — and given Network Repository files have been
+revised since 2018 — this is documented as an **open discrepancy**; the
+random-partition method is taken as the validated real-world reproduction.
+
+**MPD on real graphs (the Phase 3 payoff): top on every graph, both conversions.**
+MPD and MinDegree rank **first on all six graphs under both conversions**
+(0.95–1.00), reaching **1.000 on the econ graphs** (heavy-tailed offline degrees).
+This reproduces ACI's headline that MPD — using only first-order degree
+information — outperforms every online baseline on real data, and extends it to
+the JailletLu/FeldmanEtAl known-i.i.d. baselines that ACI did not run head-to-head
+in our exact framework.
+
 ## 4. Consistency / robustness read-off (RQ2)
 
 For MPD the consistency→robustness interpolation is *automatic* (no engineered
@@ -136,13 +177,17 @@ degrees) is MPD's worst case.
   motivates them: they are the engineered robustness that MPD lacks.
 - **Zipf exponent sweep** (ACI §7 varies it 0.2–2.0) not yet run; we fixed
   exponent=1.0. A sweep would show how MPD's usable band widens with skew.
-- **Real-world graphs** (proposal §6.1) not yet included.
+- **Duplicating-conversion greedy discrepancy** (§3.4) — an unresolved open
+  question; the random-partition method is the validated real-world reproduction.
 
 ## 6. Reproducibility
 
 ```bash
 python3 tests/test_mpd_small.py                  # 6 tests
 python3 scripts/run_mpd_error_spectrum.py        # ~11s; n=1000, 100 trials
+python3 scripts/run_mpd_augmentation.py          # ~22s; (MPD) vs (g) vs base
+python3 scripts/run_realworld.py                 # ~6min; 6 graphs × 2 conversions
 ```
-Seed 0; outputs `results/mpd_spectrum_{left_regular,clvb_zipf}.{json,png}` and
-`results/mpd_methodological_*.png`. Tested on numpy 1.26.4, scipy 1.13.1.
+Seed 0; outputs `results/mpd_spectrum_*.{json,png}`, `results/mpd_augment_*.png`,
+`results/realworld.json`. Real-world graphs are downloaded from Network Repository
+into `data/realworld/` (not committed). Tested on numpy 1.26.4, scipy 1.13.1.
