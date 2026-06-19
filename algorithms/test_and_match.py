@@ -122,7 +122,8 @@ def test_and_match(
         return size, info
 
     if prefix_k is None:
-        prefix_k = min(n, int(round(math.sqrt(n) * math.log2(n_types + 1) + 1)))
+        prefix_k = int(round(math.sqrt(n) * math.log2(n_types + 1) + 1))
+    prefix_k = min(prefix_k, n)
 
     step = _mimic_stepper(chat, partners, matched)
     prefix_counts = np.zeros(n_types, dtype=np.float64)

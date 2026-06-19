@@ -22,7 +22,7 @@ report and result analysis.
 | 3a | MinPredictedDegree + 4 error models + RQ2 spectrum | done — see [`docs/PHASE3_REPORT.md`](docs/PHASE3_REPORT.md) |
 | 3b | (MPD)-augmented Feldman/JailletLu comparison | done — (MPD)≥(g)≥base confirmed |
 | 3d | Real-world graphs (Borodin Tables 3/4 + MPD) | done — random-partition validated; MPD tops all 6 graphs |
-| 3c | Choo (TestAndMatch) + BEM adaptive fallback | done — robustness envelope + threshold-miscalibration finding ([`docs/PHASE3C_REPORT.md`](docs/PHASE3C_REPORT.md)) |
+| 3c | Choo (TestAndMatch) + BEM adaptive fallback | done — robustness envelope + threshold-miscalibration finding + recalibration fix ([`docs/PHASE3C_REPORT.md`](docs/PHASE3C_REPORT.md)) |
 
 ## Directory layout
 

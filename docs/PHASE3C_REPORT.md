@@ -129,24 +129,64 @@ baseline rather than the worst-case β — is a natural next experiment.
 baseline on this instance?" — which is precisely why it grows as the test
 faithfully tracks the theory-calibrated, but empirically-lenient, threshold.)
 
-## 6. Limitations / not yet done
+## 6. Threshold recalibration — fixing the miscalibration
+
+`scripts/run_recalibration.py` tests the §5 fix directly: replace the worst-case
+β=0.696 in the Choo threshold τ = 2(n̂/n − β) with a **measured** baseline β̂ —
+the mean empirical Ranking ratio over a small calibration sample (β̂ = 0.986
+here). Both thresholds are run on the *same* instances (HK paid once), so the
+comparison is exact. N=1200, r=8.
+
+![Recalibration prefix](../results/recalibration_prefix.png)
+
+**The pathology is eliminated.** At borderline advice (η=0.15), the worst-case
+threshold's misjudgement climbs 0.03 → 0.63 → 0.87 → 1.00 as the prefix grows,
+and its ratio drops 0.986 → 0.920. The recalibrated threshold holds
+**misjudgement = 0.00 at every prefix size** and ratio ≈ 0.986 throughout — a
+larger prefix no longer hurts.
+
+![Recalibration envelope](../results/recalibration_envelope.png)
+
+**It also closes the confusion-zone dip.** Across the full L1 envelope the
+recalibrated curve is flat at ~0.985–0.989, whereas the worst-case curve dips to
+0.948–0.977 in the L1 ≈ 0.1–0.3 band (where it follows mildly-bad advice).
+
+**But recalibration reveals a deeper, honest limit.** At L1 = 0 (perfect advice)
+the worst-case threshold scores 1.000 — it accepts and follows the perfect advice
+— while the recalibrated one scores only 0.987. The recalibrated threshold
+(τ ≈ 2(1 − 0.986) ≈ 0.028) is *smaller than the empirical-L1 estimator's noise
+floor* (≈0.05–0.13 for r=8 types at this prefix), so the test can never
+confidently *accept* advice — it rejects everything, including perfect advice,
+and effectively always plays the baseline. So:
+
+> On strong-baseline (average-case) instances, no practical empirical-L1
+> threshold can both capture the consistency upside and stay safe: the upside is
+> tiny (the baseline is already ≈OPT) and sits *below the estimator's resolution*.
+> The worst-case threshold over-accepts (and a better tester then follows bad
+> advice); the recalibrated threshold over-rejects (the tester can't resolve good
+> advice). This is the empirical face of Choo's own Ω(r/ε²) sample-complexity
+> caveat, and a sharper restatement of §4: when the baseline is near-optimal, the
+> safe and the optimal action coincide on *rejecting* — there is simply little for
+> advice to add.
+
+## 7. Limitations / not yet done
 
 - **Empirical-L1 surrogate**, not the Jiao et al. tester (documented; the authors
   do the same).
-- **Threshold recalibration** to the measured baseline (the §5 fix) not yet run.
 - Experiments use the **few-types** regime (the calibrated regime); a sweep over
   the number of types r — showing the prefix cost grow as types diversify — would
   round out RQ3.
 - Choo/BEM run inside our Known-IID harness (valid: Known-IID ≤ Random-Order, so
   their guarantees carry); a dedicated random-order sampler is optional future work.
 
-## 7. Reproducibility
+## 8. Reproducibility
 
 ```bash
 python3 tests/test_choo_bem_small.py            # 6 tests
 python3 scripts/run_choo_bem.py                 # ~20 min (HK-bound); envelope + RQ3
+python3 scripts/run_recalibration.py            # ~1.5 min (N=1200); §6 recalibration
 ```
-Seed 0/1; outputs `results/choo_bem.json`, `results/choo_bem_envelope.png`,
-`results/choo_bem_prefix.png`. Runtime is dominated by NetworkX Hopcroft–Karp on
-n=2000 graphs (one OPT + one advice-matching per trial); a faster max-matching
+Seed 0/1/2; outputs `results/choo_bem.{json,*.png}` and
+`results/recalibration.{json,*.png}`. Runtime is dominated by NetworkX
+Hopcroft–Karp (one OPT + one advice-matching per trial); a faster max-matching
 (SciPy LAP / numba) would cut it substantially.
