@@ -134,7 +134,7 @@ def main():
 
     print("=== Consistency/robustness envelope (ratio vs L1) ===")
     env = envelope()
-    print("\n=== RQ3: testing-cost tradeoff (prefix sweep, η=0.5) ===")
+    print("\n=== RQ3: testing-cost tradeoff (prefix sweep, borderline η=0.15) ===")
     pre = prefix_sweep()
 
     data = {"envelope": env, "prefix_sweep": pre}
@@ -174,8 +174,9 @@ def main():
         ax2.plot(ks, [p["misjudge"] for p in pre], "o--", color="C1",
                  label="misjudgement rate")
         ax2.set_ylabel("misjudgement rate", color="C1")
-        ax1.set_title("RQ3: testing cost — larger prefix improves the decision but\n"
-                      "spends more arrivals probing (η=0.5 advice)")
+        ax1.set_title("RQ3: at borderline advice (η=0.15, L1≈0.16), a larger prefix estimates\n"
+                      "L1 more accurately — but the worst-case-calibrated threshold then accepts\n"
+                      "mildly-bad advice an oracle would reject, so accuracy hurts here")
         ax1.grid(True, alpha=0.3)
         fig.savefig(out_dir / "choo_bem_prefix.png", dpi=120, bbox_inches="tight")
         plt.close(fig)
