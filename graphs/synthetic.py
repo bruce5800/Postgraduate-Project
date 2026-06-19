@@ -51,3 +51,32 @@ def clvb_zipf_bipartite(
     p_edge = np.clip(d / n, 0.0, 1.0)     # edge prob for column r_i
     mask = rng.random((n, n)) < p_edge[None, :]  # rows = L types, cols = R offline
     return [np.flatnonzero(mask[l]).tolist() for l in range(n)]
+
+
+def few_types_bipartite(
+    n_offline: int, r: int, rng: np.random.Generator, overlap: float = 0.25
+) -> list[list[int]]:
+    """Type graph with only r distinct online types over n_offline offline nodes,
+    structured so a near-perfect matching exists.
+
+    Offline nodes are partitioned into r blocks of size ⌊n_offline/r⌋. Type t owns
+    block t (guaranteeing it can absorb ~n_offline/r arrivals) plus an `overlap`
+    fraction of extra random neighbors (for non-trivial structure). Used with
+    `sample_instance(type_adj, m=n_offline)` so an instance draws ~n_offline/r
+    arrivals per type — making the realized type counts c* LUMPY, the regime where
+    the Choo/BEM prefix test is statistically effective (few high-count types can
+    be estimated from a sublinear prefix; ~n distinct unit-count types could not —
+    see docs/PHASE3_REPORT.md). Because each type owns a private block, the maximum
+    matching size is ≈ n_offline, i.e. n̂/n ≈ 1 — the regime the Choo/BEM
+    thresholds are calibrated for.
+
+    Returns type_adj with r rows; n_right = n_offline.
+    """
+    block = n_offline // r
+    n_extra = int(round(overlap * block))
+    type_adj: list[list[int]] = []
+    for t in range(r):
+        own = list(range(t * block, (t + 1) * block))
+        extra = rng.choice(n_offline, size=n_extra, replace=False).tolist()
+        type_adj.append(sorted(set(own) | set(extra)))
+    return type_adj
