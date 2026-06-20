@@ -83,6 +83,45 @@ is already near-optimal; the real operational risk is a routing layer that blind
 trusts a stale traffic forecast — and that risk is *largest* precisely when you
 have ample capacity. The cheap prefix test is exactly the guard against it.
 
+## 3b. Real-trace hardening — forecast staleness on Wikipedia traffic
+
+`scripts/run_serving_trace.py` replaces the synthetic forecast perturbation with a
+**real** one. The workload is real Wikipedia daily pageviews (`data/trace/wiki/`,
+fetched from the Wikimedia API): the live day (2024-06-15) is the request stream,
+and an **earlier day's distribution is the forecast**. Forecast error is then real
+temporal drift — the older the forecast, the staler it is. No synthetic noise
+anywhere. (Mapping: pages = request types, cache shards = resources, a cache hit =
+a match, "predict today's hot pages from an old day" = the traffic forecast.)
+
+The real drift is monotone in staleness, over 500 request types:
+
+| forecast staleness | real drift L1(p_live, q) |
+|---|---:|
+| 1 day | 0.68 |
+| 7 days | 1.16 |
+| 30 days | 1.41 |
+
+![serving real trace](../results/serving_trace.png)
+
+Goodput under the real stale forecast (M=3000 requests, 20 trials):
+
+| staleness | blind (c=2) | blind (c=8) | adaptive | baseline |
+|---|---:|---:|---:|---:|
+| 1 day | 0.712 | 0.628 | ~1.00 | ~1.00 |
+| 7 days | 0.641 | 0.411 | ~1.00 | ~1.00 |
+| 30 days | 0.577 | 0.302 | ~1.00 | ~1.00 |
+
+The synthetic Phase-4 findings reproduce on real data, with a real error axis:
+- **the staler the forecast, the worse blind trust does** (0.71 → 0.58 at c=2;
+  0.63 → 0.30 at c=8) — monotone in real drift;
+- **the cliff deepens with capacity** (c=8 worse than c=2 at every staleness);
+- **the adaptive test-and-fallback stays robust at every staleness** (~1.00),
+  and the forecast-free baseline is near-optimal throughout.
+
+Because the error is genuine temporal drift on a recognizable real workload (the
+live day's top pages are real time-sensitive events — UEFA Euro 2024, Inside Out
+2, etc.), this answers the "synthetic only" objection directly.
+
 ## 4. How this strengthens the thesis
 
 This is the applied face of the project's unifying thesis. Phase 2 (Borodin):
@@ -96,9 +135,10 @@ that the abstract findings alone do not deliver.
 
 ## 5. Limitations / next
 
-- **Synthetic workload.** Topology and traffic are synthetic (Zipfian); a real
-  serving / MoE-routing / request trace would harden the finding (the planned
-  "real trace" depth was not taken in this increment).
+- **Topology is synthetic.** Traffic *and the forecast error* are now real
+  (Wikipedia pageviews + temporal drift, §3b); the resource topology (which shard
+  serves which page) remains a synthetic cache-placement choice — a real cache
+  layout would close the last gap.
 - **MPD under capacity** is implemented (`greedy_with_capacity` with a degree
   rank) but not swept here; a capacity × order-error study would extend Phase 3a.
 - **Free-disposal / weighted variants** (top-c rewards, request values) are
@@ -107,8 +147,11 @@ that the abstract findings alone do not deliver.
 ## 6. Reproducibility
 
 ```bash
-python3 tests/test_serving_small.py     # 5 tests
-python3 scripts/run_serving.py          # ~8s; capacity × forecast-error grid
+python3 tests/test_serving_small.py        # 5 tests
+python3 scripts/run_serving.py             # ~8s; synthetic capacity × forecast-error
+python3 scripts/run_serving_trace.py       # ~9s; real Wikipedia trace, forecast staleness
 ```
-Seed 0; outputs `results/serving.json`, `results/serving_cliff.png`,
-`results/serving_envelope.png`.
+Seed 0; outputs `results/serving*.{json,png}`. The Wikipedia pageview JSONs are
+cached in `data/trace/wiki/` (committed, ~230 KB); to refresh, re-fetch the
+Wikimedia "top articles per day" REST endpoint for the dates in
+`scripts/run_serving_trace.py`.
