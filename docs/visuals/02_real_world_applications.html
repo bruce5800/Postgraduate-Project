@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One problem, four markets — applications of online bipartite matching</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --font-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-text-primary:#1a1a1a;--color-text-secondary:#6b6b6b;
+  --color-text-info:#2563eb;--color-text-warning:#b45309;--color-text-success:#15803d;
+  --color-background-info:#dbeafe;--color-background-warning:#fef3c7;
+  --color-border-tertiary:rgba(0,0,0,0.12);--color-border-secondary:rgba(0,0,0,0.28);
+  --border-radius-md:8px;--border-radius-lg:12px;
+}
+body{font-family:var(--font-sans);color:var(--color-text-primary);max-width:760px;margin:24px auto;padding:0 16px;line-height:1.6}
+h1{font-size:20px;font-weight:500}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.apx-legend{display:flex;flex-wrap:wrap;align-items:center;gap:18px;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 18px;margin-bottom:16px}
+.apx-chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--color-text-secondary)}
+.apx-dot{width:11px;height:11px;border-radius:50%}
+.apx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.apx-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px}
+.apx-head{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:500;margin-bottom:12px}
+.apx-head i{font-size:20px;color:var(--color-text-info)}
+.apx-row{display:flex;gap:8px;align-items:baseline;font-size:13.5px;margin-bottom:7px;line-height:1.5}
+.apx-row .apx-dot{margin-top:5px;flex:none}
+.apx-k{color:var(--color-text-secondary);flex:none}
+.apx-tw{font-size:12.5px;color:var(--color-text-secondary);margin-top:9px;padding-top:9px;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<h1>One problem, four markets</h1>
+<p style="color:var(--color-text-secondary);font-size:14px">The same abstract structure — an offline side known in advance, an online side arriving one by one, and irrevocable matches — underlies very different real-world markets.</p>
+<div class="apx-wrap">
+  <div class="apx-legend">
+    <svg viewBox="0 0 150 96" width="120" role="img" aria-label="abstract bipartite glyph">
+      <line x1="36" y1="24" x2="112" y2="24" stroke="var(--color-border-secondary)" stroke-width="1.5" opacity="0.4"/>
+      <line x1="36" y1="24" x2="112" y2="72" stroke="var(--color-text-success)" stroke-width="3"/>
+      <line x1="36" y1="72" x2="112" y2="24" stroke="var(--color-border-secondary)" stroke-width="1.5" opacity="0.4"/>
+      <line x1="36" y1="72" x2="112" y2="72" stroke="var(--color-border-secondary)" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="36" cy="24" r="11" fill="var(--color-background-warning)" stroke="var(--color-text-warning)" stroke-width="1.5"/>
+      <circle cx="36" cy="72" r="11" fill="var(--color-background-warning)" stroke="var(--color-text-warning)" stroke-width="1.5"/>
+      <circle cx="112" cy="24" r="11" fill="var(--color-background-info)" stroke="var(--color-text-info)" stroke-width="1.5"/>
+      <circle cx="112" cy="72" r="11" fill="var(--color-background-info)" stroke="var(--color-text-info)" stroke-width="1.5"/>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="apx-chip"><span class="apx-dot" style="background:var(--color-text-warning)"></span>online side — arrives one by one</span>
+      <span class="apx-chip"><span class="apx-dot" style="background:var(--color-text-info)"></span>offline side — known in advance</span>
+      <span class="apx-chip"><span style="width:16px;height:3px;background:var(--color-text-success);display:inline-block;border-radius:2px"></span>bold edge — an irrevocable match</span>
+    </div>
+  </div>
+  <div class="apx-grid">
+    <div class="apx-card">
+      <div class="apx-head"><i class="ti ti-speakerphone" aria-hidden="true"></i>online advertising</div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-info)"></span><span class="apx-k">offline:</span><span>advertisers &amp; ad slots</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-warning)"></span><span class="apx-k">online:</span><span>user impressions arriving</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-success)"></span><span class="apx-k">a match:</span><span>show a compatible ad now</span></div>
+      <div class="apx-tw">the canonical motivation — billions of impressions, decided in milliseconds</div>
+    </div>
+    <div class="apx-card">
+      <div class="apx-head"><i class="ti ti-car" aria-hidden="true"></i>ride-hailing dispatch</div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-info)"></span><span class="apx-k">offline:</span><span>idle drivers nearby</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-warning)"></span><span class="apx-k">online:</span><span>ride requests arriving</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-success)"></span><span class="apx-k">a match:</span><span>assign a driver to the rider</span></div>
+      <div class="apx-tw">real-time and geographic — a wrong assignment can't be taken back</div>
+    </div>
+    <div class="apx-card">
+      <div class="apx-head"><i class="ti ti-heartbeat" aria-hidden="true"></i>kidney / organ exchange</div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-info)"></span><span class="apx-k">offline:</span><span>available organs / donors</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-warning)"></span><span class="apx-k">online:</span><span>patients on the waitlist</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-success)"></span><span class="apx-k">a match:</span><span>allocate to a compatible patient</span></div>
+      <div class="apx-tw">strict compatibility constraints and ethical priority rules</div>
+    </div>
+    <div class="apx-card">
+      <div class="apx-head"><i class="ti ti-briefcase" aria-hidden="true"></i>job / task assignment</div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-info)"></span><span class="apx-k">offline:</span><span>workers / servers</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-warning)"></span><span class="apx-k">online:</span><span>jobs / tasks arriving</span></div>
+      <div class="apx-row"><span class="apx-dot" style="background:var(--color-text-success)"></span><span class="apx-k">a match:</span><span>route the task to a capable one</span></div>
+      <div class="apx-tw">load balancing and scheduling — the streaming-systems angle</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

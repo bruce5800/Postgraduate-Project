@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TestAndMatch — trust the advice, or fall back?</title>
+<style>
+:root{
+  --font-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-text-primary:#1a1a1a;--color-text-secondary:#6b6b6b;
+  --color-text-info:#2563eb;--color-text-success:#15803d;--color-text-warning:#b45309;--color-text-danger:#b91c1c;
+  --color-background-info:#dbeafe;--color-background-warning:#fef3c7;
+  --color-border-tertiary:rgba(0,0,0,0.12);--color-border-secondary:rgba(0,0,0,0.28);
+  --border-radius-md:8px;--border-radius-lg:12px;
+}
+body{font-family:var(--font-sans);color:var(--color-text-primary);max-width:720px;margin:24px auto;padding:0 16px;line-height:1.6}
+h1{font-size:20px;font-weight:500}
+input[type=range]{width:100%}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tm-track{height:14px;background:var(--color-background-secondary);border-radius:7px;position:relative;overflow:hidden}
+.tm-fill{height:100%;border-radius:7px;transition:width .15s,background .15s}
+.tm-bar-lbl{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.tm-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;padding:4px 12px;border-radius:var(--border-radius-md)}
+</style>
+</head>
+<body>
+<h1>TestAndMatch — trust the advice, or fall back?</h1>
+<p style="color:var(--color-text-secondary);font-size:14px">Drag advice quality from right (perfect) to left (garbage). The prefix test catches bad advice and falls back to a safe baseline; the adaptive algorithm always tracks the better of the two extremes. (Baseline shown at 0.82 so both effects are visible; on easy average-case instances it is often near 1.0, and robustness is the main value.)</p>
+<div class="tm-wrap">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+    <label style="font-size:14px;color:var(--color-text-secondary);min-width:96px">advice quality</label>
+    <input type="range" min="0" max="100" step="1" value="88" id="tm-q" style="flex:1">
+    <span style="font-size:14px;font-weight:500;min-width:118px;text-align:right" id="tm-qlbl">88% (near perfect)</span>
+  </div>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:16px">
+    <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:8px">step 1 — the prefix test measures how far the advice is from reality</div>
+    <div style="position:relative;height:30px">
+      <div style="position:absolute;top:13px;left:0;right:0;height:4px;background:var(--color-background-primary);border-radius:2px"></div>
+      <div id="tm-thr" style="position:absolute;top:4px;width:2px;height:22px;background:var(--color-text-secondary)"></div>
+      <div id="tm-mark" style="position:absolute;top:7px;width:14px;height:14px;border-radius:50%;transform:translateX(-7px)"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--color-text-secondary);margin-top:2px">
+      <span>advice matches reality</span><span>threshold</span><span>far off</span>
+    </div>
+    <div style="margin-top:12px"><span class="tm-badge" id="tm-decision"></span> <span id="tm-decision-text" style="font-size:13.5px"></span></div>
+  </div>
+  <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:10px">step 2 — the resulting matching, vs the two extremes</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div>
+      <div class="tm-bar-lbl"><span>blindly follow the advice</span><span id="tm-blind-v" style="font-weight:500"></span></div>
+      <div class="tm-track"><div class="tm-fill" id="tm-blind" style="background:var(--color-text-danger)"></div></div>
+    </div>
+    <div>
+      <div class="tm-bar-lbl"><span style="font-weight:500">TestAndMatch (adaptive)</span><span id="tm-adapt-v" style="font-weight:500"></span></div>
+      <div class="tm-track" style="height:18px"><div class="tm-fill" id="tm-adapt" style="background:var(--color-text-success);height:18px"></div></div>
+    </div>
+    <div>
+      <div class="tm-bar-lbl"><span>ignore advice, use baseline</span><span id="tm-base-v" style="font-weight:500"></span></div>
+      <div class="tm-track"><div class="tm-fill" id="tm-base" style="background:var(--color-border-secondary)"></div></div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:var(--color-text-secondary);margin-top:14px" id="tm-takeaway"></div>
+</div>
+<script>
+(function(){
+  const LMAX=1.2, BASE=0.82, TAU=2*(1-BASE), FLOOR=0.40, TOP=1.0;
+  const q=document.getElementById('tm-q');
+  const barW=r=>Math.max(0,Math.min(100,(r-FLOOR)/(TOP-FLOOR)*100));
+  function upd(){
+    const quality=+q.value/100;
+    const L1=(1-quality)*LMAX;
+    const blind=Math.max(FLOOR,Math.min(1,1-L1/2));
+    const follow=L1<TAU;
+    const adapt=follow?blind:BASE;
+    const ql=quality>0.9?'near perfect':quality>0.7?'good':quality>0.45?'shaky':'garbage';
+    document.getElementById('tm-qlbl').textContent=Math.round(quality*100)+'% ('+ql+')';
+    const markPct=Math.min(100,L1/LMAX*100), thrPct=TAU/LMAX*100;
+    document.getElementById('tm-thr').style.left=thrPct+'%';
+    const mk=document.getElementById('tm-mark');
+    mk.style.left=markPct+'%';
+    mk.style.background=follow?'var(--color-text-success)':'var(--color-text-warning)';
+    const badge=document.getElementById('tm-decision');
+    if(follow){
+      badge.textContent='pass — follow';
+      badge.style.background='var(--color-background-info)';
+      badge.style.color='var(--color-text-success)';
+      document.getElementById('tm-decision-text').textContent='advice looks reliable → keep following it';
+    }else{
+      badge.textContent='fail — fall back';
+      badge.style.background='var(--color-background-warning)';
+      badge.style.color='var(--color-text-warning)';
+      document.getElementById('tm-decision-text').textContent='advice looks unreliable → switch to the safe baseline';
+    }
+    document.getElementById('tm-blind').style.width=barW(blind)+'%';
+    document.getElementById('tm-adapt').style.width=barW(adapt)+'%';
+    document.getElementById('tm-base').style.width=barW(BASE)+'%';
+    document.getElementById('tm-blind-v').textContent=blind.toFixed(2);
+    document.getElementById('tm-adapt-v').textContent=adapt.toFixed(2);
+    document.getElementById('tm-base-v').textContent=BASE.toFixed(2);
+    const t=document.getElementById('tm-takeaway');
+    if(follow) t.textContent='good advice: adaptive follows it and beats the baseline (the consistency upside).';
+    else t.textContent='bad advice: blindly following crashes to '+blind.toFixed(2)+', but the test catches it — adaptive stays at the baseline '+BASE.toFixed(2)+' (the robustness).';
+  }
+  q.addEventListener('input',upd); upd();
+})();
+</script>
+</body>
+</html>

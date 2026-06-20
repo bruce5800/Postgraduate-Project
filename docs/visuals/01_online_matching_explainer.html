@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online bipartite matching — how the algorithms decide</title>
+<style>
+:root{
+  --font-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --color-background-primary:#ffffff;--color-background-secondary:#f5f5f3;
+  --color-text-primary:#1a1a1a;--color-text-secondary:#6b6b6b;
+  --color-text-info:#2563eb;--color-text-success:#15803d;
+  --color-background-info:#dbeafe;
+  --color-border-tertiary:rgba(0,0,0,0.12);--color-border-secondary:rgba(0,0,0,0.28);
+  --border-radius-md:8px;--border-radius-lg:12px;
+}
+body{font-family:var(--font-sans);color:var(--color-text-primary);max-width:720px;margin:24px auto;padding:0 16px;line-height:1.6}
+button{background:transparent;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:7px 12px;font-size:14px;cursor:pointer}
+button:hover{background:var(--color-background-secondary)}
+button:disabled{opacity:0.4;cursor:default}
+h1{font-size:20px;font-weight:500}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ombm-seg{display:inline-flex;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);overflow:hidden}
+.ombm-seg button{border:none;border-right:0.5px solid var(--color-border-tertiary);border-radius:0}
+.ombm-seg button:last-child{border-right:none}
+.ombm-seg button.on{background:var(--color-background-info);color:var(--color-text-info)}
+.ombm-node{fill:var(--color-background-secondary);stroke:var(--color-border-secondary);stroke-width:1.5}
+.ombm-node.cur{stroke:var(--color-text-info);stroke-width:3}
+.ombm-node.done{fill:var(--color-text-success);stroke:var(--color-text-success)}
+.ombm-node.skip{opacity:0.3}
+.ombm-lbl{fill:var(--color-text-primary);font-size:15px;font-weight:500;text-anchor:middle}
+.ombm-sub{fill:var(--color-text-secondary);font-size:12px}
+.ombm-hd{fill:var(--color-text-secondary);font-size:13px;text-anchor:middle}
+.ombm-edge{stroke:var(--color-border-secondary);stroke-width:1.5;opacity:0.35}
+.ombm-edge.match{stroke:var(--color-text-success);stroke-width:3;opacity:1}
+</style>
+</head>
+<body>
+<h1>Online bipartite matching — how the algorithms decide</h1>
+<p style="color:var(--color-text-secondary);font-size:14px">Pick an algorithm, then step through the user arrivals. Greedy reaches 3/4; min predicted degree reaches 4/4 by saving the popular ad for the user who has no other option.</p>
+<div class="ombm-wrap">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px">
+    <div class="ombm-seg" role="group" aria-label="algorithm">
+      <button id="a-greedy" class="on" onclick="ombmSet('greedy')">simple greedy</button>
+      <button id="a-ranking" onclick="ombmSet('ranking')">ranking</button>
+      <button id="a-mpd" onclick="ombmSet('mpd')">min predicted degree</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-left:auto">
+      <button onclick="ombmStep()" id="ombm-next">next user</button>
+      <button onclick="ombmAuto()">run all</button>
+      <button onclick="ombmReset()" aria-label="reset">reset</button>
+    </div>
+  </div>
+  <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="bipartite matching diagram">
+    <text x="110" y="22" class="ombm-hd">users (arrive one by one)</text>
+    <text x="430" y="22" class="ombm-hd">ads (known in advance)</text>
+    <g id="ombm-edges"></g>
+    <g id="ombm-nodes"></g>
+  </svg>
+  <div style="display:flex;gap:12px;align-items:stretch;margin-top:10px">
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;min-width:120px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">matched / best possible</div>
+      <div style="font-size:24px;font-weight:500"><span id="ombm-score">0</span> / 4</div>
+    </div>
+    <div style="flex:1;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;display:flex;align-items:center" aria-live="polite">
+      <span id="ombm-msg" style="font-size:14px">pick an algorithm, then step through the arrivals</span>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const ADS=[{id:'A',deg:3,y:55},{id:'B',deg:2,y:120},{id:'C',deg:1,y:185},{id:'D',deg:1,y:250}];
+  const USERS=[{id:'u1',n:['A','C'],y:55},{id:'u2',n:['A','B'],y:120},{id:'u3',n:['A'],y:185},{id:'u4',n:['B','D'],y:250}];
+  const UX=110, AX=430, R=20;
+  const idx={A:0,B:1,C:2,D:3};
+  const degOf=id=>ADS.find(a=>a.id===id).deg;
+  const tag=id=>{const d=degOf(id);return d===1?'niche':d===3?'popular':'medium';};
+  let algo='greedy', step=0, matched=new Set(), rank={}, svgN, svgE, autoT=null;
+  function nodeSVG(x,y,label,sub){
+    let s=`<circle class="ombm-node" cx="${x}" cy="${y}" r="${R}"></circle>`;
+    s+=`<text class="ombm-lbl" x="${x}" y="${y+5}">${label}</text>`;
+    if(sub) s+=`<text class="ombm-sub" x="${x+R+8}" y="${y+5}">${sub}</text>`;
+    return s;
+  }
+  function draw(){
+    svgN=document.getElementById('ombm-nodes'); svgE=document.getElementById('ombm-edges');
+    let n='';
+    USERS.forEach(u=>{ n+=`<g id="g-${u.id}">`+nodeSVG(UX,u.y,u.id.replace('u',''))+`</g>`; });
+    ADS.forEach(a=>{ n+=`<g id="g-${a.id}">`+nodeSVG(AX,a.y,a.id,'wanted by '+a.deg)+`</g>`; });
+    svgN.innerHTML=n; svgE.innerHTML='';
+  }
+  function decide(u){
+    const avail=u.n.filter(a=>!matched.has(a));
+    if(!avail.length) return null;
+    if(algo==='greedy') return avail.sort((a,b)=>idx[a]-idx[b])[0];
+    if(algo==='ranking') return avail.sort((a,b)=>rank[a]-rank[b])[0];
+    return avail.sort((a,b)=>degOf(a)-degOf(b)||idx[a]-idx[b])[0];
+  }
+  function edge(uy,ay,cls){ return `<line class="ombm-edge ${cls||''}" x1="${UX+R}" y1="${uy}" x2="${AX-R}" y2="${ay}"></line>`; }
+  function msg(u,c){
+    const who='user '+u.id.replace('u','');
+    if(c===null) return `${who} only wanted ${u.n.join(' or ')} — all taken → unmatched`;
+    if(u.n.length===1) return `${who} only wanted ${c} (${tag(c)}) — still free → matched`;
+    if(algo==='mpd'){const sv=u.n.filter(x=>x!==c);return `${who} could take ${u.n.join(' or ')} → picks ${c} (${tag(c)}), saving ${sv.join(', ')} for later`;}
+    if(algo==='ranking') return `${who} could take ${u.n.join(' or ')} → picks ${c} (random priority order)`;
+    return `${who} could take ${u.n.join(' or ')} → takes ${c} (first in fixed order)`;
+  }
+  function ombmStep(){
+    if(step>=USERS.length) return;
+    const u=USERS[step]; const c=decide(u);
+    document.querySelectorAll('.ombm-node.cur').forEach(e=>e.classList.remove('cur'));
+    let e='';
+    USERS.slice(0,step).forEach(pu=>{ if(pu._m) e+=edge(pu.y,ADS.find(a=>a.id===pu._m).y,'match'); });
+    u.n.forEach(a=>{ e+=edge(u.y,ADS.find(x=>x.id===a).y, a===c?'match':''); });
+    svgE.innerHTML=e;
+    document.querySelector(`#g-${u.id} circle`).classList.add('cur');
+    if(c){ matched.add(c); u._m=c; document.querySelector(`#g-${c} circle`).classList.add('done'); }
+    else { document.querySelector(`#g-${u.id} circle`).classList.add('skip'); }
+    document.getElementById('ombm-msg').textContent=msg(u,c);
+    document.getElementById('ombm-score').textContent=matched.size;
+    step++;
+    if(step>=USERS.length){
+      document.getElementById('ombm-next').disabled=true;
+      const v=matched.size;
+      const verdict=v===4?' — perfect (=best possible)':v===3?' — missed 1 (greedy wasted a popular ad)':'';
+      document.getElementById('ombm-msg').textContent=`done: matched ${v} of 4${verdict}`;
+    }
+  }
+  function ombmReset(){
+    if(autoT){clearInterval(autoT);autoT=null;}
+    step=0; matched=new Set(); USERS.forEach(u=>delete u._m);
+    rank={}; ['A','B','C','D'].map(x=>[x,Math.random()]).sort((a,b)=>a[1]-b[1]).forEach((p,i)=>rank[p[0]]=i);
+    draw();
+    document.getElementById('ombm-score').textContent='0';
+    document.getElementById('ombm-next').disabled=false;
+    document.getElementById('ombm-msg').textContent='step through the arrivals';
+  }
+  function ombmAuto(){ if(autoT) return; autoT=setInterval(()=>{ if(step>=USERS.length){clearInterval(autoT);autoT=null;} else ombmStep(); },750); }
+  function ombmSet(a){ algo=a; ['greedy','ranking','mpd'].forEach(x=>document.getElementById('a-'+x).classList.toggle('on',x===a)); ombmReset(); }
+  window.ombmStep=ombmStep; window.ombmReset=ombmReset; window.ombmAuto=ombmAuto; window.ombmSet=ombmSet;
+  ombmReset();
+})();
+</script>
+</body>
+</html>

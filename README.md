@@ -42,8 +42,14 @@ matching-experiments/
 ├── scripts/                # smoke tests and full experiment drivers
 ├── results/                # JSON + PNG outputs (gitignore in real use)
 └── docs/
-    └── PHASE2_REPORT.md
+    ├── PHASE2_REPORT.md, PHASE3_REPORT.md, PHASE3C_REPORT.md, ...
+    ├── VISUAL_GUIDE.md     # browser-openable explainers for talks/thesis
+    └── visuals/            # standalone interactive HTML visuals
 ```
+
+For explaining the work to a non-technical audience (advisor, examiners), see
+[`docs/VISUAL_GUIDE.md`](docs/VISUAL_GUIDE.md) — standalone interactive HTML
+visuals: an online-matching explainer and a real-world applications map.
 
 ## Dependencies
 
