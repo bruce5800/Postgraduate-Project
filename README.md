@@ -23,6 +23,7 @@ report and result analysis.
 | 3b | (MPD)-augmented Feldman/JailletLu comparison | done — (MPD)≥(g)≥base confirmed |
 | 3d | Real-world graphs (Borodin Tables 3/4 + MPD) | done — random-partition validated; MPD tops all 6 graphs |
 | 3c | Choo (TestAndMatch) + BEM adaptive fallback | done — robustness envelope + threshold-miscalibration finding + recalibration fix ([`docs/PHASE3C_REPORT.md`](docs/PHASE3C_REPORT.md)) |
+| 4 | AI inference serving instantiation (online b-matching) | done — capacity-c routing with traffic forecasts; "capacity is the safe substitute" finding ([`docs/PHASE4_SERVING_REPORT.md`](docs/PHASE4_SERVING_REPORT.md)) |
 
 ## Directory layout
 
