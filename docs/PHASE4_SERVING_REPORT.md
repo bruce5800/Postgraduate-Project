@@ -122,6 +122,39 @@ Because the error is genuine temporal drift on a recognizable real workload (the
 live day's top pages are real time-sensitive events — UEFA Euro 2024, Inside Out
 2, etc.), this answers the "synthetic only" objection directly.
 
+## 3c. Real AI-inference trace — Azure LLM Inference (size-bucket routing)
+
+The Wikipedia trace (§3b) is a real *web* workload. To land it on a real
+*inference* workload, `scripts/run_serving_llm.py` uses the **Azure LLM Inference
+Trace** (the Splitwise / OSDI'24 trace; `data/trace/azure_llm/`), ~19k real LLM
+requests with context-length per request. Following size-aware serving (Splitwise
+/ DistServe / Sarathi route requests by size), we type each request by its
+**context-length bucket** (log-spaced), so the size-mix is the traffic and a
+traffic forecast is a predicted size-mix. We use a real contiguous arrival window
+(m=2500) and three genuine forecasts of increasing real error:
+
+| forecast source | real L1 to live size-mix |
+|---|---:|
+| perfect (live mix itself) | 0.00 |
+| same workload, older half (conv) | 0.59 |
+| wrong workload (the code trace) | 1.21 |
+
+![serving LLM trace](../results/serving_llm.png)
+
+Goodput (15 trials):
+
+| forecast | blind (c=4) | blind (c=16) | adaptive | baseline |
+|---|---:|---:|---:|---:|
+| perfect | 1.000 | 1.000 | ~1.00 | ~0.99 |
+| same workload | 0.985 | 0.942 | ~1.00 | ~0.99 |
+| wrong workload | 0.848 | **0.741** | ~0.99 | ~0.99 |
+
+Same result, now on real LLM inference traffic: as the forecast diverges from the
+live request mix (real L1), **blind trust crashes** (1.00 → 0.74), the **cliff
+deepens with capacity** (c=16 worse than c=4), and the **adaptive test stays
+robust** (~0.99) alongside the forecast-free baseline. Two independent real
+workloads — web pageviews and LLM inference — give the same qualitative picture.
+
 ## 4. How this strengthens the thesis
 
 This is the applied face of the project's unifying thesis. Phase 2 (Borodin):
@@ -150,8 +183,9 @@ that the abstract findings alone do not deliver.
 python3 tests/test_serving_small.py        # 5 tests
 python3 scripts/run_serving.py             # ~8s; synthetic capacity × forecast-error
 python3 scripts/run_serving_trace.py       # ~9s; real Wikipedia trace, forecast staleness
+python3 scripts/run_serving_llm.py         # ~2s; real Azure LLM trace, forecast quality
 ```
-Seed 0; outputs `results/serving*.{json,png}`. The Wikipedia pageview JSONs are
-cached in `data/trace/wiki/` (committed, ~230 KB); to refresh, re-fetch the
-Wikimedia "top articles per day" REST endpoint for the dates in
-`scripts/run_serving_trace.py`.
+Seed 0; outputs `results/serving*.{json,png}`. Real traces are cached under
+`data/trace/` (committed, ~1.2 MB): Wikipedia "top articles per day" JSON
+(Wikimedia REST API) and the Azure LLM Inference Trace conv/code CSVs (Azure
+Public Dataset / Splitwise). To refresh, re-fetch from those sources.
