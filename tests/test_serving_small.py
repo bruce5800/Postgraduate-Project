@@ -91,7 +91,44 @@ def test_robustness_under_capacity() -> None:
     print(f"PASS test_robustness_under_capacity (adaptive={tmr:.3f}, blind={follow:.3f}, L1={l1:.2f})")
 
 
+def test_dynamic_releases_capacity() -> None:
+    """A resource of capacity 1 can serve back-to-back requests if they don't
+    overlap in time, but only one of two simultaneous requests."""
+    from algorithms.dynamic import simulate
+
+    def choose(l, load):
+        return 0 if load[0] < 1 else None  # single resource, capacity enforced by caller
+
+    type_adj = [[0]]
+    # Two non-overlapping requests (arrive at 0 and 10, each lasts 5) → both served.
+    served = simulate([0.0, 10.0], [0, 0], [5.0, 5.0], type_adj, 1, 1, choose)
+    assert served == 2, f"non-overlapping should both serve; got {served}"
+    # Two overlapping requests (arrive at 0 and 1, each lasts 5) → only one served.
+    served = simulate([0.0, 1.0], [0, 0], [5.0, 5.0], type_adj, 1, 1, choose)
+    assert served == 1, f"overlapping should serve one; got {served}"
+    print("PASS test_dynamic_releases_capacity")
+
+
+def test_prefix_cache_hit_semantics() -> None:
+    """Leading-prefix-match: a repeated request is a full hit the second time;
+    a divergent prefix hits only the shared leading blocks."""
+    from algorithms.prefix_cache import run_router
+
+    def single(hids, caches, load):
+        return 0  # one replica
+
+    # Same request twice: first miss (cache empty), second full hit.
+    frac = run_router([[1, 2, 3], [1, 2, 3]], single, 1, 100)
+    assert abs(frac - 0.5) < 1e-9, f"repeat should give hit 3/6=0.5; got {frac}"
+    # Shared 2-block prefix then divergence: second request hits 2 of its 3.
+    frac = run_router([[1, 2, 9], [1, 2, 8]], single, 1, 100)
+    assert abs(frac - (2 / 6)) < 1e-9, f"shared-2 prefix should give 2/6; got {frac}"
+    print("PASS test_prefix_cache_hit_semantics")
+
+
 if __name__ == "__main__":
+    test_prefix_cache_hit_semantics()
+    test_dynamic_releases_capacity()
     test_b_matching_capacity1_equals_matching()
     test_b_matching_grows_with_capacity()
     test_greedy_capacity_never_exceeds_opt()

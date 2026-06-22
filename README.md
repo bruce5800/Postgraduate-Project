@@ -23,7 +23,7 @@ report and result analysis.
 | 3b | (MPD)-augmented Feldman/JailletLu comparison | done — (MPD)≥(g)≥base confirmed |
 | 3d | Real-world graphs (Borodin Tables 3/4 + MPD) | done — random-partition validated; MPD tops all 6 graphs |
 | 3c | Choo (TestAndMatch) + BEM adaptive fallback | done — robustness envelope + threshold-miscalibration finding + recalibration fix ([`docs/PHASE3C_REPORT.md`](docs/PHASE3C_REPORT.md)) |
-| 4 | AI inference serving instantiation (online b-matching) | done — capacity-c routing + traffic forecasts; "capacity is the safe substitute" finding, hardened on TWO real traces: Wikipedia pageviews (forecast staleness) and the Azure LLM Inference trace (size-bucket routing) ([`docs/PHASE4_SERVING_REPORT.md`](docs/PHASE4_SERVING_REPORT.md)) |
+| 4 | AI inference serving instantiation (online b-matching) | done — capacity-c routing + traffic forecasts ("capacity is the safe substitute"), on THREE real traces (Wikipedia, Azure LLM, Mooncake); deepened to **dynamic serving** ("live load beats a forecast") and **prefix-cache routing** ("stable beats reactive" — the reverse) ([`docs/PHASE4_SERVING_REPORT.md`](docs/PHASE4_SERVING_REPORT.md)) |
 
 ## Directory layout
 

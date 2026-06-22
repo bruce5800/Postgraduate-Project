@@ -155,6 +155,100 @@ deepens with capacity** (c=16 worse than c=4), and the **adaptive test stays
 robust** (~0.99) alongside the forecast-free baseline. Two independent real
 workloads — web pageviews and LLM inference — give the same qualitative picture.
 
+## 3d. Dynamic serving (deepening) — live load beats a traffic forecast
+
+The static b-matching above assumes every request is concurrent forever. Real
+serving is dynamic: a request occupies a resource slot for a service time, then
+frees it. `algorithms/dynamic.py` is an event-driven simulator (a min-heap of
+departures releases finished requests before each arrival), and
+`scripts/run_serving_dynamic.py` drives it with the **real Azure LLM trace**:
+real arrival timestamps and real service durations (∝ generated-token count). A
+resource has `c` concurrent slots; goodput = served / total (admission rate). We
+compare three policies by resource *scope*:
+
+- **least-loaded** — forecast-free real load balancer; among ALL capable
+  resources with a free slot, pick the least loaded.
+- **blind-forecast** — route only to the type's forecast-preferred resources (a
+  dedicated subset from the forecast b-matching); drop if they are all busy.
+- **adaptive** — prefix-test the forecast, then keep following it or switch to
+  least-loaded.
+
+![serving dynamic](../results/serving_dynamic.png)
+
+| capacity / forecast | least-loaded | blind | adaptive |
+|---|---:|---:|---:|
+| c=6, perfect (L1=0) | 0.956 | 0.697 | 0.934 |
+| c=6, same-workload (L1=0.33) | 0.956 | 0.715 | 0.934 |
+| c=6, wrong-workload (L1=0.97) | 0.956 | 0.598 | 0.919 |
+| c=12, perfect | 1.000 | 0.915 | 0.994 |
+| c=12, wrong-workload | 1.000 | 0.698 | 0.976 |
+
+**A sharper, more contrarian finding emerges under dynamics.** In the static
+b-matching a *perfect* forecast equals OPT. Under dynamics it does **not**: the
+forecast-free load balancer **dominates blind forecast-routing at every capacity,
+even with a perfect forecast** (c=6: 0.956 vs 0.697). The reason is statistical
+multiplexing — committing each request type to its forecast-preferred *subset* of
+resources forgoes the shared pool's ability to absorb bursts, which a least-loaded
+balancer exploits in real time. Blind degrades further as the forecast drifts
+(c=12: 0.92 → 0.70), and the **adaptive test learns to distrust the forecast and
+recovers the load balancer's performance** (it lands at ~least-loaded, not at
+blind).
+
+**Takeaway, and how it unifies with §3.** Under real serving dynamics, the *live*
+system state (current load) is a better routing signal than a traffic forecast —
+forecasts belong in **capacity provisioning** (where "capacity is the safe
+substitute", §3/§4), not in real-time **routing**, where you can simply observe
+load. This is the classic shared-vs-dedicated / statistical-multiplexing tradeoff,
+now demonstrated inside the matching-with-predictions framework on a real LLM
+inference trace. (Caveat: blind-forecast is restricted to a dedicated subset by
+construction — that *is* what static forecast-based routing means; the comparison
+is dedicated forecast pools vs a shared real-time balancer.)
+
+## 3e. Prefix-cache-aware routing (deepest) — stable beats reactive
+
+The most AI-native deepening: KV-cache prefix routing on the **real Mooncake
+trace** (FAST'25), where each request carries its prefix block hashes and requests
+sharing leading blocks share a cached prefix (RadixAttention). `algorithms/
+prefix_cache.py` simulates a per-replica block cache (LRU); the metric is the
+KV-cache hit fraction = cached prefix blocks / total. (Honest framing: this is a
+*caching* problem — the prefix families are near-unique, so it does not fit the
+matching framing tightly; it connects instead to learning-augmented **caching**,
+Lykouris & Vassilvitskii, proposal ref [5].)
+
+**Finding 1 (headline) — a reversal of the dynamic-serving result.** For cache
+reuse, **stable placement (consistent-hashing the prefix family to a fixed
+replica) dominates reactive cache-affinity routing**, and the gap grows with cache
+capacity:
+
+| cache blocks / replica | consistent-hash (stable) | cache-affinity (reactive) | least-loaded |
+|---:|---:|---:|---:|
+| 200 | 0.071 | 0.044 | 0.045 |
+| 1000 | 0.247 | 0.046 | 0.062 |
+| 4000 | **0.335** | 0.084 | 0.085 |
+
+![prefix-cache reversal](../results/prefix_cache_reversal.png)
+
+This is the **opposite** of §3d, where reactive least-loaded beat static
+forecast-routing. The reason is principled and unifying: **load balancing wants
+the current system state (reactive); cache reuse wants stable placement** — a
+prefix must stay pinned to one replica to be reused, and reactive routing
+fragments it across replicas.
+
+**Finding 2 (honest near-null) — prediction adds little on top of pinning.** Given
+stable placement, using a *forecast* of prefix-family popularity to place families
+(balancing predicted load) barely beats blind consistent-hashing (0.167 with a
+perfect forecast vs 0.153 for consistent-hash at B=500), and is nearly flat across
+forecast quality (perfect / stale / wrong-workload). The cache benefit comes from
+*pinning* — which any stable map provides — not from load-balancing the placement;
+so the forecast's only lever does not move hit rate much, and the prefix-test,
+finding nothing to gain, falls back to consistent-hash. (A skewed family-popularity
+regime under tighter capacity is where a forecast *could* help — not present here.)
+
+**Net.** Across all four deepenings the structural/baseline choice dominates and
+prediction is at most second-order — and the two reactive-vs-stable verdicts
+(serving: reactive wins; caching: stable wins) are opposite for a clean,
+optimization-dependent reason. That contrast is itself a citable result.
+
 ## 4. How this strengthens the thesis
 
 This is the applied face of the project's unifying thesis. Phase 2 (Borodin):
@@ -184,6 +278,8 @@ python3 tests/test_serving_small.py        # 5 tests
 python3 scripts/run_serving.py             # ~8s; synthetic capacity × forecast-error
 python3 scripts/run_serving_trace.py       # ~9s; real Wikipedia trace, forecast staleness
 python3 scripts/run_serving_llm.py         # ~2s; real Azure LLM trace, forecast quality
+python3 scripts/run_serving_dynamic.py     # ~4s; DYNAMIC serving (real timestamps + service times)
+python3 scripts/run_prefix_cache.py        # ~10s; prefix-cache routing (real Mooncake trace)
 ```
 Seed 0; outputs `results/serving*.{json,png}`. Real traces are cached under
 `data/trace/` (committed, ~1.2 MB): Wikipedia "top articles per day" JSON

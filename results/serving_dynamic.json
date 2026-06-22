@@ -1,0 +1,78 @@
+{
+  "m": 9683,
+  "caps": [
+    3,
+    6,
+    12
+  ],
+  "drift": {
+    "perfect": 0.0,
+    "same workload\n(conv, older half)": 0.3248993080656821,
+    "wrong workload\n(code trace)": 0.9728844090050566
+  },
+  "by_cap": {
+    "3": {
+      "offered_load": 0.3677698699614497,
+      "perfect": {
+        "l1": 0.0,
+        "least_loaded": 0.8505370236496953,
+        "blind": 0.5360683672415574,
+        "adaptive": 0.8109057110399669
+      },
+      "same workload\n(conv, older half)": {
+        "l1": 0.3248993080656821,
+        "least_loaded": 0.8490653723019725,
+        "blind": 0.5701616234638025,
+        "adaptive": 0.810531343591862
+      },
+      "wrong workload\n(code trace)": {
+        "l1": 0.9728844090050566,
+        "least_loaded": 0.8496204688629557,
+        "blind": 0.43187803366725186,
+        "adaptive": 0.7946530001032738
+      }
+    },
+    "6": {
+      "offered_load": 0.18388493498072486,
+      "perfect": {
+        "l1": 0.0,
+        "least_loaded": 0.9555922751213467,
+        "blind": 0.6971883713725086,
+        "adaptive": 0.9343695135805019
+      },
+      "same workload\n(conv, older half)": {
+        "l1": 0.3248993080656821,
+        "least_loaded": 0.9555922751213467,
+        "blind": 0.7151450996591965,
+        "adaptive": 0.9338531446865641
+      },
+      "wrong workload\n(code trace)": {
+        "l1": 0.9728844090050566,
+        "least_loaded": 0.9555922751213467,
+        "blind": 0.5981617267375813,
+        "adaptive": 0.9188655375400185
+      }
+    },
+    "12": {
+      "offered_load": 0.09194246749036243,
+      "perfect": {
+        "l1": 0.0,
+        "least_loaded": 1.0,
+        "blind": 0.9151476815036663,
+        "adaptive": 0.9935841164928225
+      },
+      "same workload\n(conv, older half)": {
+        "l1": 0.3248993080656821,
+        "least_loaded": 1.0,
+        "blind": 0.9442708871217598,
+        "adaptive": 0.9976634307549314
+      },
+      "wrong workload\n(code trace)": {
+        "l1": 0.9728844090050566,
+        "least_loaded": 1.0,
+        "blind": 0.697575648042962,
+        "adaptive": 0.975963027987194
+      }
+    }
+  }
+}
