@@ -83,8 +83,26 @@ Consequences, each a concrete instance of the proposal §5 thesis ("error
    which is exactly the failure mode that the deferred Choo/BEM test-and-fallback
    mechanisms exist to guard against.
 
-This finding was not reported by ACI (they evaluated a single subsample-noise
-model) and is novel to this study.
+**Relation to ACI Appendix D (corrected, per the literature review).** The
+order-dependence itself is NOT new: ACI's own Corollary D.2 bounds MPD's matching
+loss by `n − LIS(p[μ])` — a purely ORDER-based quantity — and a monotone predictor
+gives `LIS = n ⇒ n−LIS = 0 ⇒ zero loss`. So "order, not magnitude, governs MPD"
+and "monotone bias has zero effect" are *theoretically established by ACI*, not
+discovered here. `scripts/run_order_vs_theory.py` engages that theory directly and
+yields the genuinely-new, precise contribution (see `results/order_vs_theory.png`):
+
+1. **ACI's `n−LIS` bound is valid but ~20–75× LOOSE empirically** — at η=1 the
+   actual MPD loss is ≈8–42 matches while `n−LIS ≈ 610–670`.
+2. **`n−LIS` SATURATES** (≈n for *any* non-trivial perturbation), so it cannot
+   distinguish error structures: random-flip, adversarial, and drift all sit at
+   `n−LIS ≈ 610–670` yet have very different actual losses (21.6, 41.7, 8.1).
+3. **Kendall-τ is the order measure that actually predicts the loss** — the four
+   error models collapse (to first order) onto a single loss-vs-Kendall-τ curve
+   that `n−LIS` cannot resolve.
+
+So the defensible contribution is *empirical*: characterizing the tightness and
+saturation of ACI's theoretical bound and identifying Kendall-τ (not `n−LIS`) as
+the order measure that governs the realized loss, unified across error structures.
 
 ### 3.3 (MPD)-augmentation bridge to Phase 2 (Phase 3b)
 
