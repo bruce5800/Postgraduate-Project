@@ -26,6 +26,7 @@ report and result analysis.
 | 4 | AI inference serving instantiation (online b-matching) | done — capacity-c routing + traffic forecasts ("capacity is the safe substitute"), on THREE real traces (Wikipedia, Azure LLM, Mooncake); deepened to **dynamic serving** ("live load beats a forecast") and **prefix-cache routing** ("stable beats reactive" — the reverse) ([`docs/PHASE4_SERVING_REPORT.md`](docs/PHASE4_SERVING_REPORT.md)) |
 | ★2 | Unified head-to-head benchmark (paper lead) | done — all three families on one harness with 95% CIs + Chłędowski-style combiner baseline; "robustness is engineered, naive followers crash below the floor; structural vs adaptive mechanisms; dynamic switching is dominated and reveals the irrevocability penalty" ([`docs/UNIFIED_BENCHMARK.md`](docs/UNIFIED_BENCHMARK.md)) |
 | ★1 | Order-error vs ACI theory (Q1 made precise) | done — empirical loss vs ACI Cor. D.2 `n−LIS` bound (~20–75× loose + saturates); Kendall-τ is the governing order measure ([`scripts/run_order_vs_theory.py`](scripts/run_order_vs_theory.py)) |
+| ★3 | Real-predictor study (external validity) | done — a cheap historical forecast (2% of OPT cost, no ML) captures 27–68% of the oracle gap and never drops below baseline; topology aggregation halves the order error so MPD survives real drift that crashes blind histogram-following ([`docs/REAL_PREDICTOR.md`](docs/REAL_PREDICTOR.md)) |
 
 ## Directory layout
 
