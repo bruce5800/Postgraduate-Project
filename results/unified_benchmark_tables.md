@@ -1,0 +1,40 @@
+# Unified benchmark — machine-generated tables (95% CI)
+
+Auto-emitted by `scripts/run_unified_benchmark.py`. Cells are mean competitive ratio (alg/OPT) ± 95% half-width over trials.
+
+### clvb_zipf  (n=1000, 60 trials, degree-prediction regime)
+
+| Algorithm | perfect | noisy | adversarial | garbage |
+|---|---|---|---|---|
+| SimpleGreedy  *(advice-free)* | 0.917 ±0.003 | 0.917 ±0.003 | 0.917 ±0.003 | 0.917 ±0.003 |
+| Ranking  *(advice-free)* | 0.948 ±0.002 | 0.948 ±0.002 | 0.948 ±0.002 | 0.948 ±0.002 |
+| Feldman  *(advice-free)* | 0.887 ±0.003 | 0.887 ±0.003 | 0.887 ±0.003 | 0.887 ±0.003 |
+| JailletLu  *(advice-free)* | 0.901 ±0.004 | 0.901 ±0.004 | 0.901 ±0.004 | 0.901 ±0.004 |
+| MinDegree (oracle)  *(advice-free)* | 0.996 ±0.001 | 0.996 ±0.001 | 0.996 ±0.001 | 0.996 ±0.001 |
+| MPD | 0.989 ±0.001 | 0.956 ±0.002 | 0.908 ±0.003 | 0.946 ±0.003 |
+| Feldman(MPD) | 0.981 ±0.002 | 0.979 ±0.002 | 0.976 ±0.002 | 0.978 ±0.002 |
+| JailletLu(MPD) | 0.977 ±0.002 | 0.976 ±0.002 | 0.974 ±0.002 | 0.975 ±0.002 |
+
+### left_regular_d5  (n=1000, 60 trials, degree-prediction regime)
+
+| Algorithm | perfect | noisy | adversarial | garbage |
+|---|---|---|---|---|
+| SimpleGreedy  *(advice-free)* | 0.890 ±0.002 | 0.890 ±0.002 | 0.890 ±0.002 | 0.890 ±0.002 |
+| Ranking  *(advice-free)* | 0.890 ±0.002 | 0.890 ±0.002 | 0.890 ±0.002 | 0.890 ±0.002 |
+| Feldman  *(advice-free)* | 0.758 ±0.002 | 0.758 ±0.002 | 0.758 ±0.002 | 0.758 ±0.002 |
+| JailletLu  *(advice-free)* | 0.789 ±0.003 | 0.789 ±0.003 | 0.789 ±0.003 | 0.789 ±0.003 |
+| MinDegree (oracle)  *(advice-free)* | 0.966 ±0.001 | 0.966 ±0.001 | 0.966 ±0.001 | 0.966 ±0.001 |
+| MPD | 0.932 ±0.002 | 0.906 ±0.002 | 0.854 ±0.002 | 0.888 ±0.002 |
+| Feldman(MPD) | 0.906 ±0.002 | 0.903 ±0.002 | 0.896 ±0.002 | 0.900 ±0.002 |
+| JailletLu(MPD) | 0.903 ±0.002 | 0.902 ±0.002 | 0.898 ±0.002 | 0.901 ±0.002 |
+
+### few_types (r=8)  (n=2000, 50 trials, type-advice regime)
+
+| Algorithm | perfect | mild | bad | garbage |
+|---|---|---|---|---|
+| Ranking  *(advice-free)* | 0.990 ±0.001 | 0.990 ±0.001 | 0.990 ±0.001 | 0.990 ±0.001 |
+| MPD (true degrees)  *(advice-free)* | 0.999 ±0.000 | 0.999 ±0.000 | 0.999 ±0.000 | 0.999 ±0.000 |
+| FollowPrediction | 1.000 ±0.000 | 0.832 ±0.008 | 0.679 ±0.016 | 0.472 ±0.027 |
+| TestAndMatch (Choo) | 1.000 ±0.000 | 0.984 ±0.007 | 0.989 ±0.001 | 0.990 ±0.001 |
+| TestAndMatch (BEM) | 0.998 ±0.001 | 0.988 ±0.003 | 0.988 ±0.001 | 0.968 ±0.003 |
+| Combiner | 0.990 ±0.001 | 0.990 ±0.001 | 0.990 ±0.001 | 0.990 ±0.001 |

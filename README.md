@@ -24,6 +24,8 @@ report and result analysis.
 | 3d | Real-world graphs (Borodin Tables 3/4 + MPD) | done — random-partition validated; MPD tops all 6 graphs |
 | 3c | Choo (TestAndMatch) + BEM adaptive fallback | done — robustness envelope + threshold-miscalibration finding + recalibration fix ([`docs/PHASE3C_REPORT.md`](docs/PHASE3C_REPORT.md)) |
 | 4 | AI inference serving instantiation (online b-matching) | done — capacity-c routing + traffic forecasts ("capacity is the safe substitute"), on THREE real traces (Wikipedia, Azure LLM, Mooncake); deepened to **dynamic serving** ("live load beats a forecast") and **prefix-cache routing** ("stable beats reactive" — the reverse) ([`docs/PHASE4_SERVING_REPORT.md`](docs/PHASE4_SERVING_REPORT.md)) |
+| ★2 | Unified head-to-head benchmark (paper lead) | done — all three families on one harness with 95% CIs + Chłędowski-style combiner baseline; "robustness is engineered, naive followers crash below the floor; structural vs adaptive mechanisms; dynamic switching is dominated and reveals the irrevocability penalty" ([`docs/UNIFIED_BENCHMARK.md`](docs/UNIFIED_BENCHMARK.md)) |
+| ★1 | Order-error vs ACI theory (Q1 made precise) | done — empirical loss vs ACI Cor. D.2 `n−LIS` bound (~20–75× loose + saturates); Kendall-τ is the governing order measure ([`scripts/run_order_vs_theory.py`](scripts/run_order_vs_theory.py)) |
 
 ## Directory layout
 
