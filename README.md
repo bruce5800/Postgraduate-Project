@@ -27,6 +27,7 @@ report and result analysis.
 | ★2 | Unified head-to-head benchmark (paper lead) | done — all three families on one harness with 95% CIs + Chłędowski-style combiner baseline; "robustness is engineered, naive followers crash below the floor; structural vs adaptive mechanisms; dynamic switching is dominated and reveals the irrevocability penalty" ([`docs/UNIFIED_BENCHMARK.md`](docs/UNIFIED_BENCHMARK.md)) |
 | ★1 | Order-error vs ACI theory (Q1 made precise) | done — empirical loss vs ACI Cor. D.2 `n−LIS` bound (~20–75× loose + saturates); Kendall-τ is the governing order measure ([`scripts/run_order_vs_theory.py`](scripts/run_order_vs_theory.py)) |
 | ★3 | Real-predictor study (external validity) | done — a cheap historical forecast (2% of OPT cost, no ML) captures 27–68% of the oracle gap and never drops below baseline; topology aggregation halves the order error so MPD survives real drift that crashes blind histogram-following ([`docs/REAL_PREDICTOR.md`](docs/REAL_PREDICTOR.md)) |
+| ★4 | F1–F3 universality on 6 real graphs | done — F1 (naive MPD crashes below floor under adversarial) **6/6**, F3 (small consistency upside) universal; F2 structural robustness clean on social/bio, partial on near-trivial dense econ graphs ([`docs/REALWORLD_ROBUSTNESS.md`](docs/REALWORLD_ROBUSTNESS.md)) |
 
 ## Directory layout
 
