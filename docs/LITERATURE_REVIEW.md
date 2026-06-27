@@ -59,9 +59,12 @@ SEA / ESA experimental track)** — *if positioned correctly*:
    (our recalibration finding). Not examined in this review.
 3. **Monitor for a competing experimental follow-up** of Choo/BEM (fast-moving
    field; BEM is SOFSEM 2026, very recent).
-4. **Decide the serving angle**: either find a prediction-quality regime where the
-   with-predictions lens yields a *new actionable* result (rescues it from
-   case-study status), or present it explicitly as an application case-study.
+4. ~~**Decide the serving angle**~~ **DONE — case study.** The SLO/tail-objective
+   rescue was probed (`scripts/run_serving_slo_probe.py`, `docs/SERVING_SLO_PROBE.md`):
+   across overload levels and uniform/bursty-HIGH regimes, a non-predictive policy
+   (static headroom or reactive-adaptive) matches a clairvoyant oracle to within ≤3%
+   — foresight does not help, so the SLO objective is forgiving too. Serving is
+   presented as an application case study, not a with-predictions novelty claim.
 
 ## Caveats (from the review itself)
 
