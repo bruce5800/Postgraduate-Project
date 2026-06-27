@@ -134,12 +134,29 @@ unified benchmark.
 
 ## 5. Milestones (de-risk fastest first)
 
-- **M0 — MVE (days, pure numpy/scipy).** Linear f_θ; L_reg vs L_rank (pairwise
-  logistic, closed-form gradient via `scipy.optimize`); synthetic divergent features
-  on a Zipf type graph; reuse `graphs/`, `optimal.py`, `mpd`. **Success = rank-trained
-  ratio > MSE-trained ratio with rank-trained MSE *worse*.** Kills/confirms the whole
-  direction in one plot. *(No torch needed.)*
-- **M1.** Regime sweep §4.2 (divergence × hardness) — characterise where it matters.
+- **M0 — MVE (DONE ✓, `scripts/run_rank_vs_mse_mve.py`).** Linear f_θ; L_reg vs
+  L_rank (pairwise logistic, closed-form gradient via `scipy.optimize`); synthetic
+  divergent features on a Zipf type graph. **H1 CONFIRMED, sharply:** rank-trained
+  ratio **0.989 ≈ oracle 0.989**, MSE-trained **0.974** (floor 0.947); and the
+  dissociation is clean — rank-trained has *worse* MSE (87.6 vs 33.4) but *better*
+  order (Kendall-τ 0.058 vs 0.255) and the better decision. Fitted weights confirm
+  the mechanism (MSE leans on the magnitude feature, rank on the order feature).
+  **Caveat:** features are deliberately divergent — M0 proves the mechanism *exists*
+  and rank-training captures it; whether the divergence arises with *real* features is
+  exactly what M1/M3 must show. *(No torch needed; `results/rank_vs_mse_mve.png`.)*
+- **M1 — regime sweep (DONE, `scripts/run_rank_when_it_matters.py`).** Both
+  hypotheses confirmed: the rank-advantage is **0 at zero feature divergence**
+  (noise1=0, all exponents) and **0 on easy near-uniform graphs** (exp=0.3, no
+  floor→oracle gap — F3), and grows with both. **Honest magnitude caveat:** the peak
+  advantage is only **+1.3% ratio** on synthetic clvb_zipf, because average-case
+  matching is forgiving to order error (MSE-training's τ=0.25 costs only ~0.011
+  ratio). Better framed by **gap-capture**: at the peak cell (exp=1.0, noise1=0.6)
+  rank-training captures **~100% of the oracle gap vs MSE's ~69%** — MSE leaves ~30%
+  on the table. The absolute payoff is gated by the floor→oracle gap, so the
+  decisive magnitude test is **M3 on the real graphs** (gaps ~0.05–0.08, 1.5–2× the
+  synthetic). **Strategic read:** if M3's advantage stays ~1%, Direction A is better
+  positioned as a rigorous *section* (train-to-rank captures the full gap regression
+  leaves) than a standalone top-venue method paper. *(`results/rank_when_it_matters.png`.)*
 - **M2.** Decision-focused baseline (perturbed optimizer) — introduce torch/jax for
   the MLP + smoothing; cost–quality Pareto §4.3.
 - **M3.** Real traces §4.4 (temporal features) — external validity.
