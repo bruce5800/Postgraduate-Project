@@ -1,0 +1,102 @@
+{
+  "params": {
+    "n": 800,
+    "deg": 3,
+    "n_trials": 12,
+    "k_sub": 28,
+    "r_list": [
+      16,
+      50,
+      120,
+      250,
+      400,
+      600
+    ],
+    "etas": [
+      0.0,
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.625,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "taus": [
+      0.0,
+      0.16,
+      0.32,
+      0.48,
+      0.64,
+      0.8,
+      0.96,
+      1.12,
+      1.28,
+      1.44,
+      1.6
+    ]
+  },
+  "panelA": [
+    {
+      "r": 16,
+      "count_per_type": 50.0,
+      "rho_base": 1.0,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.0,
+      "capturable_upside": 0.0,
+      "noise_floor": 0.5847619047619048,
+      "l1_star": 0.960625
+    },
+    {
+      "r": 50,
+      "count_per_type": 16.0,
+      "rho_base": 1.0,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.0,
+      "capturable_upside": 0.0,
+      "noise_floor": 1.0764583333333333,
+      "l1_star": 0.7404166666666666
+    },
+    {
+      "r": 120,
+      "count_per_type": 6.666666666666667,
+      "rho_base": 0.9997126436781608,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.0002873563218391828,
+      "capturable_upside": 0.0,
+      "noise_floor": 1.51625,
+      "l1_star": 0.0149007914772449
+    },
+    {
+      "r": 250,
+      "count_per_type": 3.2,
+      "rho_base": 0.9798027595588256,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.020197240441174436,
+      "capturable_upside": 0.0014880132092085496,
+      "noise_floor": 1.729791666666667,
+      "l1_star": 0.1181186919007315
+    },
+    {
+      "r": 400,
+      "count_per_type": 2.0,
+      "rho_base": 0.9571508574836859,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.04284914251631411,
+      "capturable_upside": 0.001370386440561866,
+      "noise_floor": 1.8002083333333332,
+      "l1_star": 0.1389999399002181
+    },
+    {
+      "r": 600,
+      "count_per_type": 1.3333333333333333,
+      "rho_base": 0.9367323068579091,
+      "follow_perfect": 1.0,
+      "potential_upside": 0.06326769314209091,
+      "capturable_upside": 0.0017760361699763472,
+      "noise_floor": 1.8456249999999998,
+      "l1_star": 0.19508197704147626
+    }
+  ]
+}
