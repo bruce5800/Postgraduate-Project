@@ -160,8 +160,8 @@ upside (green) > 0 only where the test resolution (red noise floor) ≫ the marg
 | **Lemma 1** (master tradeoff (★)) | **Rigorous, self-contained.** The clean two-sided core. |
 | **Lemma 2** (algorithm ⟹ tester) | Sketch solid; routine to finish. This is the "any rule" step that beats the Choo-threshold objection. |
 | **Lemma 3** (tolerant-testing lower bound) | **Cite** VV / Jiao–Han–Weissman. **W2:** confirm the exact statement (identity-to-known-q, [a,b] gap, constants/log factors) transfers. |
-| **W1** (L1 ↔ Mimic-ratio on the construction) | **Real work.** The technical heart: show following q gains/loses Θ(δ) exactly in the L1≤a / ≥b regimes. |
-| **W3** (r ↔ ρ_base scaling, Lemma 4(ii)) | **Real work.** Pin the support-vs-baseline-strength coupling; the numerics (count/type→1 ⟺ ρ_base→0.94) are the guide. |
+| **W1** (L1 ↔ Mimic-ratio on the construction) | **DONE** (`docs/T1_W1_single_cell.md`, closed-form + verified numerically): per cell, advantage = ±θ\|s−½\|, L1 = 2θ\|s−ŝ\|, ρ_base = 1−Θ(θ), δ = Θ(ε·(1−ρ_base)). The upside↔testability coupling already appears in the homogeneous corollary. |
+| **W3** (heterogeneous construction, Lemma 4) | **Substantially closed** (`docs/T1_W3_construction.md`): reduced to the standard tolerant-identity-testing lower bound (q = advice, r=Θ(n), constant gap ⟹ Ω̃(n)) via a numerically-validated conversion (Lemma W3a, monotone crossing at φ=½). Found the low-dim version too weak (dimension essential). Remaining: analytic Lemma W3a + exact VV statement + instance match. |
 | **W4** (decision uses full prefix, not just histogram) | **Handled in principle** by Lemma 3 being information-theoretic (any function of k samples). Verify no side-information (e.g. the realised partial matching) leaks more than the samples — it doesn't, since it's a function of X_{1:k}. |
 
 **Biggest mathematical risk:** W1 + W3 — pinning the construction so that (a) the
