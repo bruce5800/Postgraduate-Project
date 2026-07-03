@@ -1,0 +1,81 @@
+<!--
+Thesis Ch 11 — Conclusion & Future Work. Adapted/expanded from paper/07 §10. Proper thesis
+conclusion: summary of contributions, limitations, future work (expanded), closing. Honest
+about the theory's status. Cross-refs to chapters.
+-->
+
+# Chapter 11. Conclusion and Future Work
+
+## 11.1 Summary
+
+This thesis studied learning-augmented algorithms for online bipartite matching by first
+building a common experimental foundation and then explaining what it revealed. On a single
+harness — validated against the published Borodin et al. study (Chapter 3) — we compared the
+advice-free baselines, MinPredictedDegree and its augmentations, and the test-and-fallback
+algorithms, across synthetic graphs, six real-world graphs, and real request traces
+(Chapters 4–7). Across every setting the same picture appeared: the advice-free baseline is
+already near-optimal on average-case inputs, so the *consistency* upside of a good prediction
+is small; unguarded prediction-following crashes *below* the baseline under bad predictions;
+and the value of the sophisticated algorithms is downside protection, delivered by either a
+structural or an adaptive robustness mechanism with distinct trade-offs. We sharpened the
+sub-questions — that the (small) loss is governed by a Kendall-$\tau$ order error rather than
+magnitude (Chapter 5, crediting the prior order-dependence result of ACI), and that the
+adaptive test has a threshold-calibration pathology and a resolution limit (Chapter 6) — and
+we honestly reported the directions that did *not* pan out: learning the predictor for extra
+performance, and finding a serving regime where predictions genuinely help (Chapter 8).
+
+Finally, we argued the recurring wall is *necessary* (Chapter 9): no test-and-fallback
+algorithm whose test inspects only a sublinear prefix can be both consistent and robust on
+strong-baseline matching, because the structure that makes the prefix distribution-test
+feasible is the structure that makes the baseline near-optimal. Experiments discover the
+wall; theory explains why it must be there. The single sentence that unifies the thesis is:
+**on average-case online matching, predictions are robustness insurance rather than a
+performance lever — and where you can test the advice, you do not need it.**
+
+## 11.2 Limitations
+
+- **Input model.** We work in the known-i.i.d. model. Because Known-I.I.D. $\le$
+  Random-Order in difficulty, the algorithms' guarantees carry over, but the empirical wall
+  is an *average-case* statement; we do not claim it for adversarial arrival order.
+- **Test model.** Following the original authors, the test-and-fallback experiments and the
+  theorem's reduction use an empirical-$\ell_1$ surrogate for the (unimplemented)
+  distribution tester.
+- **Prediction-object heterogeneity.** The degree- and histogram-prediction families do not
+  map onto every graph, which is why they are reported in parallel panels rather than one
+  table.
+- **Data breadth.** Each real modality is exercised by one trace.
+- **Theory scope and status.** The impossibility theorem is strong-form in the
+  $r=\Theta(n)$ regime — the regime with an upside to contest — and one routine step of its
+  proof (the witness-instance construction) plus a final review remain before it is fully
+  typeset; a version biting at constant $r$ is open.
+
+## 11.3 Future work
+
+The thesis brackets, rather than resolves, the settings in which predictions might genuinely
+help online matching, and these are the natural next directions.
+
+- **Beyond average-case inputs.** The wall is an average-case phenomenon. Adversarial or
+  non-stationary arrival orders, where the advice-free baseline is provably far from optimal,
+  are where predictions should carry real value — and where a *positive* counterpart to this
+  thesis's impossibility might be proved.
+- **Beyond throughput.** Objectives on which the baseline is not near-optimal — tail latency,
+  per-type fairness, migration or recompute cost — may admit genuine with-predictions gains
+  that the goodput objective forecloses; our serving SLO probe (Chapter 8) closed the
+  simplest such attempt but not the space.
+- **Completing and strengthening the theory.** Closing the remaining construction step and
+  the review; extending the impossibility to constant $r$ or to other prediction objects; and
+  a matching *upper* bound — for instance, showing that a recalibrated-threshold algorithm is
+  optimal among test-and-fallback schemes — would turn Chapter 9 into a tight characterization.
+- **Better tests, honestly.** Whether a super-linear or amortized test, or a test that reuses
+  online decisions as samples, can escape the tolerant-testing barrier is an open and
+  practically motivated question.
+
+## 11.4 Closing
+
+Predictions are a powerful tool for online algorithms, but this thesis is a study of their
+*limits* on one well-understood problem. On average-case online matching, the honest verdict
+is that a cheap, order-faithful predictor already captures nearly all there is to capture,
+that the sophisticated machinery earns its keep as insurance rather than as performance, and
+that no sublinear test can do better — because the very feasibility of the test is a signal
+that the prediction was not needed. Recognizing where predictions cannot help is, we hope, as
+useful as knowing where they can.
