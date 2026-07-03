@@ -1,19 +1,35 @@
-# Paper Outline — Learning-Augmented Online Bipartite Matching: A Unified Experimental Study
+# Paper Outline — COMBINED (experimental study + impossibility theorem)
 
-**Working title:** *An Experimental Study of Learning-Augmented Algorithms for
-Online Bipartite Matching* (alt: *Robustness Insurance: A Unified Benchmark of
-Prediction-Based Online Matching*).
+**Structure decided:** ONE paper — experimental study as the main line, Direction C
+(the impossibility theorem T1) as a theory section that *explains* the empirical wall.
+The arc: **the experiments discover a wall (predictions are robustness insurance, not
+performance); the theory proves the wall is necessary.**
 
-**Target venue:** ALENEX / ACM JEA / SEA (experimental-algorithms track).
-**Format precedent:** Chłędowski, Polak, Szabucki & Żołna, *Robust
-Learning-Augmented Caching: An Experimental Study* (ICML 2021) — same shape, in
-caching; we are the matching counterpart, and we engage their combiner directly.
+**Working title:** *The Limits of Predictions for Online Bipartite Matching: A Unified
+Experimental Study and an Impossibility Theorem* (alt: *Robustness Insurance: Why
+Sublinear Test-and-Fallback Cannot Beat the Baseline on Average-Case Matching*).
+
+**Target venue:** a venue that welcomes experiment+theory — ACM JEA / SEA / ALENEX
+(experimental-algorithms, theory-friendly). If the theorem lands cleanly and the
+advisor agrees, an alternative is to split the theory to SODA/ESA/ITCS and keep the
+experimental paper for JEA — but the DEFAULT is the combined paper.
+**Format precedent:** Chłędowski, Polak, Szabucki & Żołna, *Robust Learning-Augmented
+Caching: An Experimental Study* (ICML 2021) — the experimental-study template we match
+and whose combiner we benchmark.
 
 **One-line pitch:** The learning-augmented online-matching algorithms (ACI's MPD,
 Choo/BEM's test-and-fallback) and the classical baselines were each studied in
-isolation. We put them on one harness and show, with confidence intervals and on
-real data, that on average-case inputs their value is **robustness insurance, not a
-performance lift** — and we characterise *why*, *how much*, and *at what cost*.
+isolation. We put them on one harness and show, with confidence intervals and on real
+data, that on average-case inputs their value is **robustness insurance, not a
+performance lift** — then we **prove why**: no sublinear-test test-and-fallback can be
+both consistent and robust on strong-baseline matching, because the structure that makes
+the test feasible is the structure that makes the baseline near-optimal.
+
+**⚠️ Writing-order caveat (theory section):** write the experimental sections and the
+theory section's *framing / statement* now, but keep the **proof** of T1 marked
+"to finalize" until (a) the last routine step (witness-instance match) is closed and
+(b) the advisor signs off on the tolerant-testing reduction. Do not typeset T1 as a
+finished theorem before both.
 
 ---
 
@@ -42,6 +58,16 @@ performance lift** — and we characterise *why*, *how much*, and *at what cost*
   a Chłędowski-style **dynamic combiner is dominated** because mid-stream switching in
   an *irrevocable* problem incurs a hybrid-state penalty — explaining *why*
   test-then-commit is the right structure. *(Phase 3c + combiner; `docs/PHASE3C_REPORT.md`.)*
+- **C5 — The impossibility theorem (the theory contribution).** The empirical wall is
+  necessary: **no test-and-fallback algorithm with a sublinear test can be both
+  (1−o(1))-consistent and robust on strong-baseline matching** — the structure that
+  makes the prefix distribution-test feasible (few high-count types) is exactly the
+  structure that makes the baseline near-optimal, so "wherever you can test, you don't
+  need to." Proven via a master consistency/robustness inequality + a reduction to
+  *tolerant* distribution testing (Θ̃(n/log n), Canonne et al. 2022), with the
+  advice-loss↔L1 conversion an exact affine law. *(Direction C; `docs/T1_PROOF_SKELETON.md`,
+  `T1_W1_single_cell.md`, `T1_W3_construction.md`, `T1_W2_W3a_closeout.md`.)*
+  **⚠️ proof to finalize + advisor sign-off before typesetting as a theorem.**
 
 **Honest scope (state in §1 too):** the families consume different prediction
 objects (degree vectors μ vs type-count histograms ĉ); we unify on a per-family
@@ -112,7 +138,37 @@ case study*, not a novelty claim.
   graphs (instructive boundary). **Figure 6** (`results/realworld_robustness.png`).
   *(`docs/REALWORLD_ROBUSTNESS.md`.)*
 
-### §7 Application case study: AI-inference serving *(optional, clearly demoted)*
+### §6.5 Does *learning* the predictor help? A negative result *(M0–M3, optional subsection)*
+- Because MPD consumes the predictor only through its order (§4), one might train it
+  with an order-aware (rank) loss instead of regression. It helps *only* when features
+  induce an order/magnitude divergence; on real temporal features it does not
+  (rank-training ≡ MSE-training, identical Kendall-τ). Honest negative that reinforces
+  F3. **Figure** (`results/rank_when_it_matters.png` or the M3 trace figure).
+  *(`docs/RANK_LEARNING_M0_M3.md`.)* — include as a short subsection or an appendix.
+
+### §7 THE IMPOSSIBILITY THEOREM — why the wall is necessary *(C5, the theory section — NEW centerpiece)*
+- **The framing:** every experiment above hit the same wall (F3). Here we prove it is
+  forced, not incidental — the theoretical payoff that turns an experimental study into
+  an experiment+theory paper.
+- **§7.1 Model & the test-and-fallback class**; consistency, robustness, baseline
+  strength ρ_base, sublinear test budget k.
+- **§7.2 The master tradeoff (Lemma 1, rigorous):** (1−η_c) ≤ η_r + γ_k — a Le Cam
+  two-point argument; the clean two-sided core.
+- **§7.3 The reduction (Lemma 2):** a consistent+robust algorithm ⟹ a tolerant
+  distribution tester (the prefix *is* i.i.d. samples) — makes it "any rule", not just
+  Choo's threshold. This is the differentiator from Choo's constructive β-in-threshold.
+- **§7.4 The construction (W1 + W3):** rare-resource cells; the advice-loss↔L1
+  conversion is an **exact affine law** (`follow-ratio = ρ_perfect − ½L1`, verified);
+  r=Θ(n) → invoke the tolerant-testing lower bound (Canonne et al. 2022, Θ̃(n/log n)) →
+  sublinear k insufficient. The good side is a Θ(1) ball (a>0) → provably tolerant.
+- **§7.5 Theorem T1** (statement) + the scissors **Figure 7**
+  (`results/impossibility_frontier.png`) as the numerical face of the theorem.
+- **Over-claim guardrails:** credit Choo's constructive coupling; state the r=Θ(n)
+  scope; the one remaining routine step (witness-instance match) — present honestly.
+- *(Docs: `T1_PROOF_SKELETON.md`, `T1_W1_single_cell.md`, `T1_W3_construction.md`,
+  `T1_W2_W3a_closeout.md`.)*
+
+### §8 Application case study: AI-inference serving *(optional, clearly demoted)*
 - Online b-matching for request routing; capacity-c, traffic forecasts, dynamic
   service times, prefix-cache routing; on three real traces.
 - **Framed explicitly as a case study** showing the framework instantiates a
