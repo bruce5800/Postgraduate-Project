@@ -173,23 +173,27 @@ as a positive curve, not an impossibility).
 | Reduction to tolerant testing (Lemma 2) | Clean — the prefix *is* i.i.d. samples. |
 | Single-cell constants (W1) | **Closed-form + numerically verified.** |
 | Aggregate conversion (Lemma W3a) | **Numerically verified**; needs the analytic monotonicity write-up (routine — sum of independent monotone terms). |
-| Testing lower bound (Lemma 3) | **Cited** (Valiant–Valiant / JHW). **This is my biggest open risk:** I need to confirm the exact *tolerant identity-testing* statement gives Ω̃(r) at constant gap. |
-| Final assembly | Clean given the above. |
+| Testing lower bound (Lemma 3 / W2) | **CONFIRMED** — Canonne–Jain–Kamath–Li (COLT 2022): tolerant identity testing is Θ̃(n/log n) at constant tolerance (vs √n non-tolerant); our good side is a Θ(1) ball (a>0) so we're provably in the tolerant regime. |
+| Conversion law (W3a) | **PROVEN as an exact affine law** E[follow-ratio] = ρ_perfect − ½·L1(p,q) (derived + verified to 3 decimals); it also guarantees a>0. |
+| Final assembly | Closed to one routine step: name two witness distributions at L1=a, b (the affine law makes any such pair work; VV gives one that's prefix-indistinguishable). |
 
-"So: the core is rigorous, the construction is verified, and the remaining work is a
-careful read of the testing lower bound plus one routine monotonicity proof — **no step
-needs new mathematics to be invented.** The honest scope is that the strong form holds
-for r=Θ(n); the all-regime 'scissors' is that plus the trivial strong-baseline side plus
-the numerical figure as the unifying picture."
+"So: the core is rigorous, the construction is verified, the tolerant-testing bound is
+confirmed on the theorem-preserving side, and the conversion is an exact affine law —
+**no step needs new mathematics to be invented, and the one external dependency (the
+tolerant-testing lower bound) is a cited, exact, modern result.** The honest scope is
+that the strong form holds for r=Θ(n); the all-regime 'scissors' is that plus the trivial
+strong-baseline side plus the numerical figure as the unifying picture."
 
 ---
 
 ## 7. What I'd like your input on (1 min)
 
-1. **Is the testing reduction airtight to you?** Specifically: does tolerant *identity*
-   testing to a known q give the Ω̃(r) lower bound at a constant L1-gap that I'm relying
-   on, and are there subtleties (Poissonization, the exact VV hard instance) I should
-   worry about?
+1. **Is the reduction airtight to you?** I've confirmed the tolerant identity-testing
+   bound (Canonne et al. 2022 give Θ̃(n/log n) at constant tolerance, and our good side
+   is a Θ(1) ball so we're in that regime). The one thing I'd like you to sanity-check is
+   the *instance match*: naming the two witness distributions (p_G at L1=a, p_Bd at L1=b)
+   from the VV hard instance so they're prefix-indistinguishable — any subtleties
+   (Poissonization, the exact VV construction) I should worry about?
 2. **Is the r=Θ(n) restriction acceptable**, or should I aim for a bound that bites at
    constant r too? (My read: r=Θ(n) is the only regime with upside, so it's the right
    regime — but I want your view on how a referee sees it.)
@@ -207,8 +211,8 @@ the numerical figure as the unifying picture."
 | Master inequality | (1−η_c) ≤ η_r + γ_k + o(1); η_c=upside forgone, η_r=robustness loss / Δ |
 | Per-cell advantage / L1 | ±θ|s−½|  /  2θ|s−ŝ|  (closed form, verified) |
 | Baseline / upside coupling | ρ_base = 1−Θ(θ),  δ = Θ(ε·(1−ρ_base)) |
-| Aggregate breakeven | following = baseline when ½ the advice directions are wrong (L1*≈0.22 in the verified case) |
-| Testing lower bound | k = Ω(r/((b−a)² log r)); r=Θ(n), gap Θ(1) ⟹ Ω̃(n) |
+| Aggregate law (W3a) | **exact affine:** E[follow-ratio] = ρ_perfect − ½·L1(p,q); breakeven L1* = 2(ρ_perfect−ρ_base) ≈ 0.22 (verified) |
+| Testing lower bound (confirmed) | tolerant identity testing = Θ̃(n/log n) at constant tolerance (Canonne–Jain–Kamath–Li 2022); non-tolerant would be √n — we're tolerant (a>0) |
 | Why "any rule" not just Choo's τ | the prefix is i.i.d. samples ⟹ information-theoretic testing bound |
 | Numerical evidence | `results/impossibility_frontier.png` — the scissors + the resolution-vs-margin panel |
-| Biggest open risk | confirming the exact tolerant-identity-testing lower-bound statement (W2) |
+| Remaining work | one routine step — name the two witness distributions at L1=a, b (affine law makes any pair work) |
