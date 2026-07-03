@@ -33,6 +33,8 @@ left), the *potential* upside — how much perfect advice beats the baseline —
 upside a sublinear test can *safely capture* stays pinned near zero. The gap between the two
 curves is the impossibility.
 
+![The impossibility, numerically (the "scissors"). Left: the *potential* upside grows as the baseline weakens, but the upside a sublinear test can *safely capture* stays near zero. Right: the test's empirical-$\ell_1$ resolution sits far above the break-even margin wherever an upside exists.](../../../results/impossibility_frontier.png){width=100%}
+
 ## 9.2 The intuition: testability and baseline strength are the same knob
 
 The heart of the argument is a coupling that is easy to state and, once seen, hard to

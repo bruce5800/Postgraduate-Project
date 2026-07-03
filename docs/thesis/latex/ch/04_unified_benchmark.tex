@@ -1,0 +1,129 @@
+\chapter{The Unified Benchmark}\label{the-unified-benchmark}
+
+Having validated the harness (Chapter 3), we now place all three algorithm families on it
+and establish the thesis's organizing finding. This chapter reports competitive ratios
+(mean \(\pm\) 95\% CI) as a function of prediction quality, in three panels chosen to span the
+regimes each family was designed for; the four findings it draws out (§4.2) recur through
+the rest of the thesis.
+
+\section{Design}\label{design}
+
+The families consume different prediction objects, so each is driven by its own corruption
+knob and reported in a parallel panel (Chapter 3); the shared harness --- graphs,
+\(\mathrm{OPT}\), CI methodology, and the advice-free floor --- is what makes the panels
+comparable.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Panel A --- clvb\_zipf} (\(n=1000\), 60 trials): heavy-tailed offline degrees, where degree
+  predictions carry signal.
+\item
+  \textbf{Panel B --- left-regular \(d{=}5\)} (\(n=1000\), 60 trials): near-homogeneous degrees, where
+  predictions add little.
+\item
+  \textbf{Panel C --- few-types \(r{=}8\)} (\(n=2000\), 50 trials): near-perfect-matchable, the
+  calibrated regime for the type-histogram test-and-fallback algorithms.
+\end{itemize}
+
+For the degree-prediction panels the quality columns are \emph{perfect} (true degrees), \emph{noisy}
+(random-flip at strength \(\tfrac12\)), \emph{adversarial} (order-reversing), and \emph{garbage}
+(fully random \(\equiv\) Ranking). For the advice panel they are \(\eta\in\{0,0.3,0.6,1.0\}\)
+(\emph{perfect / mild / bad / garbage}). Confidence intervals are tight throughout
+(\(\pm0.001\)--\(0.003\)). \textbf{Table 4.1} and \textbf{Figure 4.1} are the chapter's data; the salient
+rows:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+perfect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+noisy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+adversarial
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+garbage
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Panel A --- clvb\_zipf} & & & & \\
+Ranking (floor) & 0.948 & --- & --- & --- \\
+MinDegree (oracle) & 0.996 & --- & --- & --- \\
+MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
+Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
+JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
+Feldman / JailletLu (base) & 0.887 / 0.901 & --- & --- & --- \\
+\emph{Panel B --- left-regular \(d{=}5\)} & & & & \\
+Greedy = Ranking (floor) & 0.890 & --- & --- & --- \\
+MinDegree (oracle) & 0.966 & --- & --- & --- \\
+MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
+Feldman(MPD) / JailletLu(MPD) & 0.906 / 0.903 & 0.903 / 0.902 & 0.896 / 0.898 & 0.900 / 0.901 \\
+Feldman / JailletLu (base) & 0.758 / 0.789 & --- & --- & --- \\
+\end{longtable}
+}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrrrr@{}}
+\toprule\noalign{}
+& perfect & mild & bad & garbage \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Panel C --- few-types \(r{=}8\)} & & & & \\
+Ranking (floor) & 0.990 & --- & --- & --- \\
+MPD (true degrees) & 0.999 & --- & --- & --- \\
+FollowPrediction & 1.000 & 0.832 & 0.679 & \textbf{0.472} \\
+TestAndMatch (Choo) & 1.000 & 0.984 & 0.989 & 0.990 \\
+TestAndMatch (BEM) & 0.998 & 0.988 & 0.988 & 0.968 \\
+Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
+\end{longtable}
+}
+
+\section{Four findings}\label{four-findings}
+
+\textbf{(F1) Robustness is engineered, not free: naive followers crash below the floor.} Both
+unguarded prediction-followers dive under the advice-free Ranking floor once the prediction
+is adversarial or garbage: MPD falls to \(0.908<0.948\) (Panel A) and \(0.854<0.890\) (Panel
+B), and FollowPrediction collapses to \(0.472\ll0.990\) (Panel C). Using either \emph{unguarded}
+is strictly worse than using no prediction at all. Every robust algorithm --- the
+augmentations, TestAndMatch, the combiner --- avoids this by construction.
+
+\textbf{(F2) Two distinct robustness mechanisms, with different shapes.} \emph{Structural} robustness
+(Feldman(MPD), JailletLu(MPD)): the worst-case-optimal base matching carries the load and
+the prediction only breaks ties, so performance is nearly \emph{flat} --- Feldman(MPD) moves only
+\(0.981\!\to\!0.976\) from perfect to adversarial (Panel A). It cannot crash but caps the
+upside (never reaching the \(0.996\) oracle). \emph{Adaptive} robustness (TestAndMatch): test a
+sublinear prefix, then commit --- capturing the upside when advice is good (Choo \(1.000\)) and
+holding the floor when it is bad (\(0.990\)). On Panel C it is the only algorithm on the upper
+envelope at both ends. The two mechanisms trade consistency for robustness in opposite ways.
+
+\textbf{(F3) The consistency upside is small on average-case inputs; the spread lives on the
+bad-advice side.} On few-types the advice-free Ranking is already \(0.990\) and
+MPD-with-true-degrees is \(0.999\) --- under \(0.01\) for any advice to add on the good side.
+Every wide gap in Panel C is a \emph{downside} gap. This is the thesis in one panel; Chapter 9
+shows it is \emph{necessary}.
+
+\textbf{(F4) The augmentation rescues structurally weak base algorithms.} Feldman and Jaillet--Lu
+are tuned for the worst-case ratio and are the \emph{weakest} advice-free entries on these
+average-case inputs (Panel B: \(0.758\) / \(0.789\), below Greedy's \(0.890\)); the MPD
+augmentation lifts them to \(\approx0.90\). The prediction does \emph{more} for the
+worst-case-designed algorithms than for greedy --- a pairing visible only under a unified
+table.
+
+\section{Chapter summary}\label{chapter-summary}
+
+On average-case matching the advice-free baseline is already near-optimal, unguarded
+prediction-following is unsafe, and the value of the sophisticated algorithms is downside
+protection delivered by one of two mechanisms. Chapters 5--7 sharpen each part --- what governs
+the (small) loss, what the adaptive test costs, and whether the picture survives on real
+data --- and Chapter 9 proves the wall is a theorem, not an artifact.

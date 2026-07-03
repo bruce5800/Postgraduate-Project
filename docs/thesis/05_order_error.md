@@ -34,6 +34,8 @@ the same instances, three quantities: the actual MPD matching loss, ACI's $n-\ma
 and the normalized Kendall-$\tau$ order error (**Figure 5.1**; $n=1000$, Zipf exponent
 $1.0$, 40 trials).
 
+![Order error governs the loss. (a) The realized MPD loss lies far below ACI's $n-\mathrm{LIS}$ upper bound and $n-\mathrm{LIS}$ saturates. (b) The loss collapses onto the Kendall-$\tau$ order error across all four error models.](../../../results/order_vs_theory.png){width=100%}
+
 **(i) ACI's $n-\mathrm{LIS}$ bound is correct but very loose.** The realized loss lies far
 below the bound at every point — by roughly $16\times$ (adversarial) to $75\times$
 (distribution-drift); all points hug the axis in Figure 5.1(a).

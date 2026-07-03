@@ -1,0 +1,55 @@
+\chapter{What Governs the Loss: Order Error and ACI's Bound}\label{what-governs-the-loss-order-error-and-acis-bound}
+
+Chapter 4 showed that on average-case inputs the loss of a degree-prediction algorithm is
+small. This chapter asks what \emph{governs} that loss. MinPredictedDegree matches by ascending
+predicted degree, so it depends on the predictor \(\mu\) \emph{only through the order it induces}
+on the resources: two predictors inducing the same order produce identical matchings, and a
+monotone rescaling of \(\mu\) changes nothing. The right question is therefore not ``how large
+is the error'' but ``which \emph{order} error governs the loss, and how tightly.'' Answering it
+requires care, because the qualitative fact that order --- not magnitude --- matters is already
+a theorem, and we are explicit about what is prior and what is ours.
+
+\section{What is already known (ACI)}\label{what-is-already-known-aci}
+
+Aamand, Chen and Indyk {[}ACI22, Appendix D{]} prove that on the CLV-B model, MinPredictedDegree's
+matching loss relative to the true expected degrees is at most \(n-\mathrm{LIS}(p[\mu])\),
+where \(p[\mu]\) is the true weights ordered by \(\mu\) and \(\mathrm{LIS}\) is the longest
+non-decreasing subsequence --- a pure \emph{order} quantity. In particular a monotone
+(order-preserving) predictor has \(p[\mu]\) already sorted, so \(n-\mathrm{LIS}=0\) and the loss
+is zero. Thus \emph{order-dependence} and \emph{the zero-effect of a monotone bias} are ACI's results,
+not ours; our \texttt{systematic\_bias} error model (a monotone rescale) has Kendall-\(\tau\equiv0\) by
+construction and, consistently, leaves MPD's ratio exactly unchanged across the benchmark
+(Chapter 4) --- an empirical confirmation of ACI's statement, not a new finding.
+
+\section{Our characterization}\label{our-characterization}
+
+We sweep the four structured error models across strength and record, per model and level on
+the same instances, three quantities: the actual MPD matching loss, ACI's \(n-\mathrm{LIS}\),
+and the normalized Kendall-\(\tau\) order error (\textbf{Figure 5.1}; \(n=1000\), Zipf exponent
+\(1.0\), 40 trials).
+
+\textbf{(i) ACI's \(n-\mathrm{LIS}\) bound is correct but very loose.} The realized loss lies far
+below the bound at every point --- by roughly \(16\times\) (adversarial) to \(75\times\)
+(distribution-drift); all points hug the axis in Figure 5.1(a).
+
+\textbf{(ii) \(n-\mathrm{LIS}\) saturates and cannot distinguish error structures.} For every
+non-trivial error it is pinned near its maximum (\(\approx610\)--\(673\) for \(n=1000\)), even
+though the true losses differ by a factor of five across models (\(8.1\) drift, \(21.6\)
+random-flip, \(41.7\) adversarial). As a bound that is almost always \(\approx n\), it carries
+little information about which prediction is more harmful.
+
+\textbf{(iii) Kendall-\(\tau\) is the governing order measure, and the models collapse onto it.}
+Plotted against Kendall-\(\tau\) (Figure 5.1(b)), the four models fall on one increasing curve
+--- loss rises with \(\tau\) (\(0.29\to0.50\to1.0\) for drift, random-flip, adversarial, tracking
+\(8.1\to21.6\to41.7\)), with \texttt{systematic\_bias} pinned at \(\tau=0\), zero loss. The quantity that
+\emph{predicts} the loss and unifies the error structures is the Kendall-\(\tau\) order distance,
+which the saturated \(n-\mathrm{LIS}\) cannot resolve.
+
+\section{Chapter summary}\label{chapter-summary}
+
+We do not claim that order rather than magnitude governs MPD --- ACI's Appendix D establishes
+that, along with the zero-effect of a monotone bias. What we add is a precise empirical
+characterization: ACI's \(n-\mathrm{LIS}\) bound is loose by one to nearly two orders of
+magnitude and saturates, whereas Kendall-\(\tau\) predicts the realized loss and unifies the
+four error structures. This both sharpens the theory's practical content and justifies the
+single order-error axis used when the predictor is stressed on real data (Chapter 7).

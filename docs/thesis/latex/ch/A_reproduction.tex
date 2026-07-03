@@ -1,0 +1,203 @@
+\chapter{Reproduction Guide}\label{reproduction-guide}
+
+Every quantitative result in this thesis is regenerated from a fixed seed by a single
+script. This appendix maps each figure and table to its script, gives the commands and
+runtimes, lists the full Phase-2 reproduction tables deferred from Chapter 3, and records
+data provenance.
+
+\section{A.1 Environment and principles}\label{a.1-environment-and-principles}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Stack:} Python 3.12; NumPy 1.26+, SciPy 1.13, NetworkX 3.3, Matplotlib (plots only).
+\item
+  \textbf{Determinism:} all randomness derives from one master seed (default \texttt{0}) via NumPy's
+  \texttt{default\_rng(seed).spawn(k)}, which yields independent, reproducible streams (graph,
+  instance, algorithm randomness, prediction perturbation). Results are bit-stable across
+  NumPy minor versions from 1.25 (BitGenerator-based spawning).
+\item
+  \textbf{Paired trials:} within a comparison, every algorithm and error level reuses the same
+  graph, arrival sequence, \texttt{OPT}, and tie-break seed, so differences are attributable to the
+  prediction alone.
+\item
+  \textbf{Confidence intervals:} 95\% normal-approximation half-widths over trials.
+\item
+  Each script writes \texttt{results/\textless{}name\textgreater{}.json} (raw means/CIs) and \texttt{results/\textless{}name\textgreater{}.png} (plot),
+  and prints per-step progress.
+\end{itemize}
+
+\section{A.2 Figure / table → script map}\label{a.2-figure-table-script-map}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Thesis object
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Script
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Output
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+≈ runtime
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Fig 3.1 (ER U-curve) & \texttt{scripts/run\_er\_full.py} & \texttt{results/er\_full.\{json,png\}} & \textasciitilde20 min \\
+Fig 3.2 (left-regular) & \texttt{scripts/run\_left\_regular.py} & \texttt{results/left\_regular.\{json,png\}} & \textasciitilde10 min \\
+\textbf{Table 4.1}, Fig 4.1 (unified benchmark) & \texttt{scripts/run\_unified\_benchmark.py} & \texttt{results/unified\_benchmark.\{json,png\}}, \texttt{unified\_benchmark\_tables.md} & \textasciitilde100 s \\
+Fig 5.1 (order-error vs ACI) & \texttt{scripts/run\_order\_vs\_theory.py} & \texttt{results/order\_vs\_theory.\{json,png\}} & \textasciitilde30 s \\
+Fig 6.1 (envelope), Fig 6.2 (prefix sweep) & \texttt{scripts/run\_choo\_bem.py} & \texttt{results/choo\_bem\_\{envelope,prefix\}.png} & \textasciitilde20 min \\
+Recalibration (§6.3) & \texttt{scripts/run\_recalibration.py} & \texttt{results/recalibration\_*.png} & \textasciitilde1.5 min \\
+Fig 7.1 (real predictor) & \texttt{scripts/run\_real\_predictor.py} & \texttt{results/real\_predictor.\{json,png\}} & \textasciitilde15 s \\
+Fig 7.2 (six real graphs) & \texttt{scripts/run\_realworld\_robustness.py} & \texttt{results/realworld\_robustness.\{json,png\}} & \textasciitilde65 s \\
+Fig 8.1 (M0 rank vs MSE) & \texttt{scripts/run\_rank\_vs\_mse\_mve.py} & \texttt{results/rank\_vs\_mse\_mve.\{json,png\}} & \textasciitilde10 s \\
+Fig 8.2 (M1 when it matters) & \texttt{scripts/run\_rank\_when\_it\_matters.py} & \texttt{results/rank\_when\_it\_matters.\{json,png\}} & \textasciitilde20 s \\
+Fig 8.3 (M3 real-trace learning) & \texttt{scripts/run\_rank\_real\_trace.py} & \texttt{results/rank\_real\_trace.\{json,png\}} & \textasciitilde10 s \\
+Fig 8.4 (serving SLO probe) & \texttt{scripts/run\_serving\_slo\_probe.py} & \texttt{results/serving\_slo\_probe.\{json,png\}} & \textasciitilde1 s \\
+Fig 9.1 (impossibility frontier) & \texttt{scripts/run\_impossibility\_frontier.py} & \texttt{results/impossibility\_frontier.\{json,png\}} & \textasciitilde6 s \\
+Serving (Ch 10) & \texttt{scripts/run\_serving.py}, \texttt{run\_serving\_trace.py}, \texttt{run\_serving\_dynamic.py}, \texttt{run\_prefix\_cache.py} & \texttt{results/serving\_*.png}, \texttt{prefix\_cache.png} & varies \\
+Real-world Borodin Tables 3/4 (validation) & \texttt{scripts/run\_realworld.py} & \texttt{results/realworld.json} & \textasciitilde few min \\
+\end{longtable}
+}
+
+\section{A.3 Reproduction commands}\label{a.3-reproduction-commands}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# from the project root (matching{-}experiments/)}
+\CommentTok{\# correctness anchors — 7 hand{-}verifiable test files, all pass:}
+\ControlFlowTok{for}\NormalTok{ t }\KeywordTok{in}\NormalTok{ tests/test\_}\PreprocessorTok{*}\NormalTok{.py}\KeywordTok{;} \ControlFlowTok{do} \ExtensionTok{python3} \StringTok{"}\VariableTok{$t}\StringTok{"}\KeywordTok{;} \ControlFlowTok{done}
+
+\CommentTok{\# regenerate the headline results (fast ones):}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_unified\_benchmark.py        }\CommentTok{\# Table 4.1, Fig 4.1}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_order\_vs\_theory.py          }\CommentTok{\# Fig 5.1}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_real\_predictor.py           }\CommentTok{\# Fig 7.1}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_realworld\_robustness.py     }\CommentTok{\# Fig 7.2}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_impossibility\_frontier.py   }\CommentTok{\# Fig 9.1}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_rank\_vs\_mse\_mve.py          }\CommentTok{\# Fig 8.1}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_rank\_when\_it\_matters.py     }\CommentTok{\# Fig 8.2}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_serving\_slo\_probe.py        }\CommentTok{\# Fig 8.4}
+
+\CommentTok{\# the long (max{-}flow / Hopcroft–Karp{-}bound) sweeps:}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_er\_full.py                  }\CommentTok{\# Fig 3.1  (\textasciitilde{}20 min)}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_left\_regular.py             }\CommentTok{\# Fig 3.2  (\textasciitilde{}10 min)}
+\ExtensionTok{python3}\NormalTok{ scripts/run\_choo\_bem.py                 }\CommentTok{\# Fig 6.1, 6.2 (\textasciitilde{}20 min)}
+\end{Highlighting}
+\end{Shaded}
+
+All scripts hardcode seed \texttt{0} unless noted; re-running reproduces the reported numbers.
+
+\section{A.4 Full Phase-2 reproduction tables (deferred from §3.6)}\label{a.4-full-phase-2-reproduction-tables-deferred-from-3.6}
+
+Setup: \(n=1000\), \(m=n\), 100 trials per parameter value, seed 0. Target is \emph{qualitative}
+agreement with Borodin et al.~(Python/NetworkX vs the paper's C++/Edmonds--Karp; absolute
+differences \(\le 0.02\) accepted).
+
+\textbf{Erdős--Rényi, competitive ratio at selected \(c\)} (SG=SimpleGreedy, Rk=Ranking,
+F/J = Feldman/Jaillet--Lu, -NG/-G = non-greedy/greedy):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+\(c\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+SG
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Rk
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+F-NG
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+F-G
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+J-NG
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+J-G
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0.10 & 0.9995 & 0.9994 & 1.0000 & 1.0000 & 0.9991 & 1.0000 \\
+1.90 & 0.9362 & 0.9363 & 0.9033 & 0.9637 & 0.9202 & 0.9602 \\
+\textbf{4.90} & \textbf{0.8640} & 0.8655 & 0.7648 & \textbf{0.8845} & 0.7949 & \textbf{0.8854} \\
+8.90 & 0.9094 & 0.9088 & 0.7314 & 0.9123 & 0.7662 & 0.9120 \\
+14.90 & 0.9487 & 0.9486 & 0.7290 & 0.9488 & 0.7640 & 0.9483 \\
+\end{longtable}
+}
+
+Per-algorithm minima (ER): SG 0.8640 @ \(c\)=4.9; Rk 0.8649 @ 4.7; F-NG 0.7288 @ 13.5;
+F-G 0.8833 @ 5.3; J-NG 0.7616 @ 14.1; J-G 0.8839 @ 5.3.
+
+\textbf{Random left-regular, competitive ratio at selected \(d\):}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}rrrrrrr@{}}
+\toprule\noalign{}
+\(d\) & SG & Rk & F-NG & F-G & J-NG & J-G \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 1.0000 & 1.0000 & 0.9845 & 1.0000 & 0.9845 & 1.0000 \\
+2 & 0.9539 & 0.9537 & 0.8769 & 0.9679 & 0.8945 & 0.9659 \\
+\textbf{5} & \textbf{0.8905} & 0.8900 & 0.7595 & 0.9008 & 0.7909 & 0.9022 \\
+10 & 0.9275 & 0.9278 & 0.7317 & 0.9276 & 0.7677 & 0.9290 \\
+30 & 0.9770 & 0.9767 & 0.7308 & 0.9757 & 0.7633 & 0.9754 \\
+\end{longtable}
+}
+
+\textbf{Paper-claim checklist (all verified ✓):} greedy minima near \(c\approx4.9\) / \(d=5\);
+Ranking \(\approx\) SimpleGreedy (max diff 0.0017 ER, 0.005 LR --- the paper omits Ranking's
+curve for this reason); non-greedy variants degrade monotonically as \(c,d\) grow; greedy
+complex variants \(\approx\) SimpleGreedy asymptotically; the \(c\)=14.9 non-greedy ordering
+(J-NG 0.764 \textgreater{} F-NG 0.729) matches the paper's worst-case-bound ordering. A cross-family
+observation: the non-greedy algorithms converge to the same asymptotic constants in both
+families (0.729 Feldman, 0.764 Jaillet--Lu, within 0.002), above their worst-case bounds by
++0.06 / +0.03 --- an early instance of the average case being more benign than the worst case.
+
+\section{A.5 Data provenance}\label{a.5-data-provenance}
+
+Real data is stored locally under \texttt{data/} (large; excluded from version control).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Real graphs (Chapter 7, §3.6 validation):} six Network Repository graphs ---
+  \texttt{socfb-Caltech36}, \texttt{socfb-Reed98}, \texttt{bio-CE-GN}, \texttt{bio-CE-PG}, \texttt{econ-beause},
+  \texttt{econ-mbeaflw} --- as MatrixMarket \texttt{.mtx} / whitespace \texttt{.edges}, reduced to simple
+  undirected graphs and converted to bipartite by random balanced partition (Borodin
+  Table 3) or duplicating double-cover (Table 4).
+\item
+  \textbf{Traces (Chapters 7, 8, 10):} Wikipedia ``top articles per day'' JSON for four days
+  (\texttt{data/trace/wiki/}, used as live day vs 1/7/30-day-stale forecasts); the Azure LLM
+  inference trace (\texttt{data/trace/azure\_llm/}, context/generated token counts with
+  timestamps); the Mooncake conversation trace (\texttt{data/trace/mooncake/}, per-request
+  \texttt{hash\_ids} for prefix-cache blocks).
+\end{itemize}
+
+\section{A.6 Theory verification snippets (Chapter 9)}\label{a.6-theory-verification-snippets-chapter-9}
+
+The single-cell constants of the construction (per-cell OPT, baseline, and the
+advantage/L1 formulas, §9.3 Pillar-3 / Chapter 9) and the exact affine conversion law
+\(\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)\) were
+verified numerically to three decimals by short simulations documented in the project notes
+(\texttt{docs/T1\_W1\_single\_cell.md}, \texttt{T1\_W2\_W3a\_closeout.md}); e.g.~at \(\theta=0.6\), bias
+\(|s-\tfrac12|=0.3\), the simulated per-cell advantage \(\pm0.119\) matches the formula
+\(\pm\theta|s-\tfrac12|=\pm0.12\), and the aggregate follow-ratio matches the affine law at
+every advice level. These are sanity checks on the construction, not part of the formal
+proof, whose remaining step is noted in §9.5.

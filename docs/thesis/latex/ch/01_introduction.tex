@@ -1,0 +1,113 @@
+\chapter{Introduction}\label{introduction}
+
+\section{Background and motivation}\label{background-and-motivation}
+
+Online bipartite matching is the canonical model of irrevocable sequential allocation.
+Resources are known in advance; requests arrive one at a time; each must be matched to an
+available compatible resource --- or dropped --- immediately, before the rest of the input is
+seen. It is the abstraction behind online advertising, ride-hailing dispatch, organ
+exchange, and request routing in modern serving systems. Because decisions cannot be undone,
+the difficulty lies entirely in committing well under uncertainty about the future.
+
+A recent and influential idea is to give such an algorithm a \textbf{prediction} about the input
+--- a hint about which resources will be contended, or how many requests of each kind will
+arrive --- and to ask for two guarantees at once: \textbf{consistency}, meaning near-optimal
+performance when the prediction is good, and \textbf{robustness}, meaning no worse than a
+prediction-free algorithm when the prediction is wrong. For online matching specifically,
+two families of such \emph{learning-augmented} algorithms have appeared: MinPredictedDegree,
+which consumes a per-resource degree prediction, and a family of \emph{test-and-fallback}
+schemes, which test a request-type prediction on a short prefix of arrivals before deciding
+whether to trust it.
+
+These algorithms come with attractive worst-case guarantees, yet a practitioner's
+experience with them is oddly muted: on realistic, average-case workloads the sophisticated
+predictions rarely seem to \emph{help}, while the algorithms' real value seems to be that they do
+not \emph{hurt}. This gap between the worst-case promise and the average-case experience is the
+puzzle that motivates this thesis. The algorithms had, moreover, only ever been studied \emph{in
+isolation} --- each on its own input model, against its own notion of prediction error, and
+largely through theory --- so there was no common ground on which to compare them, quantify
+how much a prediction actually buys, or explain the gap. This thesis provides that common
+ground and, ultimately, an explanation.
+
+\section{Research objectives}\label{research-objectives}
+
+The thesis is organized around three questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{How do the learning-augmented online-matching algorithms actually compare}, head to
+  head, under a single prediction-error model and on common inputs --- and how much does a
+  prediction help, at what cost, on realistic data?
+\item
+  \textbf{What are the failure modes of the adaptive test-and-fallback mechanism} --- the cost of
+  its test, the calibration of its accept/reject decision, and where it goes wrong?
+\item
+  \textbf{Why does the average-case experience differ so sharply from the worst-case promise} ---
+  is the observed wall an artifact of particular algorithms and generators, or is it
+  \emph{necessary}?
+\end{enumerate}
+
+The first two are answered experimentally; the third, theoretically.
+
+\section{Contributions}\label{contributions}
+
+\begin{itemize}
+\item
+  \textbf{A unified experimental benchmark} (Chapter 4) that places the advice-free baselines,
+  MinPredictedDegree and its augmentations, and the test-and-fallback algorithms on one
+  harness --- common graphs, a common structured prediction-error model, a common optimum, and
+  confidence intervals --- the first head-to-head comparison of these families.
+\item
+  \textbf{A characterization of predictions as robustness insurance} (Chapters 4, 7): unguarded
+  prediction-following crashes \emph{below} the advice-free baseline under bad predictions; two
+  distinct mechanisms --- structural (the augmentations) and adaptive (test-and-fallback) ---
+  restore safety with different consistency/robustness trade-offs; and the consistency
+  upside is small on average-case inputs, so the value is downside protection. The picture
+  is validated on synthetic graphs, six real-world graphs, and real request traces,
+  including with a cheap, non-ML historical predictor.
+\item
+  \textbf{An empirical engagement with the order-error theory} (Chapter 5): MinPredictedDegree's
+  loss is governed by a Kendall-\(\tau\) order error onto which several error models collapse.
+  We credit Aamand--Chen--Indyk's Appendix D for the order-dependence itself and contribute a
+  characterization of the known bound's looseness and saturation and of the right order
+  measure --- not a rediscovery that order matters.
+\item
+  \textbf{The first empirical study of test-and-fallback} (Chapter 6): its testing cost, a
+  threshold-calibration pathology in which a \emph{more accurate} test yields a \emph{worse} decision,
+  its recalibration and the resolution limit that recalibration exposes, and a benchmark of
+  the dynamic combiner revealing an irrevocability penalty that explains why matching
+  requires \emph{test-then-commit}.
+\item
+  \textbf{An impossibility theorem} (Chapter 9): no test-and-fallback algorithm whose test
+  inspects only a sublinear prefix can be both consistent and robust on strong-baseline
+  instances, because the structure that makes the prefix distribution-test feasible is the
+  structure that makes the baseline near-optimal. The proof reduces safe advice-use to
+  \emph{tolerant} distribution testing and invokes its near-linear sample-complexity barrier;
+  it holds for any decision rule, not merely the empirical threshold used in practice.
+  \emph{(The theorem's full proof is complete in architecture --- its core lemma rigorous and its
+  construction verified --- with one routine step and a final review outstanding; the thesis
+  presents it with its status stated, as is appropriate for in-progress theoretical work.)}
+\end{itemize}
+
+Alongside these, the thesis documents (Chapter 8) the exploratory directions it pursued and
+the negative results they returned --- an attempt to \emph{learn} the predictor for extra
+performance, and an attempt to find a serving regime where predictions genuinely help ---
+both of which reinforce the central finding and motivated the theorem.
+
+\section{Thesis organization}\label{thesis-organization}
+
+Chapter 2 surveys the background: online matching and its input models, the
+learning-augmented paradigm, the specific prediction-based matching algorithms, and the
+distribution-testing results the theory relies on. Chapter 3 fixes the model and
+methodology and validates the experimental harness by reproducing a subset of the Borodin et
+al.~study. Chapter 4 presents the unified benchmark and its four findings. Chapter 5
+examines what governs the (small) loss --- order error --- and its relation to the known bound.
+Chapter 6 studies the test-and-fallback mechanism in depth. Chapter 7 tests external
+validity on real predictors and real graphs. Chapter 8 reports the exploratory directions
+and negative results. Chapter 9 proves the impossibility theorem. Chapter 10 presents the
+AI-inference serving case study. Chapter 11 concludes and discusses future work. The
+recurring thesis, established experimentally and then proven necessary, is a single
+sentence: \textbf{on average-case online matching, predictions are robustness insurance rather
+than a performance lever --- and where you can test the advice, you do not need it.}
