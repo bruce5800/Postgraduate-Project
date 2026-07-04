@@ -29,10 +29,14 @@ if [ -f "../zh/A_reproduction.md" ]; then
   printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
   preprocess "../zh/A_reproduction.md" >> "$tmp"; included="$included A"
 fi
+if [ -f "../zh/B_proof_details.md" ]; then
+  printf '\n\n' >> "$tmp"
+  preprocess "../zh/B_proof_details.md" >> "$tmp"; included="$included B"
+fi
 echo "chapters included:$included"
 
 pandoc "$tmp" --metadata-file=meta_zh.yaml -H header.tex \
-  --top-level-division=chapter --toc --toc-depth=1 \
+  --top-level-division=chapter --number-sections --toc --toc-depth=1 \
   --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main_zh.pdf > build_zh.log 2>&1 || {
     echo "FAILED — tail of build_zh.log:"; tail -30 build_zh.log; rm -f "$tmp"; exit 1; }

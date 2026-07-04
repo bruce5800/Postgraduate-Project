@@ -13,7 +13,7 @@ baseline is near-optimal, predictions buy robustness insurance rather than perfo
 upside and stays safe (Chapter 6). This chapter argues the wall is not an accident of a
 particular threshold, graph, or algorithm, but a *theorem*. To keep the exposition focused
 we give the intuition and the architecture of the proof here, and defer the full formal
-development to Appendix [PROOF].
+development to Appendix B.
 
 ## 9.1 The claim
 
@@ -55,7 +55,7 @@ rest of the chapter turns this intuition into a proof.
 ## 9.3 The architecture of the proof
 
 The proof rests on three pillars; we state each in words and give its one key formula,
-leaving the formal details to the appendix.
+leaving the formal details to Appendix B.
 
 **Pillar 1 — a trade-off inequality (rigorous).** If two instances that require *opposite*
 decisions (follow vs fall back) look statistically the same over the prefix — that is, their

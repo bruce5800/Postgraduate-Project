@@ -23,17 +23,18 @@
 | 图 3.1（ER U 曲线） | `scripts/run_er_full.py` | `results/er_full.{json,png}` | ~20 分钟 |
 | 图 3.2（左正则） | `scripts/run_left_regular.py` | `results/left_regular.{json,png}` | ~10 分钟 |
 | **表 4.1**、图 4.1（统一基准） | `scripts/run_unified_benchmark.py` | `results/unified_benchmark.{json,png}`、`unified_benchmark_tables.md` | ~100 秒 |
+| 图 4.2（一致性–鲁棒性平面） | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 秒 |
 | 图 5.1（顺序误差 vs ACI） | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 秒 |
 | 图 6.1（包络）、图 6.2（前缀扫描） | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 分钟 |
-| 重校准（6.3 节） | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 分钟 |
+| 图 6.3、重校准（6.3 节） | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 分钟 |
 | 图 7.1（真实预测器） | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 秒 |
 | 图 7.2（六个真实图） | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 秒 |
 | 图 8.1（M0 rank vs MSE） | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 秒 |
-| （M1 何时有用） | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 秒 |
-| （M3 真实 trace 学习） | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 秒 |
-| 图 8.2（服务 SLO 探针） | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 秒 |
+| M1 扫描（8.1 节，无图） | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 秒 |
+| 图 8.2（M3 真实 trace 学习） | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 秒 |
+| 图 8.3（服务 SLO 探针） | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 秒 |
 | 图 9.1（不可能性边界） | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 秒 |
-| 服务（第10章） | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png` 等 | 不一 |
+| 图 10.1–10.3、服务（第10章） | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png`、`prefix_cache_*.png` 等 | 不一 |
 | 真实图 Borodin 表 3/4（验证） | `scripts/run_realworld.py` | `results/realworld.json` | ~数分钟 |
 
 ## 复现命令
@@ -45,9 +46,12 @@ for t in tests/test_*.py; do python3 "$t"; done
 
 # 重生成主要结果（快脚本）：
 python3 scripts/run_unified_benchmark.py        # 表 4.1、图 4.1
+python3 scripts/run_consistency_robustness.py   # 图 4.2（重绘表 4.1）
 python3 scripts/run_order_vs_theory.py          # 图 5.1
 python3 scripts/run_real_predictor.py           # 图 7.1
 python3 scripts/run_realworld_robustness.py     # 图 7.2
+python3 scripts/run_rank_real_trace.py          # 图 8.2
+python3 scripts/run_serving_slo_probe.py        # 图 8.3
 python3 scripts/run_impossibility_frontier.py   # 图 9.1
 
 # 较长（受最大流 / Hopcroft–Karp 限制）的扫描：
@@ -111,5 +115,5 @@ Jaillet–Lu 0.764，相差在 0.002 内），高于其最坏情况界 +0.06 / +
 $\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ 由记录于项目笔记
 （`docs/T1_W1_single_cell.md`、`T1_W2_W3a_closeout.md`）的简短模拟数值验证到三位小数；例如在 $\theta=0.6$、
 偏置 $|s-\tfrac12|=0.3$ 时，模拟得每 cell 优势 $\pm0.119$ 与公式 $\pm\theta|s-\tfrac12|=\pm0.12$ 吻合，
-聚合 follow-ratio 在每个建议水平上与仿射律吻合。这些是对构造的合理性检验，而非形式证明的一部分，其
-剩余步骤已在 9.5 节标注。
+聚合 follow-ratio 在每个建议水平上与仿射律吻合。这些是对构造的合理性检验，而非形式证明（附录 B）的
+一部分，其剩余步骤已在 9.5 节与 B.7 节标注。

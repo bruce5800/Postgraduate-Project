@@ -28,7 +28,8 @@ and the *few-types* setting used for the histogram-advice experiments has $r\ll 
 
 The performance measure is the **competitive ratio** $\rho(\mathrm{ALG}) =
 \mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]$, where $\mathrm{OPT}$ is a maximum
-matching of the *realized* instance, computed exactly by Hopcroft–Karp. The advice-free
+matching of the *realized* instance, computed exactly by Hopcroft–Karp
+[@hopcroftkarp1973]. The advice-free
 baseline throughout is KVV Ranking, whose ratio we write $\rho_{\mathrm{base}}$ (the
 **baseline strength**).
 
@@ -55,8 +56,9 @@ rank, which is important both for a fair comparison and for the theory.
 
 - **Type-histogram advice and test-and-fallback.** From a count vector $\hat c$ over types
   we build an advice matching $\hat M$ (a maximum matching of $\hat c$ copies) and record its
-  per-type partners. **FollowPrediction** Mimics $\hat M$ on every arrival; **TestAndMatch**
-  (Choo and BEM variants) Mimics a length-$k$ prefix, tests the empirical $\ell_1$ distance
+  per-type partners. **FollowPrediction** *mimics* $\hat M$ — routes every arrival to its
+  type's advice partner; **TestAndMatch** (Choo and BEM variants) *mimics* over a
+  length-$k$ prefix, tests the empirical $\ell_1$ distance
   between the prefix type frequencies and $q=\hat c/\lVert\hat c\rVert_1$ against a threshold
   $\tau$, then continues or falls back to Ranking. We also port the Chłędowski-style dynamic
   **combiner** as a benchmarked baseline (not a contribution).
@@ -91,7 +93,7 @@ existing results. We use **paired trials**: within a comparison, every algorithm
 level reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so
 differences are attributable to the prediction alone. Reported ratios are means over trials
 with 95% normal-approximation confidence intervals. Every figure and table in the thesis is
-regenerated from a fixed seed by a single script (Appendix [REPRO]).
+regenerated from a fixed seed by a single script (Appendix A).
 
 ## 3.6 Fidelity check: reproducing Borodin et al.
 
@@ -138,4 +140,4 @@ later chapters probe in earnest.
 **Verdict.** The harness reproduces the published qualitative findings on both families,
 including the locations of the hard cases and the near-identity of Greedy and Ranking. The
 foundation is trusted; the contributions of Chapters 4–9 are built on it. (Full
-reproduction tables and the paper-claim checklist are in Appendix [REPRO].)
+reproduction tables and the paper-claim checklist are in Appendix A.)

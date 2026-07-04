@@ -16,7 +16,8 @@
 实验的**少类型**设定取 $r\ll n$。
 
 性能度量为**竞争比** $\rho(\mathrm{ALG}) = \mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]$，
-其中 $\mathrm{OPT}$ 是**实现实例**的最大匹配，由 Hopcroft–Karp 精确计算。全文的免预测基线是 KVV
+其中 $\mathrm{OPT}$ 是**实现实例**的最大匹配，由 Hopcroft–Karp [@hopcroftkarp1973] 精确计算。全文的
+免预测基线是 KVV
 Ranking，其比值记为 $\rho_{\mathrm{base}}$（**基线强度**）。
 
 ## 算法

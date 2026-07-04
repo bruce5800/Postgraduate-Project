@@ -52,6 +52,8 @@ rank-training is a property of *engineered* features; realistic lagged-count fea
 co-linear noisy estimates of the same popularity, so regression already recovers the order
 as well as ranking does.
 
+![M3 — the decisive negative on a real trace (Azure LLM): with real arrivals and real temporal features, the rank-trained and MSE-trained predictors are indistinguishable from each other and from the non-learned last-window count, all near the oracle; the engineered order/magnitude divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
+
 **Verdict.** Learning the predictor with a decision-aligned loss does not elevate to a
 standalone contribution: the win requires a feature divergence that does not arise in
 practice, and even where it does the payoff is bounded by the (small) baseline-to-oracle
@@ -86,7 +88,7 @@ almost as good as forecasting it.
 ![Serving SLO probe: on a tight-SLO/tail objective under bursty load, a non-predictive policy (static headroom or reactive-adaptive) matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=75%}
 
 **Verdict.** The tail objective is forgiving too — a third face of the wall, after
-throughput (Chapters 3–7) and predictor-learning (§8.1). We found no natural regime where
+throughput (Chapters 4–7) and predictor-learning (§8.1). We found no natural regime where
 foresight helps, so serving remains a case study. A regime that would break the wall (a
 non-stationary or adversarial objective where the baseline is far from optimal) is exactly
 the kind of setting the thesis brackets as future work.
@@ -102,7 +104,7 @@ with; that the order-error finding is *partially* pre-empted by ACI's Appendix D
 reframed as a tightness/measure characterization rather than a discovery (Chapter 5); and
 that the serving results are largely re-derivations of established systems facts, warranting
 their demotion to a case study (§8.2, Chapter 10). A second, focused prior-art pass on the
-theory confirmed that the impossibility of §Chapter 9 is unoccupied, while flagging the one
+theory confirmed that the impossibility of Chapter 9 is unoccupied, while flagging the one
 risk to defend against (Choo et al.'s constructive baseline-coupling), which shaped the
 information-theoretic framing of the proof.
 

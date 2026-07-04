@@ -21,19 +21,26 @@ $b$-matching rather than $1$-matching); arrivals are requests drawn from a non-u
 bursty traffic distribution over request types; an edge is a capability or cache affinity;
 and **goodput** — the fraction of requests served — is the competitive ratio against the
 $b$-matching optimum. We instantiate this on three real traces (Wikipedia pageviews, an
-Azure LLM inference trace, and the Mooncake prefix-cache trace) and across four serving
-concerns.
+Azure LLM inference trace, and the Mooncake prefix-cache trace [@mooncake2024]) and across
+four serving concerns.
 
-- **Capacity as robustness.** Increasing the capacity $c$ smooths the effect of a bad
-  prediction: a capacity-aware baseline stays safe, while *blindly* trusting a traffic
-  forecast degrades *further* as capacity grows. Capacity is thus a *substitute* for
-  algorithmic robustness — the systems analogue of the robustness-insurance thesis.
-- **Forecasts vs live load.** Under dynamic service times (requests hold a slot for a real
-  duration, released event-by-event), a live-load signal beats a stale traffic forecast — a
-  reactive load balancer outperforms a forecast-following router when the forecast has aged.
-- **Cache-affinity routing.** For prefix-cache-aware routing, a *stable* affinity router
-  beats a reactive one — the reverse of the traffic-forecast case, because cache locality
-  rewards persistence.
+- **Capacity as robustness** (**Figure 10.1**). Increasing the capacity $c$ smooths the
+  effect of a bad prediction: a capacity-aware baseline stays safe, while *blindly* trusting
+  a traffic forecast degrades *further* as capacity grows. Capacity is thus a *substitute*
+  for algorithmic robustness — the systems analogue of the robustness-insurance thesis.
+- **Forecasts vs live load** (**Figure 10.2**). Under dynamic service times (requests hold a
+  slot for a real duration, released event-by-event), a live-load signal beats a stale
+  traffic forecast — a reactive load balancer outperforms a forecast-following router when
+  the forecast has aged.
+- **Cache-affinity routing** (**Figure 10.3**). For prefix-cache-aware routing, a *stable*
+  affinity router beats a reactive one — the reverse of the traffic-forecast case, because
+  cache locality rewards persistence [@preble2024].
+
+![Capacity as robustness: as forecast error grows, blindly following the forecast crashes goodput at both capacities — and *deeper* at ample capacity ($c=8$) — while the adaptive test stays flat at the capacity-aware baseline.](../../results/serving_envelope.png){width=100%}
+
+![Forecasts vs live load (real LLM timestamps and service times): a forecast-free least-loaded balancer is robust at every capacity, while blindly following a stale forecast degrades with its error; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
+
+![The cache-affinity reversal (real Mooncake prefix trace): for KV-cache reuse, a *stable* consistent-hash placement beats reactive routing — the opposite of the load-balancing case — because cache locality rewards persistence.](../../results/prefix_cache_reversal.png){width=80%}
 
 Each of these recovers an established systems result cleanly, demonstrating that the
 framework instantiates the problem faithfully.

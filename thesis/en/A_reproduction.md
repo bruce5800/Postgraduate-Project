@@ -33,17 +33,18 @@ data provenance.
 | Fig 3.1 (ER U-curve) | `scripts/run_er_full.py` | `results/er_full.{json,png}` | ~20 min |
 | Fig 3.2 (left-regular) | `scripts/run_left_regular.py` | `results/left_regular.{json,png}` | ~10 min |
 | **Table 4.1**, Fig 4.1 (unified benchmark) | `scripts/run_unified_benchmark.py` | `results/unified_benchmark.{json,png}`, `unified_benchmark_tables.md` | ~100 s |
+| Fig 4.2 (consistency–robustness plane) | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 s |
 | Fig 5.1 (order-error vs ACI) | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 s |
 | Fig 6.1 (envelope), Fig 6.2 (prefix sweep) | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 min |
-| Recalibration (§6.3) | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 min |
+| Fig 6.3, recalibration (§6.3) | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 min |
 | Fig 7.1 (real predictor) | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 s |
 | Fig 7.2 (six real graphs) | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 s |
 | Fig 8.1 (M0 rank vs MSE) | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 s |
-| Fig 8.2 (M1 when it matters) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
-| Fig 8.3 (M3 real-trace learning) | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
-| Fig 8.4 (serving SLO probe) | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 s |
+| M1 sweep (§8.1, no figure) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
+| Fig 8.2 (M3 real-trace learning) | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
+| Fig 8.3 (serving SLO probe) | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 s |
 | Fig 9.1 (impossibility frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
-| Serving (Ch 10) | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache.png` | varies |
+| Figs 10.1–10.3, serving (Ch 10) | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
 | Real-world Borodin Tables 3/4 (validation) | `scripts/run_realworld.py` | `results/realworld.json` | ~few min |
 
 ## A.3 Reproduction commands
@@ -60,8 +61,10 @@ python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
 python3 scripts/run_impossibility_frontier.py   # Fig 9.1
 python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
-python3 scripts/run_rank_when_it_matters.py     # Fig 8.2
-python3 scripts/run_serving_slo_probe.py        # Fig 8.4
+python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
+python3 scripts/run_rank_real_trace.py          # Fig 8.2
+python3 scripts/run_serving_slo_probe.py        # Fig 8.3
+python3 scripts/run_consistency_robustness.py   # Fig 4.2 (replots Table 4.1)
 
 # the long (max-flow / Hopcroft–Karp-bound) sweeps:
 python3 scripts/run_er_full.py                  # Fig 3.1  (~20 min)
@@ -135,4 +138,4 @@ verified numerically to three decimals by short simulations documented in the pr
 $|s-\tfrac12|=0.3$, the simulated per-cell advantage $\pm0.119$ matches the formula
 $\pm\theta|s-\tfrac12|=\pm0.12$, and the aggregate follow-ratio matches the affine law at
 every advice level. These are sanity checks on the construction, not part of the formal
-proof, whose remaining step is noted in §9.5.
+proof (Appendix B), whose remaining step is noted in §9.5 and §B.7.

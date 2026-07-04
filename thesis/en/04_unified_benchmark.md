@@ -53,7 +53,7 @@ rows:
 |---|---:|---:|---:|---:|
 | *Panel C — few-types $r{=}8$* | | | | |
 | Ranking (floor) | 0.990 | — | — | — |
-| MPD (true degrees) | 0.999 | — | — | — |
+| MinDegree (oracle) | 0.999 | — | — | — |
 | FollowPrediction | 1.000 | 0.832 | 0.679 | **0.472** |
 | TestAndMatch (Choo) | 1.000 | 0.984 | 0.989 | 0.990 |
 | TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
@@ -77,7 +77,12 @@ $0.981\!\to\!0.976$ from perfect to adversarial (Panel A). It cannot crash but c
 upside (never reaching the $0.996$ oracle). *Adaptive* robustness (TestAndMatch): test a
 sublinear prefix, then commit — capturing the upside when advice is good (Choo $1.000$) and
 holding the floor when it is bad ($0.990$). On Panel C it is the only algorithm on the upper
-envelope at both ends. The two mechanisms trade consistency for robustness in opposite ways.
+envelope at both ends. The two mechanisms trade consistency for robustness in opposite ways;
+**Figure 4.2** plots every algorithm on the consistency–robustness plane, where the opposite
+trades — and the empty region beyond TestAndMatch toward the ideal top-right corner — are
+visible at a glance.
+
+![The consistency–robustness plane, one point per algorithm (consistency = ratio under perfect advice; robustness = worst ratio across advice quality; the data of Table 4.1). Dashed lines mark the advice-free floor, dotted the oracle ceiling. Naive followers (MPD, FollowPrediction) buy consistency with robustness; the structural augmentations give up little of either; TestAndMatch sits nearest the ideal top-right corner; the combiner stays pinned at the floor point.](../../results/consistency_robustness.png){width=100%}
 
 **(F3) The consistency upside is small on average-case inputs; the spread lives on the
 bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and

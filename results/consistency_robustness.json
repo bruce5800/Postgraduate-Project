@@ -1,0 +1,75 @@
+[
+  {
+    "graph": "clvb_zipf",
+    "floor": 0.94816830983125,
+    "oracle": 0.9961266251372052,
+    "points": {
+      "MPD": {
+        "robustness": 0.9081782953620323,
+        "consistency": 0.9892535841521575
+      },
+      "Feldman(MPD)": {
+        "robustness": 0.9763926963782908,
+        "consistency": 0.9805983655870495
+      },
+      "JailletLu(MPD)": {
+        "robustness": 0.9739540368062911,
+        "consistency": 0.9765830864478688
+      },
+      "Ranking": {
+        "robustness": 0.94816830983125,
+        "consistency": 0.94816830983125
+      }
+    }
+  },
+  {
+    "graph": "left_regular_d5",
+    "floor": 0.890100057718701,
+    "oracle": 0.9657965901073047,
+    "points": {
+      "MPD": {
+        "robustness": 0.8539459518864096,
+        "consistency": 0.931728911426584
+      },
+      "Feldman(MPD)": {
+        "robustness": 0.8962436218514571,
+        "consistency": 0.9055967894012641
+      },
+      "JailletLu(MPD)": {
+        "robustness": 0.8984013536446233,
+        "consistency": 0.9034019430081385
+      },
+      "Ranking": {
+        "robustness": 0.890100057718701,
+        "consistency": 0.890100057718701
+      }
+    }
+  },
+  {
+    "graph": "few_types (r=8)",
+    "floor": 0.99016,
+    "oracle": 0.9994,
+    "points": {
+      "FollowPrediction": {
+        "robustness": 0.47190999999999994,
+        "consistency": 1.0
+      },
+      "TestAndMatch (Choo)": {
+        "robustness": 0.9838100000000002,
+        "consistency": 1.0
+      },
+      "TestAndMatch (BEM)": {
+        "robustness": 0.96811,
+        "consistency": 0.99783
+      },
+      "Combiner": {
+        "robustness": 0.99016,
+        "consistency": 0.99016
+      },
+      "Ranking": {
+        "robustness": 0.99016,
+        "consistency": 0.99016
+      }
+    }
+  }
+]

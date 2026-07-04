@@ -26,11 +26,11 @@ which consumes a per-resource degree prediction, and a family of *test-and-fallb
 schemes, which test a request-type prediction on a short prefix of arrivals before deciding
 whether to trust it.
 
-These algorithms come with attractive worst-case guarantees, yet a practitioner's
-experience with them is oddly muted: on realistic, average-case workloads the sophisticated
-predictions rarely seem to *help*, while the algorithms' real value seems to be that they do
-not *hurt*. This gap between the worst-case promise and the average-case experience is the
-puzzle that motivates this thesis. The algorithms had, moreover, only ever been studied *in
+These algorithms come with attractive worst-case guarantees, yet — as this thesis
+demonstrates experimentally — their average-case behavior is strikingly muted: on realistic
+workloads the sophisticated predictions rarely *help*, while the algorithms' real value is
+that they do not *hurt*. This gap between the worst-case promise and the average-case
+reality is the puzzle that motivates this thesis. The algorithms had, moreover, only ever been studied *in
 isolation* — each on its own input model, against its own notion of prediction error, and
 largely through theory — so there was no common ground on which to compare them, quantify
 how much a prediction actually buys, or explain the gap. This thesis provides that common

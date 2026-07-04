@@ -45,10 +45,11 @@ faithfully.
 
 ## 6.3 Recalibration, and the resolution limit it exposes
 
-Recalibrating $\tau$ to the *measured* baseline $\hat\beta$ eliminates the pathology: at
-borderline advice the worst-case threshold's misjudgement climbs $0.03\to1.00$ as the prefix
-grows and its ratio drops to $0.920$, while the recalibrated threshold holds misjudgement
-$0.00$ at every prefix and ratio $\approx0.986$. But recalibration exposes a deeper limit.
+Recalibrating $\tau$ to the *measured* baseline $\hat\beta$ eliminates the pathology
+(**Figure 6.3**): at borderline advice the worst-case threshold's misjudgement climbs
+$0.03\to1.00$ as the prefix grows and its ratio drops to $0.920$, while the recalibrated
+threshold holds misjudgement $0.00$ at every prefix and ratio $\approx0.986$. But
+recalibration exposes a deeper limit.
 At perfect advice the worst-case threshold scores $1.000$ while the recalibrated one scores
 only $0.987$: the recalibrated $\tau\approx2(1-\hat\beta)\approx0.028$ is *smaller than the
 empirical-$\ell_1$ estimator's noise floor* ($\approx0.05$–$0.13$), so it can never
@@ -59,6 +60,8 @@ baseline. In short:
 > the consistency upside and stay safe: the upside is tiny and sits *below the estimator's
 > resolution*. The worst-case threshold over-accepts; the recalibrated one over-rejects; a
 > better tester only follows whichever threshold more faithfully.
+
+![Recalibration removes the threshold pathology: at borderline advice the worst-case-calibrated threshold's misjudgement rate climbs toward $1.0$ as the prefix grows, while the threshold recalibrated to the measured baseline holds it at zero — but its acceptance margin then falls below the estimator's noise floor, so it can never confidently accept.](../../results/recalibration_prefix.png){width=80%}
 
 This is exactly the phenomenon Chapter 9 proves unavoidable — there, for *any* test on a
 sublinear prefix, not only the empirical-$\ell_1$ threshold. This chapter is its empirical
@@ -72,7 +75,8 @@ across all advice quality): it never crashes but captures none of the consistenc
 strictly dominated by TestAndMatch. More instructively, an *eager* combiner that switches
 mid-stream reveals a penalty specific to irrevocable problems: with perfect advice, eager
 switching scores $0.927$ — *below both* the pure follower ($1.000$) and the pure baseline
-($0.958$; `tests/test_combiner_small.py`) — because switching from Ranking to Mimic mid-run
+($0.958$; `tests/test_combiner_small.py`) — because switching from Ranking to
+advice-following (*mimic*) mid-run
 lands the committed matching in an *incompatible hybrid*. In an irrevocable problem the
 follow/fallback decision must be made *before* the bulk of the commitments, which is why
 Choo/BEM test a prefix and then *commit* rather than switching dynamically. The dynamic

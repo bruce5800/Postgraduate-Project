@@ -55,8 +55,9 @@ though individual arrivals are not.
 
 A line of work has pushed the worst-case (over type graphs) competitive ratio above the
 $1-1/e$ adversarial barrier: Feldman et al. [@feldman2009online] first beat it ($0.67$) via a
-flow-based *blue/red* decomposition of a suggested matching; Manshadi et al. and Jaillet–Lu
-[@jailletlu2014online] improved the ratio (to $\approx0.702$ and $\approx0.729$ respectively) using
+flow-based *blue/red* decomposition of a suggested matching; Manshadi, Oveis Gharan and
+Saberi [@manshadi2012online] and Jaillet–Lu [@jailletlu2014online] improved the ratio (to
+$\approx0.702$ and $\approx0.729$ respectively) using
 LP-based and list-based online policies; subsequent work refined it further. These are the
 "sophisticated" algorithms whose worst-case optimality motivates their use.
 
@@ -88,7 +89,10 @@ combining the predictor's advice with a safe default so that a bad prediction ca
 catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak, Szabucki
 and Żołna [@chledowski2021caching], introduced in an experimental study of robust learning-augmented
 caching, is one such hedging mechanism; we port and benchmark it (Chapter 6). That paper is
-also the closest methodological template for this thesis's experimental half.
+also the closest methodological template for this thesis's experimental half. Recent
+theoretical work further analyzes how the achievable ratio degrades *continuously* with
+prediction accuracy in a distributionally-robust formulation [@yoshinaga2026accuracy],
+complementing the discrete consistency/robustness endpoints used here.
 
 ## 2.4 Predictions for online bipartite matching
 

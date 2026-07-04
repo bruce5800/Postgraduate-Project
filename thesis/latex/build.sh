@@ -13,10 +13,10 @@ CHAPTERS="01_introduction 02_background 03_model_methodology 04_unified_benchmar
 tmp="$(mktemp -t thesisXXXX).md"
 preprocess() {
   # drop HTML comment blocks; strip "Chapter N."/"Appendix A." from # headings and
-  # "N.M " numeric prefixes from ##/### headings (LaTeX auto-numbers both).
+  # "N.M "/"A.1 " prefixes from ##/### headings (LaTeX auto-numbers both).
   sed -e '/<!--/,/-->/d' "$1" \
     | sed -E 's/^# (Chapter [0-9]+\.|Appendix [A-Z]\.) /# /' \
-    | sed -E 's/^(#{2,3}) [0-9]+(\.[0-9]+)* /\1 /' \
+    | sed -E 's/^(#{2,3}) ([A-Z]\.)?[0-9]+(\.[0-9]+)* /\1 /' \
     | sed -e 's/≈/$\\approx$/g' -e 's/✓/$\\checkmark$/g'
 }
 
@@ -25,9 +25,11 @@ for c in $CHAPTERS; do preprocess "../en/$c.md" >> "$tmp"; printf '\n\n' >> "$tm
 printf '\n\n# References {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
 preprocess "../en/A_reproduction.md" >> "$tmp"
+printf '\n\n' >> "$tmp"
+preprocess "../en/B_proof_details.md" >> "$tmp"
 
 pandoc "$tmp" --metadata-file=meta.yaml -H header.tex \
-  --top-level-division=chapter --toc --toc-depth=1 \
+  --top-level-division=chapter --number-sections --toc --toc-depth=1 \
   --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main.pdf > build.log 2>&1 || {
     echo "pandoc/pdflatex FAILED — tail of build.log:"; tail -30 build.log; rm -f "$tmp"; exit 1; }
