@@ -46,7 +46,7 @@ $\mathrm{OPT}$、置信区间方法、以及免预测地板——正是使各面
 | TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
 | Combiner *（基准）* | 0.990 | 0.990 | 0.990 | 0.990 |
 
-![统一基准：竞争比（均值，95% 置信区间）随预测质量的变化，三个面板。裸跟随者（对抗下的 MPD、FollowPrediction）跌破免预测地板；鲁棒算法则不会。](../../../results/unified_benchmark.png){width=100%}
+![统一基准：竞争比（均值，95% 置信区间）随预测质量的变化，三个面板。裸跟随者（对抗下的 MPD、FollowPrediction）跌破免预测地板；鲁棒算法则不会。](../../results/unified_benchmark.png){width=100%}
 
 ## 四个发现
 

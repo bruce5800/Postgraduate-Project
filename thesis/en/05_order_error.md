@@ -17,7 +17,7 @@ a theorem, and we are explicit about what is prior and what is ours.
 
 ## 5.1 What is already known (ACI)
 
-Aamand, Chen and Indyk [ACI22, Appendix D] prove that on the CLV-B model, MinPredictedDegree's
+Aamand, Chen and Indyk [@aci2022mpd, Appendix D] prove that on the CLV-B model, MinPredictedDegree's
 matching loss relative to the true expected degrees is at most $n-\mathrm{LIS}(p[\mu])$,
 where $p[\mu]$ is the true weights ordered by $\mu$ and $\mathrm{LIS}$ is the longest
 non-decreasing subsequence — a pure *order* quantity. In particular a monotone
@@ -34,7 +34,7 @@ the same instances, three quantities: the actual MPD matching loss, ACI's $n-\ma
 and the normalized Kendall-$\tau$ order error (**Figure 5.1**; $n=1000$, Zipf exponent
 $1.0$, 40 trials).
 
-![Order error governs the loss. (a) The realized MPD loss lies far below ACI's $n-\mathrm{LIS}$ upper bound and $n-\mathrm{LIS}$ saturates. (b) The loss collapses onto the Kendall-$\tau$ order error across all four error models.](../../../results/order_vs_theory.png){width=100%}
+![Order error governs the loss. (a) The realized MPD loss lies far below ACI's $n-\mathrm{LIS}$ upper bound and $n-\mathrm{LIS}$ saturates. (b) The loss collapses onto the Kendall-$\tau$ order error across all four error models.](../../results/order_vs_theory.png){width=100%}
 
 **(i) ACI's $n-\mathrm{LIS}$ bound is correct but very loose.** The realized loss lies far
 below the bound at every point — by roughly $16\times$ (adversarial) to $75\times$

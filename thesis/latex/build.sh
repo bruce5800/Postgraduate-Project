@@ -20,12 +20,15 @@ preprocess() {
     | sed -e 's/≈/$\\approx$/g' -e 's/✓/$\\checkmark$/g'
 }
 
-for c in $CHAPTERS; do preprocess "../$c.md" >> "$tmp"; printf '\n\n' >> "$tmp"; done
+for c in $CHAPTERS; do preprocess "../en/$c.md" >> "$tmp"; printf '\n\n' >> "$tmp"; done
+# References chapter (citeproc fills the #refs div; unnumbered, placed before the appendix):
+printf '\n\n# References {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
-preprocess "../A_reproduction.md" >> "$tmp"
+preprocess "../en/A_reproduction.md" >> "$tmp"
 
 pandoc "$tmp" --metadata-file=meta.yaml -H header.tex \
   --top-level-division=chapter --toc --toc-depth=1 \
+  --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main.pdf > build.log 2>&1 || {
     echo "pandoc/pdflatex FAILED — tail of build.log:"; tail -30 build.log; rm -f "$tmp"; exit 1; }
 rm -f "$tmp"

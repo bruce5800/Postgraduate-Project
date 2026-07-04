@@ -29,7 +29,7 @@ between the algorithm's matching and an offline optimum on the same input.
 The difficulty of the problem depends entirely on the assumed *input model*:
 
 - **Adversarial arrival order.** The requests and their order are chosen by an adversary.
-  The seminal result of Karp, Vazirani and Vazirani [KVV90] is that the randomized
+  The seminal result of Karp, Vazirani and Vazirani [@kvv1990ranking] is that the randomized
   **Ranking** algorithm — fix a uniformly random priority order on the resources and match
   each request to its highest-priority available neighbor — achieves competitive ratio
   $1-1/e\approx0.632$, and that this is optimal for the adversarial model. Deterministic
@@ -54,13 +54,13 @@ recurring request streams — where the population of requests is statistically 
 though individual arrivals are not.
 
 A line of work has pushed the worst-case (over type graphs) competitive ratio above the
-$1-1/e$ adversarial barrier: Feldman et al. [FMMM09] first beat it ($0.67$) via a
+$1-1/e$ adversarial barrier: Feldman et al. [@feldman2009online] first beat it ($0.67$) via a
 flow-based *blue/red* decomposition of a suggested matching; Manshadi et al. and Jaillet–Lu
-[JL14] improved the ratio (to $\approx0.702$ and $\approx0.729$ respectively) using
+[@jailletlu2014online] improved the ratio (to $\approx0.702$ and $\approx0.729$ respectively) using
 LP-based and list-based online policies; subsequent work refined it further. These are the
 "sophisticated" algorithms whose worst-case optimality motivates their use.
 
-Crucially for this thesis, Borodin, Karavasilis and Pankratov [Bor18] conducted an
+Crucially for this thesis, Borodin, Karavasilis and Pankratov [@borodin2018experimental] conducted an
 experimental study of these algorithms and found that on *average-case* i.i.d. instances
 the picture is very different from the worst case: the simple algorithms (Greedy, Ranking)
 perform almost as well as the sophisticated ones, whose advantage is a worst-case, not a
@@ -71,22 +71,22 @@ reproduce a subset of it as validation (Chapter 3).
 ## 2.3 Learning-augmented algorithms
 
 The **algorithms-with-predictions** (or *learning-augmented*) paradigm, surveyed in
-[MV20], equips an online algorithm with a prediction about the unknown input and asks for
+[@mitzenmacher2020algorithms], equips an online algorithm with a prediction about the unknown input and asks for
 two guarantees simultaneously:
 
 - **Consistency:** near-optimal performance when the prediction is accurate;
 - **Robustness:** performance no worse than a prediction-free guarantee when the prediction
   is arbitrarily wrong.
 
-The paradigm was crystallized by Lykouris and Vassilvitskii [LV18] for competitive caching,
+The paradigm was crystallized by Lykouris and Vassilvitskii [@lykouris2018caching] for competitive caching,
 who showed how to interpolate between trusting and ignoring a predictor while bounding both
 consistency and robustness. A large literature followed across ski rental, scheduling,
 and other online problems, including the *optimal* consistency/robustness trade-off
-analyses of Wei and Zhang [WZ20], which establish problem-intrinsic Pareto frontiers
+analyses of Wei and Zhang [@weizhang2020tradeoffs], which establish problem-intrinsic Pareto frontiers
 between the two objectives. A recurring theme is that robustness is obtained by *hedging* —
 combining the predictor's advice with a safe default so that a bad prediction cannot cause
 catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak, Szabucki
-and Żołna [Chl21], introduced in an experimental study of robust learning-augmented
+and Żołna [@chledowski2021caching], introduced in an experimental study of robust learning-augmented
 caching, is one such hedging mechanism; we port and benchmark it (Chapter 6). That paper is
 also the closest methodological template for this thesis's experimental half.
 
@@ -95,7 +95,7 @@ also the closest methodological template for this thesis's experimental half.
 Two strands apply the with-predictions paradigm to online matching, differing in the
 *prediction object* they consume.
 
-**Degree predictions: MinPredictedDegree.** Aamand, Chen and Indyk [ACI22] propose
+**Degree predictions: MinPredictedDegree.** Aamand, Chen and Indyk [@aci2022mpd] propose
 **MinPredictedDegree (MPD)**: given a prediction $\mu$ of each offline resource's degree
 (how contended it will be), match each arrival to its available neighbor of *minimum
 predicted degree* — i.e. protect the resources predicted to be rarest. MPD is robust by
@@ -108,10 +108,10 @@ prediction incurs zero loss.
 
 **Type-histogram advice and test-and-fallback.** A second strand takes the prediction to
 be a *histogram* $\hat c$ over request types (how many of each type will arrive). Choo et
-al. [Choo24] introduce **TestAndMatch**: build a matching from $\hat c$ and Mimic it, but
+al. [@choo2024imperfect] introduce **TestAndMatch**: build a matching from $\hat c$ and Mimic it, but
 first spend a sublinear prefix of arrivals *testing* whether the observed type frequencies
 match $\hat c$ — using an $\ell_1$-distance tester adapted from Jiao, Han and Weissman
-[JHW18] — and fall back to Ranking if they do not. Burathep, Erlebach and Moses [BEM26]
+[@jiao2018l1] — and fall back to Ranking if they do not. Burathep, Erlebach and Moses [@bem2026testmatch]
 generalize this ("Test-and-Match+") to the random-arrival model and to imperfect knowledge
 of the matching size. Both papers give *upper* bounds (algorithms); their only lower bound
 (Choo et al.'s Theorem 3.1) is a generic *adversarial* indistinguishability result (no
@@ -129,14 +129,14 @@ over a support of size $r$ and a known reference $q$, decide how far $p$ is from
 $\ell_1$ (total-variation) distance. Two regimes must be distinguished:
 
 - **Identity (non-tolerant) testing** — distinguish $p=q$ from $\lVert p-q\rVert_1\ge
-  \varepsilon$ — has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [Paninski08, VV17],
+  \varepsilon$ — has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [@paninski2008coincidence; @valiant2017automatic],
   *sublinear* in the support size.
 - **Tolerant testing / distance estimation** — distinguish $\lVert p-q\rVert_1\le
   \varepsilon_1$ from $\ge\varepsilon_2$ for $0<\varepsilon_1<\varepsilon_2$, i.e. estimate
   the distance rather than test equality — is provably *much harder*: Valiant and Valiant
-  [VV11] showed it requires $\Theta(r/\log r)$ samples, *near-linear* in the support.
-  Jiao, Han and Weissman [JHW18] gave matching bounds for $\ell_1$-distance estimation, and
-  Canonne, Jain, Kamath and Li [CJKL22] precisely characterized the whole
+  [@valiant2011unseen] showed it requires $\Theta(r/\log r)$ samples, *near-linear* in the support.
+  Jiao, Han and Weissman [@jiao2018l1] gave matching bounds for $\ell_1$-distance estimation, and
+  Canonne, Jain, Kamath and Li [@canonne2022tolerance] precisely characterized the whole
   $(\varepsilon_1,\varepsilon_2)$ landscape, showing that for constant tolerances the cost
   jumps to the "barely sublinear" $\tilde\Theta(r/\log r)$.
 
@@ -155,7 +155,7 @@ Against this background, three gaps stand out, which the thesis addresses in tur
    isolation, on their own input families and error models, and largely in theory; there is
    no head-to-head experimental benchmark under a common harness. (Chapters 4–7.)
 2. **No empirical study of test-and-fallback.** The distribution test at the heart of
-   [Choo24, BEM26] has no deployable implementation (the authors themselves fall back to an
+   [@choo2024imperfect; @bem2026testmatch] has no deployable implementation (the authors themselves fall back to an
    empirical surrogate), and its testing cost, threshold calibration, and failure modes have
    not been measured. (Chapter 6.)
 3. **No lower bound coupling testability to baseline strength.** No prior work proves that a

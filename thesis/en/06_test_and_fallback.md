@@ -24,7 +24,7 @@ benefit when advice is good and, when advice is bad, its prefix test rejects it 
 back to Ranking, never crashing (BEM $0.998\to0.969$; Choo $1.000\to0.991$). This is the
 adaptive counterpart of the structural robustness of Chapter 4.
 
-![The robustness envelope. As advice error $\ell_1(p,q)$ grows, blind FollowPrediction crashes below the advice-free floor, while TestAndMatch (Choo/BEM) stays on the upper envelope.](../../../results/choo_bem_envelope.png){width=80%}
+![The robustness envelope. As advice error $\ell_1(p,q)$ grows, blind FollowPrediction crashes below the advice-free floor, while TestAndMatch (Choo/BEM) stays on the upper envelope.](../../results/choo_bem_envelope.png){width=80%}
 
 ## 6.2 A threshold that is too lenient on average-case inputs
 
@@ -41,7 +41,7 @@ worst-case threshold deems acceptable — underperforming the baseline. On stron
 inputs the worst-case threshold is too lenient, and a more accurate test only follows it more
 faithfully.
 
-![Testing cost at borderline advice: a larger, more accurate prefix test makes the *worse* decision, because the worst-case-calibrated threshold accepts mildly-bad advice on strong-baseline inputs.](../../../results/choo_bem_prefix.png){width=80%}
+![Testing cost at borderline advice: a larger, more accurate prefix test makes the *worse* decision, because the worst-case-calibrated threshold accepts mildly-bad advice on strong-baseline inputs.](../../results/choo_bem_prefix.png){width=80%}
 
 ## 6.3 Recalibration, and the resolution limit it exposes
 

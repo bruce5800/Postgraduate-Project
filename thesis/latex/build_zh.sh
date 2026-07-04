@@ -23,6 +23,8 @@ for c in $CHAPTERS; do
     preprocess "../zh/$c.md" >> "$tmp"; printf '\n\n' >> "$tmp"; included="$included $c"
   fi
 done
+# References chapter (citeproc fills the #refs div; unnumbered, placed before the appendix):
+printf '\n\n# 参考文献 {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 if [ -f "../zh/A_reproduction.md" ]; then
   printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
   preprocess "../zh/A_reproduction.md" >> "$tmp"; included="$included A"
@@ -31,6 +33,7 @@ echo "chapters included:$included"
 
 pandoc "$tmp" --metadata-file=meta_zh.yaml -H header.tex \
   --top-level-division=chapter --toc --toc-depth=1 \
+  --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main_zh.pdf > build_zh.log 2>&1 || {
     echo "FAILED — tail of build_zh.log:"; tail -30 build_zh.log; rm -f "$tmp"; exit 1; }
 rm -f "$tmp"

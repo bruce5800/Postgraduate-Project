@@ -15,7 +15,7 @@ FollowPrediction 从完美建议的 $1.000$ **线性**退化到 $\ell_1\!\approx
 它并回退到 Ranking，从不崩溃（BEM $0.998\to0.969$；Choo $1.000\to0.991$）。这是第4章结构式鲁棒的
 自适应对应物。
 
-![鲁棒性包络。随建议误差 $\ell_1(p,q)$ 增大，盲从的 FollowPrediction 跌破免预测地板，而 TestAndMatch (Choo/BEM) 稳在上包络。](../../../results/choo_bem_envelope.png){width=80%}
+![鲁棒性包络。随建议误差 $\ell_1(p,q)$ 增大，盲从的 FollowPrediction 跌破免预测地板，而 TestAndMatch (Choo/BEM) 稳在上包络。](../../results/choo_bem_envelope.png){width=80%}
 
 ## 一个在平均情况输入上过于宽松的阈值
 
@@ -27,7 +27,7 @@ $\ell_1\approx0$，远低于 $\tau$。一个小而含噪的前缀高估 $\ell_1$
 地板上）；一个大而准确的前缀正确测得 $\ell_1\approx0.16<\tau$，从而**接受**了最坏情况阈值判定为可接受
 的轻度坏建议——表现低于基线。在强基线输入上最坏情况阈值过于宽松，而更准确的检验只是更忠实地跟随它。
 
-![边界建议下的检验代价：一个更大、更准确的前缀检验反而做出更差的决策，因为最坏情况校准的阈值在强基线输入上接受了轻度坏建议。](../../../results/choo_bem_prefix.png){width=80%}
+![边界建议下的检验代价：一个更大、更准确的前缀检验反而做出更差的决策，因为最坏情况校准的阈值在强基线输入上接受了轻度坏建议。](../../results/choo_bem_prefix.png){width=80%}
 
 ## 重校准，及其暴露的分辨率极限
 

@@ -33,7 +33,7 @@ left), the *potential* upside — how much perfect advice beats the baseline —
 upside a sublinear test can *safely capture* stays pinned near zero. The gap between the two
 curves is the impossibility.
 
-![The impossibility, numerically (the "scissors"). Left: the *potential* upside grows as the baseline weakens, but the upside a sublinear test can *safely capture* stays near zero. Right: the test's empirical-$\ell_1$ resolution sits far above the break-even margin wherever an upside exists.](../../../results/impossibility_frontier.png){width=100%}
+![The impossibility, numerically (the "scissors"). Left: the *potential* upside grows as the baseline weakens, but the upside a sublinear test can *safely capture* stays near zero. Right: the test's empirical-$\ell_1$ resolution sits far above the break-even margin wherever an upside exists.](../../results/impossibility_frontier.png){width=100%}
 
 ## 9.2 The intuition: testability and baseline strength are the same knob
 
@@ -82,7 +82,7 @@ ingredient is a known and, at first, surprising fact from distribution testing. 
 that a distribution equals a known one needs only $\Theta(\sqrt r)$ samples — sublinear in
 the number of types $r$. But *tolerant* testing — distinguishing "somewhat close" from
 "somewhat far," which is what safe advice-use requires — needs $\tilde\Theta(r/\log r)$
-samples, nearly *linear* in $r$ [CJKL22, VV11]. Our construction has $r=\Theta(n)$ types, so
+samples, nearly *linear* in $r$ [@canonne2022tolerance; @valiant2011unseen]. Our construction has $r=\Theta(n)$ types, so
 the test needs $\tilde\Theta(n/\log n)$ samples — more than any sublinear prefix provides.
 The good-advice side is genuinely a *ball* around the truth (not a single point), which is
 what places the problem in the hard tolerant regime rather than the easy $\sqrt r$ one. A

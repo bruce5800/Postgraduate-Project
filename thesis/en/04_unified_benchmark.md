@@ -59,7 +59,7 @@ rows:
 | TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
 | Combiner *(benchmark)* | 0.990 | 0.990 | 0.990 | 0.990 |
 
-![The unified benchmark: competitive ratio (mean, 95% CI) versus prediction quality, for the three panels. Naive followers (MPD under adversarial, FollowPrediction) dip below the advice-free floor; the robust algorithms do not.](../../../results/unified_benchmark.png){width=100%}
+![The unified benchmark: competitive ratio (mean, 95% CI) versus prediction quality, for the three panels. Naive followers (MPD under adversarial, FollowPrediction) dip below the advice-free floor; the robust algorithms do not.](../../results/unified_benchmark.png){width=100%}
 
 ## 4.2 Four findings
 

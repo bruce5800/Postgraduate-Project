@@ -96,7 +96,7 @@ regenerated from a fixed seed by a single script (Appendix [REPRO]).
 ## 3.6 Fidelity check: reproducing Borodin et al.
 
 Before building prediction-based algorithms on the harness, we validated it against the
-published experimental study of Borodin, Karavasilis and Pankratov [Bor18]. This is a
+published experimental study of Borodin, Karavasilis and Pankratov [@borodin2018experimental]. This is a
 **fidelity check, not a contribution**: its purpose is to confirm that the generators, the
 i.i.d. sampler, the Hopcroft–Karp optimum, and the algorithm implementations reproduce the
 paper's qualitative findings, so that later differences can be attributed to the algorithms
@@ -117,14 +117,14 @@ reason), and the non-greedy variants degrade monotonically as $c$ grows ($0.987\
 Feldman, $0.985\to0.764$ for Jaillet–Lu). Every one of the paper's five prose claims we
 checked holds.
 
-![Erdős–Rényi reproduction (competitive ratio vs edge density $c$): the characteristic U-shape, greedy minima near $c\approx4.9$, and non-greedy degradation as $c$ grows.](../../../results/er_full.png){width=85%}
+![Erdős–Rényi reproduction (competitive ratio vs edge density $c$): the characteristic U-shape, greedy minima near $c\approx4.9$, and non-greedy degradation as $c$ grows.](../../results/er_full.png){width=85%}
 
 **Random left-regular (left-degree $d$; the paper's Fig. 18, partial).** The pattern
 repeats with the hard case at $d=5$ (SimpleGreedy minimum $0.890$), Ranking $\approx$
 SimpleGreedy (max difference $0.005$), non-greedy degradation as $d$ grows, and greedy
 complex variants $\approx$ SimpleGreedy asymptotically.
 
-![Random left-regular reproduction (competitive ratio vs left-degree $d$): the hard case at $d=5$, Greedy $\approx$ Ranking, non-greedy degradation.](../../../results/left_regular.png){width=85%}
+![Random left-regular reproduction (competitive ratio vs left-degree $d$): the hard case at $d=5$, Greedy $\approx$ Ranking, non-greedy degradation.](../../results/left_regular.png){width=85%}
 
 **A cross-family observation.** Combining the two sweeps surfaces a non-obvious fact: the
 non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in
