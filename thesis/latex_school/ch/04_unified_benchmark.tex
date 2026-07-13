@@ -38,23 +38,9 @@ Confidence intervals are tight throughout (\(\pm0.001\)--\(0.003\)).
 salient rows:
 
 { % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1579}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\begin{longtable}[]{@{}lrrrr@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-perfect
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-noisy
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-adversarial
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-garbage
-\end{minipage} \\
+& perfect & noisy & adversarial & garbage \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -65,14 +51,16 @@ MinDegree (oracle) & 0.996 & --- & --- & --- \\
 MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
 Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
 JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
-Feldman / JailletLu (base) & 0.887 / 0.901 & --- & --- & --- \\
+Feldman (base) & 0.887 & --- & --- & --- \\
+JailletLu (base) & 0.901 & --- & --- & --- \\
 \emph{Panel B --- left-regular \(d{=}5\)} & & & & \\
 Greedy = Ranking (floor) & 0.890 & --- & --- & --- \\
 MinDegree (oracle) & 0.966 & --- & --- & --- \\
 MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
-Feldman(MPD) / JailletLu(MPD) & 0.906 / 0.903 & 0.903 / 0.902 & 0.896 /
-0.898 & 0.900 / 0.901 \\
-Feldman / JailletLu (base) & 0.758 / 0.789 & --- & --- & --- \\
+Feldman(MPD) & 0.906 & 0.903 & 0.896 & 0.900 \\
+JailletLu(MPD) & 0.903 & 0.902 & 0.898 & 0.901 \\
+Feldman (base) & 0.758 & --- & --- & --- \\
+JailletLu (base) & 0.789 & --- & --- & --- \\
 \end{longtable}
 }
 

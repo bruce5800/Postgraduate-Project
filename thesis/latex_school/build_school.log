@@ -233,18 +233,14 @@ chapter 3.
 chapter 4.
 
 [17]
-Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
 
-Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
-[]|\T1/lmr/m/n/10.95 (-20) JailletLu(MPD)|  
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.1 on input line 64.
 
-Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
 [18]
-[19]
-[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
-[21 <../../results/consistency_robustness.png>]
+[19 <../../results/unified_benchmark.png>]
+[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
+[21]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -449,6 +445,10 @@ chapter without number
 
 [68]
 [69]
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+
 [70] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
@@ -465,7 +465,7 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2410006 bytes).
+Output written on thesis.pdf (81 pages, 2409749 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -475,8 +475,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'refs_clean.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'refs_clean.bib'
-INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
 INFO - No sort tailoring available for locale 'en-US'
 INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
@@ -715,19 +715,10 @@ chapter 3.
 [16 <../../results/left_regular.png>]
 chapter 4.
 
-[17]
-Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
-
-Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
-[]|\T1/lmr/m/n/10.95 (-20) JailletLu(MPD)|  
-
-Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
-[18]
-[19]
-[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
-[21 <../../results/consistency_robustness.png>]
+[17] [18]
+[19 <../../results/unified_benchmark.png>]
+[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
+[21]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -948,7 +939,7 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2410008 bytes).
+Output written on thesis.pdf (81 pages, 2409745 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1184,19 +1175,10 @@ chapter 3.
 [16 <../../results/left_regular.png>]
 chapter 4.
 
-[17]
-Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
-
-Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
-[]|\T1/lmr/m/n/10.95 (-20) JailletLu(MPD)|  
-
-Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
-[18]
-[19]
-[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
-[21 <../../results/consistency_robustness.png>]
+[17] [18]
+[19 <../../results/unified_benchmark.png>]
+[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
+[21]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -1417,5 +1399,5 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2410008 bytes).
+Output written on thesis.pdf (81 pages, 2409745 bytes).
 Transcript written on thesis.log.

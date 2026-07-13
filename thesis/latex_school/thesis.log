@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  13 JUL 2026 22:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1451,42 +1451,27 @@ chapter 4.
 [17
 
 
-]
-Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
- []
-
-
-Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
-[]|\T1/lmr/m/n/10.95 (-20) JailletLu(MPD)|  
- []
-
-
-Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
-[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
- []
-
-[18]
-<../../results/unified_benchmark.png, id=417, 1364.6985pt x 399.29175pt>
+] [18]
+<../../results/unified_benchmark.png, id=418, 1364.6985pt x 399.29175pt>
 File: ../../results/unified_benchmark.png Graphic file (type png)
 <use ../../results/unified_benchmark.png>
 Package pdftex.def Info: ../../results/unified_benchmark.png  used on input lin
-e 99.
+e 87.
 (pdftex.def)             Requested size: 418.24191pt x 122.37175pt.
 
 
-[19]
-<../../results/consistency_robustness.png, id=423, 1127.412pt x 332.442pt>
+[19 <../../results/unified_benchmark.png>]
+<../../results/consistency_robustness.png, id=424, 1127.412pt x 332.442pt>
 File: ../../results/consistency_robustness.png Graphic file (type png)
 <use ../../results/consistency_robustness.png>
 Package pdftex.def Info: ../../results/consistency_robustness.png  used on inpu
-t line 134.
+t line 122.
 (pdftex.def)             Requested size: 418.2541pt x 123.33133pt.
 
 
-[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
+[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
 
-[21 <../../results/consistency_robustness.png>]
+[21]
 chapter 5.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 6.
@@ -1965,7 +1950,7 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 Here is how much of TeX's memory you used:
  32945 strings out of 474654
  668918 string characters out of 5750568
- 1676644 words of memory out of 5000000
+ 1674644 words of memory out of 5000000
  54973 multiletter control sequences out of 15000+600000
  648225 words of font info for 269 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -1985,7 +1970,7 @@ c/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/l
 mtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/
 symbols/msam10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2410008 bytes).
+Output written on thesis.pdf (81 pages, 2409745 bytes).
 PDF statistics:
  1041 PDF objects out of 1200 (max. 8388607)
  880 compressed objects within 9 object streams

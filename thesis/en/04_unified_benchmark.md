@@ -41,13 +41,16 @@ rows:
 | MPD | 0.989 | 0.956 | **0.908** | 0.946 |
 | Feldman(MPD) | 0.981 | 0.979 | 0.976 | 0.978 |
 | JailletLu(MPD) | 0.977 | 0.976 | 0.974 | 0.975 |
-| Feldman / JailletLu (base) | 0.887 / 0.901 | — | — | — |
+| Feldman (base) | 0.887 | — | — | — |
+| JailletLu (base) | 0.901 | — | — | — |
 | *Panel B — left-regular $d{=}5$* | | | | |
 | Greedy = Ranking (floor) | 0.890 | — | — | — |
 | MinDegree (oracle) | 0.966 | — | — | — |
 | MPD | 0.932 | 0.906 | **0.854** | 0.888 |
-| Feldman(MPD) / JailletLu(MPD) | 0.906 / 0.903 | 0.903 / 0.902 | 0.896 / 0.898 | 0.900 / 0.901 |
-| Feldman / JailletLu (base) | 0.758 / 0.789 | — | — | — |
+| Feldman(MPD) | 0.906 | 0.903 | 0.896 | 0.900 |
+| JailletLu(MPD) | 0.903 | 0.902 | 0.898 | 0.901 |
+| Feldman (base) | 0.758 | — | — | — |
+| JailletLu (base) | 0.789 | — | — | — |
 
 | | perfect | mild | bad | garbage |
 |---|---:|---:|---:|---:|
