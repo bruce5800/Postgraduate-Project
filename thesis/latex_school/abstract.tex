@@ -1,0 +1,23 @@
+Learning-augmented (``with-predictions'') algorithms for online
+bipartite matching have proliferated: MinPredictedDegree consumes a
+per-node degree predictor, and a family of test-and-fallback schemes
+tests a type-histogram prediction on a sublinear prefix of the arrivals
+before committing to follow it or to fall back on an advice-free
+baseline. These algorithms have been analyzed in isolation. We give the
+first unified experimental study, placing all of them on a single
+harness with a common structured prediction-error model, a common
+optimum, and confidence intervals, across synthetic graphs, six
+real-world graphs, and real request traces. Our central finding is that
+on average-case inputs the value of predictions is robustness insurance,
+not a performance lever: the advice-free baseline is already
+near-optimal, so the consistency upside of good advice is small, whereas
+unguarded prediction-following can crash far below the baseline, and the
+practical worth of the sophisticated algorithms is that they never do.
+We then prove this wall is necessary: no test-and-fallback algorithm
+whose test inspects only a sublinear prefix can be both consistent and
+robust on strong-baseline instances, because the structure that makes
+the prefix distribution-test feasible is the structure that makes the
+baseline near-optimal. The proof reduces safe advice-use to tolerant
+distribution testing and invokes its near-linear sample-complexity
+barrier. Experiments and theory together deliver one message: where you
+can test the advice, you do not need it.

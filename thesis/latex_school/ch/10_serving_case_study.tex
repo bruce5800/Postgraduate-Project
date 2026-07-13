@@ -1,0 +1,105 @@
+\chapter{Application Case Study: AI-Inference
+Serving}
+
+The thesis's abstraction is not confined to classical matching markets;
+it instantiates a contemporary systems problem. This chapter casts
+request routing in an AI-inference serving system as online matching and
+shows the framework recovers the field's established results. It is
+presented, deliberately, as a \textbf{case study, not a novelty claim}
+--- the systems facts below are known, and the with-predictions
+vocabulary is a re-labeling of them (a decision justified by the
+literature review of Chapter 8 and the negative probe summarized in
+§10.2).
+
+\section{The serving instantiation}
+
+We map serving to online \(b\)-matching: the offline resources are model
+replicas or cache shards, each with a \textbf{capacity} \(c\) (it can
+serve up to \(c\) concurrent requests, hence \(b\)-matching rather than
+\(1\)-matching); arrivals are requests drawn from a non-uniform, bursty
+traffic distribution over request types; an edge is a capability or
+cache affinity; and \textbf{goodput} --- the fraction of requests served
+--- is the competitive ratio against the \(b\)-matching optimum. We
+instantiate this on three real traces (Wikipedia pageviews, an Azure LLM
+inference trace, and the Mooncake prefix-cache trace
+\autocite{mooncake2024}) and across four serving concerns.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Capacity as robustness} (\textbf{Figure 10.1}). Increasing the
+  capacity \(c\) smooths the effect of a bad prediction: a
+  capacity-aware baseline stays safe, while \emph{blindly} trusting a
+  traffic forecast degrades \emph{further} as capacity grows. Capacity
+  is thus a \emph{substitute} for algorithmic robustness --- the systems
+  analogue of the robustness-insurance thesis.
+\item
+  \textbf{Forecasts vs live load} (\textbf{Figure 10.2}). Under dynamic
+  service times (requests hold a slot for a real duration, released
+  event-by-event), a live-load signal beats a stale traffic forecast ---
+  a reactive load balancer outperforms a forecast-following router when
+  the forecast has aged.
+\item
+  \textbf{Cache-affinity routing} (\textbf{Figure 10.3}). For
+  prefix-cache-aware routing, a \emph{stable} affinity router beats a
+  reactive one --- the reverse of the traffic-forecast case, because
+  cache locality rewards persistence \autocite{preble2024}.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: as forecast error grows, blindly following the forecast crashes goodput at both capacities --- and deeper at ample capacity (c=8) --- while the adaptive test stays flat at the capacity-aware baseline.}]{../../results/serving_envelope.png}
+\caption{Capacity as robustness: as forecast error grows, blindly
+following the forecast crashes goodput at both capacities --- and
+\emph{deeper} at ample capacity (\(c=8\)) --- while the adaptive test
+stays flat at the capacity-aware baseline.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Forecasts vs live load (real LLM timestamps and service times): a forecast-free least-loaded balancer is robust at every capacity, while blindly following a stale forecast degrades with its error; an adaptive test recovers most of the gap.}]{../../results/serving_dynamic.png}
+\caption{Forecasts vs live load (real LLM timestamps and service times):
+a forecast-free least-loaded balancer is robust at every capacity, while
+blindly following a stale forecast degrades with its error; an adaptive
+test recovers most of the gap.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The cache-affinity reversal (real Mooncake prefix trace): for KV-cache reuse, a stable consistent-hash placement beats reactive routing --- the opposite of the load-balancing case --- because cache locality rewards persistence.}]{../../results/prefix_cache_reversal.png}
+\caption{The cache-affinity reversal (real Mooncake prefix trace): for
+KV-cache reuse, a \emph{stable} consistent-hash placement beats reactive
+routing --- the opposite of the load-balancing case --- because cache
+locality rewards persistence.}
+\end{figure}
+
+Each of these recovers an established systems result cleanly,
+demonstrating that the framework instantiates the problem faithfully.
+
+\section{A probe for a genuinely new result, and its
+negative}
+
+Because the literature suggested the with-predictions lens might yield a
+\emph{new} actionable serving result on a tail objective, we probed it
+(the full account is in Chapter 8). On an SLO/tail objective ---
+protecting a tight-SLO class of requests under bursty load --- a
+non-predictive policy (static headroom, or a reactive-adaptive
+reservation based on observed load) matches a clairvoyant oracle to
+within \(\le 3\%\) across every regime swept; a trivial static
+reservation of one slot even beats the oracle in the moderate regime.
+Two reasons, both robust: protecting a tight-SLO minority needs only a
+small static headroom, no forecast; and bursts are persistent enough
+that reacting to observed load is nearly as good as forecasting it. The
+tail objective is forgiving too --- a third face of the thesis's wall,
+after throughput (Chapters 4--7) and predictor-learning (Chapter 8). We
+found no natural regime where foresight helps, so serving remains a case
+study.
+
+\section{Chapter summary}
+
+The serving instantiation shows the framework reaches a live systems
+problem and recovers its established results --- capacity as a
+robustness substitute, live load over stale forecasts, stability for
+cache locality --- and that even a tail objective does not open a
+genuine with-predictions win. The application is a faithful case study
+of the thesis, not an independent contribution.

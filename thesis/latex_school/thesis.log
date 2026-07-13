@@ -1,0 +1,2051 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  13 JUL 2026 21:49
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**thesis.tex
+(./thesis.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(./uob-thesis.cls
+Document Class: uob-thesis 2023/05/15 University of Bristol thesis template
+(/Users/lizhuolun/Library/texmf/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
+
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkeyval.tex
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
+\XKV@tempb@toks=\toks19
+
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count196
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
+ef
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count197
+\l__pdf_internal_box=\box52
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+\@uobtwoside=\toks20
+\@uobbiblio=\toks21
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrbook.cls
+Document Class: scrbook 2024/10/24 v3.43 KOMA-Script document class (book)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2024/10/24 v3.43 KOMA-Script package (file load hooks)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrlfile-hook.st
+y
+Package: scrlfile-hook 2024/10/24 v3.43 KOMA-Script package (using LaTeX hooks)
+
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2024/10/24 v3.43 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 370.
+)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2024/10/24 v3.43 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip49
+\scr@dte@tocline@numbox=\box53
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 137.
+Class scrbook Info: File `scrsize11pt.clo' used to setup font sizes on input li
+ne 2716.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
+File: scrsize11pt.clo 2024/10/24 v3.43 KOMA-Script font size class option (11pt
+)
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2024/10/24 v3.43 KOMA-Script package (type area)
+\ta@bcor=\skip50
+\ta@div=\count198
+\ta@hblk=\skip51
+\ta@vblk=\skip52
+\ta@temp=\skip53
+\footheight=\skip54
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+802.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1802.
+)
+\c@part=\count199
+\c@chapter=\count266
+\c@section=\count267
+\c@subsection=\count268
+\c@subsubsection=\count269
+\c@paragraph=\count270
+\c@subparagraph=\count271
+\scr@dte@chapter@maxnumwidth=\skip55
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\chapter on input line 6016.
+\scr@dte@section@maxnumwidth=\skip56
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\section on input line 6027.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\section on input line 6027.
+\scr@dte@part@maxnumwidth=\skip57
+Class scrbook Info: using compatibility default `afterindent=true'
+(scrbook)           for `\part on input line 6036.
+\scr@dte@subsection@maxnumwidth=\skip58
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsection on input line 6046.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsection on input line 6046.
+\scr@dte@subsubsection@maxnumwidth=\skip59
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsubsection on input line 6056.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsubsection on input line 6056.
+\scr@dte@paragraph@maxnumwidth=\skip60
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\paragraph on input line 6067.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\paragraph on input line 6067.
+\scr@dte@subparagraph@maxnumwidth=\skip61
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subparagraph on input line 6077.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subparagraph on input line 6077.
+\abovecaptionskip=\skip62
+\belowcaptionskip=\skip63
+\c@pti@nb@sid@b@x=\box54
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 7271.
+\scr@dte@figure@maxnumwidth=\skip64
+\c@figure=\count272
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 7288.
+\scr@dte@table@maxnumwidth=\skip65
+\c@table=\count273
+Class scrbook Info: Redefining `\numberline' on input line 7459.
+\bibindent=\dimen141
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrlayer-scrpage
+.sty
+Package: scrlayer-scrpage 2024/10/24 v3.43 KOMA-Script package (end user interf
+ace for scrlayer)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/koma-script/scrlayer.sty
+Package: scrlayer 2024/10/24 v3.43 KOMA-Script package (defining layers and pag
+e styles)
+Package scrlayer Info: patching LaTeX kernel macro \pagestyle on input line 218
+2.
+)
+Package scrlayer-scrpage Info: Makeing stand-alone element `pagehead' from
+(scrlayer-scrpage)             alias to `pageheadfoot' on input line 1106.
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+6.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+
+(/Users/lizhuolun/Library/texmf/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count274
+)
+\MT@toks=\toks22
+\MT@tempbox=\box55
+\MT@count=\count275
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks23
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen142
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count276
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-pdftex.d
+ef
+File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip66
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+)
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 541.40024pt
+(typearea)              \topmargin      = 12.2347pt
+(typearea)              \headheight     = 25.5pt
+(typearea)              \headsep        = 30.6pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 71.40001pt
+(typearea)              \baselineskip   = 20.40001pt
+(typearea)              on input line 62.
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 541.40024pt
+(typearea)              \topmargin      = 12.2347pt
+(typearea)              \headheight     = 25.5pt
+(typearea)              \headsep        = 30.6pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 71.40001pt
+(typearea)              \baselineskip   = 20.40001pt
+(typearea)              on input line 70.
+ (/Users/lizhuolun/Library/texmf/tex/latex/datetime2/datetime2.sty
+Package: datetime2 2021/03/21 v1.5.7 (NLCT) date and time formats
+
+(/Users/lizhuolun/Library/texmf/tex/latex/tracklang/tracklang.sty
+Package: tracklang 2025/03/11 v1.6.6 (NLCT) Track Languages
+
+(/Users/lizhuolun/Library/texmf/tex/generic/tracklang/tracklang.tex))
+Package tracklang Info: Tracking dialect `british' (language `english') on inpu
+t line 217.
+
+
+Package datetime2 Warning: Date-Time Language Module `british' not installed on
+ input line 1913.
+
+)
+
+Package datetime2 Warning: Region `en-GB' has ignored 
+(datetime2)                the following settings:
+(datetime2)                ord=omit
+ on input line 75.
+
+(./bristol-colours.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip67
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen143
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen144
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count277
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count278
+\leftroot@=\count279
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count280
+\DOTSCASE@=\count281
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen145
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count282
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count283
+\dotsspace@=\muskip17
+\c@parentequation=\count284
+\dspbrk@lvl=\count285
+\tag@help=\toks25
+\row@=\count286
+\column@=\count287
+\maxfields@=\count288
+\andhelp@=\toks26
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks27
+\multlinegap=\skip68
+\multlinetaggap=\skip69
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks29
+\thm@bodyfont=\toks30
+\thm@headfont=\toks31
+\thm@notefont=\toks32
+\thm@headpunct=\toks33
+\thm@preskip=\skip70
+\thm@postskip=\skip71
+\thm@headsep=\skip72
+\dth@everypar=\toks34
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/xpatch/xpatch.sty
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+)
+Class scrbook Info: amsthm's \deferred@thm@head patched.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\enitkv@toks@=\toks35
+\labelindent=\skip73
+\enit@outerparindent=\dimen152
+\enit@toks=\toks36
+\enit@inbox=\box58
+\enit@count@id=\count289
+\enitdp@description=\count290
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen153
+\ar@mcellbox=\box59
+\extrarowheight=\dimen154
+\NC@list=\toks37
+\extratabsurround=\skip74
+\backup@length=\skip75
+\ar@cellbox=\box60
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count291
+\calc@Bcount=\count292
+\calc@Adimen=\dimen155
+\calc@Bdimen=\dimen156
+\calc@Askip=\skip76
+\calc@Bskip=\skip77
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count293
+\calc@Cskip=\skip78
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count294
+\l_MT_multwidth_dim=\dimen157
+\origjot=\skip79
+\l_MT_shortvdotswithinadjustabove_dim=\dimen158
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen159
+\l_MT_above_intertext_sep=\dimen160
+\l_MT_below_intertext_sep=\dimen161
+\l_MT_above_shortintertext_sep=\dimen162
+\l_MT_below_shortintertext_sep=\dimen163
+\xmathstrut@box=\box61
+\xmathstrut@dim=\dimen164
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thmtools.sty
+Package: thmtools 2023/05/04 v0.76
+\thmt@toks=\toks38
+\c@thmt@dummyctr=\count295
+
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-patch.sty
+Package: thm-patch 2023/05/04 v0.76
+
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/parseargs.sty
+Package: parseargs 2023/05/04 v0.76
+\@parsespec=\toks39
+))
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-kv.sty
+Package: thm-kv 2023/05/04 v0.76
+Package thm-kv Info: Theorem names will be uppercased on input line 42.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+Package thm-kv Info: kvsetkeys patch (v1.16 or later) on input line 158.
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-autoref.sty
+Package: thm-autoref 2023/05/04 v0.76
+
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/aliasctr.sty
+Package: aliasctr 2023/05/04 v0.76
+))
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-listof.sty
+Package: thm-listof 2023/05/04 v0.76
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-restate.sty
+Package: thm-restate 2023/05/04 v0.76
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/thmtools/thm-amsthm.sty
+Package: thm-amsthm 2023/05/04 v0.76
+\thmt@style@headstyle=\toks40
+))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count296
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen165
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count299
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `pdfusetitle' set `true' on input line 4040.
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count300
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen166
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count301
+\Field@Width=\dimen167
+\Fld@charsize=\dimen168
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count302
+\c@Item=\count303
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count304
+\c@bookmark@seq@number=\count305
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip80
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 100.
+Package hyperref Info: Option `colorlinks' set `true' on input line 100.
+ (/Users/lizhuolun/Library/texmf/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7836.
+Package cleveref Info: include cross-reference names in hyperlinks on input lin
+e 7852.
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
+
+(/Users/lizhuolun/Library/texmf/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count306
+
+(/Users/lizhuolun/Library/texmf/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count307
+\c@listtotal=\count308
+\c@listcount=\count309
+\c@liststart=\count310
+\c@liststop=\count311
+\c@citecount=\count312
+\c@citetotal=\count313
+\c@multicitecount=\count314
+\c@multicitetotal=\count315
+\c@instcount=\count316
+\c@maxnames=\count317
+\c@minnames=\count318
+\c@maxitems=\count319
+\c@minitems=\count320
+\c@citecounter=\count321
+\c@maxcitecounter=\count322
+\c@savedcitecounter=\count323
+\c@uniquelist=\count324
+\c@uniquename=\count325
+\c@refsection=\count326
+\c@refsegment=\count327
+\c@maxextratitle=\count328
+\c@maxextratitleyear=\count329
+\c@maxextraname=\count330
+\c@maxextradate=\count331
+\c@maxextraalpha=\count332
+\c@abbrvpenalty=\count333
+\c@highnamepenalty=\count334
+\c@lownamepenalty=\count335
+\c@maxparens=\count336
+\c@parenlevel=\count337
+\blx@tempcnta=\count338
+\blx@tempcntb=\count339
+\blx@tempcntc=\count340
+\c@blx@maxsection=\count341
+\blx@maxsegment@0=\count342
+\blx@notetype=\count343
+\blx@parenlevel@text=\count344
+\blx@parenlevel@foot=\count345
+\blx@sectionciteorder@0=\count346
+\blx@sectionciteorderinternal@0=\count347
+\blx@entrysetcounter=\count348
+\blx@biblioinstance=\count349
+\labelnumberwidth=\skip81
+\labelalphawidth=\skip82
+\biblabelsep=\skip83
+\bibitemsep=\skip84
+\bibnamesep=\skip85
+\bibinitsep=\skip86
+\bibparsep=\skip87
+\bibhang=\skip88
+\blx@bcfin=\read2
+\blx@bcfout=\write3
+\blx@langwohyphens=\language24
+\c@mincomprange=\count350
+\c@maxcomprange=\count351
+\c@mincompwidth=\count352
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'acmnumeric.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count353
+\c@savedafterword=\count354
+\c@annotator=\count355
+\c@savedannotator=\count356
+\c@author=\count357
+\c@savedauthor=\count358
+\c@bookauthor=\count359
+\c@savedbookauthor=\count360
+\c@commentator=\count361
+\c@savedcommentator=\count362
+\c@editor=\count363
+\c@savededitor=\count364
+\c@editora=\count365
+\c@savededitora=\count366
+\c@editorb=\count367
+\c@savededitorb=\count368
+\c@editorc=\count369
+\c@savededitorc=\count370
+\c@foreword=\count371
+\c@savedforeword=\count372
+\c@holder=\count373
+\c@savedholder=\count374
+\c@introduction=\count375
+\c@savedintroduction=\count376
+\c@namea=\count377
+\c@savednamea=\count378
+\c@nameb=\count379
+\c@savednameb=\count380
+\c@namec=\count381
+\c@savednamec=\count382
+\c@translator=\count383
+\c@savedtranslator=\count384
+\c@shortauthor=\count385
+\c@savedshortauthor=\count386
+\c@shorteditor=\count387
+\c@savedshorteditor=\count388
+\c@labelname=\count389
+\c@savedlabelname=\count390
+\c@institution=\count391
+\c@savedinstitution=\count392
+\c@lista=\count393
+\c@savedlista=\count394
+\c@listb=\count395
+\c@savedlistb=\count396
+\c@listc=\count397
+\c@savedlistc=\count398
+\c@listd=\count399
+\c@savedlistd=\count400
+\c@liste=\count401
+\c@savedliste=\count402
+\c@listf=\count403
+\c@savedlistf=\count404
+\c@location=\count405
+\c@savedlocation=\count406
+\c@organization=\count407
+\c@savedorganization=\count408
+\c@origlocation=\count409
+\c@savedoriglocation=\count410
+\c@origpublisher=\count411
+\c@savedorigpublisher=\count412
+\c@publisher=\count413
+\c@savedpublisher=\count414
+\c@language=\count415
+\c@savedlanguage=\count416
+\c@origlanguage=\count417
+\c@savedoriglanguage=\count418
+\c@pageref=\count419
+\c@savedpageref=\count420
+\shorthandwidth=\skip89
+\shortjournalwidth=\skip90
+\shortserieswidth=\skip91
+\shorttitlewidth=\skip92
+\shortauthorwidth=\skip93
+\shorteditorwidth=\skip94
+\locallabelnumberwidth=\skip95
+\locallabelalphawidth=\skip96
+\localshorthandwidth=\skip97
+\localshortjournalwidth=\skip98
+\localshortserieswidth=\skip99
+\localshorttitlewidth=\skip100
+\localshortauthorwidth=\skip101
+\localshorteditorwidth=\skip102
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count421
+\c@textcitetotal=\count422
+\c@textcitemaxnames=\count423
+\c@biburlbigbreakpenalty=\count424
+\c@biburlbreakpenalty=\count425
+\c@biburlnumpenalty=\count426
+\c@biburlucpenalty=\count427
+\c@biburllcpenalty=\count428
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count429
+)
+Package biblatex Info: Trying to load bibliography style 'acmnumeric'...
+Package biblatex Info: ... file 'acmnumeric.bbx' found.
+
+(./acmnumeric.bbx
+File: acmnumeric.bbx 2017-09-27 v0.1 biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'trad-plain'...
+Package biblatex Info: ... file 'trad-plain.bbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex-trad/trad-plain.bbx
+File: trad-plain.bbx 2021/03/06 v0.5 biblatex-trad plain bibliography style
+Package biblatex Info: Trying to load bibliography style 'trad-standard'...
+Package biblatex Info: ... file 'trad-standard.bbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex-trad/trad-standard.bbx
+File: trad-standard.bbx 2021/03/06 v0.5 biblatex-trad base bibliography style
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count430
+\c@bbx:relatedtotal=\count431
+)))
+Package biblatex Info: Trying to load biblatex style for software...
+Package biblatex Info: ... file 'software.bbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex-software/software.bbx
+File: software.bbx 2022/08/01 bibliography driver extension for software entrie
+s, Roberto Di Cosmo
+
+(/Users/lizhuolun/Library/texmf/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+
+xurl: Set penalties for biblatex
+)
+\bbx@tempbox=\box62
+\bbx@tempboxb=\box63
+\bbx@tempboxc=\box64
+\bbx@tempboxd=\box65
+))
+Package biblatex Info: Trying to load citation style 'acmnumeric'...
+Package biblatex Info: ... file 'acmnumeric.cbx' found.
+ (./acmnumeric.cbx
+File: acmnumeric.cbx 2017-09-27 v0.1
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2025-01-18 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+))
+\@degree=\toks41
+\@school=\toks42
+\@faculty=\toks43
+\@date=\toks44
+\@wordcount=\toks45
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip103
+\LTright=\skip104
+\LTpre=\skip105
+\LTpost=\skip106
+\LTchunksize=\count432
+\LTcapwidth=\dimen169
+\LT@head=\box66
+\LT@firsthead=\box67
+\LT@foot=\box68
+\LT@lastfoot=\box69
+\LT@gbox=\box70
+\LT@cols=\count433
+\LT@rows=\count434
+\c@LT@tables=\count435
+\c@LT@chunks=\count436
+\LT@p@ftn=\toks46
+)
+Class scrbook Info: longtable captions redefined on input line 13.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen170
+\lightrulewidth=\dimen171
+\cmidrulewidth=\dimen172
+\belowrulesep=\dimen173
+\belowbottomsep=\dimen174
+\aboverulesep=\dimen175
+\abovetopsep=\dimen176
+\cmidrulesep=\dimen177
+\cmidrulekern=\dimen178
+\defaultaddspace=\dimen179
+\@cmidla=\count437
+\@cmidlb=\count438
+\@aboverulesep=\dimen180
+\@belowrulesep=\dimen181
+\@thisruleclass=\count439
+\@lastruleclass=\count440
+\@thisrulewidth=\dimen182
+)
+(/Users/lizhuolun/Library/texmf/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip107
+\multirow@cntb=\count441
+\multirow@dima=\skip108
+\bigstrutjot=\dimen183
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen184
+\Gin@req@width=\dimen185
+) (./wordcount.tex)
+\@quotelevel=\count442
+\@quotereset=\count443
+
+
+LaTeX Warning: Unused global option(s):
+    [bibstyle=acmnumeric].
+
+(./thesis.aux)
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+Package scrbase Info: activating english \partname on input line 36.
+Package scrbase Info: activating english \chaptername on input line 36.
+Package scrbase Info: activating english \appendixname on input line 36.
+Package scrbase Info: activating english \figurename on input line 36.
+Package scrbase Info: activating english \tablename on input line 36.
+Package scrbase Info: activating english \contentsname on input line 36.
+Package scrbase Info: activating english \listfigurename on input line 36.
+Package scrbase Info: activating english \listtablename on input line 36.
+Package scrbase Info: activating english \bibname on input line 36.
+Package scrbase Info: activating english \indexname on input line 36.
+LaTeX Info: Redefining \microtypecontext on input line 36.
+Package microtype Info: Applying patch `item' on input line 36.
+Package microtype Info: Applying patch `toc' on input line 36.
+Package microtype Info: Applying patch `eqnum' on input line 36.
+Package microtype Info: Applying patch `footnote' on input line 36.
+Package microtype Info: Applying patch `verbatim' on input line 36.
+LaTeX Info: Redefining \microtypesetup on input line 36.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 36.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count444
+\scratchdimen=\dimen186
+\scratchbox=\box71
+\nofMPsegments=\count445
+\nofMParguments=\count446
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count447
+\MPscratchDim=\dimen187
+\MPnumerator=\count448
+\makeMPintoPDFobject=\count449
+\everyMPtoPDFconversion=\toks48
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
+ty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring ON on input line 36.
+ (./thesis.out) (./thesis.out)
+\@outlinefile=\write4
+\openout4 = `thesis.out'.
+
+Class scrbook Info: loading recommended package `bookmark'.
+(scrbook)           Using `bookmark' together with `hyperref' is recommended,
+(scrbook)           because of handling of possible bookmark level gaps.
+(scrbook)           You can avoid loading `bookmark' with KOMA-Script option
+(scrbook)           `bookmarkpackage=false' before \begin{document} and
+(scrbook)           you can avoid this message adding:
+(scrbook)             \usepackage{bookmark}
+(scrbook)           before \begin{document} on input line 36.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
+)
+\BKM@id=\count450
+))
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex/lbx/american.lbx
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english' -> 'english-software'.
+..
+Package biblatex Info: ... file 'english-software.lbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex-software/english-software.lb
+x
+File: english-software.lbx 2022/08/01 english with additions for software
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/Users/lizhuolun/Library/texmf/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
+Package biblatex Info: Trying to load language 'english' -> 'english-software'.
+..
+Package biblatex Info: ... file 'english-software.lbx' found.
+
+(/Users/lizhuolun/Library/texmf/tex/latex/biblatex-software/english-software.lb
+x
+File: english-software.lbx 2022/08/01 english with additions for software
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/Users/lizhuolun/Library/texmf/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)))
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `thesis.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'thesis.bbl' found.
+
+(./thesis.bbl)
+Package biblatex Info: Reference section=0 on input line 36.
+Package biblatex Info: Reference segment=0 on input line 36.
+Package hyperref Info: Option `pageanchor' set `false' on input line 39.
+
+
+Package typearea Warning: \typearea used at group level 7.
+(typearea)                Using \typearea inside any group, e.g.
+(typearea)                environments, math mode, boxes, etc. may result in
+(typearea)                many type setting problems.
+(typearea)                You should move the command \typearea
+(typearea)                outside all groups on input line 41.
+
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 541.40024pt
+(typearea)              \topmargin      = 12.2347pt
+(typearea)              \headheight     = 25.5pt
+(typearea)              \headsep        = 30.6pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 71.40001pt
+(typearea)              \baselineskip   = 20.40001pt
+(typearea)              on input line 41.
+Package typearea Info: Using dirty hack to recalculate internal output
+(typearea)             dimensions of LaTeX on input line 41.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+1.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+41.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+41.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 41.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 41.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+<UoB_RGB_24.jpg, id=4, 742.9356pt x 215.1237pt>
+File: UoB_RGB_24.jpg Graphic file (type jpg)
+<use UoB_RGB_24.jpg>
+Package pdftex.def Info: UoB_RGB_24.jpg  used on input line 41.
+(pdftex.def)             Requested size: 209.12778pt x 60.55263pt.
+
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 41.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 41.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 41.
+
+Package scrlayer-scrpage Warning: \headheight to low.
+(scrlayer-scrpage)                At least 20.4pt needed,
+(scrlayer-scrpage)                but only 0.0pt found.
+(scrlayer-scrpage)                I'll enlarge \headheight, for further
+(scrlayer-scrpage)                processing, but you should do this yourself,
+(scrlayer-scrpage)                e.g., setting typearea's option
+(scrlayer-scrpage)                `headheight=20.4pt'.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 4
+1.
+
+
+Overfull \vbox (20.4pt too high) has occurred while \output is active []
+
+ [1
+
+
+
+{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
+r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_2
+4.jpg>]
+
+[2
+
+
+
+]
+
+Package typearea Warning: \typearea used at group level 2.
+(typearea)                Using \typearea inside any group, e.g.
+(typearea)                environments, math mode, boxes, etc. may result in
+(typearea)                many type setting problems.
+(typearea)                You should move the command \typearea
+(typearea)                outside all groups on input line 45.
+
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 541.40024pt
+(typearea)              \topmargin      = 12.2347pt
+(typearea)              \headheight     = 25.5pt
+(typearea)              \headsep        = 30.6pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 71.40001pt
+(typearea)              \baselineskip   = 20.40001pt
+(typearea)              on input line 45.
+Package typearea Info: Using dirty hack to recalculate internal output
+(typearea)             dimensions of LaTeX on input line 45.
+(./abstract.tex)
+
+[3]
+
+[4
+
+
+]
+
+[5]
+
+[6
+
+
+]
+<sig.png, id=28, 502.87875pt x 101.37875pt>
+File: sig.png Graphic file (type png)
+<use sig.png>
+Package pdftex.def Info: sig.png  used on input line 85.
+(pdftex.def)             Requested size: 113.81102pt x 22.9438pt.
+
+
+[7 <./sig.png>]
+
+[8
+
+
+]
+Package hyperref Info: Option `pageanchor' set `true' on input line 87.
+Package tocbasic Info: character protrusion at toc deactivated on input line 94
+.
+ (./thesis.toc
+
+[1
+
+
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[2]
+Underfull \vbox (badness 1194) has occurred while \output is active []
+
+
+
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
+\tf@toc=\write5
+\openout5 = `thesis.toc'.
+
+
+
+[4]
+Package tocbasic Info: character protrusion at lot deactivated on input line 95
+.
+ (./thesis.lot)
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
+
+
+
+[5
+
+
+]
+
+[6]
+Package tocbasic Info: character protrusion at lof deactivated on input line 96
+.
+ (./thesis.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[7
+
+
+{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[9])
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
+
+
+
+[10] (./ch/01_introduction.tex
+chapter 1.
+Package hyperref Info: bookmark level for unknown chapteratlist defaults to 0 o
+n input line 1.
+
+
+[1
+
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+8.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[3]) (./ch/02_background.tex
+Overfull \hbox (12.51677pt too wide) in paragraph at lines 123--1
+\T1/lmr/m/n/10.95 (-20) augmented paradigm, the spe-cific prediction-based matc
+h-ing al-go-rithms, and the distribution-
+ []
+
+
+
+[4]
+chapter 2.
+
+
+[5
+
+
+]
+
+[6]
+
+[7]
+
+[8]
+
+[9]) (./ch/03_model_methodology.tex
+
+[10]
+chapter 3.
+
+
+[11
+
+
+]
+
+[12]
+
+[13]
+<../../results/er_full.png, id=456, 628.749pt x 392.667pt>
+File: ../../results/er_full.png Graphic file (type png)
+<use ../../results/er_full.png>
+Package pdftex.def Info: ../../results/er_full.png  used on input line 151.
+(pdftex.def)             Requested size: 355.53166pt x 222.03702pt.
+
+
+[14]
+
+[15 <../../results/er_full.png>]
+<../../results/left_regular.png, id=467, 633.567pt x 392.06474pt>
+File: ../../results/left_regular.png Graphic file (type png)
+<use ../../results/left_regular.png>
+Package pdftex.def Info: ../../results/left_regular.png  used on input line 165
+.
+(pdftex.def)             Requested size: 355.52016pt x 220.00343pt.
+) (./ch/04_unified_benchmark.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[16 <../../results/left_regular.png>]
+
+[17]
+
+[18
+
+
+]
+chapter 4.
+
+
+[19]
+Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
+[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
+ []
+
+
+Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
+[]|\T1/lmr/m/n/10.95 (-20) JailletLu(MPD)|  
+ []
+
+
+Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
+[]|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
+ []
+
+[20]
+<../../results/unified_benchmark.png, id=491, 1364.6985pt x 399.29175pt>
+File: ../../results/unified_benchmark.png Graphic file (type png)
+<use ../../results/unified_benchmark.png>
+Package pdftex.def Info: ../../results/unified_benchmark.png  used on input lin
+e 99.
+(pdftex.def)             Requested size: 418.24191pt x 122.37175pt.
+
+
+[21]
+<../../results/consistency_robustness.png, id=497, 1127.412pt x 332.442pt>
+File: ../../results/consistency_robustness.png Graphic file (type png)
+<use ../../results/consistency_robustness.png>
+Package pdftex.def Info: ../../results/consistency_robustness.png  used on inpu
+t line 135.
+(pdftex.def)             Requested size: 418.2541pt x 123.33133pt.
+
+Underfull \vbox (badness 1478) has occurred while \output is active []
+
+
+
+[22 <../../results/unified_benchmark.png>]
+
+[23 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
+
+[24]
+chapter 5.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+6.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+[25
+
+
+]
+<../../results/order_vs_theory.png, id=519, 788.9475pt x 360.74776pt>
+File: ../../results/order_vs_theory.png Graphic file (type png)
+<use ../../results/order_vs_theory.png>
+Package pdftex.def Info: ../../results/order_vs_theory.png  used on input line 
+42.
+(pdftex.def)             Requested size: 418.24852pt x 191.24493pt.
+
+
+[26 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
+
+[27]
+
+[28
+
+
+]
+chapter 6.
+<../../results/choo_bem_envelope.png, id=533, 554.07pt x 377.61075pt>
+File: ../../results/choo_bem_envelope.png Graphic file (type png)
+<use ../../results/choo_bem_envelope.png>
+Package pdftex.def Info: ../../results/choo_bem_envelope.png  used on input lin
+e 29.
+(pdftex.def)             Requested size: 334.6089pt x 228.04323pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[29]
+
+[30 <../../results/choo_bem_envelope.png>]
+<../../results/choo_bem_prefix.png, id=543, 602.85225pt x 393.8715pt>
+File: ../../results/choo_bem_prefix.png Graphic file (type png)
+<use ../../results/choo_bem_prefix.png>
+Package pdftex.def Info: ../../results/choo_bem_prefix.png  used on input line 
+57.
+(pdftex.def)             Requested size: 334.60536pt x 218.61328pt.
+
+
+[31]
+
+[32 <../../results/choo_bem_prefix.png>]
+<../../results/recalibration_prefix.png, id=554, 554.07pt x 380.622pt>
+File: ../../results/recalibration_prefix.png Graphic file (type png)
+<use ../../results/recalibration_prefix.png>
+Package pdftex.def Info: ../../results/recalibration_prefix.png  used on input 
+line 91.
+(pdftex.def)             Requested size: 334.6089pt x 229.86174pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[33 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
+
+[34]
+chapter 7.
+<../../results/real_predictor.png, id=564, 999.735pt x 383.63326pt>
+File: ../../results/real_predictor.png Graphic file (type png)
+<use ../../results/real_predictor.png>
+Package pdftex.def Info: ../../results/real_predictor.png  used on input line 3
+4.
+(pdftex.def)             Requested size: 418.25359pt x 160.4985pt.
+
+
+[35
+
+
+]
+
+[36 <../../results/real_predictor.png>]
+<../../results/realworld_robustness.png, id=575, 1145.4795pt x 641.9985pt>
+File: ../../results/realworld_robustness.png Graphic file (type png)
+<use ../../results/realworld_robustness.png>
+Package pdftex.def Info: ../../results/realworld_robustness.png  used on input 
+line 72.
+(pdftex.def)             Requested size: 418.24512pt x 234.41077pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[37 <../../results/realworld_robustness.png>])
+(./ch/08_exploratory_negatives.tex
+
+[38]
+chapter 8.
+
+
+[39
+
+
+]
+<../../results/rank_vs_mse_mve.png, id=590, 1000.33725pt x 386.6445pt>
+File: ../../results/rank_vs_mse_mve.png Graphic file (type png)
+<use ../../results/rank_vs_mse_mve.png>
+Package pdftex.def Info: ../../results/rank_vs_mse_mve.png  used on input line 
+41.
+(pdftex.def)             Requested size: 418.26132pt x 161.66391pt.
+
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+
+
+[40 <../../results/rank_vs_mse_mve.png>]
+<../../results/rank_real_trace.png, id=596, 1003.3485pt x 383.63326pt>
+File: ../../results/rank_real_trace.png Graphic file (type png)
+<use ../../results/rank_real_trace.png>
+Package pdftex.def Info: ../../results/rank_real_trace.png  used on input line 
+70.
+(pdftex.def)             Requested size: 418.24966pt x 159.91899pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[41 <../../results/rank_real_trace.png>]
+<../../results/serving_slo_probe.png, id=602, 674.52pt x 396.2805pt>
+File: ../../results/serving_slo_probe.png Graphic file (type png)
+<use ../../results/serving_slo_probe.png>
+Package pdftex.def Info: ../../results/serving_slo_probe.png  used on input lin
+e 121.
+(pdftex.def)             Requested size: 313.70001pt x 184.29875pt.
+
+
+[42]
+
+[43 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
+
+[44]
+chapter 9.
+
+
+[45
+
+
+]
+<../../results/impossibility_frontier.png, id=621, 1006.962pt x 398.08725pt>
+File: ../../results/impossibility_frontier.png Graphic file (type png)
+<use ../../results/impossibility_frontier.png>
+Package pdftex.def Info: ../../results/impossibility_frontier.png  used on inpu
+t line 39.
+(pdftex.def)             Requested size: 418.2502pt x 165.3489pt.
+
+
+[46 <../../results/impossibility_frontier.png>]
+
+[47]
+
+[48]) (./ch/10_serving_case_study.tex
+
+[49]
+
+[50
+
+
+]
+chapter 10.
+
+
+[51]
+<../../results/serving_envelope.png, id=653, 725.109pt x 357.7365pt>
+File: ../../results/serving_envelope.png Graphic file (type png)
+<use ../../results/serving_envelope.png>
+Package pdftex.def Info: ../../results/serving_envelope.png  used on input line
+ 51.
+(pdftex.def)             Requested size: 418.26215pt x 206.35191pt.
+<../../results/serving_dynamic.png, id=654, 926.86275pt x 357.7365pt>
+File: ../../results/serving_dynamic.png Graphic file (type png)
+<use ../../results/serving_dynamic.png>
+Package pdftex.def Info: ../../results/serving_dynamic.png  used on input line 
+60.
+(pdftex.def)             Requested size: 418.25824pt x 161.43298pt.
+<../../results/prefix_cache_reversal.png, id=655, 532.389pt x 360.74776pt>
+File: ../../results/prefix_cache_reversal.png Graphic file (type png)
+<use ../../results/prefix_cache_reversal.png>
+Package pdftex.def Info: ../../results/prefix_cache_reversal.png  used on input
+ line 69.
+(pdftex.def)             Requested size: 334.61073pt x 226.73283pt.
+
+
+[52 <../../results/serving_envelope.png>]
+
+[53 <../../results/serving_dynamic.png>]
+
+[54 <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
+
+[55]
+
+[56
+
+
+]
+chapter 11.
+
+
+[57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[58])
+
+[59] (./ch/A_reproduction.tex
+
+[60]
+chapter A.
+
+Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
+[]\T1/lmr/m/n/10.95 (-20) Each script writes \T1/lmtt/m/n/10.95 results/<name>.
+json \T1/lmr/m/n/10.95 (-20) (raw means/CIs) and \T1/lmtt/m/n/10.95 results/<na
+me>.png
+ []
+
+
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 59--59
+[]|\T1/lmtt/m/n/10.95 scripts/run_er_full.py|  
+ []
+
+
+Overfull \hbox (53.90318pt too wide) in paragraph at lines 60--60
+[]|\T1/lmtt/m/n/10.95 results/er_full.{json,png}|  
+ []
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 61--61
+[]|\T1/lmtt/m/n/10.95 scripts/run_left_regular.py|  
+ []
+
+
+Overfull \hbox (82.64685pt too wide) in paragraph at lines 62--62
+[]|\T1/lmtt/m/n/10.95 results/left_regular.{json,png}|  
+ []
+
+
+Overfull \hbox (88.39558pt too wide) in paragraph at lines 64--64
+[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py|  
+ []
+
+
+Overfull \hbox (112.84927pt too wide) in paragraph at lines 65--66
+[]|\T1/lmtt/m/n/10.95 results/unified_benchmark.{json,png}\T1/lmr/m/n/10.95 (-2
+0) , 
+ []
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 65--66
+\T1/lmtt/m/n/10.95 unified_benchmark_tables.md|  
+ []
+
+
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 68--68
+[]|\T1/lmtt/m/n/10.95 scripts/run_consistency_robustness.py|  
+ []
+
+
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 69--69
+[]|\T1/lmtt/m/n/10.95 results/consistency_robustness.{json,png}|  
+ []
+
+
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 72--72
+[]|\T1/lmtt/m/n/10.95 scripts/run_order_vs_theory.py|  
+ []
+
+
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 73--73
+[]|\T1/lmtt/m/n/10.95 results/order_vs_theory.{json,png}|  
+ []
+
+
+Overfull \hbox (36.65698pt too wide) in paragraph at lines 75--75
+[]|\T1/lmtt/m/n/10.95 scripts/run_choo_bem.py|  
+ []
+
+
+Overfull \hbox (122.88799pt too wide) in paragraph at lines 76--76
+[]|\T1/lmtt/m/n/10.95 results/choo_bem_{envelope,prefix}.png|  
+ []
+
+
+Overfull \hbox (65.40065pt too wide) in paragraph at lines 78--78
+[]|\T1/lmtt/m/n/10.95 scripts/run_recalibration.py|  
+ []
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 79--79
+[]|\T1/lmtt/m/n/10.95 results/recalibration_*.png|  
+ []
+
+
+Overfull \hbox (71.14938pt too wide) in paragraph at lines 80--80
+[]|\T1/lmtt/m/n/10.95 scripts/run_real_predictor.py|  
+ []
+
+
+Overfull \hbox (94.14432pt too wide) in paragraph at lines 81--81
+[]|\T1/lmtt/m/n/10.95 results/real_predictor.{json,png}|  
+ []
+
+
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 83--83
+[]|\T1/lmtt/m/n/10.95 scripts/run_realworld_robustness.py|  
+ []
+
+
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 84--84
+[]|\T1/lmtt/m/n/10.95 results/realworld_robustness.{json,png}|  
+ []
+
+
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 86--86
+[]|\T1/lmtt/m/n/10.95 scripts/run_rank_vs_mse_mve.py|  
+ []
+
+
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 87--87
+[]|\T1/lmtt/m/n/10.95 results/rank_vs_mse_mve.{json,png}|  
+ []
+
+
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 90--90
+[]|\T1/lmtt/m/n/10.95 scripts/run_rank_when_it_matters.py|  
+ []
+
+
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 91--91
+[]|\T1/lmtt/m/n/10.95 results/rank_when_it_matters.{json,png}|  
+ []
+
+
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 94--94
+[]|\T1/lmtt/m/n/10.95 scripts/run_rank_real_trace.py|  
+ []
+
+
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 95--95
+[]|\T1/lmtt/m/n/10.95 results/rank_real_trace.{json,png}|  
+ []
+
+
+Overfull \hbox (88.39558pt too wide) in paragraph at lines 97--97
+[]|\T1/lmtt/m/n/10.95 scripts/run_serving_slo_probe.py|  
+ []
+
+
+Overfull \hbox (111.39052pt too wide) in paragraph at lines 98--98
+[]|\T1/lmtt/m/n/10.95 results/serving_slo_probe.{json,png}|  
+ []
+
+
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 101--101
+[]|\T1/lmtt/m/n/10.95 scripts/run_impossibility_frontier.py|  
+ []
+
+
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 102--102
+[]|\T1/lmtt/m/n/10.95 results/impossibility_frontier.{json,png}|  
+ []
+
+
+Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+[]|\T1/lmtt/m/n/10.95 scripts/run_serving.py\T1/lmr/m/n/10.95 (-20) , 
+ []
+
+
+Overfull \hbox (20.86954pt too wide) in paragraph at lines 104--106
+\T1/lmtt/m/n/10.95 run_serving_trace.py\T1/lmr/m/n/10.95 (-20) , 
+ []
+
+
+Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+\T1/lmtt/m/n/10.95 run_serving_dynamic.py\T1/lmr/m/n/10.95 (-20) , 
+ []
+
+
+Overfull \hbox (13.66205pt too wide) in paragraph at lines 104--106
+\T1/lmtt/m/n/10.95 run_prefix_cache.py|  
+ []
+
+
+Overfull \hbox (26.61827pt too wide) in paragraph at lines 106--107
+[]|\T1/lmtt/m/n/10.95 results/serving_*.png\T1/lmr/m/n/10.95 (-20) , 
+ []
+
+
+Overfull \hbox (7.91331pt too wide) in paragraph at lines 106--107
+\T1/lmtt/m/n/10.95 prefix_cache_*.png|  
+ []
+
+
+Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
+[]|\T1/lmtt/m/n/10.95 scripts/run_realworld.py|  
+ []
+
+
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
+[]|\T1/lmtt/m/n/10.95 results/realworld.json|  
+ []
+
+
+
+[61
+
+
+] [62]
+
+[63]
+Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
+[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
+(replots Table 4.1)[] 
+ []
+
+
+Overfull \hbox (0.10036pt too wide) in alignment at lines 162--180
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
+ [] [] [] [] [] [] [] 
+ []
+
+[64]
+Underfull \vbox (badness 3803) has occurred while \output is active []
+
+
+
+[65]
+Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
+\T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
+socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
+0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
+/10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
+ []
+
+) (./ch/B_proof_details.tex
+
+[66]
+chapter B.
+
+
+[67
+
+
+]
+
+[68]
+
+[69]
+
+[70]
+
+[71{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+
+[72]
+
+[73]
+
+[74])
+
+[75]
+
+[76
+
+
+]
+chapter without number
+
+
+[77
+
+
+]
+
+[78]
+
+[79] (./thesis.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 32978 strings out of 474654
+ 669372 string characters out of 5750568
+ 1678516 words of memory out of 5000000
+ 54988 multiletter control sequences out of 15000+600000
+ 648355 words of font info for 270 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 122i,20n,134p,10935b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
+sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
+cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/t
+exlive/2025basic/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texliv
+e/2025basic/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025
+basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025basic/
+texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-
+dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fo
+nts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
+ype1/public/lm/lmro10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/lm/lmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publi
+c/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/l
+mtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msam10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (97 pages, 2420135 bytes).
+PDF statistics:
+ 1152 PDF objects out of 1200 (max. 8388607)
+ 974 compressed objects within 10 object streams
+ 222 named destinations out of 1000 (max. 500000)
+ 46272 words of extra memory for PDF output out of 51595 (max. 10000000)
+

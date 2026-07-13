@@ -1,0 +1,161 @@
+% References for the combined paper. STARTER bib — verify volume/pages/exact author
+% lists before submission (fields marked TODO are unconfirmed). arXiv ids and
+% titles/years/venues are from the literature review + prior-art pass.
+
+% ---------- the experimental foundation & classical algorithms ----------
+@article{borodin2018experimental,
+  title   = {An Experimental Study of Algorithms for Online Bipartite Matching},
+  author  = {Borodin, Allan and Karavasilis, Christodoulos and Pankratov, Denis},
+  journal = {arXiv preprint arXiv:1808.04863},
+  year    = {2018}
+}
+@inproceedings{kvv1990ranking,
+  title     = {An Optimal Algorithm for On-line Bipartite Matching},
+  author    = {Karp, Richard M. and Vazirani, Umesh V. and Vazirani, Vijay V.},
+  booktitle = {STOC},
+  year      = {1990}
+}
+@inproceedings{feldman2009online,
+  title     = {Online Stochastic Matching: Beating 1-1/e},
+  author    = {Feldman, Jon and Mehta, Aranyak and Mirrokni, Vahab and Muthukrishnan, S.},
+  booktitle = {FOCS},
+  year      = {2009}
+}
+@article{jailletlu2014online,
+  title   = {Online Stochastic Matching: New Algorithms with Better Bounds},
+  author  = {Jaillet, Patrick and Lu, Xin},
+  journal = {Mathematics of Operations Research},
+  year    = {2014}
+}
+@article{manshadi2012online,
+  title   = {Online Stochastic Matching: Online Actions Based on Offline Statistics},
+  author  = {Manshadi, Vahideh H. and Oveis Gharan, Shayan and Saberi, Amin},
+  journal = {Mathematics of Operations Research},
+  volume  = {37},
+  number  = {4},
+  pages   = {559--573},
+  year    = {2012}
+}
+@article{hopcroftkarp1973,
+  title   = {An $n^{5/2}$ Algorithm for Maximum Matchings in Bipartite Graphs},
+  author  = {Hopcroft, John E. and Karp, Richard M.},
+  journal = {SIAM Journal on Computing},
+  year    = {1973}
+}
+
+% ---------- learning-augmented matching (the algorithms we benchmark) ----------
+@inproceedings{aci2022mpd,
+  title     = {(Optimal) Online Bipartite Matching with Degree Information},
+  author    = {Aamand, Anders and Chen, Justin Y. and Indyk, Piotr},
+  booktitle = {NeurIPS},
+  year      = {2022}
+}
+@inproceedings{choo2024imperfect,
+  title     = {Online Bipartite Matching with Imperfect Advice},
+  author    = {Choo, Davin and Gupta, Themis and others},
+  booktitle = {ICML},
+  year      = {2024}
+}
+@inproceedings{bem2026testmatch,
+  title     = {Learning-Augmented Online Bipartite Matching in the Random Arrival Order Model},
+  author    = {Burathep, {\dots} and Erlebach, Thomas and Moses, William K. and others},
+  booktitle = {SOFSEM},
+  year      = {2026}
+}
+
+% ---------- learning-augmented algorithms: template, tradeoffs, combiner ----------
+@inproceedings{chledowski2021caching,
+  title     = {Robust Learning-Augmented Caching: An Experimental Study},
+  author    = {Ch{\l}{\k{e}}dowski, Jakub and Polak, Adam and Szabucki, Bartosz and {\.Z}o{\l}na, Konrad},
+  booktitle = {ICML},
+  year      = {2021}
+}
+@inproceedings{lykouris2018caching,
+  title     = {Competitive Caching with Machine Learned Advice},
+  author    = {Lykouris, Thodoris and Vassilvitskii, Sergei},
+  booktitle = {ICML},
+  year      = {2018}
+}
+@incollection{mitzenmacher2020algorithms,
+  title     = {Algorithms with Predictions},
+  author    = {Mitzenmacher, Michael and Vassilvitskii, Sergei},
+  booktitle = {Beyond the Worst-Case Analysis of Algorithms},
+  editor    = {Roughgarden, Tim},
+  publisher = {Cambridge University Press},
+  pages     = {646--662},
+  year      = {2020}
+}
+@inproceedings{weizhang2020tradeoffs,
+  title     = {Optimal Robustness-Consistency Trade-offs for Learning-Augmented Online Algorithms},
+  author    = {Wei, Alexander and Zhang, Fred},
+  booktitle = {NeurIPS},
+  year      = {2020}
+}
+@article{yoshinaga2026accuracy,
+  title   = {Analyzing the Effect of Prediction Accuracy on the Distributionally-Robust Competitive Ratio},
+  author  = {Yoshinaga, {\dots} and Kawase, Yasushi},
+  journal = {arXiv preprint arXiv:2601.06813},
+  year    = {2026}
+}
+
+% ---------- distribution testing (the theory-section engine) ----------
+@inproceedings{canonne2022tolerance,
+  title     = {The Price of Tolerance in Distribution Testing},
+  author    = {Canonne, Cl{\'e}ment L. and Jain, Ayush and Kamath, Gautam and Li, Jerry},
+  booktitle = {COLT},
+  year      = {2022},
+  note      = {arXiv:2106.13414; tolerant identity testing = $\tilde{\Theta}(n/\log n)$ at constant tolerance}
+}
+@article{jiao2018l1,
+  title   = {Minimax Estimation of the $L_1$ Distance},
+  author  = {Jiao, Jiantao and Han, Yanjun and Weissman, Tsachy},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {64},
+  number  = {10},
+  pages   = {6672--6706},
+  year    = {2018}
+}
+@inproceedings{valiant2011unseen,
+  title     = {Estimating the Unseen: An $n/\log n$-sample Estimator for Entropy and Support Size, Shown Optimal via New CLTs},
+  author    = {Valiant, Gregory and Valiant, Paul},
+  booktitle = {STOC},
+  year      = {2011}
+}
+@article{paninski2008coincidence,
+  title   = {A Coincidence-Based Test for Uniformity Given Very Sparsely Sampled Discrete Data},
+  author  = {Paninski, Liam},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {54},
+  number  = {10},
+  pages   = {4750--4755},
+  year    = {2008}
+}
+@article{valiant2017automatic,
+  title   = {An Automatic Inequality Prover and Instance Optimal Identity Testing},
+  author  = {Valiant, Gregory and Valiant, Paul},
+  journal = {SIAM Journal on Computing},
+  volume  = {46},
+  number  = {1},
+  pages   = {429--455},
+  year    = {2017}
+}
+
+% ---------- serving case study (optional §8) ----------
+@article{preble2024,
+  title = {Preble: Efficient Distributed Prompt Scheduling for LLM Serving},
+  author = {others},
+  journal = {arXiv preprint arXiv:2407.00023},
+  year = {2024}
+}
+@article{mooncake2024,
+  title = {Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving},
+  author = {others},
+  journal = {arXiv preprint arXiv:2407.00079},
+  year = {2024}
+}
+@article{sageserve2025,
+  title = {SageServe: {\dots}},
+  author = {others},
+  journal = {arXiv preprint arXiv:2502.14617},
+  year = {2025}
+}

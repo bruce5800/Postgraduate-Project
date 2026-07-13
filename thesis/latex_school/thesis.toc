@@ -1,0 +1,77 @@
+\contentsline {chapter}{\nonumberline List of Tables}{v}{chapter*.2}%
+\contentsline {chapter}{\nonumberline List of Figures}{vii}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background and motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Research objectives}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Contributions}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Thesis organization}{4}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Background and Related Work}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Online bipartite matching and competitive analysis}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The known-i.i.d. model}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Learning-augmented algorithms}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Predictions for online bipartite matching}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Distribution testing}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Positioning of this thesis}{10}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Model, Algorithms, and Methodology}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The known-i.i.d. model, precisely}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algorithms}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Prediction objects and structured error models}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Consistency and robustness}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The experimental harness}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Fidelity check: reproducing Borodin et al.}{14}{section.3.6}%
+\contentsline {chapter}{\numberline {4}The Unified Benchmark}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Design}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Four findings}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Chapter summary}{24}{section.4.3}%
+\contentsline {chapter}{\numberline {5}What Governs the Loss: Order Error and ACI's Bound}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}What is already known (ACI)}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Our characterization}{26}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Chapter summary}{27}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Test-and-Fallback in Depth}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The robustness envelope}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}A threshold that is too lenient on average-case inputs}{31}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Recalibration, and the resolution limit it exposes}{31}{section.6.3}%
+\contentsline {section}{\numberline {6.4}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{34}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Chapter summary}{34}{section.6.5}%
+\contentsline {chapter}{\numberline {7}External Validity}{35}{chapter.7}%
+\contentsline {section}{\numberline {7.1}A real, cheap predictor}{35}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Six real-world graphs}{36}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Does learning the predictor help?}{38}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Chapter summary}{38}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Exploratory Directions and Negative Results}{39}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Learning to rank the predictor (a negative result)}{39}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Rescuing the serving application with a with-predictions result (a negative probe)}{42}{section.8.2}%
+\contentsline {section}{\numberline {8.3}A literature review that redirected the work}{43}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Synthesis: the negatives motivate the theorem}{44}{section.8.4}%
+\contentsline {chapter}{\numberline {9}The Impossibility Theorem: Why the Wall Is Necessary}{45}{chapter.9}%
+\contentsline {section}{\numberline {9.1}The claim}{45}{section.9.1}%
+\contentsline {section}{\numberline {9.2}The intuition: testability and baseline strength are the same knob}{46}{section.9.2}%
+\contentsline {section}{\numberline {9.3}The architecture of the proof}{47}{section.9.3}%
+\contentsline {section}{\numberline {9.4}The theorem}{48}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Scope, status, and honesty}{49}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Application Case Study: AI-Inference Serving}{51}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The serving instantiation}{51}{section.10.1}%
+\contentsline {section}{\numberline {10.2}A probe for a genuinely new result, and its negative}{53}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Chapter summary}{55}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Conclusion and Future Work}{57}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Summary}{57}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Limitations}{58}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Future work}{59}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Closing}{59}{section.11.4}%
+\contentsline {chapter}{\numberline {A}Reproduction Guide}{61}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Environment and principles}{61}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{62}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Reproduction commands}{63}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{64}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Data provenance}{66}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Theory verification snippets (Chapter 9)}{66}{section.A.6}%
+\contentsline {chapter}{\numberline {B}Proof Details for the Impossibility Theorem}{67}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Setup and the algorithm class}{67}{section.B.1}%
+\contentsline {section}{\numberline {B.2}The master trade-off inequality}{68}{section.B.2}%
+\contentsline {section}{\numberline {B.3}The rare-resource cell}{69}{section.B.3}%
+\contentsline {section}{\numberline {B.4}The aggregate construction and the exact affine law}{71}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Reduction to tolerant identity testing}{72}{section.B.5}%
+\contentsline {section}{\numberline {B.6}Assembling the theorem}{73}{section.B.6}%
+\contentsline {section}{\numberline {B.7}Status, the remaining step, and a negative finding}{74}{section.B.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{77}{chapter*.5}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

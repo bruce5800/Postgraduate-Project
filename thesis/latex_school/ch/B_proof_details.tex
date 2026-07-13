@@ -1,0 +1,382 @@
+\chapter{Proof Details for the Impossibility
+Theorem}
+
+This appendix records the formal development behind Chapter 9: the model
+and the algorithm class (§B.1), the master trade-off inequality with its
+proof (§B.2), the rare-resource cell construction and its closed-form
+constants (§B.3), the exact affine law converting advice error into
+matching ratio (§B.4), the reduction to tolerant distribution testing
+and the sample-complexity barrier (§B.5), the assembled theorem (§B.6),
+and a plain statement of what remains open (§B.7). The numerical
+verifications quoted here are reproduced by the snippets referenced in
+Appendix A.6.
+
+\section{Setup and the algorithm
+class}
+
+\textbf{Instances.} Known-i.i.d. online bipartite matching (Chapter 3):
+a type graph over \(r\) online types and a set of offline resources;
+\(n\) arrivals drawn i.i.d. from a type distribution \(p\) over \([r]\);
+\(\mathrm{OPT}(I)\) is a maximum matching of the realized instance
+\(I\).
+
+\textbf{Advice.} A type histogram \(q\in\Delta([r])\) (the Choo/BEM
+prediction object). \emph{Following} the advice --- the \emph{mimic}
+policy \(\mathrm{Mimic}(q)\) --- builds a maximum matching on the advice
+graph and routes each arrival to its type's advice partner (Chapter 3).
+
+\textbf{Baseline.} The advice-free Ranking algorithm \(B\), with
+\(\mathbb E[B]/\mathbb E[\mathrm{OPT}] = \rho_{\mathrm{base}}\) on the
+family under study.
+
+\textbf{The test-and-fallback class \(\mathcal A_k\).} An algorithm
+\(A\in\mathcal A_k\) observes the advice \(q\) and the prefix
+\(X_{1:k}\) (the types of the first \(k\) arrivals), outputs a ---
+possibly randomized --- decision \(D\in\{\mathrm F,\mathrm R\}\)
+\emph{by any measurable rule}, and then plays \(\mathrm{Mimic}(q)\) on
+arrivals \(k+1,\dots,n\) if \(D=\mathrm F\) and \(B\) otherwise. The
+class covers every decision rule, not only the empirical-\(\ell_1\)
+threshold used by the concrete algorithms.
+
+\textbf{Consistency and robustness.} For an instance distribution
+\(\mathcal D\) with advice \(q\), write
+\(R(\mathcal D)=\mathbb E[\mathrm{ALG}]/\mathbb E[\mathrm{OPT}]\).
+Consistency is \(R\) under good advice; robustness is \(R\) under bad
+advice (Chapter 3).
+
+\textbf{Sublinearity (A0).} \(k=o(n)\). The prefix's own contribution to
+the matching is at most \(k=o(n)\), shifting every ratio by
+\(O(k/n)=o(1)\); we absorb this into the \(o(1)\) terms.
+
+\section{The master trade-off
+inequality}
+
+\begin{quote}
+\textbf{Lemma B.1 (master trade-off).} Let \(G\), \(\mathrm{Bd}\) be two
+instance distributions sharing the \emph{same} advice \(q\), with prefix
+laws \(\mathcal L_G,\mathcal L_{\mathrm{Bd}}\) on \(X_{1:k}\), and let
+\(\gamma_k := \mathrm{TV}(\mathcal L_G,\mathcal L_{\mathrm{Bd}})\).
+Suppose following \(q\) gains \(\delta\) under \(G\) and loses
+\(\Delta\) under \(\mathrm{Bd}\) relative to the baseline:
+\[\mathbb E_G[\mathrm{Mimic}]/\mathrm{OPT} \ge \rho_{\mathrm{base}}+\delta,
+\qquad \mathbb E_{\mathrm{Bd}}[\mathrm{Mimic}]/\mathrm{OPT} \le \rho_{\mathrm{base}}-\Delta,\]
+while \(B\) attains \(\rho_{\mathrm{base}}\pm o(1)\) under both.
+Parameterize an \(A\in\mathcal A_k\) by \(\eta_c\), the fraction of the
+upside it forgoes under \(G\) (captured upside \(=(1-\eta_c)\,\delta\)),
+and \(\eta_r\), its robustness loss as a fraction of \(\Delta\) under
+\(\mathrm{Bd}\) (loss \(=\eta_r\,\Delta\)). Then
+\[(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1). \tag{$\star$}\]
+\end{quote}
+
+\emph{Proof.} Condition on the decision \(D\) under \(G\):
+\[\mathbb E_G[\mathrm{ALG}]/\mathrm{OPT}
+= P_G(\mathrm F)\cdot\frac{\mathbb E_G[\mathrm{Mimic}]}{\mathrm{OPT}}
++ P_G(\mathrm R)\cdot\rho_{\mathrm{base}} \pm o(1)
+\;\ge\; \rho_{\mathrm{base}}+\delta\,P_G(\mathrm F)-o(1).\] The captured
+upside is \((1-\eta_c)\delta\) by definition, so
+\(P_G(\mathrm F)\ge 1-\eta_c-o(1)\). Symmetrically under
+\(\mathrm{Bd}\), \(\mathbb E_{\mathrm{Bd}}[\mathrm{ALG}]/\mathrm{OPT}
+= \rho_{\mathrm{base}}-\Delta\,P_{\mathrm{Bd}}(\mathrm F)\pm o(1)\), so
+the robustness loss is \(\Delta\,P_{\mathrm{Bd}}(\mathrm F)\pm o(1)\),
+giving \(P_{\mathrm{Bd}}(\mathrm F)=\eta_r+o(1)\). Finally, \(D\) is a
+(randomized) function of \((X_{1:k},q)\) and \(q\) is identical across
+\(G\) and \(\mathrm{Bd}\), so by the coupling characterization of total
+variation, \(|P_G(\mathrm F)-P_{\mathrm{Bd}}(\mathrm F)|\le \gamma_k\).
+Chaining the three displays yields
+\(1-\eta_c-o(1)\le P_G(\mathrm F)\le P_{\mathrm{Bd}}(\mathrm F)+\gamma_k
+= \eta_r+\gamma_k+o(1)\), which is \((\star)\). \(\blacksquare\)
+
+When the prefix is uninformative (\(\gamma_k\to0\)), \((\star)\) forbids
+\(\eta_c\to0\) and \(\eta_r\to0\) simultaneously: the algorithm cannot
+be both consistent and robust. The remaining work is to construct a
+family on which \(\gamma_k=o(1)\) \emph{coexists} with meaningful stakes
+\(\delta,\Delta=\Theta(1-\rho_{\mathrm{base}})\).
+
+\textbf{Remark (why a two-point argument is not enough).} For a single
+pair \((G,\mathrm{Bd})\) whose per-arrival laws differ, the stakes
+themselves are capped by the distinguishability:
+\(\delta,\Delta = O(\gamma_k)\), so \((\star)\) alone gives only a
+vacuous bound. To obtain \(\delta,\Delta=\Theta(1)\) \emph{while}
+\(\gamma_k=o(1)\), the difference between \(G\) and \(\mathrm{Bd}\) must
+be spread across \(\Theta(r)\) types, each perturbed below the per-type
+sampling resolution of a length-\(k\) prefix --- which is precisely the
+structure of the \emph{tolerant-testing} hard instances invoked in §B.5.
+This is also why a low-dimensional construction fails (§B.7).
+
+\section{The rare-resource cell}
+
+The construction is assembled from independent \emph{cells}, each
+computable in closed form.
+
+\textbf{The cell.} Two offline resources \(\{a,b\}\). Arrivals, in
+order: a \emph{flexible} request \(F\) with neighborhood \(\{a,b\}\),
+which always arrives and must be routed \emph{before} the specialist is
+seen; then at most one \emph{specialist} --- type \(\alpha\)
+(neighborhood \(\{a\}\)) with probability \(\theta s\), type \(\beta\)
+(neighborhood \(\{b\}\)) with probability \(\theta(1-s)\), or no
+specialist with probability \(1-\theta\). Here \(\theta\in(0,1]\) is the
+\textbf{contention rate} and \(s\in[0,1]\) the \textbf{bias}. The advice
+specifies a predicted bias \(\hat s\); following it routes \(F\) to
+protect the predicted-majority specialist (\(\hat s>\tfrac12\): route
+\(F\to b\), saving \(a\) for the likelier \(\alpha\); symmetrically
+otherwise).
+
+\begin{quote}
+\textbf{Lemma B.2 (single-cell constants).} Per cell, in expectation:
+
+{ % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+quantity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+value
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathrm{OPT}\) & \(1+\theta\) \\
+Baseline (route \(F\) uniformly) & \(1+\theta/2\) \\
+Mimic, advice direction \emph{right}
+(\(\operatorname{sign}(\hat s-\tfrac12)=\operatorname{sign}(s-\tfrac12)\))
+& \(1+\theta\max(s,1-s)\) \\
+Mimic, advice direction \emph{wrong} & \(1+\theta\min(s,1-s)\) \\
+\end{longtable}
+}
+
+Hence the per-cell advantage of following over the baseline is
+\(\pm\,\theta\,|s-\tfrac12|\) (sign \(=\) is the advice direction
+correct), and the \(\ell_1\) distance between the cell's specialist
+distribution \(p=(\theta s,\ \theta(1-s),\ 1-\theta)\) and the advice
+\(q=(\theta\hat s,\ \theta(1-\hat s),\ 1-\theta)\) is
+\(\ell_1(p,q)=2\theta\,|s-\hat s|\).
+\end{quote}
+
+\emph{Proof.} Routing \(F\to a\) matches \(F\) always and the specialist
+unless it is \(\alpha\) (whose only neighbor \(a\) is taken):
+\(\theta s\cdot 1+\theta(1-s)\cdot 2+(1-\theta)\cdot 1 = 1+\theta(1-s)\).
+Symmetrically \(F\to b\) yields \(1+\theta s\). The baseline averages
+the two, \(1+\theta/2\). The better route is \(F\to b\) iff
+\(s>\tfrac12\), giving \(1+\theta\max(s,1-s)\) for the right direction
+and \(1+\theta\min(s,1-s)\) for the wrong one. \(\mathrm{OPT}=2\) when a
+specialist arrives (probability \(\theta\)), else \(1\), totalling
+\(1+\theta\). The \(\ell_1\) computation is a three-coordinate sum whose
+\((1-\theta)\) coordinate cancels. \(\blacksquare\)
+
+Two quantities separate cleanly, which is the point of the design: the
+\emph{magnitude} of the advantage, \(\theta|s-\tfrac12|\), depends only
+on the truth's signal (how contested the cell is), while its \emph{sign}
+depends only on whether the advice's direction is right. Deciding
+whether the advice is net-helpful is therefore exactly the problem of
+recovering per-cell \emph{directions} --- a Bernoulli discrimination
+needing \(\approx 1/|s-\tfrac12|^2\) samples \emph{of that cell}.
+(Numerical check, \(4\times10^5\) trials per cell: at \(\theta=0.6\),
+\(s=0.7\) the simulated advantage is \(\pm0.119\) against the formula's
+\(\pm0.12\); all five identities of Lemma B.2 match to three decimals
+--- Appendix A.6.)
+
+\section{The aggregate construction and the exact affine
+law}
+
+\textbf{The family.} \(m=\Theta(n)\) independent cells, each with a
+\emph{distinct} specialist type-pair \((\alpha_i,\beta_i)\), so the type
+support is \(r=\Theta(n)\) and each specialist type is seen \(O(1)\)
+times among \(n\) arrivals. Cell \(i\) has contention \(\theta_i\) and
+truth bias \(s_i\) with signal \(\varepsilon_i=|s_i-\tfrac12|\); the
+advice predicts, per cell, a direction with the same magnitude
+(\(\hat s_i=\tfrac12\pm\varepsilon_i\), correct or wrong side). Because
+cells are disjoint, per-cell quantities aggregate additively.
+
+\begin{quote}
+\textbf{Lemma B.3 (exact affine conversion law).} Let
+\(\rho_{\mathrm{perfect}}=\bigl(\sum_i(1+\theta_i\max(s_i,1-s_i))\bigr)/\mathrm{OPT}\)
+be the all-directions-correct (consistency ceiling) ratio, with
+\(\mathrm{OPT}=\sum_i(1+\theta_i)\). Then, for any advice with per-cell
+magnitudes matching the truth,
+\[\mathbb E[\text{follow-ratio}] \;=\; \rho_{\mathrm{perfect}}-\tfrac12\,\ell_1(p,q),\]
+and hence the break-even advice error is
+\(\ell_1^* = 2(\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}})\), where
+\(\rho_{\mathrm{base}}=\bigl(\sum_i(1+\theta_i/2)\bigr)/\mathrm{OPT}\).
+\end{quote}
+
+\emph{Proof.} By Lemma B.2, cell \(i\) contributes
+\(1+\theta_i\max(s_i,1-s_i)\) to the followed matching if its advice
+direction is correct and \(1+\theta_i\min(s_i,1-s_i)\) if wrong; the
+difference is \(2\theta_i\varepsilon_i\). Letting \(W\) be the set of
+wrong-direction cells, \[\text{followed matching}
+= \sum_i\bigl(1+\theta_i\max(s_i,1-s_i)\bigr)-\sum_{i\in W}2\theta_i\varepsilon_i.\]
+For the \(\ell_1\): the flexible and no-specialist coordinates cancel,
+and cell \(i\) contributes \(2\theta_i|s_i-\hat s_i|\), which is \(0\)
+if correct and (opposite side, same magnitude, so
+\(|s_i-\hat s_i|=2\varepsilon_i\)) \(4\theta_i\varepsilon_i\) if wrong.
+The type normalizer is \(N=\sum_i(1+\theta_i)=\mathrm{OPT}\), so
+\(\ell_1(p,q)=\bigl(\sum_{i\in W}4\theta_i\varepsilon_i\bigr)/\mathrm{OPT}
+=2\bigl(\sum_{i\in W}2\theta_i\varepsilon_i\bigr)/\mathrm{OPT}\).
+Substituting, \[\mathbb E[\text{follow-ratio}]
+=\frac{\text{followed matching}}{\mathrm{OPT}}
+=\rho_{\mathrm{perfect}}-\tfrac12\,\ell_1(p,q). \qquad\blacksquare\]
+
+The followed matching is a sum of \(m\) independent bounded cell
+contributions, so it concentrates around its mean at rate
+\(O(1/\sqrt m)\); the affine law holds with high probability, not only
+in expectation. (Numerical verification at \(\theta=0.6\),
+\(\varepsilon=0.3\), \(m=4000\) --- \(\rho_{\mathrm{perfect}}=0.924\),
+\(\rho_{\mathrm{base}}=0.812\) --- matches the law to three decimals at
+every wrong-fraction \(\varphi\in\{0,0.2,0.5,0.8,1\}\), with the
+simulated break-even \(0.223\) against the predicted
+\(\ell_1^*=2(0.924-0.812)=0.224\); Appendix A.6.)
+
+\textbf{Consequence: the stakes and the gap are clean, and the good side
+is a ball.} Define ``following gains \(\ge\delta\)''
+\(\iff \ell_1\le \ell_1^*-2\delta =: a\) and ``following loses
+\(\ge\Delta\)'' \(\iff \ell_1\ge \ell_1^*+2\Delta =: b\). Choosing,
+e.g., \(\delta=\Delta=(\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}})/4\)
+gives \(a=\ell_1^*/2>0\), \(b=3\ell_1^*/2\), and gap \(b-a=\ell_1^*\)
+--- all \(\Theta(1)\) constants independent of \(n\) (set by the fixed
+per-cell \(\theta,\varepsilon\); only the number of cells grows).
+Crucially \(a>0\): good advice is a \(\Theta(1)\)-radius \emph{ball}
+around the truth, not the single point \(p=q\). This is what places the
+decision problem in the \emph{tolerant} testing regime (§B.5).
+
+\section{Reduction to tolerant identity
+testing}
+
+\begin{quote}
+\textbf{Lemma B.4 (algorithm \(\Rightarrow\) tester).} On the family of
+§B.4, fix the advice \(q\). Suppose \(A\in\mathcal A_k\) is
+\((1-\eta_c)\)-consistent whenever \(\ell_1(p,q)\le a\) and loses at
+most \(\eta_r\Delta\) whenever \(\ell_1(p,q)\ge b\). Then the decision
+\(D\) of \(A\), viewed as a function of the \(k\) i.i.d. samples
+\(X_{1:k}\sim p\), distinguishes \(\{\ell_1(p,q)\le a\}\) from
+\(\{\ell_1(p,q)\ge b\}\) with error at most \(\eta_c+\eta_r+o(1)\).
+\end{quote}
+
+\emph{Proof sketch.} Consistency forces \(D=\mathrm F\) with high
+probability when \(\ell_1\le a\) (otherwise the algorithm forgoes the
+\(\delta\) gain, contradicting \((1-\eta_c)\)-consistency); robustness
+forces \(D=\mathrm R\) with high probability when \(\ell_1\ge b\)
+(otherwise it eats the \(\Delta\) loss). So \(D\) itself is the tester,
+and its error probabilities are bounded by the consistency and
+robustness slacks via the same conditioning as in Lemma B.1.
+\(\blacksquare\)
+
+The key point is that the prefix \(X_{1:k}\) is \emph{literally} \(k\)
+i.i.d. samples from the type distribution \(p\) (the known-i.i.d.
+model), and \(D\) is an arbitrary function of them --- so a
+sample-complexity lower bound for the testing problem rules out
+\emph{every} rule in \(\mathcal A_k\), not only the empirical-\(\ell_1\)
+threshold. This is the step that makes the result algorithm-independent
+and distinguishes it from the constructive baseline-coupling inside Choo
+et al.'s algorithm (Chapter 9).
+
+\begin{quote}
+\textbf{Theorem B.5 (tolerant identity testing; cited).} Distinguishing
+\(\ell_1(p,q)\le\varepsilon_1\) from \(\ell_1(p,q)\ge\varepsilon_2\) for
+a known \(q\) over support size \(r\), with error \(\le 1/3\), requires
+\[k \;=\; \tilde\Theta\!\Bigl(\frac{\sqrt r}{\varepsilon_2^2}
+\;+\; \frac{r}{\log r}\cdot\max\Bigl\{\frac{\varepsilon_1}{\varepsilon_2^2},
+\Bigl(\frac{\varepsilon_1}{\varepsilon_2^2}\Bigr)^2\Bigr\}\Bigr)\]
+samples \autocite{canonne2022tolerance}. In particular, for constant
+tolerances \(0<\varepsilon_1<\varepsilon_2\) the complexity is
+\(\tilde\Theta(r/\log r)\) --- near-linear --- whereas the non-tolerant
+case \(\varepsilon_1=0\) needs only \(\Theta(\sqrt r/\varepsilon_2^2)\)
+\autocite{paninski2008coincidence,valiant2017automatic}. See also
+\autocite{valiant2011unseen,jiao2018l1} for the \(\Omega(r/\log r)\)
+lower bound at constant tolerance and the \(\ell_1\)-estimation
+constants.
+\end{quote}
+
+Because §B.4 gives \(a>0\) (a \(\Theta(1)\) ball, not a point), our
+testing problem has constant tolerances \(\varepsilon_1=a\),
+\(\varepsilon_2=b\) and falls in the \emph{tolerant} regime: with
+\(r=\Theta(n)\) types, any tester needs \(\tilde\Theta(n/\log n)\)
+samples. The \(\Theta(\sqrt r)\) non-tolerant escape does not apply ---
+and this is not an artifact but a design necessity, since demanding
+consistency only at exactly-correct advice (\(a=0\)) would make the
+consistency guarantee vacuous.
+
+\section{Assembling the theorem}
+
+Chaining §B.2--§B.5 on the family of §B.4 with constant
+\(\theta,\varepsilon\) (hence \(\rho_{\mathrm{base}}=1-\Theta(1)\),
+stakes \(\delta,\Delta=\Theta(1)\), tolerances \(a,b=\Theta(1)\),
+support \(r=\Theta(n)\)):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Suppose \(A\in\mathcal A_k\) with \(k=o(n/\log n)\) is
+  \((1-o(1))\)-consistent and \((\rho_{\mathrm{base}}-o(1))\)-robust on
+  the family.
+\item
+  By Lemma B.4, its decision solves the \((a,b)\)-tolerant
+  identity-testing problem over support \(\Theta(n)\) with error
+  \(o(1)\) from \(k\) samples.
+\item
+  By Theorem B.5, any such tester needs \(\tilde\Theta(n/\log n)\)
+  samples --- more than \(k\) provides. The witness pair guaranteed by
+  the lower bound consists of two type distributions \(p_G\) (at
+  \(\ell_1(p_G,q)\le a\)) and \(p_{\mathrm{Bd}}\) (at
+  \(\ell_1(p_{\mathrm{Bd}},q)\ge b\)) whose length-\(k\) prefix laws
+  satisfy \(\gamma_k=o(1)\); by the affine law (Lemma B.3), \emph{any}
+  pair at those distances realizes the gain \(\delta\) and loss
+  \(\Delta\) respectively.
+\item
+  Lemma B.1 applied to \((p_G,p_{\mathrm{Bd}})\) with \(\gamma_k=o(1)\)
+  forces \(\eta_c+\eta_r\ge 1-o(1)\) --- contradicting step 1.
+\end{enumerate}
+
+\begin{quote}
+\textbf{Theorem B.6 (impossibility; the theorem of Chapter 9).} For
+every test budget \(k=o(n/\log n)\) there is a known-i.i.d. matching
+family with \(r=\Theta(n)\) types and baseline strength
+\(\rho_{\mathrm{base}}=1-\Theta(1)\) on which no test-and-fallback
+algorithm \(A\in\mathcal A_k\) --- deciding by any rule on its prefix
+--- is simultaneously \((1-o(1))\)-consistent and
+\((\rho_{\mathrm{base}}-o(1))\)-robust. The achievable (consistency,
+robustness) region collapses to the baseline point
+\((\rho_{\mathrm{base}},\rho_{\mathrm{base}})\).
+\end{quote}
+
+Combined with the easy strong-baseline side --- few types
+\(\Rightarrow\) near-perfect matching \(\Rightarrow\) upside
+\(\delta\to0\), nothing to capture --- this is the scissors of Figure
+9.1: the upside exists only where the tolerant test is infeasible.
+
+\section{Status, the remaining step, and a negative
+finding}
+
+\textbf{Proved here.} Lemma B.1 (complete proof, §B.2); Lemma B.2
+(complete proof plus three-decimal numerical verification, §B.3); Lemma
+B.3 (complete proof plus verification, §B.4); Lemma B.4 (proof sketch
+whose completion is bookkeeping on the two conditioning displays of
+Lemma B.1). Theorem B.5 is a cited, exact, modern result --- the
+load-bearing external ingredient --- and §B.4 establishes that our
+problem sits on its tolerant (theorem-preserving) side.
+
+\textbf{The remaining step (stated plainly).} Step 3 of §B.6 requires
+\emph{exhibiting} the witness pair \((p_G,p_{\mathrm{Bd}})\) from the
+tolerant-testing lower-bound construction and checking it lands at
+\(\ell_1\le a\) and \(\ell_1\ge b\) within the cell parameterization of
+§B.4. Because the affine law makes any pair at those distances realize
+the stakes, this is a routine verification rather than new mathematics;
+it, plus a final end-to-end review, remains open at the time of writing
+(see §9.5). Until it is closed, Theorem B.6 should be read with the
+status stated in Chapter 9.
+
+\textbf{A negative finding worth recording.} A \emph{low-dimensional}
+version of the construction --- all cells sharing one global bias
+parameter, with the good/bad scenarios differing by a single global
+shift --- provably fails: a length-\(k\) prefix estimates one shared
+parameter to \(\pm1/\sqrt{\theta k}\), so the scenarios become
+distinguishable at any \(\delta=\omega(\sqrt{\theta/k})\) and only a
+vacuous impossibility survives. The strength of the theorem genuinely
+requires spreading the advice error across \(\Theta(n)\) independent
+cells, each perturbed below the per-type sampling resolution --- the
+dimension is essential, which is also why the theorem's strong form is
+stated for the \(r=\Theta(n)\) regime and a constant-\(r\) version is
+left open (§9.5).
