@@ -29,7 +29,7 @@ route survives real drift. Consuming the *same* forecast through the raw histogr
 catastrophic: blind FollowPrediction collapses to $0.68\to0.36$, far below the $\approx0.92$
 baseline — exactly what the robust algorithms of Chapters 4 and 6 are for.
 
-![A real, cheap predictor (Wikipedia trace). (a) Topology aggregation halves the induced degree predictor's order error relative to the raw histogram. (b) A stale forecast tracks the oracle through the degree route while blind histogram-following decays.](../../results/real_predictor.png){width=100%}
+![A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=100%}
 
 ## 7.2 Six real-world graphs
 
@@ -53,7 +53,7 @@ neither upside to capture (F3) nor much downside to protect. Finally, F4 is *dra
 worst-case-designed Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs
 ($0.73$–$0.77$) and the augmentation lifts them to $0.99$ — a $+0.26$ rescue.
 
-![F1–F3 on six real graphs. Naive MPD (red) dips below the Ranking floor under adversarial predictions on every graph; the structural augmentations (green/blue) stay flat — as on synthetic graphs.](../../results/realworld_robustness.png){width=100%}
+![F1–F3 on six real graphs: naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.](../../results/realworld_robustness.png){width=100%}
 
 ## 7.3 Does learning the predictor help?
 

@@ -48,29 +48,24 @@ inference trace, and the Mooncake prefix-cache trace
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: as forecast error grows, blindly following the forecast crashes goodput at both capacities --- and deeper at ample capacity (c=8) --- while the adaptive test stays flat at the capacity-aware baseline.}]{../../results/serving_envelope.png}
-\caption{Capacity as robustness: as forecast error grows, blindly
-following the forecast crashes goodput at both capacities --- and
-\emph{deeper} at ample capacity (\(c=8\)) --- while the adaptive test
-stays flat at the capacity-aware baseline.}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (c=8) --- while the adaptive test stays flat.}]{../../results/serving_envelope.png}
+\caption{Capacity as robustness: blindly following the forecast crashes
+goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive
+test stays flat.}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Forecasts vs live load (real LLM timestamps and service times): a forecast-free least-loaded balancer is robust at every capacity, while blindly following a stale forecast degrades with its error; an adaptive test recovers most of the gap.}]{../../results/serving_dynamic.png}
-\caption{Forecasts vs live load (real LLM timestamps and service times):
-a forecast-free least-loaded balancer is robust at every capacity, while
-blindly following a stale forecast degrades with its error; an adaptive
-test recovers most of the gap.}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.}]{../../results/serving_dynamic.png}
+\caption{Live load beats a stale forecast under dynamic service times;
+an adaptive test recovers most of the gap.}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The cache-affinity reversal (real Mooncake prefix trace): for KV-cache reuse, a stable consistent-hash placement beats reactive routing --- the opposite of the load-balancing case --- because cache locality rewards persistence.}]{../../results/prefix_cache_reversal.png}
-\caption{The cache-affinity reversal (real Mooncake prefix trace): for
-KV-cache reuse, a \emph{stable} consistent-hash placement beats reactive
-routing --- the opposite of the load-balancing case --- because cache
-locality rewards persistence.}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}]{../../results/prefix_cache_reversal.png}
+\caption{The cache-affinity reversal (Mooncake trace): stable placement
+beats reactive routing for KV-cache reuse.}
 \end{figure}
 
 Each of these recovers an established systems result cleanly,

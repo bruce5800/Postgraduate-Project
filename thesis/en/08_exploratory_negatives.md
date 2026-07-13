@@ -34,7 +34,7 @@ truth (MSE $87.6$ vs $33.4$) but better order (Kendall-$\tau$ $0.058$ vs $0.255$
 dissociation is real: the worse *fit* gives the better *decision*, confirming that
 regression is the wrong training objective when it matters.
 
-![M0: with divergent features, rank-training beats regression on the matching ratio (left) *despite* a worse regression fit (right) — the dissociation that shows regression is the wrong training objective for MPD.](../../results/rank_vs_mse_mve.png){width=100%}
+![M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).](../../results/rank_vs_mse_mve.png){width=100%}
 
 **M1 — but the advantage is doubly gated, and small.** Sweeping the feature divergence and
 the graph difficulty, the rank-advantage is zero when features do not induce an
@@ -52,7 +52,7 @@ rank-training is a property of *engineered* features; realistic lagged-count fea
 co-linear noisy estimates of the same popularity, so regression already recovers the order
 as well as ranking does.
 
-![M3 — the decisive negative on a real trace (Azure LLM): with real arrivals and real temporal features, the rank-trained and MSE-trained predictors are indistinguishable from each other and from the non-learned last-window count, all near the oracle; the engineered order/magnitude divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
+![M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable — the engineered divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
 
 **Verdict.** Learning the predictor with a decision-aligned loss does not elevate to a
 standalone contribution: the win requires a feature divergence that does not arise in
@@ -85,7 +85,7 @@ both robust to the sweep: protecting a tight-SLO minority needs only a small sta
 headroom, no forecast; and bursts are persistent enough that reacting to observed load is
 almost as good as forecasting it.
 
-![Serving SLO probe: on a tight-SLO/tail objective under bursty load, a non-predictive policy (static headroom or reactive-adaptive) matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=75%}
+![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=75%}
 
 **Verdict.** The tail objective is forgiving too — a third face of the wall, after
 throughput (Chapters 4–7) and predictor-learning (§8.1). We found no natural regime where

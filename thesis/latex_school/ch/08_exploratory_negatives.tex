@@ -38,11 +38,9 @@ objective when it matters.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right) --- the dissociation that shows regression is the wrong training objective for MPD.}]{../../results/rank_vs_mse_mve.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).}]{../../results/rank_vs_mse_mve.png}
 \caption{M0: with divergent features, rank-training beats regression on
-the matching ratio (left) \emph{despite} a worse regression fit (right)
---- the dissociation that shows regression is the wrong training
-objective for MPD.}
+the matching ratio (left) despite a worse regression fit (right).}
 \end{figure}
 
 \textbf{M1 --- but the advantage is doubly gated, and small.} Sweeping
@@ -67,12 +65,10 @@ already recovers the order as well as ranking does.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M3 --- the decisive negative on a real trace (Azure LLM): with real arrivals and real temporal features, the rank-trained and MSE-trained predictors are indistinguishable from each other and from the non-learned last-window count, all near the oracle; the engineered order/magnitude divergence that powers rank-training does not arise.}]{../../results/rank_real_trace.png}
-\caption{M3 --- the decisive negative on a real trace (Azure LLM): with
-real arrivals and real temporal features, the rank-trained and
-MSE-trained predictors are indistinguishable from each other and from
-the non-learned last-window count, all near the oracle; the engineered
-order/magnitude divergence that powers rank-training does not arise.}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable --- the engineered divergence that powers rank-training does not arise.}]{../../results/rank_real_trace.png}
+\caption{M3 (Azure trace, real temporal features): rank- and MSE-trained
+predictors are indistinguishable --- the engineered divergence that
+powers rank-training does not arise.}
 \end{figure}
 
 \textbf{Verdict.} Learning the predictor with a decision-aligned loss
@@ -118,11 +114,9 @@ good as forecasting it.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio,alt={Serving SLO probe: on a tight-SLO/tail objective under bursty load, a non-predictive policy (static headroom or reactive-adaptive) matches the clairvoyant oracle to within a few percent --- foresight does not help.}]{../../results/serving_slo_probe.png}
-\caption{Serving SLO probe: on a tight-SLO/tail objective under bursty
-load, a non-predictive policy (static headroom or reactive-adaptive)
-matches the clairvoyant oracle to within a few percent --- foresight
-does not help.}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio,alt={Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent --- foresight does not help.}]{../../results/serving_slo_probe.png}
+\caption{Serving SLO probe: a non-predictive policy matches the
+clairvoyant oracle to within a few percent --- foresight does not help.}
 \end{figure}
 
 \textbf{Verdict.} The tail objective is forgiving too --- a third face

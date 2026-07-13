@@ -131,37 +131,13 @@ xurl: Set penalties for biblatex
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
- (./wordcount.tex)
+(./wordcount.tex)
 
 LaTeX Warning: Unused global option(s):
-    [bibstyle=acmnumeric].
+    [bibstyle=acmnumeric,twoside=false].
 
-(./thesis.aux
-
-LaTeX Warning: Label `chapter-summary' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary@cref' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary@cref' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary@cref' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary' multiply defined.
-
-
-LaTeX Warning: Label `chapter-summary@cref' multiply defined.
-
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(./thesis.aux)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -183,7 +159,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 41.
+(typearea)                outside all groups on input line 56.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd)
@@ -200,46 +176,34 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 4
-1.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
+6.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
 ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
 /texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
 
-[2]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 45.
+(typearea)                outside all groups on input line 60.
 
 (./abstract.tex)
-[3]
-[4]
-[5]
-[6]
-[7 <./sig.png>]
-[8] (./thesis.toc
-[1]
-Underfull \vbox (badness 10000) has occurred while \output is active
 [2]
-Underfull \vbox (badness 1194) has occurred while \output is active
+[3]
+[4 <./sig.png>] (./thesis.toc
+[1]
+[2]
 [3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lot)
-[5]
-[6] (./thesis.lof
-Underfull \vbox (badness 10000) has occurred while \output is active
-[7{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[4] (./thesis.lof
+[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[8]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[9])
-[10] (./ch/01_introduction.tex
+[6])
+[7] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
@@ -263,15 +227,12 @@ chapter 3.
 [11]
 [12]
 [13]
-[14]
-[15 <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
+[14]) (./ch/04_unified_benchmark.tex
+[15 <../../results/er_full.png>]
 [16 <../../results/left_regular.png>]
-[17]
-[18]
 chapter 4.
 
-[19]
+[17]
 Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
 
@@ -280,69 +241,57 @@ Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
 
 Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
-[20]
-[21]
-Underfull \vbox (badness 1478) has occurred while \output is active
-[22 <../../results/unified_benchmark.png>]
-[23 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[24]
+[18]
+[19]
+[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
+[21 <../../results/consistency_robustness.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
-[25]
-[26 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
-[27]
-[28]
+[22]
+[23 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
+[24]
 chapter 6.
 
-Underfull \vbox (badness 10000) has occurred while \output is active
+[25]
+[26 <../../results/choo_bem_envelope.png>]
+[27 <../../results/choo_bem_prefix.png>]
+[28 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
 [29]
-[30 <../../results/choo_bem_envelope.png>]
-[31]
-[32 <../../results/choo_bem_prefix.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[33 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
-[34]
 chapter 7.
 
-[35]
-[36 <../../results/real_predictor.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[37 <../../results/realworld_robustness.png>])
+[30]
+[31 <../../results/real_predictor.png>]
+[32 <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[38]
+[33]
 chapter 8.
 
+[34]
+[35 <../../results/rank_vs_mse_mve.png>]
+[36 <../../results/rank_real_trace.png>]
+[37]
+[38 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
 [39]
-Underfull \vbox (badness 2269) has occurred while \output is active
-[40 <../../results/rank_vs_mse_mve.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[41 <../../results/rank_real_trace.png>]
-[42]
-[43 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[44]
 chapter 9.
 
-[45]
-[46 <../../results/impossibility_frontier.png>]
-[47]
-[48]) (./ch/10_serving_case_study.tex
-[49]
-[50]
+[40]
+[41 <../../results/impossibility_frontier.png>]
+[42]
+[43]) (./ch/10_serving_case_study.tex
+[44]
 chapter 10.
 
-[51]
-[52 <../../results/serving_envelope.png>]
-[53 <../../results/serving_dynamic.png>]
-[54 <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
-[55]
-[56]
+[45]
+[46 <../../results/serving_envelope.png>]
+[47 <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal.pn
+g>]) (./ch/11_conclusion.tex
+[48]
 chapter 11.
 
-[57]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[58])
-[59] (./ch/A_reproduction.tex
-[60]
+[49]
+[50])
+[51] (./ch/A_reproduction.tex
+[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -462,8 +411,8 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[61] [62]
-[63]
+[53] [54]
+[55]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
 (replots Table 4.1)[] 
@@ -476,37 +425,31 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
  [] [] [] [] [] [] [] 
-[64]
-Underfull \vbox (badness 3803) has occurred while \output is active
-[65]
+[56]
+[57]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
 ) (./ch/B_proof_details.tex
-[66]
+[58]
 chapter B.
 
+[59]
+[60]
+[61]
+[62]
+[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[64]
+[65]
+[66])
 [67]
-[68]
-[69]
-[70]
-[71{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[72]
-[73]
-[74])
-[75]
-[76]
 chapter without number
 
-[77]
-[78]
-[79] (./thesis.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- )
+[68]
+[69]
+[70] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -522,7 +465,7 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (97 pages, 2420135 bytes).
+Output written on thesis.pdf (81 pages, 2410006 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -671,10 +614,10 @@ xurl: Set penalties for biblatex
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
- (./wordcount.tex)
+(./wordcount.tex)
 
 LaTeX Warning: Unused global option(s):
-    [bibstyle=acmnumeric].
+    [bibstyle=acmnumeric,twoside=false].
 
 (./thesis.aux)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
@@ -699,7 +642,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 41.
+(typearea)                outside all groups on input line 56.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd)
@@ -716,46 +659,34 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 4
-1.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
+6.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
 ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
 /texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
 
-[2]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 45.
+(typearea)                outside all groups on input line 60.
 
 (./abstract.tex)
-[3]
-[4]
-[5]
-[6]
-[7 <./sig.png>]
-[8] (./thesis.toc
-[1]
-Underfull \vbox (badness 10000) has occurred while \output is active
 [2]
-Underfull \vbox (badness 1194) has occurred while \output is active
+[3]
+[4 <./sig.png>] (./thesis.toc
+[1]
+[2]
 [3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lot)
-[5]
-[6] (./thesis.lof
-Underfull \vbox (badness 10000) has occurred while \output is active
-[7{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[4] (./thesis.lof
+[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[8]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[9])
-[10] (./ch/01_introduction.tex
+[6])
+[7] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
@@ -779,15 +710,12 @@ chapter 3.
 [11]
 [12]
 [13]
-[14]
-[15 <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
+[14]) (./ch/04_unified_benchmark.tex
+[15 <../../results/er_full.png>]
 [16 <../../results/left_regular.png>]
-[17]
-[18]
 chapter 4.
 
-[19]
+[17]
 Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
 
@@ -796,69 +724,57 @@ Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
 
 Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
-[20]
-[21]
-Underfull \vbox (badness 1478) has occurred while \output is active
-[22 <../../results/unified_benchmark.png>]
-[23 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[24]
+[18]
+[19]
+[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
+[21 <../../results/consistency_robustness.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
-[25]
-[26 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
-[27]
-[28]
+[22]
+[23 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
+[24]
 chapter 6.
 
-Underfull \vbox (badness 10000) has occurred while \output is active
+[25]
+[26 <../../results/choo_bem_envelope.png>]
+[27 <../../results/choo_bem_prefix.png>]
+[28 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
 [29]
-[30 <../../results/choo_bem_envelope.png>]
-[31]
-[32 <../../results/choo_bem_prefix.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[33 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
-[34]
 chapter 7.
 
-[35]
-[36 <../../results/real_predictor.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[37 <../../results/realworld_robustness.png>])
+[30]
+[31 <../../results/real_predictor.png>]
+[32 <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[38]
+[33]
 chapter 8.
 
+[34]
+[35 <../../results/rank_vs_mse_mve.png>]
+[36 <../../results/rank_real_trace.png>]
+[37]
+[38 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
 [39]
-Underfull \vbox (badness 2269) has occurred while \output is active
-[40 <../../results/rank_vs_mse_mve.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[41 <../../results/rank_real_trace.png>]
-[42]
-[43 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[44]
 chapter 9.
 
-[45]
-[46 <../../results/impossibility_frontier.png>]
-[47]
-[48]) (./ch/10_serving_case_study.tex
-[49]
-[50]
+[40]
+[41 <../../results/impossibility_frontier.png>]
+[42]
+[43]) (./ch/10_serving_case_study.tex
+[44]
 chapter 10.
 
-[51]
-[52 <../../results/serving_envelope.png>]
-[53 <../../results/serving_dynamic.png>]
-[54 <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
-[55]
-[56]
+[45]
+[46 <../../results/serving_envelope.png>]
+[47 <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal.pn
+g>]) (./ch/11_conclusion.tex
+[48]
 chapter 11.
 
-[57]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[58])
-[59] (./ch/A_reproduction.tex
-[60]
+[49]
+[50])
+[51] (./ch/A_reproduction.tex
+[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -978,8 +894,8 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[61] [62]
-[63]
+[53] [54]
+[55]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
 (replots Table 4.1)[] 
@@ -992,33 +908,31 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
  [] [] [] [] [] [] [] 
-[64]
-Underfull \vbox (badness 3803) has occurred while \output is active
-[65]
+[56]
+[57]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
 ) (./ch/B_proof_details.tex
-[66]
+[58]
 chapter B.
 
+[59]
+[60]
+[61]
+[62]
+[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[64]
+[65]
+[66])
 [67]
-[68]
-[69]
-[70]
-[71{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[72]
-[73]
-[74])
-[75]
-[76]
 chapter without number
 
-[77]
-[78]
-[79] (./thesis.aux) )
+[68]
+[69]
+[70] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -1034,7 +948,7 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (97 pages, 2420135 bytes).
+Output written on thesis.pdf (81 pages, 2410008 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1169,10 +1083,10 @@ xurl: Set penalties for biblatex
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
- (./wordcount.tex)
+(./wordcount.tex)
 
 LaTeX Warning: Unused global option(s):
-    [bibstyle=acmnumeric].
+    [bibstyle=acmnumeric,twoside=false].
 
 (./thesis.aux)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
@@ -1197,7 +1111,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 41.
+(typearea)                outside all groups on input line 56.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd)
@@ -1214,46 +1128,34 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 4
-1.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
+6.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
 ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
 /texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
 
-[2]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 45.
+(typearea)                outside all groups on input line 60.
 
 (./abstract.tex)
-[3]
-[4]
-[5]
-[6]
-[7 <./sig.png>]
-[8] (./thesis.toc
-[1]
-Underfull \vbox (badness 10000) has occurred while \output is active
 [2]
-Underfull \vbox (badness 1194) has occurred while \output is active
+[3]
+[4 <./sig.png>] (./thesis.toc
+[1]
+[2]
 [3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lot)
-[5]
-[6] (./thesis.lof
-Underfull \vbox (badness 10000) has occurred while \output is active
-[7{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[4] (./thesis.lof
+[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[8]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[9])
-[10] (./ch/01_introduction.tex
+[6])
+[7] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
@@ -1277,15 +1179,12 @@ chapter 3.
 [11]
 [12]
 [13]
-[14]
-[15 <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
+[14]) (./ch/04_unified_benchmark.tex
+[15 <../../results/er_full.png>]
 [16 <../../results/left_regular.png>]
-[17]
-[18]
 chapter 4.
 
-[19]
+[17]
 Overfull \hbox (15.29514pt too wide) in paragraph at lines 66--66
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD)|  
 
@@ -1294,69 +1193,57 @@ Overfull \hbox (16.65514pt too wide) in paragraph at lines 67--67
 
 Overfull \hbox (14.01399pt too wide) in paragraph at lines 73--73
 []|\T1/lmr/m/n/10.95 (-20) Feldman(MPD) 
-[20]
-[21]
-Underfull \vbox (badness 1478) has occurred while \output is active
-[22 <../../results/unified_benchmark.png>]
-[23 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[24]
+[18]
+[19]
+[20 <../../results/unified_benchmark.png>]) (./ch/05_order_error.tex
+[21 <../../results/consistency_robustness.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
-[25]
-[26 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
-[27]
-[28]
+[22]
+[23 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
+[24]
 chapter 6.
 
-Underfull \vbox (badness 10000) has occurred while \output is active
+[25]
+[26 <../../results/choo_bem_envelope.png>]
+[27 <../../results/choo_bem_prefix.png>]
+[28 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
 [29]
-[30 <../../results/choo_bem_envelope.png>]
-[31]
-[32 <../../results/choo_bem_prefix.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[33 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
-[34]
 chapter 7.
 
-[35]
-[36 <../../results/real_predictor.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[37 <../../results/realworld_robustness.png>])
+[30]
+[31 <../../results/real_predictor.png>]
+[32 <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[38]
+[33]
 chapter 8.
 
+[34]
+[35 <../../results/rank_vs_mse_mve.png>]
+[36 <../../results/rank_real_trace.png>]
+[37]
+[38 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
 [39]
-Underfull \vbox (badness 2269) has occurred while \output is active
-[40 <../../results/rank_vs_mse_mve.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[41 <../../results/rank_real_trace.png>]
-[42]
-[43 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[44]
 chapter 9.
 
-[45]
-[46 <../../results/impossibility_frontier.png>]
-[47]
-[48]) (./ch/10_serving_case_study.tex
-[49]
-[50]
+[40]
+[41 <../../results/impossibility_frontier.png>]
+[42]
+[43]) (./ch/10_serving_case_study.tex
+[44]
 chapter 10.
 
-[51]
-[52 <../../results/serving_envelope.png>]
-[53 <../../results/serving_dynamic.png>]
-[54 <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
-[55]
-[56]
+[45]
+[46 <../../results/serving_envelope.png>]
+[47 <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal.pn
+g>]) (./ch/11_conclusion.tex
+[48]
 chapter 11.
 
-[57]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[58])
-[59] (./ch/A_reproduction.tex
-[60]
+[49]
+[50])
+[51] (./ch/A_reproduction.tex
+[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -1476,8 +1363,8 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[61] [62]
-[63]
+[53] [54]
+[55]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
 (replots Table 4.1)[] 
@@ -1490,33 +1377,31 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
  [] [] [] [] [] [] [] 
-[64]
-Underfull \vbox (badness 3803) has occurred while \output is active
-[65]
+[56]
+[57]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
 ) (./ch/B_proof_details.tex
-[66]
+[58]
 chapter B.
 
+[59]
+[60]
+[61]
+[62]
+[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[64]
+[65]
+[66])
 [67]
-[68]
-[69]
-[70]
-[71{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[72]
-[73]
-[74])
-[75]
-[76]
 chapter without number
 
-[77]
-[78]
-[79] (./thesis.aux) )
+[68]
+[69]
+[70] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -1532,5 +1417,5 @@ cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (97 pages, 2420135 bytes).
+Output written on thesis.pdf (81 pages, 2410008 bytes).
 Transcript written on thesis.log.

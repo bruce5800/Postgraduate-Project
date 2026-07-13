@@ -31,11 +31,10 @@ algorithms of Chapters 4 and 6 are for.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={A real, cheap predictor (Wikipedia trace). (a) Topology aggregation halves the induced degree predictor's order error relative to the raw histogram. (b) A stale forecast tracks the oracle through the degree route while blind histogram-following decays.}]{../../results/real_predictor.png}
-\caption{A real, cheap predictor (Wikipedia trace). (a) Topology
-aggregation halves the induced degree predictor's order error relative
-to the raw histogram. (b) A stale forecast tracks the oracle through the
-degree route while blind histogram-following decays.}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.}]{../../results/real_predictor.png}
+\caption{A real, cheap predictor (Wikipedia trace): the aggregated
+degree route survives staleness (b) because aggregation halves the order
+error (a); blind histogram-following decays.}
 \end{figure}
 
 \section{Six real-world graphs}
@@ -69,11 +68,10 @@ the augmentation lifts them to \(0.99\) --- a \(+0.26\) rescue.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={F1--F3 on six real graphs. Naive MPD (red) dips below the Ranking floor under adversarial predictions on every graph; the structural augmentations (green/blue) stay flat --- as on synthetic graphs.}]{../../results/realworld_robustness.png}
-\caption{F1--F3 on six real graphs. Naive MPD (red) dips below the
-Ranking floor under adversarial predictions on every graph; the
-structural augmentations (green/blue) stay flat --- as on synthetic
-graphs.}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={F1--F3 on six real graphs: naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.}]{../../results/realworld_robustness.png}
+\caption{F1--F3 on six real graphs: naive MPD (red) dips below the
+Ranking floor everywhere; the structural augmentations (green/blue) stay
+flat.}
 \end{figure}
 
 \section{Does learning the predictor

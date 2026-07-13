@@ -3,7 +3,8 @@
 %% citations as biblatex \autocite). Edit the markdown, not ch/*.tex.
 \documentclass[
   bibstyle=acmnumeric,   % numeric [1] style, matching the draft build
-  % twoside,             % uncomment for the printed two-sided version
+  twoside=false,         % e-submission: no blank verso pages. For the PRINTED
+                         % two-sided copy, change to: twoside
 ]{uob-thesis}
 
 \addbibresource{refs_clean.bib}  % generated: docs/references.bib minus note fields
@@ -14,6 +15,20 @@
 \usepackage{graphicx}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\pandocbounded}[1]{#1}
+
+%% E-SUBMISSION LAYOUT: single-sided, no parity-forced blank pages.
+%% For the printed two-sided copy, delete the next two lines (and set twoside above).
+\KOMAoptions{twoside=false}\recalctypearea
+\renewcommand*{\cleardoubleoddemptypage}{\clearpage}
+
+%% Keep large result figures on text pages instead of dedicated float pages
+%% (with 1.5 line spacing the LaTeX defaults push them out far too eagerly).
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
 
 %%%%%%%%%%%%%%%%%%%
 %% AUTHOR DETAILS %
@@ -92,7 +107,7 @@ The information in this table counts as the references to my own publications if
 
 \frontmatter
 \tableofcontents
-\listoftables
+% \listoftables   % tables are set inline (uncaptioned), so the list would be empty
 \listoffigures
 
 %%%%%%%%%%%%%%%%

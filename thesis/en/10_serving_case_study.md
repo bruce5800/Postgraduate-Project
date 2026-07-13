@@ -36,11 +36,11 @@ four serving concerns.
   affinity router beats a reactive one — the reverse of the traffic-forecast case, because
   cache locality rewards persistence [@preble2024].
 
-![Capacity as robustness: as forecast error grows, blindly following the forecast crashes goodput at both capacities — and *deeper* at ample capacity ($c=8$) — while the adaptive test stays flat at the capacity-aware baseline.](../../results/serving_envelope.png){width=100%}
+![Capacity as robustness: blindly following the forecast crashes goodput — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=100%}
 
-![Forecasts vs live load (real LLM timestamps and service times): a forecast-free least-loaded balancer is robust at every capacity, while blindly following a stale forecast degrades with its error; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
+![Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
 
-![The cache-affinity reversal (real Mooncake prefix trace): for KV-cache reuse, a *stable* consistent-hash placement beats reactive routing — the opposite of the load-balancing case — because cache locality rewards persistence.](../../results/prefix_cache_reversal.png){width=80%}
+![The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.](../../results/prefix_cache_reversal.png){width=80%}
 
 Each of these recovers an established systems result cleanly, demonstrating that the
 framework instantiates the problem faithfully.

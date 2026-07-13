@@ -23,11 +23,11 @@ trace（Wikipedia 页面浏览、一个 Azure LLM 推理 trace、以及 Mooncake
 - **缓存亲和路由（图 10.3）。** 对前缀缓存感知的路由，一个**稳定**的亲和路由器胜过一个反应式的——与
   流量预测的情形相反，因为缓存局部性奖励持久性 [@preble2024]。
 
-![容量作为鲁棒性：随预测误差增大，盲目跟随预测在两种容量下都使 goodput 崩塌——且在容量充裕（$c=8$）时摔得**更深**——而自适应检验则平贴在容量感知基线上。](../../results/serving_envelope.png){width=100%}
+![容量作为鲁棒性：盲目跟随预测使 goodput 崩塌——容量充裕（$c=8$）时更深——而自适应检验保持平坦。](../../results/serving_envelope.png){width=100%}
 
-![预测 vs 实时负载（真实 LLM 时间戳与服务时长）：免预测的最少负载均衡器在每个容量下都鲁棒，而盲目跟随陈旧预测随其误差退化；自适应检验挽回大部分差距。](../../results/serving_dynamic.png){width=100%}
+![动态服务时间下实时负载胜过陈旧预测；自适应检验挽回大部分差距。](../../results/serving_dynamic.png){width=100%}
 
-![缓存亲和反转（真实 Mooncake 前缀 trace）：对 KV 缓存复用，**稳定**的一致性哈希放置胜过反应式路由——与负载均衡情形相反——因为缓存局部性奖励持久性。](../../results/prefix_cache_reversal.png){width=80%}
+![缓存亲和反转（Mooncake trace）：对 KV 缓存复用，稳定放置胜过反应式路由。](../../results/prefix_cache_reversal.png){width=80%}
 
 这些各自都干净地复现了一个已确立的系统结论，表明该框架忠实地实例化了该问题。
 

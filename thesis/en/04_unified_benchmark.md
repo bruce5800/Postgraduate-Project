@@ -59,7 +59,7 @@ rows:
 | TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
 | Combiner *(benchmark)* | 0.990 | 0.990 | 0.990 | 0.990 |
 
-![The unified benchmark: competitive ratio (mean, 95% CI) versus prediction quality, for the three panels. Naive followers (MPD under adversarial, FollowPrediction) dip below the advice-free floor; the robust algorithms do not.](../../results/unified_benchmark.png){width=100%}
+![The unified benchmark: competitive ratio (mean, 95% CI) versus prediction quality. Naive followers dip below the advice-free floor; the robust algorithms do not.](../../results/unified_benchmark.png){width=100%}
 
 ## 4.2 Four findings
 
@@ -82,7 +82,7 @@ envelope at both ends. The two mechanisms trade consistency for robustness in op
 trades — and the empty region beyond TestAndMatch toward the ideal top-right corner — are
 visible at a glance.
 
-![The consistency–robustness plane, one point per algorithm (consistency = ratio under perfect advice; robustness = worst ratio across advice quality; the data of Table 4.1). Dashed lines mark the advice-free floor, dotted the oracle ceiling. Naive followers (MPD, FollowPrediction) buy consistency with robustness; the structural augmentations give up little of either; TestAndMatch sits nearest the ideal top-right corner; the combiner stays pinned at the floor point.](../../results/consistency_robustness.png){width=100%}
+![The consistency–robustness plane (the data of Table 4.1); dashed lines mark the advice-free floor, dotted the oracle ceiling. TestAndMatch sits nearest the ideal top-right corner.](../../results/consistency_robustness.png){width=100%}
 
 **(F3) The consistency upside is small on average-case inputs; the spread lives on the
 bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and

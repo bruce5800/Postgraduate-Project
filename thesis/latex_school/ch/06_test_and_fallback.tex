@@ -26,10 +26,10 @@ This is the adaptive counterpart of the structural robustness of Chapter
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The robustness envelope. As advice error \textbackslash ell\_1(p,q) grows, blind FollowPrediction crashes below the advice-free floor, while TestAndMatch (Choo/BEM) stays on the upper envelope.}]{../../results/choo_bem_envelope.png}
-\caption{The robustness envelope. As advice error \(\ell_1(p,q)\) grows,
-blind FollowPrediction crashes below the advice-free floor, while
-TestAndMatch (Choo/BEM) stays on the upper envelope.}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}]{../../results/choo_bem_envelope.png}
+\caption{The robustness envelope: blind FollowPrediction crashes below
+the advice-free floor as advice error grows; TestAndMatch stays on the
+upper envelope.}
 \end{figure}
 
 \section{A threshold that is too lenient on average-case
@@ -54,11 +54,10 @@ faithfully.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={Testing cost at borderline advice: a larger, more accurate prefix test makes the worse decision, because the worst-case-calibrated threshold accepts mildly-bad advice on strong-baseline inputs.}]{../../results/choo_bem_prefix.png}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={Testing cost at borderline advice: a larger, more accurate prefix test makes the worse decision under the worst-case-calibrated threshold.}]{../../results/choo_bem_prefix.png}
 \caption{Testing cost at borderline advice: a larger, more accurate
-prefix test makes the \emph{worse} decision, because the
-worst-case-calibrated threshold accepts mildly-bad advice on
-strong-baseline inputs.}
+prefix test makes the \emph{worse} decision under the
+worst-case-calibrated threshold.}
 \end{figure}
 
 \section{Recalibration, and the resolution limit it
@@ -88,13 +87,10 @@ better tester only follows whichever threshold more faithfully.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={Recalibration removes the threshold pathology: at borderline advice the worst-case-calibrated threshold's misjudgement rate climbs toward 1.0 as the prefix grows, while the threshold recalibrated to the measured baseline holds it at zero --- but its acceptance margin then falls below the estimator's noise floor, so it can never confidently accept.}]{../../results/recalibration_prefix.png}
-\caption{Recalibration removes the threshold pathology: at borderline
-advice the worst-case-calibrated threshold's misjudgement rate climbs
-toward \(1.0\) as the prefix grows, while the threshold recalibrated to
-the measured baseline holds it at zero --- but its acceptance margin
-then falls below the estimator's noise floor, so it can never
-confidently accept.}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={Recalibration removes the threshold pathology: misjudgement holds at zero at every prefix size, versus climbing toward 1.0 under the worst-case threshold.}]{../../results/recalibration_prefix.png}
+\caption{Recalibration removes the threshold pathology: misjudgement
+holds at zero at every prefix size, versus climbing toward \(1.0\) under
+the worst-case threshold.}
 \end{figure}
 
 This is exactly the phenomenon Chapter 9 proves unavoidable --- there,
