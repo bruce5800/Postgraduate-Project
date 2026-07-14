@@ -19,30 +19,45 @@ knob and reported in a parallel panel (Chapter 3); the shared harness — graphs
 $\mathrm{OPT}$, CI methodology, and the advice-free floor — is what makes the panels
 comparable.
 
-- **Panel A — clvb_zipf** ($n=1000$, Zipf exponent $1.0$, 60 trials): heavy-tailed offline
-  degrees, where degree predictions carry signal.
-- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): near-homogeneous degrees — the
-  hard case of Chapter 3 — where predictions have little signal to carry.
-- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials, test prefix $k=200$):
-  near-perfect-matchable, the calibrated regime for the type-histogram test-and-fallback
-  algorithms.
+**Instance format and notation.** Every panel uses the instance format of Chapter 3: $n$
+offline resources, $r$ online request types, and $m$ arrivals drawn i.i.d. from the type
+distribution; throughout this chapter $m=n$, so requests and resources are balanced. The
+panels differ *only* in the type graph connecting requests to resources — that single
+change is what moves the input between the regimes the two prediction families were
+designed for:
 
-**Shared settings.** Every panel runs on the harness of Chapter 3 with $m=n$ i.i.d.
-arrivals per instance and *paired trials*: within a panel, every algorithm and quality
-level reuses the same graphs, arrival sequences, realized optima (Hopcroft–Karp), and
-tie-break seeds, so column differences are attributable to the prediction alone. All
-randomness derives from four independent streams (graph, instance, algorithm tie-breaks,
-prediction perturbation) spawned from one master seed per panel. Entries are means over
-trials with 95% normal-approximation confidence intervals, tight throughout
-($\pm0.001$–$0.003$). The quality columns instantiate the error models of §3.3 — degree
-panels: *perfect* (true realized degrees), *noisy* (random-flip at strength $\tfrac12$),
-*adversarial* (order-reversing reflection), *garbage* (independent random $\mu$,
-$\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated random
-target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). **Table 4.1**
-presents each panel's ratios beside its bar chart; the findings follow in §4.2.
+- **Panel A — clvb_zipf** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
+  with exponent $1.0$ — a few resources are heavily contended while most are rarely
+  eligible. This heavy-tailed profile gives a *degree* predictor genuine signal to carry.
+- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
+  to exactly $d=5$ uniformly random resources, so resource degrees are nearly homogeneous
+  — the hard case of Chapter 3, where a degree predictor has almost no signal left to
+  carry.
+- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials): only $r=8$ distinct request
+  types, each arriving $\approx n/r=250$ times on average — the near-perfect-matchable,
+  few-types regime the *histogram*-advice algorithms are calibrated for; their
+  test-and-fallback test inspects a prefix of $k=200$ arrivals.
+
+Panels A and B thus exercise the degree-prediction family (MPD and its augmentations);
+Panel C exercises the histogram-advice family (FollowPrediction, TestAndMatch, and the
+combiner).
+
+**Shared methodology.** Every panel runs with *paired trials*: within a panel, every
+algorithm and quality level reuses the same graphs, arrival sequences, realized optima
+(Hopcroft–Karp), and tie-break seeds, so column differences are attributable to the
+prediction alone. All randomness derives from four independent streams (graph, instance,
+algorithm tie-breaks, prediction perturbation) spawned from one master seed per panel.
+Entries are means over trials with 95% normal-approximation confidence intervals, tight
+throughout ($\pm0.001$–$0.003$). The quality columns instantiate the error models of
+§3.3 — degree panels: *perfect* (true realized degrees), *noisy* (random-flip at strength
+$\tfrac12$), *adversarial* (order-reversing reflection), *garbage* (independent random
+$\mu$, $\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated
+random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*).
+**Table 4.1** presents each panel's ratios beside its bar chart; the findings follow in
+§4.2.
 
 ```{=latex}
-\begin{table}[t]
+\begin{table}[H]
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \noindent

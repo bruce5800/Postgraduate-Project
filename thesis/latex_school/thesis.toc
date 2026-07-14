@@ -20,8 +20,8 @@
 \contentsline {section}{\numberline {3.6}Fidelity check: reproducing Borodin et al.}{14}{section.3.6}%
 \contentsline {chapter}{\numberline {4}The Unified Benchmark}{17}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Design}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Four findings}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Chapter summary}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.2}Four findings}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Chapter summary}{21}{section.4.3}%
 \contentsline {chapter}{\numberline {5}What Governs the Loss: Order Error and ACI's Bound}{22}{chapter.5}%
 \contentsline {section}{\numberline {5.1}What is already known (ACI)}{22}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Our characterization}{23}{section.5.2}%

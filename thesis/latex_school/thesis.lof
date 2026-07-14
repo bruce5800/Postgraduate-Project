@@ -4,7 +4,7 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Erdős--Rényi reproduction: the characteristic U-shape, greedy minima near \(c\approx 4.9\), non-greedy degradation as \(c\) grows.}}{15}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Random left-regular reproduction: the hard case at \(d=5\), Greedy \(\approx \) Ranking.}}{16}{figure.3.2}%
 \contentsline {chapteratlist}{\numberline {4}The Unified Benchmark}{17}{chapter.4}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The consistency--robustness plane (the data of Table 4.1); dashed lines mark the advice-free floor, dotted the oracle ceiling. TestAndMatch sits nearest the ideal top-right corner.}}{19}{figure.4.1}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The consistency--robustness plane (the data of Table 4.1); dashed lines mark the advice-free floor, dotted the oracle ceiling. TestAndMatch sits nearest the ideal top-right corner.}}{21}{figure.4.1}%
 \contentsline {chapteratlist}{\numberline {5}What Governs the Loss: Order Error and ACI's Bound}{22}{chapter.5}%
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Order error governs the loss: the realized loss lies far below ACI's \(n-\mathrm {LIS}\) bound (a) and collapses onto Kendall-\(\tau \) across all four error models (b).}}{23}{figure.5.1}%
 \contentsline {chapteratlist}{\numberline {6}Test-and-Fallback in Depth}{25}{chapter.6}%

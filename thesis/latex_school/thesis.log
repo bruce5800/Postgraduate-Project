@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 01:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 02:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1000,6 +1000,13 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 )
 \Gin@req@height=\dimen184
 \Gin@req@width=\dimen185
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count442
+\float@exts=\toks47
+\float@box=\box71
+\@float@everytoks=\toks48
+\@floatcapt=\box72
 )
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
@@ -1017,7 +1024,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 21.
+(typearea)              on input line 22.
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
 (typearea)             BCOR = 0.0pt
@@ -1034,10 +1041,11 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 21.
+(typearea)              on input line 22.
+
 (./wordcount.tex)
-\@quotelevel=\count442
-\@quotereset=\count443
+\@quotelevel=\count443
+\@quotereset=\count444
 
 
 LaTeX Warning: Unused global option(s):
@@ -1046,48 +1054,48 @@ LaTeX Warning: Unused global option(s):
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-Package scrbase Info: activating english \partname on input line 51.
-Package scrbase Info: activating english \chaptername on input line 51.
-Package scrbase Info: activating english \appendixname on input line 51.
-Package scrbase Info: activating english \figurename on input line 51.
-Package scrbase Info: activating english \tablename on input line 51.
-Package scrbase Info: activating english \contentsname on input line 51.
-Package scrbase Info: activating english \listfigurename on input line 51.
-Package scrbase Info: activating english \listtablename on input line 51.
-Package scrbase Info: activating english \bibname on input line 51.
-Package scrbase Info: activating english \indexname on input line 51.
-LaTeX Info: Redefining \microtypecontext on input line 51.
-Package microtype Info: Applying patch `item' on input line 51.
-Package microtype Info: Applying patch `toc' on input line 51.
-Package microtype Info: Applying patch `eqnum' on input line 51.
-Package microtype Info: Applying patch `footnote' on input line 51.
-Package microtype Info: Applying patch `verbatim' on input line 51.
-LaTeX Info: Redefining \microtypesetup on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+Package scrbase Info: activating english \partname on input line 52.
+Package scrbase Info: activating english \chaptername on input line 52.
+Package scrbase Info: activating english \appendixname on input line 52.
+Package scrbase Info: activating english \figurename on input line 52.
+Package scrbase Info: activating english \tablename on input line 52.
+Package scrbase Info: activating english \contentsname on input line 52.
+Package scrbase Info: activating english \listfigurename on input line 52.
+Package scrbase Info: activating english \listtablename on input line 52.
+Package scrbase Info: activating english \bibname on input line 52.
+Package scrbase Info: activating english \indexname on input line 52.
+LaTeX Info: Redefining \microtypecontext on input line 52.
+Package microtype Info: Applying patch `item' on input line 52.
+Package microtype Info: Applying patch `toc' on input line 52.
+Package microtype Info: Applying patch `eqnum' on input line 52.
+Package microtype Info: Applying patch `footnote' on input line 52.
+Package microtype Info: Applying patch `verbatim' on input line 52.
+LaTeX Info: Redefining \microtypesetup on input line 52.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 51.
+LaTeX Info: Redefining \showhyphens on input line 52.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1098,17 +1106,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count444
+\scratchcounter=\count445
 \scratchdimen=\dimen186
-\scratchbox=\box71
-\nofMPsegments=\count445
-\nofMParguments=\count446
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count447
+\scratchbox=\box73
+\nofMPsegments=\count446
+\nofMParguments=\count447
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count448
 \MPscratchDim=\dimen187
-\MPnumerator=\count448
-\makeMPintoPDFobject=\count449
-\everyMPtoPDFconversion=\toks48
+\MPnumerator=\count449
+\makeMPintoPDFobject=\count450
+\everyMPtoPDFconversion=\toks50
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
 ty
@@ -1120,7 +1128,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 51.
+Package hyperref Info: Link coloring ON on input line 52.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -1132,7 +1140,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 51.
+(scrbook)           before \begin{document} on input line 52.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1140,7 +1148,7 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
-\BKM@id=\count450
+\BKM@id=\count451
 ))
 Package biblatex Info: Trying to load language 'american'...
 Package biblatex Info: ... file 'american.lbx' found.
@@ -1180,9 +1188,9 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 
 (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 51.
-Package biblatex Info: Reference segment=0 on input line 51.
-Package hyperref Info: Option `pageanchor' set `false' on input line 54.
+Package biblatex Info: Reference section=0 on input line 52.
+Package biblatex Info: Reference segment=0 on input line 52.
+Package hyperref Info: Option `pageanchor' set `false' on input line 55.
 
 
 Package typearea Warning: \typearea used at group level 7.
@@ -1190,7 +1198,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 56.
+(typearea)                outside all groups on input line 57.
 
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
@@ -1208,33 +1216,33 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 56.
+(typearea)              on input line 57.
 Package typearea Info: Using dirty hack to recalculate internal output
-(typearea)             dimensions of LaTeX on input line 56.
+(typearea)             dimensions of LaTeX on input line 57.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-6.
+7.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-56.
+57.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-56.
+57.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 56.
+(Font)              <14.4> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 56.
+(Font)              <10> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 56.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
+(Font)              <7> on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1243,7 +1251,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1255,16 +1263,16 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 <UoB_RGB_24.jpg, id=4, 742.9356pt x 215.1237pt>
 File: UoB_RGB_24.jpg Graphic file (type jpg)
 <use UoB_RGB_24.jpg>
-Package pdftex.def Info: UoB_RGB_24.jpg  used on input line 56.
+Package pdftex.def Info: UoB_RGB_24.jpg  used on input line 57.
 (pdftex.def)             Requested size: 209.12778pt x 60.55263pt.
 
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 56.
+(Font)              <10.95> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 56.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 56.
+(Font)              <6> on input line 57.
 
 Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                At least 20.4pt needed,
@@ -1274,7 +1282,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-6.
+7.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active []
@@ -1292,7 +1300,7 @@ Package typearea Warning: \typearea used at group level 2.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 60.
+(typearea)                outside all groups on input line 61.
 
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
@@ -1310,9 +1318,9 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 60.
+(typearea)              on input line 61.
 Package typearea Info: Using dirty hack to recalculate internal output
-(typearea)             dimensions of LaTeX on input line 60.
+(typearea)             dimensions of LaTeX on input line 61.
 (./abstract.tex)
 
 [2
@@ -1326,16 +1334,16 @@ Package typearea Info: Using dirty hack to recalculate internal output
 <sig.png, id=19, 502.87875pt x 101.37875pt>
 File: sig.png Graphic file (type png)
 <use sig.png>
-Package pdftex.def Info: sig.png  used on input line 100.
+Package pdftex.def Info: sig.png  used on input line 101.
 (pdftex.def)             Requested size: 113.81102pt x 22.9438pt.
 
 
 [4
 
  <./sig.png>]
-Package hyperref Info: Option `pageanchor' set `true' on input line 102.
-Package tocbasic Info: character protrusion at toc deactivated on input line 10
-9.
+Package hyperref Info: Option `pageanchor' set `true' on input line 103.
+Package tocbasic Info: character protrusion at toc deactivated on input line 11
+0.
  (./thesis.toc
 
 [1
@@ -1355,7 +1363,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 10
 
 [4]
 Package tocbasic Info: character protrusion at lof deactivated on input line 11
-1.
+2.
  (./thesis.lof
 
 [5
@@ -1442,9 +1450,21 @@ Package pdftex.def Info: ../../results/left_regular.png  used on input line 164
 (pdftex.def)             Requested size: 355.52016pt x 220.00343pt.
 ) (./ch/04_unified_benchmark.tex
 
-[15 <../../results/er_full.png>]
+[15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {The Unified Benchmark} <../../results/er_full.png>]
 
-[16 <../../results/left_regular.png>]
+[16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {The Unified Benchmark} <../../results/left_regular.png>]
 chapter 4.
 
 
@@ -1453,17 +1473,17 @@ chapter 4.
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 57.
+(Font)              <9> on input line 74.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 57.
+(Font)              <5> on input line 74.
 <../../results/unified_benchmark_panelA.png, id=408, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelA.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelA.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelA.png  used on in
-put line 72.
+put line 89.
 (pdftex.def)             Requested size: 158.93915pt x 123.17627pt.
 
-Overfull \hbox (1.38869pt too wide) in paragraph at lines 78--91
+Overfull \hbox (1.38869pt too wide) in paragraph at lines 95--108
 [][] 
  []
 
@@ -1471,31 +1491,44 @@ Overfull \hbox (1.38869pt too wide) in paragraph at lines 78--91
 File: ../../results/unified_benchmark_panelB.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelB.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelB.png  used on in
-put line 93.
+put line 110.
 (pdftex.def)             Requested size: 158.93915pt x 123.17627pt.
 <../../results/unified_benchmark_panelC.png, id=410, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelC.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelC.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelC.png  used on in
-put line 113.
+put line 130.
 (pdftex.def)             Requested size: 158.93915pt x 123.17627pt.
 
 
 [18]
-<../../results/consistency_robustness.png, id=415, 1127.412pt x 332.442pt>
+
+[19
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.148 
+       <../../results/unified_benchmark_panelA.png> <../../results/unified_benc
+hmark_panelB.png> <../../results/unified_benchmark_panelC.png>]
+<../../results/consistency_robustness.png, id=428, 1127.412pt x 332.442pt>
 File: ../../results/consistency_robustness.png Graphic file (type png)
 <use ../../results/consistency_robustness.png>
 Package pdftex.def Info: ../../results/consistency_robustness.png  used on inpu
-t line 150.
+t line 167.
 (pdftex.def)             Requested size: 418.2541pt x 123.33133pt.
-) (./ch/05_order_error.tex
 
-[19 <../../results/consistency_robustness.png>]
 
-[20]
+[20]) (./ch/05_order_error.tex
 
-[21 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchma
-rk_panelB.png> <../../results/unified_benchmark_panelC.png>]
+[21
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {What Governs the Loss: Order Error and ACI's <../../results/consis
+tency_robustness.png>]
 chapter 5.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 6.
@@ -1520,7 +1553,13 @@ Package pdftex.def Info: ../../results/order_vs_theory.png  used on input line
 (pdftex.def)             Requested size: 418.24852pt x 191.24493pt.
 
 
-[23 <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
+[23
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.60 
+      <../../results/order_vs_theory.png>]) (./ch/06_test_and_fallback.tex
 
 [24]
 chapter 6.
@@ -1544,9 +1583,21 @@ Package pdftex.def Info: ../../results/choo_bem_prefix.png  used on input line
 (pdftex.def)             Requested size: 334.60536pt x 218.61328pt.
 
 
-[26 <../../results/choo_bem_envelope.png>]
+[26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.61 \end{figure}
+                  <../../results/choo_bem_envelope.png>]
 
-[27 <../../results/choo_bem_prefix.png>]
+[27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.86 \end{quote}
+                 <../../results/choo_bem_prefix.png>]
 <../../results/recalibration_prefix.png, id=473, 554.07pt x 380.622pt>
 File: ../../results/recalibration_prefix.png Graphic file (type png)
 <use ../../results/recalibration_prefix.png>
@@ -1555,7 +1606,14 @@ line 90.
 (pdftex.def)             Requested size: 334.6089pt x 229.86174pt.
 
 
-[28 <../../results/recalibration_prefix.png>]) (./ch/07_external_validity.tex
+[28
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.120 
+       <../../results/recalibration_prefix.png>])
+(./ch/07_external_validity.tex
 
 [29]
 chapter 7.
@@ -1572,7 +1630,13 @@ Package pdftex.def Info: ../../results/real_predictor.png  used on input line 3
 
 ]
 
-[31 <../../results/real_predictor.png>]
+[31
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.68 
+      <../../results/real_predictor.png>]
 <../../results/realworld_robustness.png, id=493, 1145.4795pt x 641.9985pt>
 File: ../../results/realworld_robustness.png Graphic file (type png)
 <use ../../results/realworld_robustness.png>
@@ -1581,7 +1645,13 @@ line 71.
 (pdftex.def)             Requested size: 418.24512pt x 234.41077pt.
 
 
-[32 <../../results/realworld_robustness.png>])
+[32
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.95 
+      <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
 
 [33]
@@ -1600,7 +1670,13 @@ Package pdftex.def Info: ../../results/rank_vs_mse_mve.png  used on input line
 (pdftex.def)             Requested size: 418.26132pt x 161.66391pt.
 
 
-[35 <../../results/rank_vs_mse_mve.png>]
+[35
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.65 
+      <../../results/rank_vs_mse_mve.png>]
 <../../results/rank_real_trace.png, id=514, 1003.3485pt x 383.63326pt>
 File: ../../results/rank_real_trace.png Graphic file (type png)
 <use ../../results/rank_real_trace.png>
@@ -1609,7 +1685,13 @@ Package pdftex.def Info: ../../results/rank_real_trace.png  used on input line
 (pdftex.def)             Requested size: 418.24966pt x 159.91899pt.
 
 
-[36 <../../results/rank_real_trace.png>]
+[36
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.97 
+      <../../results/rank_real_trace.png>]
 <../../results/serving_slo_probe.png, id=520, 674.52pt x 396.2805pt>
 File: ../../results/serving_slo_probe.png Graphic file (type png)
 <use ../../results/serving_slo_probe.png>
@@ -1620,7 +1702,13 @@ e 117.
 
 [37]
 
-[38 <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.156 
+       <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
 
 [39]
 chapter 9.
@@ -1638,7 +1726,13 @@ t line 39.
 (pdftex.def)             Requested size: 418.2502pt x 165.3489pt.
 
 
-[41 <../../results/impossibility_frontier.png>]
+[41
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.62 
+      <../../results/impossibility_frontier.png>]
 
 [42]
 
@@ -1672,10 +1766,30 @@ Package pdftex.def Info: ../../results/prefix_cache_reversal.png  used on input
 (pdftex.def)             Requested size: 334.61073pt x 226.73283pt.
 
 
-[46 <../../results/serving_envelope.png>]
+[46
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.74 \section
+             {A probe for a genuinely new result, and its <../../results/servin
+g_envelope.png>]
 
-[47 <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal.pn
-g>]) (./ch/11_conclusion.tex
+[47
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.74 \section
+             {A probe for a genuinely new result, and its
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.74 \section
+             {A probe for a genuinely new result, and its <../../results/servin
+g_dynamic.png> <../../results/prefix_cache_reversal.png>])
+(./ch/11_conclusion.tex
 
 [48]
 chapter 11.
@@ -1990,11 +2104,11 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32999 strings out of 474654
- 670188 string characters out of 5750568
- 1674480 words of memory out of 5000000
- 55003 multiletter control sequences out of 15000+600000
- 663566 words of font info for 287 fonts, out of 8000000 for 9000
+ 33055 strings out of 474654
+ 671133 string characters out of 5750568
+ 1675832 words of memory out of 5000000
+ 55061 multiletter control sequences out of 15000+600000
+ 663212 words of font info for 284 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  122i,20n,134p,10935b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -2016,7 +2130,7 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (81 pages, 2485499 bytes).
+Output written on thesis.pdf (81 pages, 2486606 bytes).
 PDF statistics:
  1063 PDF objects out of 1200 (max. 8388607)
  889 compressed objects within 9 object streams
