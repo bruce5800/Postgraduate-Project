@@ -286,15 +286,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.61 \end{figure}
-                  <../../results/choo_bem_envelope.png>]
+l.79 
+      <../../results/choo_bem_envelope.png>]
 [27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 \end{quote}
-                 <../../results/choo_bem_prefix.png>]
+l.100 
+       <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
@@ -370,24 +370,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_envelope.png>]
+l.100 
+       <../../results/serving_envelope.png>]
 [47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its
+l.100 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_dynamic.png> <../../results/prefix_cache_reversal.png>])
-(./ch/11_conclusion.tex
+l.100 
+       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
+.png>]) (./ch/11_conclusion.tex
 [48]
 chapter 11.
 
@@ -584,7 +582,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486608 bytes).
+Output written on thesis.pdf (81 pages, 2486716 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -888,15 +886,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.61 \end{figure}
-                  <../../results/choo_bem_envelope.png>]
+l.79 
+      <../../results/choo_bem_envelope.png>]
 [27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 \end{quote}
-                 <../../results/choo_bem_prefix.png>]
+l.100 
+       <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
@@ -972,24 +970,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_envelope.png>]
+l.100 
+       <../../results/serving_envelope.png>]
 [47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its
+l.100 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_dynamic.png> <../../results/prefix_cache_reversal.png>])
-(./ch/11_conclusion.tex
+l.100 
+       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
+.png>]) (./ch/11_conclusion.tex
 [48]
 chapter 11.
 
@@ -1186,7 +1182,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486606 bytes).
+Output written on thesis.pdf (81 pages, 2486713 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1476,15 +1472,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.61 \end{figure}
-                  <../../results/choo_bem_envelope.png>]
+l.79 
+      <../../results/choo_bem_envelope.png>]
 [27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 \end{quote}
-                 <../../results/choo_bem_prefix.png>]
+l.100 
+       <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
@@ -1560,24 +1556,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_envelope.png>]
+l.100 
+       <../../results/serving_envelope.png>]
 [47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its
+l.100 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_dynamic.png> <../../results/prefix_cache_reversal.png>])
-(./ch/11_conclusion.tex
+l.100 
+       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
+.png>]) (./ch/11_conclusion.tex
 [48]
 chapter 11.
 
@@ -1774,5 +1768,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486606 bytes).
+Output written on thesis.pdf (81 pages, 2486713 bytes).
 Transcript written on thesis.log.

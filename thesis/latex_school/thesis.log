@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 02:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 13:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1568,7 +1568,7 @@ File: ../../results/choo_bem_envelope.png Graphic file (type png)
 <use ../../results/choo_bem_envelope.png>
 Package pdftex.def Info: ../../results/choo_bem_envelope.png  used on input lin
 e 29.
-(pdftex.def)             Requested size: 334.6089pt x 228.04323pt.
+(pdftex.def)             Requested size: 209.12845pt x 142.52557pt.
 
 
 [25
@@ -1580,7 +1580,7 @@ File: ../../results/choo_bem_prefix.png Graphic file (type png)
 <use ../../results/choo_bem_prefix.png>
 Package pdftex.def Info: ../../results/choo_bem_prefix.png  used on input line 
 57.
-(pdftex.def)             Requested size: 334.60536pt x 218.61328pt.
+(pdftex.def)             Requested size: 209.1249pt x 136.63104pt.
 
 
 [26
@@ -1588,23 +1588,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.61 \end{figure}
-                  <../../results/choo_bem_envelope.png>]
+l.79 
+      <../../results/choo_bem_envelope.png>]
+<../../results/recalibration_prefix.png, id=468, 554.07pt x 380.622pt>
+File: ../../results/recalibration_prefix.png Graphic file (type png)
+<use ../../results/recalibration_prefix.png>
+Package pdftex.def Info: ../../results/recalibration_prefix.png  used on input 
+line 90.
+(pdftex.def)             Requested size: 209.12845pt x 143.66214pt.
+
 
 [27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 \end{quote}
-                 <../../results/choo_bem_prefix.png>]
-<../../results/recalibration_prefix.png, id=473, 554.07pt x 380.622pt>
-File: ../../results/recalibration_prefix.png Graphic file (type png)
-<use ../../results/recalibration_prefix.png>
-Package pdftex.def Info: ../../results/recalibration_prefix.png  used on input 
-line 90.
-(pdftex.def)             Requested size: 334.6089pt x 229.86174pt.
-
+l.100 
+       <../../results/choo_bem_prefix.png>]
 
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
@@ -1622,7 +1622,7 @@ File: ../../results/real_predictor.png Graphic file (type png)
 <use ../../results/real_predictor.png>
 Package pdftex.def Info: ../../results/real_predictor.png  used on input line 3
 4.
-(pdftex.def)             Requested size: 418.25359pt x 160.4985pt.
+(pdftex.def)             Requested size: 334.59676pt x 128.39647pt.
 
 
 [30
@@ -1746,23 +1746,23 @@ chapter 10.
 
 
 ]
-<../../results/serving_envelope.png, id=567, 725.109pt x 357.7365pt>
+<../../results/serving_envelope.png, id=566, 725.109pt x 357.7365pt>
 File: ../../results/serving_envelope.png Graphic file (type png)
 <use ../../results/serving_envelope.png>
 Package pdftex.def Info: ../../results/serving_envelope.png  used on input line
- 51.
-(pdftex.def)             Requested size: 418.26215pt x 206.35191pt.
-<../../results/serving_dynamic.png, id=568, 926.86275pt x 357.7365pt>
+ 40.
+(pdftex.def)             Requested size: 292.7824pt x 144.44579pt.
+<../../results/serving_dynamic.png, id=567, 926.86275pt x 357.7365pt>
 File: ../../results/serving_dynamic.png Graphic file (type png)
 <use ../../results/serving_dynamic.png>
 Package pdftex.def Info: ../../results/serving_dynamic.png  used on input line 
-59.
+58.
 (pdftex.def)             Requested size: 418.25824pt x 161.43298pt.
 <../../results/prefix_cache_reversal.png, id=569, 532.389pt x 360.74776pt>
 File: ../../results/prefix_cache_reversal.png Graphic file (type png)
 <use ../../results/prefix_cache_reversal.png>
 Package pdftex.def Info: ../../results/prefix_cache_reversal.png  used on input
- line 66.
+ line 74.
 (pdftex.def)             Requested size: 334.61073pt x 226.73283pt.
 
 
@@ -1771,25 +1771,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_envelope.png>]
+l.100 
+       <../../results/serving_envelope.png>]
 
 [47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its
+l.100 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.74 \section
-             {A probe for a genuinely new result, and its <../../results/servin
-g_dynamic.png> <../../results/prefix_cache_reversal.png>])
-(./ch/11_conclusion.tex
+l.100 
+       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
+.png>]) (./ch/11_conclusion.tex
 
 [48]
 chapter 11.
@@ -2130,7 +2128,7 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (81 pages, 2486606 bytes).
+Output written on thesis.pdf (81 pages, 2486713 bytes).
 PDF statistics:
  1063 PDF objects out of 1200 (max. 8388607)
  889 compressed objects within 9 object streams

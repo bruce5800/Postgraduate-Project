@@ -33,26 +33,25 @@ inference trace, and the Mooncake prefix-cache trace
   traffic forecast degrades \emph{further} as capacity grows. Capacity
   is thus a \emph{substitute} for algorithmic robustness --- the systems
   analogue of the robustness-insurance thesis.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (c=8) --- while the adaptive test stays flat.}]{../../results/serving_envelope.png}
+\caption{Capacity as robustness: blindly following the forecast crashes
+goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive
+test stays flat.}
+\end{figure}
+
+\begin{itemize}
+\tightlist
 \item
   \textbf{Forecasts vs live load} (\textbf{Figure 10.2}). Under dynamic
   service times (requests hold a slot for a real duration, released
   event-by-event), a live-load signal beats a stale traffic forecast ---
   a reactive load balancer outperforms a forecast-following router when
   the forecast has aged.
-\item
-  \textbf{Cache-affinity routing} (\textbf{Figure 10.3}). For
-  prefix-cache-aware routing, a \emph{stable} affinity router beats a
-  reactive one --- the reverse of the traffic-forecast case, because
-  cache locality rewards persistence \autocite{preble2024}.
 \end{itemize}
-
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (c=8) --- while the adaptive test stays flat.}]{../../results/serving_envelope.png}
-\caption{Capacity as robustness: blindly following the forecast crashes
-goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive
-test stays flat.}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -60,6 +59,15 @@ test stays flat.}
 \caption{Live load beats a stale forecast under dynamic service times;
 an adaptive test recovers most of the gap.}
 \end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cache-affinity routing} (\textbf{Figure 10.3}). For
+  prefix-cache-aware routing, a \emph{stable} affinity router beats a
+  reactive one --- the reverse of the traffic-forecast case, because
+  cache locality rewards persistence \autocite{preble2024}.
+\end{itemize}
 
 \begin{figure}
 \centering

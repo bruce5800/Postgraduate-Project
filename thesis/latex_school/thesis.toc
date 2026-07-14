@@ -30,12 +30,12 @@
 \contentsline {section}{\numberline {6.1}The robustness envelope}{25}{section.6.1}%
 \contentsline {section}{\numberline {6.2}A threshold that is too lenient on average-case inputs}{26}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Recalibration, and the resolution limit it exposes}{27}{section.6.3}%
-\contentsline {section}{\numberline {6.4}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{29}{section.6.4}%
+\contentsline {section}{\numberline {6.4}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{28}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Chapter summary}{29}{section.6.5}%
 \contentsline {chapter}{\numberline {7}External Validity}{30}{chapter.7}%
 \contentsline {section}{\numberline {7.1}A real, cheap predictor}{30}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Six real-world graphs}{31}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Does learning the predictor help?}{33}{section.7.3}%
+\contentsline {section}{\numberline {7.3}Does learning the predictor help?}{32}{section.7.3}%
 \contentsline {section}{\numberline {7.4}Chapter summary}{33}{section.7.4}%
 \contentsline {chapter}{\numberline {8}Exploratory Directions and Negative Results}{34}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Learning to rank the predictor (a negative result)}{34}{section.8.1}%
