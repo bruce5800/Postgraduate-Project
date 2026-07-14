@@ -24,25 +24,25 @@ $b$-matching optimum. We instantiate this on three real traces (Wikipedia pagevi
 Azure LLM inference trace, and the Mooncake prefix-cache trace [@mooncake2024]) and across
 four serving concerns.
 
-- **Capacity as robustness** (**Figure 10.1**). Increasing the capacity $c$ smooths the
+![Capacity as robustness: blindly following the forecast crashes goodput — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
+
+**Capacity as robustness** (**Figure 10.1**). Increasing the capacity $c$ smooths the
   effect of a bad prediction: a capacity-aware baseline stays safe, while *blindly* trusting
   a traffic forecast degrades *further* as capacity grows. Capacity is thus a *substitute*
   for algorithmic robustness — the systems analogue of the robustness-insurance thesis.
 
-![Capacity as robustness: blindly following the forecast crashes goodput — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
+![Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
 
-- **Forecasts vs live load** (**Figure 10.2**). Under dynamic service times (requests hold a
+**Forecasts vs live load** (**Figure 10.2**). Under dynamic service times (requests hold a
   slot for a real duration, released event-by-event), a live-load signal beats a stale
   traffic forecast — a reactive load balancer outperforms a forecast-following router when
   the forecast has aged.
 
-![Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
+![The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.](../../results/prefix_cache_reversal.png){width=60%}
 
-- **Cache-affinity routing** (**Figure 10.3**). For prefix-cache-aware routing, a *stable*
+**Cache-affinity routing** (**Figure 10.3**). For prefix-cache-aware routing, a *stable*
   affinity router beats a reactive one — the reverse of the traffic-forecast case, because
   cache locality rewards persistence [@preble2024].
-
-![The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.](../../results/prefix_cache_reversal.png){width=80%}
 
 Each of these recovers an established systems result cleanly, demonstrating that the
 framework instantiates the problem faithfully.
