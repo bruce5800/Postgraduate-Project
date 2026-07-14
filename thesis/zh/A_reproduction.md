@@ -22,8 +22,8 @@
 |---|---|---|---|
 | 图 3.1（ER U 曲线） | `scripts/run_er_full.py` | `results/er_full.{json,png}` | ~20 分钟 |
 | 图 3.2（左正则） | `scripts/run_left_regular.py` | `results/left_regular.{json,png}` | ~10 分钟 |
-| **表 4.1**、图 4.1（统一基准） | `scripts/run_unified_benchmark.py` | `results/unified_benchmark.{json,png}`、`unified_benchmark_tables.md` | ~100 秒 |
-| 图 4.2（一致性–鲁棒性平面） | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 秒 |
+| **表 4.1**（统一基准） | `scripts/run_unified_benchmark.py`，再 `plot_unified_panels.py` | `results/unified_benchmark.{json,png}`、`unified_benchmark_panel{A,B,C}.png`、`unified_benchmark_tables.md` | ~100 秒 |
+| 图 4.1（一致性–鲁棒性平面） | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 秒 |
 | 图 5.1（顺序误差 vs ACI） | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 秒 |
 | 图 6.1（包络）、图 6.2（前缀扫描） | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 分钟 |
 | 图 6.3、重校准（6.3 节） | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 分钟 |
@@ -45,8 +45,9 @@
 for t in tests/test_*.py; do python3 "$t"; done
 
 # 重生成主要结果（快脚本）：
-python3 scripts/run_unified_benchmark.py        # 表 4.1、图 4.1
-python3 scripts/run_consistency_robustness.py   # 图 4.2（重绘表 4.1）
+python3 scripts/run_unified_benchmark.py        # 表 4.1（数据）
+python3 scripts/plot_unified_panels.py          # 表 4.1（面板小图）
+python3 scripts/run_consistency_robustness.py   # 图 4.1（重绘表 4.1）
 python3 scripts/run_order_vs_theory.py          # 图 5.1
 python3 scripts/run_real_predictor.py           # 图 7.1
 python3 scripts/run_realworld_robustness.py     # 图 7.2

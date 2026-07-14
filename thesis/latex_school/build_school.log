@@ -233,14 +233,14 @@ chapter 3.
 chapter 4.
 
 [17]
+Overfull \hbox (1.38869pt too wide) in paragraph at lines 78--91
+[][] 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 4.1 on input line 64.
-
-[18]
-[19 <../../results/unified_benchmark.png>]
-[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[21]
+[18]) (./ch/05_order_error.tex
+[19 <../../results/consistency_robustness.png>]
+[20]
+[21 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchma
+rk_panelB.png> <../../results/unified_benchmark_panelC.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -307,123 +307,140 @@ Overfull \hbox (59.65192pt too wide) in paragraph at lines 61--61
 Overfull \hbox (82.64685pt too wide) in paragraph at lines 62--62
 []|\T1/lmtt/m/n/10.95 results/left_regular.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 64--64
-[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py|  
+Overfull \hbox (89.85434pt too wide) in paragraph at lines 64--65
+[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py\T1/lmr/m/n/10.95 (-20) ,
+ 
 
-Overfull \hbox (112.84927pt too wide) in paragraph at lines 65--66
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 64--65
+\T1/lmtt/m/n/10.95 plot_unified_panels.py|  
+
+Overfull \hbox (112.84927pt too wide) in paragraph at lines 66--68
 []|\T1/lmtt/m/n/10.95 results/unified_benchmark.{json,png}\T1/lmr/m/n/10.95 (-2
 0) , 
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 65--66
+Overfull \hbox (101.3518pt too wide) in paragraph at lines 66--68
+\T1/lmtt/m/n/10.95 unified_benchmark_panel{A,B,C}.png\T1/lmr/m/n/10.95 (-20) , 
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 66--68
 \T1/lmtt/m/n/10.95 unified_benchmark_tables.md|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 68--68
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 70--70
 []|\T1/lmtt/m/n/10.95 scripts/run_consistency_robustness.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 69--69
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 71--71
 []|\T1/lmtt/m/n/10.95 results/consistency_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 72--72
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 74--74
 []|\T1/lmtt/m/n/10.95 scripts/run_order_vs_theory.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 73--73
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 75--75
 []|\T1/lmtt/m/n/10.95 results/order_vs_theory.{json,png}|  
 
-Overfull \hbox (36.65698pt too wide) in paragraph at lines 75--75
+Overfull \hbox (36.65698pt too wide) in paragraph at lines 77--77
 []|\T1/lmtt/m/n/10.95 scripts/run_choo_bem.py|  
 
-Overfull \hbox (122.88799pt too wide) in paragraph at lines 76--76
+Overfull \hbox (122.88799pt too wide) in paragraph at lines 78--78
 []|\T1/lmtt/m/n/10.95 results/choo_bem_{envelope,prefix}.png|  
 
-Overfull \hbox (65.40065pt too wide) in paragraph at lines 78--78
+Overfull \hbox (65.40065pt too wide) in paragraph at lines 80--80
 []|\T1/lmtt/m/n/10.95 scripts/run_recalibration.py|  
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 79--79
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 81--81
 []|\T1/lmtt/m/n/10.95 results/recalibration_*.png|  
 
-Overfull \hbox (71.14938pt too wide) in paragraph at lines 80--80
+Overfull \hbox (71.14938pt too wide) in paragraph at lines 82--82
 []|\T1/lmtt/m/n/10.95 scripts/run_real_predictor.py|  
 
-Overfull \hbox (94.14432pt too wide) in paragraph at lines 81--81
+Overfull \hbox (94.14432pt too wide) in paragraph at lines 83--83
 []|\T1/lmtt/m/n/10.95 results/real_predictor.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 83--83
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 85--85
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld_robustness.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 84--84
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 86--86
 []|\T1/lmtt/m/n/10.95 results/realworld_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 86--86
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 88--88
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_vs_mse_mve.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 87--87
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 89--89
 []|\T1/lmtt/m/n/10.95 results/rank_vs_mse_mve.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 90--90
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 92--92
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_when_it_matters.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 91--91
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 93--93
 []|\T1/lmtt/m/n/10.95 results/rank_when_it_matters.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 94--94
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 96--96
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_real_trace.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 95--95
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 97--97
 []|\T1/lmtt/m/n/10.95 results/rank_real_trace.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 97--97
+Overfull \hbox (88.39558pt too wide) in paragraph at lines 99--99
 []|\T1/lmtt/m/n/10.95 scripts/run_serving_slo_probe.py|  
 
-Overfull \hbox (111.39052pt too wide) in paragraph at lines 98--98
+Overfull \hbox (111.39052pt too wide) in paragraph at lines 100--100
 []|\T1/lmtt/m/n/10.95 results/serving_slo_probe.{json,png}|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 101--101
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 103--103
 []|\T1/lmtt/m/n/10.95 scripts/run_impossibility_frontier.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 102--102
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 104--104
 []|\T1/lmtt/m/n/10.95 results/impossibility_frontier.{json,png}|  
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 []|\T1/lmtt/m/n/10.95 scripts/run_serving.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (20.86954pt too wide) in paragraph at lines 104--106
+Overfull \hbox (20.86954pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_trace.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_dynamic.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (13.66205pt too wide) in paragraph at lines 104--106
+Overfull \hbox (13.66205pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_prefix_cache.py|  
 
-Overfull \hbox (26.61827pt too wide) in paragraph at lines 106--107
+Overfull \hbox (26.61827pt too wide) in paragraph at lines 108--109
 []|\T1/lmtt/m/n/10.95 results/serving_*.png\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (7.91331pt too wide) in paragraph at lines 106--107
+Overfull \hbox (7.91331pt too wide) in paragraph at lines 108--109
 \T1/lmtt/m/n/10.95 prefix_cache_*.png|  
 
-Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
+Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld.py|  
 
-Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
 [53] [54]
+Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
+1 (panel charts)[] 
+
 [55]
-Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
-[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
+Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 162--180
+Overfull \hbox (0.10036pt too wide) in alignment at lines 165--183
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
+Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
+Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
 [56]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.3 on input line 214.
+
+
 [57]
-Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
+Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
@@ -450,22 +467,30 @@ Package longtable Warning: Table widths have changed. Rerun LaTeX.
 
 
 [70] (./thesis.aux) )
-(see the transcript file for additional information)</usr/local/texlive/2025bas
-ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
-xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
-ist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
-type1/public/lm/lmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/lm/lmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
-/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
-r8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri10.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></u
-sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
-cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
-xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
-/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
-l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2409749 bytes).
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{figure.4.2} has been referenced but does not exist,
+ replaced by a fixed one
+
+</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr
+/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texl
+ive/2025basic/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2
+025basic/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025ba
+sic/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025basic/te
+xmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2025basic/texmf-di
+st/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
+ts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/lm/lmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publ
+ic/lm/lmr9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/l
+mri10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri9.
+pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb><
+/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/
+local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/
+texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texli
+ve/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/lo
+cal/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on thesis.pdf (81 pages, 2485652 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -715,10 +740,15 @@ chapter 3.
 [16 <../../results/left_regular.png>]
 chapter 4.
 
-[17] [18]
-[19 <../../results/unified_benchmark.png>]
-[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[21]
+[17]
+Overfull \hbox (1.38869pt too wide) in paragraph at lines 78--91
+[][] 
+
+[18]) (./ch/05_order_error.tex
+[19 <../../results/consistency_robustness.png>]
+[20]
+[21 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchma
+rk_panelB.png> <../../results/unified_benchmark_panelC.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -785,123 +815,135 @@ Overfull \hbox (59.65192pt too wide) in paragraph at lines 61--61
 Overfull \hbox (82.64685pt too wide) in paragraph at lines 62--62
 []|\T1/lmtt/m/n/10.95 results/left_regular.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 64--64
-[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py|  
+Overfull \hbox (89.85434pt too wide) in paragraph at lines 64--65
+[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py\T1/lmr/m/n/10.95 (-20) ,
+ 
 
-Overfull \hbox (112.84927pt too wide) in paragraph at lines 65--66
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 64--65
+\T1/lmtt/m/n/10.95 plot_unified_panels.py|  
+
+Overfull \hbox (112.84927pt too wide) in paragraph at lines 66--68
 []|\T1/lmtt/m/n/10.95 results/unified_benchmark.{json,png}\T1/lmr/m/n/10.95 (-2
 0) , 
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 65--66
+Overfull \hbox (101.3518pt too wide) in paragraph at lines 66--68
+\T1/lmtt/m/n/10.95 unified_benchmark_panel{A,B,C}.png\T1/lmr/m/n/10.95 (-20) , 
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 66--68
 \T1/lmtt/m/n/10.95 unified_benchmark_tables.md|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 68--68
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 70--70
 []|\T1/lmtt/m/n/10.95 scripts/run_consistency_robustness.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 69--69
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 71--71
 []|\T1/lmtt/m/n/10.95 results/consistency_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 72--72
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 74--74
 []|\T1/lmtt/m/n/10.95 scripts/run_order_vs_theory.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 73--73
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 75--75
 []|\T1/lmtt/m/n/10.95 results/order_vs_theory.{json,png}|  
 
-Overfull \hbox (36.65698pt too wide) in paragraph at lines 75--75
+Overfull \hbox (36.65698pt too wide) in paragraph at lines 77--77
 []|\T1/lmtt/m/n/10.95 scripts/run_choo_bem.py|  
 
-Overfull \hbox (122.88799pt too wide) in paragraph at lines 76--76
+Overfull \hbox (122.88799pt too wide) in paragraph at lines 78--78
 []|\T1/lmtt/m/n/10.95 results/choo_bem_{envelope,prefix}.png|  
 
-Overfull \hbox (65.40065pt too wide) in paragraph at lines 78--78
+Overfull \hbox (65.40065pt too wide) in paragraph at lines 80--80
 []|\T1/lmtt/m/n/10.95 scripts/run_recalibration.py|  
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 79--79
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 81--81
 []|\T1/lmtt/m/n/10.95 results/recalibration_*.png|  
 
-Overfull \hbox (71.14938pt too wide) in paragraph at lines 80--80
+Overfull \hbox (71.14938pt too wide) in paragraph at lines 82--82
 []|\T1/lmtt/m/n/10.95 scripts/run_real_predictor.py|  
 
-Overfull \hbox (94.14432pt too wide) in paragraph at lines 81--81
+Overfull \hbox (94.14432pt too wide) in paragraph at lines 83--83
 []|\T1/lmtt/m/n/10.95 results/real_predictor.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 83--83
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 85--85
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld_robustness.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 84--84
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 86--86
 []|\T1/lmtt/m/n/10.95 results/realworld_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 86--86
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 88--88
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_vs_mse_mve.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 87--87
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 89--89
 []|\T1/lmtt/m/n/10.95 results/rank_vs_mse_mve.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 90--90
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 92--92
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_when_it_matters.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 91--91
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 93--93
 []|\T1/lmtt/m/n/10.95 results/rank_when_it_matters.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 94--94
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 96--96
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_real_trace.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 95--95
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 97--97
 []|\T1/lmtt/m/n/10.95 results/rank_real_trace.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 97--97
+Overfull \hbox (88.39558pt too wide) in paragraph at lines 99--99
 []|\T1/lmtt/m/n/10.95 scripts/run_serving_slo_probe.py|  
 
-Overfull \hbox (111.39052pt too wide) in paragraph at lines 98--98
+Overfull \hbox (111.39052pt too wide) in paragraph at lines 100--100
 []|\T1/lmtt/m/n/10.95 results/serving_slo_probe.{json,png}|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 101--101
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 103--103
 []|\T1/lmtt/m/n/10.95 scripts/run_impossibility_frontier.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 102--102
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 104--104
 []|\T1/lmtt/m/n/10.95 results/impossibility_frontier.{json,png}|  
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 []|\T1/lmtt/m/n/10.95 scripts/run_serving.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (20.86954pt too wide) in paragraph at lines 104--106
+Overfull \hbox (20.86954pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_trace.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_dynamic.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (13.66205pt too wide) in paragraph at lines 104--106
+Overfull \hbox (13.66205pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_prefix_cache.py|  
 
-Overfull \hbox (26.61827pt too wide) in paragraph at lines 106--107
+Overfull \hbox (26.61827pt too wide) in paragraph at lines 108--109
 []|\T1/lmtt/m/n/10.95 results/serving_*.png\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (7.91331pt too wide) in paragraph at lines 106--107
+Overfull \hbox (7.91331pt too wide) in paragraph at lines 108--109
 \T1/lmtt/m/n/10.95 prefix_cache_*.png|  
 
-Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
+Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld.py|  
 
-Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
 [53] [54]
+Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
+1 (panel charts)[] 
+
 [55]
-Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
-[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
+Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 162--180
+Overfull \hbox (0.10036pt too wide) in alignment at lines 165--183
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
+Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
+Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
 [56]
 [57]
-Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
+Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
@@ -927,19 +969,23 @@ chapter without number
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
-ist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
-type1/public/lm/lmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/lm/lmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
-/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
-r8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri10.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></u
-sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
-cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
-xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
-/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
-l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2409745 bytes).
+ist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2025basic/texmf-dist/fo
+nts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
+ype1/public/lm/lmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/lm/lmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/lm/lmmi9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
+r10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr12.pf
+b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr
+/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/
+texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texli
+ve/2025basic/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/202
+5basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2025basi
+c/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025basic/tex
+mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (81 pages, 2485499 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1175,10 +1221,15 @@ chapter 3.
 [16 <../../results/left_regular.png>]
 chapter 4.
 
-[17] [18]
-[19 <../../results/unified_benchmark.png>]
-[20 <../../results/consistency_robustness.png>]) (./ch/05_order_error.tex
-[21]
+[17]
+Overfull \hbox (1.38869pt too wide) in paragraph at lines 78--91
+[][] 
+
+[18]) (./ch/05_order_error.tex
+[19 <../../results/consistency_robustness.png>]
+[20]
+[21 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchma
+rk_panelB.png> <../../results/unified_benchmark_panelC.png>]
 chapter 5.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd)
 [22]
@@ -1245,123 +1296,135 @@ Overfull \hbox (59.65192pt too wide) in paragraph at lines 61--61
 Overfull \hbox (82.64685pt too wide) in paragraph at lines 62--62
 []|\T1/lmtt/m/n/10.95 results/left_regular.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 64--64
-[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py|  
+Overfull \hbox (89.85434pt too wide) in paragraph at lines 64--65
+[]|\T1/lmtt/m/n/10.95 scripts/run_unified_benchmark.py\T1/lmr/m/n/10.95 (-20) ,
+ 
 
-Overfull \hbox (112.84927pt too wide) in paragraph at lines 65--66
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 64--65
+\T1/lmtt/m/n/10.95 plot_unified_panels.py|  
+
+Overfull \hbox (112.84927pt too wide) in paragraph at lines 66--68
 []|\T1/lmtt/m/n/10.95 results/unified_benchmark.{json,png}\T1/lmr/m/n/10.95 (-2
 0) , 
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 65--66
+Overfull \hbox (101.3518pt too wide) in paragraph at lines 66--68
+\T1/lmtt/m/n/10.95 unified_benchmark_panel{A,B,C}.png\T1/lmr/m/n/10.95 (-20) , 
+
+
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 66--68
 \T1/lmtt/m/n/10.95 unified_benchmark_tables.md|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 68--68
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 70--70
 []|\T1/lmtt/m/n/10.95 scripts/run_consistency_robustness.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 69--69
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 71--71
 []|\T1/lmtt/m/n/10.95 results/consistency_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 72--72
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 74--74
 []|\T1/lmtt/m/n/10.95 scripts/run_order_vs_theory.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 73--73
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 75--75
 []|\T1/lmtt/m/n/10.95 results/order_vs_theory.{json,png}|  
 
-Overfull \hbox (36.65698pt too wide) in paragraph at lines 75--75
+Overfull \hbox (36.65698pt too wide) in paragraph at lines 77--77
 []|\T1/lmtt/m/n/10.95 scripts/run_choo_bem.py|  
 
-Overfull \hbox (122.88799pt too wide) in paragraph at lines 76--76
+Overfull \hbox (122.88799pt too wide) in paragraph at lines 78--78
 []|\T1/lmtt/m/n/10.95 results/choo_bem_{envelope,prefix}.png|  
 
-Overfull \hbox (65.40065pt too wide) in paragraph at lines 78--78
+Overfull \hbox (65.40065pt too wide) in paragraph at lines 80--80
 []|\T1/lmtt/m/n/10.95 scripts/run_recalibration.py|  
 
-Overfull \hbox (59.65192pt too wide) in paragraph at lines 79--79
+Overfull \hbox (59.65192pt too wide) in paragraph at lines 81--81
 []|\T1/lmtt/m/n/10.95 results/recalibration_*.png|  
 
-Overfull \hbox (71.14938pt too wide) in paragraph at lines 80--80
+Overfull \hbox (71.14938pt too wide) in paragraph at lines 82--82
 []|\T1/lmtt/m/n/10.95 scripts/run_real_predictor.py|  
 
-Overfull \hbox (94.14432pt too wide) in paragraph at lines 81--81
+Overfull \hbox (94.14432pt too wide) in paragraph at lines 83--83
 []|\T1/lmtt/m/n/10.95 results/real_predictor.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 83--83
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 85--85
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld_robustness.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 84--84
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 86--86
 []|\T1/lmtt/m/n/10.95 results/realworld_robustness.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 86--86
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 88--88
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_vs_mse_mve.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 87--87
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 89--89
 []|\T1/lmtt/m/n/10.95 results/rank_vs_mse_mve.{json,png}|  
 
-Overfull \hbox (105.64178pt too wide) in paragraph at lines 90--90
+Overfull \hbox (105.64178pt too wide) in paragraph at lines 92--92
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_when_it_matters.py|  
 
-Overfull \hbox (128.63672pt too wide) in paragraph at lines 91--91
+Overfull \hbox (128.63672pt too wide) in paragraph at lines 93--93
 []|\T1/lmtt/m/n/10.95 results/rank_when_it_matters.{json,png}|  
 
-Overfull \hbox (76.89812pt too wide) in paragraph at lines 94--94
+Overfull \hbox (76.89812pt too wide) in paragraph at lines 96--96
 []|\T1/lmtt/m/n/10.95 scripts/run_rank_real_trace.py|  
 
-Overfull \hbox (99.89305pt too wide) in paragraph at lines 95--95
+Overfull \hbox (99.89305pt too wide) in paragraph at lines 97--97
 []|\T1/lmtt/m/n/10.95 results/rank_real_trace.{json,png}|  
 
-Overfull \hbox (88.39558pt too wide) in paragraph at lines 97--97
+Overfull \hbox (88.39558pt too wide) in paragraph at lines 99--99
 []|\T1/lmtt/m/n/10.95 scripts/run_serving_slo_probe.py|  
 
-Overfull \hbox (111.39052pt too wide) in paragraph at lines 98--98
+Overfull \hbox (111.39052pt too wide) in paragraph at lines 100--100
 []|\T1/lmtt/m/n/10.95 results/serving_slo_probe.{json,png}|  
 
-Overfull \hbox (117.13925pt too wide) in paragraph at lines 101--101
+Overfull \hbox (117.13925pt too wide) in paragraph at lines 103--103
 []|\T1/lmtt/m/n/10.95 scripts/run_impossibility_frontier.py|  
 
-Overfull \hbox (140.13419pt too wide) in paragraph at lines 102--102
+Overfull \hbox (140.13419pt too wide) in paragraph at lines 104--104
 []|\T1/lmtt/m/n/10.95 results/impossibility_frontier.{json,png}|  
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 []|\T1/lmtt/m/n/10.95 scripts/run_serving.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (20.86954pt too wide) in paragraph at lines 104--106
+Overfull \hbox (20.86954pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_trace.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (32.367pt too wide) in paragraph at lines 104--106
+Overfull \hbox (32.367pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_serving_dynamic.py\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (13.66205pt too wide) in paragraph at lines 104--106
+Overfull \hbox (13.66205pt too wide) in paragraph at lines 106--108
 \T1/lmtt/m/n/10.95 run_prefix_cache.py|  
 
-Overfull \hbox (26.61827pt too wide) in paragraph at lines 106--107
+Overfull \hbox (26.61827pt too wide) in paragraph at lines 108--109
 []|\T1/lmtt/m/n/10.95 results/serving_*.png\T1/lmr/m/n/10.95 (-20) , 
 
-Overfull \hbox (7.91331pt too wide) in paragraph at lines 106--107
+Overfull \hbox (7.91331pt too wide) in paragraph at lines 108--109
 \T1/lmtt/m/n/10.95 prefix_cache_*.png|  
 
-Overfull \hbox (42.40572pt too wide) in paragraph at lines 109--109
+Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 scripts/run_realworld.py|  
 
-Overfull \hbox (30.90825pt too wide) in paragraph at lines 109--109
+Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
 [53] [54]
+Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
+1 (panel charts)[] 
+
 [55]
-Overfull \hbox (24.39693pt too wide) in paragraph at lines 137--137
-[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.2 
+Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
+[]\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 162--180
+Overfull \hbox (0.10036pt too wide) in alignment at lines 165--183
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 180--182
+Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
  [] [] [] [] [] [] [] 
 
-Overfull \hbox (0.10036pt too wide) in alignment at lines 182--189
+Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
 [56]
 [57]
-Overfull \hbox (27.54663pt too wide) in paragraph at lines 234--242
+Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
@@ -1387,17 +1450,21 @@ chapter without number
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
-ist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
-type1/public/lm/lmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/lm/lmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
-/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
-r8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri10.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></u
-sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
-cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
-xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
-/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
-l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2409745 bytes).
+ist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2025basic/texmf-dist/fo
+nts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
+ype1/public/lm/lmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/lm/lmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/lm/lmmi9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lm
+r10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr12.pf
+b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr
+/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/
+texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texli
+ve/2025basic/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/202
+5basic/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2025basi
+c/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025basic/tex
+mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (81 pages, 2485499 bytes).
 Transcript written on thesis.log.

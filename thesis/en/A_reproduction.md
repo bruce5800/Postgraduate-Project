@@ -32,8 +32,8 @@ data provenance.
 |---|---|---|---|
 | Fig 3.1 (ER U-curve) | `scripts/run_er_full.py` | `results/er_full.{json,png}` | ~20 min |
 | Fig 3.2 (left-regular) | `scripts/run_left_regular.py` | `results/left_regular.{json,png}` | ~10 min |
-| **Table 4.1**, Fig 4.1 (unified benchmark) | `scripts/run_unified_benchmark.py` | `results/unified_benchmark.{json,png}`, `unified_benchmark_tables.md` | ~100 s |
-| Fig 4.2 (consistency–robustness plane) | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 s |
+| **Table 4.1** (unified benchmark) | `scripts/run_unified_benchmark.py`, then `plot_unified_panels.py` | `results/unified_benchmark.{json,png}`, `unified_benchmark_panel{A,B,C}.png`, `unified_benchmark_tables.md` | ~100 s |
+| Fig 4.1 (consistency–robustness plane) | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 s |
 | Fig 5.1 (order-error vs ACI) | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 s |
 | Fig 6.1 (envelope), Fig 6.2 (prefix sweep) | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 min |
 | Fig 6.3, recalibration (§6.3) | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 min |
@@ -55,7 +55,8 @@ data provenance.
 for t in tests/test_*.py; do python3 "$t"; done
 
 # regenerate the headline results (fast ones):
-python3 scripts/run_unified_benchmark.py        # Table 4.1, Fig 4.1
+python3 scripts/run_unified_benchmark.py        # Table 4.1 (data)
+python3 scripts/plot_unified_panels.py          # Table 4.1 (panel charts)
 python3 scripts/run_order_vs_theory.py          # Fig 5.1
 python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
@@ -64,7 +65,7 @@ python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
 python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
 python3 scripts/run_serving_slo_probe.py        # Fig 8.3
-python3 scripts/run_consistency_robustness.py   # Fig 4.2 (replots Table 4.1)
+python3 scripts/run_consistency_robustness.py   # Fig 4.1 (replots Table 4.1)
 
 # the long (max-flow / Hopcroft–Karp-bound) sweeps:
 python3 scripts/run_er_full.py                  # Fig 3.1  (~20 min)

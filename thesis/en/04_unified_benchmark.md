@@ -19,50 +19,98 @@ knob and reported in a parallel panel (Chapter 3); the shared harness — graphs
 $\mathrm{OPT}$, CI methodology, and the advice-free floor — is what makes the panels
 comparable.
 
-- **Panel A — clvb_zipf** ($n=1000$, 60 trials): heavy-tailed offline degrees, where degree
-  predictions carry signal.
-- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): near-homogeneous degrees, where
-  predictions add little.
-- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials): near-perfect-matchable, the
-  calibrated regime for the type-histogram test-and-fallback algorithms.
+- **Panel A — clvb_zipf** ($n=1000$, Zipf exponent $1.0$, 60 trials): heavy-tailed offline
+  degrees, where degree predictions carry signal.
+- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): near-homogeneous degrees — the
+  hard case of Chapter 3 — where predictions have little signal to carry.
+- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials, test prefix $k=200$):
+  near-perfect-matchable, the calibrated regime for the type-histogram test-and-fallback
+  algorithms.
 
-For the degree-prediction panels the quality columns are *perfect* (true degrees), *noisy*
-(random-flip at strength $\tfrac12$), *adversarial* (order-reversing), and *garbage*
-(fully random $\equiv$ Ranking). For the advice panel they are $\eta\in\{0,0.3,0.6,1.0\}$
-(*perfect / mild / bad / garbage*). Confidence intervals are tight throughout
-($\pm0.001$–$0.003$). **Table 4.1** and **Figure 4.1** are the chapter's data; the salient
-rows:
+**Shared settings.** Every panel runs on the harness of Chapter 3 with $m=n$ i.i.d.
+arrivals per instance and *paired trials*: within a panel, every algorithm and quality
+level reuses the same graphs, arrival sequences, realized optima (Hopcroft–Karp), and
+tie-break seeds, so column differences are attributable to the prediction alone. All
+randomness derives from four independent streams (graph, instance, algorithm tie-breaks,
+prediction perturbation) spawned from one master seed per panel. Entries are means over
+trials with 95% normal-approximation confidence intervals, tight throughout
+($\pm0.001$–$0.003$). The quality columns instantiate the error models of §3.3 — degree
+panels: *perfect* (true realized degrees), *noisy* (random-flip at strength $\tfrac12$),
+*adversarial* (order-reversing reflection), *garbage* (independent random $\mu$,
+$\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated random
+target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). **Table 4.1**
+presents each panel's ratios beside its bar chart; the findings follow in §4.2.
 
-| | perfect | noisy | adversarial | garbage |
-|---|---:|---:|---:|---:|
-| *Panel A — clvb_zipf* | | | | |
-| Ranking (floor) | 0.948 | — | — | — |
-| MinDegree (oracle) | 0.996 | — | — | — |
-| MPD | 0.989 | 0.956 | **0.908** | 0.946 |
-| Feldman(MPD) | 0.981 | 0.979 | 0.976 | 0.978 |
-| JailletLu(MPD) | 0.977 | 0.976 | 0.974 | 0.975 |
-| Feldman (base) | 0.887 | — | — | — |
-| JailletLu (base) | 0.901 | — | — | — |
-| *Panel B — left-regular $d{=}5$* | | | | |
-| Greedy = Ranking (floor) | 0.890 | — | — | — |
-| MinDegree (oracle) | 0.966 | — | — | — |
-| MPD | 0.932 | 0.906 | **0.854** | 0.888 |
-| Feldman(MPD) | 0.906 | 0.903 | 0.896 | 0.900 |
-| JailletLu(MPD) | 0.903 | 0.902 | 0.898 | 0.901 |
-| Feldman (base) | 0.758 | — | — | — |
-| JailletLu (base) | 0.789 | — | — | — |
+```{=latex}
+\begin{table}[t]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\noindent
+\begin{minipage}[c]{0.60\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel A --- clvb\_zipf} & perfect & noisy & advers. & garbage \\
+\midrule
+Ranking (floor) & 0.948 & --- & --- & --- \\
+MinDegree (oracle) & 0.996 & --- & --- & --- \\
+MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
+Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
+JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
+Feldman (base) & 0.887 & --- & --- & --- \\
+JailletLu (base) & 0.901 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelA.png}
+\end{minipage}
 
-| | perfect | mild | bad | garbage |
-|---|---:|---:|---:|---:|
-| *Panel C — few-types $r{=}8$* | | | | |
-| Ranking (floor) | 0.990 | — | — | — |
-| MinDegree (oracle) | 0.999 | — | — | — |
-| FollowPrediction | 1.000 | 0.832 | 0.679 | **0.472** |
-| TestAndMatch (Choo) | 1.000 | 0.984 | 0.989 | 0.990 |
-| TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
-| Combiner *(benchmark)* | 0.990 | 0.990 | 0.990 | 0.990 |
+\medskip
+\noindent
+\begin{minipage}[c]{0.60\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel B --- left-regular $d{=}5$} & perfect & noisy & advers. & garbage \\
+\midrule
+Greedy $=$ Ranking (floor) & 0.890 & --- & --- & --- \\
+MinDegree (oracle) & 0.966 & --- & --- & --- \\
+MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
+Feldman(MPD) & 0.906 & 0.903 & 0.896 & 0.900 \\
+JailletLu(MPD) & 0.903 & 0.902 & 0.898 & 0.901 \\
+Feldman (base) & 0.758 & --- & --- & --- \\
+JailletLu (base) & 0.789 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelB.png}
+\end{minipage}
 
-![The unified benchmark: competitive ratio (mean, 95% CI) versus prediction quality. Naive followers dip below the advice-free floor; the robust algorithms do not.](../../results/unified_benchmark.png){width=100%}
+\medskip
+\noindent
+\begin{minipage}[c]{0.60\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel C --- few-types $r{=}8$} & perfect & mild & bad & garbage \\
+\midrule
+Ranking (floor) & 0.990 & --- & --- & --- \\
+MinDegree (oracle) & 0.999 & --- & --- & --- \\
+FollowPrediction & 1.000 & 0.832 & 0.679 & \textbf{0.472} \\
+TestAndMatch (Choo) & 1.000 & 0.984 & 0.989 & 0.990 \\
+TestAndMatch (BEM) & 0.998 & 0.988 & 0.988 & 0.968 \\
+Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelC.png}
+\end{minipage}
+\caption{The unified benchmark. Each panel's competitive ratios (means over paired
+trials; every 95\% CI $\le 0.003$) sit beside their bar chart (error bars: 95\% CIs;
+dashed line: advice-free floor; dotted: oracle ceiling). Bold marks dips below the
+floor.}
+\end{table}
+```
 
 ## 4.2 Four findings
 
@@ -81,7 +129,7 @@ upside (never reaching the $0.996$ oracle). *Adaptive* robustness (TestAndMatch)
 sublinear prefix, then commit — capturing the upside when advice is good (Choo $1.000$) and
 holding the floor when it is bad ($0.990$). On Panel C it is the only algorithm on the upper
 envelope at both ends. The two mechanisms trade consistency for robustness in opposite ways;
-**Figure 4.2** plots every algorithm on the consistency–robustness plane, where the opposite
+**Figure 4.1** plots every algorithm on the consistency–robustness plane, where the opposite
 trades — and the empty region beyond TestAndMatch toward the ideal top-right corner — are
 visible at a glance.
 
