@@ -29,7 +29,7 @@ route survives real drift. Consuming the *same* forecast through the raw histogr
 catastrophic: blind FollowPrediction collapses to $0.68\to0.36$, far below the $\approx0.92$
 baseline — exactly what the robust algorithms of Chapters 4 and 6 are for.
 
-![A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=100%}
+![A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=80%}
 
 ## 7.2 Six real-world graphs
 

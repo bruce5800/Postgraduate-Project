@@ -18,7 +18,7 @@
 漂移下存活下来。将**同一**预测通过原始直方图消费则是灾难性的：盲从的 FollowPrediction 崩到 $0.68\to0.36$，
 远低于 $\approx0.92$ 的基线——这正是第4章与第6章的鲁棒算法的用武之地。
 
-![真实的廉价预测器（Wikipedia trace）：聚合使顺序误差减半（a），度数路径经受住陈旧化（b）；盲目跟随直方图则衰减。](../../results/real_predictor.png){width=100%}
+![真实的廉价预测器（Wikipedia trace）：聚合使顺序误差减半（a），度数路径经受住陈旧化（b）；盲目跟随直方图则衰减。](../../results/real_predictor.png){width=80%}
 
 ## 六个真实世界图
 
