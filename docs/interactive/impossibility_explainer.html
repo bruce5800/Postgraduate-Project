@@ -1,0 +1,630 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where You Can Test the Advice, You Don't Need It — an interactive guide</title>
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#F5F6F2; --panel:#FFFFFF; --panel2:#EEF0EA; --ink:#232A2E; --muted:#5D6A6E;
+  --line:#D6DAD0; --warm:#C2492F; --warm-soft:#C2492F22; --cool:#287D6C; --cool-soft:#287D6C1F;
+  --gold:#8A6D22; --chip:#E7EAE2; --focus:#287D6C;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12171A; --panel:#1A2125; --panel2:#161C20; --ink:#E5E9E2; --muted:#96A2A0;
+    --line:#2D3639; --warm:#E06A4E; --warm-soft:#E06A4E2B; --cool:#4FB39F; --cool-soft:#4FB39F26;
+    --gold:#C9A64C; --chip:#232C2F; --focus:#4FB39F; }
+}
+:root[data-theme="dark"]{ --bg:#12171A; --panel:#1A2125; --panel2:#161C20; --ink:#E5E9E2; --muted:#96A2A0;
+  --line:#2D3639; --warm:#E06A4E; --warm-soft:#E06A4E2B; --cool:#4FB39F; --cool-soft:#4FB39F26;
+  --gold:#C9A64C; --chip:#232C2F; --focus:#4FB39F; }
+:root[data-theme="light"]{ --bg:#F5F6F2; --panel:#FFFFFF; --panel2:#EEF0EA; --ink:#232A2E; --muted:#5D6A6E;
+  --line:#D6DAD0; --warm:#C2492F; --warm-soft:#C2492F22; --cool:#287D6C; --cool-soft:#287D6C1F;
+  --gold:#8A6D22; --chip:#E7EAE2; --focus:#287D6C; }
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  font-size:16.5px;line-height:1.75;}
+h1,h2,h3{font-family:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;line-height:1.25;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(1.8rem,4.6vw,2.7rem);font-weight:900}
+h2{font-size:1.55rem;font-weight:900;margin-top:0}
+h3{font-size:1.12rem;font-weight:700}
+p{margin:.7em 0}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.wide{max-width:1000px;margin:0 auto;padding:0 20px}
+.math{font-family:Georgia,"Times New Roman",serif;font-style:italic;white-space:nowrap}
+.math sub,.math sup{font-style:normal;font-size:.72em}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em}
+.eyebrow{display:inline-block;font-size:.74rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:.4em}
+.eyebrow b{color:var(--cool);font-weight:700}
+section{padding:56px 0 34px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+a{color:var(--cool)}
+.footnote{font-size:.87rem;color:var(--muted)}
+.story{font-style:italic;color:var(--muted);border-left:3px solid var(--line);padding:2px 14px;margin:14px 0}
+.story b{color:var(--ink)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .row{max-width:900px;margin:0 auto;padding:9px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:.85rem}
+nav a{color:var(--muted);text-decoration:none;padding:2px 2px}
+nav a:hover{color:var(--ink)}
+#bar{position:absolute;left:0;bottom:-1px;height:2px;background:var(--cool);width:0}
+
+/* hero */
+header{padding:60px 0 26px}
+.kicker{color:var(--warm);font-weight:700;letter-spacing:.06em;font-size:.88rem}
+.thesis{border-left:3px solid var(--warm);padding:6px 16px;margin:20px 0;
+  font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.14rem;font-weight:700}
+canvas#stream{width:100%;height:170px;display:block;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.tldr{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 22px;margin:22px 0}
+.tldr .t{font-size:.75rem;letter-spacing:.16em;color:var(--cool);font-weight:700;margin-bottom:6px}
+.tldr ol{margin:.3em 0 .2em 1.2em;padding:0}
+.tldr li{margin:.35em 0}
+
+/* panels & controls */
+.lab{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:22px 0}
+.lab .labhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lab .labhead .tag{font-size:.75rem;letter-spacing:.12em;color:var(--muted)}
+.controls{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end;margin:10px 0 6px}
+.ctrl{display:flex;flex-direction:column;gap:2px;min-width:170px;flex:1}
+.ctrl label{font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--cool);height:22px}
+input[type=range]:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button{font:inherit;font-size:.88rem;padding:6px 14px;border-radius:7px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--cool)}
+button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button.primary{background:var(--cool);border-color:var(--cool);color:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:var(--panel);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--cool);color:#fff}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.chip{background:var(--chip);border-radius:7px;padding:5px 12px;font-size:.86rem}
+.chip b{font-weight:700}
+.good{color:var(--cool)} .bad{color:var(--warm)} .gold{color:var(--gold)}
+svg text{font-family:-apple-system,"Segoe UI",sans-serif}
+.svgbox{overflow-x:auto}
+.svgbox svg{display:block;width:100%;height:auto;min-width:560px}
+table.mini{border-collapse:collapse;margin:12px 0;font-size:.92rem;width:100%}
+table.mini th,table.mini td{padding:5px 10px;border-bottom:1px solid var(--line);text-align:right}
+table.mini th:first-child,table.mini td:first-child{text-align:left}
+table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
+.try{background:var(--cool-soft);border-radius:8px;padding:10px 16px;margin-top:12px;font-size:.9rem}
+.try b{color:var(--cool)}
+
+/* chain diagram */
+.chain{display:flex;flex-direction:column;gap:0;margin:18px 0}
+.chain .step{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:12px 16px}
+.chain .step b{font-family:"Iowan Old Style",Palatino,Georgia,serif}
+.chain .arrow{align-self:center;color:var(--muted);padding:1px 0;font-size:1.05rem;line-height:1.2}
+.status{border:1px dashed var(--gold);border-radius:9px;padding:14px 18px;background:var(--panel);margin:18px 0}
+.status .t{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:.1em}
+
+.formula{background:var(--panel2);border-radius:8px;padding:10px 16px;margin:12px 0;text-align:center;font-size:1.02rem;overflow-x:auto}
+.plain{display:block;font-size:.85rem;color:var(--muted);font-style:normal;margin-top:4px}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+</style>
+
+<nav aria-label="Sections"><div class="row">
+  <b style="font-family:Georgia,serif">The Scissors ✂ Theorem</b>
+  <a href="#rules">The game</a><a href="#cell">One dilemma</a><a href="#affine">The exchange rate</a>
+  <a href="#wall">The sampling wall</a><a href="#tradeoff">The trade-off</a><a href="#theorem">The theorem</a>
+  <div id="bar"></div>
+</div></nav>
+
+<header class="wrap">
+  <div class="kicker">AN INTERACTIVE GUIDE · THESIS CHAPTER 9 / APPENDIX B</div>
+  <h1>Where you can test the advice,<br>you don't need it</h1>
+  <p>Some online-matching algorithms are handed a <b>prediction</b> about the future, watch a
+  short sample to check whether it looks trustworthy, and then commit. The thesis proves a
+  hard limit on this idea. This page breaks the proof into five gadgets you can play with —
+  drag the sliders and you will run into the wall yourself. No background needed beyond
+  &ldquo;what's an average.&rdquo;</p>
+  <div class="tldr"><div class="t">THE WHOLE ARGUMENT IN THREE LINES</div>
+    <ol>
+      <li><b>Test-and-fallback</b> algorithms peek at a small prefix of the input, then either
+        trust the prediction for everything that remains, or ignore it entirely.</li>
+      <li><b>The theorem:</b> if the peek is small (sublinear), <i>no decision rule whatsoever</i>
+        can both cash in when the prediction is good <i>and</i> stay safe when it's bad.</li>
+      <li><b>The reason:</b> inputs simple enough to <i>test</i> a prediction on are exactly the
+        inputs where you'd do nearly perfectly <i>without</i> one. Testability and
+        &ldquo;nothing to gain&rdquo; are the same property.</li>
+    </ol>
+  </div>
+  <canvas id="stream" aria-label="Animation: requests arrive one by one, pass a testing window, then split between follow and fallback"></canvas>
+  <p class="footnote">Requests (dots) arrive one at a time. The algorithm watches the first
+  <span class="math">k</span> inside the <b>testing window</b> (green region); the moment the
+  window closes it commits <b>once</b>, and <i>every</i> remaining request travels the same
+  path — <b class="bad">follow the prediction</b> (upper) or <b class="good">fall back, no
+  advice</b> (lower). The animation replays the two possible commitments in turn: each
+  &ldquo;night&rdquo; all dots go one way.</p>
+</header>
+
+<!-- ================= RULES ================= -->
+<section id="rules"><div class="wrap">
+  <div class="eyebrow"><b>The game</b> · what the algorithm is allowed to do</div>
+  <h2>Watch k arrivals, then bet the night</h2>
+  <div class="story">Picture a <b>taxi rank on New Year's Eve</b>. Passengers arrive one by one,
+  and each must be put into a suitable car <b>immediately — no take-backs</b>. Before the night
+  starts, a tipster sells you a forecast of tonight's crowd. You're allowed to watch the first
+  <b>k</b> passengers for free. Then you must choose, once and for all: run the whole night by
+  the tip sheet, or throw it away and dispatch the way you always have.</div>
+  <p>That's the entire setup, formally: <span class="math">n</span> requests arrive; the
+  algorithm sees the first <span class="math">k</span> (with <span class="math">k</span> much
+  smaller than <span class="math">n</span>), applies <b>any rule it likes</b> to what it saw, and
+  commits to one of two modes:</p>
+  <p style="text-align:center">
+    <span class="chip" style="background:var(--warm-soft)"><b class="bad">Follow</b>: route every remaining request the way the prediction suggests</span>&ensp;or&ensp;
+    <span class="chip" style="background:var(--cool-soft)"><b class="good">Fall back</b>: ignore the prediction, use the standard no-advice method (Ranking)</span>
+  </p>
+  <p>A good algorithm should be <b>consistent</b> — when the tip is accurate, it collects
+  nearly all the profit the tip makes possible — and <b>robust</b> — when the tip is garbage,
+  it loses nothing compared to never having had a tip. Chapter 6 of the thesis found
+  experimentally that no tuning achieves both. This page explains why that's not a tuning
+  problem. <b>It's mathematically impossible.</b></p>
+</div></section>
+
+<!-- ================= CELL ================= -->
+<section id="cell"><div class="wide">
+  <div class="eyebrow"><b>Building block</b> · Appendix B.3 / Lemma B.2</div>
+  <h2>One tiny dilemma — the only moment advice ever matters</h2>
+  <div class="wrap" style="padding:0">
+  <div class="story">Two parking bays, <b>a</b> and <b>b</b>. A hatchback that fits either bay
+  arrives first and must park <b>now</b>. Later, maybe a <b>van</b> shows up (fits only bay a),
+  or a <b>trailer</b> (only bay b) — or nobody comes. If you parked the hatchback in the wrong
+  bay, the special vehicle drives away unserved. The tip sheet tells you which one to expect.</div>
+  <p>The whole hard instance in the proof is just thousands of these dilemmas glued together.
+  In each <em>cell</em>: the flexible request F commits first; then with probability
+  <span class="math">θs</span> comes specialist <span class="math">α</span> (fits only a), with
+  probability <span class="math">θ(1−s)</span> specialist <span class="math">β</span> (only b),
+  otherwise nobody. The advice tells you the likely <b>direction</b> — which side to keep free.</p>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">Gadget A — shake one cell by hand</h3><span class="tag">LEMMA B.2</span></div>
+    <div class="controls">
+      <div class="ctrl"><label>Chance a specialist comes <span class="math">θ</span><span class="num" id="thetaV">0.60</span></label>
+        <input type="range" id="theta" min="0.1" max="1" step="0.05" value="0.6"></div>
+      <div class="ctrl"><label>How lopsided the truth is <span class="math">s</span><span class="num" id="sV">0.70</span></label>
+        <input type="range" id="s" min="0" max="1" step="0.05" value="0.7"></div>
+      <div class="ctrl"><label>The advice points…</label>
+        <div class="seg" role="group" aria-label="advice direction">
+          <button id="dirR" aria-pressed="true">the right way</button><button id="dirW" aria-pressed="false">the wrong way</button>
+        </div></div>
+      <div class="ctrl" style="flex:0">
+        <button class="primary" id="mc">Simulate 20,000 cells</button></div>
+    </div>
+    <div class="svgbox"><svg id="cellsvg" width="860" height="200" viewBox="0 0 860 200" role="img" aria-label="diagram of one cell"></svg></div>
+    <table class="mini"><thead><tr><th>strategy</th><th>expected matches (formula)</th><th>formula</th><th>simulated</th></tr></thead>
+      <tbody>
+      <tr><td>Perfect hindsight (OPT)</td><td class="math">1+θ</td><td class="num" id="fOPT">–</td><td class="num" id="eOPT">–</td></tr>
+      <tr><td class="bad">Follow the advice</td><td class="math" id="folF">1+θ·max(s,1−s)</td><td class="num" id="fFOL">–</td><td class="num" id="eFOL">–</td></tr>
+      <tr><td class="good">No advice (coin-flip the bay)</td><td class="math">1+θ/2</td><td class="num" id="fBASE">–</td><td class="num" id="eBASE">–</td></tr>
+      </tbody></table>
+    <div class="chips">
+      <span class="chip">Follow − no-advice = <b class="num" id="adv">–</b> &nbsp;(formula: <span class="math">±θ·|s−½|</span>)</span>
+      <span class="chip">Advice error <span class="math">ℓ<sub>1</sub>(p,q)</span> = <b class="num" id="l1">–</b> &nbsp;(formula: <span class="math">2θ·|s−ŝ|</span>)</span>
+    </div>
+    <div class="try"><b>Try this.</b> ① Drag <span class="math">s</span> to 0.5: the advantage
+    hits zero — advice is worthless exactly when the outcome is a fair coin. ② Flip the advice
+    direction: same size, opposite sign — <b>how much</b> is at stake depends only on the truth;
+    <b>whether you win or lose it</b> depends only on the advice being right. ③ Hit
+    <i>Simulate</i>: the empirical averages land on the formulas to about three decimals — the
+    same check the thesis reports.</div>
+  </div>
+</div></section>
+
+<!-- ================= AFFINE ================= -->
+<section id="affine"><div class="wide">
+  <div class="eyebrow"><b>Adding it up</b> · Appendix B.4 / Lemma B.3</div>
+  <h2>An exact exchange rate: advice error → lost profit</h2>
+  <div class="wrap" style="padding:0">
+  <div class="story">Glue thousands of parking dilemmas into one long night. The tip sheet gets
+  a fraction <b>φ</b> of them pointed the wrong way. How do the night's takings depend on φ?
+  Not roughly — <b>exactly</b>, on a straight line.</div>
+  <div class="formula"><span class="math">E[profit when following] = ρ<sub>perfect</sub> − ½·ℓ<sub>1</sub>(p,q)</span>
+    <span class="plain">In words: start from the perfect-advice score, subtract exactly half the advice's total error. Verified numerically to three decimals (parameters θ=0.6, ε=0.3 from the thesis).</span></div>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">Gadget B — drag the advice from perfect to poisoned</h3><span class="tag">LEMMA B.3 (W3a)</span></div>
+    <div class="controls"><div class="ctrl" style="max-width:420px">
+      <label>Fraction of cells the advice gets wrong <span class="math">φ</span><span class="num" id="phiV">0.20</span></label>
+      <input type="range" id="phi" min="0" max="1" step="0.01" value="0.2"></div></div>
+    <div class="svgbox"><svg id="affsvg" width="860" height="330" viewBox="0 0 860 330" role="img" aria-label="the affine law: following-score falls linearly with advice error"></svg></div>
+    <div class="chips">
+      <span class="chip">Advice error <span class="math">ℓ<sub>1</sub></span> = <b class="num" id="affL1">–</b></span>
+      <span class="chip">Score when following = <b class="num" id="affR">–</b></span>
+      <span class="chip">No-advice baseline = <b class="num">0.813</b></span>
+      <span class="chip" id="affVerdict">–</span>
+    </div>
+    <div class="try"><b>Try this.</b> Find the break-even point (φ = ½ — advice that's wrong half
+    the time is exactly as good as no advice). Notice the green zone: advice keeps a <b>margin
+    of usefulness</b> up to error <span class="math">a</span>. Good advice is a <b>ball, not a
+    bullseye</b> — you don't need the tip sheet to be perfect, just close. That one fact decides
+    which kind of statistical test the algorithm faces next, and it's the expensive kind.</div>
+  </div>
+</div></section>
+
+<!-- ================= WALL ================= -->
+<section id="wall"><div class="wide">
+  <div class="eyebrow"><b>The barrier</b> · Chapter 9.3, pillar 3 / Theorem B.5 (citing Canonne et al., COLT 2022)</div>
+  <h2>The sampling wall: testability and &ldquo;nothing to gain&rdquo; are one knob</h2>
+  <div class="wrap" style="padding:0">
+  <div class="story">To trust the tipster you must judge, from <b>k = 200 free sightings</b>,
+  whether their forecast of the whole night is <i>roughly</i> right. If tonight's crowd has only
+  8 kinds of passenger, 200 sightings is plenty — about 25 looks at each kind. If it has 4,000
+  kinds, most kinds you will <b>never see even once</b>.</div>
+  <p>Statistics makes this precise, and brutal. Checking a forecast is <i>exactly</i> right
+  costs about <span class="math">√r</span> samples (cheap). But checking it's <i>roughly</i>
+  right — &ldquo;close enough to help vs. far enough to hurt,&rdquo; which is what the green
+  ball forces on us — costs about <span class="math">r/log r</span> samples: nearly as many as
+  learning the whole crowd from scratch. And here's the twist that makes the theorem:</p>
+  <p class="thesis" style="margin:14px 0">Crowds simple enough to test are crowds where you
+  didn't need the tip — a few common passenger types are easy to dispatch near-perfectly by
+  habit. Crowds where the tip could genuinely help have too many rare types to test.</p>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">Gadget C — scatter 200 sightings over r passenger types</h3><span class="tag">THEOREM B.5</span></div>
+    <div class="controls"><div class="ctrl" style="max-width:420px">
+      <label>Number of types <span class="math">r</span> (drag on a log scale)<span class="num" id="rV">8</span></label>
+      <input type="range" id="rSlider" min="3" max="12" step="0.1" value="3"></div></div>
+    <div class="svgbox"><svg id="binsvg" width="860" height="150" viewBox="0 0 860 150" role="img" aria-label="samples falling into type bins"></svg></div>
+    <div class="chips">
+      <span class="chip">Average sightings per type <span class="math">k/r</span> ≈ <b class="num" id="kpr">25</b></span>
+      <span class="chip" id="testable">–</span>
+      <span class="chip" id="upside">–</span>
+    </div>
+    <div class="svgbox" style="margin-top:14px"><svg id="cplx" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="sample complexity: the tolerant-testing cost crosses any sublinear budget"></svg></div>
+    <div class="try"><b>Try this.</b> Drag <span class="math">r</span> from 8 to 4,096 and watch
+    the two verdict chips <b>swap colors in lockstep</b> — that's the whole theorem in one
+    slider. In the chart: the <b class="bad">roughly-right cost</b> crosses your budget line
+    almost immediately; only the <b class="good">exactly-right cost</b> stays affordable, and
+    exactly-right is the test nobody needs (good advice is a ball, not a bullseye).</div>
+  </div>
+</div></section>
+
+<!-- ================= TRADEOFF ================= -->
+<section id="tradeoff"><div class="wide">
+  <div class="eyebrow"><b>The clincher</b> · Appendix B.2 / Lemma B.1 (fully proved)</div>
+  <h2>Two tipsters you can't tell apart</h2>
+  <div class="wrap" style="padding:0">
+  <div class="story">Final move. Build two possible worlds: in world <b class="good">G</b> the
+  tipster is honest (following wins you δ), in world <b class="bad">Bd</b> the tipster is
+  subtly poisoned (following costs you Δ). The sampling wall guarantees we can build them so
+  their first-k arrivals look <b>almost identical</b> — any statistic you compute from your
+  peek differs between the worlds by at most a sliver, <span class="math">γ<sub>k</sub></span>.
+  Now: you still have to pick Follow or Fall back.</div>
+  <div class="formula"><span class="math">(1−η<sub>c</sub>) ≤ η<sub>r</sub> + γ<sub>k</sub></span>
+    <span class="plain">In words: (upside you give up) + (damage you let through) ≥ 1 − (how much the worlds differ on your peek). When γ<sub>k</sub> ≈ 0, the two losses must sum to ≈ everything.</span></div>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">Gadget D — you be the decision rule</h3><span class="tag">LEMMA B.1</span></div>
+    <div class="controls">
+      <div class="ctrl"><label>How distinguishable the worlds are <span class="math">γ<sub>k</sub></span><span class="num" id="gamV">0.20</span></label>
+        <input type="range" id="gam" min="0.02" max="0.9" step="0.01" value="0.2"></div>
+      <div class="ctrl"><label>Your decision threshold <span class="math">t</span> (statistic ≤ t ⇒ Follow)<span class="num" id="tV">0.00</span></label>
+        <input type="range" id="thr" min="-3.5" max="3.5" step="0.05" value="0"></div>
+    </div>
+    <div class="svgbox"><svg id="twsvg" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="prefix-statistic distributions in the two worlds, with your threshold"></svg></div>
+    <div class="chips">
+      <span class="chip good">Upside given up <span class="math">η<sub>c</sub></span> = <b class="num" id="etaC">–</b> (wrongly fell back in G)</span>
+      <span class="chip bad">Damage let through <span class="math">η<sub>r</sub></span> = <b class="num" id="etaR">–</b> (wrongly followed in Bd)</span>
+      <span class="chip">Sum = <b class="num" id="etaSum">–</b> ≥ 1−γ<sub>k</sub> = <b class="num" id="bound">–</b> <b id="check">✓</b></span>
+    </div>
+    <div class="try"><b>Try this.</b> Drag the threshold anywhere — the sum of the two losses
+    never dips below <span class="math">1−γ<sub>k</sub></span>. Then shrink
+    <span class="math">γ<sub>k</sub></span> toward zero (which the sampling wall forces on
+    profitable instances): the curves merge and you're choosing which loss to eat, not whether.
+    This holds for <b>any</b> rule computed from the peek — a threshold, a neural net, anything
+    — which is what makes the theorem algorithm-independent.</div>
+  </div>
+</div></section>
+
+<!-- ================= THEOREM ================= -->
+<section id="theorem"><div class="wrap">
+  <div class="eyebrow"><b>Assembly</b> · Chapter 9.4 / Theorem B.6</div>
+  <h2>Bolting the four parts together</h2>
+  <div class="chain">
+    <div class="step"><b>① The construction</b> (Gadgets A + B; proved, numerically verified) —
+      there's a family of instances where advice with error ≤ <span class="math">a</span> genuinely
+      helps and error ≥ <span class="math">b</span> genuinely hurts, with a real gap between, and
+      <span class="math">Θ(n)</span> distinct request types.</div>
+    <div class="arrow">↓&ensp;<span class="footnote">the reduction (Lemma B.4): your peek is literally an i.i.d. sample, so your decision <i>is</i> a statistical test</span></div>
+    <div class="step"><b>② Any algorithm that's both consistent and robust would be a
+      tolerant tester</b> — from k samples it would distinguish &ldquo;roughly right&rdquo; from
+      &ldquo;badly wrong.&rdquo;</div>
+    <div class="arrow">↓&ensp;<span class="footnote">the sampling wall (Gadget C; exact modern result, COLT 2022)</span></div>
+    <div class="step"><b>③ That test needs ~n/log n samples</b> — more than any sublinear peek
+      provides. So two witness worlds exist that require opposite decisions yet look the same
+      (<span class="math">γ<sub>k</sub>→0</span>).</div>
+    <div class="arrow">↓&ensp;<span class="footnote">the trade-off inequality (Gadget D; fully proved)</span></div>
+    <div class="step"><b>④ The two losses must sum to ≈ 1.</b> No test-and-fallback algorithm —
+      under <b>any</b> decision rule — is both consistent and robust. The achievable region
+      collapses to &ldquo;just play the baseline.&rdquo;</div>
+  </div>
+  <p class="thesis">Upside exists only where the test is impossible. Where you can test the
+  advice, you don't need it.</p>
+  <div class="status"><div class="t">HONEST STATUS (mirrors thesis §9.5 / §B.7)</div>
+    The trade-off inequality, the single-cell constants, and the exact exchange-rate law are
+    <b>proved</b> (the latter two also verified numerically to three decimals). The
+    tolerant-testing lower bound is a <b>cited, exact, modern result</b>
+    (Canonne–Jain–Kamath–Li, COLT 2022). One <b>routine verification step</b> remains — writing
+    out the two witness distributions the lower bound guarantees and checking they land at
+    errors <span class="math">a</span> and <span class="math">b</span> — plus a final
+    end-to-end review. A low-dimensional variant of the construction provably fails (a single
+    shared bias is too easy to estimate), so the many-types regime is essential; a constant-r
+    version is an open problem.</div>
+  <p class="footnote">Where to read more: intuition and architecture in <b>Chapter 9</b> of the
+  thesis; full lemmas and proofs in <b>Appendix B</b>; the numerical checks in
+  <b>Appendix A.6</b> (<span class="num">run_impossibility_frontier.py</span> generates the
+  empirical &ldquo;scissors,&rdquo; Figure 9.1). This page was made by the thesis author as a
+  companion; the thesis text is authoritative.</p>
+</div></section>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const fmt=(x,d=3)=>Number(x).toFixed(d);
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ---------- scroll progress ---------- */
+addEventListener("scroll",()=>{const h=document.documentElement;
+  $("bar").style.width=(100*h.scrollTop/(h.scrollHeight-h.clientHeight))+"%";},{passive:true});
+
+/* ---------- hero stream ----------
+   One decision per "night": every few seconds the committed mode flips between
+   Follow and Fall back, and ALL dots that leave the testing window travel the
+   same path — the window's right edge IS the decision moment (no limbo zone). */
+(function(){
+  const cv=$("stream"),ctx=cv.getContext("2d");
+  function size(){const r=cv.getBoundingClientRect();cv.width=r.width*devicePixelRatio;cv.height=170*devicePixelRatio;
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);}
+  size();addEventListener("resize",()=>{size();if(reduced)drawStatic();});
+  const w=()=>cv.getBoundingClientRect().width, h=170;
+  const kx=()=>w()*0.34;           // decision line = right edge of the window
+  let dots=[],t=0,follow=true;
+  function bg(){ctx.clearRect(0,0,w(),h);
+    ctx.fillStyle=css("--cool-soft");ctx.fillRect(w()*0.05,20,kx()-w()*0.05,h-40);
+    ctx.strokeStyle=css("--line");ctx.strokeRect(w()*0.05,20,kx()-w()*0.05,h-40);
+    ctx.fillStyle=css("--muted");ctx.font="12px -apple-system,'Segoe UI'";
+    ctx.fillText("testing window (first k)",w()*0.06,16);
+    ctx.fillStyle=follow?css("--warm"):css("--muted");
+    ctx.fillText("Follow the prediction"+(follow?"  ◀ tonight's commitment":""),kx()+52,40);
+    ctx.fillStyle=follow?css("--muted"):css("--cool");
+    ctx.fillText("Fall back (no advice)"+(follow?"":"  ◀ tonight's commitment"),kx()+52,h-24);
+    ctx.strokeStyle=css("--muted");ctx.setLineDash([4,4]);
+    ctx.beginPath();ctx.moveTo(kx(),20);ctx.lineTo(kx(),h-20);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=css("--muted");
+    ctx.fillText("decide HERE, once",kx()-8,h-4);}
+  function drawStatic(){bg();
+    for(let i=0;i<26;i++){const x=w()*0.07+i*(w()*0.86)/26;
+      const past=x>kx();
+      const y=past?(follow?45:h-45):h/2+((i*37)%15-7);
+      ctx.fillStyle=past?(follow?css("--warm"):css("--cool")):css("--cool");
+      ctx.beginPath();ctx.arc(x,y,4,0,7);ctx.fill();}}
+  if(reduced){drawStatic();return;}
+  function step(){t++;
+    if(t%420===0){follow=!follow;                        // a new "night" every ~7 s
+      dots=dots.filter(d=>d.dec===null);}                // last night's dots leave the stage
+    if(t%14===0)dots.push({x:w()*0.02,y:h/2+(Math.random()*18-9),dec:null});
+    bg();
+    dots.forEach(d=>{d.x+=1.6;
+      if(d.x>kx()){ if(d.dec===null)d.dec=follow;        // commitment stamped at the line
+        const ty=d.dec?45:h-45; d.y+=(ty-d.y)*0.10; }
+      ctx.fillStyle=d.dec===null?css("--cool"):(d.dec?css("--warm"):css("--cool"));
+      ctx.beginPath();ctx.arc(d.x,d.y,4,0,7);ctx.fill();});
+    dots=dots.filter(d=>d.x<w()-8);
+    requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+})();
+
+/* ---------- GADGET A: cell ---------- */
+(function(){
+  let dirRight=true;
+  const S=()=>parseFloat($("s").value), TH=()=>parseFloat($("theta").value);
+  function draw(){
+    const th=TH(),s=S();
+    const ink=css("--ink"),mut=css("--muted"),warm=css("--warm"),cool=css("--cool"),line=css("--line"),panel2=css("--panel2");
+    const routeB=(dirRight? s>=0.5 : s<0.5);
+    $("cellsvg").innerHTML=`
+      <rect x="600" y="30" width="72" height="44" rx="7" fill="${panel2}" stroke="${line}"/>
+      <text x="636" y="57" text-anchor="middle" font-size="15" fill="${ink}">bay a</text>
+      <rect x="600" y="116" width="72" height="44" rx="7" fill="${panel2}" stroke="${line}"/>
+      <text x="636" y="143" text-anchor="middle" font-size="15" fill="${ink}">bay b</text>
+      <circle cx="90" cy="95" r="20" fill="${cool}"/>
+      <text x="90" y="100" text-anchor="middle" font-size="13" fill="#fff">F</text>
+      <text x="90" y="135" text-anchor="middle" font-size="11" fill="${mut}">flexible — parks first</text>
+      <line x1="112" y1="88" x2="598" y2="52" stroke="${routeB?line:cool}" stroke-width="${routeB?1.5:3.5}" ${routeB?'stroke-dasharray="5,5"':''}/>
+      <line x1="112" y1="102" x2="598" y2="138" stroke="${routeB?cool:line}" stroke-width="${routeB?3.5:1.5}" ${routeB?'':'stroke-dasharray="5,5"'}/>
+      <circle cx="330" cy="32" r="16" fill="${warm}" opacity="${0.35+0.6*s}"/>
+      <text x="330" y="37" text-anchor="middle" font-size="11" fill="#fff">α</text>
+      <text x="360" y="30" font-size="11" fill="${mut}">the van — p = θ·s = ${fmt(th*s,2)} (fits only bay a)</text>
+      <line x1="347" y1="36" x2="598" y2="48" stroke="${warm}" stroke-width="1.5" opacity=".55"/>
+      <circle cx="330" cy="168" r="16" fill="${warm}" opacity="${0.35+0.6*(1-s)}"/>
+      <text x="330" y="173" text-anchor="middle" font-size="11" fill="#fff">β</text>
+      <text x="360" y="176" font-size="11" fill="${mut}">the trailer — p = θ·(1−s) = ${fmt(th*(1-s),2)} (fits only bay b)</text>
+      <line x1="347" y1="162" x2="598" y2="144" stroke="${warm}" stroke-width="1.5" opacity=".55"/>
+      <text x="430" y="196" text-anchor="middle" font-size="11" fill="${mut}">Following the advice parks F in bay ${routeB?'b, keeping bay a free for the likelier van':'a, keeping bay b free for the likelier trailer'} (solid green line)</text>`;
+  }
+  function update(){
+    const th=TH(),s=S();
+    $("thetaV").textContent=fmt(th,2);$("sV").textContent=fmt(s,2);
+    const opt=1+th, base=1+th/2;
+    const fol=dirRight? 1+th*Math.max(s,1-s) : 1+th*Math.min(s,1-s);
+    $("folF").textContent=dirRight?"1+θ·max(s,1−s)":"1+θ·min(s,1−s)";
+    $("fOPT").textContent=fmt(opt);$("fBASE").textContent=fmt(base);$("fFOL").textContent=fmt(fol);
+    const adv=fol-base;
+    $("adv").textContent=(adv>=0?"+":"")+fmt(adv);
+    $("adv").className="num "+(adv>=0?"good":"bad");
+    const l1=dirRight?0:2*th*Math.abs(2*s-1);
+    $("l1").textContent=fmt(l1);
+    $("eOPT").textContent=$("eBASE").textContent=$("eFOL").textContent="–";
+    draw();
+  }
+  $("theta").addEventListener("input",update);$("s").addEventListener("input",update);
+  $("dirR").addEventListener("click",()=>{dirRight=true;$("dirR").setAttribute("aria-pressed","true");$("dirW").setAttribute("aria-pressed","false");update();});
+  $("dirW").addEventListener("click",()=>{dirRight=false;$("dirW").setAttribute("aria-pressed","true");$("dirR").setAttribute("aria-pressed","false");update();});
+  $("mc").addEventListener("click",()=>{
+    const th=TH(),s=S(),N=20000;let mOPT=0,mBASE=0,mFOL=0;
+    const routeB=(dirRight? s>=0.5 : s<0.5);
+    for(let i=0;i<N;i++){
+      const u=Math.random();let sp=0;
+      if(u<th*s)sp=1;else if(u<th)sp=2;
+      mOPT+=sp?2:1;
+      const fb=Math.random()<0.5;
+      mBASE+=1+((sp===1&&!fb)||(sp===2&&fb)?0:(sp?1:0));
+      mFOL +=1+((sp===1&&!routeB)||(sp===2&&routeB)?0:(sp?1:0));
+    }
+    $("eOPT").textContent=fmt(mOPT/N);$("eBASE").textContent=fmt(mBASE/N);$("eFOL").textContent=fmt(mFOL/N);
+  });
+  update();
+})();
+
+/* ---------- GADGET B: affine law ---------- */
+(function(){
+  const TH=0.6,EPS=0.3;
+  const rho_perf=(1+TH*(0.5+EPS))/(1+TH);
+  const rho_base=(1+TH/2)/(1+TH);
+  const l1max=4*TH*EPS/(1+TH);
+  const l1star=2*(rho_perf-rho_base);
+  const a=l1star/2, b=1.5*l1star;
+  const X0=70,X1=830,Y0=290,Y1=30;
+  const xmap=l=>X0+(X1-X0)*l/l1max;
+  const ymap=v=>Y0+(Y1-Y0)*(v-0.66)/(0.96-0.66);
+  function draw(){
+    const phi=parseFloat($("phi").value);
+    const l1=l1max*phi, ratio=rho_perf-l1/2;
+    $("phiV").textContent=fmt(phi,2);$("affL1").textContent=fmt(l1);$("affR").textContent=fmt(ratio);
+    const gain=ratio-rho_base;
+    const v=$("affVerdict");
+    v.innerHTML=gain>=0?`net gain <b class="num">+${fmt(gain)}</b>`:`net damage <b class="num">−${fmt(-gain)}</b>`;
+    v.className="chip "+(gain>=0?"good":"bad");
+    const ink=css("--ink"),mut=css("--muted"),warm=css("--warm"),cool=css("--cool"),line=css("--line");
+    const ws=css("--warm-soft"),cs=css("--cool-soft");
+    const yb=ymap(rho_base);
+    $("affsvg").innerHTML=`
+      <rect x="${X0}" y="${Y1}" width="${xmap(a)-X0}" height="${Y0-Y1}" fill="${cs}"/>
+      <rect x="${xmap(b)}" y="${Y1}" width="${X1-xmap(b)}" height="${Y0-Y1}" fill="${ws}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="${line}"/>
+      <line x1="${X0}" y1="${yb}" x2="${X1}" y2="${yb}" stroke="${mut}" stroke-dasharray="6,5"/>
+      <text x="${X1-4}" y="${yb-6}" text-anchor="end" font-size="11" fill="${mut}">no-advice baseline = ${fmt(rho_base)}</text>
+      <line x1="${xmap(0)}" y1="${ymap(rho_perf)}" x2="${xmap(l1max)}" y2="${ymap(rho_perf-l1max/2)}" stroke="${ink}" stroke-width="2.5"/>
+      <line x1="${xmap(l1star)}" y1="${Y0}" x2="${xmap(l1star)}" y2="${Y1}" stroke="${mut}" stroke-dasharray="2,4"/>
+      <text x="${xmap(l1star)}" y="${Y1+14}" text-anchor="middle" font-size="11" fill="${mut}">break-even ℓ₁* = ${fmt(l1star)}</text>
+      <text x="${xmap(a)}" y="${Y0+18}" text-anchor="middle" font-size="11" fill="${cool}">a = ${fmt(a)}</text>
+      <text x="${xmap(b)}" y="${Y0+18}" text-anchor="middle" font-size="11" fill="${warm}">b = ${fmt(b)}</text>
+      <text x="${xmap(a/2)}" y="${Y1+16}" text-anchor="middle" font-size="11" fill="${cool}">good-advice ball (gain ≥ δ)</text>
+      <text x="${(xmap(b)+X1)/2}" y="${Y1+16}" text-anchor="middle" font-size="11" fill="${warm}">bad-advice zone (loss ≥ Δ)</text>
+      <circle cx="${xmap(l1)}" cy="${ymap(ratio)}" r="8" fill="${gain>=0?cool:warm}" stroke="#fff" stroke-width="2"/>
+      <text x="${X0-8}" y="${ymap(rho_perf)+4}" text-anchor="end" font-size="11" fill="${mut}">${fmt(rho_perf)}</text>
+      <text x="${(X0+X1)/2}" y="${Y0+34}" text-anchor="middle" font-size="12" fill="${mut}">advice error ℓ₁(p, q)</text>`;
+  }
+  $("phi").addEventListener("input",draw);
+  draw();
+})();
+
+/* ---------- GADGET C: sampling wall ---------- */
+(function(){
+  const K=200;
+  function draw(){
+    const r=Math.round(Math.pow(2,parseFloat($("rSlider").value)));
+    $("rV").textContent=r;
+    const kpr=K/r;$("kpr").textContent=kpr>=1?fmt(kpr,1):fmt(kpr,2);
+    const t=$("testable"),u=$("upside");
+    if(kpr>=20){t.innerHTML="Testing the tip: <b>easy</b>";t.className="chip good";
+      u.innerHTML="Anything to win: <b>≈ 0</b> (baseline already near-perfect)";u.className="chip bad";}
+    else if(kpr>=2){t.innerHTML="Testing the tip: shaky (huge noise)";t.className="chip";
+      u.innerHTML="Anything to win: small";u.className="chip";}
+    else{t.innerHTML="Testing the tip: <b>impossible</b> (most types never seen)";t.className="chip bad";
+      u.innerHTML="Anything to win: <b>plenty</b> — the theorem's regime";u.className="chip good";}
+    const mut=css("--muted"),cool=css("--cool"),line=css("--line");
+    const nb=Math.min(r,60),bw=Math.min(30,780/nb-3);
+    let bins="";
+    for(let i=0;i<nb;i++){
+      const exp=kpr*(0.6+0.8*((i*2654435761)%100)/100);
+      const hgt=Math.min(100,exp*7);
+      const x=40+i*(780/nb);
+      bins+=`<rect x="${x}" y="${120-hgt}" width="${bw}" height="${Math.max(hgt,1)}" fill="${exp<1?line:cool}" opacity="${exp<1?0.9:0.85}"/>`;
+    }
+    $("binsvg").innerHTML=bins+
+      `<line x1="35" y1="120" x2="830" y2="120" stroke="${line}"/>
+       <text x="40" y="140" font-size="11" fill="${mut}">${r} types${r>60?" (first 60 drawn)":""} — bar height = expected sightings of that type in the k=200 peek${K/r<1?" (grey bars: fewer than one)":""}</text>`;
+    const X0=70,X1=830,Y0=250,Y1=30,RMIN=8,RMAX=4096;
+    const lx=v=>X0+(X1-X0)*(Math.log2(v)-3)/(12-3);
+    const CMAX=600;
+    const ly=v=>Y0-(Y0-Y1)*clamp(Math.log10(v)/Math.log10(CMAX),0,1);
+    let p1="",p2="";
+    for(let rr=RMIN;rr<=RMAX;rr*=1.15){
+      p1+=`${p1?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(Math.sqrt(rr)),1)}`;
+      p2+=`${p2?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(rr/Math.log(rr)),1)}`;}
+    const warm=css("--warm"),ink=css("--ink");
+    $("cplx").innerHTML=`
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="${line}"/>
+      <line x1="${X0}" y1="${ly(K)}" x2="${X1}" y2="${ly(K)}" stroke="${mut}" stroke-dasharray="6,5"/>
+      <text x="${X1-4}" y="${ly(K)-6}" text-anchor="end" font-size="11" fill="${mut}">your peek budget k = ${K}</text>
+      <path d="${p1}" fill="none" stroke="${cool}" stroke-width="2.5"/>
+      <path d="${p2}" fill="none" stroke="${warm}" stroke-width="2.5"/>
+      <text x="${lx(2200)}" y="${ly(Math.sqrt(2600))+18}" font-size="12" fill="${cool}">√r — cost of checking the tip is EXACTLY right</text>
+      <text x="${lx(200)}" y="${ly(260/Math.log(260))-10}" font-size="12" fill="${warm}">r/log r — cost of checking it's ROUGHLY right (what safety needs)</text>
+      <line x1="${lx(r)}" y1="${Y0}" x2="${lx(r)}" y2="${Y1}" stroke="${ink}" stroke-width="1.5" stroke-dasharray="2,4"/>
+      <text x="${lx(r)}" y="${Y1+14}" text-anchor="middle" font-size="11" fill="${ink}">current r = ${r}</text>
+      <text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" font-size="12" fill="${mut}">number of types r (log scale) — vertical: samples needed (log scale)</text>`;
+  }
+  $("rSlider").addEventListener("input",draw);
+  draw();
+})();
+
+/* ---------- GADGET D: two worlds ---------- */
+(function(){
+  function erf(x){const s=x<0?-1:1;x=Math.abs(x);
+    const t=1/(1+0.3275911*x);
+    const y=1-((((1.061405429*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);
+    return s*y;}
+  const Phi=x=>0.5*(1+erf(x/Math.SQRT2));
+  function muFromGamma(g){let lo=0,hi=6;for(let i=0;i<50;i++){const m=(lo+hi)/2;(2*Phi(m)-1<g)?lo=m:hi=m;}return (lo+hi)/2;}
+  const X0=70,X1=830,Y0=250,Y1=30,XR=4.5;
+  const xm=v=>X0+(X1-X0)*(v+XR)/(2*XR);
+  function gauss(mu,x){return Math.exp(-(x-mu)*(x-mu)/2)/Math.sqrt(2*Math.PI);}
+  function draw(){
+    const g=parseFloat($("gam").value), t=parseFloat($("thr").value);
+    $("gamV").textContent=fmt(g,2);$("tV").textContent=fmt(t,2);
+    const mu=muFromGamma(g);
+    const etaC=1-Phi(t+mu), etaR=Phi(t-mu), sum=etaC+etaR, bound=1-g;
+    $("etaC").textContent=fmt(etaC);$("etaR").textContent=fmt(etaR);
+    $("etaSum").textContent=fmt(sum);$("bound").textContent=fmt(bound);
+    $("check").textContent=sum>=bound-1e-9?"✓":"✗";
+    const warm=css("--warm"),cool=css("--cool"),mut=css("--muted"),line=css("--line"),ink=css("--ink");
+    const ym=v=>Y0-(Y0-Y1)*v/0.45;
+    let pg="",pb="",fillG="",fillB="";
+    for(let x=-XR;x<=XR;x+=0.06){
+      const yg=gauss(-mu,x),yb2=gauss(mu,x);
+      pg+=`${pg?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yg),1)}`;
+      pb+=`${pb?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yb2),1)}`;
+      if(x>=t)fillG+=`${fillG?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yg),1)}`;
+      if(x<=t)fillB+=`${fillB?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yb2),1)}`;
+    }
+    if(fillG)fillG=`M${fmt(xm(t),1)},${fmt(Y0,1)}`+fillG.replace(/^M/,"L")+`L${fmt(X1,1)},${Y0}Z`;
+    if(fillB)fillB=`M${fmt(X0,1)},${Y0}`+fillB.replace(/^M/,"L")+`L${fmt(xm(t),1)},${Y0}Z`;
+    $("twsvg").innerHTML=`
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <path d="${fillG}" fill="${cool}" opacity="0.18"/>
+      <path d="${fillB}" fill="${warm}" opacity="0.18"/>
+      <path d="${pg}" fill="none" stroke="${cool}" stroke-width="2.5"/>
+      <path d="${pb}" fill="none" stroke="${warm}" stroke-width="2.5"/>
+      <text x="${X0+10}" y="${Y1+4}" text-anchor="start" font-size="12" fill="${cool}">◀ world G (honest tipster)</text>
+      <text x="${X1-10}" y="${Y1+4}" text-anchor="end" font-size="12" fill="${warm}">world Bd (poisoned tipster) ▶</text>
+      <line x1="${xm(t)}" y1="${Y0}" x2="${xm(t)}" y2="${Y1-6}" stroke="${ink}" stroke-width="2"/>
+      <text x="${xm(t)}" y="${Y1-12}" text-anchor="middle" font-size="12" fill="${ink}">t (≤ t: Follow | &gt; t: Fall back)</text>
+      <text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" font-size="12" fill="${mut}">distribution of your peek statistic — shaded areas = your error probability in each world</text>`;
+  }
+  $("gam").addEventListener("input",draw);$("thr").addEventListener("input",draw);
+  draw();
+})();
+</script>

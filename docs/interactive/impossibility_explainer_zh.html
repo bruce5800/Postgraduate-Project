@@ -1,0 +1,555 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>能检验建议的地方，就不需要建议 — 不可能性定理交互讲解</title>
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#F5F6F2; --panel:#FFFFFF; --panel2:#EEF0EA; --ink:#232A2E; --muted:#5D6A6E;
+  --line:#D6DAD0; --warm:#C2492F; --warm-soft:#C2492F22; --cool:#287D6C; --cool-soft:#287D6C1F;
+  --gold:#8A6D22; --chip:#E7EAE2; --focus:#287D6C;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12171A; --panel:#1A2125; --panel2:#161C20; --ink:#E5E9E2; --muted:#96A2A0;
+    --line:#2D3639; --warm:#E06A4E; --warm-soft:#E06A4E2B; --cool:#4FB39F; --cool-soft:#4FB39F26;
+    --gold:#C9A64C; --chip:#232C2F; --focus:#4FB39F; }
+}
+:root[data-theme="dark"]{ --bg:#12171A; --panel:#1A2125; --panel2:#161C20; --ink:#E5E9E2; --muted:#96A2A0;
+  --line:#2D3639; --warm:#E06A4E; --warm-soft:#E06A4E2B; --cool:#4FB39F; --cool-soft:#4FB39F26;
+  --gold:#C9A64C; --chip:#232C2F; --focus:#4FB39F; }
+:root[data-theme="light"]{ --bg:#F5F6F2; --panel:#FFFFFF; --panel2:#EEF0EA; --ink:#232A2E; --muted:#5D6A6E;
+  --line:#D6DAD0; --warm:#C2492F; --warm-soft:#C2492F22; --cool:#287D6C; --cool-soft:#287D6C1F;
+  --gold:#8A6D22; --chip:#E7EAE2; --focus:#287D6C; }
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.85;}
+h1,h2,h3{font-family:"Songti SC","Noto Serif CJK SC",STSong,"SimSun",serif;line-height:1.35;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:900}
+h2{font-size:1.5rem;font-weight:900;margin-top:0}
+h3{font-size:1.12rem;font-weight:700}
+p{margin:.7em 0}
+.wrap{max-width:740px;margin:0 auto;padding:0 20px}
+.wide{max-width:900px;margin:0 auto;padding:0 20px}
+.math{font-family:Georgia,"Times New Roman",serif;font-style:italic;white-space:nowrap}
+.math sub,.math sup{font-style:normal;font-size:.72em}
+.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em}
+.eyebrow{display:inline-block;font-size:.74rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:.4em}
+.eyebrow b{color:var(--cool);font-weight:700}
+section{padding:56px 0 34px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+a{color:var(--cool)}
+.footnote{font-size:.86rem;color:var(--muted)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .row{max-width:900px;margin:0 auto;padding:9px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:.85rem}
+nav a{color:var(--muted);text-decoration:none;padding:2px 2px}
+nav a:hover{color:var(--ink)}
+#bar{position:absolute;left:0;bottom:-1px;height:2px;background:var(--cool);width:0}
+
+/* hero */
+header{padding:64px 0 26px}
+.kicker{color:var(--warm);font-weight:700;letter-spacing:.06em;font-size:.9rem}
+.thesis{border-left:3px solid var(--warm);padding:6px 16px;margin:20px 0;
+  font-family:"Songti SC","Noto Serif CJK SC",serif;font-size:1.12rem;font-weight:700}
+canvas#stream{width:100%;height:170px;display:block;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+
+/* panels & controls */
+.lab{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:22px 0}
+.lab .labhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lab .labhead .tag{font-size:.75rem;letter-spacing:.12em;color:var(--muted)}
+.controls{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin:10px 0 6px}
+.ctrl{display:flex;flex-direction:column;gap:2px;min-width:170px;flex:1}
+.ctrl label{font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--cool);height:22px}
+input[type=range]:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button{font:inherit;font-size:.88rem;padding:6px 14px;border-radius:7px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--cool)}
+button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button.primary{background:var(--cool);border-color:var(--cool);color:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:var(--panel)}
+.seg button[aria-pressed="true"]{background:var(--cool);color:#fff}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.chip{background:var(--chip);border-radius:7px;padding:5px 12px;font-size:.86rem}
+.chip b{font-weight:700}
+.good{color:var(--cool)} .bad{color:var(--warm)} .gold{color:var(--gold)}
+svg text{font-family:-apple-system,"PingFang SC",sans-serif}
+.svgbox{overflow-x:auto}
+table.mini{border-collapse:collapse;margin:12px 0;font-size:.92rem;width:100%}
+table.mini th,table.mini td{padding:5px 10px;border-bottom:1px solid var(--line);text-align:right}
+table.mini th:first-child,table.mini td:first-child{text-align:left}
+table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
+
+/* chain diagram */
+.chain{display:flex;flex-direction:column;gap:0;margin:18px 0}
+.chain .step{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:12px 16px}
+.chain .step b{font-family:"Songti SC","Noto Serif CJK SC",serif}
+.chain .arrow{align-self:center;color:var(--muted);padding:1px 0;font-size:1.05rem;line-height:1.2}
+.status{border:1px dashed var(--gold);border-radius:9px;padding:14px 18px;background:var(--panel);margin:18px 0}
+.status .t{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:.1em}
+
+.formula{background:var(--panel2);border-radius:8px;padding:10px 16px;margin:12px 0;text-align:center;font-size:1.02rem;overflow-x:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+</style>
+
+<nav aria-label="章节导航"><div class="row">
+  <b style="font-family:'Songti SC',serif">剪刀 ✂ 定理</b>
+  <a href="#rules">规则</a><a href="#cell">原子：一个 cell</a><a href="#affine">仿射律</a>
+  <a href="#wall">采样墙</a><a href="#tradeoff">权衡不等式</a><a href="#theorem">定理</a>
+  <div id="bar"></div>
+</div></nav>
+
+<header class="wrap">
+  <div class="kicker">交互式讲解 · 毕业论文第 9 章 / 附录 B</div>
+  <h1>能检验建议的地方，<br>就不需要建议</h1>
+  <p>在线匹配的"测试-回退"算法先看一小段到达序列，检验预测建议靠不靠谱，再决定跟随还是回退。
+  本文的不可能性定理说：<b>只要检验窗口是亚线性的，任何决策规则都无法既抓住好建议的收益、又挡住坏建议的伤害。</b>
+  这一页把证明拆成五个可以动手玩的部件——拖动滑块，你会亲手撞上那堵墙。</p>
+  <canvas id="stream" aria-label="到达流示意动画：请求依次到达，经过检验窗口后在跟随与回退之间分流"></canvas>
+  <p class="footnote">动画：请求（圆点）依次到达；前 <span class="math">k</span> 个进入<b>检验窗口</b>（青色区），
+  之后算法把余下所有请求一次性交给<b class="bad">跟随建议</b>（上路）或<b class="good">回退 Ranking</b>（下路）。</p>
+</header>
+
+<!-- ================= RULES ================= -->
+<section id="rules"><div class="wrap">
+  <div class="eyebrow"><b>规则</b> · 这场游戏怎么玩</div>
+  <h2>测试-回退：看 k 个，赌全部</h2>
+  <p><span class="math">n</span> 个请求将依次到达，每个必须<b>立即、不可撤销</b>地匹配到一个资源。
+  开局你手里有一份<b>建议</b>（预测的请求类型直方图 <span class="math">q</span>）。你可以观察前
+  <span class="math">k</span> 个到达（<span class="math">k</span> 远小于 <span class="math">n</span>），
+  然后<b>用任意规则</b>做一次二选一：</p>
+  <p style="text-align:center">
+    <span class="chip" style="background:var(--warm-soft)"><b class="bad">跟随（Mimic）</b>：按建议规划的配对路由余下所有请求</span>&ensp;或&ensp;
+    <span class="chip" style="background:var(--cool-soft)"><b class="good">回退（Ranking）</b>：无视建议，用免预测基线</span>
+  </p>
+  <p>好算法要同时满足两件事：<b>一致性</b>——建议准时，接近跟随者的收益；<b>鲁棒性</b>——建议烂时，
+  不比基线差。第 6 章的实验发现没有任何阈值能两全；这一页解释<b>为什么不是阈值没调好，而是数学不允许</b>。</p>
+</div></section>
+
+<!-- ================= CELL ================= -->
+<section id="cell"><div class="wide">
+  <div class="eyebrow"><b>构造 · 原子</b> · 附录 B.3 / 引理 B.2</div>
+  <h2>一个 cell：预测唯一有用的时刻</h2>
+  <div class="wrap" style="padding:0">
+  <p>整个下界构造由无数个独立的小"cell"拼成。每个 cell 里只有一次真正的赌局：
+  <b>灵活请求 F</b>（两边都能配）先到，必须先站队；之后<b>专门请求</b>可能出现——
+  以 <span class="math">θs</span> 的概率来 <span class="math">α</span>（只能配 a），以
+  <span class="math">θ(1−s)</span> 的概率来 <span class="math">β</span>（只能配 b），以
+  <span class="math">1−θ</span> 的概率谁也不来。建议告诉你偏置的<b>方向</b>：该把 F 让开哪一边。</p>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">实验台 A — 亲手摇一个 cell</h3><span class="tag">LEMMA B.2</span></div>
+    <div class="controls">
+      <div class="ctrl"><label>争用率 <span class="math">θ</span><span class="num" id="thetaV">0.60</span></label>
+        <input type="range" id="theta" min="0.1" max="1" step="0.05" value="0.6"></div>
+      <div class="ctrl"><label>真实偏置 <span class="math">s</span><span class="num" id="sV">0.70</span></label>
+        <input type="range" id="s" min="0" max="1" step="0.05" value="0.7"></div>
+      <div class="ctrl"><label>建议方向 <span class="math">ŝ</span></label>
+        <div class="seg" role="group" aria-label="建议方向">
+          <button id="dirR" aria-pressed="true">方向正确</button><button id="dirW" aria-pressed="false">方向错误</button>
+        </div></div>
+      <div class="ctrl" style="flex:0"><label>&nbsp;</label>
+        <button class="primary" id="mc">跑 20 000 次</button></div>
+    </div>
+    <div class="svgbox"><svg id="cellsvg" width="860" height="190" viewBox="0 0 860 190" role="img" aria-label="cell 结构示意图"></svg></div>
+    <table class="mini"><thead><tr><th>策略</th><th>期望匹配数（公式）</th><th>公式值</th><th>模拟值</th></tr></thead>
+      <tbody>
+      <tr><td>OPT（事后最优）</td><td class="math">1+θ</td><td class="num" id="fOPT">–</td><td class="num" id="eOPT">–</td></tr>
+      <tr><td class="bad">跟随建议（当前方向）</td><td class="math" id="folF">1+θ·max(s,1−s)</td><td class="num" id="fFOL">–</td><td class="num" id="eFOL">–</td></tr>
+      <tr><td class="good">基线（F 随机站队）</td><td class="math">1+θ/2</td><td class="num" id="fBASE">–</td><td class="num" id="eBASE">–</td></tr>
+      </tbody></table>
+    <div class="chips">
+      <span class="chip">跟随 − 基线 = <b class="num" id="adv">–</b>（公式 <span class="math">±θ·|s−½|</span>）</span>
+      <span class="chip">建议误差 <span class="math">ℓ<sub>1</sub>(p,q)</span> = <b class="num" id="l1">–</b>（公式 <span class="math">2θ·|s−ŝ|</span>）</span>
+    </div>
+    <p class="footnote" id="cellRead">拖动滑块试试：优势的<b>大小</b>只由真值信号 |s−½| 决定，<b>正负号</b>只由建议方向对错决定——
+    "建议值不值钱"被干净地拆成了"方向猜没猜对"。把 s 拖到 0.5：建议瞬间一文不值，而这恰恰也是方向最难检验的时候。</p>
+  </div>
+</div></section>
+
+<!-- ================= AFFINE ================= -->
+<section id="affine"><div class="wide">
+  <div class="eyebrow"><b>构造 · 聚合</b> · 附录 B.4 / 引理 B.3</div>
+  <h2>仿射律：建议误差 ⇄ 匹配比值的精确汇率</h2>
+  <div class="wrap" style="padding:0">
+  <p>把 <span class="math">m</span> 个 cell 拼在一起（论文验证参数 <span class="math">θ=0.6, ε=0.3</span>），
+  让建议在其中 <span class="math">φ</span> 比例的 cell 上把方向猜<b>错</b>。cell 互相独立，于是逐 cell 的账目
+  相加，得到一条<b>精确的直线</b>——不是近似，数值验证吻合到三位小数：</p>
+  <div class="formula"><span class="math">E[follow-ratio] = ρ<sub>perfect</sub> − ½·ℓ<sub>1</sub>(p,q)</span></div>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">实验台 B — 沿仿射律拖动建议质量</h3><span class="tag">LEMMA B.3 (W3a)</span></div>
+    <div class="controls"><div class="ctrl" style="max-width:420px">
+      <label>方向错误的 cell 比例 <span class="math">φ</span><span class="num" id="phiV">0.20</span></label>
+      <input type="range" id="phi" min="0" max="1" step="0.01" value="0.2"></div></div>
+    <div class="svgbox"><svg id="affsvg" width="860" height="330" viewBox="0 0 860 330" role="img" aria-label="仿射律图：跟随比值随建议误差线性下降"></svg></div>
+    <div class="chips">
+      <span class="chip"><span class="math">ℓ<sub>1</sub>(p,q)</span> = <b class="num" id="affL1">–</b></span>
+      <span class="chip">跟随比值 = <b class="num" id="affR">–</b></span>
+      <span class="chip">基线 <span class="math">ρ<sub>base</sub></span> = <b class="num">0.813</b></span>
+      <span class="chip" id="affVerdict">–</span>
+    </div>
+    <p class="footnote">好建议不是一个<b>点</b>而是一个<b>球</b>：误差不超过
+    <span class="math">a</span> 都仍然净有益（青区）。正是这个 <span class="math">a&gt;0</span>，
+    把"检验建议"钉进了下一节<b>困难的容差体制</b>——这是整个构造最关键的一颗螺丝。</p>
+  </div>
+</div></section>
+
+<!-- ================= WALL ================= -->
+<section id="wall"><div class="wide">
+  <div class="eyebrow"><b>壁垒</b> · 第 9.3 节支柱三 / 定理 B.5（引用 Canonne et al. 2022）</div>
+  <h2>采样墙：可检验性与基线强度是同一个旋钮</h2>
+  <div class="wrap" style="padding:0">
+  <p>要安全地用建议，算法得从 <span class="math">k</span> 个前缀样本里判断真实分布
+  <span class="math">p</span> 离建议 <span class="math">q</span> 是"近"（≤ <span class="math">a</span>，跟随）
+  还是"远"（≥ <span class="math">b</span>，回退）。这是一个<b>容差检验</b>问题，而它出了名地贵：
+  非容差（判断"完全相等吗"）只要 <span class="math">Θ(√r)</span> 个样本，容差版要
+  <span class="math">Θ̃(r/log r)</span>——几乎要把整个分布学下来。拖动类型数 <span class="math">r</span>：</p>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">实验台 C — 把 200 个样本撒进 r 个类型</h3><span class="tag">THEOREM B.5</span></div>
+    <div class="controls"><div class="ctrl" style="max-width:420px">
+      <label>类型数 <span class="math">r</span>（对数拖动）<span class="num" id="rV">8</span></label>
+      <input type="range" id="rSlider" min="3" max="12" step="0.1" value="3"></div></div>
+    <div class="svgbox"><svg id="binsvg" width="860" height="150" viewBox="0 0 860 150" role="img" aria-label="样本落入类型桶的示意"></svg></div>
+    <div class="chips">
+      <span class="chip">每类型平均样本 <span class="math">k/r</span> ≈ <b class="num" id="kpr">25</b></span>
+      <span class="chip" id="testable">–</span>
+      <span class="chip" id="upside">–</span>
+    </div>
+    <div class="svgbox" style="margin-top:14px"><svg id="cplx" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="样本复杂度对比：容差检验代价对类型数近线性增长，越过任何亚线性预算"></svg></div>
+    <p class="footnote">上图（对数-对数）：<b class="good">√r</b> 是非容差检验的代价，
+    <b class="bad">r/log r</b> 是容差检验的代价，虚线是你的前缀预算 <span class="math">k</span>。
+    类型少 ⇒ 检验便宜，<b>但类型少的输入基线本来就近乎最优</b>（少数高频类型 ⇒ 匹配近乎完美 ⇒ 无可赚）；
+    上升空间只存在于 <span class="math">r=Θ(n)</span> 的一侧——而那里容差代价早已刺穿预算线。两个仪表永远反向摆动。</p>
+  </div>
+</div></section>
+
+<!-- ================= TRADEOFF ================= -->
+<section id="tradeoff"><div class="wide">
+  <div class="eyebrow"><b>核心引理</b> · 附录 B.2 / 引理 B.1（已严格证明）</div>
+  <h2>主权衡不等式：两个世界的游戏</h2>
+  <div class="wrap" style="padding:0">
+  <p>最后一块是纯逻辑。构造两个世界：<b class="good">G 世界</b>里建议是好的（跟随赚
+  <span class="math">δ</span>），<b class="bad">Bd 世界</b>里建议是坏的（跟随亏 <span class="math">Δ</span>）——
+  但两个世界的前缀分布几乎一样，全变差距离只有 <span class="math">γ<sub>k</sub></span>。
+  你的决策规则<b>只能看前缀</b>。上一节的墙说了：在有利可图的构造上 <span class="math">γ<sub>k</sub></span>
+  必然很小。下面试试你能不能设计出两边都对的规则：</p>
+  <div class="formula"><span class="math">(1−η<sub>c</sub>) ≤ η<sub>r</sub> + γ<sub>k</sub></span>
+  &emsp;<span class="footnote">即&ensp;一致性损失 + 鲁棒性损失 ≥ 1 − γ<sub>k</sub></span></div>
+  </div>
+  <div class="lab">
+    <div class="labhead"><h3 style="margin:0">实验台 D — 你来当决策规则</h3><span class="tag">LEMMA B.1</span></div>
+    <div class="controls">
+      <div class="ctrl"><label>前缀分辨力 <span class="math">γ<sub>k</sub></span><span class="num" id="gamV">0.20</span></label>
+        <input type="range" id="gam" min="0.02" max="0.9" step="0.01" value="0.2"></div>
+      <div class="ctrl"><label>你的决策阈值 <span class="math">t</span>（统计量 ≤ t ⇒ 跟随）<span class="num" id="tV">0.00</span></label>
+        <input type="range" id="thr" min="-3.5" max="3.5" step="0.05" value="0"></div>
+    </div>
+    <div class="svgbox"><svg id="twsvg" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="两个世界的前缀统计量分布与决策阈值"></svg></div>
+    <div class="chips">
+      <span class="chip good">一致性损失 <span class="math">η<sub>c</sub></span> = <b class="num" id="etaC">–</b>（G 世界里误回退）</span>
+      <span class="chip bad">鲁棒性损失 <span class="math">η<sub>r</sub></span> = <b class="num" id="etaR">–</b>（Bd 世界里误跟随）</span>
+      <span class="chip"><span class="math">η<sub>c</sub>+η<sub>r</sub></span> = <b class="num" id="etaSum">–</b> ≥ 1−γ<sub>k</sub> = <b class="num" id="bound">–</b> <b id="check">✓</b></span>
+    </div>
+    <p class="footnote">怎么拖阈值，两种损失之和都压不进 <span class="math">1−γ<sub>k</sub></span> 之下——
+    这不是"经验 ℓ₁ 阈值"的缺陷：定理对前缀的<b>任意可测函数</b>成立（这正是它区别于 Choo 等人构造性耦合的地方）。
+    当采样墙把 <span class="math">γ<sub>k</sub></span> 压到 0，损失之和被抬到 1：要么放弃全部收益，要么吃下全部伤害。</p>
+  </div>
+</div></section>
+
+<!-- ================= THEOREM ================= -->
+<section id="theorem"><div class="wrap">
+  <div class="eyebrow"><b>组装</b> · 第 9.4 节 / 定理 B.6</div>
+  <h2>把四个零件拧成定理</h2>
+  <div class="chain">
+    <div class="step"><b>① 原子 + 仿射律</b>（实验台 A、B，已证明并数值验证）——
+      存在实例族：建议误差 ≤ <span class="math">a</span> 则跟随净赚 <span class="math">δ</span>，
+      ≥ <span class="math">b</span> 则净亏 <span class="math">Δ</span>，且 <span class="math">a&gt;0</span>、
+      间隙 <span class="math">b−a=Θ(1)</span>、类型数 <span class="math">r=Θ(n)</span>。</div>
+    <div class="arrow">↓&ensp;<span class="footnote">归约（引理 B.4）：前缀恰是 i.i.d. 样本，决策本身就是一个检验器</span></div>
+    <div class="step"><b>② 任何一致且鲁棒的算法 ⇒ 一个容差检验器</b>，用 <span class="math">k</span>
+      个样本区分 ℓ₁ ≤ <span class="math">a</span> 与 ≥ <span class="math">b</span>。</div>
+    <div class="arrow">↓&ensp;<span class="footnote">采样墙（实验台 C，引用 COLT 2022 精确结果）</span></div>
+    <div class="step"><b>③ 这样的检验器需要 <span class="math">Θ̃(n/log n)</span> 个样本</b>——
+      任何 <span class="math">k=o(n/log n)</span> 的前缀都不够，于是两个见证世界满足
+      <span class="math">γ<sub>k</sub>=o(1)</span>。</div>
+    <div class="arrow">↓&ensp;<span class="footnote">主权衡不等式（实验台 D，已严格证明）</span></div>
+    <div class="step"><b>④ η<sub>c</sub>+η<sub>r</sub> ≥ 1−o(1)</b>：算法无法既
+      <span class="math">(1−o(1))</span>-一致又鲁棒。<b>可达区域塌缩到基线一个点。</b></div>
+  </div>
+  <p class="thesis">于是：上升空间只存在于容差检验不可行之处——能检验建议的地方，就不需要它。</p>
+  <div class="status"><div class="t">诚实状态（与论文 §9.5 / §B.7 一致）</div>
+    主不等式、单 cell 常数、仿射转换律：<b>已证明</b>（后两者另经数值验证到三位小数）；
+    容差检验下界：<b>引用的精确现成结果</b>（Canonne–Jain–Kamath–Li, COLT 2022）。
+    尚余<b>一步常规核对</b>——写出下界构造保证的那对见证分布并核对其落在 ℓ₁ ≤ a 与 ≥ b——
+    以及一次端到端审阅。此外，低维版本的构造<b>可证失败</b>（单一全局偏置太容易被估计），
+    维度 <span class="math">r=Θ(n)</span> 是本质性的；常数 <span class="math">r</span> 的版本留作开放问题。</div>
+  <p class="footnote">对应阅读：直觉与架构见论文<b>第 9 章</b>；完整引理与证明见<b>附录 B</b>；
+  数值验证脚本见<b>附录 A.6</b>（<span class="num">run_impossibility_frontier.py</span> 为图 9.1 的经验"剪刀"）。
+  本页由论文作者制作，用于降低证明的阅读门槛；一切以论文正文为准。</p>
+</div></section>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const fmt=(x,d=3)=>Number(x).toFixed(d);
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ---------- scroll progress ---------- */
+addEventListener("scroll",()=>{const h=document.documentElement;
+  $("bar").style.width=(100*h.scrollTop/(h.scrollHeight-h.clientHeight))+"%";},{passive:true});
+
+/* ---------- hero stream ---------- */
+(function(){
+  const cv=$("stream"),ctx=cv.getContext("2d");let W,H;
+  function size(){const r=cv.getBoundingClientRect();W=cv.width=r.width*devicePixelRatio;H=cv.height=170*devicePixelRatio;
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);}
+  size();addEventListener("resize",()=>{size();if(reduced)drawStatic();});
+  const w=()=>cv.getBoundingClientRect().width, h=170;
+  const kx=()=>w()*0.30, fx=()=>w()*0.52;
+  let dots=[],t=0;
+  function bg(){ctx.clearRect(0,0,w(),h);
+    ctx.fillStyle=css("--cool-soft");ctx.fillRect(w()*0.06,20,kx()-w()*0.06,h-40);
+    ctx.strokeStyle=css("--line");ctx.strokeRect(w()*0.06,20,kx()-w()*0.06,h-40);
+    ctx.fillStyle=css("--muted");ctx.font="12px -apple-system,'PingFang SC'";
+    ctx.fillText("检验窗口（前 k 个）",w()*0.07,16);
+    ctx.fillText("跟随建议",fx()+66,40);ctx.fillText("回退 Ranking",fx()+66,h-30);
+    ctx.strokeStyle=css("--muted");ctx.setLineDash([4,4]);
+    ctx.beginPath();ctx.moveTo(fx(),20);ctx.lineTo(fx(),h-20);ctx.stroke();ctx.setLineDash([]);}
+  function drawStatic(){bg();
+    for(let i=0;i<26;i++){const x=w()*0.08+i*(w()*0.85)/26;let y=h/2,c=css("--muted");
+      if(x>fx()){const up=i%2===0;y=up?45:h-45;c=up?css("--warm"):css("--cool");}
+      ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,4,0,7);ctx.fill();}}
+  if(reduced){drawStatic();return;}
+  function step(){t++;
+    if(t%14===0)dots.push({x:w()*0.02,y:h/2+(Math.random()*18-9),up:Math.random()<0.5});
+    bg();
+    dots.forEach(d=>{d.x+=1.6;
+      if(d.x>fx()){const ty=d.up?45:h-45;d.y+=(ty-d.y)*0.08;}
+      ctx.fillStyle=d.x<kx()?css("--cool"):(d.x<fx()?css("--muted"):(d.up?css("--warm"):css("--cool")));
+      ctx.beginPath();ctx.arc(d.x,d.y,4,0,7);ctx.fill();});
+    dots=dots.filter(d=>d.x<w()-8);
+    requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+})();
+
+/* ---------- LAB A: cell ---------- */
+(function(){
+  let dirRight=true;
+  const S=()=>parseFloat($("s").value), TH=()=>parseFloat($("theta").value);
+  function draw(){
+    const th=TH(),s=S(),svg=$("cellsvg");
+    const ink=css("--ink"),mut=css("--muted"),warm=css("--warm"),cool=css("--cool"),line=css("--line"),panel2=css("--panel2");
+    const routeB=(dirRight? s>=0.5 : s<0.5); // follow advice: protect majority specialist
+    svg.innerHTML=`
+      <rect x="600" y="30" width="64" height="44" rx="7" fill="${panel2}" stroke="${line}"/>
+      <text x="632" y="57" text-anchor="middle" font-size="15" fill="${ink}">a</text>
+      <rect x="600" y="116" width="64" height="44" rx="7" fill="${panel2}" stroke="${line}"/>
+      <text x="632" y="143" text-anchor="middle" font-size="15" fill="${ink}">b</text>
+      <circle cx="90" cy="95" r="20" fill="${cool}"/>
+      <text x="90" y="100" text-anchor="middle" font-size="13" fill="#fff">F</text>
+      <text x="90" y="135" text-anchor="middle" font-size="11" fill="${mut}">灵活（先到，先站队）</text>
+      <line x1="112" y1="88" x2="598" y2="52" stroke="${routeB?line:cool}" stroke-width="${routeB?1.5:3.5}" ${routeB?'stroke-dasharray="5,5"':''}/>
+      <line x1="112" y1="102" x2="598" y2="138" stroke="${routeB?cool:line}" stroke-width="${routeB?3.5:1.5}" ${routeB?'':'stroke-dasharray="5,5"'}/>
+      <circle cx="330" cy="32" r="16" fill="${warm}" opacity="${0.35+0.6*s}"/>
+      <text x="330" y="37" text-anchor="middle" font-size="11" fill="#fff">α</text>
+      <text x="366" y="30" font-size="11" fill="${mut}">p = θ·s = ${fmt(th*s,2)}（只能配 a）</text>
+      <line x1="347" y1="36" x2="598" y2="48" stroke="${warm}" stroke-width="1.5" opacity=".55"/>
+      <circle cx="330" cy="168" r="16" fill="${warm}" opacity="${0.35+0.6*(1-s)}"/>
+      <text x="330" y="173" text-anchor="middle" font-size="11" fill="#fff">β</text>
+      <text x="366" y="176" font-size="11" fill="${mut}">p = θ·(1−s) = ${fmt(th*(1-s),2)}（只能配 b）</text>
+      <line x1="347" y1="162" x2="598" y2="144" stroke="${warm}" stroke-width="1.5" opacity=".55"/>
+      <text x="430" y="185" text-anchor="middle" font-size="11" fill="${mut}">跟随建议 ⇒ F→${routeB?'b，把 a 留给更可能出现的 α':'a，把 b 留给更可能出现的 β'}（青色粗线）</text>`;
+  }
+  function update(){
+    const th=TH(),s=S();
+    $("thetaV").textContent=fmt(th,2);$("sV").textContent=fmt(s,2);
+    const opt=1+th, base=1+th/2;
+    const fol=dirRight? 1+th*Math.max(s,1-s) : 1+th*Math.min(s,1-s);
+    $("folF").textContent=dirRight?"1+θ·max(s,1−s)":"1+θ·min(s,1−s)";
+    $("fOPT").textContent=fmt(opt);$("fBASE").textContent=fmt(base);$("fFOL").textContent=fmt(fol);
+    const adv=fol-base;
+    $("adv").textContent=(adv>=0?"+":"")+fmt(adv);
+    $("adv").className="num "+(adv>=0?"good":"bad");
+    const l1=dirRight?0:2*th*Math.abs(2*s-1);
+    $("l1").textContent=fmt(l1);
+    $("eOPT").textContent=$("eBASE").textContent=$("eFOL").textContent="–";
+    draw();
+  }
+  $("theta").addEventListener("input",update);$("s").addEventListener("input",update);
+  $("dirR").addEventListener("click",()=>{dirRight=true;$("dirR").setAttribute("aria-pressed","true");$("dirW").setAttribute("aria-pressed","false");update();});
+  $("dirW").addEventListener("click",()=>{dirRight=false;$("dirW").setAttribute("aria-pressed","true");$("dirR").setAttribute("aria-pressed","false");update();});
+  $("mc").addEventListener("click",()=>{
+    const th=TH(),s=S(),N=20000;let mOPT=0,mBASE=0,mFOL=0;
+    const routeB=(dirRight? s>=0.5 : s<0.5);
+    for(let i=0;i<N;i++){
+      const u=Math.random();let sp=0; // 0 none, 1 alpha, 2 beta
+      if(u<th*s)sp=1;else if(u<th)sp=2;
+      mOPT+=sp?2:1;
+      const fb=Math.random()<0.5; // baseline routes F->b half the time
+      mBASE+=1+((sp===1&&!fb)||(sp===2&&fb)?0:(sp?1:0));
+      mFOL +=1+((sp===1&&!routeB)||(sp===2&&routeB)?0:(sp?1:0));
+    }
+    $("eOPT").textContent=fmt(mOPT/N);$("eBASE").textContent=fmt(mBASE/N);$("eFOL").textContent=fmt(mFOL/N);
+  });
+  update();
+})();
+
+/* ---------- LAB B: affine law ---------- */
+(function(){
+  const TH=0.6,EPS=0.3;
+  const rho_perf=(1+TH*(0.5+EPS))/(1+TH);       // 0.925
+  const rho_base=(1+TH/2)/(1+TH);                // 0.8125
+  const l1max=4*TH*EPS/(1+TH);                   // 0.45
+  const l1star=2*(rho_perf-rho_base);            // 0.225
+  const a=l1star/2, b=1.5*l1star;
+  const X0=70,X1=830,Y0=290,Y1=30;               // plot box
+  const xmap=l=>X0+(X1-X0)*l/l1max;
+  const ymap=v=>Y0+(Y1-Y0)*(v-0.66)/(0.96-0.66);
+  function draw(){
+    const phi=parseFloat($("phi").value);
+    const l1=l1max*phi, ratio=rho_perf-l1/2;
+    $("phiV").textContent=fmt(phi,2);$("affL1").textContent=fmt(l1);$("affR").textContent=fmt(ratio);
+    const gain=ratio-rho_base;
+    const v=$("affVerdict");
+    v.innerHTML=gain>=0?`净收益 <b class="num">+${fmt(gain)}</b>`:`净伤害 <b class="num">−${fmt(-gain)}</b>`;
+    v.className="chip "+(gain>=0?"good":"bad");
+    const ink=css("--ink"),mut=css("--muted"),warm=css("--warm"),cool=css("--cool"),line=css("--line");
+    const ws=css("--warm-soft"),cs=css("--cool-soft");
+    const yb=ymap(rho_base);
+    $("affsvg").innerHTML=`
+      <rect x="${X0}" y="${Y1}" width="${xmap(a)-X0}" height="${Y0-Y1}" fill="${cs}"/>
+      <rect x="${xmap(b)}" y="${Y1}" width="${X1-xmap(b)}" height="${Y0-Y1}" fill="${ws}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="${line}"/>
+      <line x1="${X0}" y1="${yb}" x2="${X1}" y2="${yb}" stroke="${mut}" stroke-dasharray="6,5"/>
+      <text x="${X1-4}" y="${yb-6}" text-anchor="end" font-size="11" fill="${mut}">基线 ρ_base = ${fmt(rho_base)}</text>
+      <line x1="${xmap(0)}" y1="${ymap(rho_perf)}" x2="${xmap(l1max)}" y2="${ymap(rho_perf-l1max/2)}" stroke="${ink}" stroke-width="2.5"/>
+      <line x1="${xmap(l1star)}" y1="${Y0}" x2="${xmap(l1star)}" y2="${Y1}" stroke="${mut}" stroke-dasharray="2,4"/>
+      <text x="${xmap(l1star)}" y="${Y1+14}" text-anchor="middle" font-size="11" fill="${mut}">盈亏平衡 ℓ₁* = ${fmt(l1star)}</text>
+      <text x="${xmap(a)}" y="${Y0+18}" text-anchor="middle" font-size="11" fill="${cool}">a = ${fmt(a)}</text>
+      <text x="${xmap(b)}" y="${Y0+18}" text-anchor="middle" font-size="11" fill="${warm}">b = ${fmt(b)}</text>
+      <text x="${xmap(a/2)}" y="${Y1+16}" text-anchor="middle" font-size="11" fill="${cool}">好建议球（净赚 ≥ δ）</text>
+      <text x="${(xmap(b)+X1)/2}" y="${Y1+16}" text-anchor="middle" font-size="11" fill="${warm}">坏建议区（净亏 ≥ Δ）</text>
+      <circle cx="${xmap(l1)}" cy="${ymap(ratio)}" r="8" fill="${gain>=0?cool:warm}" stroke="#fff" stroke-width="2"/>
+      <text x="${X0-8}" y="${ymap(rho_perf)+4}" text-anchor="end" font-size="11" fill="${mut}">${fmt(rho_perf)}</text>
+      <text x="${(X0+X1)/2}" y="${Y0+34}" text-anchor="middle" font-size="12" fill="${mut}">建议误差 ℓ₁(p, q)</text>`;
+  }
+  $("phi").addEventListener("input",draw);
+  addEventListener("themechange",draw);
+  draw();
+})();
+
+/* ---------- LAB C: sampling wall ---------- */
+(function(){
+  const K=200;
+  function draw(){
+    const r=Math.round(Math.pow(2,parseFloat($("rSlider").value)));
+    $("rV").textContent=r;
+    const kpr=K/r;$("kpr").textContent=kpr>=1?fmt(kpr,1):fmt(kpr,2);
+    const t=$("testable"),u=$("upside");
+    if(kpr>=20){t.innerHTML="检验：<b>轻松可行</b>";t.className="chip good";
+      u.innerHTML="上升空间：<b>≈ 0</b>（基线近乎最优）";u.className="chip bad";}
+    else if(kpr>=2){t.innerHTML="检验：勉强（噪声巨大）";t.className="chip";
+      u.innerHTML="上升空间：很小";u.className="chip";}
+    else{t.innerHTML="检验：<b>不可行</b>（多数类型一次都看不到）";t.className="chip bad";
+      u.innerHTML="上升空间：<b>Θ(1)</b>（正是定理的体制）";u.className="chip good";}
+    // bins
+    const mut=css("--muted"),cool=css("--cool"),line=css("--line");
+    const nb=Math.min(r,60),bw=Math.min(30,780/nb-3);
+    let bins="";
+    for(let i=0;i<nb;i++){
+      const exp=kpr*(0.6+0.8*((i*2654435761)%100)/100); // deterministic pseudo-jitter
+      const hgt=Math.min(100,exp*7);
+      const x=40+i*(780/nb);
+      bins+=`<rect x="${x}" y="${120-hgt}" width="${bw}" height="${Math.max(hgt,1)}" fill="${exp<1?line:cool}" opacity="${exp<1?0.9:0.85}"/>`;
+    }
+    $("binsvg").innerHTML=bins+
+      `<line x1="35" y1="120" x2="830" y2="120" stroke="${line}"/>
+       <text x="40" y="140" font-size="11" fill="${mut}">${r} 个类型${r>60?"（只画前 60 个）":""} — 柱高 = 该类型在 k=200 的前缀里被看到的期望次数${K/r<1?"（灰柱：不足 1 次）":""}</text>`;
+    // complexity chart (log-log)
+    const X0=70,X1=830,Y0=250,Y1=30,RMIN=8,RMAX=4096;
+    const lx=v=>X0+(X1-X0)*(Math.log2(v)-3)/(12-3);
+    const CMAX=600;
+    const ly=v=>Y0-(Y0-Y1)*clamp(Math.log10(v)/Math.log10(CMAX),0,1);
+    let p1="",p2="";
+    for(let rr=RMIN;rr<=RMAX;rr*=1.15){
+      p1+=`${p1?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(Math.sqrt(rr)),1)}`;
+      p2+=`${p2?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(rr/Math.log(rr)),1)}`;}
+    const warm=css("--warm"),ink=css("--ink");
+    $("cplx").innerHTML=`
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="${line}"/>
+      <line x1="${X0}" y1="${ly(K)}" x2="${X1}" y2="${ly(K)}" stroke="${mut}" stroke-dasharray="6,5"/>
+      <text x="${X1-4}" y="${ly(K)-6}" text-anchor="end" font-size="11" fill="${mut}">前缀预算 k = ${K}</text>
+      <path d="${p1}" fill="none" stroke="${cool}" stroke-width="2.5"/>
+      <path d="${p2}" fill="none" stroke="${warm}" stroke-width="2.5"/>
+      <text x="${lx(2200)}" y="${ly(Math.sqrt(2600))+18}" font-size="12" fill="${cool}">√r（非容差：只判"完全相等"）</text>
+      <text x="${lx(320)}" y="${ly(400/Math.log(400))-10}" font-size="12" fill="${warm}">r/log r（容差：判"近 vs 远"—— 安全用建议所需）</text>
+      <line x1="${lx(r)}" y1="${Y0}" x2="${lx(r)}" y2="${Y1}" stroke="${ink}" stroke-width="1.5" stroke-dasharray="2,4"/>
+      <text x="${lx(r)}" y="${Y1+14}" text-anchor="middle" font-size="11" fill="${ink}">当前 r = ${r}</text>
+      <text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" font-size="12" fill="${mut}">类型数 r（对数轴） — 纵轴：所需样本数（对数轴）</text>`;
+  }
+  $("rSlider").addEventListener("input",draw);
+  draw();
+})();
+
+/* ---------- LAB D: two worlds ---------- */
+(function(){
+  function erf(x){const s=x<0?-1:1;x=Math.abs(x);
+    const t=1/(1+0.3275911*x);
+    const y=1-((((1.061405429*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);
+    return s*y;}
+  const Phi=x=>0.5*(1+erf(x/Math.SQRT2));
+  function muFromGamma(g){let lo=0,hi=6;for(let i=0;i<50;i++){const m=(lo+hi)/2;(2*Phi(m)-1<g)?lo=m:hi=m;}return (lo+hi)/2;}
+  const X0=70,X1=830,Y0=250,Y1=30,XR=4.5;
+  const xm=v=>X0+(X1-X0)*(v+XR)/(2*XR);
+  function gauss(mu,x){return Math.exp(-(x-mu)*(x-mu)/2)/Math.sqrt(2*Math.PI);}
+  function draw(){
+    const g=parseFloat($("gam").value), t=parseFloat($("thr").value);
+    $("gamV").textContent=fmt(g,2);$("tV").textContent=fmt(t,2);
+    const mu=muFromGamma(g);
+    const etaC=1-Phi(t+mu), etaR=Phi(t-mu), sum=etaC+etaR, bound=1-g;
+    $("etaC").textContent=fmt(etaC);$("etaR").textContent=fmt(etaR);
+    $("etaSum").textContent=fmt(sum);$("bound").textContent=fmt(bound);
+    $("check").textContent=sum>=bound-1e-9?"✓":"✗";
+    const warm=css("--warm"),cool=css("--cool"),mut=css("--muted"),line=css("--line"),ink=css("--ink");
+    const ym=v=>Y0-(Y0-Y1)*v/0.45;
+    let pg="",pb="",fillG="",fillB="";
+    for(let x=-XR;x<=XR;x+=0.06){
+      const yg=gauss(-mu,x),yb2=gauss(mu,x);
+      pg+=`${pg?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yg),1)}`;
+      pb+=`${pb?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yb2),1)}`;
+      if(x>=t)fillG+=`${fillG?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yg),1)}`;   // G error region: stat>t => fallback in G
+      if(x<=t)fillB+=`${fillB?"L":"M"}${fmt(xm(x),1)},${fmt(ym(yb2),1)}`;  // Bd error region: stat<=t => follow in Bd
+    }
+    if(fillG)fillG=`M${fmt(xm(t),1)},${fmt(Y0,1)}`+fillG.replace(/^M/,"L")+`L${fmt(X1,1)},${Y0}Z`;
+    if(fillB)fillB=`M${fmt(X0,1)},${Y0}`+fillB.replace(/^M/,"L")+`L${fmt(xm(t),1)},${Y0}Z`;
+    $("twsvg").innerHTML=`
+      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
+      <path d="${fillG}" fill="${cool}" opacity="0.18"/>
+      <path d="${fillB}" fill="${warm}" opacity="0.18"/>
+      <path d="${pg}" fill="none" stroke="${cool}" stroke-width="2.5"/>
+      <path d="${pb}" fill="none" stroke="${warm}" stroke-width="2.5"/>
+      <text x="${X0+10}" y="${Y1+4}" text-anchor="start" font-size="12" fill="${cool}">◀ G 世界（建议好）</text>
+      <text x="${X1-10}" y="${Y1+4}" text-anchor="end" font-size="12" fill="${warm}">Bd 世界（建议坏）▶</text>
+      <line x1="${xm(t)}" y1="${Y0}" x2="${xm(t)}" y2="${Y1-6}" stroke="${ink}" stroke-width="2"/>
+      <text x="${xm(t)}" y="${Y1-12}" text-anchor="middle" font-size="12" fill="${ink}">t（≤t 跟随 | &gt;t 回退）</text>
+      <text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" font-size="12" fill="${mut}">前缀统计量的分布 — 阴影 = 两个世界里你各自答错的概率</text>`;
+  }
+  $("gam").addEventListener("input",draw);$("thr").addEventListener("input",draw);
+  draw();
+})();
+</script>
