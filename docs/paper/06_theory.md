@@ -208,6 +208,8 @@ feasible test can safely capture is pinned by the $\sqrt{(1-\rho_{\mathrm{base}}
 resolution — **the structure that makes the baseline strong is the structure that starves
 the test of signal.**
 
+![The budget–stakes scissors: as the baseline weakens (left), the potential upside of perfect advice grows, while the upside a feasible test can safely capture stays pinned near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
+
 ## 7.7 Why the field's rules hit the wall earlier: distance-testing is the wrong statistic
 
 The algorithms of [Choo24, BEM26] do not run the directional test; they threshold the

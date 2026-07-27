@@ -25,6 +25,8 @@ earlier days (a 1-, 7-, or 30-day-stale forecast), so the prediction error is ge
 temporal drift; we map the trace onto a fixed serving topology and consume the forecast
 through the degree route (MPD) (**Figure 5**; `docs/REAL_PREDICTOR.md`).
 
+![A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.](../../results/real_predictor.png){width=80%}
+
 Three facts emerge, all favorable and all honest. First, **the cost premise does not
 bite**: the predictor is a linear-time count ($\mu = A\,p$ over historical frequencies),
 $0.108$ ms per instance — about $2\%$ of the cost of computing $\mathrm{OPT}$ once — not an
@@ -44,6 +46,8 @@ exactly what the robust algorithms of Sections 3 and 5 are for.
 We re-run the degree-prediction roster of Section 3 on the six Network-Repository graphs
 (two Facebook social, two C. elegans biological, two economic input-output), across the
 same quality columns, with 95% CIs (**Figure 6**; `docs/REALWORLD_ROBUSTNESS.md`).
+
+![The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety — the benchmark's findings are universal, not generator artifacts.](../../results/realworld_robustness.png){width=100%}
 
 The two load-bearing findings are universal. **F1 holds on all six graphs**: naive MPD
 fed an adversarial predictor falls *below* the Ranking floor everywhere — by $0.07$

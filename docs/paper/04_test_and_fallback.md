@@ -29,6 +29,8 @@ crashing (BEM $0.998\to0.969$; Choo $1.000\to0.991$ across the same sweep). This
 adaptive counterpart of the structural robustness of Section 3: the engineered mechanism
 that MPD lacked.
 
+![The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.](../../results/choo_bem_envelope.png){width=70%}
+
 ## 5.2 A threshold that is too lenient on average-case inputs
 
 What does the "test then maybe fall back" machinery cost, and does a better test make a
@@ -39,6 +41,8 @@ decision**: as $k$ grows $25\to100\to200\to800$, the ratio *falls* $0.992\to0.98
 0.969\to0.956$ and the misjudgement rate (against an empirical oracle: should we have
 followed, given that following actually underperformed the baseline here?) *rises*
 $0.00\to0.13\to0.33\to0.60$.
+
+![Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the *worse* decision.](../../results/choo_bem_prefix.png){width=70%}
 
 The mechanism is a real and reportable finding. The Choo/BEM acceptance threshold $\tau$
 is calibrated to the *worst-case* baseline $\beta\approx0.696$. But on these average-case

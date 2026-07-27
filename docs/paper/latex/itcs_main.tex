@@ -1,0 +1,61 @@
+%% ITCS 2027 submission — LIPIcs format (proceedings class; the CFP itself requires only
+%% >= 11pt single column, which this satisfies). DOUBLE-BLIND: keep the `anonymous`
+%% class option until acceptance, then fill in the real author block below.
+%% Content is generated from ../*.md by build_paper.sh — edit the markdown, not ch/*.tex.
+\documentclass[a4paper,USenglish,anonymous]{lipics-v2021}
+
+%% pandoc-support macros (fragments are emitted by pandoc)
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\pandocbounded}[1]{#1}
+\usepackage{longtable,booktabs,calc}
+
+\bibliographystyle{plainurl}
+
+\title{The Limits of Predictions for Online Bipartite Matching: A Unified Experimental
+  Study and a Budget--Stakes Law}
+\titlerunning{The Limits of Predictions for Online Bipartite Matching}
+
+%% Anonymous for submission; replace after acceptance:
+%% \author{Zhuolun Li}{University of Bristol, UK}{...@bristol.ac.uk}{}{}
+\author{Anonymous author(s)}{Anonymous affiliation}{}{}{}
+\authorrunning{Anonymous author(s)}
+\Copyright{Anonymous author(s)}
+
+\ccsdesc[500]{Theory of computation~Online algorithms}
+\ccsdesc[300]{Theory of computation~Streaming, sublinear and near linear time algorithms}
+\keywords{online bipartite matching, algorithms with predictions, learning-augmented
+  algorithms, consistency--robustness trade-off, distribution testing, lower bounds}
+
+%% Proceedings metadata — placeholders until the ITCS 2027 volume details are announced.
+\EventEditors{TBD}
+\EventNoEds{1}
+\EventLongTitle{18th Innovations in Theoretical Computer Science Conference (ITCS 2027)}
+\EventShortTitle{ITCS 2027}
+\EventAcronym{ITCS}
+\EventYear{2027}
+\EventDate{TBD}
+\EventLocation{TBD}
+\EventLogo{}
+\SeriesVolume{TBD}
+\ArticleNo{0}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{ch/abstract}
+\end{abstract}
+
+\input{ch/00_abstract_intro}
+\input{ch/01_setup}
+\input{ch/02_unified_benchmark}
+\input{ch/03_order_error}
+\input{ch/04_test_and_fallback}
+\input{ch/05_external_validity}
+\input{ch/06_theory}
+\input{ch/07_serving_related_conclusion}
+
+\bibliography{refs_clean}
+
+\end{document}

@@ -63,6 +63,8 @@ data. The salient rows:
 | TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
 | Combiner *(benchmark)* | 0.990 | 0.990 | 0.990 | 0.990 |
 
+![The unified benchmark (Table 1) as grouped bars: competitive ratio by algorithm and advice quality, one group per panel; the advice-free floor and oracle ceiling bracket every bar.](../../results/unified_benchmark.png){width=100%}
+
 ## 3.2 Four findings
 
 **(F1) Robustness is engineered, not free: naive followers crash below the floor.** Both
