@@ -13,8 +13,8 @@ This chapter sets up the technical context the thesis builds on: the online
 bipartite-matching problem and its input models (§2.1), the known-i.i.d. model we work in
 (§2.2), the learning-augmented ("with-predictions") paradigm and its
 consistency/robustness language (§2.3), the specific prediction-based matching algorithms
-we benchmark and bound (§2.4), the distribution-testing results our impossibility theorem
-relies on (§2.5), and the gaps in the literature this thesis addresses (§2.6).
+we benchmark (§2.4), the distribution-testing results behind the algorithms' tests and
+the outlook of §10.2 (§2.5), and the gaps in the literature this thesis addresses (§2.6).
 
 ## 2.1 Online bipartite matching and competitive analysis
 
@@ -122,15 +122,17 @@ of the matching size. Both papers give *upper* bounds (algorithms); their only l
 algorithm is $1$-consistent and $>\tfrac12$-robust), and neither proves a lower bound in
 the stochastic model. Notably, Choo et al.'s acceptance threshold already *couples* to the
 baseline competitive ratio $\beta$ — but constructively, inside the algorithm design, not
-as an impossibility. Turning that coupling into a two-sided, algorithm-independent
-impossibility is the theoretical contribution of this thesis (Chapter 9).
+as a lower bound. What that coupling costs — how large a prefix the follow/fallback
+decision fundamentally requires — is a question this thesis engages empirically
+(Chapter 6) and in a theoretical outlook (§10.2); the full formal development is deferred
+to companion work.
 
 ## 2.5 Distribution testing
 
-The thesis's impossibility theorem reduces the problem of *safely using* histogram advice
-to a question in **distribution testing**: given samples from an unknown distribution $p$
-over a support of size $r$ and a known reference $q$, decide how far $p$ is from $q$ in
-$\ell_1$ (total-variation) distance. Two regimes must be distinguished:
+The test at the heart of the algorithms above is a question in **distribution testing**:
+given samples from an unknown distribution $p$ over a support of size $r$ and a known
+reference $q$, decide how far $p$ is from $q$ in $\ell_1$ (total-variation) distance. Two
+regimes must be distinguished:
 
 - **Identity (non-tolerant) testing** — distinguish $p=q$ from $\lVert p-q\rVert_1\ge
   \varepsilon$ — has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [@paninski2008coincidence; @valiant2017automatic],
@@ -144,12 +146,12 @@ $\ell_1$ (total-variation) distance. Two regimes must be distinguished:
   $(\varepsilon_1,\varepsilon_2)$ landscape, showing that for constant tolerances the cost
   jumps to the "barely sublinear" $\tilde\Theta(r/\log r)$.
 
-The near-quadratic gap between $\sqrt r$ (testing) and $r/\log r$ (tolerant testing) is the
-technical engine of this thesis's theorem: safely following advice requires distinguishing
-"close enough to help" from "far enough to hurt" — a *tolerant* test — and it is exactly
-this near-linear sample cost that a sublinear prefix cannot pay. To our knowledge, the
-connection between distribution-testing sample complexity and the *value of advice in an
-online algorithm* has not been made before.
+The near-quadratic gap between $\sqrt r$ (testing) and $r/\log r$ (tolerant testing)
+matters twice in this thesis. It is why the deployable versions of TestAndMatch fall back
+to an empirical surrogate for their tester, and it is why that surrogate is blind on large
+supports — the resolution limit measured in Chapter 6. Whether the barrier also dooms
+every *other* decision rule turns out to be subtler than it first appears; the concluding
+outlook (§10.2) returns to this point.
 
 ## 2.6 Positioning of this thesis
 
@@ -162,12 +164,12 @@ Against this background, three gaps stand out, which the thesis addresses in tur
    [@choo2024imperfect; @bem2026testmatch] has no deployable implementation (the authors themselves fall back to an
    empirical surrogate), and its testing cost, threshold calibration, and failure modes have
    not been measured. (Chapter 6.)
-3. **No lower bound coupling testability to baseline strength.** No prior work proves that a
-   sublinear-test algorithm cannot be both consistent and robust on strong-baseline
-   instances, nor identifies the few-types structure that makes the test feasible with the
-   structure that makes the baseline near-optimal. (Chapter 9.)
+3. **No quantification of what the prefix test costs.** No prior work measures — or bounds
+   — how large a prefix the follow/fallback decision requires on strong-baseline instances,
+   where the upside to be captured is smallest. (Chapter 6 empirically; §10.2 in outlook.)
 
-The thesis closes the first two gaps experimentally and the third theoretically, arriving at
-a single unifying statement — *on average-case online matching, predictions are robustness
-insurance rather than a performance lever, and this is necessary* — supported by experiments
-across synthetic graphs, real graphs, and real traces, and by an impossibility theorem.
+The thesis closes the first two gaps experimentally and takes a first, quantified step at
+the third — an empirical resolution limit plus a theoretical outlook — arriving at a
+single unifying statement: *on average-case online matching, predictions are robustness
+insurance rather than a performance lever*, supported by experiments across synthetic
+graphs, real graphs, and real traces.

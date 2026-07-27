@@ -198,19 +198,19 @@ Package typearea Warning: \typearea used at group level 2.
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
-[2]
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lof
-[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[2])
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(./thesis.lof
+[4{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-[6])
-[7] (./ch/01_introduction.tex
+[5])
+[6] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 [3]) (./ch/02_background.tex
-Overfull \hbox (12.51677pt too wide) in paragraph at lines 123--1
+Overfull \hbox (12.51677pt too wide) in paragraph at lines 124--1
 \T1/lmr/m/n/10.95 (-20) augmented paradigm, the spe-cific prediction-based matc
 h-ing al-go-rithms, and the distribution-
 
@@ -293,28 +293,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.107 
        <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.120 
+l.137 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
-[29]
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {External Validity} <../../results/impossibility_frontier.png>]
+[30]
 chapter 7.
 
-[30]
-[31
+[31]
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.68 
       <../../results/real_predictor.png>]
-[32
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -322,77 +329,66 @@ has been already used, duplicate ignored
 l.95 
       <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[33]
+[34]
 chapter 8.
 
-[34]
-[35
+[35]
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 
       <../../results/rank_vs_mse_mve.png>]
-[36
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.97 
       <../../results/rank_real_trace.png>]
-[37]
-[38
+[38]
+[39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.156 
-       <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[39]
+l.151 T
+       his review is itself part of the research process reported here: it <../
+../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
+[40]
 chapter 9.
 
-[40]
-[41
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.62 
-      <../../results/impossibility_frontier.png>]
-[42]
-[43]) (./ch/10_serving_case_study.tex
+l.54 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 
+      <../../results/serving_envelope.png> <../../results/serving_dynamic.png>]
+
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.88 
+      <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
 [44]
 chapter 10.
 
 [45]
-[46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_envelope.png>]
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
-.png>]) (./ch/11_conclusion.tex
-[48]
-chapter 11.
-
+[46]
+[47{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[48]) (./ch/A_reproduction.tex
 [49]
-[50])
-[51] (./ch/A_reproduction.tex
-[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -520,12 +516,12 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[53] [54]
+[50] [51]
 Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts)[] 
 
-[55]
+[52]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
@@ -538,31 +534,25 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
-[56]
-[57]
+[53]
+[54]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
-) (./ch/B_proof_details.tex
-[58]
-chapter B.
+)
+Overfull \hbox (95.40543pt too wide) in paragraph at lines 257--133
+\T1/lmr/m/n/10.95 (-20) checked to three dec-i-mals by short sim-u-la-tions doc
+-u-mented in the project notes (\T1/lmtt/m/n/10.95 docs/T1_W1_single_cell.md\T1
+/lmr/m/n/10.95 (-20) ,
 
-[59]
-[60]
-[61]
-[62]
-[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[64]
-[65]
-[66])
-[67]
+[55]
 chapter without number
 
-[68]
-[69]
-[70] (./thesis.aux) )
+[56]
+[57]
+[58] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -582,7 +572,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486716 bytes).
+Output written on thesis.pdf (68 pages, 2442038 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -798,19 +788,19 @@ Package typearea Warning: \typearea used at group level 2.
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
-[2]
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lof
-[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[2])
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(./thesis.lof
+[4{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-[6])
-[7] (./ch/01_introduction.tex
+[5])
+[6] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 [3]) (./ch/02_background.tex
-Overfull \hbox (12.51677pt too wide) in paragraph at lines 123--1
+Overfull \hbox (12.51677pt too wide) in paragraph at lines 124--1
 \T1/lmr/m/n/10.95 (-20) augmented paradigm, the spe-cific prediction-based matc
 h-ing al-go-rithms, and the distribution-
 
@@ -893,28 +883,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.107 
        <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.120 
+l.137 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
-[29]
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {External Validity} <../../results/impossibility_frontier.png>]
+[30]
 chapter 7.
 
-[30]
-[31
+[31]
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.68 
       <../../results/real_predictor.png>]
-[32
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -922,77 +919,66 @@ has been already used, duplicate ignored
 l.95 
       <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[33]
+[34]
 chapter 8.
 
-[34]
-[35
+[35]
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 
       <../../results/rank_vs_mse_mve.png>]
-[36
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.97 
       <../../results/rank_real_trace.png>]
-[37]
-[38
+[38]
+[39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.156 
-       <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[39]
+l.151 T
+       his review is itself part of the research process reported here: it <../
+../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
+[40]
 chapter 9.
 
-[40]
-[41
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.62 
-      <../../results/impossibility_frontier.png>]
-[42]
-[43]) (./ch/10_serving_case_study.tex
+l.54 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 
+      <../../results/serving_envelope.png> <../../results/serving_dynamic.png>]
+
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.88 
+      <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
 [44]
 chapter 10.
 
 [45]
-[46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_envelope.png>]
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
-.png>]) (./ch/11_conclusion.tex
-[48]
-chapter 11.
-
+[46]
+[47{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[48]) (./ch/A_reproduction.tex
 [49]
-[50])
-[51] (./ch/A_reproduction.tex
-[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -1120,12 +1106,12 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[53] [54]
+[50] [51]
 Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts)[] 
 
-[55]
+[52]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
@@ -1138,31 +1124,25 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
-[56]
-[57]
+[53]
+[54]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
-) (./ch/B_proof_details.tex
-[58]
-chapter B.
+)
+Overfull \hbox (95.40543pt too wide) in paragraph at lines 257--133
+\T1/lmr/m/n/10.95 (-20) checked to three dec-i-mals by short sim-u-la-tions doc
+-u-mented in the project notes (\T1/lmtt/m/n/10.95 docs/T1_W1_single_cell.md\T1
+/lmr/m/n/10.95 (-20) ,
 
-[59]
-[60]
-[61]
-[62]
-[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[64]
-[65]
-[66])
-[67]
+[55]
 chapter without number
 
-[68]
-[69]
-[70] (./thesis.aux) )
+[56]
+[57]
+[58] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -1182,7 +1162,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486713 bytes).
+Output written on thesis.pdf (68 pages, 2442038 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1384,19 +1364,19 @@ Package typearea Warning: \typearea used at group level 2.
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
-[2]
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-[4] (./thesis.lof
-[5{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
+[2])
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(./thesis.lof
+[4{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-[6])
-[7] (./ch/01_introduction.tex
+[5])
+[6] (./ch/01_introduction.tex
 chapter 1.
 
 [1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 [3]) (./ch/02_background.tex
-Overfull \hbox (12.51677pt too wide) in paragraph at lines 123--1
+Overfull \hbox (12.51677pt too wide) in paragraph at lines 124--1
 \T1/lmr/m/n/10.95 (-20) augmented paradigm, the spe-cific prediction-based matc
 h-ing al-go-rithms, and the distribution-
 
@@ -1479,28 +1459,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.107 
        <../../results/choo_bem_prefix.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.120 
+l.137 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
-[29]
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {External Validity} <../../results/impossibility_frontier.png>]
+[30]
 chapter 7.
 
-[30]
-[31
+[31]
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.68 
       <../../results/real_predictor.png>]
-[32
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1508,77 +1495,66 @@ has been already used, duplicate ignored
 l.95 
       <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
-[33]
+[34]
 chapter 8.
 
-[34]
-[35
+[35]
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 
       <../../results/rank_vs_mse_mve.png>]
-[36
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.97 
       <../../results/rank_real_trace.png>]
-[37]
-[38
+[38]
+[39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.156 
-       <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
-[39]
+l.151 T
+       his review is itself part of the research process reported here: it <../
+../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
+[40]
 chapter 9.
 
-[40]
-[41
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.62 
-      <../../results/impossibility_frontier.png>]
-[42]
-[43]) (./ch/10_serving_case_study.tex
+l.54 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 
+      <../../results/serving_envelope.png> <../../results/serving_dynamic.png>]
+
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.88 
+      <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
 [44]
 chapter 10.
 
 [45]
-[46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_envelope.png>]
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
-.png>]) (./ch/11_conclusion.tex
-[48]
-chapter 11.
-
+[46]
+[47{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[48]) (./ch/A_reproduction.tex
 [49]
-[50])
-[51] (./ch/A_reproduction.tex
-[52]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -1706,12 +1682,12 @@ Overfull \hbox (42.40572pt too wide) in paragraph at lines 111--111
 Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 
-[53] [54]
+[50] [51]
 Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts)[] 
 
-[55]
+[52]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
@@ -1724,31 +1700,25 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 183--185
 
 Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
-[56]
-[57]
+[53]
+[54]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 0.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
-) (./ch/B_proof_details.tex
-[58]
-chapter B.
+)
+Overfull \hbox (95.40543pt too wide) in paragraph at lines 257--133
+\T1/lmr/m/n/10.95 (-20) checked to three dec-i-mals by short sim-u-la-tions doc
+-u-mented in the project notes (\T1/lmtt/m/n/10.95 docs/T1_W1_single_cell.md\T1
+/lmr/m/n/10.95 (-20) ,
 
-[59]
-[60]
-[61]
-[62]
-[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-[64]
-[65]
-[66])
-[67]
+[55]
 chapter without number
 
-[68]
-[69]
-[70] (./thesis.aux) )
+[56]
+[57]
+[58] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-d
@@ -1768,5 +1738,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (81 pages, 2486713 bytes).
+Output written on thesis.pdf (68 pages, 2442038 bytes).
 Transcript written on thesis.log.

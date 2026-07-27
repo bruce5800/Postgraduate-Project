@@ -8,7 +8,9 @@ cd "$(dirname "$0")"
 
 CHAPTERS="01_introduction 02_background 03_model_methodology 04_unified_benchmark \
 05_order_error 06_test_and_fallback 07_external_validity 08_exploratory_negatives \
-09_theory 10_serving_case_study 11_conclusion"
+10_serving_case_study 11_conclusion"
+# (09_theory and B_proof_details were cut from the thesis 2026-07-27 — see
+#  docs/T1_WITNESS_GAP.md; theory lives in the companion paper, outlook in §10.2.)
 
 tmp="$(mktemp -t thesisXXXX).md"
 preprocess() {
@@ -25,8 +27,6 @@ for c in $CHAPTERS; do preprocess "../en/$c.md" >> "$tmp"; printf '\n\n' >> "$tm
 printf '\n\n# References {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
 preprocess "../en/A_reproduction.md" >> "$tmp"
-printf '\n\n' >> "$tmp"
-preprocess "../en/B_proof_details.md" >> "$tmp"
 
 pandoc "$tmp" --metadata-file=meta.yaml -H header.tex \
   --top-level-division=chapter --number-sections --toc --toc-depth=1 \

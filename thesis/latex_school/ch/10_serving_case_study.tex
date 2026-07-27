@@ -9,7 +9,7 @@ presented, deliberately, as a \textbf{case study, not a novelty claim}
 --- the systems facts below are known, and the with-predictions
 vocabulary is a re-labeling of them (a decision justified by the
 literature review of Chapter 8 and the negative probe summarized in
-§10.2).
+§9.2).
 
 \section{The serving instantiation}
 
@@ -24,17 +24,6 @@ instantiate this on three real traces (Wikipedia pageviews, an Azure LLM
 inference trace, and the Mooncake prefix-cache trace
 \autocite{mooncake2024}) and across four serving concerns.
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Capacity as robustness} (\textbf{Figure 10.1}). Increasing the
-  capacity \(c\) smooths the effect of a bad prediction: a
-  capacity-aware baseline stays safe, while \emph{blindly} trusting a
-  traffic forecast degrades \emph{further} as capacity grows. Capacity
-  is thus a \emph{substitute} for algorithmic robustness --- the systems
-  analogue of the robustness-insurance thesis.
-\end{itemize}
-
 \begin{figure}
 \centering
 \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (c=8) --- while the adaptive test stays flat.}]{../../results/serving_envelope.png}
@@ -43,15 +32,12 @@ goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive
 test stays flat.}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Forecasts vs live load} (\textbf{Figure 10.2}). Under dynamic
-  service times (requests hold a slot for a real duration, released
-  event-by-event), a live-load signal beats a stale traffic forecast ---
-  a reactive load balancer outperforms a forecast-following router when
-  the forecast has aged.
-\end{itemize}
+\textbf{Capacity as robustness} (\textbf{Figure 9.1}). Increasing the
+capacity \(c\) smooths the effect of a bad prediction: a capacity-aware
+baseline stays safe, while \emph{blindly} trusting a traffic forecast
+degrades \emph{further} as capacity grows. Capacity is thus a
+\emph{substitute} for algorithmic robustness --- the systems analogue of
+the robustness-insurance thesis.
 
 \begin{figure}
 \centering
@@ -60,21 +46,23 @@ test stays flat.}
 an adaptive test recovers most of the gap.}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Cache-affinity routing} (\textbf{Figure 10.3}). For
-  prefix-cache-aware routing, a \emph{stable} affinity router beats a
-  reactive one --- the reverse of the traffic-forecast case, because
-  cache locality rewards persistence \autocite{preble2024}.
-\end{itemize}
+\textbf{Forecasts vs live load} (\textbf{Figure 9.2}). Under dynamic
+service times (requests hold a slot for a real duration, released
+event-by-event), a live-load signal beats a stale traffic forecast --- a
+reactive load balancer outperforms a forecast-following router when the
+forecast has aged.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}]{../../results/prefix_cache_reversal.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio,alt={The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}]{../../results/prefix_cache_reversal.png}
 \caption{The cache-affinity reversal (Mooncake trace): stable placement
 beats reactive routing for KV-cache reuse.}
 \end{figure}
+
+\textbf{Cache-affinity routing} (\textbf{Figure 9.3}). For
+prefix-cache-aware routing, a \emph{stable} affinity router beats a
+reactive one --- the reverse of the traffic-forecast case, because cache
+locality rewards persistence \autocite{preble2024}.
 
 Each of these recovers an established systems result cleanly,
 demonstrating that the framework instantiates the problem faithfully.

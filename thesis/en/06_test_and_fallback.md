@@ -1,17 +1,18 @@
 <!--
 Thesis Ch 6 — Test-and-Fallback in Depth. Adapted from paper/04 §5 (numbers: run_choo_bem.py,
-run_recalibration.py, test_combiner_small.py). Cross-refs fixed (§3→Ch4, §7→Ch9). §6.3 is the
-empirical bridge to Ch 9. Figures 6.1 = envelope, 6.2 = prefix sweep.
+run_recalibration.py, test_combiner_small.py). §6.3 is the empirical bridge to the outlook
+in §10.2 (Ch 9 was cut 2026-07-27; theory lives in the companion paper). Figures 6.1 =
+envelope, 6.2 = prefix sweep, 6.3 = recalibration, 6.4 = testing-wall frontier.
 -->
 
 # Chapter 6. Test-and-Fallback in Depth
 
-The test-and-fallback algorithms are the adaptive robustness mechanism of Chapter 4 and the
-object of the theory in Chapter 9. This chapter gives their first empirical study: the
-robustness envelope they achieve (§6.1), a counter-intuitive failure of the acceptance
-threshold (§6.2), its recalibration and the resolution limit that recalibration exposes
-(§6.3) — the empirical face of the impossibility we prove in Chapter 9 — and a benchmark of
-the dynamic combiner that explains the *commit-once* structure (§6.4). Throughout, the
+The test-and-fallback algorithms are the adaptive robustness mechanism of Chapter 4. This
+chapter gives their first empirical study: the robustness envelope they achieve (§6.1), a
+counter-intuitive failure of the acceptance threshold (§6.2), its recalibration and the
+resolution limit that recalibration exposes (§6.3) — a limit that persists across the whole
+difficulty range and anchors the theoretical outlook of §10.2 — and a benchmark of the
+dynamic combiner that explains the *commit-once* structure (§6.4). Throughout, the
 $\ell_1$ test is the empirical surrogate the original authors also fall back to (Chapter 3).
 
 ## 6.1 The robustness envelope
@@ -63,9 +64,16 @@ baseline. In short:
 
 ![Recalibration removes the threshold pathology: misjudgement holds at zero at every prefix size, versus climbing toward $1.0$ under the worst-case threshold.](../../results/recalibration_prefix.png){width=50%}
 
-This is exactly the phenomenon Chapter 9 proves unavoidable — there, for *any* test on a
-sublinear prefix, not only the empirical-$\ell_1$ threshold. This chapter is its empirical
-shadow; Chapter 9 is the theorem.
+**Figure 6.4** widens this finding from one threshold to the whole difficulty range.
+Sweeping the number of types — the knob that sets the baseline strength — the *potential*
+upside of perfect advice grows as the baseline weakens, but the upside a sublinear-prefix
+test can *safely capture* stays pinned near zero: the empirical test's resolution (its
+noise floor) sits far above the break-even margin wherever an upside exists. The wall of
+this chapter is therefore not one badly calibrated threshold. The upside and the testing
+resolution move together — and the concluding outlook (§10.2) gives this coupling a
+quantitative form: the prefix needed to decide scales as the inverse square of the stakes.
+
+![The testing-wall frontier: as the baseline weakens (left), the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
 
 ## 6.4 The dynamic combiner is dominated, and shows why matching needs test-then-commit
 
@@ -87,5 +95,6 @@ combiner that is cheap insurance for caching does not port cleanly to matching.
 Test-and-fallback delivers the adaptive robustness envelope of §6.1, but its accept/reject
 decision is fundamentally limited on strong-baseline inputs: no empirical-$\ell_1$ threshold
 both captures the upside and stays safe (§6.3), and dynamic switching is dominated by
-test-then-commit (§6.4). The resolution limit of §6.3 is the empirical shadow of the
-impossibility theorem of Chapter 9.
+test-then-commit (§6.4). The resolution limit of §6.3 — and its persistence across the
+whole difficulty range (Figure 6.4) — is the empirical anchor of the theoretical outlook
+in §10.2.

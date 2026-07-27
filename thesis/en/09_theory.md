@@ -1,4 +1,9 @@
 <!--
+EXCLUDED FROM THE THESIS BUILD (2026-07-27): the chapter was cut — its theorem was refuted
+at the witness step (docs/T1_WITNESS_GAP.md) and the thesis now carries only the outlook in
+§10.2; the corrected theory (budget–stakes law) lives in docs/paper/06_theory.md. This file
+is kept for reference only. Original header follows.
+
 Thesis Ch 9 — The Impossibility Theorem (LIGHTER than paper/06 §7 per the user).
 Intuition-forward; state the three pillars in words + one key formula each; DEFER full
 formal proofs to an appendix / "in preparation". Keep the honest proof-status note.

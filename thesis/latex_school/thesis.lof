@@ -11,21 +11,19 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}}{26}{figure.6.1}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Testing cost at borderline advice: a larger, more accurate prefix test makes the \emph {worse} decision under the worst-case-calibrated threshold.}}{27}{figure.6.2}%
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Recalibration removes the threshold pathology: misjudgement holds at zero at every prefix size, versus climbing toward \(1.0\) under the worst-case threshold.}}{28}{figure.6.3}%
-\contentsline {chapteratlist}{\numberline {7}External Validity}{30}{chapter.7}%
-\contentsline {figure}{\numberline {7.1}{\ignorespaces A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.}}{31}{figure.7.1}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces F1--F3 on six real graphs: naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.}}{32}{figure.7.2}%
-\contentsline {chapteratlist}{\numberline {8}Exploratory Directions and Negative Results}{34}{chapter.8}%
-\contentsline {figure}{\numberline {8.1}{\ignorespaces M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).}}{35}{figure.8.1}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable --- the engineered divergence that powers rank-training does not arise.}}{36}{figure.8.2}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent --- foresight does not help.}}{38}{figure.8.3}%
-\contentsline {chapteratlist}{\numberline {9}The Impossibility Theorem: Why the Wall Is Necessary}{40}{chapter.9}%
-\contentsline {figure}{\numberline {9.1}{\ignorespaces The impossibility scissors: the \emph {potential} upside grows as the baseline weakens (left), but the upside a sublinear test can \emph {safely capture} stays near zero; the test's resolution sits far above the break-even margin (right).}}{41}{figure.9.1}%
-\contentsline {chapteratlist}{\numberline {10}Application Case Study: AI-Inference Serving}{45}{chapter.10}%
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive test stays flat.}}{46}{figure.10.1}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.}}{47}{figure.10.2}%
-\contentsline {figure}{\numberline {10.3}{\ignorespaces The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}}{47}{figure.10.3}%
-\contentsline {chapteratlist}{\numberline {11}Conclusion and Future Work}{49}{chapter.11}%
-\contentsline {chapteratlist}{\numberline {A}Reproduction Guide}{53}{appendix.A}%
-\contentsline {chapteratlist}{\numberline {B}Proof Details for the Impossibility Theorem}{59}{appendix.B}%
-\contentsline {chapteratlist}{\nonumberline Bibliography}{68}{chapter*.4}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces The testing-wall frontier: as the baseline weakens (left), the \emph {potential} upside of perfect advice grows, but the upside a sublinear test can \emph {safely capture} stays near zero --- the empirical test's resolution sits far above the break-even margin wherever the upside exists.}}{29}{figure.6.4}%
+\contentsline {chapteratlist}{\numberline {7}External Validity}{31}{chapter.7}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.}}{32}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces F1--F3 on six real graphs: naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.}}{33}{figure.7.2}%
+\contentsline {chapteratlist}{\numberline {8}Exploratory Directions and Negative Results}{35}{chapter.8}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).}}{36}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable --- the engineered divergence that powers rank-training does not arise.}}{37}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent --- foresight does not help.}}{39}{figure.8.3}%
+\contentsline {chapteratlist}{\numberline {9}Application Case Study: AI-Inference Serving}{41}{chapter.9}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive test stays flat.}}{42}{figure.9.1}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.}}{42}{figure.9.2}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}}{43}{figure.9.3}%
+\contentsline {chapteratlist}{\numberline {10}Conclusion and Future Work}{45}{chapter.10}%
+\contentsline {chapteratlist}{\numberline {A}Reproduction Guide}{50}{appendix.A}%
+\contentsline {chapteratlist}{\nonumberline Bibliography}{56}{chapter*.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

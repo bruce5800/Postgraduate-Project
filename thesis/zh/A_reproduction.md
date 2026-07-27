@@ -33,8 +33,8 @@
 | M1 扫描（8.1 节，无图） | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 秒 |
 | 图 8.2（M3 真实 trace 学习） | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 秒 |
 | 图 8.3（服务 SLO 探针） | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 秒 |
-| 图 9.1（不可能性边界） | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 秒 |
-| 图 10.1–10.3、服务（第10章） | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png`、`prefix_cache_*.png` 等 | 不一 |
+| 图 6.4（检验之墙边界） | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 秒 |
+| 图 9.1–9.3、服务（第9章） | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png`、`prefix_cache_*.png` 等 | 不一 |
 | 真实图 Borodin 表 3/4（验证） | `scripts/run_realworld.py` | `results/realworld.json` | ~数分钟 |
 
 ## 复现命令
@@ -53,7 +53,7 @@ python3 scripts/run_real_predictor.py           # 图 7.1
 python3 scripts/run_realworld_robustness.py     # 图 7.2
 python3 scripts/run_rank_real_trace.py          # 图 8.2
 python3 scripts/run_serving_slo_probe.py        # 图 8.3
-python3 scripts/run_impossibility_frontier.py   # 图 9.1
+python3 scripts/run_impossibility_frontier.py   # 图 6.4
 
 # 较长（受最大流 / Hopcroft–Karp 限制）的扫描：
 python3 scripts/run_er_full.py                  # 图 3.1  (~20 分钟)
@@ -106,15 +106,16 @@ Jaillet–Lu 0.764，相差在 0.002 内），高于其最坏情况界 +0.06 / +
 - **真实图（第7章、3.6 节验证）：** 六个 Network Repository 图——`socfb-Caltech36`、`socfb-Reed98`、
   `bio-CE-GN`、`bio-CE-PG`、`econ-beause`、`econ-mbeaflw`——为 MatrixMarket `.mtx` / 空白分隔 `.edges`，
   化简为简单无向图，并经随机平衡划分（Borodin 表 3）或复制双重覆盖（表 4）转为二部图。
-- **Trace（第7、8、10章）：** 四天的 Wikipedia "每日热门文章" JSON（`data/trace/wiki/`，用作直播日 vs
+- **Trace（第7、8、9章）：** 四天的 Wikipedia "每日热门文章" JSON（`data/trace/wiki/`，用作直播日 vs
   1/7/30 天陈旧的预测）；Azure LLM 推理 trace（`data/trace/azure_llm/`，带时间戳的上下文/生成 token
   计数）；Mooncake 会话 trace（`data/trace/mooncake/`，每请求的前缀缓存块 `hash_ids`）。
 
-## 理论验证片段（第9章）
+## 展望验证片段（10.2 节）
 
-构造的单 cell 常数（每 cell 的 OPT、基线，以及优势/L1 公式，见 9.3 节支柱 3）与精确的仿射转换律
-$\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ 由记录于项目笔记
-（`docs/T1_W1_single_cell.md`、`T1_W2_W3a_closeout.md`）的简短模拟数值验证到三位小数；例如在 $\theta=0.6$、
-偏置 $|s-\tfrac12|=0.3$ 时，模拟得每 cell 优势 $\pm0.119$ 与公式 $\pm\theta|s-\tfrac12|=\pm0.12$ 吻合，
-聚合 follow-ratio 在每个建议水平上与仿射律吻合。这些是对构造的合理性检验，而非形式证明（附录 B）的
-一部分，其剩余步骤已在 9.5 节与 B.7 节标注。
+10.2 节展望背后的量均经数值验证。稀缺资源构造的单 cell 常数（每 cell 的 OPT、基线，以及优势/$\ell_1$
+公式）与精确的仿射转换律 $\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$
+由记录于项目笔记（`docs/T1_W1_single_cell.md`、`T1_W2_W3a_closeout.md`）的简短模拟验证到三位小数；
+例如在 $\theta=0.6$、偏置 $|s-\tfrac12|=0.3$ 时，模拟得每 cell 优势 $\pm0.119$ 与公式
+$\pm\theta|s-\tfrac12|=\pm0.12$ 吻合。预算–赌注论断——方向性统计量在与 $n$ 无关的固定前缀长度下的
+准确率、以及插入式 $\ell_1$ 估计在 $k\ll r$ 时的失明——由 `scripts/verify_witness_gap.py` 验证
+（`docs/T1_WITNESS_GAP.md`）。这些支撑该展望；形式化发展是本文之外的后续工作。

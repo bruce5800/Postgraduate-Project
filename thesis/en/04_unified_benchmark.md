@@ -153,8 +153,9 @@ visible at a glance.
 **(F3) The consistency upside is small on average-case inputs; the spread lives on the
 bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and
 MPD-with-true-degrees is $0.999$ — under $0.01$ for any advice to add on the good side.
-Every wide gap in Panel C is a *downside* gap. This is the thesis in one panel; Chapter 9
-shows it is *necessary*.
+Every wide gap in Panel C is a *downside* gap. This is the thesis in one panel; Chapter 6
+shows why no affordable test escapes it, and the concluding outlook (§10.2) why it is
+forced.
 
 **(F4) The augmentation rescues structurally weak base algorithms.** Feldman and Jaillet–Lu
 are tuned for the worst-case ratio and are the *weakest* advice-free entries on these
@@ -169,4 +170,4 @@ On average-case matching the advice-free baseline is already near-optimal, ungua
 prediction-following is unsafe, and the value of the sophisticated algorithms is downside
 protection delivered by one of two mechanisms. Chapters 5–7 sharpen each part — what governs
 the (small) loss, what the adaptive test costs, and whether the picture survives on real
-data — and Chapter 9 proves the wall is a theorem, not an artifact.
+data — and the concluding outlook (§10.2) explains why the wall is forced, not accidental.

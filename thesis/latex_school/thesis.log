@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 JUL 2026 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  27 JUL 2026 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1353,32 +1353,31 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 11
 
 ]
 
-[2]
-
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
+[2])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
 
 
-[4]
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 Package tocbasic Info: character protrusion at lof deactivated on input line 11
 2.
- (./thesis.lof
 
-[5
+(./thesis.lof
+
+[4
 
 
 {/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 /local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 
-[6])
+[5])
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
 
 
-[7] (./ch/01_introduction.tex
+[6] (./ch/01_introduction.tex
 chapter 1.
 Package hyperref Info: bookmark level for unknown chapteratlist defaults to 0 o
 n input line 1.
@@ -1398,7 +1397,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [3]) (./ch/02_background.tex
-Overfull \hbox (12.51677pt too wide) in paragraph at lines 123--1
+Overfull \hbox (12.51677pt too wide) in paragraph at lines 124--1
 \T1/lmr/m/n/10.95 (-20) augmented paradigm, the spe-cific prediction-based matc
 h-ing al-go-rithms, and the distribution-
  []
@@ -1434,7 +1433,7 @@ chapter 3.
 [12]
 
 [13]
-<../../results/er_full.png, id=386, 628.749pt x 392.667pt>
+<../../results/er_full.png, id=355, 628.749pt x 392.667pt>
 File: ../../results/er_full.png Graphic file (type png)
 <use ../../results/er_full.png>
 Package pdftex.def Info: ../../results/er_full.png  used on input line 151.
@@ -1442,7 +1441,7 @@ Package pdftex.def Info: ../../results/er_full.png  used on input line 151.
 
 
 [14]
-<../../results/left_regular.png, id=393, 633.567pt x 392.06474pt>
+<../../results/left_regular.png, id=361, 633.567pt x 392.06474pt>
 File: ../../results/left_regular.png Graphic file (type png)
 <use ../../results/left_regular.png>
 Package pdftex.def Info: ../../results/left_regular.png  used on input line 164
@@ -1476,7 +1475,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 74.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 74.
-<../../results/unified_benchmark_panelA.png, id=408, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelA.png, id=377, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelA.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelA.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelA.png  used on in
@@ -1487,13 +1486,13 @@ Overfull \hbox (1.38869pt too wide) in paragraph at lines 95--108
 [][] 
  []
 
-<../../results/unified_benchmark_panelB.png, id=409, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelB.png, id=378, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelB.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelB.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelB.png  used on in
 put line 110.
 (pdftex.def)             Requested size: 158.93915pt x 123.17627pt.
-<../../results/unified_benchmark_panelC.png, id=410, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelC.png, id=379, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelC.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelC.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelC.png  used on in
@@ -1511,7 +1510,7 @@ as been already used, duplicate ignored
 l.148 
        <../../results/unified_benchmark_panelA.png> <../../results/unified_benc
 hmark_panelB.png> <../../results/unified_benchmark_panelC.png>]
-<../../results/consistency_robustness.png, id=428, 1127.412pt x 332.442pt>
+<../../results/consistency_robustness.png, id=397, 1127.412pt x 332.442pt>
 File: ../../results/consistency_robustness.png Graphic file (type png)
 <use ../../results/consistency_robustness.png>
 Package pdftex.def Info: ../../results/consistency_robustness.png  used on inpu
@@ -1545,7 +1544,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 ]
-<../../results/order_vs_theory.png, id=445, 788.9475pt x 360.74776pt>
+<../../results/order_vs_theory.png, id=414, 788.9475pt x 360.74776pt>
 File: ../../results/order_vs_theory.png Graphic file (type png)
 <use ../../results/order_vs_theory.png>
 Package pdftex.def Info: ../../results/order_vs_theory.png  used on input line 
@@ -1563,7 +1562,7 @@ l.60
 
 [24]
 chapter 6.
-<../../results/choo_bem_envelope.png, id=455, 554.07pt x 377.61075pt>
+<../../results/choo_bem_envelope.png, id=424, 554.07pt x 377.61075pt>
 File: ../../results/choo_bem_envelope.png Graphic file (type png)
 <use ../../results/choo_bem_envelope.png>
 Package pdftex.def Info: ../../results/choo_bem_envelope.png  used on input lin
@@ -1575,7 +1574,7 @@ e 29.
 
 
 ]
-<../../results/choo_bem_prefix.png, id=461, 602.85225pt x 393.8715pt>
+<../../results/choo_bem_prefix.png, id=429, 602.85225pt x 393.8715pt>
 File: ../../results/choo_bem_prefix.png Graphic file (type png)
 <use ../../results/choo_bem_prefix.png>
 Package pdftex.def Info: ../../results/choo_bem_prefix.png  used on input line 
@@ -1590,7 +1589,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.79 
       <../../results/choo_bem_envelope.png>]
-<../../results/recalibration_prefix.png, id=468, 554.07pt x 380.622pt>
+<../../results/recalibration_prefix.png, id=435, 554.07pt x 380.622pt>
 File: ../../results/recalibration_prefix.png Graphic file (type png)
 <use ../../results/recalibration_prefix.png>
 Package pdftex.def Info: ../../results/recalibration_prefix.png  used on input 
@@ -1603,21 +1602,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.107 
        <../../results/choo_bem_prefix.png>]
+<../../results/impossibility_frontier.png, id=442, 1006.962pt x 398.08725pt>
+File: ../../results/impossibility_frontier.png Graphic file (type png)
+<use ../../results/impossibility_frontier.png>
+Package pdftex.def Info: ../../results/impossibility_frontier.png  used on inpu
+t line 110.
+(pdftex.def)             Requested size: 418.2502pt x 165.3489pt.
+
 
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.120 
+l.137 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
 
-[29]
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \chapter
+            {External Validity} <../../results/impossibility_frontier.png>]
+
+[30]
 chapter 7.
-<../../results/real_predictor.png, id=483, 999.735pt x 383.63326pt>
+<../../results/real_predictor.png, id=458, 999.735pt x 383.63326pt>
 File: ../../results/real_predictor.png Graphic file (type png)
 <use ../../results/real_predictor.png>
 Package pdftex.def Info: ../../results/real_predictor.png  used on input line 3
@@ -1625,19 +1639,19 @@ Package pdftex.def Info: ../../results/real_predictor.png  used on input line 3
 (pdftex.def)             Requested size: 334.59676pt x 128.39647pt.
 
 
-[30
+[31
 
 
 ]
 
-[31
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.68 
       <../../results/real_predictor.png>]
-<../../results/realworld_robustness.png, id=493, 1145.4795pt x 641.9985pt>
+<../../results/realworld_robustness.png, id=468, 1145.4795pt x 641.9985pt>
 File: ../../results/realworld_robustness.png Graphic file (type png)
 <use ../../results/realworld_robustness.png>
 Package pdftex.def Info: ../../results/realworld_robustness.png  used on input 
@@ -1645,7 +1659,7 @@ line 71.
 (pdftex.def)             Requested size: 418.24512pt x 234.41077pt.
 
 
-[32
+[33
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1654,15 +1668,15 @@ l.95
       <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
 
-[33]
+[34]
 chapter 8.
 
 
-[34
+[35
 
 
 ]
-<../../results/rank_vs_mse_mve.png, id=508, 1000.33725pt x 386.6445pt>
+<../../results/rank_vs_mse_mve.png, id=483, 1000.33725pt x 386.6445pt>
 File: ../../results/rank_vs_mse_mve.png Graphic file (type png)
 <use ../../results/rank_vs_mse_mve.png>
 Package pdftex.def Info: ../../results/rank_vs_mse_mve.png  used on input line 
@@ -1670,14 +1684,14 @@ Package pdftex.def Info: ../../results/rank_vs_mse_mve.png  used on input line
 (pdftex.def)             Requested size: 418.26132pt x 161.66391pt.
 
 
-[35
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 
       <../../results/rank_vs_mse_mve.png>]
-<../../results/rank_real_trace.png, id=514, 1003.3485pt x 383.63326pt>
+<../../results/rank_real_trace.png, id=489, 1003.3485pt x 383.63326pt>
 File: ../../results/rank_real_trace.png Graphic file (type png)
 <use ../../results/rank_real_trace.png>
 Package pdftex.def Info: ../../results/rank_real_trace.png  used on input line 
@@ -1685,14 +1699,14 @@ Package pdftex.def Info: ../../results/rank_real_trace.png  used on input line
 (pdftex.def)             Requested size: 418.24966pt x 159.91899pt.
 
 
-[36
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.97 
       <../../results/rank_real_trace.png>]
-<../../results/serving_slo_probe.png, id=520, 674.52pt x 396.2805pt>
+<../../results/serving_slo_probe.png, id=495, 674.52pt x 396.2805pt>
 File: ../../results/serving_slo_probe.png Graphic file (type png)
 <use ../../results/serving_slo_probe.png>
 Package pdftex.def Info: ../../results/serving_slo_probe.png  used on input lin
@@ -1700,43 +1714,67 @@ e 117.
 (pdftex.def)             Requested size: 313.70001pt x 184.29875pt.
 
 
-[37]
+[38]
 
-[38
+[39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.156 
-       <../../results/serving_slo_probe.png>]) (./ch/09_theory.tex
+l.151 T
+       his review is itself part of the research process reported here: it <../
+../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 
-[39]
+[40]
 chapter 9.
-
-
-[40
-
-
-]
-<../../results/impossibility_frontier.png, id=539, 1006.962pt x 398.08725pt>
-File: ../../results/impossibility_frontier.png Graphic file (type png)
-<use ../../results/impossibility_frontier.png>
-Package pdftex.def Info: ../../results/impossibility_frontier.png  used on inpu
-t line 39.
-(pdftex.def)             Requested size: 418.2502pt x 165.3489pt.
+<../../results/serving_envelope.png, id=511, 725.109pt x 357.7365pt>
+File: ../../results/serving_envelope.png Graphic file (type png)
+<use ../../results/serving_envelope.png>
+Package pdftex.def Info: ../../results/serving_envelope.png  used on input line
+ 29.
+(pdftex.def)             Requested size: 292.7824pt x 144.44579pt.
 
 
 [41
+
+
+]
+<../../results/serving_dynamic.png, id=517, 926.86275pt x 357.7365pt>
+File: ../../results/serving_dynamic.png Graphic file (type png)
+<use ../../results/serving_dynamic.png>
+Package pdftex.def Info: ../../results/serving_dynamic.png  used on input line 
+44.
+(pdftex.def)             Requested size: 418.25824pt x 161.43298pt.
+
+
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.62 
-      <../../results/impossibility_frontier.png>]
+l.54 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 
+      <../../results/serving_envelope.png> <../../results/serving_dynamic.png>]
+<../../results/prefix_cache_reversal.png, id=524, 532.389pt x 360.74776pt>
+File: ../../results/prefix_cache_reversal.png Graphic file (type png)
+<use ../../results/prefix_cache_reversal.png>
+Package pdftex.def Info: ../../results/prefix_cache_reversal.png  used on input
+ line 57.
+(pdftex.def)             Requested size: 250.95398pt x 170.04686pt.
 
-[42]
 
-[43]) (./ch/10_serving_case_study.tex
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.88 
+      <../../results/prefix_cache_reversal.png>]) (./ch/11_conclusion.tex
 
 [44]
 chapter 10.
@@ -1746,63 +1784,14 @@ chapter 10.
 
 
 ]
-<../../results/serving_envelope.png, id=566, 725.109pt x 357.7365pt>
-File: ../../results/serving_envelope.png Graphic file (type png)
-<use ../../results/serving_envelope.png>
-Package pdftex.def Info: ../../results/serving_envelope.png  used on input line
- 40.
-(pdftex.def)             Requested size: 292.7824pt x 144.44579pt.
-<../../results/serving_dynamic.png, id=567, 926.86275pt x 357.7365pt>
-File: ../../results/serving_dynamic.png Graphic file (type png)
-<use ../../results/serving_dynamic.png>
-Package pdftex.def Info: ../../results/serving_dynamic.png  used on input line 
-58.
-(pdftex.def)             Requested size: 418.25824pt x 161.43298pt.
-<../../results/prefix_cache_reversal.png, id=569, 532.389pt x 360.74776pt>
-File: ../../results/prefix_cache_reversal.png Graphic file (type png)
-<use ../../results/prefix_cache_reversal.png>
-Package pdftex.def Info: ../../results/prefix_cache_reversal.png  used on input
- line 74.
-(pdftex.def)             Requested size: 334.61073pt x 226.73283pt.
 
+[46]
 
-[46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_envelope.png>]
+[47{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.2})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10.3})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.100 
-       <../../results/serving_dynamic.png> <../../results/prefix_cache_reversal
-.png>]) (./ch/11_conclusion.tex
+[48]) (./ch/A_reproduction.tex
 
-[48]
-chapter 11.
-
-
-[49
-
-
-]
-
-[50])
-
-[51] (./ch/A_reproduction.tex
-
-[52]
+[49]
 chapter A.
 
 Overfull \hbox (9.52542pt too wide) in paragraph at lines 31--34
@@ -2011,10 +2000,10 @@ Overfull \hbox (30.90825pt too wide) in paragraph at lines 111--111
 
 
 
-[53
+[50
 
 
-] [54]
+] [51]
 Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts)[] 
@@ -2022,7 +2011,7 @@ Overfull \hbox (7.15073pt too wide) in paragraph at lines 140--140
 
 
 
-[55]
+[52]
 Overfull \hbox (24.39693pt too wide) in paragraph at lines 140--140
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (replots Table 4.1)[] 
@@ -2043,9 +2032,9 @@ Overfull \hbox (0.10036pt too wide) in alignment at lines 185--192
  [] [] [] [] [] [] [] 
  []
 
-[56]
+[53]
 
-[57]
+[54]
 Overfull \hbox (27.54663pt too wide) in paragraph at lines 237--245
 \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 
 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
@@ -2053,44 +2042,28 @@ socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN\T1/lmr/m/n/1
 /10.95 econ-beause\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 econ-mbeaflw
  []
 
-) (./ch/B_proof_details.tex
+)
+Overfull \hbox (95.40543pt too wide) in paragraph at lines 257--133
+\T1/lmr/m/n/10.95 (-20) checked to three dec-i-mals by short sim-u-la-tions doc
+-u-mented in the project notes (\T1/lmtt/m/n/10.95 docs/T1_W1_single_cell.md\T1
+/lmr/m/n/10.95 (-20) ,
+ []
 
-[58]
-chapter B.
 
 
-[59
-
-
-]
-
-[60]
-
-[61]
-
-[62]
-
-[63{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-
-[64]
-
-[65]
-
-[66])
-
-[67]
+[55]
 chapter without number
 
 
-[68
+[56
 
 
 
 ]
 
-[69]
+[57]
 
-[70] (./thesis.aux)
+[58] (./thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2102,11 +2075,11 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33055 strings out of 474654
- 671133 string characters out of 5750568
- 1675832 words of memory out of 5000000
- 55061 multiletter control sequences out of 15000+600000
- 663212 words of font info for 284 fonts, out of 8000000 for 9000
+ 32965 strings out of 474654
+ 670089 string characters out of 5750568
+ 1675766 words of memory out of 5000000
+ 55037 multiletter control sequences out of 15000+600000
+ 661948 words of font info for 270 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  122i,20n,134p,10935b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -2128,10 +2101,10 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (81 pages, 2486713 bytes).
+Output written on thesis.pdf (68 pages, 2442038 bytes).
 PDF statistics:
- 1063 PDF objects out of 1200 (max. 8388607)
- 889 compressed objects within 9 object streams
- 207 named destinations out of 1000 (max. 500000)
- 54466 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 922 PDF objects out of 1000 (max. 8388607)
+ 762 compressed objects within 8 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 54362 words of extra memory for PDF output out of 61914 (max. 10000000)
 

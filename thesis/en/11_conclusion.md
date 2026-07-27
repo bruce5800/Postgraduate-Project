@@ -1,12 +1,12 @@
 <!--
-Thesis Ch 11 — Conclusion & Future Work. Adapted/expanded from paper/07 §10. Proper thesis
-conclusion: summary of contributions, limitations, future work (expanded), closing. Honest
-about the theory's status. Cross-refs to chapters.
+Thesis Ch 10 (was Ch 11; the theory chapter was cut 2026-07-27 and replaced by the
+one-page outlook in §10.2 — full theory lives in the companion paper, docs/paper/06).
+Conclusion: summary, theoretical outlook, limitations, future work, closing.
 -->
 
-# Chapter 11. Conclusion and Future Work
+# Chapter 10. Conclusion and Future Work
 
-## 11.1 Summary
+## 10.1 Summary
 
 This thesis studied learning-augmented algorithms for online bipartite matching by first
 building a common experimental foundation and then explaining what it revealed. On a single
@@ -24,58 +24,109 @@ adaptive test has a threshold-calibration pathology and a resolution limit (Chap
 we honestly reported the directions that did *not* pan out: learning the predictor for extra
 performance, and finding a serving regime where predictions genuinely help (Chapter 8).
 
-Finally, we argued the recurring wall is *necessary* (Chapter 9): no test-and-fallback
-algorithm whose test inspects only a sublinear prefix can be both consistent and robust on
-strong-baseline matching, because the structure that makes the prefix distribution-test
-feasible is the structure that makes the baseline near-optimal. Experiments discover the
-wall; theory explains why it must be there. The single sentence that unifies the thesis is:
-**on average-case online matching, predictions are robustness insurance rather than a
-performance lever — and where you can test the advice, you do not need it.**
+The recurring wall raises an obvious question: is it an accident of the inputs we chose,
+or is it forced? The next section gives our answer in outlook form. The single sentence
+that unifies the thesis is: **on average-case online matching, predictions are robustness
+insurance rather than a performance lever — and the upside they offer is smaller than the
+price of finding out whether to trust them.**
 
-## 11.2 Limitations
+## 10.2 A theoretical outlook: the price of testing advice
+
+The experiments say that no *practical* acceptance threshold captures the upside safely
+(§6.3, Figure 6.4). This section sketches, without claiming a full theorem, why no
+decision rule of *any* kind escapes the wall on the inputs where it stands. One
+ingredient is proved here; the rest is a quantitative reading of our own experiments,
+whose full formal development is deliberately deferred to companion work in preparation
+with the author's supervisor.
+
+> **A trade-off inequality.** Let $G$ and $\mathrm{Bd}$ be two instance distributions
+> sharing the *same* advice, such that following the advice gains $\delta$ under $G$ and
+> loses $\Delta$ under $\mathrm{Bd}$ relative to the advice-free baseline, and let
+> $\gamma_k$ be the total-variation distance between the laws of their length-$k$
+> prefixes. Then every test-and-fallback algorithm — deciding by *any* measurable rule on
+> its prefix — satisfies
+> $$(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),$$
+> where $\eta_c$ is the fraction of the upside it forgoes under $G$ and $\eta_r$ its
+> robustness loss under $\mathrm{Bd}$ as a fraction of $\Delta$.
+
+The proof is a short conditioning argument: capturing the upside forces the algorithm to
+follow with high probability under $G$; robustness forces fallback under $\mathrm{Bd}$;
+and no function of the prefix can behave differently on two prefix distributions that are
+statistically $\gamma_k$-close. The inequality thus converts "consistent *and* robust"
+into a question about *sample complexity*: how long must the prefix be before it
+distinguishes advice worth following from advice worth rejecting?
+
+The answer, on the rare-resource instances that produce Figure 6.4, is a **budget–stakes
+law**: the decision costs a prefix of $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse
+square of the stakes $\delta$ (what good advice gains over the baseline), scaled by the
+contention $\theta$ — and the budget is achievable, by a simple *directional* statistic
+(do the prefix arrivals agree with the advice's predictions more often than they
+contradict them?). The stakes, in turn, are capped by the baseline slack:
+$\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})$. Substituting, on strong-baseline
+instances the required prefix exceeds the entire instance — any upside below
+$\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)$ cannot be captured safely by any
+rule at any prefix length $k \le n$. At the parameters of Chapter 4
+($\rho_{\mathrm{base}}\approx0.99$, $n=2000$) that threshold is $\approx0.004$, and the
+upsides we measured are of exactly this order (F3): the empirical wall sits in the regime
+the budget law governs. This is Figure 6.4 read quantitatively: the potential upside and
+the capturable upside separate as the baseline strengthens, because the stakes shrink
+faster than the test's resolution improves.
+
+Two honest notes bound the scope of this outlook. First, the budget law cuts both ways:
+where the stakes are large (a weak baseline), the directional statistic is cheap and
+following good advice is easy — the wall is a statement about strong-baseline,
+average-case inputs, not about testing in general. In particular, a tempting stronger
+conjecture — that the near-linear sample cost of *tolerant distribution testing* (§2.5)
+blocks every sublinear rule outright — is false: it is refuted by the same directional
+statistic, and the $\ell_1$-threshold blindness of §6.3 is a property of testing the
+*distance* rather than the *payoff*. Second, this thesis claims here only the inequality
+displayed above and the quantitative reading of its own experiments; the two-sided law,
+its proofs, and its exact scope are the subject of the companion work.
+
+## 10.3 Limitations
 
 - **Input model.** We work in the known-i.i.d. model. Because Known-I.I.D. $\le$
   Random-Order in difficulty, the algorithms' guarantees carry over, but the empirical wall
   is an *average-case* statement; we do not claim it for adversarial arrival order.
-- **Test model.** Following the original authors, the test-and-fallback experiments and the
-  theorem's reduction use an empirical-$\ell_1$ surrogate for the (unimplemented)
-  distribution tester.
+- **Test model.** Following the original authors, the test-and-fallback experiments use an
+  empirical-$\ell_1$ surrogate for the (unimplemented) distribution tester; §10.2 explains
+  why the surrogate's blindness is structural rather than an implementation artifact.
 - **Prediction-object heterogeneity.** The degree- and histogram-prediction families do not
   map onto every graph, which is why they are reported in parallel panels rather than one
   table.
 - **Data breadth.** Each real modality is exercised by one trace.
-- **Theory scope and status.** The impossibility theorem is strong-form in the
-  $r=\Theta(n)$ regime — the regime with an upside to contest — and one routine step of its
-  proof (the witness-instance construction) plus a final review remain before it is fully
-  typeset; a version biting at constant $r$ is open.
+- **Theory scope.** The thesis deliberately confines its theory to the outlook of §10.2 —
+  one proved trade-off inequality and a quantitative reading of the experiments. The full
+  budget–stakes law is companion work in preparation, and no theorem beyond the stated
+  inequality is claimed here.
 
-## 11.3 Future work
+## 10.4 Future work
 
 The thesis brackets, rather than resolves, the settings in which predictions might genuinely
 help online matching, and these are the natural next directions.
 
 - **Beyond average-case inputs.** The wall is an average-case phenomenon. Adversarial or
   non-stationary arrival orders, where the advice-free baseline is provably far from optimal,
-  are where predictions should carry real value — and where a *positive* counterpart to this
-  thesis's impossibility might be proved.
+  are where predictions should carry real value — and where a *positive* counterpart to
+  this thesis's wall might be proved.
 - **Beyond throughput.** Objectives on which the baseline is not near-optimal — tail latency,
   per-type fairness, migration or recompute cost — may admit genuine with-predictions gains
   that the goodput objective forecloses; our serving SLO probe (Chapter 8) closed the
   simplest such attempt but not the space.
-- **Completing and strengthening the theory.** Closing the remaining construction step and
-  the review; extending the impossibility to constant $r$ or to other prediction objects; and
-  a matching *upper* bound — for instance, showing that a recalibrated-threshold algorithm is
-  optimal among test-and-fallback schemes — would turn Chapter 9 into a tight characterization.
-- **Better tests, honestly.** Whether a super-linear or amortized test, or a test that reuses
-  online decisions as samples, can escape the tolerant-testing barrier is an open and
-  practically motivated question.
+- **Completing the theory.** Finishing the companion budget–stakes development — the sharp
+  two-sided law, the directional statistic as its matching upper bound, and its exact scope
+  (decomposable families; whether a non-decomposable family can push the budget higher is
+  open) — would turn the outlook of §10.2 into a tight characterization.
+- **Better tests, honestly.** Whether a super-linear or amortized test, or a test that
+  reuses online decisions as samples, can beat the stakes-squared budget of §10.2 is an
+  open and practically motivated question.
 
-## 11.4 Closing
+## 10.5 Closing
 
 Predictions are a powerful tool for online algorithms, but this thesis is a study of their
 *limits* on one well-understood problem. On average-case online matching, the honest verdict
 is that a cheap, order-faithful predictor already captures nearly all there is to capture,
-that the sophisticated machinery earns its keep as insurance rather than as performance, and
-that no sublinear test can do better — because the very feasibility of the test is a signal
-that the prediction was not needed. Recognizing where predictions cannot help is, we hope, as
-useful as knowing where they can.
+that the sophisticated machinery earns its keep as insurance rather than as performance,
+and that finding out whether to trust a prediction costs more, on these inputs, than the
+prediction is worth. Recognizing where predictions cannot help is, we hope, as useful as
+knowing where they can.

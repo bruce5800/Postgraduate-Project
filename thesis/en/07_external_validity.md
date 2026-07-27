@@ -74,4 +74,5 @@ algorithm nor a better-trained predictor buys much on average-case matching.
 On real predictors, real graphs, and a learned predictor, the same wall stands: the
 advice-free baseline is near-optimal, unguarded following is unsafe, and predictions buy
 downside protection rather than performance. Having established the wall empirically across
-every setting we could reach, the thesis next proves it is necessary (Chapter 9).
+every setting we could reach, Chapter 8 reports the directions that tried to get past it,
+and the concluding outlook (§10.2) explains why it is forced.

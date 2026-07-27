@@ -98,31 +98,32 @@ The first two are answered experimentally; the third, theoretically.
   a benchmark of the dynamic combiner revealing an irrevocability
   penalty that explains why matching requires \emph{test-then-commit}.
 \item
-  \textbf{An impossibility theorem} (Chapter 9): no test-and-fallback
-  algorithm whose test inspects only a sublinear prefix can be both
-  consistent and robust on strong-baseline instances, because the
-  structure that makes the prefix distribution-test feasible is the
-  structure that makes the baseline near-optimal. The proof reduces safe
-  advice-use to \emph{tolerant} distribution testing and invokes its
-  near-linear sample-complexity barrier; it holds for any decision rule,
-  not merely the empirical threshold used in practice. \emph{(The
-  theorem's full proof is complete in architecture --- its core lemma
-  rigorous and its construction verified --- with one routine step and a
-  final review outstanding; the thesis presents it with its status
-  stated, as is appropriate for in-progress theoretical work.)}
+  \textbf{A quantified account of why the wall stands} (Chapter 6 and
+  §10.2): the resolution-limit finding --- no practical acceptance
+  threshold can capture an upside that sits below its estimator's noise
+  --- is shown to persist across the whole difficulty range (Figure 6.4)
+  and is given a theoretical outlook in the conclusion: a proved
+  consistency/robustness trade-off inequality, and a
+  \emph{budget--stakes} reading under which the prefix needed to decide
+  scales as the inverse square of the advice's upside --- a price that
+  exceeds the instance length exactly where the baseline is strong. The
+  full formal development is deliberately deferred to companion work in
+  preparation, and the thesis claims no theorem beyond the stated
+  inequality.
 \end{itemize}
 
 Alongside these, the thesis documents (Chapter 8) the exploratory
 directions it pursued and the negative results they returned --- an
 attempt to \emph{learn} the predictor for extra performance, and an
 attempt to find a serving regime where predictions genuinely help ---
-both of which reinforce the central finding and motivated the theorem.
+both of which reinforce the central finding; the question they raise ---
+is the wall forced? --- is taken up in the concluding outlook (§10.2).
 
 \section{Thesis organization}
 
 Chapter 2 surveys the background: online matching and its input models,
 the learning-augmented paradigm, the specific prediction-based matching
-algorithms, and the distribution-testing results the theory relies on.
+algorithms, and the distribution-testing results behind their tests.
 Chapter 3 fixes the model and methodology and validates the experimental
 harness by reproducing a subset of the Borodin et al.~study. Chapter 4
 presents the unified benchmark and its four findings. Chapter 5 examines
@@ -130,9 +131,11 @@ what governs the (small) loss --- order error --- and its relation to
 the known bound. Chapter 6 studies the test-and-fallback mechanism in
 depth. Chapter 7 tests external validity on real predictors and real
 graphs. Chapter 8 reports the exploratory directions and negative
-results. Chapter 9 proves the impossibility theorem. Chapter 10 presents
-the AI-inference serving case study. Chapter 11 concludes and discusses
-future work. The recurring thesis, established experimentally and then
-proven necessary, is a single sentence: \textbf{on average-case online
-matching, predictions are robustness insurance rather than a performance
-lever --- and where you can test the advice, you do not need it.}
+results. Chapter 9 presents the AI-inference serving case study. Chapter
+10 concludes: it summarizes the findings, gives a theoretical outlook on
+why the wall is forced (§10.2), and discusses limitations and future
+work. The recurring thesis, established experimentally and then
+explained in outlook, is a single sentence: \textbf{on average-case
+online matching, predictions are robustness insurance rather than a
+performance lever --- and the upside they offer is smaller than the
+price of finding out whether to trust them.}

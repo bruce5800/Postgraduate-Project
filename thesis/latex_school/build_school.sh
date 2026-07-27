@@ -8,8 +8,10 @@ cd "$(dirname "$0")"
 
 CHAPTERS="01_introduction 02_background 03_model_methodology 04_unified_benchmark \
 05_order_error 06_test_and_fallback 07_external_validity 08_exploratory_negatives \
-09_theory 10_serving_case_study 11_conclusion"
-APPENDICES="A_reproduction B_proof_details"
+10_serving_case_study 11_conclusion"
+APPENDICES="A_reproduction"
+# (09_theory and B_proof_details were cut from the thesis 2026-07-27 — see
+#  docs/T1_WITNESS_GAP.md; theory lives in the companion paper, outlook in §10.2.)
 
 preprocess() {
   # same rules as latex/build.sh, plus raw "→" (pdflatex-safe via \ensuremath)

@@ -2,20 +2,23 @@
 
 Code, experiments, and thesis for
 
-> **The Limits of Predictions for Online Bipartite Matching:
-> A Unified Experimental Study and an Impossibility Theorem**
-> (MSc thesis, University of Bristol)
+> **The Limits of Predictions for Online Bipartite Matching**
+> Thesis: *A Unified Experimental Study* (MSc, University of Bristol) ·
+> Paper draft: *… and a Budget–Stakes Law*
 
 One sentence: **on average-case online matching, predictions are robustness insurance
-rather than a performance lever — and where you can test the advice, you do not need it.**
-The experiments discover this wall (first unified benchmark of the learning-augmented
-matching algorithms); the theory proves it is necessary (an impossibility theorem via a
-reduction to tolerant distribution testing).
+rather than a performance lever — and their upside is smaller than the price of finding
+out whether to trust them.** The experiments discover this wall (first unified benchmark
+of the learning-augmented matching algorithms); the theory prices it (a sharp
+budget–stakes law: the follow/fallback decision costs a prefix scaling as the inverse
+square of the advice's upside).
 
 ## 🎮 Interactive explainer
 
-The Chapter-9 impossibility theorem, as five hands-on gadgets (drag the sliders, run into
-the wall yourself — no background needed):
+The testing-wall proof idea, as five hands-on gadgets (drag the sliders, run into the
+wall yourself — no background needed). *Note: the page still presents the pre-revision
+tolerant-testing route; a rework around the budget–stakes law is pending
+(`docs/T1_WITNESS_GAP.md`):*
 
 - **Hosted:** <https://claude.ai/code/artifact/5842dbf9-6688-429b-9c57-d733cda285d7>
 - **Local:** open [`docs/interactive/impossibility_explainer.html`](docs/interactive/impossibility_explainer.html)
@@ -28,11 +31,13 @@ All chapters live as markdown (edit those, not the TeX) and build three ways:
 
 | Output | Source | Build | Result |
 |---|---|---|---|
-| English draft (52 pp) | `thesis/en/*.md` | `thesis/latex/build.sh` | `thesis/latex/main.pdf` |
-| 中文草稿 (49 pp) | `thesis/zh/*.md` | `thesis/latex/build_zh.sh` | `thesis/latex/main_zh.pdf` |
-| **Bristol template (81 pp)** | `thesis/en/*.md` | `thesis/latex_school/build_school.sh` | `thesis/latex_school/thesis.pdf` |
+| English draft (43 pp) | `thesis/en/*.md` | `thesis/latex/build.sh` | `thesis/latex/main.pdf` |
+| 中文草稿 (42 pp) | `thesis/zh/*.md` | `thesis/latex/build_zh.sh` | `thesis/latex/main_zh.pdf` |
+| **Bristol template (68 pp)** | `thesis/en/*.md` | `thesis/latex_school/build_school.sh` | `thesis/latex_school/thesis.pdf` |
 
-11 chapters + Appendix A (reproduction guide) + Appendix B (proof details).
+10 chapters + Appendix A (reproduction guide). The former theory chapter was cut from the
+thesis (2026-07-27) and survives as a one-page outlook (§10.2); the full theory lives in
+the paper drafts (`docs/paper/06_theory.md`).
 Citations are pandoc `[@key]` resolved against [`docs/references.bib`](docs/references.bib)
 (citeproc for the drafts, biblatex/biber + the template's ACM-numeric style for the school
 build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/paper/`.
@@ -49,11 +54,14 @@ build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/p
 - **Negatives (reported honestly):** rank-loss predictor training wins only on engineered
   features and vanishes on real traces (Kendall-τ 0.126 = 0.126); no serving SLO/tail regime
   where foresight beats a reactive baseline (≤ 3% from clairvoyant).
-- **Theorem (Ch. 9):** no test-and-fallback algorithm with a sublinear test — under *any*
-  decision rule — is simultaneously consistent and robust on strong-baseline instances;
-  reduction to tolerant identity testing (Θ̃(n/log n) samples, Canonne et al. COLT 2022).
-  *Status:* core lemma proved, construction verified numerically; one routine
-  witness-instance step + final review outstanding (stated plainly in §9.5/§B.7).
+- **Theory (budget–stakes law, paper §7; thesis outlook §10.2):** the follow/fallback
+  decision costs a prefix $k^* = \tilde\Theta(\theta/\delta^2)$ — below it *no* rule is
+  both consistent and robust (Hellinger + master inequality); at it, a one-line
+  *directional test* succeeds. Stakes are capped by baseline slack, so on strong-baseline
+  instances upsides below $\approx\sqrt{(1-\rho_{\text{base}})/n}$ are uncapturable at any
+  prefix. *Honesty note:* the earlier any-rule tolerant-testing impossibility was refuted
+  at its own witness step — payoffs are per-sample observable where distances are not
+  (`docs/T1_WITNESS_GAP.md`, verified by `scripts/verify_witness_gap.py`).
 
 ## Project status
 
@@ -65,7 +73,7 @@ build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/p
 | ★1–★4 | Order-error vs ACI bound; unified benchmark + combiner; real predictor; real-graph universality | done — [`docs/UNIFIED_BENCHMARK.md`](docs/UNIFIED_BENCHMARK.md), [`docs/REAL_PREDICTOR.md`](docs/REAL_PREDICTOR.md), [`docs/REALWORLD_ROBUSTNESS.md`](docs/REALWORLD_ROBUSTNESS.md) |
 | A (M0–M3) | Learning-to-rank the predictor | closed as an honest negative — [`docs/RANK_LEARNING_M0_M3.md`](docs/RANK_LEARNING_M0_M3.md) |
 | SLO probe | A with-predictions serving rescue on a tail objective | closed as an honest negative — [`docs/SERVING_SLO_PROBE.md`](docs/SERVING_SLO_PROBE.md) |
-| C (T1) | Impossibility theorem | proof architecture complete (Lemma 1 rigorous; W1/W3a closed-form + verified; W2 confirmed via CJKL'22); one routine step + review remain — [`docs/T1_PROOF_SKELETON.md`](docs/T1_PROOF_SKELETON.md) and follow-ups |
+| C (T1) | Impossibility theorem → budget–stakes law | original theorem **refuted at its witness step** (payoff identity ⟹ counter-algorithm, verified); replaced by the two-sided budget–stakes law in the paper; thesis keeps a one-page outlook — [`docs/T1_WITNESS_GAP.md`](docs/T1_WITNESS_GAP.md) |
 | Writing | Paper drafts (`docs/paper/`) + full thesis (3 builds) + interactive explainer | done (drafts; school-template TODOs listed in `thesis/latex_school/thesis.tex`) |
 
 ## Directory layout
@@ -115,7 +123,7 @@ for t in tests/test_*.py; do python3 "$t"; done   # correctness anchors
 python3 scripts/run_unified_benchmark.py          # Table 4.1 (~100 s)
 python3 scripts/plot_unified_panels.py            # Table 4.1 panel charts
 python3 scripts/run_consistency_robustness.py     # Fig 4.1
-python3 scripts/run_impossibility_frontier.py     # Fig 9.1 (~6 s)
+python3 scripts/run_impossibility_frontier.py     # Fig 6.4 (~6 s)
 ```
 
 To rebuild the thesis PDFs: `cd thesis/latex && ./build.sh && ./build_zh.sh`, and

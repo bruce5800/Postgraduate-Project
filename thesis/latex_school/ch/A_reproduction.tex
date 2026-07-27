@@ -99,11 +99,11 @@ Fig 8.3 (serving SLO probe) &
 \texttt{scripts/run\_serving\_slo\_probe.py} &
 \texttt{results/serving\_slo\_probe.\{json,png\}} & \textasciitilde1
 s \\
-Fig 9.1 (impossibility frontier) &
+Fig 6.4 (testing-wall frontier) &
 \texttt{scripts/run\_impossibility\_frontier.py} &
 \texttt{results/impossibility\_frontier.\{json,png\}} & \textasciitilde6
 s \\
-Figs 10.1--10.3, serving (Ch 10) & \texttt{scripts/run\_serving.py},
+Figs 9.1--9.3, serving (Ch 9) & \texttt{scripts/run\_serving.py},
 \texttt{run\_serving\_trace.py}, \texttt{run\_serving\_dynamic.py},
 \texttt{run\_prefix\_cache.py} & \texttt{results/serving\_*.png},
 \texttt{prefix\_cache\_*.png} & varies \\
@@ -126,7 +126,7 @@ python3 scripts/plot_unified_panels.py          # Table 4.1 (panel charts)
 python3 scripts/run_order_vs_theory.py          # Fig 5.1
 python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
-python3 scripts/run_impossibility_frontier.py   # Fig 9.1
+python3 scripts/run_impossibility_frontier.py   # Fig 6.4
 python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
 python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
@@ -242,27 +242,31 @@ version control).
   bipartite by random balanced partition (Borodin Table 3) or
   duplicating double-cover (Table 4).
 \item
-  \textbf{Traces (Chapters 7, 8, 10):} Wikipedia ``top articles per
-  day'' JSON for four days (\texttt{data/trace/wiki/}, used as live day
-  vs 1/7/30-day-stale forecasts); the Azure LLM inference trace
+  \textbf{Traces (Chapters 7, 8, 9):} Wikipedia ``top articles per day''
+  JSON for four days (\texttt{data/trace/wiki/}, used as live day vs
+  1/7/30-day-stale forecasts); the Azure LLM inference trace
   (\texttt{data/trace/azure\_llm/}, context/generated token counts with
   timestamps); the Mooncake conversation trace
   (\texttt{data/trace/mooncake/}, per-request \texttt{hash\_ids} for
   prefix-cache blocks).
 \end{itemize}
 
-\section{Theory verification snippets (Chapter
-9)}
+\section{Outlook verification snippets
+(§10.2)}
 
-The single-cell constants of the construction (per-cell OPT, baseline,
-and the advantage/L1 formulas, §9.3 Pillar-3 / Chapter 9) and the exact
-affine conversion law
+The quantities behind the outlook of §10.2 are numerically verified. The
+single-cell constants of the rare-resource construction (per-cell OPT,
+baseline, and the advantage/\(\ell_1\) formulas) and the exact affine
+conversion law
 \(\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)\)
-were verified numerically to three decimals by short simulations
-documented in the project notes (\texttt{docs/T1\_W1\_single\_cell.md},
+were checked to three decimals by short simulations documented in the
+project notes (\texttt{docs/T1\_W1\_single\_cell.md},
 \texttt{T1\_W2\_W3a\_closeout.md}); e.g.~at \(\theta=0.6\), bias
 \(|s-\tfrac12|=0.3\), the simulated per-cell advantage \(\pm0.119\)
-matches the formula \(\pm\theta|s-\tfrac12|=\pm0.12\), and the aggregate
-follow-ratio matches the affine law at every advice level. These are
-sanity checks on the construction, not part of the formal proof
-(Appendix B), whose remaining step is noted in §9.5 and §B.7.
+matches the formula \(\pm\theta|s-\tfrac12|=\pm0.12\). The
+budget--stakes claims --- the directional statistic's accuracy at fixed
+prefix length independent of \(n\), and the blindness of the plug-in
+\(\ell_1\) estimate at \(k\ll r\) --- are verified by
+\texttt{scripts/verify\_witness\_gap.py}
+(\texttt{docs/T1\_WITNESS\_GAP.md}). These support the outlook; the
+formal development is companion work outside this thesis.

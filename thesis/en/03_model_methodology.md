@@ -81,7 +81,7 @@ order/magnitude distinction is the axis of Chapter 5.
 For a prediction-consuming algorithm, **consistency** is its ratio under perfect advice and
 **robustness** is its worst-case ratio under adversarial advice. A useful algorithm is
 consistent *and* never (much) below $\rho_{\mathrm{base}}$; the tension between the two is
-the subject of Chapters 6 and 9.
+the subject of Chapter 6 and of the outlook in §10.2.
 
 ## 3.5 The experimental harness
 

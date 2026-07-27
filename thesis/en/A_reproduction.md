@@ -43,8 +43,8 @@ data provenance.
 | M1 sweep (§8.1, no figure) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
 | Fig 8.2 (M3 real-trace learning) | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
 | Fig 8.3 (serving SLO probe) | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 s |
-| Fig 9.1 (impossibility frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
-| Figs 10.1–10.3, serving (Ch 10) | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
+| Fig 6.4 (testing-wall frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
+| Figs 9.1–9.3, serving (Ch 9) | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
 | Real-world Borodin Tables 3/4 (validation) | `scripts/run_realworld.py` | `results/realworld.json` | ~few min |
 
 ## A.3 Reproduction commands
@@ -60,7 +60,7 @@ python3 scripts/plot_unified_panels.py          # Table 4.1 (panel charts)
 python3 scripts/run_order_vs_theory.py          # Fig 5.1
 python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
-python3 scripts/run_impossibility_frontier.py   # Fig 9.1
+python3 scripts/run_impossibility_frontier.py   # Fig 6.4
 python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
 python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
@@ -123,20 +123,23 @@ Real data is stored locally under `data/` (large; excluded from version control)
   `econ-mbeaflw` — as MatrixMarket `.mtx` / whitespace `.edges`, reduced to simple
   undirected graphs and converted to bipartite by random balanced partition (Borodin
   Table 3) or duplicating double-cover (Table 4).
-- **Traces (Chapters 7, 8, 10):** Wikipedia "top articles per day" JSON for four days
+- **Traces (Chapters 7, 8, 9):** Wikipedia "top articles per day" JSON for four days
   (`data/trace/wiki/`, used as live day vs 1/7/30-day-stale forecasts); the Azure LLM
   inference trace (`data/trace/azure_llm/`, context/generated token counts with
   timestamps); the Mooncake conversation trace (`data/trace/mooncake/`, per-request
   `hash_ids` for prefix-cache blocks).
 
-## A.6 Theory verification snippets (Chapter 9)
+## A.6 Outlook verification snippets (§10.2)
 
-The single-cell constants of the construction (per-cell OPT, baseline, and the
-advantage/L1 formulas, §9.3 Pillar-3 / Chapter 9) and the exact affine conversion law
+The quantities behind the outlook of §10.2 are numerically verified. The single-cell
+constants of the rare-resource construction (per-cell OPT, baseline, and the
+advantage/$\ell_1$ formulas) and the exact affine conversion law
 $\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ were
-verified numerically to three decimals by short simulations documented in the project notes
+checked to three decimals by short simulations documented in the project notes
 (`docs/T1_W1_single_cell.md`, `T1_W2_W3a_closeout.md`); e.g. at $\theta=0.6$, bias
 $|s-\tfrac12|=0.3$, the simulated per-cell advantage $\pm0.119$ matches the formula
-$\pm\theta|s-\tfrac12|=\pm0.12$, and the aggregate follow-ratio matches the affine law at
-every advice level. These are sanity checks on the construction, not part of the formal
-proof (Appendix B), whose remaining step is noted in §9.5 and §B.7.
+$\pm\theta|s-\tfrac12|=\pm0.12$. The budget–stakes claims — the directional statistic's
+accuracy at fixed prefix length independent of $n$, and the blindness of the plug-in
+$\ell_1$ estimate at $k\ll r$ — are verified by `scripts/verify_witness_gap.py`
+(`docs/T1_WITNESS_GAP.md`). These support the outlook; the formal development is
+companion work outside this thesis.

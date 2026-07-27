@@ -8,7 +8,8 @@ cd "$(dirname "$0")"
 
 CHAPTERS="01_introduction 02_background 03_model_methodology 04_unified_benchmark \
 05_order_error 06_test_and_fallback 07_external_validity 08_exploratory_negatives \
-09_theory 10_serving_case_study 11_conclusion"
+10_serving_case_study 11_conclusion"
+# (09_theory 与 B_proof_details 已于 2026-07-27 从论文中移除 — 见 docs/T1_WITNESS_GAP.md)
 
 tmp="$(mktemp -t thesiszhXXXX).md"
 preprocess() {
@@ -28,10 +29,6 @@ printf '\n\n# 参考文献 {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 if [ -f "../zh/A_reproduction.md" ]; then
   printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
   preprocess "../zh/A_reproduction.md" >> "$tmp"; included="$included A"
-fi
-if [ -f "../zh/B_proof_details.md" ]; then
-  printf '\n\n' >> "$tmp"
-  preprocess "../zh/B_proof_details.md" >> "$tmp"; included="$included B"
 fi
 echo "chapters included:$included"
 

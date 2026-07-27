@@ -1,4 +1,8 @@
 <!--
+EXCLUDED FROM THE THESIS BUILD (2026-07-27): Appendix B was cut with Chapter 9 — Theorem
+B.6 was refuted at its witness step (docs/T1_WITNESS_GAP.md); Lemmas B.1–B.3 remain true
+and now live in the companion paper (docs/paper/06_theory.md). Kept for reference only.
+
 Thesis Appendix B — Proof Details for the Impossibility Theorem (Ch 9). Assembled from
 docs/T1_PROOF_SKELETON.md (Lemma 1 + reduction), T1_W1_single_cell.md (cell constants),
 T1_W3_construction.md (aggregate + low-dim negative), T1_W2_W3a_closeout.md (affine law +
