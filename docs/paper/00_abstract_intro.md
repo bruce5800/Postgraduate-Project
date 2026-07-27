@@ -1,12 +1,13 @@
 <!--
 Draft §Abstract + §1 of the combined paper (markdown; LaTeX template later).
 Honesty guardrails kept: order-error credits ACI; serving = case study; combiner =
-benchmarked baseline, not claimed; theory scope stated (r=Θ(n)); T1 written as the
-intended claim — the PROOF is to be finalized + advisor-signed before submission
-(see the [PROOF PENDING] note in §1 and docs/T1_*).
+benchmarked baseline, not claimed; theory = the budget–stakes law (REVISED 2026-07-27:
+the witness step refuted the earlier tolerant-testing impossibility — see
+docs/T1_WITNESS_GAP.md and §7). Advisor pass + a novelty pass on payoff-estimating
+acceptance rules remain before submission.
 -->
 
-# The Limits of Predictions for Online Bipartite Matching: A Unified Experimental Study and an Impossibility Theorem
+# The Limits of Predictions for Online Bipartite Matching: A Unified Experimental Study and a Budget–Stakes Law
 
 ## Abstract
 
@@ -23,14 +24,20 @@ average-case (known-i.i.d.) inputs, the value of predictions is **robustness ins
 not a performance lever**: the advice-free baseline is already near-optimal, so the
 *consistency* upside of good advice is small, whereas unguarded prediction-following can
 crash far below the baseline — and the practical worth of the sophisticated algorithms
-is precisely that they never do. We then prove that this wall is *necessary*. For the
-test-and-fallback class, no algorithm whose test inspects only a sublinear prefix can be
-simultaneously $(1-o(1))$-consistent and robust on strong-baseline instances, because
-the structure that makes the prefix distribution-test statistically feasible is exactly
-the structure that makes the baseline near-optimal. The proof reduces safe advice-use to
-*tolerant* distribution testing and invokes its near-linear sample-complexity barrier.
-Experiments and theory together deliver one message: **where you can test the advice, you
-do not need it.**
+is precisely that they never do. We then prove what the wall *costs*. For the
+test-and-fallback class we establish a sharp, two-sided **budget–stakes law**: deciding
+whether to follow the advice requires — and, via an explicit one-line rule, only
+requires — a prefix of length $\tilde\Theta(\theta/\delta^2)$, the inverse square of the
+stakes $\delta$ (what good advice gains over the baseline) scaled by the contention
+$\theta$, independent of the instance length. The lower half binds *every* decision rule;
+the upper half refutes the natural conjecture that the hardness of tolerant distribution
+testing blocks all sublinear rules — the decision-relevant statistic is the *payoff* of
+following, which is exponentially cheaper to test than the prediction's distance. Because
+the stakes are capped by the baseline slack, on strong-baseline instances the price
+exceeds the horizon: upsides below $\approx\sqrt{(1-\rho_{\mathrm{base}})/n}$ are
+uncapturable by any rule at any prefix length, and the upsides we measure sit in that
+range. Experiments and theory deliver one message: **on average-case matching, the
+advice's upside is smaller than the price of finding out whether to trust it.**
 
 ---
 
@@ -90,30 +97,39 @@ MPD depends on its predictor only through the induced *order*, one might train t
 predictor with an order-aware loss instead of regression, but on realistic features the
 two coincide — reinforcing that the predictor, once order-faithful, is not the bottleneck.
 
-**Why the wall is necessary.** The empirical wall is not an artifact of a particular
-generator or algorithm; it is forced. Our main theoretical contribution (Section 7) is an
-impossibility theorem for the test-and-fallback class. Informally:
+**Why the wall is necessary — and what it costs.** The empirical wall is not an artifact
+of a particular generator or algorithm; it has a price tag. Our main theoretical
+contribution (Section 7) is a two-sided **budget–stakes law** for the test-and-fallback
+class. Informally:
 
-> On strong-baseline instances, no test-and-fallback algorithm whose test inspects only a
-> sublinear prefix of the arrivals can be simultaneously $(1-o(1))$-consistent and robust.
+> Deciding whether to follow the advice costs a prefix of length
+> $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of the stakes $\delta$ (what
+> good advice gains over the baseline), scaled by the contention $\theta$. Below $k^*$,
+> *no* decision rule is simultaneously consistent and robust; at $k^*$, an explicit
+> one-line rule is.
 
-The reason is a coupling between *testability* and *baseline strength*. To decide safely
-whether to follow the advice, the algorithm must, from its prefix, distinguish advice that
-is *close enough to help* from advice that is *far enough to hurt* — a **tolerant**
-distribution-testing problem, provably harder than ordinary testing, requiring nearly as
-many samples as the support has types (Θ̃(n/\log n) [CJKL22], versus √n for the
-non-tolerant version). But the prefix is statistically informative only when the type
-distribution has few, high-count types — and that is exactly the regime in which the
-advice-free baseline is already near-optimal, leaving nothing to test *for*. Where the
-baseline is weak enough that advice could help, the support is large, each type is seen
-$O(1)$ times, and no sublinear prefix can run the test. The proof makes this precise via a
-master consistency/robustness inequality and a reduction that holds for *any* decision
-rule on the prefix — not merely the empirical-distance threshold used in practice — so it
-is a genuine information-theoretic impossibility rather than a comment on one algorithm.
-<!-- [PROOF PENDING] T1 is stated here as the intended claim; the full proof is complete
-in skeleton with the core lemma rigorous, the single-cell and affine-conversion steps
-verified, and the tolerant-testing lower bound cited (docs/T1_*). One routine step
-(the witness-instance match) and an advisor pass remain before final typesetting. -->
+The lower half is information-theoretic — it binds *any* measurable rule on the prefix,
+not merely the empirical-distance threshold used in practice — via a master
+consistency/robustness inequality and a Hellinger computation. The upper half is a
+**directional test**: classify each prefix arrival as agreeing or disagreeing with the
+advice's local prediction, and follow iff agreements win. Its analysis rests on a *payoff
+identity* — on the hard family, the advantage of following is exactly half the mean of a
+per-sample observable — which also refutes the tempting stronger conjecture (and an
+earlier version of our own claim) that tolerant-testing hardness [CJKL22] makes the
+decision impossible for every sublinear rule: the advice's *distance* to the truth is
+indeed hard to test, and the field's empirical-$\ell_1$ thresholds are provably blind at
+sublinear prefixes, but the decision-relevant *payoff* is not. The wall then re-emerges
+exactly where the experiments live: stakes are capped by the baseline slack
+($\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})$), so on strong-baseline instances the
+budget $k^*$ exceeds the horizon itself — every upside below
+$\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ is uncapturable at *any* feasible prefix, and
+the upsides measured in Sections 3–6 sit in that range.
+<!-- [PROOF STATUS] Both halves are elementary (Bernstein upper; Hellinger + master
+inequality lower) and are stated with proofs/sketches in §7; numerical verification in
+scripts/verify_witness_gap.py. The earlier tolerant-testing impossibility was refuted
+during its own witness step (docs/T1_WITNESS_GAP.md) — the refutation is reported
+honestly in §7.7. Remaining before submission: advisor pass; literature pass on
+payoff-estimating acceptance rules. -->
 
 **Contributions.**
 - **(C1) The first unified benchmark** of learning-augmented online-matching algorithms —
@@ -133,14 +149,18 @@ verified, and the tolerant-testing lower bound cited (docs/T1_*). One routine st
   pathology (a more accurate test can make a worse decision), its recalibration and
   resolution limit, and a benchmark of the dynamic combiner exhibiting an
   irrevocability penalty that explains why matching needs *test-then-commit* (Section 5).
-- **(C5) The impossibility theorem.** No sublinear-test test-and-fallback is both
-  consistent and robust on strong-baseline matching, via a reduction to tolerant
-  distribution testing; the testability ⟺ baseline-strength coupling is the crux (Section
-  7).
+- **(C5) The budget–stakes law.** A sharp two-sided law for test-and-fallback: the
+  follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
+  rule (lower bound), and an explicit directional test achieves it (upper bound). A
+  payoff identity separates cheap payoff-testing from provably hard distance-testing —
+  refuting, and reporting honestly, the natural tolerant-testing impossibility — and the
+  corollary quantifies the wall: on strong-baseline instances, upsides below
+  $\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ are uncapturable at any prefix length
+  (Section 7).
 
-The experiments and the theorem are two views of one fact. The experiments discover a wall
-— predictions buy insurance, not performance; the theorem proves the wall is necessary for
-any algorithm that verifies its advice on a sublinear prefix. We adopt an AI-inference
+The experiments and the law are two views of one fact. The experiments discover a wall —
+predictions buy insurance, not performance; the law prices the wall — verifying advice
+costs the inverse square of its stakes, and average-case stakes cannot cover the bill. We adopt an AI-inference
 serving instantiation as a running application case study (Section 8) rather than a novelty
 claim, and we are careful throughout to credit the prior results our findings build on and
 to state the scope of each claim.

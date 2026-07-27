@@ -1,5 +1,9 @@
 # T1 — Proof Skeleton (no-free-lunch for sublinear test-and-fallback)
 
+> **SUPERSEDED IN PART (2026-07-27):** the tolerant-testing route (Lemmas 3–4) does not
+> close — the required witness pair cannot exist, and the target theorem is false on the
+> cell family. Lemmas 1–2 and the W1 constants survive. See `T1_WITNESS_GAP.md`.
+
 **Status:** skeleton. Lemma 1 (the master tradeoff) is self-contained and rigorous.
 Lemmas 2–4 reduce T1 to a *tolerant distribution-testing* lower bound (Valiant–
 Valiant / Jiao–Han–Weissman) — the strategy is sound and addresses the prior-art

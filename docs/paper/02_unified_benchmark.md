@@ -89,8 +89,9 @@ bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and
 MPD-with-true-degrees is $0.999$ — under $0.01$ for *any* advice to add on the good side.
 Every wide gap in Panel C ($1.000\!\to\!0.472$ for FollowPrediction; the half-wide
 envelope) is a *downside* gap. This is the thesis in one panel: learning-augmented
-matching on typical inputs is robustness insurance, not a performance lift — a fact we
-will show is *necessary* in Section 7.
+matching on typical inputs is robustness insurance, not a performance lift — a fact
+Section 7 prices: safely capturing an upside this small would take a longer prefix than
+the instance itself.
 
 **(F4) The augmentation rescues structurally weak base algorithms.** Feldman and
 Jaillet–Lu are tuned for the worst-case ratio and are the *weakest* advice-free entries on
@@ -106,4 +107,5 @@ near-optimal, unguarded prediction-following is unsafe, and the value of the sop
 algorithms is downside protection delivered by one of two mechanisms. Sections 4–6 sharpen
 and stress-test each part — what governs the (small) loss, what the adaptive test costs,
 and whether the picture survives on real graphs, real traces, and a learned predictor —
-and Section 7 proves the wall is not an artifact but a theorem.
+and Section 7 proves the wall is not an artifact but a price: a budget–stakes law that
+puts the required test prefix beyond the horizon exactly where the baseline is strong.

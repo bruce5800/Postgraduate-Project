@@ -3,7 +3,8 @@ Draft §5 — test-and-fallback in depth (C4). Numbers from scripts/run_choo_bem
 run_recalibration.py, tests/test_combiner_small.py (docs/PHASE3C_REPORT.md, UNIFIED_BENCHMARK.md §3).
 Figures: choo_bem_envelope.png (Fig 3), choo_bem_prefix.png (Fig 4), recalibration_*.png.
 Guardrails: empirical-L1 surrogate (already flagged in §2); combiner benchmarked not claimed.
-This section is the EMPIRICAL bridge to §7 — §5.3's resolution limit is what §7 proves is necessary.
+This section is the EMPIRICAL bridge to §7 — §5.3's resolution limit is the ℓ₁-specific
+face of §7's budget–stakes law (§7.7 explains why the ℓ₁ class is blind).
 -->
 
 # 5. Test-and-Fallback in Depth
@@ -12,7 +13,7 @@ The test-and-fallback algorithms are the paper's adaptive robustness mechanism, 
 object of the theory in Section 7. This section gives their first empirical study: the
 robustness envelope they achieve, a counter-intuitive failure of the acceptance threshold,
 its recalibration, and the resolution limit that recalibration exposes — the empirical
-face of the impossibility we prove in Section 7. Throughout, the $\ell_1$ test is the
+face of the budget–stakes law we prove in Section 7. Throughout, the $\ell_1$ test is the
 empirical-$\ell_1$ proof-of-concept the original authors also fall back to (Section 2.2).
 
 ## 5.1 The robustness envelope
@@ -73,9 +74,13 @@ words:
 > threshold over-accepts (§5.2); the recalibrated threshold over-rejects; and a better
 > tester only follows whichever threshold more faithfully.
 
-This is exactly the phenomenon Section 7 proves is unavoidable — there, for *any* test on a
-sublinear prefix, not only the empirical-$\ell_1$ threshold. Section 5 is its empirical
-shadow; Section 7 is the theorem.
+Section 7 turns this phenomenon into a two-sided law. The resolution limit above is
+specific to the empirical-$\ell_1$ statistic — §7.7 shows that class is blind for a
+structural reason (the plug-in distance saturates at $k \ll r$ regardless of advice
+quality) — but the deeper point holds for *any* test on a sublinear prefix: the
+follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$, and on
+strong-baseline instances like these the stakes $\delta$ are so small that the price
+exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law.
 
 ## 5.4 The dynamic combiner is dominated, and shows why matching needs test-then-commit
 

@@ -32,8 +32,8 @@ is forgiving too, a third face of the paper's wall. Serving therefore stays a ca
 # 9. Related Work
 
 Algorithm attributions are given where each algorithm is introduced (§2), and the
-positioning of our lower bound against prior testing and tradeoff results is in §7.1; here
-we place the remaining landscape.
+positioning of our budget–stakes law against prior testing and tradeoff results is in §7;
+here we place the remaining landscape.
 
 **Learning-augmented algorithms.** The consistency/robustness framework originates with
 competitive caching with predictions [LV18] and the optimal-tradeoff analyses that followed
@@ -47,10 +47,13 @@ schemes [Choo24, BEM26] are the algorithms we unify and, for the latter, bound; 
 previously studied in isolation. Borodin et al. [Bor18] is the advice-free experimental
 foundation our benchmark extends.
 
-**Distribution testing.** Our impossibility invokes the sample-complexity of tolerant
-identity testing [CJKL22, VV11] and $\ell_1$-distance estimation [JHW18]; the surprising
-near-linear $\tilde\Theta(r/\log r)$ cost of tolerance (versus $\sqrt r$ for testing) is
-exactly what separates "can verify the advice" from "cannot."
+**Distribution testing.** Tolerant identity testing [CJKL22, VV11] and $\ell_1$-distance
+estimation [JHW18] enter our story as the explanation of why the field's
+empirical-$\ell_1$ acceptance rules are blind at sublinear prefixes — the near-linear
+$\tilde\Theta(r/\log r)$ price of tolerance is real. Our budget–stakes law shows the
+follow/fallback *decision* nonetheless escapes that barrier: its decision-relevant
+statistic is the payoff, not the distance (§7.7), which is why our lower bound is a
+Hellinger computation rather than a testing reduction.
 
 **Serving systems.** The systems results our §8 case study recovers are established across
 Preble, Mooncake, SageServe, and related work; we use them as ground truth, not as
@@ -62,12 +65,16 @@ contributions.
 the algorithms' guarantees carry, but our empirical wall is an average-case statement and
 we do not claim it for adversarial arrival order. (ii) Following the original authors, the
 test-and-fallback experiments use an empirical-$\ell_1$ surrogate for the (unimplemented)
-distribution tester; the theorem inherits this modeling of the test. (iii) The degree- and
+distribution tester; the theory does *not* inherit this modeling — the law binds any
+rule — and §7.7 separately explains the surrogate's blindness. (iii) The degree- and
 histogram-prediction families do not map onto every graph, which is why we report them in
 parallel panels rather than one table. (iv) Each real modality is exercised by one trace.
-(v) The impossibility theorem is strong-form in the $r=\Theta(n)$ regime — the regime with
-an upside to contest — and one routine step of its proof (the witness-instance match) plus a
-final review remain before it is fully typeset; a version biting at constant $r$ is open.
+(v) The budget–stakes law is proven on decomposable (disjoint-cell) families, where the
+payoff identity holds; whether a *non*-decomposable family can push the budget above
+$1/\delta^2$ is open, as is the novelty of payoff-estimating acceptance rules relative to
+the broader learning-augmented literature (a dedicated pass is in progress). An earlier
+draft claimed a tolerant-testing impossibility for any sublinear rule; that claim was
+refuted during its own witness step and the refutation is reported in §7.7.
 
 **Conclusion.** We gave the first unified experimental study of learning-augmented online
 bipartite matching — advice-free baselines, MinPredictedDegree and its augmentations, and
@@ -75,13 +82,17 @@ the test-and-fallback algorithms — on one harness, with confidence intervals, 
 synthetic graphs, six real graphs, and real traces. Across every setting the same wall
 appears: the advice-free baseline is already near-optimal, unguarded prediction-following
 crashes below it, and the value of the sophisticated algorithms is downside protection,
-delivered by structural or adaptive robustness with distinct trade-offs. We then proved the
-wall is necessary for the test-and-fallback class: no algorithm whose test inspects only a
-sublinear prefix can be both consistent and robust on strong-baseline instances, because the
-structure that makes the prefix test feasible is the structure that makes the baseline
-near-optimal. Experiments discover the wall; theory proves it must be there. The practical
-message is a single sentence — **where you can test the advice, you do not need it** — and it
-suggests that progress on predictions for online matching will come not from better
-predictors or tests on average-case inputs, but from the regimes this paper brackets:
-adversarial or non-stationary arrivals, and objectives (tail, fairness, cost) where the
-advice-free baseline is genuinely far from optimal.
+delivered by structural or adaptive robustness with distinct trade-offs. We then priced
+the wall for the test-and-fallback class with a two-sided budget–stakes law: the
+follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
+decision rule, an explicit directional test achieves it, and — because stakes are capped
+by the baseline slack — on strong-baseline instances the price exceeds the horizon:
+upsides below $\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ are uncapturable at any feasible
+prefix. Experiments discover the wall; theory sends the bill. The practical message is a
+single sentence — **on average-case matching, the advice's upside is smaller than the
+price of finding out whether to trust it** — with one constructive corollary for
+algorithm designers: *test the payoff, not the prediction* (the payoff is a per-sample
+observable where the distance is not). Progress on predictions for online matching will
+come from the regimes this paper brackets: adversarial or non-stationary arrivals, and
+objectives (tail, fairness, cost) where the advice-free baseline is genuinely far from
+optimal.

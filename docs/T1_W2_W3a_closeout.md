@@ -1,5 +1,9 @@
 # T1 close-out — W2 (confirmed) and W3a (the affine law, proven)
 
+> **SUPERSEDED IN PART (2026-07-27):** the "single routine step" verdict below is wrong —
+> attempting it refuted the theorem as stated. See `T1_WITNESS_GAP.md`. W2 and W3a
+> themselves remain correct.
+
 Two remaining gaps of the T1 proof skeleton, resolved. **W2** (the exact
 tolerant-testing sample complexity) is confirmed with a modern citation, and lands on
 the *right* side of the tolerant/non-tolerant divide — the theorem holds. **W3a** (the
