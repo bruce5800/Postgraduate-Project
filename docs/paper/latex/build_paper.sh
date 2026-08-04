@@ -1,9 +1,12 @@
 #!/bin/bash
-# Build the ITCS/LIPIcs paper PDF from the markdown drafts in ../ (docs/paper/*.md).
+# Build the paper PDF from the markdown drafts in ../ (docs/paper/*.md).
+# PRIMARY TARGET: TALG Empirical Track (JEA's successor) — acmart `manuscript`
+# review format (talg_main.tex). itcs_main.tex (LIPIcs) is kept for reference /
+# a possible arXiv layout but is no longer built by default.
 # Same philosophy as the thesis builds: EDIT THE MARKDOWN, NOT ch/*.tex.
-# Pipeline: strip comments (incl. author notes — required for double-blind), strip
-# heading numbers (LaTeX renumbers), map [Choo24]-style labels to \cite{bibkey},
-# pandoc -> section fragments, bibtex plainurl over note-stripped references.bib.
+# Pipeline: strip comments (author notes), strip heading numbers (LaTeX
+# renumbers), map [Choo24]-style labels to \cite{bibkey}, pandoc -> section
+# fragments, bibtex ACM-Reference-Format over note-stripped references.bib.
 set -e
 cd "$(dirname "$0")"
 mkdir -p ch
@@ -69,15 +72,16 @@ pathlib.Path('refs_clean.bib').write_text(bib)
 print('refs_clean.bib regenerated')
 EOF
 
-pdflatex -interaction=nonstopmode itcs_main.tex > build_paper.log 2>&1 || {
+MAIN=${1:-talg_main}
+pdflatex -interaction=nonstopmode "$MAIN.tex" > build_paper.log 2>&1 || {
   echo "pdflatex pass 1 FAILED — tail:"; grep -A3 '^!' build_paper.log | head -30; exit 1; }
-bibtex itcs_main >> build_paper.log 2>&1 || {
+bibtex "$MAIN" >> build_paper.log 2>&1 || {
   echo "bibtex FAILED — tail:"; tail -20 build_paper.log; exit 1; }
-pdflatex -interaction=nonstopmode itcs_main.tex >> build_paper.log 2>&1 || true
-pdflatex -interaction=nonstopmode itcs_main.tex >> build_paper.log 2>&1 || {
+pdflatex -interaction=nonstopmode "$MAIN.tex" >> build_paper.log 2>&1 || true
+pdflatex -interaction=nonstopmode "$MAIN.tex" >> build_paper.log 2>&1 || {
   echo "pdflatex final pass FAILED — tail:"; grep -A3 '^!' build_paper.log | head -30; exit 1; }
 
-pages=$(pdfinfo itcs_main.pdf 2>/dev/null | awk '/Pages/{print $2}')
-echo "OK: built itcs_main.pdf (${pages:-?} pages)"
-undef=$(grep -c 'Citation .* undefined' itcs_main.log || true)
+pages=$(pdfinfo "$MAIN.pdf" 2>/dev/null | awk '/Pages/{print $2}')
+echo "OK: built $MAIN.pdf (${pages:-?} pages)"
+undef=$(grep -c 'Citation .* undefined' "$MAIN.log" || true)
 [ "${undef:-0}" -gt 0 ] && echo "WARNING: $undef undefined citations" || echo "citations: all resolved"

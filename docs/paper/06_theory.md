@@ -13,9 +13,10 @@ step refuted it (see docs/T1_WITNESS_GAP.md): on the cell family the follow-payo
 half the mean of a per-sample observable, so a directional rule succeeds at k = O(log n).
 This section now states what is true instead: a sharp budget–stakes law (Theorem 1, both
 halves elementary — Bernstein/Hoeffding upper, Hellinger + Lemma 1 lower). Lemma 1 and the
-affine law carry over unchanged. Remaining before submission: advisor pass on the whole
-section; a literature pass on payoff-estimating acceptance rules (novelty of the
-directional test); typeset the two short proofs in the appendix.
+affine law carry over unchanged. Remaining before submission (single-author as of
+2026-07-28): the author's own line-by-line verification of this section; a literature
+pass on payoff-estimating acceptance rules (novelty of the directional test); typeset
+the two short proofs in the appendix.
 
 Differentiation to defend (put up front): Choo's threshold τ=2(n̂/n−β)−ε couples to the
 baseline β CONSTRUCTIVELY; our lower bound is information-theoretic (any prefix rule).

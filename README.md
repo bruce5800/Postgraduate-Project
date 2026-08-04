@@ -34,7 +34,7 @@ All chapters live as markdown (edit those, not the TeX) and build three ways:
 | English draft (43 pp) | `thesis/en/*.md` | `thesis/latex/build.sh` | `thesis/latex/main.pdf` |
 | 中文草稿 (42 pp) | `thesis/zh/*.md` | `thesis/latex/build_zh.sh` | `thesis/latex/main_zh.pdf` |
 | **Bristol template (68 pp)** | `thesis/en/*.md` | `thesis/latex_school/build_school.sh` | `thesis/latex_school/thesis.pdf` |
-| **ITCS 2027 paper (LIPIcs, 20 pp, double-blind)** | `docs/paper/*.md` | `docs/paper/latex/build_paper.sh` | `docs/paper/latex/itcs_main.pdf` |
+| **TALG Empirical Track paper (ACM acmart, 20 pp)** | `docs/paper/*.md` | `docs/paper/latex/build_paper.sh` | `docs/paper/latex/talg_main.pdf` |
 
 10 chapters + Appendix A (reproduction guide). The former theory chapter was cut from the
 thesis (2026-07-27) and survives as a one-page outlook (§10.2); the full theory lives in

@@ -128,8 +128,9 @@ the upsides measured in Sections 3–6 sit in that range.
 inequality lower) and are stated with proofs/sketches in §7; numerical verification in
 scripts/verify_witness_gap.py. The earlier tolerant-testing impossibility was refuted
 during its own witness step (docs/T1_WITNESS_GAP.md) — the refutation is reported
-honestly in §7.7. Remaining before submission: advisor pass; literature pass on
-payoff-estimating acceptance rules. -->
+honestly in §7.7. Remaining before submission (single-author, 2026-07-28): the author's
+own line-by-line verification pass; literature pass on payoff-estimating acceptance
+rules; venue LLM-disclosure policy check. -->
 
 **Contributions.**
 - **(C1) The first unified benchmark** of learning-augmented online-matching algorithms —

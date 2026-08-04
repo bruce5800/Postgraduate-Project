@@ -181,10 +181,10 @@ Package scrlayer-scrpage Warning: \headheight to low.
 7.
 
 
-Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
-ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
-/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
-
+Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
+/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.m
+ap}{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./Uo
+B_RGB_24.jpg>]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
@@ -572,7 +572,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (68 pages, 2442038 bytes).
+Output written on thesis.pdf (68 pages, 2442002 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -582,8 +582,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'refs_clean.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'refs_clean.bib'
-INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
 INFO - No sort tailoring available for locale 'en-US'
 INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
@@ -771,10 +771,10 @@ Package scrlayer-scrpage Warning: \headheight to low.
 7.
 
 
-Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
-ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
-/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
-
+Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
+/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.m
+ap}{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./Uo
+B_RGB_24.jpg>]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
@@ -1162,7 +1162,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (68 pages, 2442038 bytes).
+Output written on thesis.pdf (68 pages, 2442002 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1347,10 +1347,10 @@ Package scrlayer-scrpage Warning: \headheight to low.
 7.
 
 
-Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/usr/l
-ocal/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local
-/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./UoB_RGB_24.jpg>]
-
+Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
+/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.m
+ap}{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./Uo
+B_RGB_24.jpg>]
 
 Package typearea Warning: \typearea used at group level 2.
 (typearea)                Using \typearea inside any group, e.g.
@@ -1738,5 +1738,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (68 pages, 2442038 bytes).
+Output written on thesis.pdf (68 pages, 2442002 bytes).
 Transcript written on thesis.log.

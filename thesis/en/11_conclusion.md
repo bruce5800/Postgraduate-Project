@@ -36,8 +36,8 @@ The experiments say that no *practical* acceptance threshold captures the upside
 (§6.3, Figure 6.4). This section sketches, without claiming a full theorem, why no
 decision rule of *any* kind escapes the wall on the inputs where it stands. One
 ingredient is proved here; the rest is a quantitative reading of our own experiments,
-whose full formal development is deliberately deferred to companion work in preparation
-with the author's supervisor.
+whose full formal development is deliberately deferred to companion work in
+preparation.
 
 > **A trade-off inequality.** Let $G$ and $\mathrm{Bd}$ be two instance distributions
 > sharing the *same* advice, such that following the advice gains $\delta$ under $G$ and
