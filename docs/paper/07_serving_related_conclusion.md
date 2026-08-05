@@ -84,7 +84,8 @@ appears: the advice-free baseline is already near-optimal, unguarded prediction-
 crashes below it, and the value of the sophisticated algorithms is downside protection,
 delivered by structural or adaptive robustness with distinct trade-offs. We then priced
 the wall for the test-and-fallback class with a two-sided budget–stakes law: the
-follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
+follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$ — baseline slack
+over squared stakes — for *any*
 decision rule, an explicit directional test achieves it (implemented and benchmarked, it
 avoids both threshold pathologies, §5.4), and — because stakes are capped
 by the baseline slack — on strong-baseline instances the price exceeds the horizon:

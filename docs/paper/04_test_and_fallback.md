@@ -88,9 +88,9 @@ Section 7 turns this phenomenon into a two-sided law. The resolution limit above
 specific to the empirical-$\ell_1$ statistic — §7.7 shows that class is blind for a
 structural reason (the plug-in distance saturates at $k \ll r$ regardless of advice
 quality) — but the deeper point holds for *any* test on a sublinear prefix: the
-follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$, and on
-strong-baseline instances like these the stakes $\delta$ are so small that the price
-exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law. But the
+follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$ — baseline slack
+over squared stakes — and on strong-baseline instances like these the stakes are so
+small that the price exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law. But the
 resolution limit is a property of the *statistic*, not of testing itself — the next
 subsection builds the rule the law suggests, and it behaves differently.
 
@@ -124,10 +124,11 @@ payoff rule stays at the floor ($0.989/0.990$, misjudgement $3\%/0\%$). At perfe
 — where the recalibrated threshold *never* follows (misjudgement $100\%$, §5.3) — the
 payoff rule captures the upside in ${\sim}40\%$ of instances and lands safely on the
 floor otherwise. That partial capture is the honest ceiling, not a defect: the family's
-upside ($\approx0.02$) lies below the resolution *any* rule can achieve at $k=200$
-(Section 7 prices it at $k^*\approx 1/\delta^2\approx 2500 > n$) — the budget–stakes law
-binds our rule too, and the right behavior at unresolvable stakes is exactly this
-safe-either-way coin flip.
+upside ($\approx0.02$) lies below the resolution *any* rule can achieve at $k=200$ — by
+the budget–stakes scaling of Section 7, with this family's payoff estimator carrying
+per-sample variance of order one, resolving stakes of $0.02$ takes
+$k \approx 1/0.02^2 = 2500 > n$ — the law binds our rule too, and the right behavior at
+unresolvable stakes is exactly this safe-either-way coin flip.
 
 ![The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget–stakes law allows.](../../results/directional_envelope.png){width=85%}
 

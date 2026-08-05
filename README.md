@@ -56,13 +56,15 @@ build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/p
   features and vanishes on real traces (Kendall-τ 0.126 = 0.126); no serving SLO/tail regime
   where foresight beats a reactive baseline (≤ 3% from clairvoyant).
 - **Theory (budget–stakes law, paper §7; thesis outlook §10.2):** the follow/fallback
-  decision costs a prefix $k^* = \tilde\Theta(\theta/\delta^2)$ — below it *no* rule is
-  both consistent and robust (Hellinger + master inequality); at it, a one-line
-  *directional test* succeeds. Stakes are capped by baseline slack, so on strong-baseline
-  instances upsides below $\approx\sqrt{(1-\rho_{\text{base}})/n}$ are uncapturable at any
-  prefix. *Honesty note:* the earlier any-rule tolerant-testing impossibility was refuted
-  at its own witness step — payoffs are per-sample observable where distances are not
-  (`docs/T1_WITNESS_GAP.md`, verified by `scripts/verify_witness_gap.py`).
+  decision costs a prefix $k^* = \tilde\Theta(\sigma^2/g^2)$ — specialist mass over
+  squared stakes, with the exact identity $\sigma^2 = 2(1-\rho_{\text{base}})$; holds for
+  fully heterogeneous cell profiles and magnitude-mismatched advice. Below $k^*$ *no*
+  rule is both consistent and robust (Hellinger + master inequality); at it, a one-line
+  *directional test* succeeds. At full horizon, upsides below
+  $\sqrt{2(1-\rho_{\text{base}})/n}$ are uncapturable by any rule. *Honesty note:* the
+  earlier any-rule tolerant-testing impossibility was refuted at its own witness step —
+  payoffs are per-sample observable where distances are not (`docs/T1_WITNESS_GAP.md`;
+  verified by `scripts/verify_witness_gap.py` and `verify_budget_stakes_hetero.py`).
 
 ## Project status
 

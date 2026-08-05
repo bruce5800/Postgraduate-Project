@@ -145,10 +145,11 @@ enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 3690) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
 Underfull \vbox (badness 4048) has occurred while \output is active
 [3.3]
+Underfull \vbox (badness 1231) has occurred while \output is active
 [4.4]) (./ch/02_unified_benchmark.tex
 [5.5]
 
@@ -173,50 +174,60 @@ Class acmart Warning: A possible image without description on input line 58.
 
 [9.9{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
 
-Underfull \vbox (badness 2426) has occurred while \output is active
 [10.10 <../../../results/choo_bem_envelope.png> <../../../results/choo_bem_pref
 ix.png>]
 [11.11]
 
-Class acmart Warning: A possible image without description on input line 172.
+Class acmart Warning: A possible image without description on input line 174.
 
 
-Class acmart Warning: A possible image without description on input line 191.
+Class acmart Warning: A possible image without description on input line 193.
 
-) (./ch/05_external_validity.tex
-[12.12 <../../../results/directional_envelope.png>]
+
+[12.12 <../../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[13.13 <../../../results/directional_prefix.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
-[13.13 <../../../results/directional_prefix.png>]
-
 Class acmart Warning: A possible image without description on input line 59.
 
 
-Underfull \vbox (badness 5161) has occurred while \output is active
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
-Underfull \vbox (badness 4303) has occurred while \output is active
 [15.15 <../../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
 [16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
+Underfull \vbox (badness 2698) has occurred while \output is active
 [17.17]
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
+ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
+T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Class acmart Warning: A possible image without description on input line 259.
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
+ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
+kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-
-Underfull \vbox (badness 6825) has occurred while \output is active
+Underfull \vbox (badness 1629) has occurred while \output is active
 [18.18]
 
-Class acmart Warning: A possible image without description on input line 288.
+Class acmart Warning: A possible image without description on input line 292.
 
-) (./ch/07_serving_related_conclusion.tex
-[19.19 <../../../results/impossibility_frontier.png>]
-[20.20 <../../../results/directional_rsweep.png>])
-Underfull \vbox (badness 4048) has occurred while \output is active
-[21.21] (./talg_main.bbl)
+
+Class acmart Warning: A possible image without description on input line 321.
+
+
+[19.19]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 1509) has occurred while \output is active
+[20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
+nal_rsweep.png>]
+[21.21]) (./talg_main.bbl
+[22.22])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -233,32 +244,31 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[22.22] (./talg_main.aux)
+[23.23] (./talg_main.aux)
 
-Package rerunfilecheck Warning: File `talg_main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/
-texmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Libra
-ry/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/f
-onts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type
-1/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/new
-tx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (22 pages, 1565138 bytes).
+y/texmf/fonts/type1/public/newtx/LibertineMathMI5.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library/
+texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/t
+exmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Librar
+y/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/fo
+nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
+/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
+x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
+Output written on talg_main.pdf (23 pages, 1574418 bytes).
 Transcript written on talg_main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
 The top-level auxiliary file: talg_main.aux
@@ -448,10 +458,11 @@ enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 3690) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
 Underfull \vbox (badness 4048) has occurred while \output is active
 [3.3]
+Underfull \vbox (badness 1231) has occurred while \output is active
 [4.4]) (./ch/02_unified_benchmark.tex
 [5.5]
 
@@ -476,50 +487,60 @@ Class acmart Warning: A possible image without description on input line 58.
 
 [9.9{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
 
-Underfull \vbox (badness 2426) has occurred while \output is active
 [10.10 <../../../results/choo_bem_envelope.png> <../../../results/choo_bem_pref
 ix.png>]
 [11.11]
 
-Class acmart Warning: A possible image without description on input line 172.
+Class acmart Warning: A possible image without description on input line 174.
 
 
-Class acmart Warning: A possible image without description on input line 191.
+Class acmart Warning: A possible image without description on input line 193.
 
-) (./ch/05_external_validity.tex
-[12.12 <../../../results/directional_envelope.png>]
+
+[12.12 <../../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[13.13 <../../../results/directional_prefix.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
-[13.13 <../../../results/directional_prefix.png>]
-
 Class acmart Warning: A possible image without description on input line 59.
 
 
-Underfull \vbox (badness 5161) has occurred while \output is active
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
-Underfull \vbox (badness 4303) has occurred while \output is active
 [15.15 <../../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
 [16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
+Underfull \vbox (badness 2698) has occurred while \output is active
 [17.17]
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
+ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
+T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Class acmart Warning: A possible image without description on input line 259.
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
+ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
+kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-
-Underfull \vbox (badness 6825) has occurred while \output is active
+Underfull \vbox (badness 1629) has occurred while \output is active
 [18.18]
 
-Class acmart Warning: A possible image without description on input line 288.
+Class acmart Warning: A possible image without description on input line 292.
 
-) (./ch/07_serving_related_conclusion.tex
-[19.19 <../../../results/impossibility_frontier.png>]
-[20.20 <../../../results/directional_rsweep.png>])
-Underfull \vbox (badness 4048) has occurred while \output is active
-[21.21] (./talg_main.bbl)
+
+Class acmart Warning: A possible image without description on input line 321.
+
+
+[19.19]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 1509) has occurred while \output is active
+[20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
+nal_rsweep.png>]
+[21.21]) (./talg_main.bbl
+[22.22])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -536,26 +557,27 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[22.22] (./talg_main.aux) )
+[23.23] (./talg_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/
-texmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Libra
-ry/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/f
-onts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type
-1/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/new
-tx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (22 pages, 1565137 bytes).
+y/texmf/fonts/type1/public/newtx/LibertineMathMI5.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library/
+texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/t
+exmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Librar
+y/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/fo
+nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
+/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
+x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
+Output written on talg_main.pdf (23 pages, 1574415 bytes).
 Transcript written on talg_main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -704,10 +726,11 @@ enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 3690) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
 Underfull \vbox (badness 4048) has occurred while \output is active
 [3.3]
+Underfull \vbox (badness 1231) has occurred while \output is active
 [4.4]) (./ch/02_unified_benchmark.tex
 [5.5]
 
@@ -732,50 +755,60 @@ Class acmart Warning: A possible image without description on input line 58.
 
 [9.9{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
 
-Underfull \vbox (badness 2426) has occurred while \output is active
 [10.10 <../../../results/choo_bem_envelope.png> <../../../results/choo_bem_pref
 ix.png>]
 [11.11]
 
-Class acmart Warning: A possible image without description on input line 172.
+Class acmart Warning: A possible image without description on input line 174.
 
 
-Class acmart Warning: A possible image without description on input line 191.
+Class acmart Warning: A possible image without description on input line 193.
 
-) (./ch/05_external_validity.tex
-[12.12 <../../../results/directional_envelope.png>]
+
+[12.12 <../../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[13.13 <../../../results/directional_prefix.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
-[13.13 <../../../results/directional_prefix.png>]
-
 Class acmart Warning: A possible image without description on input line 59.
 
 
-Underfull \vbox (badness 5161) has occurred while \output is active
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
-Underfull \vbox (badness 4303) has occurred while \output is active
 [15.15 <../../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
 [16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
+Underfull \vbox (badness 2698) has occurred while \output is active
 [17.17]
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
+ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
+T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Class acmart Warning: A possible image without description on input line 259.
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
+ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
+kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-
-Underfull \vbox (badness 6825) has occurred while \output is active
+Underfull \vbox (badness 1629) has occurred while \output is active
 [18.18]
 
-Class acmart Warning: A possible image without description on input line 288.
+Class acmart Warning: A possible image without description on input line 292.
 
-) (./ch/07_serving_related_conclusion.tex
-[19.19 <../../../results/impossibility_frontier.png>]
-[20.20 <../../../results/directional_rsweep.png>])
-Underfull \vbox (badness 4048) has occurred while \output is active
-[21.21] (./talg_main.bbl)
+
+Class acmart Warning: A possible image without description on input line 321.
+
+
+[19.19]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 1509) has occurred while \output is active
+[20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
+nal_rsweep.png>]
+[21.21]) (./talg_main.bbl
+[22.22])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -792,24 +825,25 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[22.22] (./talg_main.aux) )
+[23.23] (./talg_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/
-texmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Libra
-ry/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/f
-onts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type
-1/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/new
-tx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (22 pages, 1565137 bytes).
+y/texmf/fonts/type1/public/newtx/LibertineMathMI5.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library/
+texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/t
+exmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Librar
+y/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/fo
+nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
+/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
+x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
+Output written on talg_main.pdf (23 pages, 1574415 bytes).
 Transcript written on talg_main.log.

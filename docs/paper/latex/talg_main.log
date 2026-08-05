@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  5 AUG 2026 00:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  5 AUG 2026 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1133,7 +1133,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 81.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3690) has occurred while \output is active []
 
 
 
@@ -1143,6 +1143,9 @@ Underfull \vbox (badness 4048) has occurred while \output is active []
 
 
 [3.3]
+Underfull \vbox (badness 1231) has occurred while \output is active []
+
+
 
 [4.4]) (./ch/02_unified_benchmark.tex
 
@@ -1217,9 +1220,6 @@ Class acmart Warning: A possible image without description on input line 58.
 
 [9.9{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
 
-Underfull \vbox (badness 2426) has occurred while \output is active []
-
-
 
 [10.10 <../../../results/choo_bem_envelope.png> <../../../results/choo_bem_pref
 ix.png>]
@@ -1229,25 +1229,31 @@ ix.png>]
 File: ../../../results/directional_envelope.png Graphic file (type png)
 <use ../../../results/directional_envelope.png>
 Package pdftex.def Info: ../../../results/directional_envelope.png  used on inp
-ut line 166.
+ut line 168.
 (pdftex.def)             Requested size: 365.50978pt x 240.36241pt.
 
 
-Class acmart Warning: A possible image without description on input line 172.
+Class acmart Warning: A possible image without description on input line 174.
 
 <../../../results/directional_prefix.png, id=273, 672.71326pt x 335.45325pt>
 File: ../../../results/directional_prefix.png Graphic file (type png)
 <use ../../../results/directional_prefix.png>
 Package pdftex.def Info: ../../../results/directional_prefix.png  used on input
- line 186.
+ line 188.
 (pdftex.def)             Requested size: 430.0115pt x 214.42828pt.
 
-Class acmart Warning: A possible image without description on input line 191.
+Class acmart Warning: A possible image without description on input line 193.
 
-) (./ch/05_external_validity.tex
 
-[12.12 <../../../results/directional_envelope.png>]
-<../../../results/real_predictor.png, id=280, 999.735pt x 383.63326pt>
+
+[12.12 <../../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[13.13 <../../../results/directional_prefix.png>]
+<../../../results/real_predictor.png, id=287, 999.735pt x 383.63326pt>
 File: ../../../results/real_predictor.png Graphic file (type png)
 <use ../../../results/real_predictor.png>
 Package pdftex.def Info: ../../../results/real_predictor.png  used on input lin
@@ -1257,9 +1263,6 @@ e 20.
 
 Class acmart Warning: A possible image without description on input line 24.
 
-
-
-[13.13 <../../../results/directional_prefix.png>]
 <../../../results/realworld_robustness.png, id=288, 1145.4795pt x 641.9985pt>
 File: ../../../results/realworld_robustness.png Graphic file (type png)
 <use ../../../results/realworld_robustness.png>
@@ -1267,24 +1270,18 @@ Package pdftex.def Info: ../../../results/realworld_robustness.png  used on inp
 ut line 55.
 (pdftex.def)             Requested size: 429.99072pt x 240.99374pt.
 
-
 Class acmart Warning: A possible image without description on input line 59.
 
+
+
+[14.14 <../../../results/real_predictor.png>]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/it' in size <9> not ava
 ilable
 (Font)              Font shape `T1/LinuxBiolinumT-TLF/b/sl' tried instead on in
 put line 91.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
 (Font)              scaled to size 9.0pt on input line 91.
-
-Underfull \vbox (badness 5161) has occurred while \output is active []
-
-
-
-[14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
-Underfull \vbox (badness 4303) has occurred while \output is active []
-
-
+) (./ch/06_theory.tex
 
 [15.15 <../../../results/realworld_robustness.png>]
 LaTeX Font Info:    Trying to load font information for OT1+LinuxBiolinumT-TLF 
@@ -1312,55 +1309,74 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 124.
+(Font)              scaled to size 6.6pt on input line 126.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 124.
+(Font)              scaled to size 5.5pt on input line 126.
+
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
 
 
 [17.17]
-<../../../results/impossibility_frontier.png, id=321, 1006.962pt x 398.08725pt>
-
-File: ../../../results/impossibility_frontier.png Graphic file (type png)
-<use ../../../results/impossibility_frontier.png>
-Package pdftex.def Info: ../../../results/impossibility_frontier.png  used on i
-nput line 253.
-(pdftex.def)             Requested size: 430.00441pt x 169.99576pt.
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
+ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
+T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
+ []
 
 
-Class acmart Warning: A possible image without description on input line 259.
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
+ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
+kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
+ []
 
 
-Underfull \vbox (badness 6825) has occurred while \output is active []
+Underfull \vbox (badness 1629) has occurred while \output is active []
 
 
 
 [18.18]
-<../../../results/directional_rsweep.png, id=329, 672.71326pt x 335.45325pt>
+<../../../results/impossibility_frontier.png, id=327, 1006.962pt x 398.08725pt>
+
+File: ../../../results/impossibility_frontier.png Graphic file (type png)
+<use ../../../results/impossibility_frontier.png>
+Package pdftex.def Info: ../../../results/impossibility_frontier.png  used on i
+nput line 286.
+(pdftex.def)             Requested size: 430.00441pt x 169.99576pt.
+
+
+Class acmart Warning: A possible image without description on input line 292.
+
+<../../../results/directional_rsweep.png, id=330, 672.71326pt x 335.45325pt>
 File: ../../../results/directional_rsweep.png Graphic file (type png)
 <use ../../../results/directional_rsweep.png>
 Package pdftex.def Info: ../../../results/directional_rsweep.png  used on input
- line 283.
+ line 316.
 (pdftex.def)             Requested size: 430.0115pt x 214.42828pt.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 287.
+(Font)              scaled to size 8.0pt on input line 320.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 287.
+(Font)              scaled to size 6.0pt on input line 320.
 
-
-Class acmart Warning: A possible image without description on input line 288.
-
-) (./ch/07_serving_related_conclusion.tex
-
-[19.19 <../../../results/impossibility_frontier.png>]
-
-[20.20 <../../../results/directional_rsweep.png>])
-Underfull \vbox (badness 4048) has occurred while \output is active []
+Class acmart Warning: A possible image without description on input line 321.
 
 
 
-[21.21] (./talg_main.bbl
+[19.19]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+
+
+[20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
+nal_rsweep.png>]
+
+[21.21]) (./talg_main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 44.
+
+
+[22.22]
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 80.
 )
@@ -1381,7 +1397,7 @@ ence can ingest your work..
 
 
 
-[22.22] (./talg_main.aux)
+[23.23] (./talg_main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1390,35 +1406,36 @@ Package rerunfilecheck Info: File `talg_main.out' has not changed.
 (rerunfilecheck)             Checksum: C772FC83B9ECDEA3DB42BED4951F41BE;8934.
  ) 
 Here is how much of TeX's memory you used:
- 21765 strings out of 474654
- 359329 string characters out of 5750568
+ 21774 strings out of 474654
+ 359491 string characters out of 5750568
  777037 words of memory out of 5000000
  43376 multiletter control sequences out of 15000+600000
- 791374 words of font info for 634 fonts, out of 8000000 for 9000
+ 793121 words of font info for 641 fonts, out of 8000000 for 9000
  480 hyphenation exceptions out of 8191
- 90i,17n,131p,1006b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1006b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/lizhuolun/Library/texmf/fonts/type1/public/inconsolata/Inconsolata-zi
 4r.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI
-.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI7.
-pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathRM.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumT.pfb
-></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTB.pfb
-></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTBO.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTI.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineT.pf
-b></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineTB.p
-fb></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineTBI
-.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineT
-I.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Us
-ers/lizhuolun/Library/texmf/fonts/type1/public/newtx/NewTXMI7.pfb></Users/lizhu
-olun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/font
-s/type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publ
-ic/newtx/txsys.pfb>
-Output written on talg_main.pdf (22 pages, 1565137 bytes).
+.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI5.
+pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI7.p
+fb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathRM.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumT.pfb>
+</Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTB.pfb>
+</Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTBO.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinBiolinumTI.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineT.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineTB.pf
+b></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineTBI.
+pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/libertine/LinLibertineTI
+.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Use
+rs/lizhuolun/Library/texmf/fonts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuo
+lun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library/
+texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts
+/type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publi
+c/newtx/txsys.pfb>
+Output written on talg_main.pdf (23 pages, 1574415 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 385 compressed objects within 4 object streams
- 87 named destinations out of 1000 (max. 500000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 391 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 500000)
  125795 words of extra memory for PDF output out of 128383 (max. 10000000)
 

@@ -19,18 +19,18 @@ never do. We then prove what the wall \emph{costs}. For the
 test-and-fallback class we establish a sharp, two-sided
 \textbf{budget--stakes law}: deciding whether to follow the advice
 requires --- and, via an explicit one-line rule, only requires --- a
-prefix of length \(\tilde\Theta(\theta/\delta^2)\), the inverse square
-of the stakes \(\delta\) (what good advice gains over the baseline)
-scaled by the contention \(\theta\), independent of the instance length.
-The lower half binds \emph{every} decision rule; the upper half refutes
-the natural conjecture that the hardness of tolerant distribution
-testing blocks all sublinear rules --- the decision-relevant statistic
-is the \emph{payoff} of following, which is exponentially cheaper to
-test than the prediction's distance --- a prescription we validate on
-the benchmark, where a constant-free payoff-testing rule avoids the
-threshold pathologies of the deployed tests. Because the stakes are
-capped by the baseline slack, on strong-baseline instances the price
-exceeds the horizon: upsides below
+prefix of length \(\tilde\Theta(\sigma^2/g^2)\): the instance's
+specialist mass \(\sigma^2\) (exactly twice its baseline slack) divided
+by the squared stakes \(g\) (what good advice gains over the baseline),
+independent of the instance length. The lower half binds \emph{every}
+decision rule; the upper half refutes the natural conjecture that the
+hardness of tolerant distribution testing blocks all sublinear rules ---
+the decision-relevant statistic is the \emph{payoff} of following, which
+is exponentially cheaper to test than the prediction's distance --- a
+prescription we validate on the benchmark, where a constant-free
+payoff-testing rule avoids the threshold pathologies of the deployed
+tests. Because the stakes are capped by the baseline slack, on
+strong-baseline instances the price exceeds the horizon: upsides below
 \(\approx\sqrt{(1-\rho_{\mathrm{base}})/n}\) are uncapturable by any
 rule at any prefix length, and the upsides we measure sit in that range.
 Experiments and theory deliver one message: \textbf{on average-case

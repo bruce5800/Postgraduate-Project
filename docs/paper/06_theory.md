@@ -14,10 +14,13 @@ step refuted it (see docs/T1_WITNESS_GAP.md): on the cell family the follow-payo
 half the mean of a per-sample observable, so a directional rule succeeds at k = O(log n).
 This section now states what is true instead: a sharp budget–stakes law (Theorem 1, both
 halves elementary — Bernstein/Hoeffding upper, Hellinger + Lemma 1 lower). Lemma 1 and the
-affine law carry over unchanged. Remaining before submission (single-author as of
-2026-07-28): the author's own line-by-line verification of this section; a literature
-pass on payoff-estimating acceptance rules (novelty of the directional test); typeset
-the two short proofs in the appendix.
+affine law carry over unchanged. GENERALIZED 2026-07-28: heterogeneous profiles
+(theta_i, eps_i) + magnitude-free achievability, organized around the specialist mass
+sigma^2 = sum theta_i/N with the exact identity 1-rho_base = sigma^2/2; verified by
+scripts/verify_budget_stakes_hetero.py (see docs/T1_HETERO_GENERAL.md). Remaining before
+submission (single-author as of 2026-07-28): the author's own line-by-line verification
+of this section; a literature pass on payoff-estimating acceptance rules (novelty of the
+directional test); typeset the two short proofs in the appendix.
 
 Differentiation to defend (put up front): Choo's threshold τ=2(n̂/n−β)−ε couples to the
 baseline β CONSTRUCTIVELY; our lower bound is information-theoretic (any prefix rule).
@@ -33,8 +36,9 @@ is near-optimal, so predictions buy robustness insurance rather than performance
 the test-and-fallback algorithms — no acceptance threshold both captures the (tiny) upside
 and stays safe (§5.3). This section quantifies the wall. The result is a two-sided
 **budget–stakes law**: on a natural instance family, deciding whether to follow the advice
-requires a prefix of length $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of
-the stakes $\delta$, scaled by the contention $\theta$ — and this is *sharp*: below $k^*$
+requires a prefix of length $k^* = \tilde\Theta(\sigma^2/g^2)$ — the instance's
+specialist mass (exactly twice its baseline slack) divided by the squared stakes $g$ —
+and this is *sharp*: below $k^*$
 **no** decision rule whatsoever can be simultaneously consistent and robust (Theorem 1(i)),
 while at $k^*$ an explicit, embarrassingly simple rule succeeds (Theorem 1(ii)). The
 corollary is the wall: stakes are capped by the baseline slack, so on strong-baseline
@@ -103,30 +107,36 @@ missed) of how *small* a $k$ already suffices.
 
 The family is a disjoint union of $m$ independent **rare-resource cells**, each over a
 distinct type-pair, so the support is $r=\Theta(m)$ and (at $m = \Theta(n)$) each type is
-seen $O(1)$ times. A cell has resources $\{a_i,b_i\}$, a flexible request (neighborhood
+seen $O(1)$ times. Cell $i$ has resources $\{a_i,b_i\}$, a flexible request (neighborhood
 $\{a_i,b_i\}$) that must be routed before a specialist ($\{a_i\}$ or $\{b_i\}$, present
-with probability $\theta$) is seen; the right route depends on the future specialist. In
-closed form (verified numerically), per cell $\mathrm{OPT}=1+\theta$, baseline
-$=1+\theta/2$, and following the advice gains or loses exactly
-$\theta\lvert s-\tfrac12\rvert$ over the baseline according to whether the advice's
-*direction* is right, where $s = \tfrac12 \pm \varepsilon$ is the specialist bias and
-$\varepsilon$ the signal; the advice-to-truth distance is
-$\ell_1=2\theta\lvert s-\hat s\rvert$ per cell.
+with probability $\theta_i$) is seen; the right route depends on the future specialist.
+The profile $\{(\theta_i,\varepsilon_i)\}_{i\le m}$ is **arbitrary** — no homogeneity is
+assumed anywhere below. In closed form (verified numerically), cell $i$ has
+$\mathrm{OPT}=1+\theta_i$, baseline $1+\theta_i/2$, and following the advice gains or
+loses exactly $\theta_i\lvert s_i-\tfrac12\rvert$ over the baseline according to whether
+the advice's *direction* is right, where $s_i = \tfrac12 \pm \varepsilon_i$ is the
+specialist bias and $\varepsilon_i$ the signal; the advice-to-truth distance is
+$\ell_1=2\theta_i\lvert s_i-\hat s_i\rvert$ per cell.
 
 These aggregate cleanly. Summing over cells yields an **exact affine law** (proven; verified
 to three decimals):
 $$\mathbb E[\text{follow-ratio}] \;=\; \rho_{\mathrm{perfect}} - \tfrac12\,\ell_1(p,q),
 \qquad \ell_1^\star \;=\; 2\big(\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}}\big),$$
 where $\rho_{\mathrm{perfect}}$ is the all-correct-direction ratio and $\ell_1^\star$ the
-break-even. Two identities anchor what follows: the baseline slack is
-$1-\rho_{\mathrm{base}} = \tfrac{\theta}{2(1+\theta)}$, and the maximum stakes (the full
-upside) are
-$$\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}} \;=\; \frac{\theta\varepsilon}{1+\theta}
-\;=\; 2\varepsilon\,(1-\rho_{\mathrm{base}}):$$
-*the upside is an $\varepsilon$-fraction of the baseline slack.* The canonical scenario
-pair takes a wrong-direction fraction $\varphi=\tfrac14$ (good: $\ell_1 = a$, gain
-$\delta$) versus $\varphi=\tfrac34$ (bad: $\ell_1 = b$, loss $\Delta$), with
-$\delta=\Delta=\ell_1^\star/4$.
+break-even. The quantity that organizes everything is the family's **specialist mass**
+$$\sigma^2 \;:=\; \frac{\sum_i \theta_i}{N}, \qquad N=\sum_i(1+\theta_i)=\mathrm{OPT}$$
+— the probability that a random arrival is a specialist, and (below) the variance bound
+on the decision statistic. Two exact identities anchor what follows: the baseline slack
+*is* half the specialist mass,
+$$1-\rho_{\mathrm{base}} \;=\; \sigma^2/2,$$
+and the maximum stakes (the full upside) are
+$\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}} = \sum_i\theta_i\varepsilon_i/N
+\le 2\varepsilon_{\max}\,(1-\rho_{\mathrm{base}})$: *the upside is at most an
+$\varepsilon$-fraction of the baseline slack.* That the same $\sigma^2$ measures both
+the slack and the noise is not a coincidence — it is the law. The canonical (verified)
+instantiation takes $\theta_i=\theta$, $\varepsilon_i=\varepsilon$ and a wrong-direction
+fraction $\varphi=\tfrac14$ (good: $\ell_1 = a$, gain $\delta$) versus $\varphi=\tfrac34$
+(bad: $\ell_1 = b$, loss $\Delta$), with $\delta=\Delta=\ell_1^\star/4$.
 
 ## 7.4 The payoff identity: the stakes are a per-sample observable
 
@@ -137,67 +147,84 @@ direction:
 $$c(X) \;=\; \begin{cases} +1 & X \text{ is the advice-favored specialist of its cell,} \\
 -1 & X \text{ is the disfavored specialist,} \\ 0 & X \text{ is flexible.}\end{cases}$$
 
-> **Lemma 2 (payoff identity).** For every type distribution $p$ in the family,
-> $$\mathbb E_p[c] \;=\; 2\cdot\frac{\mathbb E_p[\mathrm{Mimic}]-\mathbb E_p[B]}{\mathrm{OPT}}.$$
+> **Lemma 2 (payoff identity).** For every type distribution $p$ on the family — any
+> profile $\{(\theta_i,\varepsilon_i)\}$, and any truth biases $s_i\in[0,1]$, matching
+> the advice's magnitudes or not —
+> $$\mathbb E_p[c] \;=\; \frac2N\sum_i \theta_i\,(s_i-\tfrac12)\,\hat d_i
+> \;=\; 2\cdot\frac{\mathbb E_p[\mathrm{Mimic}]-\mathbb E_p[B]}{\mathrm{OPT}}.$$
 > *The expected advantage of following the advice is half the mean of a bounded, per-sample
-> observable.* (Verified to three decimals across all wrong-fractions;
-> `scripts/verify_witness_gap.py`.)
+> observable.* (Verified to three decimals for homogeneous wrong-fraction sweeps,
+> `scripts/verify_witness_gap.py`, and for random heterogeneous and
+> magnitude-mismatched profiles, `scripts/verify_budget_stakes_hetero.py`.)
 
-*Proof.* The favored and disfavored specialists of cell $i$ have masses
-$\theta(\tfrac12\pm\varepsilon d_i\hat d_i)/N$, where $d_i,\hat d_i$ are the truth and
-advice directions and $N=m(1+\theta)=\mathrm{OPT}$; so cell $i$ contributes
-$2\theta\varepsilon d_i\hat d_i/N$ to $\mathbb E[c]$, while by the cell constants its
-follow-advantage is $\theta\varepsilon d_i\hat d_i$. Sum over cells. $\qed$
+*Proof.* The advice-favored and disfavored specialists of cell $i$ have masses
+$\theta_i\,(\tfrac12\pm(s_i-\tfrac12)\hat d_i)/N$, where $\hat d_i$ is the advice
+direction; so cell $i$ contributes $2\theta_i(s_i-\tfrac12)\hat d_i/N$ to
+$\mathbb E[c]$, while by the cell constants its follow-advantage is
+$\theta_i(s_i-\tfrac12)\hat d_i$. Sum over cells and divide by
+$\mathrm{OPT}=N$. $\qed$
 
 ## 7.5 The budget–stakes law
 
-> **Theorem 1 (budget–stakes law).** On the cell family with contention $\theta$, signal
-> $\varepsilon$, and the canonical scenario pair with stakes $\delta=\Delta$:
+> **Theorem 1 (budget–stakes law, heterogeneous).** On any cell family with profile
+> $\{(\theta_i,\varepsilon_i)\}$ and specialist mass $\sigma^2$:
 >
-> **(i) (Impossibility below the budget — any rule.)** If
-> $k \,=\, o\!\big(\theta/\delta^2\big)$ *(equivalently $o\big((1{+}\theta)/(\theta\varepsilon^2)\big)$)*,
-> then every test-and-fallback algorithm $A_k$, deciding by *any* measurable rule on the
-> prefix, has $\eta_c+\eta_r \ge 1-o(1)$: it forgoes the upside or eats the loss.
+> **(i) (Impossibility below the budget — any rule.)** Let $G,\mathrm{Bd}$ be the
+> scenario pair that flips the advice-agreement of a cell set $W$ whose signals are at
+> most $\varepsilon_W$, with payoff gap $g=\tfrac2N\sum_{i\in W}\theta_i\varepsilon_i$.
+> Every test-and-fallback algorithm $A_k$, deciding by *any* measurable rule on the
+> prefix, with $k \,=\, o\!\big(1/(\varepsilon_W\,g)\big)$ has
+> $\eta_c+\eta_r \ge 1-o(1)$: it forgoes the upside or eats the loss.
 >
-> **(ii) (The budget suffices — an explicit rule.)** The **directional test** — follow iff
-> $\sum_{j\le k} c(X_j) > 0$ — achieves $\eta_c+\eta_r \le \epsilon_0$ once
-> $k \ge C\,(\theta/\delta^2)\log(1/\epsilon_0)$. In particular $k$ is *independent of $n$*
-> for constant error.
+> **(ii) (The budget suffices — an explicit rule.)** For *any* pair of truth profiles —
+> magnitudes need not match the advice — on which following gains $\ge\delta$ and loses
+> $\ge\Delta$, the **directional test** — follow iff $\sum_{j\le k} c(X_j) > 0$ —
+> achieves $\eta_c+\eta_r \le \epsilon_0$ once
+> $k \ge C\,(\sigma^2/\min(\delta,\Delta)^2)\log(1/\epsilon_0)$. In particular $k$ is
+> *independent of $n$* for constant stakes.
 >
-> Hence the critical budget is $k^* = \tilde\Theta(\theta/\delta^2)$.
+> The two sides meet up to logarithms whenever the stakes are carried, at comparable
+> signal levels, by a constant fraction of the specialist mass (Cauchy--Schwarz:
+> $g^2 \le \tfrac4N\sigma^2_W\sum_W\theta_i\varepsilon_i^2$, $\sigma^2_W$ the flipped
+> mass) — in particular for the canonical pair, giving the critical budget
+> $$k^* \;=\; \tilde\Theta\!\big(\sigma^2/g^2\big),$$
+> which at homogeneous parameters is the earlier $\tilde\Theta(\theta/\delta^2)$.
 
-*Proof of (ii).* Under the good scenario $\mathbb E[c] = 2\delta$ (Lemma 2), under the bad
-$-2\Delta$; $\mathrm{Var}(c) \le \mathbb P(\text{specialist}) = \theta/(1+\theta)$;
-Bernstein's inequality gives error $\exp(-\Omega(k\delta^2/\theta))$ on both sides. $\qed$
+*Proof of (ii).* By Lemma 2, $\mathbb E[c] \ge 2\delta$ under the gain scenario and
+$\le -2\Delta$ under the loss scenario, for any truth profile;
+$\mathrm{Var}(c) \le \mathbb P(\text{specialist}) = \sigma^2$; Bernstein's inequality
+gives error $\exp(-\Omega(k\min(\delta,\Delta)^2/\sigma^2))$ on both sides. $\qed$
 
-*Proof sketch of (i).* Couple the two scenarios so their direction vectors differ on a
-$\tfrac12$-fraction of cells. For a coupled pair of fixed direction vectors, the
-per-sample laws differ only on the specialists of differing cells, giving squared Hellinger
-distance $H^2_{\mathrm{per}} = \Theta(\theta\varepsilon^2)$; by tensorization and joint
-convexity, $\gamma_k \le \sqrt{2k\,H^2_{\mathrm{per}}} = o(1)$ whenever
-$k = o(1/(\theta\varepsilon^2))$. Lemma 1 then forces $\eta_c+\eta_r\ge 1-o(1)$. Since
-$\delta = \Theta(\theta\varepsilon)$, the two thresholds match up to the stated factors.
-$\qed$
+*Proof sketch of (i).* Couple the two scenarios; the per-sample laws differ only on the
+specialists of the flipped cells, and the per-sample squared Hellinger distance is exactly
+$\sum_{i\in W}\tfrac{2\theta_i}{N}\big(1-\sqrt{1-4\varepsilon_i^2}\big)
+\in [4,8]\cdot\sum_{i\in W}\theta_i\varepsilon_i^2/N \le 4\,\varepsilon_W\,g$.
+By tensorization and joint convexity, $\gamma_k \le \sqrt{2k\,H^2_{\mathrm{per}}} = o(1)$
+whenever $k = o(1/(\varepsilon_W g))$, and Lemma 1 forces
+$\eta_c+\eta_r\ge 1-o(1)$. $\qed$
 
 Numerically (§`verify_witness_gap.py`, $\theta=0.6$, $\varepsilon=0.3$, $\delta=0.056$):
 the directional test reaches $\eta_c+\eta_r \approx 0.06$ at $k=100$ and $0.007$ at
 $k=200$, and stays flat as $n$ grows from $3{,}200$ to $320{,}000$ at fixed $k=200$ —
-the budget really is $n$-free once the stakes are constant. Section 5.4 carries the rule
-from the hard family to the benchmark itself, where the plug-in payoff must additionally
-survive a concavity bias at the capacity kinks — it does, with a bootstrap calibration
-that still uses no problem constants.
+the budget really is $n$-free once the stakes are constant. The heterogeneous claims are
+verified separately (`scripts/verify_budget_stakes_hetero.py`): the payoff identity holds
+for random profiles and for magnitude-mismatched truths; $1-\rho_{\mathrm{base}}=
+\sigma^2/2$ exactly; the per-sample Hellinger distance sits inside its $[4,8]$ bounds;
+and three families with $\sigma^2\in\{0.13,0.24,0.42\}$ produce decision-error curves
+that *coincide* as a function of $k g^2/\sigma^2$ alone ($0.30/0.15/0.02/0.001$ at
+$kg^2/\sigma^2=\tfrac14/1/4/8$) — the budget–stakes scaling is the whole story. Section
+5.4 carries the rule from the hard family to the benchmark itself, where the plug-in
+payoff must additionally survive a concavity bias at the capacity kinks — it does, with
+a bootstrap calibration that still uses no problem constants.
 
 ## 7.6 The wall, quantified: strong baselines price the test out of the horizon
 
-Stakes are capped by the slack: $\delta \le \rho_{\mathrm{perfect}}-\rho_{\mathrm{base}} =
-2\varepsilon(1-\rho_{\mathrm{base}})$. Substituting into Theorem 1(i), capturing *any*
-constant fraction of the maximum upside requires
-$$k \;\ge\; \tilde\Omega\!\Big(\frac{\theta}{\varepsilon^2(1-\rho_{\mathrm{base}})^2}\Big)
-\;=\; \tilde\Omega\!\Big(\frac1{\varepsilon^2\,(1-\rho_{\mathrm{base}})}\Big),$$
-using $\theta = \Theta(1-\rho_{\mathrm{base}})$. The wall appears when this exceeds the
-horizon itself: $k^* \ge n$ exactly when the upside
-$2\varepsilon(1-\rho_{\mathrm{base}})$ falls below
-$\approx 2\sqrt{(1-\rho_{\mathrm{base}})/n}$. In words:
+Stakes are capped by the slack: $g \le \rho_{\mathrm{perfect}}-\rho_{\mathrm{base}}
+\le 2\varepsilon_{\max}(1-\rho_{\mathrm{base}}) = \varepsilon_{\max}\,\sigma^2$. Theorem 1
+places the feasibility frontier at $g \asymp \sigma/\sqrt k$: a prefix of length $k$
+resolves stakes down to $\sigma/\sqrt k$ and no further. With the whole instance as
+prefix ($k=n$), the constant-free threshold is
+$$g^{*} \;=\; \sigma/\sqrt n \;=\; \sqrt{2(1-\rho_{\mathrm{base}})/n}\,:$$
 
 > **Corollary (uncapturable upsides).** On strong-baseline families, every advice upside
 > smaller than $\Theta\big(\sqrt{(1-\rho_{\mathrm{base}})/n}\,\big)$ is uncapturable by any
@@ -205,8 +232,8 @@ $\approx 2\sqrt{(1-\rho_{\mathrm{base}})/n}$. In words:
 > does not exist inside the instance.
 
 At the parameters of our benchmark (§3: $\rho_{\mathrm{base}}\approx0.99$, $n=2000$) the
-threshold is $\approx 0.004$, and the measured upsides are $<0.01$ (F3) — the empirical
-wall sits in the regime the corollary governs. This is the **scissors** of **Figure 9**
+threshold is $g^{*}\approx 0.003$, and the measured upsides are $<0.01$ (F3) — the
+empirical wall sits in the regime the corollary governs. This is the **scissors** of **Figure 9**
 (`results/impossibility_frontier.png`), now with the correct mechanism: the *potential*
 upside (perfect advice minus baseline) grows as the baseline weakens, while the upside a
 feasible test can safely capture is pinned by the $\sqrt{(1-\rho_{\mathrm{base}})/n}$
@@ -252,9 +279,14 @@ and $\ell_1$ stops being the decision-relevant quantity.
 Both halves of Theorem 1 use only elementary tools (Bernstein; Hellinger tensorization
 plus Lemma 1) — deliberately: the earlier, stronger-sounding route through tolerant-testing
 lower bounds is closed by §7.7, and we consider the refutation itself part of the
-contribution. The law is stated for decomposable (disjoint-cell) families; by Lemma 2 the
-payoff is per-sample observable on *every* such family, so no decomposable construction can
-restore a super-$1/\delta^2$ barrier. Whether a *non-decomposable* family — long-range
+contribution. The law now allows fully heterogeneous cell profiles, and its achievability
+side holds for arbitrary (magnitude-mismatched) truth distributions — neither homogeneity
+nor the matched-magnitude advice model is load-bearing. Its two sides can separate, by
+the factor $\sigma^2\varepsilon_W/g \ge 1$, when a scenario pair's stakes hide in an
+asymptotically vanishing sliver of low-signal cells; closing that regime is open. The law
+is stated for decomposable (disjoint-cell) families; by Lemma 2 the payoff is per-sample
+observable on *every* such family, so no decomposable construction can restore a
+super-$1/\delta^2$ barrier. Whether a *non-decomposable* family — long-range
 dependence making the payoff a genuinely hard functional — can separate the budget from
 $1/\delta^2$ is open. The directional test is analyzed here only on the cell family; its
 novelty relative to payoff-estimating switching rules elsewhere in the learning-augmented

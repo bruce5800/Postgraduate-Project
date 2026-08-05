@@ -27,9 +27,10 @@ crash far below the baseline — and the practical worth of the sophisticated al
 is precisely that they never do. We then prove what the wall *costs*. For the
 test-and-fallback class we establish a sharp, two-sided **budget–stakes law**: deciding
 whether to follow the advice requires — and, via an explicit one-line rule, only
-requires — a prefix of length $\tilde\Theta(\theta/\delta^2)$, the inverse square of the
-stakes $\delta$ (what good advice gains over the baseline) scaled by the contention
-$\theta$, independent of the instance length. The lower half binds *every* decision rule;
+requires — a prefix of length $\tilde\Theta(\sigma^2/g^2)$: the instance's specialist
+mass $\sigma^2$ (exactly twice its baseline slack) divided by the squared stakes $g$
+(what good advice gains over the baseline), independent of the instance length. The
+lower half binds *every* decision rule;
 the upper half refutes the natural conjecture that the hardness of tolerant distribution
 testing blocks all sublinear rules — the decision-relevant statistic is the *payoff* of
 following, which is exponentially cheaper to test than the prediction's distance — a
@@ -105,10 +106,10 @@ contribution (Section 7) is a two-sided **budget–stakes law** for the test-and
 class. Informally:
 
 > Deciding whether to follow the advice costs a prefix of length
-> $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of the stakes $\delta$ (what
-> good advice gains over the baseline), scaled by the contention $\theta$. Below $k^*$,
-> *no* decision rule is simultaneously consistent and robust; at $k^*$, an explicit
-> one-line rule is.
+> $k^* = \tilde\Theta(\sigma^2/g^2)$, where $g$ is the stakes (what good advice gains
+> over the baseline) and $\sigma^2$, the arrival mass on contested resources, equals
+> exactly twice the baseline slack. Below $k^*$, *no* decision rule is simultaneously
+> consistent and robust; at $k^*$, an explicit one-line rule is.
 
 The lower half is information-theoretic — it binds *any* measurable rule on the prefix,
 not merely the empirical-distance threshold used in practice — via a master
@@ -156,7 +157,8 @@ rules; venue LLM-disclosure policy check. -->
   *rises* — and a benchmark of the dynamic combiner exhibiting an irrevocability penalty
   that explains why matching needs *test-then-commit* (Section 5).
 - **(C5) The budget–stakes law.** A sharp two-sided law for test-and-fallback: the
-  follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
+  follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$
+  (baseline slack over squared stakes) for *any*
   rule (lower bound), and an explicit directional test achieves it (upper bound). A
   payoff identity separates cheap payoff-testing from provably hard distance-testing —
   refuting, and reporting honestly, the natural tolerant-testing impossibility — and the

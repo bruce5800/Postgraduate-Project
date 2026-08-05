@@ -109,12 +109,12 @@ shows that class is blind for a structural reason (the plug-in distance
 saturates at \(k \ll r\) regardless of advice quality) --- but the
 deeper point holds for \emph{any} test on a sublinear prefix: the
 follow/fallback decision costs a prefix of
-\(\tilde\Theta(\theta/\delta^2)\), and on strong-baseline instances like
-these the stakes \(\delta\) are so small that the price exceeds the
-horizon. Section 5 is the empirical shadow; Section 7 is the law. But
-the resolution limit is a property of the \emph{statistic}, not of
-testing itself --- the next subsection builds the rule the law suggests,
-and it behaves differently.
+\(\tilde\Theta(\sigma^2/g^2)\) --- baseline slack over squared stakes
+--- and on strong-baseline instances like these the stakes are so small
+that the price exceeds the horizon. Section 5 is the empirical shadow;
+Section 7 is the law. But the resolution limit is a property of the
+\emph{statistic}, not of testing itself --- the next subsection builds
+the rule the law suggests, and it behaves differently.
 
 \subsection{Testing the payoff instead: a decision rule with no
 constants}
@@ -156,10 +156,12 @@ threshold \emph{never} follows (misjudgement \(100\%\), §5.3) --- the
 payoff rule captures the upside in \({\sim}40\%\) of instances and lands
 safely on the floor otherwise. That partial capture is the honest
 ceiling, not a defect: the family's upside (\(\approx0.02\)) lies below
-the resolution \emph{any} rule can achieve at \(k=200\) (Section 7
-prices it at \(k^*\approx 1/\delta^2\approx 2500 > n\)) --- the
-budget--stakes law binds our rule too, and the right behavior at
-unresolvable stakes is exactly this safe-either-way coin flip.
+the resolution \emph{any} rule can achieve at \(k=200\) --- by the
+budget--stakes scaling of Section 7, with this family's payoff estimator
+carrying per-sample variance of order one, resolving stakes of \(0.02\)
+takes \(k \approx 1/0.02^2 = 2500 > n\) --- the law binds our rule too,
+and the right behavior at unresolvable stakes is exactly this
+safe-either-way coin flip.
 
 \begin{figure}
 \centering
