@@ -91,16 +91,18 @@ threshold used in practice --- via a master consistency/robustness
 inequality and a Hellinger computation. The upper half is a
 \textbf{directional test}: classify each prefix arrival as agreeing or
 disagreeing with the advice's local prediction, and follow iff
-agreements win. Its analysis rests on a \emph{payoff identity} --- on
-the hard family, the advantage of following is exactly half the mean of
-a per-sample observable --- which also refutes the tempting stronger
-conjecture (and an earlier version of our own claim) that
-tolerant-testing hardness \cite{canonne2022tolerance} makes the decision
-impossible for every sublinear rule: the advice's \emph{distance} to the
-truth is indeed hard to test, and the field's empirical-\(\ell_1\)
-thresholds are provably blind at sublinear prefixes, but the
-decision-relevant \emph{payoff} is not. The wall then re-emerges exactly
-where the experiments live: stakes are capped by the baseline slack
+agreements win --- a rule we also implement, calibrate, and evaluate
+head-to-head on the benchmark (§5.4). Its analysis rests on a
+\emph{payoff identity} --- on the hard family, the advantage of
+following is exactly half the mean of a per-sample observable --- which
+also refutes the tempting stronger conjecture (and an earlier version of
+our own claim) that tolerant-testing hardness
+\cite{canonne2022tolerance} makes the decision impossible for every
+sublinear rule: the advice's \emph{distance} to the truth is indeed hard
+to test, and the field's empirical-\(\ell_1\) thresholds are provably
+blind at sublinear prefixes, but the decision-relevant \emph{payoff} is
+not. The wall then re-emerges exactly where the experiments live: stakes
+are capped by the baseline slack
 (\(\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})\)), so on
 strong-baseline instances the budget \(k^*\) exceeds the horizon itself
 --- every upside below \(\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})\) is
@@ -123,11 +125,14 @@ the tightness and saturation of the known \(n{-}\mathrm{LIS}\) bound
 {[}ACI22, App. D{]} rather than re-deriving order-dependence (Section
 4). - \textbf{(C4) The first empirical study of test-and-fallback},
 including a threshold-calibration pathology (a more accurate test can
-make a worse decision), its recalibration and resolution limit, and a
-benchmark of the dynamic combiner exhibiting an irrevocability penalty
-that explains why matching needs \emph{test-then-commit} (Section 5). -
-\textbf{(C5) The budget--stakes law.} A sharp two-sided law for
-test-and-fallback: the follow/fallback decision costs a prefix of
+make a worse decision), its recalibration and resolution limit, a
+\textbf{constant-free payoff-testing rule} that avoids both threshold
+pathologies --- its misjudgement \emph{falls} with prefix size exactly
+where the thresholds' \emph{rises} --- and a benchmark of the dynamic
+combiner exhibiting an irrevocability penalty that explains why matching
+needs \emph{test-then-commit} (Section 5). - \textbf{(C5) The
+budget--stakes law.} A sharp two-sided law for test-and-fallback: the
+follow/fallback decision costs a prefix of
 \(\tilde\Theta(\theta/\delta^2)\) for \emph{any} rule (lower bound), and
 an explicit directional test achieves it (upper bound). A payoff
 identity separates cheap payoff-testing from provably hard

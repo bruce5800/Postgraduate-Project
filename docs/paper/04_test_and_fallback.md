@@ -1,20 +1,26 @@
 <!--
 Draft §5 — test-and-fallback in depth (C4). Numbers from scripts/run_choo_bem.py,
-run_recalibration.py, tests/test_combiner_small.py (docs/PHASE3C_REPORT.md, UNIFIED_BENCHMARK.md §3).
-Figures: choo_bem_envelope.png (Fig 3), choo_bem_prefix.png (Fig 4), recalibration_*.png.
-Guardrails: empirical-L1 surrogate (already flagged in §2); combiner benchmarked not claimed.
+run_recalibration.py, run_directional_test.py, tests/test_combiner_small.py
+(docs/PHASE3C_REPORT.md, UNIFIED_BENCHMARK.md §3, results/directional_test.json).
+Figures: choo_bem_envelope (Fig 3), choo_bem_prefix (Fig 4), directional_envelope (Fig 5),
+directional_prefix (Fig 6). Guardrails: empirical-L1 surrogate flagged in §2; combiner
+benchmarked not claimed; §5.4's resolution-limited capture at perfect advice stated
+honestly (the budget–stakes law binds our own rule too).
 This section is the EMPIRICAL bridge to §7 — §5.3's resolution limit is the ℓ₁-specific
-face of §7's budget–stakes law (§7.7 explains why the ℓ₁ class is blind).
+face of §7's budget–stakes law, and §5.4 implements the rule the law suggests.
 -->
 
 # 5. Test-and-Fallback in Depth
 
 The test-and-fallback algorithms are the paper's adaptive robustness mechanism, and the
 object of the theory in Section 7. This section gives their first empirical study: the
-robustness envelope they achieve, a counter-intuitive failure of the acceptance threshold,
-its recalibration, and the resolution limit that recalibration exposes — the empirical
-face of the budget–stakes law we prove in Section 7. Throughout, the $\ell_1$ test is the
-empirical-$\ell_1$ proof-of-concept the original authors also fall back to (Section 2.2).
+robustness envelope they achieve (§5.1), a counter-intuitive failure of the acceptance
+threshold (§5.2), its recalibration and the resolution limit that recalibration exposes
+(§5.3) — the empirical face of the budget–stakes law we prove in Section 7 — a
+**constant-free payoff-testing rule** that the law suggests and that avoids both threshold
+pathologies (§5.4), and the dynamic combiner benchmark that explains *commit-once* (§5.5).
+Throughout, the $\ell_1$ test is the empirical-$\ell_1$ proof-of-concept the original
+authors also fall back to (Section 2.2).
 
 ## 5.1 The robustness envelope
 
@@ -84,9 +90,64 @@ structural reason (the plug-in distance saturates at $k \ll r$ regardless of adv
 quality) — but the deeper point holds for *any* test on a sublinear prefix: the
 follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$, and on
 strong-baseline instances like these the stakes $\delta$ are so small that the price
-exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law.
+exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law. But the
+resolution limit is a property of the *statistic*, not of testing itself — the next
+subsection builds the rule the law suggests, and it behaves differently.
 
-## 5.4 The dynamic combiner is dominated, and shows why matching needs test-then-commit
+## 5.4 Testing the payoff instead: a decision rule with no constants
+
+The budget–stakes law identifies the decision-relevant statistic: not the advice's
+distance to the truth, but the *payoff* of following it. We implement this as
+**DirectionalTest-and-Match**: the same commit-once protocol (Mimic the prefix, decide
+once), with the $\ell_1$ threshold replaced by a plug-in payoff comparison. From the
+prefix's empirical type distribution $\hat p$, the value of continuing to Mimic has an
+exact closed form, $V_{\mathrm{mimic}}(\hat p)=\sum_l \min(n\hat p_l, s_l)$, where $s_l$
+is the number of offline slots the advice matching allocates to type $l$; the value of
+the Ranking baseline, $V_{\mathrm{rank}}(\hat p)$, is estimated by simulating Ranking on
+the *public* type graph under the same distribution. The rule follows iff the corrected
+difference is nonnegative. Two implementation findings are part of the paper's message.
+First, the naive plug-in is *biased*: $V_{\mathrm{mimic}}$ is concave, so honest sampling
+noise in $\hat p$ drags the estimate down at the capacity kinks (Jensen), and an
+uncorrected rule rejects even perfect advice; a parametric bootstrap anchored at $\hat p$
+removes the bias (anchoring at the advice instead over-corrects exactly for mildly bad
+advice, whose true distribution sits in the locally linear region). Second, the rule uses
+**no problem constants**: no worst-case $\beta$, no threshold $\tau$ — every quantity is
+computed from the prefix and public information. A public-information early exit (fall
+back without spending the prefix when even a *correct* advice would not beat the
+baseline) restores parity with Choo et al.'s $\hat n/n\le\beta$ exit.
+
+**Figure 5** repeats the envelope sweep with the payoff rule added, against both the
+worst-case and the recalibrated thresholds. The three rules now separate cleanly. At
+mildly bad advice — where the worst-case threshold follows the crash ($0.948$ and $0.937$
+at $\ell_1\approx0.10$ and $0.21$, misjudging $100\%$ and $63\%$ of instances) — the
+payoff rule stays at the floor ($0.989/0.990$, misjudgement $3\%/0\%$). At perfect advice
+— where the recalibrated threshold *never* follows (misjudgement $100\%$, §5.3) — the
+payoff rule captures the upside in ${\sim}40\%$ of instances and lands safely on the
+floor otherwise. That partial capture is the honest ceiling, not a defect: the family's
+upside ($\approx0.02$) lies below the resolution *any* rule can achieve at $k=200$
+(Section 7 prices it at $k^*\approx 1/\delta^2\approx 2500 > n$) — the budget–stakes law
+binds our rule too, and the right behavior at unresolvable stakes is exactly this
+safe-either-way coin flip.
+
+![The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget–stakes law allows.](../../results/directional_envelope.png){width=85%}
+
+**Figure 6** is the head-to-head that summarizes the section. At borderline advice
+($\eta=0.15$), growing the prefix from $k=25$ to $800$ drives the worst-case threshold's
+misjudgement *up* from $0.07$ to $1.00$ (ratio $0.987\to0.922$) — §5.2's pathology in
+full — while the payoff rule's misjudgement falls monotonically from $0.53$ to $0.00$
+(ratio $0.954\to0.991$). More data helps if and only if the statistic being sharpened is
+the decision-relevant one; the recalibrated threshold is flat-safe here only because it
+always rejects. In one sentence: **test the payoff, not the prediction.**
+
+![Borderline advice ($\eta=0.15$): as the prefix grows, the worst-case threshold's misjudgement rises to $1.0$ while the payoff rule's falls to $0.0$ — more data helps exactly when the statistic is the decision-relevant one.](../../results/directional_prefix.png){width=100%}
+
+The honest costs: when advice is bad but not worthless-if-true, the payoff rule pays the
+same prefix cost as its competitors ($\approx1$ point at $k/n=0.1$; the early exit rarely
+fires on spiky advice), and its simulation budget — a handful of Ranking runs on the type
+graph — is computation, not samples. All numbers: 30 paired trials per point, seed-fixed
+(`scripts/run_directional_test.py`, `results/directional_test.json`).
+
+## 5.5 The dynamic combiner is dominated, and shows why matching needs test-then-commit
 
 Finally we benchmark the Chłędowski-style dynamic combiner (Section 2.2) to contextualize
 the *commit-once* structure of test-and-fallback. In its intended robust tuning the

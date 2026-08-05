@@ -85,7 +85,8 @@ crashes below it, and the value of the sophisticated algorithms is downside prot
 delivered by structural or adaptive robustness with distinct trade-offs. We then priced
 the wall for the test-and-fallback class with a two-sided budget–stakes law: the
 follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
-decision rule, an explicit directional test achieves it, and — because stakes are capped
+decision rule, an explicit directional test achieves it (implemented and benchmarked, it
+avoids both threshold pathologies, §5.4), and — because stakes are capped
 by the baseline slack — on strong-baseline instances the price exceeds the horizon:
 upsides below $\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ are uncapturable at any feasible
 prefix. Experiments discover the wall; theory sends the bill. The practical message is a

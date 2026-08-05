@@ -26,10 +26,13 @@ The lower half binds \emph{every} decision rule; the upper half refutes
 the natural conjecture that the hardness of tolerant distribution
 testing blocks all sublinear rules --- the decision-relevant statistic
 is the \emph{payoff} of following, which is exponentially cheaper to
-test than the prediction's distance. Because the stakes are capped by
-the baseline slack, on strong-baseline instances the price exceeds the
-horizon: upsides below \(\approx\sqrt{(1-\rho_{\mathrm{base}})/n}\) are
-uncapturable by any rule at any prefix length, and the upsides we
-measure sit in that range. Experiments and theory deliver one message:
-\textbf{on average-case matching, the advice's upside is smaller than
-the price of finding out whether to trust it.}
+test than the prediction's distance --- a prescription we validate on
+the benchmark, where a constant-free payoff-testing rule avoids the
+threshold pathologies of the deployed tests. Because the stakes are
+capped by the baseline slack, on strong-baseline instances the price
+exceeds the horizon: upsides below
+\(\approx\sqrt{(1-\rho_{\mathrm{base}})/n}\) are uncapturable by any
+rule at any prefix length, and the upsides we measure sit in that range.
+Experiments and theory deliver one message: \textbf{on average-case
+matching, the advice's upside is smaller than the price of finding out
+whether to trust it.}

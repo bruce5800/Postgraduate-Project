@@ -32,7 +32,9 @@ stakes $\delta$ (what good advice gains over the baseline) scaled by the content
 $\theta$, independent of the instance length. The lower half binds *every* decision rule;
 the upper half refutes the natural conjecture that the hardness of tolerant distribution
 testing blocks all sublinear rules — the decision-relevant statistic is the *payoff* of
-following, which is exponentially cheaper to test than the prediction's distance. Because
+following, which is exponentially cheaper to test than the prediction's distance — a
+prescription we validate on the benchmark, where a constant-free payoff-testing rule
+avoids the threshold pathologies of the deployed tests. Because
 the stakes are capped by the baseline slack, on strong-baseline instances the price
 exceeds the horizon: upsides below $\approx\sqrt{(1-\rho_{\mathrm{base}})/n}$ are
 uncapturable by any rule at any prefix length, and the upsides we measure sit in that
@@ -112,7 +114,8 @@ The lower half is information-theoretic — it binds *any* measurable rule on th
 not merely the empirical-distance threshold used in practice — via a master
 consistency/robustness inequality and a Hellinger computation. The upper half is a
 **directional test**: classify each prefix arrival as agreeing or disagreeing with the
-advice's local prediction, and follow iff agreements win. Its analysis rests on a *payoff
+advice's local prediction, and follow iff agreements win — a rule we also implement,
+calibrate, and evaluate head-to-head on the benchmark (§5.4). Its analysis rests on a *payoff
 identity* — on the hard family, the advantage of following is exactly half the mean of a
 per-sample observable — which also refutes the tempting stronger conjecture (and an
 earlier version of our own claim) that tolerant-testing hardness [CJKL22] makes the
@@ -148,8 +151,10 @@ rules; venue LLM-disclosure policy check. -->
   re-deriving order-dependence (Section 4).
 - **(C4) The first empirical study of test-and-fallback**, including a threshold-calibration
   pathology (a more accurate test can make a worse decision), its recalibration and
-  resolution limit, and a benchmark of the dynamic combiner exhibiting an
-  irrevocability penalty that explains why matching needs *test-then-commit* (Section 5).
+  resolution limit, a **constant-free payoff-testing rule** that avoids both threshold
+  pathologies — its misjudgement *falls* with prefix size exactly where the thresholds'
+  *rises* — and a benchmark of the dynamic combiner exhibiting an irrevocability penalty
+  that explains why matching needs *test-then-commit* (Section 5).
 - **(C5) The budget–stakes law.** A sharp two-sided law for test-and-fallback: the
   follow/fallback decision costs a prefix of $\tilde\Theta(\theta/\delta^2)$ for *any*
   rule (lower bound), and an explicit directional test achieves it (upper bound). A

@@ -2,7 +2,8 @@
 Draft §7 — the budget–stakes law (C5, Direction C — REVISED 2026-07-27). THE CENTERPIECE.
 Sources: docs/T1_PROOF_SKELETON.md (Lemma 1), T1_W1_single_cell.md (cell constants),
 T1_W2_W3a_closeout.md (affine law), T1_WITNESS_GAP.md (payoff identity, refutation of the
-tolerant-testing route, T1' both halves). Figure 7 = impossibility_frontier.png.
+tolerant-testing route, T1' both halves). Figure 9 = impossibility_frontier.png,
+Figure 10 = directional_rsweep.png (§7.7).
 Verification scripts: scripts/verify_witness_gap.py (payoff identity, directional test,
 plug-in-l1 blindness), plus the W1/W3a checks referenced in Appendix.
 
@@ -181,7 +182,10 @@ $\qed$
 Numerically (§`verify_witness_gap.py`, $\theta=0.6$, $\varepsilon=0.3$, $\delta=0.056$):
 the directional test reaches $\eta_c+\eta_r \approx 0.06$ at $k=100$ and $0.007$ at
 $k=200$, and stays flat as $n$ grows from $3{,}200$ to $320{,}000$ at fixed $k=200$ —
-the budget really is $n$-free once the stakes are constant.
+the budget really is $n$-free once the stakes are constant. Section 5.4 carries the rule
+from the hard family to the benchmark itself, where the plug-in payoff must additionally
+survive a concavity bias at the capacity kinks — it does, with a bootstrap calibration
+that still uses no problem constants.
 
 ## 7.6 The wall, quantified: strong baselines price the test out of the horizon
 
@@ -202,7 +206,7 @@ $\approx 2\sqrt{(1-\rho_{\mathrm{base}})/n}$. In words:
 
 At the parameters of our benchmark (§3: $\rho_{\mathrm{base}}\approx0.99$, $n=2000$) the
 threshold is $\approx 0.004$, and the measured upsides are $<0.01$ (F3) — the empirical
-wall sits in the regime the corollary governs. This is the **scissors** of **Figure 7**
+wall sits in the regime the corollary governs. This is the **scissors** of **Figure 9**
 (`results/impossibility_frontier.png`), now with the correct mechanism: the *potential*
 upside (perfect advice minus baseline) grows as the baseline weakens, while the upside a
 feasible test can safely capture is pinned by the $\sqrt{(1-\rho_{\mathrm{base}})/n}$
@@ -219,7 +223,15 @@ bites: at $k \ll r$ the empirical $\hat p_k$ is $k$ atoms of mass $1/k$, so
 $\hat\ell_1 \approx 2$ *regardless of the advice's quality* (numerically: $1.908$ vs
 $1.913$ on the two canonical scenarios whose true $\ell_1$ differ by $0.225$). Any
 threshold therefore either always accepts or always rejects — the §5.3 pathology, now
-explained. The deeper reason is the tolerant-testing barrier: estimating $\ell_1(p,q)$ to
+explained. The same blindness is measurable on the benchmark generator itself: holding
+the true error at $\ell_1\approx0.11$ and growing the support from $r=8$ to $512$ at
+fixed $k=200$, the plug-in estimate inflates from $0.17$ to $1.22$ — twelve times the
+truth — while the payoff rule of §5.4 keeps deciding, staying within the prefix cost of
+the floor at both good and bad advice (**Figure 10**).
+
+![The blindness curve on the benchmark generator: at fixed true $\ell_1\approx0.11$ and $k=200$, the plug-in $\hat\ell_1$ inflates with the support size while the payoff rule keeps deciding at both good (left) and bad (right) advice.](../../results/directional_rsweep.png){width=100%}
+
+The deeper reason is the tolerant-testing barrier: estimating $\ell_1(p,q)$ to
 constant accuracy at $r=\Theta(n)$ genuinely requires $\tilde\Theta(n/\log n)$ samples
 [CJKL22]. The resolution of the apparent paradox — the *decision* is easy (Theorem 1(ii))
 while the *distance* is hard — is Lemma 2: the payoff is a linear, per-sample functional,
