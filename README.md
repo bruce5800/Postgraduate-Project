@@ -15,10 +15,9 @@ square of the advice's upside).
 
 ## 🎮 Interactive explainer
 
-The testing-wall proof idea, as five hands-on gadgets (drag the sliders, run into the
-wall yourself — no background needed). *Note: the page still presents the pre-revision
-tolerant-testing route; a rework around the budget–stakes law is pending
-(`docs/T1_WITNESS_GAP.md`):*
+The budget–stakes law as five hands-on gadgets — including "the twist," where completing
+our own impossibility proof disproved it (drag the sliders; no background needed).
+*中文版为旧定理时期的存档版本，未随新定律更新:*
 
 - **Hosted:** <https://claude.ai/code/artifact/5842dbf9-6688-429b-9c57-d733cda285d7>
 - **Local:** open [`docs/interactive/impossibility_explainer.html`](docs/interactive/impossibility_explainer.html)

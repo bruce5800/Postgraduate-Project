@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Where You Can Test the Advice, You Don't Need It — an interactive guide</title>
+<title>The Price of Testing Advice — an interactive guide to the budget–stakes law</title>
 <style>
 /* ---------- tokens ---------- */
 :root{
@@ -110,29 +110,32 @@ table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
 </style>
 
 <nav aria-label="Sections"><div class="row">
-  <b style="font-family:Georgia,serif">The Scissors ✂ Theorem</b>
+  <b style="font-family:Georgia,serif">The Budget–Stakes Law ✂</b>
   <a href="#rules">The game</a><a href="#cell">One dilemma</a><a href="#affine">The exchange rate</a>
-  <a href="#wall">The sampling wall</a><a href="#tradeoff">The trade-off</a><a href="#theorem">The theorem</a>
+  <a href="#wall">The twist</a><a href="#tradeoff">The trade-off</a><a href="#theorem">The law</a>
   <div id="bar"></div>
 </div></nav>
 
 <header class="wrap">
-  <div class="kicker">AN INTERACTIVE GUIDE · THESIS CHAPTER 9 / APPENDIX B</div>
-  <h1>Where you can test the advice,<br>you don't need it</h1>
+  <div class="kicker">AN INTERACTIVE GUIDE · PAPER §7 (BUDGET–STAKES LAW) · THESIS §10.2</div>
+  <h1>Testing advice has a price —<br>and weak advice can't pay it</h1>
   <p>Some online-matching algorithms are handed a <b>prediction</b> about the future, watch a
-  short sample to check whether it looks trustworthy, and then commit. The thesis proves a
-  hard limit on this idea. This page breaks the proof into five gadgets you can play with —
-  drag the sliders and you will run into the wall yourself. No background needed beyond
-  &ldquo;what's an average.&rdquo;</p>
+  short sample to check whether it looks trustworthy, and then commit. This page plays through
+  what that check <i>costs</i> — including the plot twist where completing our own
+  impossibility proof <b>disproved it</b>, and what replaced it: a sharp price tag. Drag the
+  sliders; no background needed beyond &ldquo;what's an average.&rdquo;</p>
   <div class="tldr"><div class="t">THE WHOLE ARGUMENT IN THREE LINES</div>
     <ol>
       <li><b>Test-and-fallback</b> algorithms peek at a small prefix of the input, then either
         trust the prediction for everything that remains, or ignore it entirely.</li>
-      <li><b>The theorem:</b> if the peek is small (sublinear), <i>no decision rule whatsoever</i>
-        can both cash in when the prediction is good <i>and</i> stay safe when it's bad.</li>
-      <li><b>The reason:</b> inputs simple enough to <i>test</i> a prediction on are exactly the
-        inputs where you'd do nearly perfectly <i>without</i> one. Testability and
-        &ldquo;nothing to gain&rdquo; are the same property.</li>
+      <li><b>The law:</b> deciding costs a peek of about <span class="math">σ²/g²</span>
+        arrivals — the contested share of the input divided by the <i>squared</i> stakes.
+        Below that budget <i>no rule whatsoever</i> works; at it, counting
+        agreements-minus-contradictions already works.</li>
+      <li><b>The consequence:</b> on inputs where the no-advice baseline is already strong,
+        the stakes are so small that the price exceeds the <i>whole input</i> — and those are
+        exactly the inputs our benchmark measures. The advice's upside is smaller than the
+        cost of finding out whether to trust it.</li>
     </ol>
   </div>
   <canvas id="stream" aria-label="Animation: requests arrive one by one, pass a testing window, then split between follow and fallback"></canvas>
@@ -164,13 +167,13 @@ table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
   <p>A good algorithm should be <b>consistent</b> — when the tip is accurate, it collects
   nearly all the profit the tip makes possible — and <b>robust</b> — when the tip is garbage,
   it loses nothing compared to never having had a tip. Chapter 6 of the thesis found
-  experimentally that no tuning achieves both. This page explains why that's not a tuning
-  problem. <b>It's mathematically impossible.</b></p>
+  experimentally that no tuning of the deployed tests achieves both. This page explains what
+  the real constraint is. <b>Not a tuning problem — a bill.</b></p>
 </div></section>
 
 <!-- ================= CELL ================= -->
 <section id="cell"><div class="wide">
-  <div class="eyebrow"><b>Building block</b> · Appendix B.3 / Lemma B.2</div>
+  <div class="eyebrow"><b>Building block</b> · paper §7.3 (cell constants)</div>
   <h2>One tiny dilemma — the only moment advice ever matters</h2>
   <div class="wrap" style="padding:0">
   <div class="story">Two parking bays, <b>a</b> and <b>b</b>. A hatchback that fits either bay
@@ -219,7 +222,7 @@ table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
 
 <!-- ================= AFFINE ================= -->
 <section id="affine"><div class="wide">
-  <div class="eyebrow"><b>Adding it up</b> · Appendix B.4 / Lemma B.3</div>
+  <div class="eyebrow"><b>Adding it up</b> · paper §7.3 (the affine law)</div>
   <h2>An exact exchange rate: advice error → lost profit</h2>
   <div class="wrap" style="padding:0">
   <div class="story">Glue thousands of parking dilemmas into one long night. The tip sheet gets
@@ -242,61 +245,73 @@ table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
     </div>
     <div class="try"><b>Try this.</b> Find the break-even point (φ = ½ — advice that's wrong half
     the time is exactly as good as no advice). Notice the green zone: advice keeps a <b>margin
-    of usefulness</b> up to error <span class="math">a</span>. Good advice is a <b>ball, not a
-    bullseye</b> — you don't need the tip sheet to be perfect, just close. That one fact decides
-    which kind of statistical test the algorithm faces next, and it's the expensive kind.</div>
+    of usefulness</b> up to error <span class="math">a</span> — good advice is a <b>ball, not a
+    bullseye</b>. And look at the line once more: its slope converts advice error into profit
+    <i>exactly</i>. We first read that as the setup for an expensive statistical test. It was
+    actually a trapdoor out of one — the next gadget is the observation that killed our first
+    theorem.</div>
   </div>
 </div></section>
 
-<!-- ================= WALL ================= -->
+<!-- ================= TWIST: the payoff statistic ================= -->
 <section id="wall"><div class="wide">
-  <div class="eyebrow"><b>The barrier</b> · Chapter 9.3, pillar 3 / Theorem B.5 (citing Canonne et al., COLT 2022)</div>
-  <h2>The sampling wall: testability and &ldquo;nothing to gain&rdquo; are one knob</h2>
+  <div class="eyebrow"><b>The twist</b> · paper §7.4 (payoff identity) — the step that killed our first theorem</div>
+  <h2>The payoff was visible all along</h2>
   <div class="wrap" style="padding:0">
-  <div class="story">To trust the tipster you must judge, from <b>k = 200 free sightings</b>,
-  whether their forecast of the whole night is <i>roughly</i> right. If tonight's crowd has only
-  8 kinds of passenger, 200 sightings is plenty — about 25 looks at each kind. If it has 4,000
-  kinds, most kinds you will <b>never see even once</b>.</div>
-  <p>Statistics makes this precise, and brutal. Checking a forecast is <i>exactly</i> right
-  costs about <span class="math">√r</span> samples (cheap). But checking it's <i>roughly</i>
-  right — &ldquo;close enough to help vs. far enough to hurt,&rdquo; which is what the green
-  ball forces on us — costs about <span class="math">r/log r</span> samples: nearly as many as
-  learning the whole crowd from scratch. And here's the twist that makes the theorem:</p>
-  <p class="thesis" style="margin:14px 0">Crowds simple enough to test are crowds where you
-  didn't need the tip — a few common passenger types are easy to dispatch near-perfectly by
-  habit. Crowds where the tip could genuinely help have too many rare types to test.</p>
+  <div class="story">We first believed the story ended at a <b>sampling wall</b>: judging a
+  forecast of thousands of passenger types from 200 sightings looked like <i>distribution
+  testing</i>, which provably needs almost as many samples as there are types. The machinery
+  was cited, the numerics agreed, one &ldquo;routine&rdquo; step remained — and writing out
+  that step <b>disproved the theorem</b>. Here is the killer, as a game.</div>
+  <p>Score each arriving passenger with the tip sheet in hand: <b class="good">+1</b> if
+  they're the kind the tip bet <i>on</i> (its parking choice just paid off),
+  <b class="bad">−1</b> if they're the kind it bet <i>against</i>, <b>0</b> if the tip didn't
+  matter for them. A two-line computation shows the average of this score is <b>exactly twice
+  the profit rate of following</b>. You never need to learn the crowd — you count agreements
+  minus contradictions.</p>
+  <div class="formula"><span class="math">E[score] = 2 × (profit of following − no-advice profit) / OPT</span>
+    <span class="plain">The payoff identity — exact for every cell profile, magnitudes matched or not; verified to three decimals. The stakes are a per-arrival observable. Distribution testing was never required.</span></div>
   </div>
   <div class="lab">
-    <div class="labhead"><h3 style="margin:0">Gadget C — scatter 200 sightings over r passenger types</h3><span class="tag">THEOREM B.5</span></div>
-    <div class="controls"><div class="ctrl" style="max-width:420px">
-      <label>Number of types <span class="math">r</span> (drag on a log scale)<span class="num" id="rV">8</span></label>
-      <input type="range" id="rSlider" min="3" max="12" step="0.1" value="3"></div></div>
-    <div class="svgbox"><svg id="binsvg" width="860" height="150" viewBox="0 0 860 150" role="img" aria-label="samples falling into type bins"></svg></div>
-    <div class="chips">
-      <span class="chip">Average sightings per type <span class="math">k/r</span> ≈ <b class="num" id="kpr">25</b></span>
-      <span class="chip" id="testable">–</span>
-      <span class="chip" id="upside">–</span>
+    <div class="labhead"><h3 style="margin:0">Gadget C — count agreements, meet the real wall</h3><span class="tag">PAYOFF IDENTITY</span></div>
+    <div class="controls">
+      <div class="ctrl"><label>Stakes <span class="math">g</span> (profit gap: honest vs poisoned tip)<span class="num" id="gV">0.100</span></label>
+        <input type="range" id="gSlider" min="0.005" max="0.30" step="0.005" value="0.1"></div>
+      <div class="ctrl"><label>Peek length <span class="math">k</span><span class="num" id="kV">200</span></label>
+        <input type="range" id="kSlider" min="10" max="2000" step="10" value="200"></div>
     </div>
-    <div class="svgbox" style="margin-top:14px"><svg id="cplx" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="sample complexity: the tolerant-testing cost crosses any sublinear budget"></svg></div>
-    <div class="try"><b>Try this.</b> Drag <span class="math">r</span> from 8 to 4,096 and watch
-    the two verdict chips <b>swap colors in lockstep</b> — that's the whole theorem in one
-    slider. In the chart: the <b class="bad">roughly-right cost</b> crosses your budget line
-    almost immediately; only the <b class="good">exactly-right cost</b> stays affordable, and
-    exactly-right is the test nobody needs (good advice is a ball, not a bullseye).</div>
+    <div class="svgbox"><svg id="walksvg" width="860" height="240" viewBox="0 0 860 240" role="img" aria-label="running average of the plus-minus score in the honest and poisoned worlds, separating as the peek grows"></svg></div>
+    <div class="chips">
+      <span class="chip">Noise after <span class="math">k</span> arrivals ≈ <span class="math">σ/√k</span> = <b class="num" id="noiseV">–</b>&ensp;(σ² = 0.375, the specialist share from Gadget A — and exactly <b>twice the baseline slack</b>)</span>
+      <span class="chip" id="errV">–</span>
+      <span class="chip">Budget needed <span class="math">k* = σ²/g²</span> ≈ <b class="num" id="kstarV">–</b></span>
+    </div>
+    <div class="svgbox" style="margin-top:14px"><svg id="frontier" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="the budget-stakes frontier: required peek versus stakes, with your peek budget and the whole-night horizon"></svg></div>
+    <div class="try"><b>Try this.</b> ① At <span class="math">g</span> = 0.10, drag
+    <span class="math">k</span> up: the two worlds separate once <span class="math">k</span>
+    passes <span class="math">k*</span> ≈ 38 — decidable with a tiny peek, <i>exactly where
+    the old theorem said no sublinear rule could work</i>. ② Now drag
+    <span class="math">g</span> down to 0.014 and watch the frontier chart: the needed budget
+    crosses <b>the whole night (n = 2000)</b> — below that, no rule, however clever, can
+    decide safely; the benchmark's measured upsides live at 0.002–0.01. That is the real
+    wall: not &ldquo;testing is impossible,&rdquo; but <b>&ldquo;the stakes can't pay for the
+    peek.&rdquo;</b></div>
   </div>
 </div></section>
 
 <!-- ================= TRADEOFF ================= -->
 <section id="tradeoff"><div class="wide">
-  <div class="eyebrow"><b>The clincher</b> · Appendix B.2 / Lemma B.1 (fully proved)</div>
+  <div class="eyebrow"><b>The other half</b> · paper §7.2 (Lemma 1, fully proved) + §7.5(i)</div>
   <h2>Two tipsters you can't tell apart</h2>
   <div class="wrap" style="padding:0">
-  <div class="story">Final move. Build two possible worlds: in world <b class="good">G</b> the
-  tipster is honest (following wins you δ), in world <b class="bad">Bd</b> the tipster is
-  subtly poisoned (following costs you Δ). The sampling wall guarantees we can build them so
-  their first-k arrivals look <b>almost identical</b> — any statistic you compute from your
-  peek differs between the worlds by at most a sliver, <span class="math">γ<sub>k</sub></span>.
-  Now: you still have to pick Follow or Fall back.</div>
+  <div class="story">The counting rule sets the price <i>ceiling</i>; this gadget sets the
+  <i>floor</i> — why nothing can beat counting. Build two possible worlds: in world
+  <b class="good">G</b> the tipster is honest (following wins you δ), in world
+  <b class="bad">Bd</b> the tipster is subtly poisoned (following costs you Δ). A short
+  Hellinger computation shows that <b>below the budget k*</b> their first-k arrivals look
+  <b>almost identical</b> — any statistic you compute from your peek differs between the
+  worlds by at most a sliver, <span class="math">γ<sub>k</sub></span>. Now: you still have to
+  pick Follow or Fall back.</div>
   <div class="formula"><span class="math">(1−η<sub>c</sub>) ≤ η<sub>r</sub> + γ<sub>k</sub></span>
     <span class="plain">In words: (upside you give up) + (damage you let through) ≥ 1 − (how much the worlds differ on your peek). When γ<sub>k</sub> ≈ 0, the two losses must sum to ≈ everything.</span></div>
   </div>
@@ -316,52 +331,59 @@ table.mini thead th{font-weight:700;color:var(--muted);font-size:.82rem}
     </div>
     <div class="try"><b>Try this.</b> Drag the threshold anywhere — the sum of the two losses
     never dips below <span class="math">1−γ<sub>k</sub></span>. Then shrink
-    <span class="math">γ<sub>k</sub></span> toward zero (which the sampling wall forces on
-    profitable instances): the curves merge and you're choosing which loss to eat, not whether.
-    This holds for <b>any</b> rule computed from the peek — a threshold, a neural net, anything
-    — which is what makes the theorem algorithm-independent.</div>
+    <span class="math">γ<sub>k</sub></span> toward zero (which happens whenever your peek is
+    below the budget <span class="math">k* = σ²/g²</span>): the curves merge and you're
+    choosing which loss to eat, not whether. This holds for <b>any</b> rule computed from the
+    peek — a threshold, a neural net, anything — which is what makes the law's lower half
+    algorithm-independent.</div>
   </div>
 </div></section>
 
 <!-- ================= THEOREM ================= -->
 <section id="theorem"><div class="wrap">
-  <div class="eyebrow"><b>Assembly</b> · Chapter 9.4 / Theorem B.6</div>
+  <div class="eyebrow"><b>Assembly</b> · paper §7.5 (Theorem 1) + §7.6 (the corollary)</div>
   <h2>Bolting the four parts together</h2>
   <div class="chain">
     <div class="step"><b>① The construction</b> (Gadgets A + B; proved, numerically verified) —
-      there's a family of instances where advice with error ≤ <span class="math">a</span> genuinely
-      helps and error ≥ <span class="math">b</span> genuinely hurts, with a real gap between, and
-      <span class="math">Θ(n)</span> distinct request types.</div>
-    <div class="arrow">↓&ensp;<span class="footnote">the reduction (Lemma B.4): your peek is literally an i.i.d. sample, so your decision <i>is</i> a statistical test</span></div>
-    <div class="step"><b>② Any algorithm that's both consistent and robust would be a
-      tolerant tester</b> — from k samples it would distinguish &ldquo;roughly right&rdquo; from
-      &ldquo;badly wrong.&rdquo;</div>
-    <div class="arrow">↓&ensp;<span class="footnote">the sampling wall (Gadget C; exact modern result, COLT 2022)</span></div>
-    <div class="step"><b>③ That test needs ~n/log n samples</b> — more than any sublinear peek
-      provides. So two witness worlds exist that require opposite decisions yet look the same
-      (<span class="math">γ<sub>k</sub>→0</span>).</div>
-    <div class="arrow">↓&ensp;<span class="footnote">the trade-off inequality (Gadget D; fully proved)</span></div>
-    <div class="step"><b>④ The two losses must sum to ≈ 1.</b> No test-and-fallback algorithm —
-      under <b>any</b> decision rule — is both consistent and robust. The achievable region
-      collapses to &ldquo;just play the baseline.&rdquo;</div>
+      a family of instances with exact per-cell stakes, where the <b>specialist share</b>
+      <span class="math">σ²</span> equals exactly <b>twice the baseline slack</b>: the same
+      number measures how much there is to win and how noisy the peek is.</div>
+    <div class="arrow">↓&ensp;<span class="footnote">the payoff identity (Gadget C): the stakes are a per-arrival observable</span></div>
+    <div class="step"><b>② Counting agreements decides at k ≈ σ²/g²</b> — the price
+      <i>ceiling</i>. One line of Bernstein; no calibration constants; works for any cell
+      profile, matched magnitudes or not.</div>
+    <div class="arrow">↓&ensp;<span class="footnote">the Hellinger computation + the trade-off inequality (Gadget D; fully proved)</span></div>
+    <div class="step"><b>③ Below ≈ σ²/g², nothing decides</b> — the price <i>floor</i>. Two
+      worlds needing opposite decisions look the same
+      (<span class="math">γ<sub>k</sub>→0</span>), so the two losses must sum to ≈ 1 under
+      <b>any</b> rule.</div>
+    <div class="arrow">↓&ensp;<span class="footnote">put ceiling and floor together</span></div>
+    <div class="step"><b>④ The budget–stakes law: k* = Θ̃(σ²/g²)</b>, sharp. Corollary: even
+      with the <i>whole night</i> as your peek, no upside below
+      <span class="math">√(2·slack/n)</span> is safely capturable — about 0.003 at the
+      benchmark's parameters, where every measured upside lives below 0.01.</div>
   </div>
-  <p class="thesis">Upside exists only where the test is impossible. Where you can test the
-  advice, you don't need it.</p>
-  <div class="status"><div class="t">HONEST STATUS (mirrors thesis §9.5 / §B.7)</div>
-    The trade-off inequality, the single-cell constants, and the exact exchange-rate law are
-    <b>proved</b> (the latter two also verified numerically to three decimals). The
-    tolerant-testing lower bound is a <b>cited, exact, modern result</b>
-    (Canonne–Jain–Kamath–Li, COLT 2022). One <b>routine verification step</b> remains — writing
-    out the two witness distributions the lower bound guarantees and checking they land at
-    errors <span class="math">a</span> and <span class="math">b</span> — plus a final
-    end-to-end review. A low-dimensional variant of the construction provably fails (a single
-    shared bias is too easy to estimate), so the many-types regime is essential; a constant-r
-    version is an open problem.</div>
-  <p class="footnote">Where to read more: intuition and architecture in <b>Chapter 9</b> of the
-  thesis; full lemmas and proofs in <b>Appendix B</b>; the numerical checks in
-  <b>Appendix A.6</b> (<span class="num">run_impossibility_frontier.py</span> generates the
-  empirical &ldquo;scissors,&rdquo; Figure 9.1). This page was made by the thesis author as a
-  companion; the thesis text is authoritative.</p>
+  <p class="thesis">The advice's upside is smaller than the price of finding out whether to
+  trust it.</p>
+  <div class="status"><div class="t">HONEST STATUS (mirrors paper §7.8 and docs/T1_WITNESS_GAP.md)</div>
+    The trade-off inequality, the cell constants, the exchange-rate law, and the payoff
+    identity are <b>proved</b>, and both halves of the law use only elementary tools
+    (Bernstein; Hellinger); every quantitative claim on this page is verified by seeded
+    scripts (<span class="num">verify_witness_gap.py</span>,
+    <span class="num">verify_budget_stakes_hetero.py</span>,
+    <span class="num">run_directional_test.py</span>). <b>Full disclosure:</b> an earlier
+    version of this page taught an <i>impossibility theorem</i> whose engine was the
+    tolerant-distribution-testing lower bound. Completing its last step disproved it — the
+    payoff identity means the required indistinguishable witness pair cannot exist — and the
+    refutation became the law you just played with. Open ends, stated plainly: the law's two
+    sides can separate when the stakes hide in a vanishing sliver of low-signal cells, and
+    whether a <i>non-decomposable</i> instance family can push the budget above
+    <span class="math">σ²/g²</span> is unknown.</div>
+  <p class="footnote">Where to read more: the law with proofs in <b>paper §7</b>; the
+  one-page outlook in <b>thesis §10.2</b>; the counting rule evaluated head-to-head on the
+  benchmark in <b>paper §5.4</b> (its misjudgement <i>falls</i> with peek size exactly where
+  the deployed thresholds' <i>rises</i>). This page was made by the author as a companion;
+  the paper and thesis text are authoritative.</p>
 </div></section>
 
 <script>
@@ -529,55 +551,79 @@ addEventListener("scroll",()=>{const h=document.documentElement;
   draw();
 })();
 
-/* ---------- GADGET C: sampling wall ---------- */
+/* ---------- GADGET C: the payoff statistic & the budget–stakes frontier ---------- */
 (function(){
-  const K=200;
+  function erf(x){const s=x<0?-1:1;x=Math.abs(x);
+    const t=1/(1+0.3275911*x);
+    const y=1-((((1.061405429*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);
+    return s*y;}
+  const Phi=x=>0.5*(1+erf(x/Math.SQRT2));
+  const SIG2=0.375, SD=Math.sqrt(SIG2), N=2000;
+  const wob=(i,seed)=>{const x=Math.sin(i*127.1+seed*311.7)*43758.5453;return (x-Math.floor(x))*2-1;};
   function draw(){
-    const r=Math.round(Math.pow(2,parseFloat($("rSlider").value)));
-    $("rV").textContent=r;
-    const kpr=K/r;$("kpr").textContent=kpr>=1?fmt(kpr,1):fmt(kpr,2);
-    const t=$("testable"),u=$("upside");
-    if(kpr>=20){t.innerHTML="Testing the tip: <b>easy</b>";t.className="chip good";
-      u.innerHTML="Anything to win: <b>≈ 0</b> (baseline already near-perfect)";u.className="chip bad";}
-    else if(kpr>=2){t.innerHTML="Testing the tip: shaky (huge noise)";t.className="chip";
-      u.innerHTML="Anything to win: small";u.className="chip";}
-    else{t.innerHTML="Testing the tip: <b>impossible</b> (most types never seen)";t.className="chip bad";
-      u.innerHTML="Anything to win: <b>plenty</b> — the theorem's regime";u.className="chip good";}
-    const mut=css("--muted"),cool=css("--cool"),line=css("--line");
-    const nb=Math.min(r,60),bw=Math.min(30,780/nb-3);
-    let bins="";
-    for(let i=0;i<nb;i++){
-      const exp=kpr*(0.6+0.8*((i*2654435761)%100)/100);
-      const hgt=Math.min(100,exp*7);
-      const x=40+i*(780/nb);
-      bins+=`<rect x="${x}" y="${120-hgt}" width="${bw}" height="${Math.max(hgt,1)}" fill="${exp<1?line:cool}" opacity="${exp<1?0.9:0.85}"/>`;
+    const g=parseFloat($("gSlider").value), k=parseInt($("kSlider").value,10);
+    $("gV").textContent=fmt(g,3); $("kV").textContent=k;
+    $("noiseV").textContent=fmt(SD/Math.sqrt(k),3);
+    const kstar=SIG2/(g*g);
+    $("kstarV").textContent=kstar>=1000?Math.round(kstar).toLocaleString():""+Math.round(kstar);
+    const err=Math.min(0.5,Phi(-g*Math.sqrt(k)/SD));
+    const e=$("errV");
+    e.innerHTML=`Chance of the wrong call ≈ <b class="num">${fmt(err,3)}</b>`;
+    e.className="chip "+(err<0.05?"good":(err>0.25?"bad":""));
+    const warm=css("--warm"),cool=css("--cool"),mut=css("--muted"),line=css("--line"),
+          ink=css("--ink"),gold=css("--gold");
+    /* running average of the score: honest world drifts to +g, poisoned to −g */
+    const X0=60,X1=830,YC=120,SC=150,M=140;
+    const xw=i=>X0+(X1-X0)*i/(M-1);
+    const yw=v=>YC-clamp(v,-0.72,0.72)*SC;
+    let pg="",pb="",bandG="",bandB="",backG="",backB="";
+    for(let i=0;i<M;i++){
+      const j=1+(k-1)*i/(M-1), nse=SD/Math.sqrt(j);
+      pg+=`${i?"L":"M"}${fmt(xw(i),1)},${fmt(yw(+g+wob(i,3)*nse*0.55),1)}`;
+      pb+=`${i?"L":"M"}${fmt(xw(i),1)},${fmt(yw(-g+wob(i,8)*nse*0.55),1)}`;
+      bandG+=`${i?"L":"M"}${fmt(xw(i),1)},${fmt(yw(+g+2*nse),1)}`;
+      bandB+=`${i?"L":"M"}${fmt(xw(i),1)},${fmt(yw(-g+2*nse),1)}`;
+      backG=`L${fmt(xw(i),1)},${fmt(yw(+g-2*nse),1)}`+backG;
+      backB=`L${fmt(xw(i),1)},${fmt(yw(-g-2*nse),1)}`+backB;
     }
-    $("binsvg").innerHTML=bins+
-      `<line x1="35" y1="120" x2="830" y2="120" stroke="${line}"/>
-       <text x="40" y="140" font-size="11" fill="${mut}">${r} types${r>60?" (first 60 drawn)":""} — bar height = expected sightings of that type in the k=200 peek${K/r<1?" (grey bars: fewer than one)":""}</text>`;
-    const X0=70,X1=830,Y0=250,Y1=30,RMIN=8,RMAX=4096;
-    const lx=v=>X0+(X1-X0)*(Math.log2(v)-3)/(12-3);
-    const CMAX=600;
-    const ly=v=>Y0-(Y0-Y1)*clamp(Math.log10(v)/Math.log10(CMAX),0,1);
-    let p1="",p2="";
-    for(let rr=RMIN;rr<=RMAX;rr*=1.15){
-      p1+=`${p1?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(Math.sqrt(rr)),1)}`;
-      p2+=`${p2?"L":"M"}${fmt(lx(rr),1)},${fmt(ly(rr/Math.log(rr)),1)}`;}
-    const warm=css("--warm"),ink=css("--ink");
-    $("cplx").innerHTML=`
-      <line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="${line}"/>
-      <line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="${line}"/>
-      <line x1="${X0}" y1="${ly(K)}" x2="${X1}" y2="${ly(K)}" stroke="${mut}" stroke-dasharray="6,5"/>
-      <text x="${X1-4}" y="${ly(K)-6}" text-anchor="end" font-size="11" fill="${mut}">your peek budget k = ${K}</text>
-      <path d="${p1}" fill="none" stroke="${cool}" stroke-width="2.5"/>
-      <path d="${p2}" fill="none" stroke="${warm}" stroke-width="2.5"/>
-      <text x="${lx(2200)}" y="${ly(Math.sqrt(2600))+18}" font-size="12" fill="${cool}">√r — cost of checking the tip is EXACTLY right</text>
-      <text x="${lx(200)}" y="${ly(260/Math.log(260))-10}" font-size="12" fill="${warm}">r/log r — cost of checking it's ROUGHLY right (what safety needs)</text>
-      <line x1="${lx(r)}" y1="${Y0}" x2="${lx(r)}" y2="${Y1}" stroke="${ink}" stroke-width="1.5" stroke-dasharray="2,4"/>
-      <text x="${lx(r)}" y="${Y1+14}" text-anchor="middle" font-size="11" fill="${ink}">current r = ${r}</text>
-      <text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" font-size="12" fill="${mut}">number of types r (log scale) — vertical: samples needed (log scale)</text>`;
+    const kmark = kstar<=k ? `<line x1="${fmt(X0+(X1-X0)*(kstar-1)/(k-1),1)}" y1="${YC-108}" x2="${fmt(X0+(X1-X0)*(kstar-1)/(k-1),1)}" y2="${YC+108}" stroke="${gold}" stroke-dasharray="3,4"/>
+      <text x="${fmt(X0+(X1-X0)*(kstar-1)/(k-1),1)}" y="${YC-112}" text-anchor="middle" font-size="11" fill="${gold}">k* ≈ ${Math.round(kstar)}</text>` : "";
+    $("walksvg").innerHTML=`
+      <line x1="${X0}" y1="${YC}" x2="${X1}" y2="${YC}" stroke="${mut}" stroke-dasharray="5,5"/>
+      <text x="${X0}" y="${YC-6}" font-size="11" fill="${mut}">0 — can't tell which world</text>
+      <path d="${bandG}${backG}Z" fill="${cool}" opacity="0.12"/>
+      <path d="${bandB}${backB}Z" fill="${warm}" opacity="0.12"/>
+      <path d="${pg}" fill="none" stroke="${cool}" stroke-width="2.2"/>
+      <path d="${pb}" fill="none" stroke="${warm}" stroke-width="2.2"/>
+      ${kmark}
+      <text x="${X1-4}" y="${fmt(yw(g)-8,1)}" text-anchor="end" font-size="12" fill="${cool}">honest tip — average score → +g</text>
+      <text x="${X1-4}" y="${fmt(yw(-g)+16,1)}" text-anchor="end" font-size="12" fill="${warm}">poisoned tip — average score → −g</text>
+      <text x="${(X0+X1)/2}" y="${YC+112}" text-anchor="middle" font-size="12" fill="${mut}">arrivals seen (1 … k = ${k}) — shaded: ±2·σ/√j noise band around each world</text>`;
+    /* frontier: required peek vs stakes */
+    const FX0=70,FX1=830,FY0=250,FY1=30,GMIN=0.005,GMAX=0.35;
+    const lx=v=>FX0+(FX1-FX0)*(Math.log(v)-Math.log(GMIN))/(Math.log(GMAX)-Math.log(GMIN));
+    const ly=v=>FY0-(FY0-FY1)*clamp((Math.log10(v)-1)/(5-1),0,1);
+    let pf="";
+    for(let gg=GMIN;gg<=GMAX;gg*=1.06)
+      pf+=`${pf?"L":"M"}${fmt(lx(gg),1)},${fmt(ly(SIG2/(gg*gg)),1)}`;
+    const gN=Math.sqrt(SIG2/N);
+    $("frontier").innerHTML=`
+      <line x1="${FX0}" y1="${FY0}" x2="${FX1}" y2="${FY0}" stroke="${line}"/>
+      <line x1="${FX0}" y1="${FY0}" x2="${FX0}" y2="${FY1}" stroke="${line}"/>
+      <line x1="${FX0}" y1="${ly(N)}" x2="${FX1}" y2="${ly(N)}" stroke="${gold}" stroke-width="1.5" stroke-dasharray="7,5"/>
+      <text x="${FX1-4}" y="${ly(N)-6}" text-anchor="end" font-size="11" fill="${gold}">the whole night: n = ${N}</text>
+      <line x1="${FX0}" y1="${ly(k)}" x2="${FX1}" y2="${ly(k)}" stroke="${ink}" stroke-dasharray="4,4"/>
+      <text x="${FX0+6}" y="${ly(k)-6}" font-size="11" fill="${ink}">your peek k = ${k}</text>
+      <path d="${pf}" fill="none" stroke="${warm}" stroke-width="2.5"/>
+      <text x="${lx(0.05)}" y="${ly(SIG2/(0.05*0.05))-10}" font-size="12" fill="${warm}">k* = σ²/g² — the bill for deciding</text>
+      <line x1="${lx(gN)}" y1="${FY0}" x2="${lx(gN)}" y2="${FY1}" stroke="${mut}" stroke-dasharray="2,5"/>
+      <text x="${lx(gN)}" y="${FY1+14}" text-anchor="middle" font-size="11" fill="${mut}">g ≈ ${fmt(gN,3)}: below this, even k = n can't pay</text>
+      <line x1="${lx(g)}" y1="${FY0}" x2="${lx(g)}" y2="${FY1}" stroke="${ink}" stroke-width="1.5" stroke-dasharray="2,4"/>
+      <text x="${lx(g)}" y="${FY0+16}" text-anchor="middle" font-size="11" fill="${ink}">your g</text>
+      <text x="${(FX0+FX1)/2}" y="${FY0+32}" text-anchor="middle" font-size="12" fill="${mut}">stakes g (log scale) — vertical: arrivals needed (log scale)</text>`;
   }
-  $("rSlider").addEventListener("input",draw);
+  $("gSlider").addEventListener("input",draw);
+  $("kSlider").addEventListener("input",draw);
   draw();
 })();
 
