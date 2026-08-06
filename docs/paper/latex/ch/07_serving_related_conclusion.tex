@@ -44,7 +44,30 @@ average-case matching the value is robustness, not consistency --- is a
 same-spirit but problem-specific statement, made quantitative and then
 proven necessary. The direct experimental-study template is Chłędowski
 et al.~\cite{chledowski2021caching} in caching, whose
-blind-follow-with-switching combiner we benchmark (§5.4).
+blind-follow-with-switching combiner we benchmark (§5.5); the switching
+genre extends to prediction-quality-triggered frameworks such as
+SemiTrust-and-Switch \cite{antoniadis2025switching}, and distributional
+advice of unknown quality is handled by hedging in ski rental
+\cite{cui2026skirental} and in Diakonikolas et al.'s sampling-access
+model --- none of these tests the payoff, and none commits once. The
+most closely related active line is the \emph{test-before-trust} program
+of Choo, Gouleakis and coauthors
+\cite{choo2024imperfect,bhattacharyya2025product}, which statistically
+validates advice before use --- always by distributional distance; our
+§5.4/§7.7 argue the decision-relevant statistic is the payoff instead.
+
+\textbf{Algorithm selection and sequential testing.} Choosing between
+two policies from samples at gap \(g\) costs \(O(1/g^2)\) observations
+by uniform convergence --- the classical engine of data-driven algorithm
+selection \cite{gupta2017pac,balcan2020datadriven} and, earlier, of
+sequential analysis \cite{wald1947sequential}. The delta here is not
+that engine: in those settings each sample is a whole instance whose
+performance is directly observable, whereas a prefix of a \emph{single}
+matching instance does not, in general, reveal a policy's full-horizon
+value. The payoff identity (Lemma 2) is the structural fact that makes
+it observable per-arrival on the hard family, and the bootstrap
+calibration of §5.4 is what survives of it on benchmark instances with
+capacity kinks.
 
 \textbf{Online matching with predictions.} MinPredictedDegree
 \cite{aci2022mpd} and the test-and-fallback schemes

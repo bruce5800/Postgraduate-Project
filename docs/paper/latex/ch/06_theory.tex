@@ -51,8 +51,22 @@ our story twice, both times off the critical path: it explains
 its hard instances are exactly what our payoff identity (Lemma 2)
 sidesteps. To our knowledge, both the budget--stakes law and the
 observation that payoff-testing strictly separates from distance-testing
-in an online algorithm are new; a dedicated literature pass on
-payoff-estimating acceptance rules is in progress.
+in an online algorithm are new. A dedicated pass over the adjacent lines
+(§9) found none testing the payoff: the \emph{test-before-trust} program
+of Choo, Gouleakis and coauthors
+\cite{choo2024imperfect,bhattacharyya2025product} validates advice by
+distributional distance throughout --- exactly the statistic §7.7 shows
+is the wrong one on average-case inputs; switching frameworks
+\cite{chledowski2021caching,antoniadis2025switching} switch dynamically
+on prediction quality or regret rather than committing on a payoff test,
+and matching's irrevocability breaks them (§5.5); data-driven algorithm
+selection \cite{gupta2017pac,balcan2020datadriven} chooses among
+algorithms from samples of \emph{whole instances} with observable
+per-instance performance, whereas here a single instance's prefix must
+reveal a policy's full-horizon value --- which is what the payoff
+identity provides; and the \(1/g^2\) budget echoes classical sequential
+analysis \cite{wald1947sequential}, whose engine --- not its novelty ---
+Lemma 2 imports into matching.
 
 \subsection{The test-and-fallback
 class}
@@ -359,9 +373,12 @@ such family, so no decomposable construction can restore a
 super-\(1/\delta^2\) barrier. Whether a \emph{non-decomposable} family
 --- long-range dependence making the payoff a genuinely hard functional
 --- can separate the budget from \(1/\delta^2\) is open. The directional
-test is analyzed here only on the cell family; its novelty relative to
-payoff-estimating switching rules elsewhere in the learning-augmented
-literature is under a dedicated literature pass. We credit Choo et
-al.~for the constructive baseline-coupling their threshold already
-exhibits; our contribution is the two-sided, rule-independent budget
-law, the payoff/distance separation, and the quantified wall.
+test is analyzed here only on the cell family; a dedicated novelty pass
+(recorded in the project archive) found no payoff-testing acceptance
+rule in the adjacent literatures --- the nearest lines test distances,
+switch on regret, or select algorithms from whole-instance samples (§9)
+--- though the statistical skeleton of the upper half is, deliberately,
+classical. We credit Choo et al.~for the constructive baseline-coupling
+their threshold already exhibits; our contribution is the two-sided,
+rule-independent budget law, the payoff/distance separation, and the
+quantified wall.

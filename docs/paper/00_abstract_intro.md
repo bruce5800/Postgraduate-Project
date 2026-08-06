@@ -133,8 +133,10 @@ inequality lower) and are stated with proofs/sketches in §7; numerical verifica
 scripts/verify_witness_gap.py. The earlier tolerant-testing impossibility was refuted
 during its own witness step (docs/T1_WITNESS_GAP.md) — the refutation is reported
 honestly in §7.7. Remaining before submission (single-author, 2026-07-28): the author's
-own line-by-line verification pass; literature pass on payoff-estimating acceptance
-rules; venue LLM-disclosure policy check. -->
+own line-by-line verification pass; venue LLM-disclosure policy check. Novelty pass on
+payoff-testing acceptance rules DONE 2026-07-29 (docs/NOVELTY_PAYOFF_TEST.md): claim
+survives; positioning vs test-before-trust / algorithm-selection / Wald added in §7 and
+§9. -->
 
 **Contributions.**
 - **(C1) The first unified benchmark** of learning-augmented online-matching algorithms —

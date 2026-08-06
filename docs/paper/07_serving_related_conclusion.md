@@ -40,7 +40,24 @@ competitive caching with predictions [LV18] and the optimal-tradeoff analyses th
 [WZ20]; our thesis — that on average-case matching the value is robustness, not consistency
 — is a same-spirit but problem-specific statement, made quantitative and then proven
 necessary. The direct experimental-study template is Chłędowski et al. [Chl21] in caching,
-whose blind-follow-with-switching combiner we benchmark (§5.4).
+whose blind-follow-with-switching combiner we benchmark (§5.5); the switching genre
+extends to prediction-quality-triggered frameworks such as SemiTrust-and-Switch [ASSS25],
+and distributional advice of unknown quality is handled by hedging in ski rental [CD26]
+and in Diakonikolas et al.'s sampling-access model — none of these tests the payoff, and
+none commits once. The most closely related active line is the *test-before-trust*
+program of Choo, Gouleakis and coauthors [Choo24, BCJG25], which statistically validates
+advice before use — always by distributional distance; our §5.4/§7.7 argue the
+decision-relevant statistic is the payoff instead.
+
+**Algorithm selection and sequential testing.** Choosing between two policies from
+samples at gap $g$ costs $O(1/g^2)$ observations by uniform convergence — the classical
+engine of data-driven algorithm selection [GR17, Bal20] and, earlier, of sequential
+analysis [Wald47]. The delta here is not that engine: in those settings each sample is a
+whole instance whose performance is directly observable, whereas a prefix of a *single*
+matching instance does not, in general, reveal a policy's full-horizon value. The payoff
+identity (Lemma 2) is the structural fact that makes it observable per-arrival on the
+hard family, and the bootstrap calibration of §5.4 is what survives of it on benchmark
+instances with capacity kinks.
 
 **Online matching with predictions.** MinPredictedDegree [ACI22] and the test-and-fallback
 schemes [Choo24, BEM26] are the algorithms we unify and, for the latter, bound; each was

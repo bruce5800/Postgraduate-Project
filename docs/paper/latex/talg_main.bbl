@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{14}
+\begin{thebibliography}{20}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -42,6 +42,40 @@
   Chen}, {and} \bibinfo{person}{Piotr Indyk}.} \bibinfo{year}{2022}\natexlab{}.
 \newblock \showarticletitle{(Optimal) Online Bipartite Matching with Degree
   Information}. In \bibinfo{booktitle}{\emph{NeurIPS}}.
+\newblock
+
+
+\bibitem[Antoniadis et~al\mbox{.}(2025)]%
+        {antoniadis2025switching}
+\bibfield{author}{\bibinfo{person}{Antonios Antoniadis}, \bibinfo{person}{Ali
+  Shahheidar}, \bibinfo{person}{Golnoosh Shahkarami}, {and}
+  \bibinfo{person}{Abolfazl Soltani}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{A Switching Framework for Online Interval
+  Scheduling with Predictions}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2511.16194}}
+  (\bibinfo{year}{2025}).
+\newblock
+
+
+\bibitem[Balcan(2020)]%
+        {balcan2020datadriven}
+\bibfield{author}{\bibinfo{person}{Maria-Florina Balcan}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Data-Driven Algorithm Design}.
+\newblock In \bibinfo{booktitle}{\emph{Beyond the Worst-Case Analysis of
+  Algorithms}}, \bibfield{editor}{\bibinfo{person}{Tim Roughgarden}} (Ed.).
+  \bibinfo{publisher}{Cambridge University Press}, \bibinfo{pages}{626--645}.
+\newblock
+
+
+\bibitem[Bhattacharyya et~al\mbox{.}(2025)]%
+        {bhattacharyya2025product}
+\bibfield{author}{\bibinfo{person}{Arnab Bhattacharyya}, \bibinfo{person}{Davin
+  Choo}, \bibinfo{person}{Philips~George John}, {and} \bibinfo{person}{Themis
+  Gouleakis}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Product Distribution Learning with Imperfect
+  Advice}. In \bibinfo{booktitle}{\emph{Advances in Neural Information
+  Processing Systems (NeurIPS)}}.
 \newblock
 
 
@@ -99,6 +133,17 @@
 \newblock
 
 
+\bibitem[Cui and Dinitz(2026)]%
+        {cui2026skirental}
+\bibfield{author}{\bibinfo{person}{Qiming Cui} {and} \bibinfo{person}{Michael
+  Dinitz}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Ski Rental with Distributional Predictions of
+  Unknown Quality}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2602.21104}}
+  (\bibinfo{year}{2026}).
+\newblock
+
+
 \bibitem[Feldman et~al\mbox{.}(2009)]%
         {feldman2009online}
 \bibfield{author}{\bibinfo{person}{Jon Feldman}, \bibinfo{person}{Aranyak
@@ -106,6 +151,17 @@
   Muthukrishnan}.} \bibinfo{year}{2009}\natexlab{}.
 \newblock \showarticletitle{Online Stochastic Matching: Beating 1-1/e}. In
   \bibinfo{booktitle}{\emph{FOCS}}.
+\newblock
+
+
+\bibitem[Gupta and Roughgarden(2017)]%
+        {gupta2017pac}
+\bibfield{author}{\bibinfo{person}{Rishi Gupta} {and} \bibinfo{person}{Tim
+  Roughgarden}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{A {PAC} Approach to Application-Specific Algorithm
+  Selection}.
+\newblock \bibinfo{journal}{\emph{SIAM J. Comput.}} \bibinfo{volume}{46},
+  \bibinfo{number}{3} (\bibinfo{year}{2017}), \bibinfo{pages}{992--1017}.
 \newblock
 
 
@@ -167,6 +223,15 @@
 \newblock \showarticletitle{Estimating the Unseen: An $n/\log n$-sample
   Estimator for Entropy and Support Size, Shown Optimal via New CLTs}. In
   \bibinfo{booktitle}{\emph{STOC}}.
+\newblock
+
+
+\bibitem[Wald(1947)]%
+        {wald1947sequential}
+\bibfield{author}{\bibinfo{person}{Abraham Wald}.}
+  \bibinfo{year}{1947}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Sequential Analysis}}.
+\newblock \bibinfo{publisher}{John Wiley \& Sons}.
 \newblock
 
 

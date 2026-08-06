@@ -19,8 +19,10 @@ affine law carry over unchanged. GENERALIZED 2026-07-28: heterogeneous profiles
 sigma^2 = sum theta_i/N with the exact identity 1-rho_base = sigma^2/2; verified by
 scripts/verify_budget_stakes_hetero.py (see docs/T1_HETERO_GENERAL.md). Remaining before
 submission (single-author as of 2026-07-28): the author's own line-by-line verification
-of this section; a literature pass on payoff-estimating acceptance rules (novelty of the
-directional test); typeset the two short proofs in the appendix.
+of this section; typeset the two short proofs in the appendix. Novelty pass DONE
+2026-07-29 (docs/NOVELTY_PAYOFF_TEST.md) — no payoff-testing acceptance rule found in the
+adjacent lines; positioning debts (test-before-trust, data-driven selection, Wald) paid
+in the intro paragraph and §9.
 
 Differentiation to defend (put up front): Choo's threshold τ=2(n̂/n−β)−ε couples to the
 baseline β CONSTRUCTIVELY; our lower bound is information-theoretic (any prefix rule).
@@ -67,8 +69,18 @@ not gated by a test. Tolerant-testing sample complexity [CJKL22] enters our stor
 both times off the critical path: it explains *why* the field's $\ell_1$-threshold rules
 are blind (§7.7), and its hard instances are exactly what our payoff identity (Lemma 2)
 sidesteps. To our knowledge, both the budget–stakes law and the observation that
-payoff-testing strictly separates from distance-testing in an online algorithm are new; a
-dedicated literature pass on payoff-estimating acceptance rules is in progress.
+payoff-testing strictly separates from distance-testing in an online algorithm are new.
+A dedicated pass over the adjacent lines (§9) found none testing the payoff: the
+*test-before-trust* program of Choo, Gouleakis and coauthors [Choo24, BCJG25] validates
+advice by distributional distance throughout — exactly the statistic §7.7 shows is the
+wrong one on average-case inputs; switching frameworks [Chl21, ASSS25] switch dynamically
+on prediction quality or regret rather than committing on a payoff test, and matching's
+irrevocability breaks them (§5.5); data-driven algorithm selection [GR17, Bal20] chooses
+among algorithms from samples of *whole instances* with observable per-instance
+performance, whereas here a single instance's prefix must reveal a policy's full-horizon
+value — which is what the payoff identity provides; and the $1/g^2$ budget echoes
+classical sequential analysis [Wald47], whose engine — not its novelty — Lemma 2 imports
+into matching.
 
 ## 7.1 The test-and-fallback class
 
@@ -288,8 +300,10 @@ is stated for decomposable (disjoint-cell) families; by Lemma 2 the payoff is pe
 observable on *every* such family, so no decomposable construction can restore a
 super-$1/\delta^2$ barrier. Whether a *non-decomposable* family — long-range
 dependence making the payoff a genuinely hard functional — can separate the budget from
-$1/\delta^2$ is open. The directional test is analyzed here only on the cell family; its
-novelty relative to payoff-estimating switching rules elsewhere in the learning-augmented
-literature is under a dedicated literature pass. We credit Choo et al. for the constructive
+$1/\delta^2$ is open. The directional test is analyzed here only on the cell family; a
+dedicated novelty pass (recorded in the project archive) found no payoff-testing
+acceptance rule in the adjacent literatures — the nearest lines test distances, switch on
+regret, or select algorithms from whole-instance samples (§9) — though the statistical
+skeleton of the upper half is, deliberately, classical. We credit Choo et al. for the constructive
 baseline-coupling their threshold already exhibits; our contribution is the two-sided,
 rule-independent budget law, the payoff/distance separation, and the quantified wall.

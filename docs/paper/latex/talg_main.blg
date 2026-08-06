@@ -15,6 +15,12 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in aci2022mpd
 Warning--empty address in aci2022mpd
 Warning--page numbers missing in both pages and numpages fields in aci2022mpd
+Warning--no number and no volume in antoniadis2025switching
+Warning--page numbers missing in both pages and numpages fields in antoniadis2025switching
+Warning--empty address in balcan2020datadriven
+Warning--empty publisher in bhattacharyya2025product
+Warning--empty address in bhattacharyya2025product
+Warning--page numbers missing in both pages and numpages fields in bhattacharyya2025product
 Warning--no number and no volume in borodin2018experimental
 Warning--page numbers missing in both pages and numpages fields in borodin2018experimental
 Warning--empty publisher in bem2026testmatch
@@ -29,6 +35,8 @@ Warning--page numbers missing in both pages and numpages fields in chledowski202
 Warning--empty publisher in choo2024imperfect
 Warning--empty address in choo2024imperfect
 Warning--page numbers missing in both pages and numpages fields in choo2024imperfect
+Warning--no number and no volume in cui2026skirental
+Warning--page numbers missing in both pages and numpages fields in cui2026skirental
 Warning--empty publisher in feldman2009online
 Warning--empty address in feldman2009online
 Warning--page numbers missing in both pages and numpages fields in feldman2009online
@@ -45,48 +53,49 @@ Warning--page numbers missing in both pages and numpages fields in lykouris2018c
 Warning--empty publisher in valiant2011unseen
 Warning--empty address in valiant2011unseen
 Warning--page numbers missing in both pages and numpages fields in valiant2011unseen
+Warning--empty address in wald1947sequential
 Warning--empty publisher in weizhang2020tradeoffs
 Warning--empty address in weizhang2020tradeoffs
 Warning--page numbers missing in both pages and numpages fields in weizhang2020tradeoffs
-You've used 14 entries,
+You've used 20 entries,
             6273 wiz_defined-function locations,
-            1582 strings with 20258 characters,
-and the built_in function-call counts, 14496 in all, are:
-= -- 1618
-> -- 466
+            1613 strings with 21183 characters,
+and the built_in function-call counts, 20628 in all, are:
+= -- 2432
+> -- 644
 < -- 0
-+ -- 165
-- -- 163
-* -- 987
-:= -- 1360
-add.period$ -- 61
-call.type$ -- 14
-change.case$ -- 95
-chr.to.int$ -- 14
-cite$ -- 50
-duplicate$ -- 1406
-empty$ -- 998
-format.name$ -- 219
-if$ -- 3527
++ -- 226
+- -- 230
+* -- 1392
+:= -- 1955
+add.period$ -- 92
+call.type$ -- 20
+change.case$ -- 133
+chr.to.int$ -- 20
+cite$ -- 65
+duplicate$ -- 1960
+empty$ -- 1391
+format.name$ -- 302
+if$ -- 5047
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 66
-newline$ -- 143
-num.names$ -- 98
-pop$ -- 716
+missing$ -- 86
+newline$ -- 190
+num.names$ -- 142
+pop$ -- 945
 preamble$ -- 1
-purify$ -- 207
+purify$ -- 293
 quote$ -- 0
-skip$ -- 480
+skip$ -- 670
 stack$ -- 0
-substring$ -- 815
-swap$ -- 76
+substring$ -- 1236
+swap$ -- 121
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 364
-warning$ -- 36
-while$ -- 65
+type$ -- 487
+warning$ -- 45
+while$ -- 106
 width$ -- 0
-write$ -- 283
-(There were 36 warnings)
+write$ -- 394
+(There were 45 warnings)

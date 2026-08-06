@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  5 AUG 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  6 AUG 2026 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,100 +1285,100 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
 
 [15.15 <../../../results/realworld_robustness.png>]
 LaTeX Font Info:    Trying to load font information for OT1+LinuxBiolinumT-TLF 
-on input line 63.
+on input line 77.
 
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd
 File: OT1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for OT1/L
 inuxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 63.
+(Font)              scaled to size 9.0pt on input line 77.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 63.
+(Font)              scaled to size 6.6pt on input line 77.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 63.
+(Font)              scaled to size 5.5pt on input line 77.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[16.16]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.6pt on input line 140.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 140.
+
+
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 126.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 126.
-
-Underfull \vbox (badness 2698) has occurred while \output is active []
-
-
-
-[17.17]
-Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 177--184
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
 ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
 T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
  []
 
 
-Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+
+
+[18.18]
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 246--264
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
 ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
 kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
  []
 
-
-Underfull \vbox (badness 1629) has occurred while \output is active []
-
-
-
-[18.18]
-<../../../results/impossibility_frontier.png, id=327, 1006.962pt x 398.08725pt>
+<../../../results/impossibility_frontier.png, id=338, 1006.962pt x 398.08725pt>
 
 File: ../../../results/impossibility_frontier.png Graphic file (type png)
 <use ../../../results/impossibility_frontier.png>
 Package pdftex.def Info: ../../../results/impossibility_frontier.png  used on i
-nput line 286.
+nput line 300.
 (pdftex.def)             Requested size: 430.00441pt x 169.99576pt.
 
+Class acmart Warning: A possible image without description on input line 306.
 
-Class acmart Warning: A possible image without description on input line 292.
-
-<../../../results/directional_rsweep.png, id=330, 672.71326pt x 335.45325pt>
+<../../../results/directional_rsweep.png, id=341, 672.71326pt x 335.45325pt>
 File: ../../../results/directional_rsweep.png Graphic file (type png)
 <use ../../../results/directional_rsweep.png>
 Package pdftex.def Info: ../../../results/directional_rsweep.png  used on input
- line 316.
+ line 330.
 (pdftex.def)             Requested size: 430.0115pt x 214.42828pt.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 320.
+(Font)              scaled to size 8.0pt on input line 334.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 320.
+(Font)              scaled to size 6.0pt on input line 334.
 
-Class acmart Warning: A possible image without description on input line 321.
-
-
-
-[19.19]) (./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 1509) has occurred while \output is active []
+Class acmart Warning: A possible image without description on input line 335.
 
 
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
+
+
+[19.19]
 
 [20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
-nal_rsweep.png>]
+nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[21.21]) (./talg_main.bbl
+
+
+[21.21]
+Underfull \vbox (badness 4048) has occurred while \output is active []
+
+
+
+[22.22]) (./talg_main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 44.
-
-
-[22.22]
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 80.
+(Font)              scaled to size 7.3pt on input line 114.
 )
 
 Class acmart Warning: Some images may lack descriptions.
@@ -1406,13 +1406,13 @@ Package rerunfilecheck Info: File `talg_main.out' has not changed.
 (rerunfilecheck)             Checksum: C772FC83B9ECDEA3DB42BED4951F41BE;8934.
  ) 
 Here is how much of TeX's memory you used:
- 21774 strings out of 474654
- 359491 string characters out of 5750568
- 777037 words of memory out of 5000000
- 43376 multiletter control sequences out of 15000+600000
- 793121 words of font info for 641 fonts, out of 8000000 for 9000
+ 21811 strings out of 474654
+ 360430 string characters out of 5750568
+ 777245 words of memory out of 5000000
+ 43395 multiletter control sequences out of 15000+600000
+ 794409 words of font info for 649 fonts, out of 8000000 for 9000
  480 hyphenation exceptions out of 8191
- 90i,17n,131p,1006b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1006b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/lizhuolun/Library/texmf/fonts/type1/public/inconsolata/Inconsolata-zi
 4r.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI
 .pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI5.
@@ -1432,10 +1432,10 @@ lun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library/
 texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts
 /type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publi
 c/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1574415 bytes).
+Output written on talg_main.pdf (23 pages, 1579522 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 391 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 412 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
  125795 words of extra memory for PDF output out of 128383 (max. 10000000)
 

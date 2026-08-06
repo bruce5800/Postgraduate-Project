@@ -197,37 +197,85 @@ Class acmart Warning: A possible image without description on input line 59.
 
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
 [15.15 <../../../results/realworld_robustness.png>]
+
+Package natbib Warning: Citation `bhattacharyya2025product' on page 16 undefine
+d on input line 57.
+
+
+Package natbib Warning: Citation `antoniadis2025switching' on page 16 undefined
+ on input line 60.
+
+
+Package natbib Warning: Citation `gupta2017pac' on page 16 undefined on input l
+ine 63.
+
+
+Package natbib Warning: Citation `balcan2020datadriven' on page 16 undefined on
+ input line 63.
+
+
+Package natbib Warning: Citation `wald1947sequential' on page 16 undefined on i
+nput line 68.
+
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[16.16]
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 2698) has occurred while \output is active
-[17.17]
-Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 177--184
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
 ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
 T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+Underfull \vbox (badness 4752) has occurred while \output is active
+[18.18]
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 246--264
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
 ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
 kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-Underfull \vbox (badness 1629) has occurred while \output is active
-[18.18]
-
-Class acmart Warning: A possible image without description on input line 292.
+Class acmart Warning: A possible image without description on input line 306.
 
 
-Class acmart Warning: A possible image without description on input line 321.
+Class acmart Warning: A possible image without description on input line 335.
 
 
-[19.19]) (./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 1509) has occurred while \output is active
+Underfull \vbox (badness 1308) has occurred while \output is active
+[19.19]
 [20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
-nal_rsweep.png>]
-[21.21]) (./talg_main.bbl
-[22.22])
+nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[21.21]
+
+Package natbib Warning: Citation `antoniadis2025switching' on page 22 undefined
+ on input line 49.
+
+
+Package natbib Warning: Citation `cui2026skirental' on page 22 undefined on inp
+ut line 51.
+
+
+Package natbib Warning: Citation `bhattacharyya2025product' on page 22 undefine
+d on input line 55.
+
+
+Package natbib Warning: Citation `gupta2017pac' on page 22 undefined on input l
+ine 62.
+
+
+Package natbib Warning: Citation `balcan2020datadriven' on page 22 undefined on
+ input line 62.
+
+
+Package natbib Warning: Citation `wald1947sequential' on page 22 undefined on i
+nput line 63.
+
+
+Underfull \vbox (badness 4048) has occurred while \output is active
+[22.22]) (./talg_main.bbl)
+
+Package natbib Warning: There were undefined citations.
+
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -244,11 +292,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[23.23] (./talg_main.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- )
+[23.23] (./talg_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -268,7 +312,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1574418 bytes).
+Output written on talg_main.pdf (23 pages, 1577253 bytes).
 Transcript written on talg_main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
 The top-level auxiliary file: talg_main.aux
@@ -277,6 +321,12 @@ Database file #1: refs_clean.bib
 Warning--empty publisher in aci2022mpd
 Warning--empty address in aci2022mpd
 Warning--page numbers missing in both pages and numpages fields in aci2022mpd
+Warning--no number and no volume in antoniadis2025switching
+Warning--page numbers missing in both pages and numpages fields in antoniadis2025switching
+Warning--empty address in balcan2020datadriven
+Warning--empty publisher in bhattacharyya2025product
+Warning--empty address in bhattacharyya2025product
+Warning--page numbers missing in both pages and numpages fields in bhattacharyya2025product
 Warning--no number and no volume in borodin2018experimental
 Warning--page numbers missing in both pages and numpages fields in borodin2018experimental
 Warning--empty publisher in bem2026testmatch
@@ -291,6 +341,8 @@ Warning--page numbers missing in both pages and numpages fields in chledowski202
 Warning--empty publisher in choo2024imperfect
 Warning--empty address in choo2024imperfect
 Warning--page numbers missing in both pages and numpages fields in choo2024imperfect
+Warning--no number and no volume in cui2026skirental
+Warning--page numbers missing in both pages and numpages fields in cui2026skirental
 Warning--empty publisher in feldman2009online
 Warning--empty address in feldman2009online
 Warning--page numbers missing in both pages and numpages fields in feldman2009online
@@ -307,10 +359,11 @@ Warning--page numbers missing in both pages and numpages fields in lykouris2018c
 Warning--empty publisher in valiant2011unseen
 Warning--empty address in valiant2011unseen
 Warning--page numbers missing in both pages and numpages fields in valiant2011unseen
+Warning--empty address in wald1947sequential
 Warning--empty publisher in weizhang2020tradeoffs
 Warning--empty address in weizhang2020tradeoffs
 Warning--page numbers missing in both pages and numpages fields in weizhang2020tradeoffs
-(There were 36 warnings)
+(There were 45 warnings)
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -510,37 +563,85 @@ Class acmart Warning: A possible image without description on input line 59.
 
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
 [15.15 <../../../results/realworld_robustness.png>]
+
+Package natbib Warning: Citation `bhattacharyya2025product' on page 16 undefine
+d on input line 57.
+
+
+Package natbib Warning: Citation `antoniadis2025switching' on page 16 undefined
+ on input line 60.
+
+
+Package natbib Warning: Citation `gupta2017pac' on page 16 undefined on input l
+ine 63.
+
+
+Package natbib Warning: Citation `balcan2020datadriven' on page 16 undefined on
+ input line 63.
+
+
+Package natbib Warning: Citation `wald1947sequential' on page 16 undefined on i
+nput line 68.
+
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[16.16]
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 2698) has occurred while \output is active
-[17.17]
-Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 177--184
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
 ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
 T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+Underfull \vbox (badness 4752) has occurred while \output is active
+[18.18]
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 246--264
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
 ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
 kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-Underfull \vbox (badness 1629) has occurred while \output is active
-[18.18]
-
-Class acmart Warning: A possible image without description on input line 292.
+Class acmart Warning: A possible image without description on input line 306.
 
 
-Class acmart Warning: A possible image without description on input line 321.
+Class acmart Warning: A possible image without description on input line 335.
 
 
-[19.19]) (./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 1509) has occurred while \output is active
+Underfull \vbox (badness 1308) has occurred while \output is active
+[19.19]
 [20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
-nal_rsweep.png>]
-[21.21]) (./talg_main.bbl
-[22.22])
+nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[21.21]
+
+Package natbib Warning: Citation `antoniadis2025switching' on page 22 undefined
+ on input line 49.
+
+
+Package natbib Warning: Citation `cui2026skirental' on page 22 undefined on inp
+ut line 51.
+
+
+Package natbib Warning: Citation `bhattacharyya2025product' on page 22 undefine
+d on input line 55.
+
+
+Package natbib Warning: Citation `gupta2017pac' on page 22 undefined on input l
+ine 62.
+
+
+Package natbib Warning: Citation `balcan2020datadriven' on page 22 undefined on
+ input line 62.
+
+
+Package natbib Warning: Citation `wald1947sequential' on page 22 undefined on i
+nput line 63.
+
+
+Underfull \vbox (badness 4048) has occurred while \output is active
+[22.22]) (./talg_main.bbl)
+
+Package natbib Warning: There were undefined citations.
+
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -557,7 +658,12 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[23.23] (./talg_main.aux) )
+[23.23] (./talg_main.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -577,7 +683,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1574415 bytes).
+Output written on talg_main.pdf (23 pages, 1579377 bytes).
 Transcript written on talg_main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -780,35 +886,35 @@ Class acmart Warning: A possible image without description on input line 59.
 [15.15 <../../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[16.16{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[16.16]
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 2698) has occurred while \output is active
-[17.17]
-Overfull \hbox (44.58095pt too wide) in paragraph at lines 163--170
+Overfull \hbox (44.58095pt too wide) in paragraph at lines 177--184
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) and for ran-dom het-ero-ge-neous and magnit
 ude-mismatched pro-files, \T1/zi4/m/n/9 scripts/verify_budget_stakes_hetero.py\
 T1/LinuxLibertineT-TLF/m/n/9 (-20) .) 
 
-Overfull \hbox (4.94011pt too wide) in paragraph at lines 232--250
+Underfull \vbox (badness 4752) has occurred while \output is active
+[18.18]
+Overfull \hbox (4.94011pt too wide) in paragraph at lines 246--264
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) the stakes are con-stant. The het-ero-ge-ne
 ous claims are ver-i-fied sep-a-rately (\T1/zi4/m/n/9 scripts/verify_budget_sta
 kes_hetero.py\T1/LinuxLibertineT-TLF/m/n/9 (-20) ):
 
-Underfull \vbox (badness 1629) has occurred while \output is active
-[18.18]
-
-Class acmart Warning: A possible image without description on input line 292.
+Class acmart Warning: A possible image without description on input line 306.
 
 
-Class acmart Warning: A possible image without description on input line 321.
+Class acmart Warning: A possible image without description on input line 335.
 
 
-[19.19]) (./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 1509) has occurred while \output is active
+Underfull \vbox (badness 1308) has occurred while \output is active
+[19.19]
 [20.20 <../../../results/impossibility_frontier.png> <../../../results/directio
-nal_rsweep.png>]
-[21.21]) (./talg_main.bbl
-[22.22])
+nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[21.21]
+Underfull \vbox (badness 4048) has occurred while \output is active
+[22.22]) (./talg_main.bbl)
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -845,5 +951,5 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1574415 bytes).
+Output written on talg_main.pdf (23 pages, 1579522 bytes).
 Transcript written on talg_main.log.

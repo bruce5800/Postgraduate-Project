@@ -23,6 +23,9 @@ LABEL2KEY = {
     'Bor18':  'borodin2018experimental',
     'CJKL22': 'canonne2022tolerance',  'VV11':   'valiant2011unseen',
     'JHW18':  'jiao2018l1',
+    'GR17':   'gupta2017pac',          'Bal20':  'balcan2020datadriven',
+    'Wald47': 'wald1947sequential',    'BCJG25': 'bhattacharyya2025product',
+    'ASSS25': 'antoniadis2025switching', 'CD26': 'cui2026skirental',
 }
 alt = '|'.join(LABEL2KEY)
 LABEL_RE = re.compile(r'\[((?:%s)(?:,\s*(?:%s))*)\]' % (alt, alt))
