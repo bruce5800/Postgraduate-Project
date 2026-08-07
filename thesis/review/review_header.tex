@@ -1,0 +1,25 @@
+% Preamble for the annotated review build only (thesis/review/build_review.sh).
+% Never included in the submitted thesis.
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{xcolor}
+
+\definecolor{revMust}{RGB}{176,32,32}
+\definecolor{revShould}{RGB}{190,120,0}
+\definecolor{revNice}{RGB}{80,105,140}
+
+% A rule-delimited annotation block. Deliberately built from LaTeX primitives only
+% (no tcolorbox/mdframed/framed) so it compiles on a basic TeX Live.
+\newcommand{\revsavedcolor}{revShould}
+\newenvironment{revbox}[2]{%
+  \renewcommand{\revsavedcolor}{#1}%
+  \par\medskip\noindent
+  {\color{#1}\rule{\linewidth}{1pt}}\par\nobreak\vspace{2pt}%
+  \noindent{\small\bfseries\sffamily\color{#1}#2}\par\nobreak\vspace{2pt}%
+  \small\color{#1!85!black}\ignorespaces
+}{%
+  \par\vspace{2pt}\noindent{\color{\revsavedcolor}\rule{\linewidth}{0.4pt}}\par\medskip
+}
+
+% Headings are unnumbered in this build (no --number-sections): the markdown
+% headings already carry the thesis's real numbers ("Chapter 6.", "6.2 ...").

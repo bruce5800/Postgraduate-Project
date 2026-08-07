@@ -1,0 +1,11 @@
+title: |
+  批注版 · The Limits of Predictions for Online Bipartite Matching
+author: |
+  六视角审读稿 —— 摘要 / Ch1 / Ch6 / Ch10
+documentclass: ctexrep
+classoption:
+  - UTF8
+  - fontset=macnew
+fontsize: 11pt
+geometry: margin=1in
+linkcolor: black
