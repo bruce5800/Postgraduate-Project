@@ -203,6 +203,7 @@ id: 1-12
 role: R2 领域审稿人
 level: 必改
 kind: 贡献越界
+mark: is given a theoretical outlook in the conclusion
 quote: A quantified account of why the wall stands (Chapter 6 and 10.2): the resolution-limit finding ... is given a theoretical outlook in the conclusion
 note: 这一条把一个实验发现（6.3 的分辨率极限 + 图 6.4）和一个明确声明未证明的展望（10.2）打包成同一条贡献。审稿人和考官对贡献列表的读法是逐条追证据，而这条的后半截按你自己在 10.3 的说法是没有证据的。
 fix: 拆成两件事：贡献只保留实验部分（分辨率极限在整个难度区间都成立，图 6.4），把 outlook 降为本条末尾的一句话说明其存在，不占 bullet。贡献列表里少一条、但每条都守得住，是更好的交易。
@@ -223,6 +224,7 @@ id: 1-14
 role: R1 二审考官
 level: 必改
 kind: 比喻未定义
+mark: why the wall stands
 quote: A quantified account of why the wall stands
 note: wall 是全篇的核心比喻，在这里第一次出现却没有定义；它的正式说明要到 8.4 才有。第一次读的人只能猜。
 fix: 在这条贡献第一次用 wall 的地方就地定义一次，例如：the wall - the recurring finding that no amount of better prediction or better algorithm moves the average-case ratio appreciably。定义一次之后全文放心复用。
@@ -233,6 +235,7 @@ id: 1-15
 role: R3 英语文字编辑
 level: 建议
 kind: 条目长度失衡
+mark: -
 quote: (bullet 列表整体)
 note: 五条贡献的长度是 4 / 7 / 5 / 4 / 9 行，第二条和第五条各自套了三个分号从句，读起来像段落而不是要点。
 fix: 每条压到 3 到 4 行：首句一句话说清贡献是什么，细节交给章节引用。列表的价值在于可扫视，现在这个价值被长度吃掉了。

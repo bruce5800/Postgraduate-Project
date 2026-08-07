@@ -64,7 +64,7 @@
 
 ### 10-06 · 🔴 必改 · R1 二审考官 · 符号未定义
 
-`en/11_conclusion.md:125`
+`en/11_conclusion.md:126`
 
 > k* = Theta(theta/delta^2) ... scaled by the contention theta ... delta <= 2 epsilon (1 - rho_base)
 
@@ -75,7 +75,7 @@
 
 ### 10-07 · 🔴 必改 · R2 领域审稿人 · 未证结果陈述为事实
 
-`en/11_conclusion.md:135`
+`en/11_conclusion.md:137`
 
 > the decision costs a prefix of k* = Theta(theta/delta^2) ... and the budget is achievable, by a simple directional statistic
 
@@ -86,7 +86,7 @@
 
 ### 10-08 · 🔴 必改 · R2 领域审稿人 · 断言超出 scope
 
-`en/11_conclusion.md:145`
+`en/11_conclusion.md:147`
 
 > any upside below Theta(sqrt((1-rho_base)/n)) cannot be captured safely by any rule at any prefix length k <= n
 
@@ -97,7 +97,7 @@
 
 ### 10-09 · 🔴 必改 · R5 答辩提问者 · 前提后置
 
-`en/11_conclusion.md:155`
+`en/11_conclusion.md:158`
 
 > (decomposable families; whether a non-decomposable family can push the budget higher is open) - 出现在 10.4
 
@@ -108,7 +108,7 @@
 
 ### 10-10 · 🟡 建议 · R3 英语文字编辑 · 信息层级过深
 
-`en/11_conclusion.md:176`
+`en/11_conclusion.md:180`
 
 > a tempting stronger conjecture - that the near-linear sample cost of tolerant distribution testing (2.5) blocks every sublinear rule outright - is false: it is refuted by the same directional statistic
 
@@ -119,7 +119,7 @@
 
 ### 10-11 · 🟡 建议 · R5 答辩提问者 · 反复外指
 
-`en/11_conclusion.md:186`
+`en/11_conclusion.md:190`
 
 > the subject of the companion work
 
@@ -130,7 +130,7 @@
 
 ### 10-12 · 🔴 必改 · R2 领域审稿人 · 限制缺项
 
-`en/11_conclusion.md:213`
+`en/11_conclusion.md:217`
 
 > Limitations: Input model / Test model / Prediction-object heterogeneity / Data breadth / Theory scope
 
@@ -141,7 +141,7 @@
 
 ### 10-13 · 🟡 建议 · R1 二审考官 · 非标准记号
 
-`en/11_conclusion.md:223`
+`en/11_conclusion.md:228`
 
 > Because Known-I.I.D. <= Random-Order in difficulty, the algorithms' guarantees carry over
 
@@ -152,7 +152,7 @@
 
 ### 10-14 · 🟡 建议 · R3 英语文字编辑 · 收尾长句
 
-`en/11_conclusion.md:264`
+`en/11_conclusion.md:269`
 
 > the honest verdict is that a cheap, order-faithful predictor already captures nearly all there is to capture, that the sophisticated machinery earns its keep as insurance rather than as performance, and that finding out whether to trust a prediction costs more, on these inputs, than the prediction is worth.
 
@@ -163,7 +163,7 @@
 
 ### 10-15 · ⚪ 可选 · R6 初次读者 · 比喻定义滞后
 
-`en/11_conclusion.md:274`
+`en/11_conclusion.md:279`
 
 > The recurring wall raises an obvious question / a third face of the thesis's wall
 

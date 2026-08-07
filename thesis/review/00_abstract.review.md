@@ -42,7 +42,7 @@
 
 ### A-04 · 🔴 必改 · R3 英语文字编辑 · 结尾重复
 
-`review/00_abstract.md:58`
+`review/00_abstract.md:59`
 
 > a price that ... exceeds the length of the instance itself. Experiments and outlook deliver one message: ... the advice's upside is smaller than the price of finding out whether to trust it.
 
@@ -53,7 +53,7 @@
 
 ### A-05 · 🔴 必改 · R2 领域审稿人 · scope 与正文不符
 
-`review/00_abstract.md:68`
+`review/00_abstract.md:70`
 
 > We close with a theoretical outlook: a proved consistency/robustness trade-off inequality, together with a budget–stakes reading
 
@@ -64,7 +64,7 @@
 
 ### A-06 · 🟡 建议 · R2 领域审稿人 · 断言支撑
 
-`review/00_abstract.md:78`
+`review/00_abstract.md:80`
 
 > We give the first unified experimental study
 
@@ -75,7 +75,7 @@
 
 ### A-07 · 🟡 建议 · R4 体例校对 · 术语漂移
 
-`review/00_abstract.md:88`
+`review/00_abstract.md:90`
 
 > unguarded prediction-following ... the consistency upside of good advice ... the advice's upside
 
@@ -86,7 +86,7 @@
 
 ### A-08 · 🟡 建议 · R6 初次读者 · 缺少可信锚点
 
-`review/00_abstract.md:98`
+`review/00_abstract.md:100`
 
 > the advice-free baseline is already near-optimal, so the consistency upside of good advice is small
 
@@ -97,7 +97,7 @@
 
 ### A-09 · 🟡 建议 · R3 英语文字编辑 · 指代过远
 
-`review/00_abstract.md:108`
+`review/00_abstract.md:110`
 
 > the practical worth of the sophisticated algorithms is that they never do
 
@@ -108,7 +108,7 @@
 
 ### A-10 · 🟡 建议 · R5 答辩提问者 · 招问句
 
-`review/00_abstract.md:118`
+`review/00_abstract.md:120`
 
 > Experiments and outlook deliver one message
 

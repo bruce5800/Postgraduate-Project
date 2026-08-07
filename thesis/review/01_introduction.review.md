@@ -139,7 +139,7 @@
 
 ### 1-13 · 🔴 必改 · R5 答辩提问者 · 招问措辞
 
-`en/01_introduction.md:211`
+`en/01_introduction.md:212`
 
 > The full formal development is deliberately deferred to companion work in preparation
 
@@ -150,7 +150,7 @@
 
 ### 1-14 · 🔴 必改 · R1 二审考官 · 比喻未定义
 
-`en/01_introduction.md:221`
+`en/01_introduction.md:222`
 
 > A quantified account of why the wall stands
 
@@ -161,7 +161,7 @@
 
 ### 1-15 · 🟡 建议 · R3 英语文字编辑 · 条目长度失衡
 
-`en/01_introduction.md:231`
+`en/01_introduction.md:233`
 
 > (bullet 列表整体)
 
@@ -172,7 +172,7 @@
 
 ### 1-16 · 🟡 建议 · R4 体例校对 · 跨章重复与循环引用
 
-`en/01_introduction.md:247`
+`en/01_introduction.md:250`
 
 > an attempt to find a serving regime where predictions genuinely help
 
@@ -183,7 +183,7 @@
 
 ### 1-17 · 🟡 建议 · R6 初次读者 · 路线图同构
 
-`en/01_introduction.md:275`
+`en/01_introduction.md:278`
 
 > Chapter 2 surveys ... Chapter 3 fixes ... Chapter 4 presents ... Chapter 5 examines ...
 
@@ -194,7 +194,7 @@
 
 ### 1-18 · ⚪ 可选 · R3 英语文字编辑 · 金句复用
 
-`en/01_introduction.md:285`
+`en/01_introduction.md:288`
 
 > on average-case online matching, predictions are robustness insurance rather than a performance lever - and the upside they offer is smaller than the price of finding out whether to trust them.
 

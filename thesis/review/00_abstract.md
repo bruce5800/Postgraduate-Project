@@ -50,6 +50,7 @@ id: A-03
 role: R3 英语文字编辑
 level: 必改
 kind: 长句密集
+mark: Our central finding is that on average-case inputs the value of predictions is robustness insurance
 quote: We give the first unified experimental study, placing all of them on a single harness with a common structured prediction-error model, a common optimum, and confidence intervals, across ...
 note: 230 词的摘要里有四个超长句（约 60 / 47 / 68 / 66 词），其中三句还都用了分号加破折号的多层并置。摘要是全篇被读得最多、也最需要一遍读懂的一段。
 fix: 每句压到 25 词以内，一句一个动作。示例：We place all of them on one experimental harness: a common prediction-error model, a common optimum, and confidence intervals. We run it on synthetic graphs, six real-world graphs, and real request traces.
@@ -60,6 +61,7 @@ id: A-04
 role: R3 英语文字编辑
 level: 必改
 kind: 结尾重复
+mark: exceeds the length of the instance itself
 quote: a price that ... exceeds the length of the instance itself. Experiments and outlook deliver one message: ... the advice's upside is smaller than the price of finding out whether to trust it.
 note: 最后两句是同一命题的两种说法，摘要结尾连说两遍会显得内容不够。
 fix: 二选一。保留最后一句作为全篇金句（它更好记），把倒数第二句的 a price that ... itself 删掉，让 scales as the inverse square of the advice's upside 直接收在句号上。

@@ -26,7 +26,7 @@ SOURCES = [
 LEVEL_MARK = {"必改": "🔴", "建议": "🟡", "可选": "⚪"}
 LEVEL_ORDER = {"必改": 0, "建议": 1, "可选": 2}
 BLOCK = re.compile(r"<!--REV\n(.*?)\n-->", re.S)
-FIELDS = ("id", "role", "level", "kind", "quote", "note", "fix")
+FIELDS = ("id", "role", "level", "kind", "quote", "mark", "note", "fix")
 
 
 def parse(path):

@@ -18,7 +18,7 @@
 
 ### 6-02 · 🟡 建议 · R3 英语文字编辑 · 导语长句
 
-`en/06_test_and_fallback.md:28`
+`en/06_test_and_fallback.md:29`
 
 > This chapter gives their first empirical study: the robustness envelope they achieve (6.1), a counter-intuitive failure of the acceptance threshold (6.2), its recalibration and the resolution limit that recalibration exposes (6.3) - a limit that persists across the whole difficulty range and anchors the theoretical outlook of 10.2 - and a benchmark of the dynamic combiner that explains the commit-once structure (6.4).
 
@@ -29,7 +29,7 @@
 
 ### 6-03 · 🟡 建议 · R1 二审考官 · 符号未复述
 
-`en/06_test_and_fallback.md:48`
+`en/06_test_and_fallback.md:49`
 
 > few-types instances (n=2000, r=8, prefix k=200, 40 trials)
 
@@ -40,7 +40,7 @@
 
 ### 6-04 · 🟡 建议 · R2 领域审稿人 · 全称断言
 
-`en/06_test_and_fallback.md:58`
+`en/06_test_and_fallback.md:60`
 
 > its prefix test rejects it and it falls back to Ranking, never crashing
 
@@ -51,7 +51,7 @@
 
 ### 6-05 · 🔴 必改 · R1 二审考官 · 数字来源缺失
 
-`en/06_test_and_fallback.md:85`
+`en/06_test_and_fallback.md:87`
 
 > the Choo/BEM threshold tau is calibrated to the worst-case baseline beta approximately 0.696
 
@@ -62,7 +62,7 @@
 
 ### 6-06 · 🔴 必改 · R3 英语文字编辑 · 信息密度
 
-`en/06_test_and_fallback.md:95`
+`en/06_test_and_fallback.md:98`
 
 > as k grows 25 to 800, the ratio falls 0.992 to 0.956 and the misjudgement rate rises 0.00 to 0.60. The mechanism: ... A small noisy prefix over-estimates ell_1 and accidentally rejects the borderline advice (landing safely on the floor); a large accurate prefix correctly measures ell_1 approximately 0.16 < tau and accepts the mildly-bad advice ...
 
@@ -73,7 +73,7 @@
 
 ### 6-07 · 🟡 建议 · R3 英语文字编辑 · 强调过密
 
-`en/06_test_and_fallback.md:105`
+`en/06_test_and_fallback.md:108`
 
 > worse / falls / rises / accidentally rejects / accepts / below
 
@@ -84,7 +84,7 @@
 
 ### 6-08 · 🟡 建议 · R6 初次读者 · 题眼被藏起来
 
-`en/06_test_and_fallback.md:115`
+`en/06_test_and_fallback.md:119`
 
 > (landing safely on the floor)
 
@@ -95,7 +95,7 @@
 
 ### 6-09 · 🔴 必改 · R1 二审考官 · 先用后释
 
-`en/06_test_and_fallback.md:145`
+`en/06_test_and_fallback.md:149`
 
 > 6.3 Recalibration, and the resolution limit it exposes
 
@@ -106,7 +106,7 @@
 
 ### 6-10 · 🟡 建议 · R2 领域审稿人 · 断言范围
 
-`en/06_test_and_fallback.md:155`
+`en/06_test_and_fallback.md:159`
 
 > On strong-baseline instances, no practical empirical-ell_1 threshold can both capture the consistency upside and stay safe
 
@@ -117,7 +117,7 @@
 
 ### 6-11 · 🟡 建议 · R3 英语文字编辑 · 重复
 
-`en/06_test_and_fallback.md:165`
+`en/06_test_and_fallback.md:169`
 
 > a better tester only follows whichever threshold more faithfully
 
@@ -128,7 +128,7 @@
 
 ### 6-12 · 🟡 建议 · R2 领域审稿人 · 估计量缺说明
 
-`en/06_test_and_fallback.md:175`
+`en/06_test_and_fallback.md:179`
 
 > smaller than the empirical-ell_1 estimator's noise floor (approximately 0.05 to 0.13)
 
@@ -139,7 +139,7 @@
 
 ### 6-13 · 🟡 建议 · R1 二审考官 · 图注不自足
 
-`en/06_test_and_fallback.md:198`
+`en/06_test_and_fallback.md:203`
 
 > as the baseline weakens (left)
 
@@ -150,7 +150,7 @@
 
 ### 6-14 · 🔴 必改 · R5 答辩提问者 · 数据来源可疑
 
-`en/06_test_and_fallback.md:223`
+`en/06_test_and_fallback.md:228`
 
 > eager switching scores 0.927 - below both the pure follower (1.000) and the pure baseline (0.958; tests/test_combiner_small.py)
 
@@ -161,7 +161,7 @@
 
 ### 6-15 · 🔴 必改 · R4 体例校对 · 同名不同值
 
-`en/06_test_and_fallback.md:233`
+`en/06_test_and_fallback.md:239`
 
 > the pure baseline (0.958) / the advice-free floor (approximately 0.99) / the combiner sits exactly on the floor (0.990)
 
@@ -172,7 +172,7 @@
 
 ### 6-16 · 🟡 建议 · R4 体例校对 · 代码名进正文
 
-`en/06_test_and_fallback.md:243`
+`en/06_test_and_fallback.md:250`
 
 > switching from Ranking to advice-following (mimic) mid-run
 
@@ -183,7 +183,7 @@
 
 ### 6-17 · ⚪ 可选 · R6 初次读者 · 小结无出口
 
-`en/06_test_and_fallback.md:262`
+`en/06_test_and_fallback.md:269`
 
 > The resolution limit of 6.3 ... is the empirical anchor of the theoretical outlook in 10.2.
 

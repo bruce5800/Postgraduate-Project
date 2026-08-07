@@ -1,0 +1,722 @@
+\chapter*{怎么读这份批注稿}\label{ux600eux4e48ux8bfbux8fd9ux4efdux6279ux6ce8ux7a3f}
+\addcontentsline{toc}{chapter}{怎么读这份批注稿}
+
+这是\textbf{提交前的表述打磨稿}，不是内容审查稿。正文一字未改。
+
+\textbf{左栏是论文原文，右栏是批注卡片。}被批注的句子在原文里带底色，并跟一个上标编号
+（如 \texttt{6-06}），对应右栏同号的卡片；卡片已给出原句时不再重复列
+\texttt{原文}。少数批注针对的是
+整段结构或跨章问题，没有可标注的具体句子，卡片里仍保留 \texttt{原文}
+一行。
+
+所有批注在 \texttt{thesis/en/*.md} 里都是 HTML
+注释，三个正式构建（\texttt{build\_school.sh}、\texttt{build.sh}、
+\texttt{build\_zh.sh}）都会原样剥掉，因此\textbf{提交版 PDF
+与未批注前逐字节相同}（\texttt{./check\_clean.sh} 验证）。
+
+\section*{六个审读视角}\label{ux516dux4e2aux5ba1ux8bfbux89c6ux89d2}
+\addcontentsline{toc}{section}{六个审读视角}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R1 二审考官} ------ 懂算法但不做 learning-augmented 的 CS
+  学者。管：术语首次出现是否就地解释、
+  是否默认读者读过某篇文献、符号引入、图注能否脱离正文看懂。
+\item
+  \textbf{R2 领域审稿人} ------ TALG /
+  实验算法口味。管：断言强度与证据是否匹配、实验条件是否被句子稀释、
+  归属 credit、负结果表述。
+\item
+  \textbf{R3 英语文字编辑} ------
+  针对非母语作者。管：长句嵌套、冗词、斜体滥用、时态与拼写一致。
+\item
+  \textbf{R4 体例校对} ------
+  术语指称漂移、交叉引用、正文与图表数字一致、章末结构平行。
+\item
+  \textbf{R5 答辩提问者} ------ 哪句话会主动招来不想回答的问题、scope
+  声明是否滴水不漏。
+\item
+  \textbf{R6 初次读者} ------
+  叙事流、比喻首次落地、章际过渡、单段信息密度。
+\end{itemize}
+
+\section*{严重度}\label{ux4e25ux91cdux5ea6}
+\addcontentsline{toc}{section}{严重度}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{必改}（红）------
+  不改会被考官/审稿人直接问住，或存在事实/一致性风险。
+\item
+  \textbf{建议}（橙）------ 明显影响可读性，改了显著变好。
+\item
+  \textbf{可选}（蓝）------ 风格偏好，时间不够可以跳过。
+\end{itemize}
+
+逐条清单与总表见 \texttt{thesis/review/*.review.md} 与
+\texttt{SUMMARY.md}。
+
+\clearpage
+
+\chapter{Abstract（批注）}\label{abstractux6279ux6ce8}
+
+\revpair{Learning-augmented (``with-predictions'') \revhl{revShould}{algorithms for online
+bipartite matching have proliferated}\revhlid{revShould}{A-02}: \revhl{revMust}{MinPredictedDegree consumes a
+per-node degree predictor}\revhlid{revMust}{A-01}, and a family of test-and-fallback schemes
+tests a type-histogram prediction on a sublinear prefix of the arrivals
+before committing to follow it or to fall back on an advice-free
+baseline. These algorithms have been analyzed in isolation. \revhl{revShould}{We give the
+first unified experimental study}\revhlid{revShould}{A-06}, placing all of them on a single
+harness with a common structured prediction-error model, a common
+optimum, and confidence intervals, across synthetic graphs, six
+real-world graphs, and real request traces. \revhl{revMust}{Our central finding is that
+on average-case inputs the value of predictions is robustness insurance}\revhlid{revMust}{A-03},
+not a performance lever: \revhl{revShould}{the advice-free baseline is already
+near-optimal, so the consistency upside of good advice is small}\revhlid{revShould}{A-08}, whereas
+\revhl{revShould}{unguarded prediction-following can crash far below the}\revhlid{revShould}{A-07} baseline, and \revhl{revShould}{the
+practical worth of the sophisticated algorithms is that they never do}\revhlid{revShould}{A-09}.
+\revhl{revMust}{We close with a theoretical outlook: a proved consistency/robustness
+trade-off inequality, together with a}\revhlid{revMust}{A-05} budget--stakes reading of our
+experiments under which the prefix needed to decide whether to trust
+advice scales as the inverse square of the advice's upside --- a price
+that, on strong-baseline average-case inputs, \revhl{revMust}{exceeds the length of the
+instance itself}\revhlid{revMust}{A-04}. \revhl{revShould}{Experiments and outlook deliver one message}\revhlid{revShould}{A-10}: on
+average-case matching, the advice's upside is smaller than the price of
+finding out whether to trust it.}{\revcard{revMust}{A-01 · R1 二审考官 · 必改 · 术语未解释}{%
+\textbf{问题}\hspace{0.4em}摘要第一句就并列了三个只有本领域读者才认识的对象：MinPredictedDegree（一个具体算法名）、type-histogram prediction（预测对象）、sublinear prefix（相对什么是亚线性？）。二审考官读到这里没有任何上下文可以挂靠，第一句就掉队。\par
+\textbf{建议}\hspace{0.4em}把算法名换成它做的事，把亚线性换成读者能想象的量。例如：one family consumes a prediction of how contended each resource will be; another tests a prediction of the arrival mix on a short prefix of the requests (a vanishing fraction of the instance) before deciding whether to trust it. 具体算法名留到正文。}
+\revcard{revShould}{A-02 · R1 二审考官 · 建议 · 缺少问题直觉}{%
+\textbf{问题}\hspace{0.4em}摘要从未说明 online bipartite matching 是什么问题、难在哪。评审细则里摘要要能独立被非本方向的人读懂。\par
+\textbf{建议}\hspace{0.4em}开头补半句不可逆性这个核心：where requests arrive one at a time and each must be irrevocably matched to a resource, or dropped, before the rest of the input is seen. Ch1 第一段已有这句话，直接压缩过来即可。}}
+
+\revpair{\mbox{}}{\revcard{revMust}{A-03 · R3 英语文字编辑 · 必改 · 长句密集}{%
+\textbf{问题}\hspace{0.4em}230 词的摘要里有四个超长句（约 60 / 47 / 68 / 66 词），其中三句还都用了分号加破折号的多层并置。摘要是全篇被读得最多、也最需要一遍读懂的一段。\par
+\textbf{建议}\hspace{0.4em}每句压到 25 词以内，一句一个动作。示例：We place all of them on one experimental harness: a common prediction-error model, a common optimum, and confidence intervals. We run it on synthetic graphs, six real-world graphs, and real request traces.}
+\revcard{revMust}{A-04 · R3 英语文字编辑 · 必改 · 结尾重复}{%
+\textbf{问题}\hspace{0.4em}最后两句是同一命题的两种说法，摘要结尾连说两遍会显得内容不够。\par
+\textbf{建议}\hspace{0.4em}二选一。保留最后一句作为全篇金句（它更好记），把倒数第二句的 a price that ... itself 删掉，让 scales as the inverse square of the advice's upside 直接收在句号上。}}
+
+\revpair{\mbox{}}{\revcard{revMust}{A-05 · R2 领域审稿人 · 必改 · scope 与正文不符}{%
+\textbf{问题}\hspace{0.4em}摘要用 proved 和 law 一类的措辞介绍这部分，读者形成的预期是本文有一个理论结果；而正文 10.2 明确说 sketches, without claiming a full theorem，完整发展 deferred to companion work，10.3 又把它列为 limitation。摘要与正文的 scope 不一致，是考官最容易当场追问的地方。\par
+\textbf{建议}\hspace{0.4em}在摘要里就把边界说清楚，只需加一个限定词组：We close with a theoretical outlook (one proved inequality, and a quantitative reading of our own experiments; the full development is companion work). 宁可摘要保守，正文再给惊喜。}
+\revcard{revShould}{A-06 · R2 领域审稿人 · 建议 · 断言支撑}{%
+\textbf{问题}\hspace{0.4em}first 是可被证伪的断言，摘要里没有限定范围。这本身站得住（2.6 有定位），但要确保正文有一句明确的检索范围声明供审稿人核对。\par
+\textbf{建议}\hspace{0.4em}摘要保留 first 不变，但确认 2.6 有一句类似 to our knowledge, no prior work evaluates these two families on a common harness 的话，并在答辩前准备好这句的依据。}}
+
+\revpair{\mbox{}}{\revcard{revShould}{A-07 · R4 体例校对 · 建议 · 术语漂移}{%
+\textbf{问题}\hspace{0.4em}同一个对象在摘要里交替叫 prediction 和 advice（还有 hint 出现在 Ch1）。单独看都通顺，连起来读者会怀疑二者是不是两样东西。\par
+\textbf{建议}\hspace{0.4em}定一条全篇规则：正式对象一律 prediction，只有在讲信不信它的时候用 advice，并在 Ch1 首次出现时点明二者同指。然后全文 grep 一遍统一。}
+\revcard{revShould}{A-08 · R6 初次读者 · 建议 · 缺少可信锚点}{%
+\textbf{问题}\hspace{0.4em}整段摘要没有一个数字。实验类论文的摘要给一两个关键数字，读者立刻就相信 upside 很小这个反直觉结论；否则它读起来像一个观点。\par
+\textbf{建议}\hspace{0.4em}塞两个数：baseline 已达 OPT 的约 0.99，而无防护地跟随坏预测会掉到约 0.45。这是全文最有说服力的一组对比。}}
+
+\revpair{\mbox{}}{\revcard{revShould}{A-09 · R3 英语文字编辑 · 建议 · 指代过远}{%
+\textbf{问题}\hspace{0.4em}they never do 指代的是二十多个词之前的 crash far below the baseline，读者需要回读。\par
+\textbf{建议}\hspace{0.4em}写实：their practical worth is that they never crash.}
+\revcard{revShould}{A-10 · R5 答辩提问者 · 建议 · 招问句}{%
+\textbf{问题}\hspace{0.4em}这句把 outlook 与实验并列为结论来源。老师顺着这句问的第一个问题一定是：你的 outlook 究竟证明了什么？而按 10.3 的自述，那里只证明了一条不等式。\par
+\textbf{建议}\hspace{0.4em}改成实验交付结论、展望给出解释的层级关系：Our experiments deliver one message, and the outlook explains why it should be expected. 同时和 A-05 的限定保持一致。}}
+
+\chapter{Chapter 1. Introduction}\label{chapter-1.-introduction}
+
+\section{1.1 Background and motivation}\label{background-and-motivation}
+
+\revpair{Online bipartite matching is the canonical model of irrevocable
+sequential allocation. Resources are known in advance; requests arrive
+one at a time; each must be matched to an available compatible resource
+--- or dropped --- immediately, before the rest of the input is seen. It
+is the abstraction behind online advertising, ride-hailing dispatch,
+organ exchange, and request routing in modern serving systems. Because
+decisions cannot be undone, the difficulty lies entirely in committing
+well under uncertainty about the future.}{}
+
+\revpair{A recent and influential idea is to give such an algorithm a
+\textbf{prediction} about the input --- \revhl{revShould}{a hint about which resources
+will be contended}\revhlid{revShould}{1-02}, or how many requests of each kind will arrive --- and
+to ask for two guarantees at once: \textbf{consistency}\revhl{revNice}{, meaning
+near-optimal performance when the prediction is good, and}\revhlid{revNice}{1-03}\textbf{robustness}, meaning no worse than a prediction-free algorithm
+when the prediction is wrong. For online matching specifically, two
+families of such \emph{learning-augmented} algorithms have appeared:
+\revhl{revShould}{MinPredictedDegree, which consumes a per-resource degree prediction}\revhlid{revShould}{1-01}, and
+a family of \emph{test-and-fallback} schemes, which test a request-type
+prediction on a short prefix of arrivals before deciding whether to
+trust it.}{\revcard{revShould}{1-01 · R1 二审考官 · 建议 · 术语未解释}{%
+\textbf{问题}\hspace{0.4em}degree 在这里指资源在兼容图上的度数，也就是它会被多少种请求争抢。领域外读者会把它读成随便一个图论量，抓不到这个预测到底预测了什么。\par
+\textbf{建议}\hspace{0.4em}补半句功能性解释：a prediction of how many kinds of request will compete for each resource, i.e. how contended it will be。名字可以照留。}
+\revcard{revShould}{1-02 · R4 体例校对 · 建议 · 术语漂移}{%
+\textbf{问题}\hspace{0.4em}同一个对象在本页出现三个名字：hint、prediction、advice（摘要里也是）。单看都通顺，连起来读者会怀疑是不是三样东西。\par
+\textbf{建议}\hspace{0.4em}定一条全篇规则：形式对象一律 prediction；只有在讨论信不信它的时候用 advice，并在此处点明二者同指；hint 只留在这一句的口语解释里，或直接删。定完规则全文 grep 一遍。}}
+
+\revpair{\mbox{}}{\revcard{revNice}{1-03 · R6 初次读者 · 可选 · 保持}{%
+\textbf{问题}\hspace{0.4em}这两个术语的处理方式（加粗 + 就地一句话释义 + 立刻给出对立面）是全文最好的一处，第一次读的人在这里不会掉队。\par
+\textbf{建议}\hspace{0.4em}把它当成全文模板：后面每一个首次出现的核心术语（order error, harness, wall, stakes, resolution）都照这个格式处理一次。}}
+
+\revpair{These algorithms come with attractive worst-case guarantees, yet --- as
+this thesis demonstrates experimentally --- their average-case behavior
+is strikingly muted: on realistic workloads the sophisticated
+predictions rarely \emph{help}, while the algorithms' real value is that
+they do not \emph{hurt}. \revhl{revShould}{This gap between the worst-case promise and the
+average-case reality is the puzzle that motivates this thesis.}\revhlid{revShould}{1-05} The
+algorithms had, moreover, only ever been studied \emph{in isolation}\revhl{revShould}{---
+each on its own input model, against its own notion of prediction error,
+and largely through theory --- so there was no common ground on which to
+compare them, quantify how much a prediction actually buys, or explain
+the gap.}\revhlid{revShould}{1-04} This thesis provides that common ground and, ultimately, an
+explanation.}{\revcard{revShould}{1-04 · R3 英语文字编辑 · 建议 · 长句语序}{%
+\textbf{问题}\hspace{0.4em}一句 55 词里塞了三件事：过去怎么研究的、因此缺什么、以及三个缺什么的并列。moreover 插在 had 和 only 中间也很别扭。\par
+\textbf{建议}\hspace{0.4em}拆成两句，并把 moreover 提到句首：Moreover, these algorithms had only ever been studied in isolation - each on its own input model and its own notion of prediction error. There was therefore no common ground on which to compare them or to quantify what a prediction actually buys.}
+\revcard{revShould}{1-05 · R6 初次读者 · 建议 · 段落功能不单一}{%
+\textbf{问题}\hspace{0.4em}这一段同时承担了三个功能：给出反直觉现象、指出文献空白、预告本文贡献。第一次读的人不知道该记住哪一句，而这一段其实是全篇的钩子。\par
+\textbf{建议}\hspace{0.4em}把 puzzle 那句单独成段作为本章的题眼，文献空白与本文承诺合成下一段。现在的顺序是现象 - 承诺 - 空白 - 再承诺，绕了一圈。}}
+
+\section{1.2 Research objectives}\label{research-objectives}
+
+\revpair{\revhl{revNice}{The thesis is organized around three questions}\revhlid{revNice}{1-07}:}{}
+
+\revpair{\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{How do the learning-augmented online-matching algorithms
+  actually compare}, head to head, under a single prediction-error model
+  and on common inputs --- and \revhl{revShould}{how much does a prediction help, at what
+  cost, on realistic data?}\revhlid{revShould}{1-06}
+\item
+  \textbf{What are the failure modes of the adaptive test-and-fallback
+  mechanism} --- the cost of its test, the calibration of its
+  accept/reject decision, and where it goes wrong?
+\item
+  \textbf{Why does the average-case experience differ so sharply from
+  the worst-case promise} --- is the observed wall an artifact of
+  particular algorithms and generators, or is it \emph{necessary}?
+\end{enumerate}}{}
+
+\revpair{The first two are answered experimentally; the third, theoretically.}{\revcard{revShould}{1-06 · R1 二审考官 · 建议 · 缺少基准定义}{%
+\textbf{问题}\hspace{0.4em}全章反复用 near-optimal、upside、baseline，但从没说清相对什么衡量。读者到第 3 章才知道分母是离线最优 OPT、指标是 ratio。研究问题一节是最需要交代量尺的地方。\par
+\textbf{建议}\hspace{0.4em}在这三个问题前加一句：throughout, performance is measured as the ratio of the matching produced to the offline optimum on the same instance。一句话即可，正式定义仍留在第 3 章。}
+\revcard{revNice}{1-07 · R6 初次读者 · 可选 · 结构映射}{%
+\textbf{问题}\hspace{0.4em}三个研究问题与紧接着的五条贡献不是一一对应，读者要自己配对。\par
+\textbf{建议}\hspace{0.4em}在每条贡献后面用括号标出它回答哪个问题（Q1 / Q2 / Q3），或者把贡献按三问题分成三组。改动很小，收益是读者能立刻看懂论文骨架。}}
+
+\section{1.3 Contributions}\label{contributions}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{A unified experimental benchmark} (Chapter 4) that \revhl{revShould}{places the
+  advice-free baselines, MinPredictedDegree and its augmentations, and
+  the test-and-fallback algorithms on one harness --- common graphs, a
+  common structured prediction-error model, a common optimum, and
+  confidence intervals}\revhlid{revShould}{1-08} --- the first head-to-head comparison of these
+  families.
+\end{itemize}}{\revcard{revShould}{1-08 · R1 二审考官 · 建议 · 术语未解释}{%
+\textbf{问题}\hspace{0.4em}harness 是工程口语，学位论文里第一次出现应给个定义；structured prediction-error model 里的 structured 也没说明相对什么（相对独立同分布的随机扰动）。\par
+\textbf{建议}\hspace{0.4em}harness 首次出现处加同位语：on a single experimental harness (one code path in which every algorithm sees the same instances, the same predictions, and the same optimum)。structured 补一句：errors are injected along the structure of the instance rather than as i.i.d. noise。}}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{A characterization of predictions as robustness insurance}
+  (Chapters 4, 7): unguarded prediction-following crashes \emph{below}
+  the advice-free baseline under bad predictions; two distinct
+  mechanisms --- structural (the augmentations) and adaptive
+  (test-and-fallback) --- restore safety with different
+  consistency/robustness trade-offs; and the consistency upside is small
+  on average-case inputs, so the value is downside protection. The
+  picture is validated on synthetic graphs, six real-world graphs, and
+  real request traces, including with a cheap, non-ML historical
+  predictor.
+\end{itemize}}{}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{An empirical engagement with the order-error theory} (Chapter
+  5): \revhl{revMust}{MinPredictedDegree's loss is governed by a}\revhlid{revMust}{1-09} Kendall-\(\tau\) order
+  error onto which several error models collapse. \revhl{revNice}{We credit
+  Aamand--Chen--Indyk's Appendix D for the order-dependence itself}\revhlid{revNice}{1-10} and
+  contribute a characterization of the known bound's looseness and
+  saturation and of the right order measure --- not a rediscovery that
+  order matters.
+\end{itemize}}{\revcard{revMust}{1-09 · R1 二审考官 · 必改 · 术语未解释}{%
+\textbf{问题}\hspace{0.4em}Kendall-tau 在这里是第一次出现，且是本条贡献的核心量，却没有任何解释。二审考官读到这条贡献时无法判断它强在哪。\par
+\textbf{建议}\hspace{0.4em}加一句话释义：a Kendall-tau order error (the fraction of resource pairs the predictor ranks in the wrong relative order), i.e. only the ranking the predictor induces matters, not the numbers it outputs。最后半句其实才是这条贡献的卖点，现在没说出来。}
+\revcard{revNice}{1-10 · R2 领域审稿人 · 可选 · 保持}{%
+\textbf{问题}\hspace{0.4em}归属写得很干净，明确区分了前人已有的结论与本文的增量。审稿人对这类主动划界一向加分。\par
+\textbf{建议}\hspace{0.4em}保持原样。同样的写法建议复制到第 6 章（Choo/BEM 阈值是他们的，pathology 是你的）和第 5 章。}}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{\revhl{revShould}{The first empirical study of test-and-fallback}\revhlid{revShould}{1-11}} (Chapter 6):
+  its testing cost, a threshold-calibration pathology in which a
+  \emph{more accurate} test yields a \emph{worse} decision, its
+  recalibration and the resolution limit that recalibration exposes, and
+  a benchmark of the dynamic combiner revealing an irrevocability
+  penalty that explains why matching requires \emph{test-then-commit}.
+\end{itemize}}{\revcard{revShould}{1-11 · R5 答辩提问者 · 建议 · 可被追问的断言}{%
+\textbf{问题}\hspace{0.4em}一页里两处 first。这两条大概率站得住，但答辩时必然被问：你怎么确定没有别人做过？现场答不上来比不写 first 更伤。\par
+\textbf{建议}\hspace{0.4em}正文保留 first，但在第 2.6 节确保有一句可核对的范围声明（检索了哪些库、到什么时间），并把这句准备成答辩的标准答案。}}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{A quantified account of \revhl{revMust}{why the wall stands}\revhlid{revMust}{1-14}} (Chapter 6 and
+  §10.2): the resolution-limit finding --- no practical acceptance
+  threshold can capture an upside that sits below its estimator's noise
+  --- is shown to persist across the whole difficulty range (Figure 6.4)
+  and \revhl{revMust}{is given a theoretical outlook in the conclusion}\revhlid{revMust}{1-12}: a proved
+  consistency/robustness trade-off inequality, and a
+  \emph{budget--stakes} reading under which the prefix needed to decide
+  scales as the inverse square of the advice's upside --- a price that
+  exceeds the instance length exactly where the baseline is strong. \revhl{revMust}{The
+  full formal development is deliberately deferred to companion work in
+  preparation}\revhlid{revMust}{1-13}, and the thesis claims no theorem beyond the stated
+  inequality.
+\end{itemize}}{\revcard{revMust}{1-12 · R2 领域审稿人 · 必改 · 贡献越界}{%
+\textbf{问题}\hspace{0.4em}这一条把一个实验发现（6.3 的分辨率极限 + 图 6.4）和一个明确声明未证明的展望（10.2）打包成同一条贡献。审稿人和考官对贡献列表的读法是逐条追证据，而这条的后半截按你自己在 10.3 的说法是没有证据的。\par
+\textbf{建议}\hspace{0.4em}拆成两件事：贡献只保留实验部分（分辨率极限在整个难度区间都成立，图 6.4），把 outlook 降为本条末尾的一句话说明其存在，不占 bullet。贡献列表里少一条、但每条都守得住，是更好的交易。}
+\revcard{revMust}{1-13 · R5 答辩提问者 · 必改 · 招问措辞}{%
+\textbf{问题}\hspace{0.4em}companion work in preparation 在学位论文里会引出两个不想在答辩现场处理的问题：那部分是谁做的、有没有被评审过。\par
+\textbf{建议}\hspace{0.4em}改成主体明确、不承诺未来的写法：a fuller formal development is being prepared separately by the author and is not part of this thesis。全文四处提到 companion work，建议只保留 10.3 limitations 里的那一处（见 10-10）。}}
+
+\revpair{\mbox{}}{\revcard{revMust}{1-14 · R1 二审考官 · 必改 · 比喻未定义}{%
+\textbf{问题}\hspace{0.4em}wall 是全篇的核心比喻，在这里第一次出现却没有定义；它的正式说明要到 8.4 才有。第一次读的人只能猜。\par
+\textbf{建议}\hspace{0.4em}在这条贡献第一次用 wall 的地方就地定义一次，例如：the wall - the recurring finding that no amount of better prediction or better algorithm moves the average-case ratio appreciably。定义一次之后全文放心复用。}
+\revcard{revShould}{1-15 · R3 英语文字编辑 · 建议 · 条目长度失衡}{%
+\textbf{原文}\hspace{0.4em}\textquotedblleft (bullet 列表整体)\textquotedblright\par
+\textbf{问题}\hspace{0.4em}五条贡献的长度是 4 / 7 / 5 / 4 / 9 行，第二条和第五条各自套了三个分号从句，读起来像段落而不是要点。\par
+\textbf{建议}\hspace{0.4em}每条压到 3 到 4 行：首句一句话说清贡献是什么，细节交给章节引用。列表的价值在于可扫视，现在这个价值被长度吃掉了。}}
+
+\revpair{Alongside these, the thesis documents (Chapter 8) the exploratory
+directions it pursued and the negative results they returned --- an
+attempt to \emph{learn} the predictor for extra performance, and \revhl{revShould}{an
+attempt to find a serving regime where predictions genuinely help}\revhlid{revShould}{1-16} ---
+both of which reinforce the central finding; the question they raise ---
+is the wall forced? --- is taken up in the concluding outlook (§10.2).}{\revcard{revShould}{1-16 · R4 体例校对 · 建议 · 跨章重复与循环引用}{%
+\textbf{问题}\hspace{0.4em}这个 SLO 探针在 8.2 和 9.2 各写了一遍，数字、结论、两条原因几乎逐句相同；而且 8.2 说 The serving case study (Chapter 9)，9.2 说 the full account is in Chapter 8，两节互相把读者推给对方。\par
+\textbf{建议}\hspace{0.4em}定一处为正本（建议 8.2，因为它属于负结果章），9.2 压到两句并明确写 we summarise the probe here; the full account is in 8.2。这条不在本次重点章内，但从第 1 章的路线图就能看出来，建议一起处理。}}
+
+\section{1.4 Thesis organization}\label{thesis-organization}
+
+\revpair{\revhl{revShould}{Chapter 2 surveys the background: online matching and its input models,
+the learning-augmented paradigm, the specific prediction-based matching
+algorithms, and the distribution-testing results behind their tests.
+Chapter 3 fixes the model and methodology and validates the experimental
+harness by reproducing a subset of the Borodin et al.~study. Chapter 4
+presents the unified benchmark and its four findings. Chapter 5 examines}\revhlid{revShould}{1-17}what governs the (small) loss --- order error --- and its relation to
+the known bound. Chapter 6 studies the test-and-fallback mechanism in
+depth. Chapter 7 tests external validity on real predictors and real
+graphs. Chapter 8 reports the exploratory directions and negative
+results. Chapter 9 presents the AI-inference serving case study. Chapter
+10 concludes: it summarizes the findings, gives a theoretical outlook on
+why the wall is forced (§10.2), and discusses limitations and future
+work. The recurring thesis, established experimentally and then
+explained in outlook, is a single sentence: \textbf{\revhl{revNice}{on average-case
+online matching, predictions are robustness insurance rather than a
+performance lever --- and the upside they offer is smaller than the
+price of finding out whether to trust them.}\revhlid{revNice}{1-18}}}{\revcard{revShould}{1-17 · R6 初次读者 · 建议 · 路线图同构}{%
+\textbf{问题}\hspace{0.4em}十个句子同一句式排下来，读起来像把目录抄了一遍，读完记不住任何结构。\par
+\textbf{建议}\hspace{0.4em}按 1.2 的三个问题分组：先说哪两章建立共同基础（2 到 3），再说哪几章回答 Q1 和 Q2（4 到 7），再说哪几章处理 Q3 与边界（8 到 10）。三句话代替十句，读者反而记得住。}
+\revcard{revNice}{1-18 · R3 英语文字编辑 · 可选 · 金句复用}{%
+\textbf{问题}\hspace{0.4em}这句金句在摘要、1.4、10.1 三处逐字重复。重复本身是有意的，但三次都用完整长版会稀释它。\par
+\textbf{建议}\hspace{0.4em}只在 1.4 和 10.1 用完整版，摘要里用压缩版（或反过来）。同一句话在一篇论文里逐字出现三次，第三次读者会跳过。}}
+
+\chapter{Chapter 6. Test-and-Fallback in
+Depth}\label{chapter-6.-test-and-fallback-in-depth}
+
+\revpair{The test-and-fallback algorithms are the adaptive robustness mechanism
+of Chapter 4. \revhl{revShould}{This chapter gives their first empirical study: the
+robustness envelope they achieve}\revhlid{revShould}{6-02} (§6.1), a counter-intuitive failure of
+the acceptance threshold (§6.2), its recalibration and the resolution
+limit that recalibration exposes (§6.3) --- a limit that persists across
+the whole difficulty range and anchors the theoretical outlook of §10.2
+--- and a benchmark of the dynamic combiner that explains the
+\emph{commit-once} structure (§6.4). Throughout, the \(\ell_1\) test is
+the empirical surrogate the original authors also fall back to (Chapter
+3).}{\revcard{revMust}{6-01 · R1 二审考官 · 必改 · 名称未消歧}{%
+\textbf{问题}\hspace{0.4em}本章有四个名字在流通：FollowPrediction、TestAndMatch、Choo、BEM。前两个是策略名，后两个是作者缩写，但正文从未说明 Choo 和 BEM 是同一个 TestAndMatch 的两种变体、还是两个不同算法。6.1 直接写 BEM 0.998 到 0.969；Choo 1.000 到 0.991，读者到这里必须自己反推。\par
+\textbf{建议}\hspace{0.4em}在本章导语加一句名称表：we write TestAndMatch for the test-and-fallback scheme in general, and Choo and BEM for its two published instantiations, which differ only in the acceptance threshold。四个名字一次说清，全章受益。}
+\revcard{revShould}{6-02 · R3 英语文字编辑 · 建议 · 导语长句}{%
+\textbf{问题}\hspace{0.4em}一句 70 词，四项并列，中间还插了一个破折号从句。章导语是读者决定怎么读这一章的地方，恰恰最不该长。\par
+\textbf{建议}\hspace{0.4em}拆成两句：一句列四项（各一个短语），一句单独说 6.3 的分辨率极限是本章通往 10.2 的接口。}}
+
+\section{6.1 The robustness envelope}\label{the-robustness-envelope}
+
+\revpair{\revhl{revShould}{Sweeping advice error}\revhlid{revShould}{6-03} \(\ell_1(p,q)\) on few-types instances
+(\(n=2000\), \(r=8\), prefix \(k=200\), 40 trials; \textbf{Figure 6.1}),
+FollowPrediction degrades \emph{linearly} from \(1.000\) at perfect
+advice to \(0.453\) at \(\ell_1\!\approx\!1.1\) --- well \emph{below}
+the advice-free floor (\(\approx0.99\)). \revhl{revMust}{TestAndMatch instead stays on
+the}\revhlid{revMust}{6-01} \textbf{upper envelope}: it captures the benefit when advice is good
+and, when advice is bad, \revhl{revShould}{its prefix test rejects it and it falls back to
+Ranking, never crashing}\revhlid{revShould}{6-04} (BEM \(0.998\to0.969\); Choo \(1.000\to0.991\)).
+This is the adaptive counterpart of the structural robustness of Chapter
+4.}{\revcard{revShould}{6-03 · R1 二审考官 · 建议 · 符号未复述}{%
+\textbf{问题}\hspace{0.4em}四个符号在第 3 章定义，但读者到这里已经隔了十五页，尤其 r 和 k 很容易记混（r 是类型数还是资源数？k 是前缀长度还是折数？）。\par
+\textbf{建议}\hspace{0.4em}括号里就地补词：(n=2000 arrivals, r=8 request types, a prefix of k=200 arrivals, 40 trials)。多几个词，读者不用回翻。}
+\revcard{revShould}{6-04 · R2 领域审稿人 · 建议 · 全称断言}{%
+\textbf{问题}\hspace{0.4em}never 是全称量词，而证据是一条误差 sweep、一个图族、40 次重复。审稿人会盯这类词。\par
+\textbf{建议}\hspace{0.4em}限定到证据范围：it does not fall below the advice free floor at any point of this sweep。真正的全称结论留给 6.3 的机制解释去承担。}}
+
+\revpair{\revfigure{../../results/choo_bem_envelope.png}{The robustness envelope: blind FollowPrediction crashes below
+the advice-free floor as advice error grows; TestAndMatch stays on the
+upper envelope.}}{}
+
+\section{6.2 A threshold that is too lenient on average-case
+inputs}\label{a-threshold-that-is-too-lenient-on-average-case-inputs}
+
+\revpair{Sweeping the prefix (testing) size \(k\) at \emph{borderline} advice
+(\(\eta=0.15\), true \(\ell_1\!\approx\!0.16\)) --- where the test works
+hardest (\textbf{Figure 6.2}) --- a larger, more accurate test makes the
+\emph{worse} decision: as \(k\) grows \(25\to800\), the ratio
+\emph{falls} \(0.992\to0.956\) and the misjudgement rate \emph{rises}
+\(0.00\to0.60\). The mechanism: the Choo/BEM threshold \(\tau\) \revhl{revMust}{is
+calibrated to the worst-case baseline}\revhlid{revMust}{6-05} \(\beta\approx0.696\), but on
+these instances the baseline is \(\approx0.99\) (F3), so the empirical
+break-even sits at \(\ell_1\approx0\), far below \(\tau\). A small noisy
+prefix over-estimates \(\ell_1\) and \emph{accidentally rejects} the
+borderline advice \revhl{revShould}{(landing safely on the floor)}\revhlid{revShould}{6-08}; a large accurate prefix
+correctly measures \(\ell_1\approx0.16<\tau\) and \emph{accepts}\revhl{revMust}{the
+mildly-bad advice}\revhlid{revMust}{6-06}the worst-case threshold deems acceptable ---
+underperforming the baseline. On strong-baseline inputs the worst-case
+threshold is too lenient, and a more accurate test only follows it more
+faithfully.}{\revcard{revMust}{6-05 · R1 二审考官 · 必改 · 数字来源缺失}{%
+\textbf{问题}\hspace{0.4em}0.696 凭空出现。读者（尤其二审）会立刻想：这个数是哪来的、为什么不是 1-1/e。这是本节机制解释的支点，支点没有来源，整个 pathology 的论证就悬空了。\par
+\textbf{建议}\hspace{0.4em}补半句出处：beta is the worst case competitive ratio the advice free baseline is proved to achieve in this model (see 2.x / the original paper)。若是你自己算的，写明算法与实例族。}
+\revcard{revMust}{6-06 · R3 英语文字编辑 · 必改 · 信息密度}{%
+\textbf{问题}\hspace{0.4em}一段里有六组数字加一条两步机制解释，其中一句 45 词。这是全章最反直觉的发现，却是最难读的一段，第一次读需要读三遍。\par
+\textbf{建议}\hspace{0.4em}改成三段式：第一句只讲现象（更大的测试反而做出更差的决定，给两个数）。第二句讲原因的一半（阈值是按最坏情况基线校准的，而这些实例的基线是 0.99）。第三句讲另一半（小前缀因为噪声误拒而侥幸安全，大前缀准确测量后照章接受了坏建议）。数字各归各句。}}
+
+\revpair{\mbox{}}{\revcard{revShould}{6-07 · R3 英语文字编辑 · 建议 · 强调过密}{%
+\textbf{原文}\hspace{0.4em}\textquotedblleft worse / falls / rises / accidentally rejects / accepts / below\textquotedblright\par
+\textbf{问题}\hspace{0.4em}这一段有八处斜体强调。强调密度一高，强调就失效，读者反而抓不到哪个才是重点。\par
+\textbf{建议}\hspace{0.4em}每段最多留一到两处。本段真正需要强调的只有一个词组：more accurate 却 worse decision。}
+\revcard{revShould}{6-08 · R6 初次读者 · 建议 · 题眼被藏起来}{%
+\textbf{问题}\hspace{0.4em}错误的原因导致了正确的结果，这是本节最有意思、也最能体现你观察力的一点，现在被塞在括号里一带而过。\par
+\textbf{建议}\hspace{0.4em}把它提成独立一句并点名：the small test is right for the wrong reason - it rejects because it is noisy, not because the advice is bad。这句话会成为读者记住这一节的抓手。}}
+
+\revpair{\revfigure{../../results/choo_bem_prefix.png}{Testing cost at borderline advice: a larger, more accurate
+prefix test makes the \emph{worse} decision under the
+worst-case-calibrated threshold.}}{}
+
+\section{\revhl{revMust}{6.3 Recalibration, and the resolution limit it
+exposes}\revhlid{revMust}{6-09}}\label{recalibration-and-the-resolution-limit-it-exposes}
+
+\revpair{Recalibrating \(\tau\) to the \emph{measured} baseline \(\hat\beta\)
+eliminates the pathology (\textbf{Figure 6.3}): at borderline advice the
+worst-case threshold's misjudgement climbs \(0.03\to1.00\) as the prefix
+grows and its ratio drops to \(0.920\), while the recalibrated threshold
+holds misjudgement \(0.00\) at every prefix and ratio \(\approx0.986\).
+But recalibration exposes a deeper limit. At perfect advice the
+worst-case threshold scores \(1.000\) while the recalibrated one scores
+only \(0.987\): the recalibrated
+\(\tau\approx2(1-\hat\beta)\approx0.028\) is \emph{smaller than the
+empirical-\(\ell_1\) \revhl{revShould}{estimator's noise floor}\revhlid{revShould}{6-12}}
+(\(\approx0.05\)--\(0.13\)), so it can never confidently \emph{accept}
+--- it rejects everything, including perfect advice, and always plays
+the baseline. In short:}{}
+
+\revpair{\begin{quote}
+\revhl{revShould}{On strong-baseline instances, no practical}\revhlid{revShould}{6-10} empirical-\(\ell_1\)
+threshold can both capture the consistency upside and stay safe: the
+upside is tiny and sits \emph{below the estimator's resolution}. The
+worst-case threshold over-accepts; the recalibrated one over-rejects; \revhl{revShould}{a
+better tester only follows whichever threshold more faithfully}\revhlid{revShould}{6-11}.
+\end{quote}}{\revcard{revMust}{6-09 · R1 二审考官 · 必改 · 先用后释}{%
+\textbf{问题}\hspace{0.4em}resolution limit 出现在节标题里，正文到第六行才隐含解释（阈值小于估计量噪声底）。读者带着一个没定义的词读了半页。\par
+\textbf{建议}\hspace{0.4em}节的第一句就下定义：by resolution we mean the smallest difference in ell\_1 the empirical estimator can distinguish from noise at prefix length k。后面的论证才有依托。}
+\revcard{revShould}{6-10 · R2 领域审稿人 · 建议 · 断言范围}{%
+\textbf{问题}\hspace{0.4em}no ... can 是不可能性断言，而证据是两个具体阈值加一次噪声底估计。practical 和 empirical-ell\_1 这两个限定词已经做得很好，但审稿人仍会问：所有阈值都试过了吗。\par
+\textbf{建议}\hspace{0.4em}把量词落到证据上：among thresholds of this form, and at the prefix lengths we can afford, none both captures ... 真正的任意规则版本是 10.2 的事，两处的强度要分开。}}
+
+\revpair{\mbox{}}{\revcard{revShould}{6-11 · R3 英语文字编辑 · 建议 · 重复}{%
+\textbf{问题}\hspace{0.4em}与 6.2 末句 a more accurate test only follows it more faithfully 几乎同形同义，隔了半页再说一遍，第二次读起来像作者忘了自己写过。\par
+\textbf{建议}\hspace{0.4em}6.2 那句改成机制描述，把这句金句留给 6.3 的小结独享。}
+\revcard{revShould}{6-12 · R2 领域审稿人 · 建议 · 估计量缺说明}{%
+\textbf{问题}\hspace{0.4em}噪声底给了区间但没说这个区间是怎么来的、随什么变化（k？r？重复次数？）。这是本节论证的关键量，也是整篇论文通往 10.2 的桥。\par
+\textbf{建议}\hspace{0.4em}补一句：the range spans k from 25 to 800 (noise falls as k grows); it is the standard deviation of the plug in estimate across trials at zero true error。一句话就把这个数从断言变成可复核的量。}}
+
+\revpair{\revfigure{../../results/recalibration_prefix.png}{Recalibration removes the threshold pathology: misjudgement
+holds at zero at every prefix size, versus climbing toward \(1.0\) under
+the worst-case threshold.}}{}
+
+\revpair{\textbf{Figure 6.4} widens this finding from one threshold to the whole
+difficulty range. Sweeping the number of types --- the knob that sets
+the baseline strength --- the \emph{potential} upside of perfect advice
+grows as the baseline weakens, but the upside a sublinear-prefix test
+can \emph{safely capture} stays pinned near zero: the empirical test's
+resolution (its noise floor) sits far above the break-even margin
+wherever an upside exists. The wall of this chapter is therefore not one
+badly calibrated threshold. The upside and the testing resolution move
+together --- and the concluding outlook (§10.2) gives this coupling a
+quantitative form: the prefix needed to decide scales as the inverse
+square of the stakes.}{}
+
+\revpair{\revfigure{../../results/impossibility_frontier.png}{The testing-wall frontier: as the baseline weakens (left), the
+\emph{potent\revhl{revShould}{ial} upside of perfect advice}\revhlid{revShould}{6-13}grows, but the upside a
+sublinear test can \emph{safely capture} stays near zero --- the
+empirical test's resolution sits far above the break-even margin
+wherever the upside exists.}}{\revcard{revShould}{6-13 · R1 二审考官 · 建议 · 图注不自足}{%
+\textbf{问题}\hspace{0.4em}这是全章最重要的一张图，图注却没说横轴是什么。as the baseline weakens (left) 只是暗示了方向，读者要回正文才知道扫的是类型数 r。图应当能脱离正文被看懂。\par
+\textbf{建议}\hspace{0.4em}图注首句直接交代坐标：horizontal axis: number of request types r (fewer types = weaker advice free baseline, shown left); vertical axis: ratio gain over the baseline。然后再讲结论。}}
+
+\section{6.4 The dynamic combiner is dominated, and shows why matching
+needs
+test-then-commit}\label{the-dynamic-combiner-is-dominated-and-shows-why-matching-needs-test-then-commit}
+
+\revpair{We benchmark the Chłędowski-style dynamic combiner to contextualize the
+commit-once structure of test-and-fallback. \revhl{revMust}{In its robust tuning the
+combiner sits exactly on the floor}\revhlid{revMust}{6-15} (\(0.990\) across all advice
+quality): it never crashes but captures none of the consistency upside,
+strictly dominated by TestAndMatch. More instructively, an \emph{eager}
+combiner that switches mid-stream reveals a penalty specific to
+irrevocable problems: with perfect advice, \revhl{revMust}{eager switching scores}\revhlid{revMust}{6-14}
+\(0.927\) --- \emph{below both} the pure follower (\(1.000\)) and the
+pure baseline (\(0.958\); \texttt{tests/test\_combiner\_small.py}) ---
+because \revhl{revShould}{switching from Ranking to advice-following (}\revhlid{revShould}{6-16}\emph{mimic})
+mid-run lands the committed matching in an \emph{incompatible hybrid}.
+In an irrevocable problem the follow/fallback decision must be made
+\emph{before} the bulk of the commitments, which is why Choo/BEM test a
+prefix and then \emph{commit} rather than switching dynamically. The
+dynamic combiner that is cheap insurance for caching does not port
+cleanly to matching.}{\revcard{revMust}{6-14 · R5 答辩提问者 · 必改 · 数据来源可疑}{%
+\textbf{问题}\hspace{0.4em}论文正文的数字引用了一个单元测试文件。答辩时这一定会被问：这是正式实验还是小规模自测、n 多大、重复多少次、有没有置信区间。全章其他数字都有实验设置，只有这一处没有。\par
+\textbf{建议}\hspace{0.4em}要么把它升级为一次正式实验并给出与 6.1 同格式的设置与置信区间，要么在正文明说它的地位：a small scale sanity experiment (n=..., ... trials), reported to illustrate the mechanism rather than to measure it。脚本路径移到附录 A 的映射表里。}
+\revcard{revMust}{6-15 · R4 体例校对 · 必改 · 同名不同值}{%
+\textbf{问题}\hspace{0.4em}本章出现了三个都叫基线或 floor 的数：0.99、0.990、0.958。它们大概来自不同实例族与不同规模，但正文没有区分，读者只会认为哪里算错了。这是最容易被考官当场指出的不一致。\par
+\textbf{建议}\hspace{0.4em}两条都做：给每个数标注它所在的实例设置（一个括号即可），并在本章第一次出现时统一命名（advice free floor 只指 6.1 那个族的数）。若三者本可统一，那就统一。}}
+
+\revpair{\mbox{}}{\revcard{revShould}{6-16 · R4 体例校对 · 建议 · 代码名进正文}{%
+\textbf{问题}\hspace{0.4em}mimic 是代码里的策略名，在正文这是它第一次也是唯一一次出现，读者不知道它和 advice following 是不是两回事。\par
+\textbf{建议}\hspace{0.4em}删掉 mimic，或写成 (called mimic in the implementation)。正文只用一个名字。}}
+
+\section{6.5 Chapter summary}\label{chapter-summary}
+
+\revpair{Test-and-fallback delivers the adaptive robustness envelope of §6.1, but
+its accept/reject decision is fundamentally limited on strong-baseline
+inputs: no empirical-\(\ell_1\) threshold both captures the upside and
+stays safe (§6.3), and dynamic switching is dominated by
+test-then-commit (§6.4). \revhl{revNice}{The resolution limit of}\revhlid{revNice}{6-17} §6.3 --- and its
+persistence across the whole difficulty range (Figure 6.4) --- is the
+empirical anchor of the theoretical outlook in §10.2.}{\revcard{revNice}{6-17 · R6 初次读者 · 可选 · 小结无出口}{%
+\textbf{问题}\hspace{0.4em}本章小结只回顾结论，没有告诉读者接下来该带着什么问题读第 7 章。全书各章小结的结构如果一致（回顾 + 出口），阅读节奏会好很多。\par
+\textbf{建议}\hspace{0.4em}末尾补一句出口：the next chapter asks whether this picture survives outside synthetic instances。并检查其他各章小结是否都有这样一句。}}
+
+\chapter{Chapter 10. Conclusion and Future
+Work}\label{chapter-10.-conclusion-and-future-work}
+
+\section{10.1 Summary}\label{summary}
+
+\revpair{\revhl{revShould}{This thesis studied learning-augmented algorithms for online bipartite
+matching by first building a common experimental foundation and}\revhlid{revShould}{10-01} then
+explaining what it revealed. On a single harness --- validated against
+the published Borodin et al.~study \revhl{revShould}{(Chapter 3) --- we compared the
+advice-free baselines, MinPredictedDegree and its augmentations, and the
+test-and-fallback algorithms, across synthetic graphs, six real-world
+graphs, and real request traces (Chapters 4}\revhlid{revShould}{10-02}--7). Across every setting
+the same picture appeared: the advice-free baseline is already
+near-optimal on average-case inputs, so the \emph{consistency} upside of
+a good prediction is small; unguarded prediction-following crashes
+\emph{below} the baseline under bad predictions; and the value of the
+sophisticated algorithms is downside protection, delivered by either a
+structural or an adaptive robustness mechanism with distinct trade-offs.
+We sharpened the sub-questions --- that the (small) loss is governed by
+a Kendall-\(\tau\) order error rather than magnitude (Chapter 5,
+crediting the prior order-dependence result of ACI), and that the
+adaptive test has a threshold-calibration pathology and a resolution
+limit (Chapter 6) --- and \revhl{revNice}{we honestly reported the directions that did}\revhlid{revNice}{10-03}\emph{not} pan out: learning the predictor for extra performance, and
+finding a serving regime where predictions genuinely help (Chapter 8).}{\revcard{revShould}{10-01 · R6 初次读者 · 建议 · 单段过长}{%
+\textbf{问题}\hspace{0.4em}10.1 第一段一口气 15 行，装下了全篇所有发现（做了什么、四类结论、两个负结果）。结论章的第一段是读者最后一次抓住主线的机会，这个密度做不到。\par
+\textbf{建议}\hspace{0.4em}拆成两段：第一段只说建立了什么（统一评测框架、复现验证、覆盖范围），第二段只说发现了什么（同一幅图景加三个子结论）。负结果单独一句起段。}
+\revcard{revShould}{10-02 · R4 体例校对 · 建议 · 引用格式混杂}{%
+\textbf{问题}\hspace{0.4em}同一段里章节引用有五种形态，有的带说明有的不带；读者在长句里要同时跟踪内容和编号。\par
+\textbf{建议}\hspace{0.4em}统一成一种：结论句在前，章号括号在句末。或者干脆把这段的章号全部去掉（结论章不必逐句标注出处），只在需要读者回查的地方保留。}}
+
+\revpair{\mbox{}}{\revcard{revNice}{10-03 · R3 英语文字编辑 · 可选 · 自我评价词}{%
+\textbf{问题}\hspace{0.4em}honestly 是对自己写作态度的评价。诚实报告负结果是应然，写出来反而显得在争取加分；did not pan out 也偏口语。\par
+\textbf{建议}\hspace{0.4em}改成中立叙述：we also report two directions that did not work: ...。诚实靠报告本身体现，不靠形容词。}}
+
+\revpair{The recurring wall raises an obvious question: is it an accident of the
+inputs we chose, or is it forced? The next section gives our answer in
+outlook form. The single sentence that unifies the thesis is: \textbf{on
+average-case online matching, predictions are robustness insurance
+rather than a performance lever --- and the upside they offer is smaller
+than the price of finding out whether to trust them.}}{}
+
+\section{10.2 A theoretical outlook: the price of testing
+advice}\label{a-theoretical-outlook-the-price-of-testing-advice}
+
+\revpair{The experiments say that no \emph{practical} acceptance threshold
+captures the upside safely (§6.3, Figure 6.4). This section \revhl{revMust}{sketches,
+without claiming a full theorem, why no decision rule of}\revhlid{revMust}{10-04}\emph{any} kind
+escapes the wall on the inputs where it stands. One ingredient is proved
+here; the rest is a quantitative reading of our own experiments, whose
+full formal development is deliberately deferred to companion work in
+preparation.}{\revcard{revMust}{10-04 · R5 答辩提问者 · 必改 · 节的定位}{%
+\textbf{问题}\hspace{0.4em}这一节叫 outlook，但形态上是一个完整的理论小节：一条带证明草图的不等式、一条命名为 law 的结论、一个常数级推论、外加数值代入。读者（和考官）看到的是理论章，读到的却是不断的免责声明。全篇最大的答辩风险面在这里。\par
+\textbf{建议}\hspace{0.4em}两件事：一是把界定提到节首第一句，用最直白的话讲清楚，例如 This section proves one inequality and then reads our own experiments through it. Nothing else in this section is claimed as a theorem.；二是把 budget-stakes law 改称 reading 或 conjecture，law 这个词本身就在宣称已确立。}}
+
+\revpair{\begin{quote}
+\textbf{A trade-off inequality.} Let \(G\) and \(\mathrm{Bd}\) be two
+instance distributions sharing the \emph{same} advice, such that
+following the advice gains \(\delta\) under \(G\) and loses \(\Delta\)
+under \(\mathrm{Bd}\) relative to the advice-free baseline, and let
+\(\gamma_k\) \revhl{revShould}{be the total-variation distance between the laws of their
+length}\revhlid{revShould}{10-05}-\(k\) prefixes. Then every test-and-fallback algorithm ---
+deciding by \emph{any} measurable rule on its prefix --- satisfies
+\[(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),\] where \(\eta_c\) is the
+fraction of the upside it forgoes under \(G\) and \(\eta_r\) its
+robustness loss under \(\mathrm{Bd}\) as a fraction of \(\Delta\).
+\end{quote}}{\revcard{revShould}{10-05 · R1 二审考官 · 建议 · 术语未解释}{%
+\textbf{问题}\hspace{0.4em}结论章是被跳读得最多的一章，而 total variation distance 和 the laws of their prefixes 都是没解释的技术表达。2.5 讲过分布测试，但读结论的人未必回去看。\par
+\textbf{建议}\hspace{0.4em}给一句直觉：gamma\_k, the total variation distance between the two prefix distributions - informally, the best possible accuracy of any test that sees only the first k arrivals。这句直觉恰好就是后面推理要用的，写出来一举两得。}}
+
+\revpair{The proof is a short conditioning argument: capturing the upside forces
+the algorithm to follow with high probability under \(G\); robustness
+forces fallback under \(\mathrm{Bd}\); and no function of the prefix can
+behave differently on two prefix distributions that are statistically
+\(\gamma_k\)-close. The inequality thus converts ``consistent \emph{and}
+robust'' into a question about \emph{sample complexity}: how long must
+the prefix be before it distinguishes advice worth following from advice
+worth rejecting?}{}
+
+\revpair{The answer, \revhl{revMust}{on the rare-resource instances that produce}\revhlid{revMust}{10-09} Figure 6.4, is a
+\textbf{budget--stakes law}: \revhl{revMust}{the decision costs a prefix of}\revhlid{revMust}{10-07}
+\(k^* = \tilde\Theta(\theta/\delta^2)\) --- the inverse square of the
+stakes \(\delta\) (what good advice gains over the baseline), \revhl{revMust}{scaled by
+the contention}\revhlid{revMust}{10-06} \(\theta\) --- and the budget is achievable, by a simple
+\emph{directional} statistic (do the prefix arrivals agree with the
+advice's predictions more often than they contradict them?). The stakes,
+in turn, are capped by the baseline slack:
+\(\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})\). Substituting, on
+strong-baseline instances the required prefix exceeds the entire
+instance --- any upside below
+\(\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)\) \revhl{revMust}{cannot be
+captured safely by any rule at any prefix length}\revhlid{revMust}{10-08} \(k \le n\). At the
+parameters of Chapter 4 (\(\rho_{\mathrm{base}}\approx0.99\),
+\(n=2000\)) that threshold is \(\approx0.004\), and the upsides we
+measured are of exactly this order (F3): the empirical wall sits in the
+regime the budget law governs. This is Figure 6.4 read quantitatively:
+the potential upside and the capturable upside separate as the baseline
+strengthens, because the stakes shrink faster than the test's resolution
+improves.}{\revcard{revMust}{10-06 · R1 二审考官 · 必改 · 符号未定义}{%
+\textbf{问题}\hspace{0.4em}这一页引入了八个符号（delta, Delta, gamma\_k, eta\_c, eta\_r, theta, rho\_base, epsilon），其中 theta 只用括号里 contention 一词带过，epsilon 完全没有定义。读者无法核对最后那个 0.004 是怎么算出来的。\par
+\textbf{建议}\hspace{0.4em}要么给这三个量各一句定义（theta 是什么的比例、epsilon 是什么的容差），要么把这段改写成不含 theta 和 epsilon 的形式，只保留 delta 与 rho\_base。结论章能少一个符号就少一个。}
+\revcard{revMust}{10-07 · R2 领域审稿人 · 必改 · 未证结果陈述为事实}{%
+\textbf{问题}\hspace{0.4em}这句以直陈语气给出了一个上下界匹配的结果。按本节自己的声明，这里只证明了那条不等式，其余是对实验的解读。审稿人和考官都会把这句读成本文的定理。\par
+\textbf{建议}\hspace{0.4em}加显式标注：in the companion development (not proved here), the decision costs ...；或改成经验语气：our experiments are consistent with a budget of order ...。}}
+
+\revpair{\mbox{}}{\revcard{revMust}{10-08 · R2 领域审稿人 · 必改 · 断言超出 scope}{%
+\textbf{问题}\hspace{0.4em}any rule / cannot / any prefix length 是本论文最强的一句断言，出现在一个自称不宣称定理的小节里，并且紧跟着一个具体数值 0.004。两页之后的 10.3 又说本文不宣称任何超出该不等式的定理。前后自相矛盾，这是最危险的一处。\par
+\textbf{建议}\hspace{0.4em}降到与证据相称的语气：our reading predicts that an upside below ... cannot be captured by any rule at k <= n; verifying this is companion work。数值 0.004 保留，但明确写成 the reading predicts ... and the upsides we measured are of this order。}
+\revcard{revMust}{10-09 · R5 答辩提问者 · 必改 · 前提后置}{%
+\textbf{问题}\hspace{0.4em}decomposable 这个适用范围前提，第一次出现是在 10.4 的 future work 里，而 10.2 的断言是以无条件语气写的。考官顺着 10.4 回头看 10.2，会问：那你 10.2 的结论到底适用于哪些实例。这个问题在答辩现场很难临时补救。\par
+\textbf{建议}\hspace{0.4em}把前提写进 10.2 断言所在的那一句：on the rare-resource (decomposable) instances that produce Figure 6.4 ...。10.4 那句就变成自然的延伸而不是事后补丁。}}
+
+\revpair{Two honest notes bound the scope of this outlook. First, the budget law
+cuts both ways: where the stakes are large (a weak baseline), the
+directional statistic is cheap and following good advice is easy --- the
+wall is a statement about strong-baseline, average-case inputs, not
+about testing in general. In particular, \revhl{revShould}{a tempting stronger conjecture
+--- that the near-linear sample cost of}\revhlid{revShould}{10-10}\emph{tolerant distribution
+testing} (§2.5) blocks every sublinear rule outright --- is false: it is
+refuted by the same directional statistic, and the \(\ell_1\)-threshold
+blindness of §6.3 is a property of testing the \emph{distance} rather
+than the \emph{payoff}. Second, this thesis claims here only the
+inequality displayed above and the quantitative reading of its own
+experiments; the two-sided law, its proofs, and its exact scope are \revhl{revShould}{the
+subject of the companion work}\revhlid{revShould}{10-11}.}{\revcard{revShould}{10-10 · R3 英语文字编辑 · 建议 · 信息层级过深}{%
+\textbf{问题}\hspace{0.4em}结论章里出现了一个我们曾经以为、后来被自己推翻的更强猜想。这段对写作者意义重大，对第一次读的人是三层嵌套（猜想、为什么诱人、为什么错），而它并不改变本文的任何结论。\par
+\textbf{建议}\hspace{0.4em}压成一句并去掉猜想的来龙去脉：the wall is not a consequence of distribution testing being expensive - a simple directional statistic is cheap; it is a consequence of the stakes being small。完整故事移到脚注或 companion work。}
+\revcard{revShould}{10-11 · R5 答辩提问者 · 建议 · 反复外指}{%
+\textbf{问题}\hspace{0.4em}companion work 在全篇出现四次（1.3、10.2 两次、10.3）。每提一次，读者对本论文完成度的印象就低一分，考官也更容易把注意力引到一份他们看不到的稿子上。\par
+\textbf{建议}\hspace{0.4em}只在 10.3 limitations 保留一次（那里是它该在的位置），其余三处改成本文不做什么的直述句，不提外部稿件。}}
+
+\section{10.3 Limitations}\label{limitations}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{Input model.} We work in the known-i.i.d. model. Because
+  Known-I.I.D. \(\le\) \revhl{revShould}{Random-Order in difficulty, the algorithms'
+  guarantees carry over}\revhlid{revShould}{10-13}, but the empirical wall is an
+  \emph{average-case} statement; we do not claim it for adversarial
+  arrival order.
+\item
+  \textbf{Test model.} Following the original authors, the
+  test-and-fallback experiments use an empirical-\(\ell_1\) surrogate
+  for the (unimplemented) distribution tester; §10.2 explains why the
+  surrogate's blindness is structural rather than an implementation
+  artifact.
+\item
+  \textbf{Prediction-object heterogeneity.} The degree- and
+  histogram-prediction families do not map onto every graph, which is
+  why they are reported in parallel panels rather than one table.
+\item
+  \textbf{Data breadth.} \revhl{revMust}{Each real modality is exercised by one trace}\revhlid{revMust}{10-12}.
+\item
+  \textbf{Theory scope.} The thesis deliberately confines its theory to
+  the outlook of §10.2 --- one proved trade-off inequality and a
+  quantitative reading of the experiments. The full budget--stakes law
+  is companion work in preparation, and no theorem beyond the stated
+  inequality is claimed here.
+\end{itemize}}{\revcard{revMust}{10-12 · R2 领域审稿人 · 必改 · 限制缺项}{%
+\textbf{问题}\hspace{0.4em}最该有的一条不在列表里：全篇只用一个目标函数（匹配规模，即 goodput）衡量。这条限制在 10.4 以 Beyond throughput 的形式出现了，等于把限制写成了未来工作。审稿人对这种搬移很敏感。\par
+\textbf{建议}\hspace{0.4em}在 limitations 里新增一条 Objective：we evaluate matching size (goodput) only; on tail latency, fairness, or recompute cost the baseline may be far from optimal and the picture could differ。10.4 那条保留，二者呼应即可。}
+\revcard{revShould}{10-13 · R1 二审考官 · 建议 · 非标准记号}{%
+\textbf{问题}\hspace{0.4em}用小于等于号连接两个模型名是圈内速记，写在限制一节里会让二审停顿：谁比谁难、carry over 是哪个方向。\par
+\textbf{建议}\hspace{0.4em}展开成一句话：because every known i.i.d. instance is also a random order instance, guarantees proved in the random order model carry over to ours (but not conversely)。方向讲明确。}}
+
+\section{10.4 Future work}\label{future-work}
+
+\revpair{The thesis brackets, rather than resolves, the settings in which
+predictions might genuinely help online matching, and these are the
+natural next directions.}{}
+
+\revpair{\begin{itemize}
+\tightlist
+\item
+  \textbf{Beyond average-case inputs.} The wall is an average-case
+  phenomenon. Adversarial or non-stationary arrival orders, where the
+  advice-free baseline is provably far from optimal, are where
+  predictions should carry real value --- and where a \emph{positive}
+  counterpart to this thesis's wall might be proved.
+\item
+  \textbf{Beyond throughput.} Objectives on which the baseline is not
+  near-optimal --- tail latency, per-type fairness, migration or
+  recompute cost --- may admit genuine with-predictions gains that the
+  goodput objective forecloses; our serving SLO probe (Chapter 8) closed
+  the simplest such attempt but not the space.
+\item
+  \textbf{Completing the theory.} Finishing the companion budget--stakes
+  development --- the sharp two-sided law, the directional statistic as
+  its matching upper bound, and its exact scope (decomposable families;
+  whether a non-decomposable family can push the budget higher is open)
+  --- would turn the outlook of §10.2 into a tight characterization.
+\item
+  \textbf{Better tests, honestly.} Whether a super-linear or amortized
+  test, or a test that reuses online decisions as samples, can beat the
+  stakes-squared budget of §10.2 is an open and practically motivated
+  question.
+\end{itemize}}{}
+
+\section{10.5 Closing}\label{closing}
+
+\revpair{Predictions are a powerful tool for online algorithms, but this thesis
+is a study of their \emph{limits} on one well-understood problem. On
+average-case online matching, \revhl{revShould}{the honest verdict is that a cheap,
+order-faithful predictor already captures nearly all there is to
+capture, that the sophisticated machinery earns its keep as insurance
+rather than as performance, and that finding out whether to trust a
+prediction costs more, on these inputs, than the prediction is worth.}\revhlid{revShould}{10-14}
+Recognizing where predictions cannot help is, we hope, as useful as
+knowing where they can.}{\revcard{revShould}{10-14 · R3 英语文字编辑 · 建议 · 收尾长句}{%
+\textbf{问题}\hspace{0.4em}一句 55 词、三个并列 that 从句。全文最后一段应该是最好读的一段。最后一句 Recognizing where predictions cannot help ... 写得很好，不要让它被前面这句拖住。\par
+\textbf{建议}\hspace{0.4em}拆成三个短句，一句一个结论，句式可以刻意重复（A cheap predictor already ... The sophisticated machinery earns ... Finding out whether to trust ...）。排比在结尾是加分的。}
+\revcard{revNice}{10-15 · R6 初次读者 · 可选 · 比喻定义滞后}{%
+\textbf{原文}\hspace{0.4em}\textquotedblleft The recurring wall raises an obvious question / a third face of the thesis's wall\textquotedblright\par
+\textbf{问题}\hspace{0.4em}wall 在结论章出现四次，是全篇的组织比喻，但它的正式说明在 8.4 才出现，而第一次使用是在 1.3。\par
+\textbf{建议}\hspace{0.4em}在 1.3 首次出现处给一句定义（见 1-14），此后全文放心复用，结论章就不需要再解释。}}

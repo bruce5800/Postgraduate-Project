@@ -20,6 +20,7 @@ id: 6-01
 role: R1 二审考官
 level: 必改
 kind: 名称未消歧
+mark: TestAndMatch instead stays on the
 quote: FollowPrediction / TestAndMatch / BEM / Choo
 note: 本章有四个名字在流通：FollowPrediction、TestAndMatch、Choo、BEM。前两个是策略名，后两个是作者缩写，但正文从未说明 Choo 和 BEM 是同一个 TestAndMatch 的两种变体、还是两个不同算法。6.1 直接写 BEM 0.998 到 0.969；Choo 1.000 到 0.991，读者到这里必须自己反推。
 fix: 在本章导语加一句名称表：we write TestAndMatch for the test-and-fallback scheme in general, and Choo and BEM for its two published instantiations, which differ only in the acceptance threshold。四个名字一次说清，全章受益。
@@ -50,6 +51,7 @@ id: 6-03
 role: R1 二审考官
 level: 建议
 kind: 符号未复述
+mark: Sweeping advice error
 quote: few-types instances (n=2000, r=8, prefix k=200, 40 trials)
 note: 四个符号在第 3 章定义，但读者到这里已经隔了十五页，尤其 r 和 k 很容易记混（r 是类型数还是资源数？k 是前缀长度还是折数？）。
 fix: 括号里就地补词：(n=2000 arrivals, r=8 request types, a prefix of k=200 arrivals, 40 trials)。多几个词，读者不用回翻。
@@ -87,6 +89,7 @@ id: 6-05
 role: R1 二审考官
 level: 必改
 kind: 数字来源缺失
+mark: is calibrated to the worst-case baseline
 quote: the Choo/BEM threshold tau is calibrated to the worst-case baseline beta approximately 0.696
 note: 0.696 凭空出现。读者（尤其二审）会立刻想：这个数是哪来的、为什么不是 1-1/e。这是本节机制解释的支点，支点没有来源，整个 pathology 的论证就悬空了。
 fix: 补半句出处：beta is the worst case competitive ratio the advice free baseline is proved to achieve in this model (see 2.x / the original paper)。若是你自己算的，写明算法与实例族。
@@ -107,6 +110,7 @@ id: 6-07
 role: R3 英语文字编辑
 level: 建议
 kind: 强调过密
+mark: -
 quote: worse / falls / rises / accidentally rejects / accepts / below
 note: 这一段有八处斜体强调。强调密度一高，强调就失效，读者反而抓不到哪个才是重点。
 fix: 每段最多留一到两处。本段真正需要强调的只有一个词组：more accurate 却 worse decision。
@@ -177,6 +181,7 @@ id: 6-12
 role: R2 领域审稿人
 level: 建议
 kind: 估计量缺说明
+mark: estimator's noise floor
 quote: smaller than the empirical-ell_1 estimator's noise floor (approximately 0.05 to 0.13)
 note: 噪声底给了区间但没说这个区间是怎么来的、随什么变化（k？r？重复次数？）。这是本节论证的关键量，也是整篇论文通往 10.2 的桥。
 fix: 补一句：the range spans k from 25 to 800 (noise falls as k grows); it is the standard deviation of the plug in estimate across trials at zero true error。一句话就把这个数从断言变成可复核的量。
@@ -225,6 +230,7 @@ id: 6-14
 role: R5 答辩提问者
 level: 必改
 kind: 数据来源可疑
+mark: eager switching scores
 quote: eager switching scores 0.927 - below both the pure follower (1.000) and the pure baseline (0.958; tests/test_combiner_small.py)
 note: 论文正文的数字引用了一个单元测试文件。答辩时这一定会被问：这是正式实验还是小规模自测、n 多大、重复多少次、有没有置信区间。全章其他数字都有实验设置，只有这一处没有。
 fix: 要么把它升级为一次正式实验并给出与 6.1 同格式的设置与置信区间，要么在正文明说它的地位：a small scale sanity experiment (n=..., ... trials), reported to illustrate the mechanism rather than to measure it。脚本路径移到附录 A 的映射表里。
@@ -235,6 +241,7 @@ id: 6-15
 role: R4 体例校对
 level: 必改
 kind: 同名不同值
+mark: In its robust tuning the combiner sits exactly on the floor
 quote: the pure baseline (0.958) / the advice-free floor (approximately 0.99) / the combiner sits exactly on the floor (0.990)
 note: 本章出现了三个都叫基线或 floor 的数：0.99、0.990、0.958。它们大概来自不同实例族与不同规模，但正文没有区分，读者只会认为哪里算错了。这是最容易被考官当场指出的不一致。
 fix: 两条都做：给每个数标注它所在的实例设置（一个括号即可），并在本章第一次出现时统一命名（advice free floor 只指 6.1 那个族的数）。若三者本可统一，那就统一。

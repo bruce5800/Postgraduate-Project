@@ -94,6 +94,7 @@ id: 10-05
 role: R1 二审考官
 level: 建议
 kind: 术语未解释
+mark: be the total-variation distance between the laws of their length
 quote: let gamma_k be the total-variation distance between the laws of their length-k prefixes
 note: 结论章是被跳读得最多的一章，而 total variation distance 和 the laws of their prefixes 都是没解释的技术表达。2.5 讲过分布测试，但读结论的人未必回去看。
 fix: 给一句直觉：gamma_k, the total variation distance between the two prefix distributions - informally, the best possible accuracy of any test that sees only the first k arrivals。这句直觉恰好就是后面推理要用的，写出来一举两得。
@@ -127,6 +128,7 @@ id: 10-06
 role: R1 二审考官
 level: 必改
 kind: 符号未定义
+mark: scaled by the contention
 quote: k* = Theta(theta/delta^2) ... scaled by the contention theta ... delta <= 2 epsilon (1 - rho_base)
 note: 这一页引入了八个符号（delta, Delta, gamma_k, eta_c, eta_r, theta, rho_base, epsilon），其中 theta 只用括号里 contention 一词带过，epsilon 完全没有定义。读者无法核对最后那个 0.004 是怎么算出来的。
 fix: 要么给这三个量各一句定义（theta 是什么的比例、epsilon 是什么的容差），要么把这段改写成不含 theta 和 epsilon 的形式，只保留 delta 与 rho_base。结论章能少一个符号就少一个。
@@ -147,6 +149,7 @@ id: 10-08
 role: R2 领域审稿人
 level: 必改
 kind: 断言超出 scope
+mark: cannot be captured safely by any rule at any prefix length
 quote: any upside below Theta(sqrt((1-rho_base)/n)) cannot be captured safely by any rule at any prefix length k <= n
 note: any rule / cannot / any prefix length 是本论文最强的一句断言，出现在一个自称不宣称定理的小节里，并且紧跟着一个具体数值 0.004。两页之后的 10.3 又说本文不宣称任何超出该不等式的定理。前后自相矛盾，这是最危险的一处。
 fix: 降到与证据相称的语气：our reading predicts that an upside below ... cannot be captured by any rule at k <= n; verifying this is companion work。数值 0.004 保留，但明确写成 the reading predicts ... and the upsides we measured are of this order。
@@ -157,6 +160,7 @@ id: 10-09
 role: R5 答辩提问者
 level: 必改
 kind: 前提后置
+mark: on the rare-resource instances that produce
 quote: (decomposable families; whether a non-decomposable family can push the budget higher is open) - 出现在 10.4
 note: decomposable 这个适用范围前提，第一次出现是在 10.4 的 future work 里，而 10.2 的断言是以无条件语气写的。考官顺着 10.4 回头看 10.2，会问：那你 10.2 的结论到底适用于哪些实例。这个问题在答辩现场很难临时补救。
 fix: 把前提写进 10.2 断言所在的那一句：on the rare-resource (decomposable) instances that produce Figure 6.4 ...。10.4 那句就变成自然的延伸而不是事后补丁。
@@ -215,6 +219,7 @@ id: 10-12
 role: R2 领域审稿人
 level: 必改
 kind: 限制缺项
+mark: Each real modality is exercised by one trace
 quote: Limitations: Input model / Test model / Prediction-object heterogeneity / Data breadth / Theory scope
 note: 最该有的一条不在列表里：全篇只用一个目标函数（匹配规模，即 goodput）衡量。这条限制在 10.4 以 Beyond throughput 的形式出现了，等于把限制写成了未来工作。审稿人对这种搬移很敏感。
 fix: 在 limitations 里新增一条 Objective：we evaluate matching size (goodput) only; on tail latency, fairness, or recompute cost the baseline may be far from optimal and the picture could differ。10.4 那条保留，二者呼应即可。
@@ -276,6 +281,7 @@ id: 10-15
 role: R6 初次读者
 level: 可选
 kind: 比喻定义滞后
+mark: -
 quote: The recurring wall raises an obvious question / a third face of the thesis's wall
 note: wall 在结论章出现四次，是全篇的组织比喻，但它的正式说明在 8.4 才出现，而第一次使用是在 1.3。
 fix: 在 1.3 首次出现处给一句定义（见 1-14），此后全文放心复用，结论章就不需要再解释。
