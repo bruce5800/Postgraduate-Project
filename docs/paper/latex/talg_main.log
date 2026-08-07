@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  6 AUG 2026 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  7 AUG 2026 02:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1378,7 +1378,7 @@ Underfull \vbox (badness 4048) has occurred while \output is active []
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 44.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 114.
+(Font)              scaled to size 7.3pt on input line 116.
 )
 
 Class acmart Warning: Some images may lack descriptions.
@@ -1406,10 +1406,10 @@ Package rerunfilecheck Info: File `talg_main.out' has not changed.
 (rerunfilecheck)             Checksum: C772FC83B9ECDEA3DB42BED4951F41BE;8934.
  ) 
 Here is how much of TeX's memory you used:
- 21811 strings out of 474654
- 360430 string characters out of 5750568
+ 21810 strings out of 474654
+ 360421 string characters out of 5750568
  777245 words of memory out of 5000000
- 43395 multiletter control sequences out of 15000+600000
+ 43394 multiletter control sequences out of 15000+600000
  794409 words of font info for 649 fonts, out of 8000000 for 9000
  480 hyphenation exceptions out of 8191
  90i,17n,131p,1006b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1432,7 +1432,7 @@ lun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library/
 texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts
 /type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publi
 c/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1579522 bytes).
+Output written on talg_main.pdf (23 pages, 1579380 bytes).
 PDF statistics:
  504 PDF objects out of 1000 (max. 8388607)
  412 compressed objects within 5 object streams

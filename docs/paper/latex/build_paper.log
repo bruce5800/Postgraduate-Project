@@ -197,26 +197,6 @@ Class acmart Warning: A possible image without description on input line 59.
 
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
 [15.15 <../../../results/realworld_robustness.png>]
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 16 undefine
-d on input line 57.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 16 undefined
- on input line 60.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 16 undefined on input l
-ine 63.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 16 undefined on
- input line 63.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 16 undefined on i
-nput line 68.
-
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
 [16.16]
@@ -246,36 +226,8 @@ Underfull \vbox (badness 1308) has occurred while \output is active
 nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
 [21.21]
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 22 undefined
- on input line 49.
-
-
-Package natbib Warning: Citation `cui2026skirental' on page 22 undefined on inp
-ut line 51.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 22 undefine
-d on input line 55.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 22 undefined on input l
-ine 62.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 22 undefined on
- input line 62.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 22 undefined on i
-nput line 63.
-
-
 Underfull \vbox (badness 4048) has occurred while \output is active
 [22.22]) (./talg_main.bbl)
-
-Package natbib Warning: There were undefined citations.
-
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -312,7 +264,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1577253 bytes).
+Output written on talg_main.pdf (23 pages, 1579632 bytes).
 Transcript written on talg_main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
 The top-level auxiliary file: talg_main.aux
@@ -327,7 +279,6 @@ Warning--empty address in balcan2020datadriven
 Warning--empty publisher in bhattacharyya2025product
 Warning--empty address in bhattacharyya2025product
 Warning--page numbers missing in both pages and numpages fields in bhattacharyya2025product
-Warning--no number and no volume in borodin2018experimental
 Warning--page numbers missing in both pages and numpages fields in borodin2018experimental
 Warning--empty publisher in bem2026testmatch
 Warning--empty address in bem2026testmatch
@@ -348,8 +299,6 @@ Warning--empty address in feldman2009online
 Warning--page numbers missing in both pages and numpages fields in feldman2009online
 Warning--no number and no volume in hopcroftkarp1973
 Warning--page numbers missing in both pages and numpages fields in hopcroftkarp1973
-Warning--no number and no volume in jailletlu2014online
-Warning--page numbers missing in both pages and numpages fields in jailletlu2014online
 Warning--empty publisher in kvv1990ranking
 Warning--empty address in kvv1990ranking
 Warning--page numbers missing in both pages and numpages fields in kvv1990ranking
@@ -363,7 +312,7 @@ Warning--empty address in wald1947sequential
 Warning--empty publisher in weizhang2020tradeoffs
 Warning--empty address in weizhang2020tradeoffs
 Warning--page numbers missing in both pages and numpages fields in weizhang2020tradeoffs
-(There were 45 warnings)
+(There were 42 warnings)
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -563,26 +512,6 @@ Class acmart Warning: A possible image without description on input line 59.
 
 [14.14 <../../../results/real_predictor.png>]) (./ch/06_theory.tex
 [15.15 <../../../results/realworld_robustness.png>]
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 16 undefine
-d on input line 57.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 16 undefined
- on input line 60.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 16 undefined on input l
-ine 63.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 16 undefined on
- input line 63.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 16 undefined on i
-nput line 68.
-
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
 [16.16]
@@ -612,36 +541,8 @@ Underfull \vbox (badness 1308) has occurred while \output is active
 nal_rsweep.png>]) (./ch/07_serving_related_conclusion.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
 [21.21]
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 22 undefined
- on input line 49.
-
-
-Package natbib Warning: Citation `cui2026skirental' on page 22 undefined on inp
-ut line 51.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 22 undefine
-d on input line 55.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 22 undefined on input l
-ine 62.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 22 undefined on
- input line 62.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 22 undefined on i
-nput line 63.
-
-
 Underfull \vbox (badness 4048) has occurred while \output is active
 [22.22]) (./talg_main.bbl)
-
-Package natbib Warning: There were undefined citations.
-
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -683,7 +584,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1579377 bytes).
+Output written on talg_main.pdf (23 pages, 1579380 bytes).
 Transcript written on talg_main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -951,5 +852,5 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (23 pages, 1579522 bytes).
+Output written on talg_main.pdf (23 pages, 1579380 bytes).
 Transcript written on talg_main.log.

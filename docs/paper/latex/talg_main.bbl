@@ -79,25 +79,27 @@
 \newblock
 
 
-\bibitem[Borodin et~al\mbox{.}(2018)]%
+\bibitem[Borodin et~al\mbox{.}(2020)]%
         {borodin2018experimental}
 \bibfield{author}{\bibinfo{person}{Allan Borodin},
   \bibinfo{person}{Christodoulos Karavasilis}, {and} \bibinfo{person}{Denis
-  Pankratov}.} \bibinfo{year}{2018}\natexlab{}.
+  Pankratov}.} \bibinfo{year}{2020}\natexlab{}.
 \newblock \showarticletitle{An Experimental Study of Algorithms for Online
   Bipartite Matching}.
-\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1808.04863}}
-  (\bibinfo{year}{2018}).
+\newblock \bibinfo{journal}{\emph{ACM Journal of Experimental Algorithmics}}
+  \bibinfo{volume}{25} (\bibinfo{year}{2020}).
 \newblock
 
 
 \bibitem[Burathep et~al\mbox{.}(2026)]%
         {bem2026testmatch}
-\bibfield{author}{\bibinfo{person}{{\dots} Burathep}, \bibinfo{person}{Thomas
-  Erlebach}, \bibinfo{person}{William~K. Moses}, {et~al\mbox{.}}}
+\bibfield{author}{\bibinfo{person}{Kunanon Burathep}, \bibinfo{person}{Thomas
+  Erlebach}, {and} \bibinfo{person}{William~K. Moses, Jr.}}
   \bibinfo{year}{2026}\natexlab{}.
 \newblock \showarticletitle{Learning-Augmented Online Bipartite Matching in the
-  Random Arrival Order Model}. In \bibinfo{booktitle}{\emph{SOFSEM}}.
+  Random Arrival Order Model}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  51st International Conference on Current Trends in Theory and Practice of
+  Computer Science (SOFSEM)}}.
 \newblock
 
 
@@ -126,10 +128,12 @@
 
 \bibitem[Choo et~al\mbox{.}(2024)]%
         {choo2024imperfect}
-\bibfield{author}{\bibinfo{person}{Davin Choo}, \bibinfo{person}{Themis Gupta},
-  {et~al\mbox{.}}} \bibinfo{year}{2024}\natexlab{}.
+\bibfield{author}{\bibinfo{person}{Davin Choo}, \bibinfo{person}{Themis
+  Gouleakis}, \bibinfo{person}{Chun~Kai Ling}, {and} \bibinfo{person}{Arnab
+  Bhattacharyya}.} \bibinfo{year}{2024}\natexlab{}.
 \newblock \showarticletitle{Online Bipartite Matching with Imperfect Advice}.
-  In \bibinfo{booktitle}{\emph{ICML}}.
+  In \bibinfo{booktitle}{\emph{Proceedings of the 41st International Conference
+  on Machine Learning (ICML)}}.
 \newblock
 
 
@@ -182,7 +186,8 @@
 \newblock \showarticletitle{Online Stochastic Matching: New Algorithms with
   Better Bounds}.
 \newblock \bibinfo{journal}{\emph{Mathematics of Operations Research}}
-  (\bibinfo{year}{2014}).
+  \bibinfo{volume}{39}, \bibinfo{number}{3} (\bibinfo{year}{2014}),
+  \bibinfo{pages}{624--646}.
 \newblock
 
 

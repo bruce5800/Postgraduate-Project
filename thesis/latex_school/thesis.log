@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  2 AUG 2026 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  7 AUG 2026 02:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2062,6 +2062,13 @@ chapter without number
 ]
 
 [57]
+Overfull \hbox (7.69624pt too wide) in paragraph at lines 139--139
+\T1/lmr/m/n/10.95 (-20) racy on the distributionally-robust com-pet-i-tive ra-t
+io. \T1/lmr/m/it/10.95 (-20) arXiv preprint arXiv:2601.06813\T1/lmr/m/n/10.95 (
+-20) . 
+ []
+
+
 
 [58] (./thesis.aux)
  ***********
@@ -2075,13 +2082,13 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32965 strings out of 474654
- 670089 string characters out of 5750568
+ 32964 strings out of 474654
+ 670074 string characters out of 5750568
  1675766 words of memory out of 5000000
- 55037 multiletter control sequences out of 15000+600000
+ 55036 multiletter control sequences out of 15000+600000
  661948 words of font info for 270 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 122i,20n,134p,10935b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 122i,20n,134p,10935b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
 sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/te
@@ -2101,7 +2108,7 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (68 pages, 2442002 bytes).
+Output written on thesis.pdf (68 pages, 2443323 bytes).
 PDF statistics:
  922 PDF objects out of 1000 (max. 8388607)
  762 compressed objects within 8 object streams

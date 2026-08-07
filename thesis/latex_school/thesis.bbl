@@ -83,43 +83,44 @@
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1808.04863}
+      \field{journaltitle}{ACM Journal of Experimental Algorithmics}
       \field{title}{An Experimental Study of Algorithms for Online Bipartite Matching}
-      \field{year}{2018}
+      \field{volume}{25}
+      \field{year}{2020}
     \endentry
     \entry{bem2026testmatch}{inproceedings}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
       \name{author}{3}{}{%
-        {{hash=420271e641533319337f1651c92b20a4}{%
+        {{hash=7c03c3e3b401e095e68c1340dacdee29}{%
            family={Burathep},
            familyi={B\bibinitperiod},
-           given={{\dots}},
-           giveni={\bibinitperiod}}}%
+           given={Kunanon},
+           giveni={K\bibinitperiod}}}%
         {{hash=c320eca017a99b5e593b0523b128b254}{%
            family={Erlebach},
            familyi={E\bibinitperiod},
            given={Thomas},
            giveni={T\bibinitperiod}}}%
-        {{hash=d0ab8bc21cfc3c4b754c4d0e26d7b513}{%
+        {{hash=c0c44f08f63748d01182b357599c3abb}{%
            family={Moses},
            familyi={M\bibinitperiod},
            given={William\bibnamedelima K.},
-           giveni={W\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+           giveni={W\bibinitperiod\bibinitdelim K\bibinitperiod},
+           suffix={Jr.},
+           suffixi={J\bibinitperiod}}}%
       }
-      \strng{namehash}{3bfccb8d9ebeab470d9680a1af7816cb}
-      \strng{fullhash}{fc82a414326de61f6871d444f1ca3d19}
-      \strng{fullhashraw}{fc82a414326de61f6871d444f1ca3d19}
-      \strng{bibnamehash}{fc82a414326de61f6871d444f1ca3d19}
-      \strng{authorbibnamehash}{fc82a414326de61f6871d444f1ca3d19}
-      \strng{authornamehash}{3bfccb8d9ebeab470d9680a1af7816cb}
-      \strng{authorfullhash}{fc82a414326de61f6871d444f1ca3d19}
-      \strng{authorfullhashraw}{fc82a414326de61f6871d444f1ca3d19}
+      \strng{namehash}{a3287f7fbb84641a8b0ca0c5dce9d4b9}
+      \strng{fullhash}{14fc91d67f62e302409feaf752854415}
+      \strng{fullhashraw}{14fc91d67f62e302409feaf752854415}
+      \strng{bibnamehash}{14fc91d67f62e302409feaf752854415}
+      \strng{authorbibnamehash}{14fc91d67f62e302409feaf752854415}
+      \strng{authornamehash}{a3287f7fbb84641a8b0ca0c5dce9d4b9}
+      \strng{authorfullhash}{14fc91d67f62e302409feaf752854415}
+      \strng{authorfullhashraw}{14fc91d67f62e302409feaf752854415}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{SOFSEM}
+      \field{booktitle}{Proceedings of the 51st International Conference on Current Trends in Theory and Practice of Computer Science (SOFSEM)}
       \field{title}{Learning-Augmented Online Bipartite Matching in the Random Arrival Order Model}
       \field{year}{2026}
     \endentry
@@ -203,33 +204,41 @@
       \field{year}{2021}
     \endentry
     \entry{choo2024imperfect}{inproceedings}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{2}{}{%
+      \name{author}{4}{}{%
         {{hash=ab5a789e89f56324d9bffe3a25bb1483}{%
            family={Choo},
            familyi={C\bibinitperiod},
            given={Davin},
            giveni={D\bibinitperiod}}}%
-        {{hash=2f75292fc234f223e8d9e46bf980d38f}{%
-           family={Gupta},
+        {{hash=ddb9284bfac3b4084b95b7a0b497990c}{%
+           family={Gouleakis},
            familyi={G\bibinitperiod},
            given={Themis},
            giveni={T\bibinitperiod}}}%
+        {{hash=c28d44e301356405ac08bb7fc5e2b356}{%
+           family={Ling},
+           familyi={L\bibinitperiod},
+           given={Chun\bibnamedelima Kai},
+           giveni={C\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=82b1aab6f7ead7849fceb5db620ca27d}{%
+           family={Bhattacharyya},
+           familyi={B\bibinitperiod},
+           given={Arnab},
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{69226a47b10a6250a642152fd389f503}
-      \strng{fullhash}{69226a47b10a6250a642152fd389f503}
-      \strng{fullhashraw}{69226a47b10a6250a642152fd389f503}
-      \strng{bibnamehash}{69226a47b10a6250a642152fd389f503}
-      \strng{authorbibnamehash}{69226a47b10a6250a642152fd389f503}
-      \strng{authornamehash}{69226a47b10a6250a642152fd389f503}
-      \strng{authorfullhash}{69226a47b10a6250a642152fd389f503}
-      \strng{authorfullhashraw}{69226a47b10a6250a642152fd389f503}
+      \strng{namehash}{9369a5e96b8528443c96349e5123cba3}
+      \strng{fullhash}{ce738e5c2dc725a9611a4e5ffdc09920}
+      \strng{fullhashraw}{ce738e5c2dc725a9611a4e5ffdc09920}
+      \strng{bibnamehash}{ce738e5c2dc725a9611a4e5ffdc09920}
+      \strng{authorbibnamehash}{ce738e5c2dc725a9611a4e5ffdc09920}
+      \strng{authornamehash}{9369a5e96b8528443c96349e5123cba3}
+      \strng{authorfullhash}{ce738e5c2dc725a9611a4e5ffdc09920}
+      \strng{authorfullhashraw}{ce738e5c2dc725a9611a4e5ffdc09920}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{ICML}
+      \field{booktitle}{Proceedings of the 41st International Conference on Machine Learning (ICML)}
       \field{title}{Online Bipartite Matching with Imperfect Advice}
       \field{year}{2024}
     \endentry
@@ -327,8 +336,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematics of Operations Research}
+      \field{number}{3}
       \field{title}{Online Stochastic Matching: New Algorithms with Better Bounds}
+      \field{volume}{39}
       \field{year}{2014}
+      \field{pages}{624\bibrangedash 646}
+      \range{pages}{23}
     \endentry
     \entry{jiao2018l1}{article}{}{}
       \name{author}{3}{}{%
@@ -514,14 +527,6 @@
       \field{pages}{646\bibrangedash 662}
       \range{pages}{17}
     \endentry
-    \entry{mooncake2024}{article}{}{}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:2407.00079}
-      \field{title}{Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving}
-      \field{year}{2024}
-    \endentry
     \entry{paninski2008coincidence}{article}{}{}
       \name{author}{1}{}{%
         {{hash=b5ff96deb16b77fe4a862b665ba9b0c9}{%
@@ -550,9 +555,99 @@
       \field{pages}{4750\bibrangedash 4755}
       \range{pages}{6}
     \endentry
+    \entry{mooncake2024}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=0e847ef4452e10191c72acbd34649c7c}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Ruoyu},
+           giveni={R\bibinitperiod}}}%
+        {{hash=1e95832c646af4273160847f0d355f98}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zheming},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0b53c0f9e4edd9e129741ed537a58d4a}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Weiran},
+           giveni={W\bibinitperiod}}}%
+        {{hash=1b2ebc309c208d21398b011042aeaa50}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Mingxing},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a11916adc36108f334d2bd997022f6c7}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yongwei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=87e2f66d642825dc0e7802a8138a614b}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Weimin},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2aaded9fc6f8db1f2fbf3af1c0e1a88c}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Xinran},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{83222948fedb21d2802b9e98e59beffc}
+      \strng{fullhash}{82843a1152c2ea68d37184c50c63e31d}
+      \strng{fullhashraw}{82843a1152c2ea68d37184c50c63e31d}
+      \strng{bibnamehash}{82843a1152c2ea68d37184c50c63e31d}
+      \strng{authorbibnamehash}{82843a1152c2ea68d37184c50c63e31d}
+      \strng{authornamehash}{83222948fedb21d2802b9e98e59beffc}
+      \strng{authorfullhash}{82843a1152c2ea68d37184c50c63e31d}
+      \strng{authorfullhashraw}{82843a1152c2ea68d37184c50c63e31d}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2407.00079}
+      \field{title}{Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving}
+      \field{year}{2024}
+    \endentry
     \entry{preble2024}{article}{}{}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \name{author}{5}{}{%
+        {{hash=f917da5653887f782fe4356b8209b932}{%
+           family={Srivatsa},
+           familyi={S\bibinitperiod},
+           given={Vikranth},
+           giveni={V\bibinitperiod}}}%
+        {{hash=0b8bc5120e7079e9b59c4a3bb8157638}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Zijian},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=ed00e7eac27fa93fe519eb5b405d27f3}{%
+           family={Abhyankar},
+           familyi={A\bibinitperiod},
+           given={Reyna},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d000ad43155362c2a2ebcbaf9610de48}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Dongming},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cd5f2a852da6a1215d1bda3f9a0ff53b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yiying},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{2eab52975d8974d60533f36ccbf9bc8c}
+      \strng{fullhash}{b1b00d8eea1e2cbc36da312431e9b218}
+      \strng{fullhashraw}{b1b00d8eea1e2cbc36da312431e9b218}
+      \strng{bibnamehash}{b1b00d8eea1e2cbc36da312431e9b218}
+      \strng{authorbibnamehash}{b1b00d8eea1e2cbc36da312431e9b218}
+      \strng{authornamehash}{2eab52975d8974d60533f36ccbf9bc8c}
+      \strng{authorfullhash}{b1b00d8eea1e2cbc36da312431e9b218}
+      \strng{authorfullhashraw}{b1b00d8eea1e2cbc36da312431e9b218}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2407.00023}
       \field{title}{Preble: Efficient Distributed Prompt Scheduling for LLM Serving}
@@ -653,25 +748,25 @@
     \endentry
     \entry{yoshinaga2026accuracy}{article}{}{}
       \name{author}{2}{}{%
-        {{hash=cdab5bcea2e57d74877eb38ca9d7fa67}{%
+        {{hash=4f11d90f408fc80fc85235cf52c21265}{%
            family={Yoshinaga},
            familyi={Y\bibinitperiod},
-           given={{\dots}},
-           giveni={\bibinitperiod}}}%
+           given={Toru},
+           giveni={T\bibinitperiod}}}%
         {{hash=793a37886f277483c35313a9be5de70e}{%
            family={Kawase},
            familyi={K\bibinitperiod},
            given={Yasushi},
            giveni={Y\bibinitperiod}}}%
       }
-      \strng{namehash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{fullhash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{fullhashraw}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{bibnamehash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{authorbibnamehash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{authornamehash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{authorfullhash}{1bb4d5e32b76b0b5bdb9beda9291ad55}
-      \strng{authorfullhashraw}{1bb4d5e32b76b0b5bdb9beda9291ad55}
+      \strng{namehash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{fullhash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{fullhashraw}{3270a9c8b199a1caee338f8b43455235}
+      \strng{bibnamehash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{authorbibnamehash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{authornamehash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{authorfullhash}{3270a9c8b199a1caee338f8b43455235}
+      \strng{authorfullhashraw}{3270a9c8b199a1caee338f8b43455235}
       \field{sortinit}{Y}
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
