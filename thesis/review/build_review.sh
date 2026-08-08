@@ -10,7 +10,7 @@
 set -e
 cd "$(dirname "$0")"
 
-CHAPTERS="${*:-01_introduction 06_test_and_fallback 11_conclusion}"
+CHAPTERS="${*:-01_introduction 02_background 03_model_methodology 04_unified_benchmark 05_order_error 06_test_and_fallback 07_external_validity 08_exploratory_negatives 10_serving_case_study 11_conclusion A_reproduction}"
 echo "chapters included: $CHAPTERS"
 
 python3 rev2tex.py $CHAPTERS > body.tex

@@ -37,23 +37,50 @@ def esc(t):
 # ---------------------------------------------------------------- markdown side
 
 def split_chunks(text):
-    """-> [(kind, text)] where kind in {ann, drop, head, fig, body}."""
-    out = []
-    for raw in re.split(r"\n\s*\n", text):
-        chunk = raw.strip("\n")
+    """-> [(kind, text)] where kind in {ann, drop, head, fig, raw, body}.
+
+    Fence-aware: a ``` block stays one chunk even though it contains blank lines
+    (Table 4.1 is a {=latex} block, Appendix A has bash blocks).
+    """
+    out, buf, fence = [], [], False
+
+    def flush():
+        if not buf:
+            return
+        chunk = "\n".join(buf).strip("\n")
+        buf.clear()
         if not chunk.strip():
-            continue
+            return
         s = chunk.lstrip()
         if s.startswith("<!--REV"):
             out.append(("ann", chunk))
         elif s.startswith("<!--"):
             out.append(("drop", chunk))
+        elif s.startswith("```"):
+            out.append(("raw", chunk))          # full width: may hold a float
         elif s.startswith("#"):
             out.append(("head", chunk))
         elif s.startswith("!["):
             out.append(("fig", chunk))
         else:
             out.append(("body", chunk))
+
+    for line in text.split("\n"):
+        if line.lstrip().startswith("```"):
+            if not fence and buf:
+                flush()                          # text before an opening fence
+            buf.append(line)
+            fence = not fence
+            if not fence:
+                flush()                          # closing fence ends the chunk
+            continue
+        if fence:
+            buf.append(line)
+        elif line.strip():
+            buf.append(line)
+        else:
+            flush()
+    flush()
     return out
 
 
@@ -306,13 +333,23 @@ def build(path, paired=True):
         else:
             bi += 1
 
+    for i, (kind, _) in enumerate(blocks):          # de-float first: mark offsets
+        if kind == "fig" and i in rendered:          # must refer to the final text
+            rendered[i] = figure_to_inline(rendered[i])
+
+    # blocks whose text must never be touched: verbatim, tables, raw LaTeX
+    protected = {i for i, (k, _) in enumerate(blocks) if k == "raw"}
+    protected |= {i for i, tx in rendered.items()
+                  if any(e in tx for e in ("\\begin{longtable}", "\\begin{tabular}",
+                                           "\\begin{verbatim}", "\\begin{Shaded}"))}
+
     # place each annotation's quote: its own block first, then nearby ones
     marks = {}
     for bi, anns in sorted(anns_for.items()):
         for a in anns:
             target = a.get("mark") or a.get("quote", "")
             for cand in (bi, bi - 1, bi + 1, bi + 2, bi - 2, bi + 3, bi - 3):
-                if cand not in rendered:
+                if cand not in rendered or cand in protected:
                     continue
                 spot = locate(rendered[cand], target, [(s, e) for s, e, _, _ in
                                                        marks.get(cand, [])])
@@ -328,11 +365,12 @@ def build(path, paired=True):
     for i, (kind, _) in enumerate(blocks):
         tex = rendered.get(i, "")
         anns = anns_for.get(i, [])
-        if kind == "fig":
-            tex = figure_to_inline(tex)
         if i in marks:
             tex = apply_marks(tex, marks[i])
-        if kind == "head":
+        # longtable / float cannot live inside a minipage: give them the full width
+        if kind in ("head", "raw") or "\\begin{longtable}" in tex or "\\begin{table}" in tex:
+            if "\\begin{longtable}" in tex:      # the appendix path tables are wide
+                tex = "{\\footnotesize\\setlength{\\tabcolsep}{3pt}\n%s\n}" % tex
             out.append(tex)
             if not anns:
                 continue

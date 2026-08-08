@@ -17,10 +17,25 @@ SOURCES = [
      "源文件是 `thesis/latex/meta.yaml` 的 `abstract:` 块（中文版在 `meta_zh.yaml`）；"
      "`review/00_abstract.md` 只是批注用的副本，改定稿请改 meta.yaml。"),
     ("第 1 章 Introduction", EN / "01_introduction.md", "01_introduction.review.md", ""),
+    ("第 2 章 Background and Related Work", EN / "02_background.md",
+     "02_background.review.md", ""),
+    ("第 3 章 Model, Algorithms, and Methodology", EN / "03_model_methodology.md",
+     "03_model_methodology.review.md", ""),
+    ("第 4 章 The Unified Benchmark", EN / "04_unified_benchmark.md",
+     "04_unified_benchmark.review.md", ""),
+    ("第 5 章 What Governs the Loss", EN / "05_order_error.md",
+     "05_order_error.review.md", ""),
     ("第 6 章 Test-and-Fallback in Depth", EN / "06_test_and_fallback.md",
      "06_test_and_fallback.review.md", ""),
+    ("第 7 章 External Validity", EN / "07_external_validity.md",
+     "07_external_validity.review.md", ""),
+    ("第 8 章 Exploratory Directions and Negative Results", EN / "08_exploratory_negatives.md",
+     "08_exploratory_negatives.review.md", ""),
+    ("第 9 章 Application Case Study: Serving", EN / "10_serving_case_study.md",
+     "10_serving_case_study.review.md", "文件名是 `10_serving_case_study.md`，但在论文里是第 9 章。"),
     ("第 10 章 Conclusion and Future Work", EN / "11_conclusion.md",
      "11_conclusion.review.md", "文件名是 `11_conclusion.md`，但在论文里是第 10 章。"),
+    ("附录 A Reproduction Guide", EN / "A_reproduction.md", "A_reproduction.review.md", ""),
 ]
 
 LEVEL_MARK = {"必改": "🔴", "建议": "🟡", "可选": "⚪"}
@@ -80,7 +95,7 @@ def main():
     # ---- SUMMARY.md ----
     roles = sorted({a.get("role", "") for a in all_ann})
     lines = ["# 审读总表", "",
-             f"四个单元（摘要 / Ch1 / Ch6 / Ch10）共 **{len(all_ann)} 条**批注，六个视角。", "",
+             f"十二个单元（摘要 + 全部十章 + 附录 A）共 **{len(all_ann)} 条**批注，六个视角。", "",
              "按视角与严重度：", "",
              "| 视角 | 🔴 必改 | 🟡 建议 | ⚪ 可选 | 合计 |", "|---|---|---|---|---|"]
     for r in roles:
