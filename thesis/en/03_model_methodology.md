@@ -276,8 +276,8 @@ reproduces the characteristic U-shape and its hard case: SimpleGreedy attains it
 $0.864$ at $c\approx4.9$, and the greedy variants of the complex algorithms their minima
 $\approx0.884$ at $c\approx5.3$. Ranking is indistinguishable from SimpleGreedy (maximum
 difference $0.0017$ across all 75 values — the paper omits Ranking's curve for exactly this
-reason), and the non-greedy variants degrade monotonically as $c$ grows ($0.987\to0.729$ for
-Feldman, $0.985\to0.764$ for Jaillet–Lu). Every one of the paper's five prose claims we
+reason), and the non-greedy variants degrade monotonically as $c$ grows ($0.986\to0.730$ for
+Feldman, $0.985\to0.760$ for Jaillet–Lu). Every one of the paper's five prose claims we
 checked holds.
 
 <!--REV
@@ -294,14 +294,14 @@ fix: 先给一句结论（all five qualitative claims reproduce, with absolute d
 
 **Random left-regular (left-degree $d$; the paper's Fig. 18, partial).** The pattern
 repeats with the hard case at $d=5$ (SimpleGreedy minimum $0.890$), Ranking $\approx$
-SimpleGreedy (max difference $0.005$), non-greedy degradation as $d$ grows, and greedy
+SimpleGreedy (max difference $0.0013$), non-greedy degradation as $d$ grows, and greedy
 complex variants $\approx$ SimpleGreedy asymptotically.
 
 ![Random left-regular reproduction: the hard case at $d=5$, Greedy $\approx$ Ranking.](../../results/left_regular.png){width=85%}
 
 **A cross-family observation.** Combining the two sweeps surfaces a non-obvious fact: the
 non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in
-*both* families — $0.729$ and $0.764$ respectively, within $0.002$ across families — and
+*both* families — $0.730$ and $0.760$ respectively, within $0.001$ across families — and
 both sit *above* their worst-case theoretical bounds ($0.670$ and $0.729$) by $+0.06$ and
 $+0.03$. This hints at a universal "average-case asymptotic constant" distinct from the
 worst-case guarantee — an early, concrete instance of the thesis's recurring theme that the

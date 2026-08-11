@@ -324,9 +324,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.64 T
-      he structural-robustness finding \textbf{F2 holds qualitatively on all <.
-./../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
+l.65 
+      <../../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
 [37]
 [38
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
@@ -588,7 +587,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (76 pages, 2465737 bytes).
+Output written on thesis.pdf (76 pages, 2464867 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -598,8 +597,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'refs_clean.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'refs_clean.bib'
-INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
 INFO - No sort tailoring available for locale 'en-US'
 INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
@@ -930,9 +929,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.64 T
-      he structural-robustness finding \textbf{F2 holds qualitatively on all <.
-./../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
+l.65 
+      <../../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
 [37]
 [38
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
@@ -1194,7 +1192,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (76 pages, 2466262 bytes).
+Output written on thesis.pdf (76 pages, 2464867 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1522,9 +1520,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.64 T
-      he structural-robustness finding \textbf{F2 holds qualitatively on all <.
-./../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
+l.65 
+      <../../results/real_predictor.png>]) (./ch/08_exploratory_negatives.tex
 [37]
 [38
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
@@ -1786,5 +1783,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (76 pages, 2466262 bytes).
+Output written on thesis.pdf (76 pages, 2464867 bytes).
 Transcript written on thesis.log.

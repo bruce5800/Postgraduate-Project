@@ -33,8 +33,10 @@ $(\rho_{\mathrm{ALG}}-\rho_{\mathrm{base}})/(\rho_{\mathrm{oracle}}-\rho_{\mathr
 — the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
 
 First, **the predictor is cheap**. The with-predictions literature usually pictures an
-expensive learned model; here it is a linear-time count, $0.108$ ms, about $2\%$ of the cost
-of computing $\mathrm{OPT}$ once.
+expensive learned model; here it is a linear-time count — about $0.11$ ms per instance
+against $4.4$ ms to compute $\mathrm{OPT}$ once, a few percent. These are the only
+wall-clock numbers in the thesis and are therefore machine-dependent; everything else is a
+ratio.
 
 Second, **the benefit is real, partial, and never harmful**: a stale forecast reaches
 $27\%$–$68\%$ gap-capture (falling with staleness) and always stays above the baseline
@@ -98,7 +100,7 @@ We re-run the degree-prediction roster of Chapter 4 on the six Network-Repositor
 Facebook social, two C. elegans biological, two economic input-output), across the same
 quality columns, with 95% CIs (**Figure 7.2**). The two load-bearing findings are universal.
 **F1 holds on all six**: naive MPD fed an adversarial predictor falls below the Ranking floor
-everywhere — by $0.07$ (Caltech36) to $0.11$ (CE-PG). **F3 holds on all six, and confirms
+everywhere — by $0.06$ (Reed98) to $0.10$ (CE-PG). **F3 holds on all six, and confirms
 its own logic**: the consistency upside is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$)
 and smallest exactly where the baseline is strongest — the two dense economic graphs, with
 Ranking already $0.965$/$0.977$, give the tiniest upsides.

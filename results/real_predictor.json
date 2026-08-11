@@ -136,8 +136,8 @@
     }
   },
   "cost_ms": {
-    "predictor_build": 0.10834671144645351,
-    "opt_hopcroft_karp": 5.127217555208416,
-    "one_mpd_pass": 0.4338232004859795
+    "predictor_build": 0.10930048851555006,
+    "opt_hopcroft_karp": 4.374754655873403,
+    "one_mpd_pass": 0.43412126607209856
   }
 }

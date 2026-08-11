@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  11 AUG 2026 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  11 AUG 2026 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1649,7 +1649,7 @@ chapter 7.
 File: ../../results/real_predictor.png Graphic file (type png)
 <use ../../results/real_predictor.png>
 Package pdftex.def Info: ../../results/real_predictor.png  used on input line 4
-4.
+6.
 (pdftex.def)             Requested size: 334.59676pt x 128.39647pt.
 
 
@@ -1658,14 +1658,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.64 T
-      he structural-robustness finding \textbf{F2 holds qualitatively on all <.
-./../results/real_predictor.png>]
+l.65 
+      <../../results/real_predictor.png>]
 <../../results/realworld_robustness.png, id=493, 1145.4795pt x 641.9985pt>
 File: ../../results/realworld_robustness.png Graphic file (type png)
 <use ../../results/realworld_robustness.png>
 Package pdftex.def Info: ../../results/realworld_robustness.png  used on input 
-line 81.
+line 83.
 (pdftex.def)             Requested size: 418.24512pt x 234.41077pt.
 ) (./ch/08_exploratory_negatives.tex
 
@@ -2106,11 +2105,11 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32979 strings out of 474654
- 670183 string characters out of 5750568
+ 32981 strings out of 474654
+ 670205 string characters out of 5750568
  1677872 words of memory out of 5000000
  55034 multiletter control sequences out of 15000+600000
- 656531 words of font info for 271 fonts, out of 8000000 for 9000
+ 656625 words of font info for 272 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  122i,20n,134p,10935b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -2132,7 +2131,7 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (76 pages, 2466262 bytes).
+Output written on thesis.pdf (76 pages, 2464867 bytes).
 PDF statistics:
  970 PDF objects out of 1000 (max. 8388607)
  801 compressed objects within 9 object streams
