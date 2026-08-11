@@ -146,12 +146,18 @@ We probed the most promising candidate: an **SLO / tail objective** — protecti
 class of requests from being dropped — under bursty, non-stationary load, exactly the regime
 where a reactive policy, lacking foresight, might fail. Using an event-driven simulator we
 compared non-predictive policies (static capacity reservation; a reactive-adaptive policy
-that reserves based on *observed* recent load) against a **clairvoyant oracle** that reserves
-based on the *actual future* burst. Across every regime swept — overload level, uniform vs
-bursty tight-SLO demand — the best non-predictive policy matches the clairvoyant oracle to
-within $\le 3\%$; in the moderate regime a trivial static reservation of one slot drives
-tight-SLO violations to near zero and *beats* the clairvoyant oracle outright. Two reasons,
-both robust to the sweep: protecting a tight-SLO minority needs only a small static
+that reserves based on *observed* recent load) against a **clairvoyant reference** that
+reserves based on the *actual future* burst. Two caveats belong with that design. The
+reference has perfect foresight but is not a proven optimum for the SLO objective, so it
+*estimates* what foresight is worth rather than bounding it; and the estimate is visibly not
+tight, because in the moderate regime a trivial static reservation of one slot drives
+tight-SLO violations to near zero and *beats* the clairvoyant reference outright — reserving
+for the actual future burst over-reserves there. What the sweep does establish is
+one-directional and still useful: across every regime — overload level, uniform vs bursty
+tight-SLO demand — the best non-predictive policy comes within $\le 3\%$ of a policy that
+knows the future exactly, so the particular thing a forecast would supply is not what these
+policies are missing. Two reasons, both robust to the sweep: protecting a tight-SLO minority
+needs only a small static
 headroom, no forecast; and bursts are persistent enough that reacting to observed load is
 almost as good as forecasting it.
 
@@ -198,9 +204,10 @@ fix: 定 8.2 为正本（它属于负结果章），9.2 压到两句并写 we su
 ## 8.3 A literature review that redirected the work
 
 Deciding *which* of our findings were genuinely novel — and worth developing — required a
-systematic prior-art review rather than intuition. We conducted a large multi-source,
-adversarially-verified literature search (documented in `docs/LITERATURE_REVIEW.md`) that
-returned honest, sometimes deflating, verdicts. It confirmed that the unified experimental
+systematic prior-art review rather than intuition. We searched the prior art from several
+independent starting points and checked each candidate-novelty claim against the primary
+papers rather than against their abstracts. The review returned honest, sometimes deflating,
+verdicts. It confirmed that the unified experimental
 benchmark and the empirical study of test-and-fallback are unoccupied and worth leading
 with; that the order-error finding is *partially* pre-empted by ACI's Appendix D and must be
 reframed as a tightness/measure characterization rather than a discovery (Chapter 5); and

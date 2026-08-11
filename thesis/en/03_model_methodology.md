@@ -29,9 +29,25 @@ and the *few-types* setting used for the histogram-advice experiments has $r\ll 
 The performance measure is the **competitive ratio** $\rho(\mathrm{ALG}) =
 \mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]$, where $\mathrm{OPT}$ is a maximum
 matching of the *realized* instance, computed exactly by Hopcroft–Karp
-[@hopcroftkarp1973]. The advice-free
-baseline throughout is KVV Ranking, whose ratio we write $\rho_{\mathrm{base}}$ (the
-**baseline strength**).
+[@hopcroftkarp1973]. We report the ratio of expectations rather than the expectation of the
+ratio, following Borodin et al. [@borodin2018experimental]; the two differ in general, and
+the former is what allows a single exactly-computed $\mathrm{OPT}$ per instance to be shared
+by every algorithm in a paired trial (§3.5). The advice-free baseline throughout is KVV
+Ranking, whose ratio we write $\rho_{\mathrm{base}}$ (the **baseline strength**).
+
+The notation recurs throughout the thesis and is collected here for reference:
+
+| symbol | meaning | typical value |
+|---|---|---|
+| $n$ | offline resources | 1000–2000 |
+| $r$ | online request types | $r=n$ (classical), $r=8$ (few-types) |
+| $m$ | arrivals in one instance | $m=n$ |
+| $p$ | known distribution over types | uniform unless stated |
+| $\mu$ | predicted resource degrees (degree prediction) | — |
+| $\hat c$ | predicted type counts (histogram prediction) | — |
+| $k$ | length of the prefix a test may inspect | $k=200$ |
+| $\eta$ | strength of the injected prediction error | $\eta\in[0,1]$ |
+| $\rho_{\mathrm{base}}$ | Ranking's ratio on that instance family (the floor) | 0.89–0.99 |
 
 <!--REV
 id: 3-01
@@ -131,11 +147,18 @@ fix: 要么正文一律用 advice-following，把 mimic 放进括号说明一次
 
 The families consume different prediction objects — degree vectors $\mu$ and type
 histograms $\hat c$ — so each is corrupted by its own knob and reported in a parallel panel.
-For $\mu$ we use four structured error models, each returning both an $\ell_1$ *magnitude*
-and a normalized **Kendall-$\tau$ order error**: random-flip, systematic-bias (a monotone
-rescale — order-preserving, hence Kendall-$\tau\equiv0$ by construction), adversarial
-(reflection of a fraction of entries), and distribution-drift (blend toward an
-independently drawn graph's degrees). For $\hat c$ we blend the realized counts toward a
+For $\mu$ we use four structured error models, each driven by a strength $\eta\in[0,1]$ and
+each returning both an $\ell_1$ *magnitude* error and a normalized **Kendall-$\tau$ order
+error**:
+
+| model | construction at strength $\eta$ | effect on the induced order |
+|---|---|---|
+| random-flip | independently, with probability $\eta$, replace an entry of $\mu$ by a uniform draw from $[\min\mu,\max\mu]$ | grows with $\eta$; $\eta=1$ is a constant-quality predictor, i.e. Ranking |
+| systematic-bias | monotone rescale $\mu\leftarrow\mu\cdot(1+\eta)$ | none — Kendall-$\tau\equiv0$ by construction, while the $\ell_1$ magnitude grows linearly |
+| adversarial | reflect an $\eta$-fraction of entries, $\mu(R)\leftarrow(\min\mu+\max\mu)-\mu(R)$ | the most order-damaging perturbation at a given fraction; $\eta=1$ reverses the order |
+| distribution-drift | blend toward the degrees of an independently drawn graph of the same family, $\mu\leftarrow(1-\eta)\mu+\eta\mu_{\mathrm{alt}}$ | grows with $\eta$, but in a correlated way rather than entry-by-entry |
+
+For $\hat c$ we blend the realized counts toward a
 concentrated random target by a fraction $\eta\in[0,1]$, reporting the induced
 $\ell_1(p,q)$. Because MPD depends on $\mu$ only through the induced order, the
 order/magnitude distinction is the axis of Chapter 5.
@@ -186,7 +209,13 @@ spawned for prediction generation and perturbation, so adding an algorithm never
 existing results. We use **paired trials**: within a comparison, every algorithm and error
 level reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so
 differences are attributable to the prediction alone. Reported ratios are means over trials
-with 95% normal-approximation confidence intervals. Every figure and table in the thesis is
+with 95% normal-approximation confidence intervals, computed per algorithm and error level.
+Because the trials are paired, those per-algorithm intervals are *conservative* for the
+comparisons we actually draw: the algorithms' ratios are positively correlated by
+construction, so the standard error of a difference between two of them is smaller than that
+of either mean, and two non-overlapping intervals remain a valid — if pessimistic — verdict
+on the paired difference. Where a comparison is close enough for this to matter, we say so
+in the text rather than lean on the intervals. Every figure and table in the thesis is
 regenerated from a fixed seed by a single script (Appendix A).
 
 <!--REV

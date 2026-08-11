@@ -62,12 +62,13 @@ price of finding out whether to trust them.**
 
 ## 10.2 A theoretical outlook: the price of testing advice
 
-The experiments say that no *practical* acceptance threshold captures the upside safely
-(§6.3, Figure 6.4). This section sketches, without claiming a full theorem, why no
-decision rule of *any* kind escapes the wall on the inputs where it stands. One
-ingredient is proved here; the rest is a quantitative reading of our own experiments,
-whose full formal development is deliberately deferred to companion work in
-preparation.
+This section does two things and nothing more: it proves one inequality, and then reads our
+own experiments through it. Nothing beyond that inequality is claimed as a theorem, and the
+reading that follows it is an interpretation of measurements rather than a proof.
+
+With the scope fixed: the experiments say that no *practical* acceptance threshold captures
+the upside safely (§6.3, Figure 6.4). The question here is whether a decision rule of some
+*other* kind could, on the inputs where the wall stands.
 
 <!--REV
 id: 10-04
@@ -107,19 +108,24 @@ statistically $\gamma_k$-close. The inequality thus converts "consistent *and* r
 into a question about *sample complexity*: how long must the prefix be before it
 distinguishes advice worth following from advice worth rejecting?
 
-The answer, on the rare-resource instances that produce Figure 6.4, is a **budget–stakes
-law**: the decision costs a prefix of $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse
-square of the stakes $\delta$ (what good advice gains over the baseline), scaled by the
-contention $\theta$ — and the budget is achievable, by a simple *directional* statistic
-(do the prefix arrivals agree with the advice's predictions more often than they
-contradict them?). The stakes, in turn, are capped by the baseline slack:
-$\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})$. Substituting, on strong-baseline
-instances the required prefix exceeds the entire instance — any upside below
-$\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)$ cannot be captured safely by any
-rule at any prefix length $k \le n$. At the parameters of Chapter 4
+The reading applies to the rare-resource instances that produce Figure 6.4 — a
+*decomposable* family, in which the instance splits into independent cells and the advice
+acts on each of them separately — and it is a **budget–stakes** relation. Write $\delta$
+for the *stakes*: what good advice gains over the baseline. In the companion development,
+which is not proved here, the decision costs a prefix of
+$k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of the stakes, scaled by a
+contention parameter $\theta$ that on these instances is of the same order as the baseline
+slack $1-\rho_{\mathrm{base}}$ — and that budget is met by a simple *directional* statistic
+(do the prefix arrivals agree with the advice's predictions more often than they contradict
+them?). The stakes are in turn capped by the same slack, $\delta = O(1-\rho_{\mathrm{base}})$:
+advice can only win what the baseline leaves on the table. Substituting, the reading predicts
+that on strong-baseline instances the required prefix exceeds the whole instance — that an
+upside below $\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)$ would not be captured by
+any rule at any prefix length $k \le n$. At the parameters of Chapter 4
 ($\rho_{\mathrm{base}}\approx0.99$, $n=2000$) that threshold is $\approx0.004$, and the
-upsides we measured are of exactly this order (F3): the empirical wall sits in the regime
-the budget law governs. This is Figure 6.4 read quantitatively: the potential upside and
+upsides we measured are of exactly this order (F3): the empirical wall sits where the
+reading says it should. Whether the same relation holds beyond decomposable families is
+open (§10.4). This is Figure 6.4 read quantitatively: the potential upside and
 the capturable upside separate as the baseline strengthens, because the stakes shrink
 faster than the test's resolution improves.
 
@@ -209,6 +215,10 @@ fix: 只在 10.3 limitations 保留一次（那里是它该在的位置），其
   map onto every graph, which is why they are reported in parallel panels rather than one
   table.
 - **Data breadth.** Each real modality is exercised by one trace.
+- **Objective.** We evaluate matching size (goodput) only. On objectives where the
+  advice-free baseline is *not* near-optimal — tail latency, per-type fairness, migration or
+  recompute cost — the picture could differ; our one probe in that direction (§8.2) closed
+  the simplest such attempt but not the space (§10.4).
 - **Theory scope.** The thesis deliberately confines its theory to the outlook of §10.2 —
   one proved trade-off inequality and a quantitative reading of the experiments. The full
   budget–stakes law is companion work in preparation, and no theorem beyond the stated

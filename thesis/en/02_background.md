@@ -50,9 +50,11 @@ The difficulty of the problem depends entirely on the assumed *input model*:
 - **Known-i.i.d.** Requests are drawn independently from a *known* distribution over request
   types (§2.2); this is the average-case model and the one this thesis studies.
 
-Because the known-i.i.d. and random-order models are more benign than adversarial order —
-formally, Known-I.I.D. $\le$ Random-Order in difficulty — algorithms and guarantees
-designed for the harder models carry over, a fact we use throughout.
+These three models are nested in difficulty, and the direction matters throughout the
+thesis: every known-i.i.d. instance is also a random-order instance, and every random-order
+instance is an adversarial-order instance. A guarantee proved in a harder model therefore
+holds in an easier one — but not conversely, so a bound proved for adversarial order says
+nothing about how *well* an algorithm does on known-i.i.d. inputs beyond that floor.
 
 <!--REV
 id: 2-02
@@ -157,10 +159,12 @@ Two strands apply the with-predictions paradigm to online matching, differing in
 predicted degree* — i.e. protect the resources predicted to be rarest. MPD is robust by
 construction: a constant (useless) predictor reduces it to Ranking. A key structural fact,
 which the thesis engages in Chapter 5, is that MPD depends on $\mu$ *only through the order
-it induces*; the authors' Appendix D bounds the matching loss by an order quantity
-($n-\mathrm{LIS}$, the number of resources not in the longest non-decreasing subsequence of
-the true degrees ordered by $\mu$), and shows in particular that a monotone (order-preserving)
-prediction incurs zero loss.
+it induces*. The authors' Appendix D bounds the matching loss by an order quantity built in
+two steps: list the true degrees in the order the prediction suggests, then count how many
+of them are out of place — formally $n-\mathrm{LIS}$, where $\mathrm{LIS}$ is the length of
+the longest non-decreasing subsequence of that list. The count is zero exactly when the
+prediction gets the order right, so a monotone (order-preserving) prediction incurs zero
+loss.
 
 <!--REV
 id: 2-06
@@ -224,8 +228,10 @@ fix: 本处删掉，只说本文做到哪一步（Chapter 6 measures it; 10.2 re
 
 The test at the heart of the algorithms above is a question in **distribution testing**:
 given samples from an unknown distribution $p$ over a support of size $r$ and a known
-reference $q$, decide how far $p$ is from $q$ in $\ell_1$ (total-variation) distance. Two
-regimes must be distinguished:
+reference $q$, decide how far $p$ is from $q$. We measure that distance in $\ell_1$
+throughout, as the algorithms and our experiments do; it is *twice* the total-variation
+distance, and every threshold quoted in this thesis is an $\ell_1$ threshold. Two regimes
+must be distinguished:
 
 - **Identity (non-tolerant) testing** — distinguish $p=q$ from $\lVert p-q\rVert_1\ge
   \varepsilon$ — has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [@paninski2008coincidence; @valiant2017automatic],

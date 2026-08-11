@@ -8,10 +8,13 @@ study, NOT a novelty claim; the SLO-probe negative is in Ch 8, referenced here.
 
 The thesis's abstraction is not confined to classical matching markets; it instantiates a
 contemporary systems problem. This chapter casts request routing in an AI-inference serving
-system as online matching and shows the framework recovers the field's established results.
-It is presented, deliberately, as a **case study, not a novelty claim** — the systems facts
-below are known, and the with-predictions vocabulary is a re-labeling of them (a decision
-justified by the literature review of Chapter 8 and the negative probe summarized in §9.2).
+system as online matching. It does two things. It tests whether the abstraction is rich
+enough to carry a live systems problem — the answer is that it recovers the field's
+established results, which is the strongest evidence available that the mapping is faithful
+— and it supplies the setting in which Chapter 8 probed, and failed to find, a regime where
+predictions genuinely help. Because the systems facts recovered below are already known, the
+chapter is a **case study rather than a novelty claim**; that decision follows the prior-art
+review of Chapter 8.
 
 <!--REV
 id: 9-01
@@ -26,12 +29,18 @@ fix: 保留 case study 的定位，但把价值写出来：它验证了本文的
 
 ## 9.1 The serving instantiation
 
-We map serving to online $b$-matching: the offline resources are model replicas or cache
-shards, each with a **capacity** $c$ (it can serve up to $c$ concurrent requests, hence
-$b$-matching rather than $1$-matching); arrivals are requests drawn from a non-uniform,
-bursty traffic distribution over request types; an edge is a capability or cache affinity;
-and **goodput** — the fraction of requests served — is the competitive ratio against the
-$b$-matching optimum. We instantiate this on three real traces (Wikipedia pageviews, an
+We map serving to online **capacitated matching**: each offline resource is a model replica
+or cache shard that can serve up to $c$ concurrent requests, so we match with capacity $c$
+rather than $1$ (this is $b$-matching with every $b$ equal to $c$; we write $c$ throughout,
+including in the figures). Arrivals are requests drawn from a non-uniform, bursty traffic
+distribution over request types, and an edge is a capability or cache affinity. Two
+quantities must be kept apart. **Goodput** is the fraction of arriving requests that are
+served; the **competitive ratio** is the number served divided by the capacitated optimum on
+the same realized instance. They coincide only when the optimum can serve every arrival,
+which under overload it cannot. Both appear below and each figure's axis states which it
+plots: Figure 9.1 normalizes by the optimum (*served / best possible*), Figure 9.2 by the
+arrivals (*served / total*), and Figure 9.3 reports a different quantity again, the KV-cache
+hit fraction. We instantiate this on three real traces (Wikipedia pageviews, an
 Azure LLM inference trace, and the Mooncake prefix-cache trace [@mooncake2024]) and across
 four serving concerns.
 
@@ -112,17 +121,12 @@ fix: 点破这条主线：the first two say react rather than forecast; the thir
 
 ## 9.2 A probe for a genuinely new result, and its negative
 
-Because the literature suggested the with-predictions lens might yield a *new* actionable
-serving result on a tail objective, we probed it (the full account is in Chapter 8). On an
-SLO/tail objective — protecting a tight-SLO class of requests under bursty load — a
-non-predictive policy (static headroom, or a reactive-adaptive reservation based on observed
-load) matches a clairvoyant oracle to within $\le 3\%$ across every regime swept; a trivial
-static reservation of one slot even beats the oracle in the moderate regime. Two reasons,
-both robust: protecting a tight-SLO minority needs only a small static headroom, no forecast;
-and bursts are persistent enough that reacting to observed load is nearly as good as
-forecasting it. The tail objective is forgiving too — a third face of the thesis's wall,
-after throughput (Chapters 4–7) and predictor-learning (Chapter 8). We found no natural
-regime where foresight helps, so serving remains a case study.
+We also asked whether the with-predictions lens yields a *new* actionable serving result on a
+tail rather than a throughput objective. It does not: on an SLO objective — protecting a
+tight-SLO class of requests under bursty load — a non-predictive policy comes within
+$\le 3\%$ of one with perfect foresight across every regime swept. The experiment, its
+caveats and its two explanations are in §8.2. The consequence for this chapter is that we
+found no natural regime where foresight helps, so serving remains a case study.
 
 <!--REV
 id: 9-07
@@ -140,8 +144,7 @@ fix: 本节压到两句（结论加指向），正本留在 8.2；删掉其中�
 The serving instantiation shows the framework reaches a live systems problem and recovers its
 established results — capacity as a robustness substitute, live load over stale forecasts,
 stability for cache locality — and that even a tail objective does not open a genuine
-with-predictions win. The application is a faithful case study of the thesis, not an
-independent contribution.
+with-predictions win.
 
 <!--REV
 id: 9-08

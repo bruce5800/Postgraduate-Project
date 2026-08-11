@@ -27,15 +27,24 @@ We replace the synthetic knob with the cheapest realistic predictor: last-window
 statistics. Real Wikipedia daily pageviews give a live day (the truth) and earlier days (a
 1-, 7-, or 30-day-stale forecast), so the error is genuine temporal drift; we map the trace
 onto a fixed serving topology and consume the forecast through the degree route (MPD)
-(**Figure 7.1**). Three facts emerge. First, **the cost premise does not bite**: the
-predictor is a linear-time count ($0.108$ ms — about $2\%$ of computing $\mathrm{OPT}$ once),
-not an ML inference. Second, **the benefit is real, partial, and never harmful**: a stale
-forecast captures $27\%$–$68\%$ of the oracle gap (falling with staleness) and always stays
-above the baseline ($0.938$–$0.957$ vs $0.923$–$0.925$, even at 30 days). Third, and why:
-**topology aggregation makes the cheap predictor order-faithful** — the induced degree
-predictor's order error is only Kendall-$\tau\approx0.19$–$0.32$, roughly *half* the raw
-histogram's ($0.38$–$0.49$) — and since MPD depends only on order (Chapter 5), the aggregated
-route survives real drift. Consuming the *same* forecast through the raw histogram is
+(**Figure 7.1**). Throughout this chapter we measure how much of the available benefit a
+predictor realizes by its **gap-capture**,
+$(\rho_{\mathrm{ALG}}-\rho_{\mathrm{base}})/(\rho_{\mathrm{oracle}}-\rho_{\mathrm{base}})$
+— the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
+
+First, **the predictor is cheap**. The with-predictions literature usually pictures an
+expensive learned model; here it is a linear-time count, $0.108$ ms, about $2\%$ of the cost
+of computing $\mathrm{OPT}$ once.
+
+Second, **the benefit is real, partial, and never harmful**: a stale forecast reaches
+$27\%$–$68\%$ gap-capture (falling with staleness) and always stays above the baseline
+($0.938$–$0.957$ vs $0.923$–$0.925$, even at 30 days).
+
+Third, and this is why: **topology aggregation makes the cheap predictor order-faithful**.
+The induced degree predictor's order error is only Kendall-$\tau\approx0.19$–$0.32$, roughly
+*half* the raw histogram's ($0.38$–$0.49$), and since MPD depends only on order (Chapter 5),
+the aggregated route survives real drift. Consuming the *same* forecast through the raw
+histogram is
 catastrophic: blind FollowPrediction collapses to $0.68\to0.36$, far below the $\approx0.92$
 baseline — exactly what the robust algorithms of Chapters 4 and 6 are for.
 
@@ -89,8 +98,8 @@ We re-run the degree-prediction roster of Chapter 4 on the six Network-Repositor
 Facebook social, two C. elegans biological, two economic input-output), across the same
 quality columns, with 95% CIs (**Figure 7.2**). The two load-bearing findings are universal.
 **F1 holds on all six**: naive MPD fed an adversarial predictor falls below the Ranking floor
-everywhere — by $0.07$ (Caltech36) to $0.11$ (CE-PG). **F3 is universal and confirms its own
-logic**: the consistency upside is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$)
+everywhere — by $0.07$ (Caltech36) to $0.11$ (CE-PG). **F3 holds on all six, and confirms
+its own logic**: the consistency upside is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$)
 and smallest exactly where the baseline is strongest — the two dense economic graphs, with
 Ranking already $0.965$/$0.977$, give the tiniest upsides.
 
@@ -119,9 +128,9 @@ are always less sensitive to prediction quality than naive MPD) and *strictly* o
 social/bio graphs (spread $0.22$–$0.29\times$ MPD's); on the two dense economic graphs the
 protection is only *partial* — the augmentation cushions the adversarial drop ($0.939$ vs
 naive MPD's $0.893$) but cannot clear the unusually high $0.965$ floor, dipping $\approx0.03$
-below it. This econ boundary is instructive rather than a failure: those graphs are so dense
-that matching is nearly trivial (Ranking $\approx0.97$, MinDegree $=1.00$), so there is
-neither upside to capture (F3) nor much downside to protect. Finally, F4 is *dramatic*: the
+below it. Those two graphs are so dense that matching is nearly trivial (Ranking
+$\approx0.97$, MinDegree $=1.00$), so there is neither upside to capture (F3) nor much
+downside to protect: the boundary is F3's own mechanism at work, not an exception to it. Finally, F4 is *dramatic*: the
 worst-case-designed Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs
 ($0.73$–$0.77$) and the augmentation lifts them to $0.99$ — a $+0.26$ rescue.
 
@@ -151,14 +160,11 @@ fix: 图注写明：one panel per graph, shared vertical axis (or: axes differ; 
 ## 7.3 Does learning the predictor help?
 
 Because MPD consumes the predictor only through order (Chapter 5), one might train it with a
-rank loss rather than regression. We tested this and report an honest negative. With
-*deliberately divergent* synthetic features rank-training beats regression sharply ($0.989\approx$
-oracle vs $0.974$, with worse regression error but better order); but the advantage is gated
-by feature divergence and by graph difficulty (peaking at $+1.3\%$), and, decisively, on real
-temporal features it *disappears* — rank- and regression-trained predictors produce identical
-order (Kendall-$\tau$ $0.126$ vs $0.126$) and identical ratio. The dissociation that powers
-order-aware training is a property of engineered features, not realistic ones. (The fuller
-account of this exploration is Chapter 8.) The lesson reinforces the thesis: once a predictor
+rank loss rather than regression. We tested this and report an honest negative: the advantage
+is real on deliberately engineered features but *disappears* on real temporal ones, where
+rank- and regression-trained predictors induce the same order and reach the same ratio. The
+experiments, their numbers and the three-step argument behind them are in §8.1; what matters
+for external validity is only the consequence. Once a predictor
 is order-faithful — which a cheap historical count already is (§7.1) — neither a better
 algorithm nor a better-trained predictor buys much on average-case matching.
 

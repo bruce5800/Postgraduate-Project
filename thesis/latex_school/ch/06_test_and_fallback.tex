@@ -7,9 +7,14 @@ the acceptance threshold (§6.2), its recalibration and the resolution
 limit that recalibration exposes (§6.3) --- a limit that persists across
 the whole difficulty range and anchors the theoretical outlook of §10.2
 --- and a benchmark of the dynamic combiner that explains the
-\emph{commit-once} structure (§6.4). Throughout, the \(\ell_1\) test is
-the empirical surrogate the original authors also fall back to (Chapter
-3).
+\emph{commit-once} structure (§6.4). Two naming conventions apply
+throughout. \textbf{FollowPrediction} is the unguarded follower, which
+mimics the advice matching without testing it; \textbf{TestAndMatch} is
+the test-and-fallback scheme in general, of which \textbf{Choo} and
+\textbf{BEM} are the two published instantiations --- they share the
+test-then-commit structure and differ in how the acceptance threshold is
+set. The \(\ell_1\) test is the empirical surrogate the original authors
+also fall back to (Chapter 3).
 
 \section{The robustness envelope}
 
@@ -38,19 +43,26 @@ inputs}
 Sweeping the prefix (testing) size \(k\) at \emph{borderline} advice
 (\(\eta=0.15\), true \(\ell_1\!\approx\!0.16\)) --- where the test works
 hardest (\textbf{Figure 6.2}) --- a larger, more accurate test makes the
-\emph{worse} decision: as \(k\) grows \(25\to800\), the ratio
-\emph{falls} \(0.992\to0.956\) and the misjudgement rate \emph{rises}
-\(0.00\to0.60\). The mechanism: the Choo/BEM threshold \(\tau\) is
-calibrated to the worst-case baseline \(\beta\approx0.696\), but on
-these instances the baseline is \(\approx0.99\) (F3), so the empirical
-break-even sits at \(\ell_1\approx0\), far below \(\tau\). A small noisy
-prefix over-estimates \(\ell_1\) and \emph{accidentally rejects} the
-borderline advice (landing safely on the floor); a large accurate prefix
-correctly measures \(\ell_1\approx0.16<\tau\) and \emph{accepts} the
-mildly-bad advice the worst-case threshold deems acceptable ---
-underperforming the baseline. On strong-baseline inputs the worst-case
-threshold is too lenient, and a more accurate test only follows it more
-faithfully.
+\emph{worse} decision: as \(k\) grows \(25\to800\), the ratio falls
+\(0.992\to0.956\) and the misjudgement rate rises \(0.00\to0.60\).
+
+The mechanism has two halves. First, the acceptance threshold \(\tau\)
+is calibrated to \(\beta\), the competitive ratio the advice-free
+baseline is \emph{proved} to achieve --- here \(\beta\approx0.696\),
+Ranking's worst-case ratio under random arrival order, the value Choo et
+al.~instantiate their threshold with \autocite{choo2024imperfect}. On
+these instances the realized baseline is instead \(\approx0.99\) (F3),
+so the empirical break-even sits at \(\ell_1\approx0\), far below
+\(\tau\). Second, the prefix interacts with that gap in opposite
+directions at the two ends of the sweep. A small, noisy prefix
+over-estimates \(\ell_1\) and rejects the borderline advice, landing
+safely on the floor --- it is right for the wrong reason, rejecting
+because it is noisy rather than because the advice is bad. A large,
+accurate prefix measures \(\ell_1\approx0.16<\tau\) correctly and
+therefore accepts the mildly-bad advice that the worst-case threshold
+deems acceptable, underperforming the baseline. On strong-baseline
+inputs the worst-case threshold is too lenient, and a more accurate test
+only follows it more faithfully.
 
 \begin{figure}
 \centering
@@ -63,16 +75,19 @@ worst-case-calibrated threshold.}
 \section{Recalibration, and the resolution limit it
 exposes}
 
-Recalibrating \(\tau\) to the \emph{measured} baseline \(\hat\beta\)
-eliminates the pathology (\textbf{Figure 6.3}): at borderline advice the
-worst-case threshold's misjudgement climbs \(0.03\to1.00\) as the prefix
-grows and its ratio drops to \(0.920\), while the recalibrated threshold
-holds misjudgement \(0.00\) at every prefix and ratio \(\approx0.986\).
-But recalibration exposes a deeper limit. At perfect advice the
-worst-case threshold scores \(1.000\) while the recalibrated one scores
-only \(0.987\): the recalibrated
-\(\tau\approx2(1-\hat\beta)\approx0.028\) is \emph{smaller than the
-empirical-\(\ell_1\) estimator's noise floor}
+By the \textbf{resolution} of a test we mean the smallest difference in
+\(\ell_1\) that its empirical estimator can distinguish from its own
+sampling noise at prefix length \(k\); this section is about that
+quantity and the limit it imposes. Recalibrating \(\tau\) to the
+\emph{measured} baseline \(\hat\beta\) eliminates the pathology
+(\textbf{Figure 6.3}): at borderline advice the worst-case threshold's
+misjudgement climbs \(0.03\to1.00\) as the prefix grows and its ratio
+drops to \(0.920\), while the recalibrated threshold holds misjudgement
+\(0.00\) at every prefix and ratio \(\approx0.986\). But recalibration
+exposes a deeper limit. At perfect advice the worst-case threshold
+scores \(1.000\) while the recalibrated one scores only \(0.987\): the
+recalibrated \(\tau\approx2(1-\hat\beta)\approx0.028\) is \emph{smaller
+than the empirical-\(\ell_1\) estimator's noise floor}
 (\(\approx0.05\)--\(0.13\)), so it can never confidently \emph{accept}
 --- it rejects everything, including perfect advice, and always plays
 the baseline. In short:
@@ -120,20 +135,24 @@ test-then-commit}
 
 We benchmark the Chłędowski-style dynamic combiner to contextualize the
 commit-once structure of test-and-fallback. In its robust tuning the
-combiner sits exactly on the floor (\(0.990\) across all advice
-quality): it never crashes but captures none of the consistency upside,
-strictly dominated by TestAndMatch. More instructively, an \emph{eager}
-combiner that switches mid-stream reveals a penalty specific to
-irrevocable problems: with perfect advice, eager switching scores
-\(0.927\) --- \emph{below both} the pure follower (\(1.000\)) and the
-pure baseline (\(0.958\); \texttt{tests/test\_combiner\_small.py}) ---
-because switching from Ranking to advice-following (\emph{mimic})
-mid-run lands the committed matching in an \emph{incompatible hybrid}.
-In an irrevocable problem the follow/fallback decision must be made
-\emph{before} the bulk of the commitments, which is why Choo/BEM test a
-prefix and then \emph{commit} rather than switching dynamically. The
-dynamic combiner that is cheap insurance for caching does not port
-cleanly to matching.
+combiner sits exactly on the floor of the few-types family of §6.1
+(\(0.990\) across all advice quality): it never crashes but captures
+none of the consistency upside, strictly dominated by TestAndMatch. More
+instructively, an \emph{eager} combiner that switches mid-stream reveals
+a penalty specific to irrevocable problems. On a smaller instance used
+as a mechanism check --- \(n=600\), \(r=6\), a single seed with no
+averaging, one of the hand-verifiable scripts of Appendix A.3 --- eager
+switching under perfect advice scores \(0.927\), below both the pure
+follower (\(1.000\)) and Ranking on that same instance (\(0.958\)),
+because switching from Ranking to advice-following mid-run lands the
+committed matching in an \emph{incompatible hybrid}. Being one instance,
+this figure illustrates the mechanism rather than measuring its size;
+note also that its \(0.958\) is Ranking on \emph{that} instance, not the
+\(0.990\) floor of the family above. In an irrevocable problem the
+follow/fallback decision must be made \emph{before} the bulk of the
+commitments, which is why Choo/BEM test a prefix and then \emph{commit}
+rather than switching dynamically. The dynamic combiner that is cheap
+insurance for caching does not port cleanly to matching.
 
 \section{Chapter summary}
 

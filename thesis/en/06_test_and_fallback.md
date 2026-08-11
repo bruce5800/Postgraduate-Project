@@ -12,8 +12,12 @@ chapter gives their first empirical study: the robustness envelope they achieve 
 counter-intuitive failure of the acceptance threshold (§6.2), its recalibration and the
 resolution limit that recalibration exposes (§6.3) — a limit that persists across the whole
 difficulty range and anchors the theoretical outlook of §10.2 — and a benchmark of the
-dynamic combiner that explains the *commit-once* structure (§6.4). Throughout, the
-$\ell_1$ test is the empirical surrogate the original authors also fall back to (Chapter 3).
+dynamic combiner that explains the *commit-once* structure (§6.4). Two naming conventions
+apply throughout. **FollowPrediction** is the unguarded follower, which mimics the advice
+matching without testing it; **TestAndMatch** is the test-and-fallback scheme in general, of
+which **Choo** and **BEM** are the two published instantiations — they share the
+test-then-commit structure and differ in how the acceptance threshold is set. The $\ell_1$
+test is the empirical surrogate the original authors also fall back to (Chapter 3).
 
 <!--REV
 id: 6-01
@@ -73,16 +77,22 @@ fix: 限定到证据范围：it does not fall below the advice free floor at any
 
 Sweeping the prefix (testing) size $k$ at *borderline* advice ($\eta=0.15$, true
 $\ell_1\!\approx\!0.16$) — where the test works hardest (**Figure 6.2**) — a larger, more
-accurate test makes the *worse* decision: as $k$ grows $25\to800$, the ratio *falls*
-$0.992\to0.956$ and the misjudgement rate *rises* $0.00\to0.60$. The mechanism: the Choo/BEM
-threshold $\tau$ is calibrated to the worst-case baseline $\beta\approx0.696$, but on these
-instances the baseline is $\approx0.99$ (F3), so the empirical break-even sits at
-$\ell_1\approx0$, far below $\tau$. A small noisy prefix over-estimates $\ell_1$ and
-*accidentally rejects* the borderline advice (landing safely on the floor); a large accurate
-prefix correctly measures $\ell_1\approx0.16<\tau$ and *accepts* the mildly-bad advice the
-worst-case threshold deems acceptable — underperforming the baseline. On strong-baseline
-inputs the worst-case threshold is too lenient, and a more accurate test only follows it more
-faithfully.
+accurate test makes the *worse* decision: as $k$ grows $25\to800$, the ratio falls
+$0.992\to0.956$ and the misjudgement rate rises $0.00\to0.60$.
+
+The mechanism has two halves. First, the acceptance threshold $\tau$ is calibrated to
+$\beta$, the competitive ratio the advice-free baseline is *proved* to achieve — here
+$\beta\approx0.696$, Ranking's worst-case ratio under random arrival order, the value Choo
+et al. instantiate their threshold with [@choo2024imperfect]. On these instances the
+realized baseline is instead $\approx0.99$ (F3), so the empirical break-even sits at
+$\ell_1\approx0$, far below $\tau$. Second, the prefix interacts with that gap in opposite
+directions at the two ends of the sweep. A small, noisy prefix over-estimates $\ell_1$ and
+rejects the borderline advice, landing safely on the floor — it is right for the wrong
+reason, rejecting because it is noisy rather than because the advice is bad. A large,
+accurate prefix measures $\ell_1\approx0.16<\tau$ correctly and therefore accepts the
+mildly-bad advice that the worst-case threshold deems acceptable, underperforming the
+baseline. On strong-baseline inputs the worst-case threshold is too lenient, and a more
+accurate test only follows it more faithfully.
 
 <!--REV
 id: 6-05
@@ -130,6 +140,9 @@ fix: 把它提成独立一句并点名：the small test is right for the wrong r
 
 ## 6.3 Recalibration, and the resolution limit it exposes
 
+By the **resolution** of a test we mean the smallest difference in $\ell_1$ that its
+empirical estimator can distinguish from its own sampling noise at prefix length $k$; this
+section is about that quantity and the limit it imposes.
 Recalibrating $\tau$ to the *measured* baseline $\hat\beta$ eliminates the pathology
 (**Figure 6.3**): at borderline advice the worst-case threshold's misjudgement climbs
 $0.03\to1.00$ as the prefix grows and its ratio drops to $0.920$, while the recalibrated
@@ -213,14 +226,17 @@ fix: 图注首句直接交代坐标：horizontal axis: number of request types r
 ## 6.4 The dynamic combiner is dominated, and shows why matching needs test-then-commit
 
 We benchmark the Chłędowski-style dynamic combiner to contextualize the commit-once structure
-of test-and-fallback. In its robust tuning the combiner sits exactly on the floor ($0.990$
-across all advice quality): it never crashes but captures none of the consistency upside,
-strictly dominated by TestAndMatch. More instructively, an *eager* combiner that switches
-mid-stream reveals a penalty specific to irrevocable problems: with perfect advice, eager
-switching scores $0.927$ — *below both* the pure follower ($1.000$) and the pure baseline
-($0.958$; `tests/test_combiner_small.py`) — because switching from Ranking to
-advice-following (*mimic*) mid-run
-lands the committed matching in an *incompatible hybrid*. In an irrevocable problem the
+of test-and-fallback. In its robust tuning the combiner sits exactly on the floor of the
+few-types family of §6.1 ($0.990$ across all advice quality): it never crashes but captures
+none of the consistency upside, strictly dominated by TestAndMatch. More instructively, an
+*eager* combiner that switches mid-stream reveals a penalty specific to irrevocable
+problems. On a smaller instance used as a mechanism check — $n=600$, $r=6$, a single seed
+with no averaging, one of the hand-verifiable scripts of Appendix A.3 — eager switching
+under perfect advice scores $0.927$, below both the pure follower ($1.000$) and Ranking on
+that same instance ($0.958$), because switching from Ranking to advice-following mid-run
+lands the committed matching in an *incompatible hybrid*. Being one instance, this figure
+illustrates the mechanism rather than measuring its size; note also that its $0.958$ is
+Ranking on *that* instance, not the $0.990$ floor of the family above. In an irrevocable problem the
 follow/fallback decision must be made *before* the bulk of the commitments, which is why
 Choo/BEM test a prefix and then *commit* rather than switching dynamically. The dynamic
 combiner that is cheap insurance for caching does not port cleanly to matching.

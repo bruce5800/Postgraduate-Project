@@ -8,7 +8,14 @@ snippets. Figure numbers match the thesis chapters. Runtimes are approximate (ma
 # Appendix A. Reproduction Guide
 
 Every quantitative result in this thesis is regenerated from a fixed seed by a single
-script. This appendix maps each figure and table to its script, gives the commands and
+script. Two classes of script must be distinguished. Most are *self-contained*: they
+generate their own synthetic instances and run as-is on a clean checkout. The rest — the
+real-graph and real-trace results of Chapters 7, 8 and 9 — first need external data placed
+under `data/`; that data is not redistributed with the code, and §A.5 records what each
+dataset is and where it comes from. In the map below, a dagger ($\dagger$) marks the
+scripts of the second class.
+
+This appendix maps each figure and table to its script, gives the commands and
 runtimes, lists the full Phase-2 reproduction tables deferred from Chapter 3, and records
 data provenance.
 
@@ -58,15 +65,16 @@ fix: 改成实际验证过的范围：verified bit-stable on NumPy 1.26 and 2.x�
 | Fig 5.1 (order-error vs ACI) | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 s |
 | Fig 6.1 (envelope), Fig 6.2 (prefix sweep) | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 min |
 | Fig 6.3, recalibration (§6.3) | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 min |
-| Fig 7.1 (real predictor) | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 s |
-| Fig 7.2 (six real graphs) | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 s |
+| Fig 6.4 (testing-wall frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
+| Fig 7.1 (real predictor) $\dagger$ | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 s |
+| Fig 7.2 (six real graphs) $\dagger$ | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 s |
 | Fig 8.1 (M0 rank vs MSE) | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 s |
 | M1 sweep (§8.1, no figure) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
-| Fig 8.2 (M3 real-trace learning) | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
+| Fig 8.2 (M3 real-trace learning) $\dagger$ | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
 | Fig 8.3 (serving SLO probe) | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 s |
-| Fig 6.4 (testing-wall frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
-| Figs 9.1–9.3, serving (Ch 9) | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
-| Real-world Borodin Tables 3/4 (validation) | `scripts/run_realworld.py` | `results/realworld.json` | ~few min |
+| Figs 9.1–9.3, serving (Ch 9) $\dagger$ | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
+| Outlook checks (§A.6) | `scripts/verify_witness_gap.py` | console output | seconds |
+| Real-world Borodin Tables 3/4 (validation) $\dagger$ | `scripts/run_realworld.py` | `results/realworld.json` | ~few min |
 
 <!--REV
 id: AP-03
@@ -174,10 +182,10 @@ fix: 统一到三位小数，或在表头说明为什么这里需要四位。
 Ranking $\approx$ SimpleGreedy (max diff 0.0017 ER, 0.005 LR — the paper omits Ranking's
 curve for this reason); non-greedy variants degrade monotonically as $c,d$ grow; greedy
 complex variants $\approx$ SimpleGreedy asymptotically; the $c$=14.9 non-greedy ordering
-(J-NG 0.764 > F-NG 0.729) matches the paper's worst-case-bound ordering. A cross-family
-observation: the non-greedy algorithms converge to the same asymptotic constants in both
-families (0.729 Feldman, 0.764 Jaillet–Lu, within 0.002), above their worst-case bounds by
-+0.06 / +0.03 — an early instance of the average case being more benign than the worst case.
+(J-NG 0.764 > F-NG 0.729) matches the paper's worst-case-bound ordering. Across families,
+the non-greedy algorithms converge to the same asymptotic constants (0.729 Feldman, 0.764
+Jaillet–Lu, within 0.002), above their worst-case bounds by +0.06 / +0.03; §3.6 reads that
+observation.
 
 <!--REV
 id: AP-07
@@ -194,16 +202,19 @@ fix: 附录只留数字，解读交给 3.6，并写 see 3.6。或者反过来。
 
 Real data is stored locally under `data/` (large; excluded from version control).
 
-- **Real graphs (Chapter 7, §3.6 validation):** six Network Repository graphs —
-  `socfb-Caltech36`, `socfb-Reed98`, `bio-CE-GN`, `bio-CE-PG`, `econ-beause`,
-  `econ-mbeaflw` — as MatrixMarket `.mtx` / whitespace `.edges`, reduced to simple
-  undirected graphs and converted to bipartite by random balanced partition (Borodin
-  Table 3) or duplicating double-cover (Table 4).
-- **Traces (Chapters 7, 8, 9):** Wikipedia "top articles per day" JSON for four days
-  (`data/trace/wiki/`, used as live day vs 1/7/30-day-stale forecasts); the Azure LLM
-  inference trace (`data/trace/azure_llm/`, context/generated token counts with
-  timestamps); the Mooncake conversation trace (`data/trace/mooncake/`, per-request
-  `hash_ids` for prefix-cache blocks).
+- **Real graphs (Chapter 7, §3.6 validation):** six graphs from the Network Repository
+  (`networkrepository.com`) — `socfb-Caltech36`, `socfb-Reed98`, `bio-CE-GN`, `bio-CE-PG`,
+  `econ-beause`, `econ-mbeaflw` — downloaded as MatrixMarket `.mtx` / whitespace `.edges`,
+  reduced to simple undirected graphs and converted to bipartite by random balanced
+  partition (Borodin Table 3) or duplicating double-cover (Table 4).
+- **Traces (Chapters 7, 8, 9):** Wikipedia "top articles per day" for four days, retrieved
+  from the Wikimedia REST pageviews API (`data/trace/wiki/`, used as live day vs
+  1/7/30-day-stale forecasts); the Azure LLM inference trace from Microsoft's public Azure
+  dataset release (`data/trace/azure_llm/`, context/generated token counts with
+  timestamps); and the Mooncake conversation trace released with [@mooncake2024]
+  (`data/trace/mooncake/`, per-request `hash_ids` for prefix-cache blocks). The Wikipedia
+  trace is a snapshot of a live source rather than a static benchmark, so exact reproduction
+  needs the same snapshot, not merely the same API.
 
 <!--REV
 id: AP-08
@@ -218,18 +229,24 @@ fix: 每个数据集补一行来源：Network Repository 的具体 URL 或引用
 
 ## A.6 Outlook verification snippets (§10.2)
 
-The quantities behind the outlook of §10.2 are numerically verified. The single-cell
-constants of the rare-resource construction (per-cell OPT, baseline, and the
-advantage/$\ell_1$ formulas) and the exact affine conversion law
-$\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ were
-checked to three decimals by short simulations documented in the project notes
-(`docs/T1_W1_single_cell.md`, `T1_W2_W3a_closeout.md`); e.g. at $\theta=0.6$, bias
-$|s-\tfrac12|=0.3$, the simulated per-cell advantage $\pm0.119$ matches the formula
-$\pm\theta|s-\tfrac12|=\pm0.12$. The budget–stakes claims — the directional statistic's
-accuracy at fixed prefix length independent of $n$, and the blindness of the plug-in
-$\ell_1$ estimate at $k\ll r$ — are verified by `scripts/verify_witness_gap.py`
-(`docs/T1_WITNESS_GAP.md`). These support the outlook; the formal development is
-companion work outside this thesis.
+Every quantity quoted in the outlook of §10.2 was checked numerically before being used.
+There are three checks, each a short simulation of the rare-resource construction.
+
+1. **Per-cell constants.** The per-cell optimum, the per-cell baseline, and the closed forms
+   for the advantage and for $\ell_1$ agree with simulation to three decimals. For example,
+   at contention $\theta=0.6$ and advice bias $0.3$ the simulated per-cell advantage is
+   $\pm0.119$, against a predicted $\pm\theta\cdot0.3 = \pm0.12$.
+2. **The conversion law.** The expected ratio when the advice is followed matches
+   $\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ — it falls off linearly in the advice's
+   $\ell_1$ error — again to three decimals. This is what makes the stakes $\delta$ of
+   §10.2 a linear function of the advice error rather than an arbitrary quantity.
+3. **The two budget–stakes ingredients.** The directional statistic's accuracy at a fixed
+   prefix length does not degrade as $n$ grows, and the plug-in $\ell_1$ estimate becomes
+   blind — indistinguishable between good and bad advice — once $k \ll r$. Both are produced
+   by `scripts/verify_witness_gap.py` (§A.2).
+
+These checks are what license the *reading* of §10.2; they are not a proof of it. The formal
+development is separate work outside this thesis.
 
 <!--REV
 id: AP-09

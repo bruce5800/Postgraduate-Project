@@ -147,7 +147,9 @@ fix: harness 首次出现处加同位语：on a single experimental harness (one
   including with a cheap, non-ML historical predictor.
 
 - **An empirical engagement with the order-error theory** (Chapter 5): MinPredictedDegree's
-  loss is governed by a Kendall-$\tau$ order error onto which several error models collapse.
+  loss is governed by a Kendall-$\tau$ order error — the fraction of resource pairs the
+  predictor ranks in the wrong relative order, so that only the ranking a predictor induces
+  matters and not the numbers it outputs — onto which several error models collapse.
   We credit Aamand–Chen–Indyk's Appendix D for the order-dependence itself and contribute a
   characterization of the known bound's looseness and saturation and of the right order
   measure — not a rediscovery that order matters.
@@ -188,15 +190,12 @@ note: 一页里两处 first。这两条大概率站得住，但答辩时必然�
 fix: 正文保留 first，但在第 2.6 节确保有一句可核对的范围声明（检索了哪些库、到什么时间），并把这句准备成答辩的标准答案。
 -->
 
-- **A quantified account of why the wall stands** (Chapter 6 and §10.2): the
-  resolution-limit finding — no practical acceptance threshold can capture an upside that
-  sits below its estimator's noise — is shown to persist across the whole difficulty range
-  (Figure 6.4) and is given a theoretical outlook in the conclusion: a proved
-  consistency/robustness trade-off inequality, and a *budget–stakes* reading under which
-  the prefix needed to decide scales as the inverse square of the advice's upside —
-  a price that exceeds the instance length exactly where the baseline is strong. The full
-  formal development is deliberately deferred to companion work in preparation, and the
-  thesis claims no theorem beyond the stated inequality.
+- **A quantified account of why the wall stands** (Chapter 6). By the *wall* we mean the
+  recurring finding that on average-case inputs neither a better algorithm nor a better
+  prediction moves the competitive ratio appreciably. We trace it to a *resolution limit*:
+  no practical acceptance threshold can capture an upside that sits below the noise of the
+  estimator used to decide. The limit is not one badly calibrated threshold — it persists
+  across the whole difficulty range (Figure 6.4).
 
 <!--REV
 id: 1-12
@@ -245,7 +244,10 @@ Alongside these, the thesis documents (Chapter 8) the exploratory directions it 
 the negative results they returned — an attempt to *learn* the predictor for extra
 performance, and an attempt to find a serving regime where predictions genuinely help —
 both of which reinforce the central finding; the question they raise — is the wall forced?
-— is taken up in the concluding outlook (§10.2).
+— is taken up in the concluding outlook (§10.2). That outlook is a discussion rather than a
+further contribution: it proves one consistency/robustness trade-off inequality and then
+reads our own experiments through it. No theorem beyond that inequality is claimed anywhere
+in this thesis.
 
 <!--REV
 id: 1-16

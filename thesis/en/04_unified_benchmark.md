@@ -63,17 +63,16 @@ note: 三个面板的设计逻辑（一个给度数预测足够信号、一个�
 fix: 在 bullet 前加一句把设计意图说穿：the three panels are chosen so that the degree predictor has strong, weak, and irrelevant signal respectively。
 -->
 
-**Shared methodology.** Every panel runs with *paired trials*: within a panel, every
-algorithm and quality level reuses the same graphs, arrival sequences, realized optima
-(Hopcroft–Karp), and tie-break seeds, so column differences are attributable to the
-prediction alone. All randomness derives from four independent streams (graph, instance,
-algorithm tie-breaks, prediction perturbation) spawned from one master seed per panel.
-Entries are means over trials with 95% normal-approximation confidence intervals, tight
-throughout ($\pm0.001$–$0.003$). The quality columns instantiate the error models of
+**Shared methodology.** Paired trials, independent random streams and confidence intervals
+are exactly as in §3.5; the panel-specific parameters are the ones listed above, and the
+intervals are tight throughout ($\pm0.001$–$0.003$). The quality columns instantiate the
+error models of
 §3.3 — degree panels: *perfect* (true realized degrees), *noisy* (random-flip at strength
 $\tfrac12$), *adversarial* (order-reversing reflection), *garbage* (independent random
 $\mu$, $\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated
-random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*).
+random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). The two sets
+of columns are *not* commensurable — they corrupt different prediction objects with
+different knobs — so only within-panel comparisons carry meaning.
 **Table 4.1** presents each panel's ratios beside its bar chart; the findings follow in
 §4.2.
 
@@ -164,8 +163,11 @@ Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
 \end{minipage}
 \caption{The unified benchmark. Each panel's competitive ratios (means over paired
 trials; every 95\% CI $\le 0.003$) sit beside their bar chart (error bars: 95\% CIs;
-dashed line: advice-free floor; dotted: oracle ceiling). Bold marks dips below the
-floor.}
+dashed line: advice-free floor; dotted: oracle ceiling). Bold marks the worst column of
+each unguarded prediction-follower; all three fall below their own panel's floor. That
+floor is instance-dependent --- it is Ranking's ratio on that panel's graph family, not a
+constant --- so the three floors ($0.948$, $0.890$, $0.990$) are not comparable with one
+another, and neither are the quality columns across the two prediction families (\S3.3).}
 \end{table}
 ```
 
@@ -197,8 +199,8 @@ fix: 在表注加一句：the floor is instance-dependent; it is Ranking's ratio
 **(F1) Robustness is engineered, not free: naive followers crash below the floor.** Both
 unguarded prediction-followers dive under the advice-free Ranking floor once the prediction
 is adversarial or garbage: MPD falls to $0.908<0.948$ (Panel A) and $0.854<0.890$ (Panel
-B), and FollowPrediction collapses to $0.472\ll0.990$ (Panel C). Using either *unguarded*
-is strictly worse than using no prediction at all. Every robust algorithm — the
+B), and FollowPrediction collapses to $0.472\ll0.990$ (Panel C). Under adversarial or
+garbage advice, then, using either *unguarded* is worse than using no prediction at all. Every robust algorithm — the
 augmentations, TestAndMatch, the combiner — avoids this by construction.
 
 **(F2) Two distinct robustness mechanisms, with different shapes.** *Structural* robustness

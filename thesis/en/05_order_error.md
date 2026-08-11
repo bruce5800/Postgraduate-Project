@@ -28,11 +28,12 @@ fix: 改成 Order Error and the Known Bound，或 Order Error: What the Known Bo
 ## 5.1 What is already known (ACI)
 
 Aamand, Chen and Indyk [@aci2022mpd, Appendix D] prove that on the CLV-B model, MinPredictedDegree's
-matching loss relative to the true expected degrees is at most $n-\mathrm{LIS}(p[\mu])$,
-where $p[\mu]$ is the true weights ordered by $\mu$ and $\mathrm{LIS}$ is the longest
-non-decreasing subsequence — a pure *order* quantity. In particular a monotone
-(order-preserving) predictor has $p[\mu]$ already sorted, so $n-\mathrm{LIS}=0$ and the loss
-is zero. Thus *order-dependence* and *the zero-effect of a monotone bias* are ACI's results,
+matching loss relative to the true expected degrees is at most $n-\mathrm{LIS}(w[\mu])$.
+Here $w$ is the vector of true expected degrees — written $w$ rather than $p$ to keep it
+distinct from the type distribution $p$ of §3.1 — $w[\mu]$ is that vector listed in the
+order $\mu$ induces, and $\mathrm{LIS}$ is the length of its longest non-decreasing
+subsequence: a pure *order* quantity. In particular a monotone (order-preserving) predictor
+leaves $w[\mu]$ already sorted, so $n-\mathrm{LIS}=0$ and the loss is zero. Thus *order-dependence* and *the zero-effect of a monotone bias* are ACI's results,
 not ours; our `systematic_bias` error model (a monotone rescale) has Kendall-$\tau\equiv0$ by
 construction and, consistently, leaves MPD's ratio exactly unchanged across the benchmark
 (Chapter 4) — an empirical confirmation of ACI's statement, not a new finding.
@@ -111,7 +112,10 @@ fix: 补一句参照：out of a maximum of n = 1000, and against realized losses
 **(iii) Kendall-$\tau$ is the governing order measure, and the models collapse onto it.**
 Plotted against Kendall-$\tau$ (Figure 5.1(b)), the four models fall on one increasing curve
 — loss rises with $\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
-$8.1\to21.6\to41.7$), with `systematic_bias` pinned at $\tau=0$, zero loss. The quantity that
+$8.1\to21.6\to41.7$), with `systematic_bias` pinned at $\tau=0$, zero loss. The collapse is
+not only visual: pooling all four models and all error levels (44 points), the rank
+correlation between Kendall-$\tau$ and the realized loss is Spearman $\rho=0.979$ (Pearson
+$r=0.992$), and within each non-degenerate model it is $0.97$ or above. The quantity that
 *predicts* the loss and unifies the error structures is the Kendall-$\tau$ order distance,
 which the saturated $n-\mathrm{LIS}$ cannot resolve.
 

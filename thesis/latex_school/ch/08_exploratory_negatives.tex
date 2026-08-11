@@ -101,16 +101,23 @@ under bursty, non-stationary load, exactly the regime where a reactive
 policy, lacking foresight, might fail. Using an event-driven simulator
 we compared non-predictive policies (static capacity reservation; a
 reactive-adaptive policy that reserves based on \emph{observed} recent
-load) against a \textbf{clairvoyant oracle} that reserves based on the
-\emph{actual future} burst. Across every regime swept --- overload
-level, uniform vs bursty tight-SLO demand --- the best non-predictive
-policy matches the clairvoyant oracle to within \(\le 3\%\); in the
+load) against a \textbf{clairvoyant reference} that reserves based on
+the \emph{actual future} burst. Two caveats belong with that design. The
+reference has perfect foresight but is not a proven optimum for the SLO
+objective, so it \emph{estimates} what foresight is worth rather than
+bounding it; and the estimate is visibly not tight, because in the
 moderate regime a trivial static reservation of one slot drives
 tight-SLO violations to near zero and \emph{beats} the clairvoyant
-oracle outright. Two reasons, both robust to the sweep: protecting a
-tight-SLO minority needs only a small static headroom, no forecast; and
-bursts are persistent enough that reacting to observed load is almost as
-good as forecasting it.
+reference outright --- reserving for the actual future burst
+over-reserves there. What the sweep does establish is one-directional
+and still useful: across every regime --- overload level, uniform vs
+bursty tight-SLO demand --- the best non-predictive policy comes within
+\(\le 3\%\) of a policy that knows the future exactly, so the particular
+thing a forecast would supply is not what these policies are missing.
+Two reasons, both robust to the sweep: protecting a tight-SLO minority
+needs only a small static headroom, no forecast; and bursts are
+persistent enough that reacting to observed load is almost as good as
+forecasting it.
 
 \begin{figure}
 \centering
@@ -132,19 +139,20 @@ work}
 
 Deciding \emph{which} of our findings were genuinely novel --- and worth
 developing --- required a systematic prior-art review rather than
-intuition. We conducted a large multi-source, adversarially-verified
-literature search (documented in \texttt{docs/LITERATURE\_REVIEW.md})
-that returned honest, sometimes deflating, verdicts. It confirmed that
-the unified experimental benchmark and the empirical study of
-test-and-fallback are unoccupied and worth leading with; that the
-order-error finding is \emph{partially} pre-empted by ACI's Appendix D
-and must be reframed as a tightness/measure characterization rather than
-a discovery (Chapter 5); and that the serving results are largely
-re-derivations of established systems facts, warranting their demotion
-to a case study (§8.2, Chapter 9). A second, focused prior-art pass on
-the theory question confirmed that no prior work quantifies the cost of
-the prefix test on strong-baseline instances, while flagging the one
-risk any such result must defend against (Choo et al.'s constructive
+intuition. We searched the prior art from several independent starting
+points and checked each candidate-novelty claim against the primary
+papers rather than against their abstracts. The review returned honest,
+sometimes deflating, verdicts. It confirmed that the unified
+experimental benchmark and the empirical study of test-and-fallback are
+unoccupied and worth leading with; that the order-error finding is
+\emph{partially} pre-empted by ACI's Appendix D and must be reframed as
+a tightness/measure characterization rather than a discovery (Chapter
+5); and that the serving results are largely re-derivations of
+established systems facts, warranting their demotion to a case study
+(§8.2, Chapter 9). A second, focused prior-art pass on the theory
+question confirmed that no prior work quantifies the cost of the prefix
+test on strong-baseline instances, while flagging the one risk any such
+result must defend against (Choo et al.'s constructive
 baseline-coupling) --- both inputs to the outlook of §10.2 and to the
 companion theoretical work it defers to.
 
