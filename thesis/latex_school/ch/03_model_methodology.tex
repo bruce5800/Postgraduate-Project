@@ -26,18 +26,24 @@ the classical setting has \(r=n\) (each offline vertex a distinct type),
 and the \emph{few-types} setting used for the histogram-advice
 experiments has \(r\ll n\).
 
-The performance measure is the \textbf{competitive ratio}
-\(\rho(\mathrm{ALG}) =
-\mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]\), where
-\(\mathrm{OPT}\) is a maximum matching of the \emph{realized} instance,
-computed exactly by Hopcroft--Karp \autocite{hopcroftkarp1973}. We
-report the ratio of expectations rather than the expectation of the
-ratio, following Borodin et al. \autocite{borodin2018experimental}; the
-two differ in general, and the former is what allows a single
-exactly-computed \(\mathrm{OPT}\) per instance to be shared by every
-algorithm in a paired trial (§3.5). The advice-free baseline throughout
-is KVV Ranking, whose ratio we write \(\rho_{\mathrm{base}}\) (the
-\textbf{baseline strength}).
+The performance measure is the \textbf{competitive ratio}, computed per
+instance and then averaged:
+\(\rho(\mathrm{ALG}) = \mathbb E\bigl[|\mathrm{ALG}|/|\mathrm{OPT}|\bigr]\),
+where \(\mathrm{OPT}\) is a maximum matching of the \emph{realized}
+instance, computed exactly by Hopcroft--Karp
+\autocite{hopcroftkarp1973}. Averaging per-instance ratios is the
+natural convention under paired trials (§3.5), since on a given instance
+every algorithm is divided by the same exactly-computed optimum. It
+differs in principle from the ratio of expectations
+\(\mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]\) that an
+experimental study might report instead, so we measured the gap: across
+nine algorithm-by-quality cells spanning both prediction families, the
+two conventions agree to within \(6\times10^{-5}\) --- two orders of
+magnitude below the confidence intervals we report --- so no number in
+this thesis depends on the choice
+(\texttt{scripts/run\_metric\_check.py}, §A.2). The advice-free baseline
+throughout is KVV Ranking, whose ratio we write \(\rho_{\mathrm{base}}\)
+(the \textbf{baseline strength}).
 
 The notation recurs throughout the thesis and is collected here for
 reference:
@@ -184,14 +190,21 @@ comparison, every algorithm and error level reuses the same graph,
 arrival sequence, \(\mathrm{OPT}\), and tie-break seed, so differences
 are attributable to the prediction alone. Reported ratios are means over
 trials with 95\% normal-approximation confidence intervals, computed per
-algorithm and error level. Because the trials are paired, those
-per-algorithm intervals are \emph{conservative} for the comparisons we
-actually draw: the algorithms' ratios are positively correlated by
-construction, so the standard error of a difference between two of them
-is smaller than that of either mean, and two non-overlapping intervals
-remain a valid --- if pessimistic --- verdict on the paired difference.
-Where a comparison is close enough for this to matter, we say so in the
-text rather than lean on the intervals. Every figure and table in the
+algorithm and error level. Those per-algorithm intervals under-use the
+pairing: a comparison between two algorithms is really a \emph{paired
+difference}, whose interval is narrower whenever the two respond to the
+same instances in the same direction. We measured this on the
+comparisons the thesis actually draws
+(\texttt{scripts/run\_metric\_check.py}, §A.2). Where the per-instance
+ratios are positively correlated the paired interval is
+\(1.7\)--\(2.6\times\) narrower (correlations \(0.67\) and \(0.85\));
+where they are not --- blind following against Ranking under garbage
+advice, whose correlation is \(-0.15\) --- pairing does not help and the
+per-algorithm interval is the honest one. Every comparison the thesis
+draws survives under the wider convention; the narrowest margin is
+Feldman(MPD)'s \(+0.0044\) against a \(\pm0.0023\) per-algorithm
+interval, which the pairing tightens to \(\pm0.0009\). Nothing in the
+thesis turns on which convention is used. Every figure and table in the
 thesis is regenerated from a fixed seed by a single script (Appendix A).
 
 \section{Fidelity check: reproducing Borodin et

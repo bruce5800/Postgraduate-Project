@@ -2,7 +2,7 @@
 \contentsline {chapteratlist}{\numberline {2}Background and Related Work}{6}{chapter.2}%
 \contentsline {chapteratlist}{\numberline {3}Model, Algorithms, and Methodology}{13}{chapter.3}%
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Erdős--Rényi reproduction: the characteristic U-shape, greedy minima near \(c\approx 4.9\), non-greedy degradation as \(c\) grows.}}{19}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Random left-regular reproduction: the hard case at \(d=5\), Greedy \(\approx \) Ranking.}}{19}{figure.3.2}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Random left-regular reproduction: the hard case at \(d=5\), Greedy \(\approx \) Ranking.}}{20}{figure.3.2}%
 \contentsline {chapteratlist}{\numberline {4}The Unified Benchmark}{21}{chapter.4}%
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The consistency--robustness plane (the data of Table 4.1); dashed lines mark the advice-free floor, dotted the oracle ceiling. TestAndMatch sits nearest the ideal top-right corner.}}{25}{figure.4.1}%
 \contentsline {chapteratlist}{\numberline {5}What Governs the Loss: Order Error and ACI's Bound}{26}{chapter.5}%
@@ -21,9 +21,9 @@
 \contentsline {figure}{\numberline {8.3}{\ignorespaces Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent --- foresight does not help.}}{43}{figure.8.3}%
 \contentsline {chapteratlist}{\numberline {9}Application Case Study: AI-Inference Serving}{45}{chapter.9}%
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Capacity as robustness: blindly following the forecast crashes goodput --- deeper at ample capacity (\(c=8\)) --- while the adaptive test stays flat.}}{46}{figure.9.1}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.}}{47}{figure.9.2}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}}{47}{figure.9.3}%
-\contentsline {chapteratlist}{\numberline {10}Conclusion and Future Work}{49}{chapter.10}%
-\contentsline {chapteratlist}{\numberline {A}Reproduction Guide}{55}{appendix.A}%
-\contentsline {chapteratlist}{\nonumberline Bibliography}{62}{chapter*.3}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Live load beats a stale forecast under dynamic service times (Azure LLM trace, 9683 arrivals, 8 topologies per point): the forecast-free balancer is within \(2\%\) of the offline optimum at every capacity, blind following loses up to 40 points, and the prefix test recovers most of it. Ratios are against an upper bound on the offline optimum, hence conservative.}}{47}{figure.9.2}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.}}{48}{figure.9.3}%
+\contentsline {chapteratlist}{\numberline {10}Conclusion and Future Work}{50}{chapter.10}%
+\contentsline {chapteratlist}{\numberline {A}Reproduction Guide}{56}{appendix.A}%
+\contentsline {chapteratlist}{\nonumberline Bibliography}{64}{chapter*.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

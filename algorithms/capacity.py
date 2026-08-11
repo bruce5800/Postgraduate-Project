@@ -51,26 +51,31 @@ def build_advice_b_matching(
     """
     n_types = len(type_adj)
     partners: list[list[int]] = [[] for _ in range(n_types)]
+    # Integer node labels (source -1, sink -2, type ℓ, resource n_types+r): the
+    # max-flow value is unique but its decomposition is not, and NetworkX chooses
+    # one by iterating node containers. Python randomizes string hashes per
+    # process, so string/tuple labels made `partners` — and every serving number
+    # derived from it — differ between runs of the same script.
+    src, snk = -1, -2
     g = nx.DiGraph()
     any_edge = False
     for l in range(n_types):
         c = int(round(float(chat[l])))
         if c <= 0:
             continue
-        g.add_edge("s", ("l", l), capacity=c)
+        g.add_edge(src, l, capacity=c)
         for r in type_adj[l]:
-            g.add_edge(("l", l), ("r", r), capacity=c)
+            g.add_edge(l, n_types + r, capacity=c)
             any_edge = True
     if not any_edge:
         return 0, partners
     for r in range(n_right):
-        g.add_edge(("r", r), "t", capacity=capacity)
-    n_hat, flow = nx.maximum_flow(g, "s", "t")
+        g.add_edge(n_types + r, snk, capacity=capacity)
+    n_hat, flow = nx.maximum_flow(g, src, snk)
     for l in range(n_types):
-        fl = flow.get(("l", l), {})
-        for r, f in fl.items():
+        for r_node, f in flow.get(l, {}).items():
             if f > 0:
-                partners[l].extend([r[1]] * int(f))
+                partners[l].extend([r_node - n_types] * int(f))
     return int(n_hat), partners
 
 

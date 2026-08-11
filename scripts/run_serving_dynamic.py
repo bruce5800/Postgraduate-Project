@@ -3,7 +3,20 @@ service time, then free it. Real Azure LLM trace: real arrival timestamps + real
 service durations (generated-token counts). This drops the static b-matching's
 unrealistic "all requests concurrent forever" assumption.
 
-Metric: goodput = served / total (admission rate). Policies:
+Metric: competitive ratio = served / OPT, where OPT is the offline optimum of the
+same dynamic instance (admit a subset of requests, each held on one compatible
+replica for its whole service time, at most `cap` concurrent per replica).
+
+That optimum is NP-hard in general (interval scheduling with machine eligibility),
+so we divide by a computable UPPER bound on it: relax the per-replica capacity to a
+per-type capacity cap*deg(type). Dropping the requirement that the cap*deg slots sit
+on identified replicas can only help the benchmark, so the bound is valid and the
+reported ratios are lower bounds on the true competitive ratio. Under the relaxation
+the problem decomposes by type into k-track interval scheduling, which the
+earliest-end-time greedy solves exactly. A feasible offline assignment gives the
+matching lower bound, so the print-out also shows how tight the bracket is.
+
+Policies:
   - least_loaded   : forecast-free real load balancer (uses all capable resources)
   - blind_forecast : route only to forecast-preferred resources (fragile)
   - adaptive       : prefix-test, then follow forecast or switch to least_loaded
@@ -16,6 +29,7 @@ Outputs: results/serving_dynamic.json, results/serving_dynamic.png
 """
 from __future__ import annotations
 import csv
+import heapq
 import json
 import sys
 import time
@@ -35,6 +49,58 @@ from algorithms.dynamic import (
 TRACE = Path(__file__).resolve().parent.parent / "data" / "trace" / "azure_llm"
 NB, N_RES, DEG, TOK = 40, 100, 10, 0.10
 CAPS = [3, 6, 12]
+
+
+def ktrack_max(starts, ends, k):
+    """Max #fixed intervals selectable with <= k simultaneously (exact).
+
+    Earliest-end-time greedy, accepting whenever the interval fits — the classic
+    optimal rule for a maximum k-colourable subgraph of an interval graph.
+    """
+    order = sorted(range(len(starts)), key=lambda i: (ends[i], starts[i]))
+    acc_s, acc_e = [], []
+    for i in order:
+        s, e = starts[i], ends[i]
+        events = []
+        for a, b in zip(acc_s, acc_e):
+            lo, hi = max(a, s), min(b, e)
+            if lo < hi:
+                events.append((lo, 1)); events.append((hi, -1))
+        cover = mx = 0
+        for _, d in sorted(events):
+            cover += d
+            mx = max(mx, cover)
+        if mx < k:
+            acc_s.append(s); acc_e.append(e)
+    return len(acc_s)
+
+
+def offline_opt_upper(arr_t, arr_l, arr_dur, n_types, deg, cap):
+    """Upper bound on the dynamic offline optimum (see module docstring)."""
+    ends = arr_t + arr_dur
+    total = 0
+    for l in range(n_types):
+        idx = np.where(arr_l == l)[0]
+        if idx.size:
+            total += ktrack_max(arr_t[idx], ends[idx], cap * deg)
+    return total
+
+
+def offline_feasible(arr_t, arr_l, arr_dur, type_adj, n_res, cap):
+    """A feasible offline assignment (least-loaded), i.e. a lower bound on OPT."""
+    free_at = [[] for _ in range(n_res)]
+    served = 0
+    for t, l, d in zip(arr_t, arr_l, arr_dur):
+        best, best_load = -1, cap + 1
+        for j in type_adj[l]:
+            h = free_at[j]
+            while h and h[0] <= t:
+                heapq.heappop(h)
+            if len(h) < best_load:
+                best, best_load = j, len(h)
+        if best >= 0 and best_load < cap:
+            heapq.heappush(free_at[best], t + d); served += 1
+    return served
 
 
 def _load(path):
@@ -80,7 +146,15 @@ def run(n_trials=8, seed=0):
     t0 = time.time()
     for cap in CAPS:
         rho = arr_dur.sum() / (span * N_RES * cap)
-        res["by_cap"][cap] = {"offered_load": float(rho)}
+        opt_ub = offline_opt_upper(arr_t, arr_l, arr_dur, nb, DEG, cap)
+        opt_lb = offline_feasible(arr_t, arr_l, arr_dur,
+                                  serving_topology(N_RES, nb, DEG,
+                                                   np.random.default_rng(seed))[0],
+                                  N_RES, cap)
+        res["by_cap"][cap] = {"offered_load": float(rho), "opt_upper": opt_ub,
+                              "opt_lower": opt_lb, "opt_upper_over_m": opt_ub / m}
+        print(f"  cap={cap:2d}: offline OPT in [{opt_lb}, {opt_ub}] "
+              f"= [{opt_lb/m:.4f}, {opt_ub/m:.4f}] of m  (bracket {100*(opt_ub-opt_lb)/m:.1f}% of m)")
         for lab, q in forecasts.items():
             chat = np.round(m * q)
             ll, bf, ad = [], [], []
@@ -89,11 +163,11 @@ def run(n_trials=8, seed=0):
                 n_hat, partners = build_advice_b_matching(type_adj, chat, N_RES, cap)
                 preferred = [list(dict.fromkeys(p)) for p in partners]
                 s = int(rs.integers(0, 2**31 - 1))
-                ll.append(served_least_loaded(arr_t, arr_l, arr_dur, type_adj, N_RES, cap, np.random.default_rng(s)) / m)
-                bf.append(served_blind_forecast(arr_t, arr_l, arr_dur, type_adj, preferred, N_RES, cap, np.random.default_rng(s)) / m)
+                ll.append(served_least_loaded(arr_t, arr_l, arr_dur, type_adj, N_RES, cap, np.random.default_rng(s)) / opt_ub)
+                bf.append(served_blind_forecast(arr_t, arr_l, arr_dur, type_adj, preferred, N_RES, cap, np.random.default_rng(s)) / opt_ub)
                 a, _ = served_adaptive(arr_t, arr_l, arr_dur, type_adj, preferred, q, N_RES, cap,
                                        np.random.default_rng(s), prefix_k=max(1, m // 10))
-                ad.append(a / m)
+                ad.append(a / opt_ub)
             res["by_cap"][cap][lab] = {"l1": drift[lab], "least_loaded": float(np.mean(ll)),
                                        "blind": float(np.mean(bf)), "adaptive": float(np.mean(ad))}
             r = res["by_cap"][cap][lab]
@@ -118,10 +192,12 @@ def run(n_trials=8, seed=0):
             ax.set_xlabel("real forecast error L1")
             ax.set_title(f"capacity c = {cap}  (offered load ρ≈{d['offered_load']:.2f})")
             ax.grid(True, alpha=0.3)
-        axes[0].set_ylabel("goodput (served / total)")
+        axes[0].set_ylabel("competitive ratio\n(served / offline-optimum bound)")
         axes[0].legend(loc="lower left", fontsize=9)
-        fig.suptitle("Dynamic serving (real LLM timestamps + service times): a forecast-free load\n"
-                     "balancer is robust; blindly following a stale forecast degrades; the test recovers it")
+        fig.suptitle("Dynamic serving (real LLM timestamps + service times): the forecast-free load\n"
+                     "balancer is near-optimal; blindly following a stale forecast degrades; the test recovers it",
+                     y=1.04)
+        fig.tight_layout()
         fig.savefig(out_dir / "serving_dynamic.png", dpi=120, bbox_inches="tight")
         plt.close(fig)
         print("\nsaved: serving_dynamic.png")

@@ -13,65 +13,74 @@
   "by_cap": {
     "3": {
       "offered_load": 0.3677698699614497,
+      "opt_upper": 8367,
+      "opt_lower": 8259,
+      "opt_upper_over_m": 0.8640917071155634,
       "perfect": {
         "l1": 0.0,
-        "least_loaded": 0.8505370236496953,
-        "blind": 0.5360683672415574,
-        "adaptive": 0.8109057110399669
+        "least_loaded": 0.9843133739691646,
+        "blind": 0.5879646229233895,
+        "adaptive": 0.9303663200669297
       },
       "same workload\n(conv, older half)": {
         "l1": 0.3248993080656821,
-        "least_loaded": 0.8490653723019725,
-        "blind": 0.5701616234638025,
-        "adaptive": 0.810531343591862
+        "least_loaded": 0.982610254571531,
+        "blind": 0.6303035735628062,
+        "adaptive": 0.9348482132185969
       },
       "wrong workload\n(code trace)": {
         "l1": 0.9728844090050566,
-        "least_loaded": 0.8496204688629557,
-        "blind": 0.43187803366725186,
-        "adaptive": 0.7946530001032738
+        "least_loaded": 0.9832526592566033,
+        "blind": 0.5837815226485,
+        "adaptive": 0.9276473048882514
       }
     },
     "6": {
       "offered_load": 0.18388493498072486,
+      "opt_upper": 9290,
+      "opt_lower": 9253,
+      "opt_upper_over_m": 0.9594134049364866,
       "perfect": {
         "l1": 0.0,
-        "least_loaded": 0.9555922751213467,
-        "blind": 0.6971883713725086,
-        "adaptive": 0.9343695135805019
+        "least_loaded": 0.9960172228202369,
+        "blind": 0.7177206673842842,
+        "adaptive": 0.9632938643702906
       },
       "same workload\n(conv, older half)": {
         "l1": 0.3248993080656821,
-        "least_loaded": 0.9555922751213467,
-        "blind": 0.7151450996591965,
-        "adaptive": 0.9338531446865641
+        "least_loaded": 0.9960172228202369,
+        "blind": 0.7344860064585577,
+        "adaptive": 0.9706808396124864
       },
       "wrong workload\n(code trace)": {
         "l1": 0.9728844090050566,
-        "least_loaded": 0.9555922751213467,
-        "blind": 0.5981617267375813,
-        "adaptive": 0.9188655375400185
+        "least_loaded": 0.9960172228202369,
+        "blind": 0.6720398277717976,
+        "adaptive": 0.9685145317545748
       }
     },
     "12": {
       "offered_load": 0.09194246749036243,
+      "opt_upper": 9683,
+      "opt_lower": 9683,
+      "opt_upper_over_m": 1.0,
       "perfect": {
         "l1": 0.0,
         "least_loaded": 1.0,
-        "blind": 0.9151476815036663,
-        "adaptive": 0.9935841164928225
+        "blind": 0.9105519983476196,
+        "adaptive": 0.9837085613962615
       },
       "same workload\n(conv, older half)": {
         "l1": 0.3248993080656821,
         "least_loaded": 1.0,
-        "blind": 0.9442708871217598,
-        "adaptive": 0.9976634307549314
+        "blind": 0.9119978312506455,
+        "adaptive": 0.9919446452545698
       },
       "wrong workload\n(code trace)": {
         "l1": 0.9728844090050566,
         "least_loaded": 1.0,
-        "blind": 0.697575648042962,
-        "adaptive": 0.975963027987194
+        "blind": 0.7623799442321595,
+        "adaptive": 0.9755241144273469
       }
     }
   }

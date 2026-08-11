@@ -34,13 +34,22 @@ or cache shard that can serve up to $c$ concurrent requests, so we match with ca
 rather than $1$ (this is $b$-matching with every $b$ equal to $c$; we write $c$ throughout,
 including in the figures). Arrivals are requests drawn from a non-uniform, bursty traffic
 distribution over request types, and an edge is a capability or cache affinity. Two
-quantities must be kept apart. **Goodput** is the fraction of arriving requests that are
+quantities must be kept apart. Raw **goodput** is the fraction of arriving requests that are
 served; the **competitive ratio** is the number served divided by the capacitated optimum on
 the same realized instance. They coincide only when the optimum can serve every arrival,
-which under overload it cannot. Both appear below and each figure's axis states which it
-plots: Figure 9.1 normalizes by the optimum (*served / best possible*), Figure 9.2 by the
-arrivals (*served / total*), and Figure 9.3 reports a different quantity again, the KV-cache
-hit fraction. We instantiate this on three real traces (Wikipedia pageviews, an
+which under overload it cannot, so we report the competitive ratio throughout. Figures 9.1
+and 9.2 both plot it; Figure 9.3 measures a different objective entirely — the KV-cache hit
+fraction — and is labelled accordingly.
+
+For the dynamic experiment of Figure 9.2 that optimum is not a matching but a scheduling
+problem: admit a subset of the requests, each held on one compatible replica for its whole
+service time, at most $c$ concurrent per replica. It is NP-hard in general, so we divide by a
+computable *upper* bound on it, obtained by relaxing the per-replica capacity to a per-type
+capacity $c\cdot\deg(\ell)$; the relaxed problem decomposes by type into interval scheduling
+and is then solved exactly. The reported ratios are therefore lower bounds on the true
+competitive ratio — and the bound is tight, since a feasible offline assignment brackets the
+optimum to within $1.1\%$ of the arrival count at $c=3$, $0.4\%$ at $c=6$, and exactly at
+$c=12$. We instantiate this on three real traces (Wikipedia pageviews, an
 Azure LLM inference trace, and the Mooncake prefix-cache trace [@mooncake2024]) and across
 four serving concerns.
 
@@ -93,12 +102,16 @@ note: substitute 是一个强的机制断言（容量可以替代算法鲁棒性
 fix: 降为观察加条件：over the capacity range we swept, added capacity buys the same protection that the adaptive test does。或者补一句代价对比（多买一份容量 vs 跑一次前缀测试）。
 -->
 
-![Live load beats a stale forecast under dynamic service times; an adaptive test recovers most of the gap.](../../results/serving_dynamic.png){width=100%}
+![Live load beats a stale forecast under dynamic service times (Azure LLM trace, 9683 arrivals, 8 topologies per point): the forecast-free balancer is within $2\%$ of the offline optimum at every capacity, blind following loses up to 40 points, and the prefix test recovers most of it. Ratios are against an upper bound on the offline optimum, hence conservative.](../../results/serving_dynamic.png){width=100%}
 
 **Forecasts vs live load** (**Figure 9.2**). Under dynamic service times (requests hold a
   slot for a real duration, released event-by-event), a live-load signal beats a stale
-  traffic forecast — a reactive load balancer outperforms a forecast-following router when
-  the forecast has aged.
+  traffic forecast. Against the offline optimum the gap is stark: the forecast-free
+  least-loaded balancer reaches $0.98$–$1.00$ of the optimum at every capacity, while
+  blindly following the forecast reaches only $0.58$–$0.91$, and the prefix test recovers
+  most of the loss ($0.93$–$0.99$) at the cost of the prefix it spends. The reactive policy
+  is not merely better than the forecast-following one — it is within $2\%$ of what perfect
+  hindsight could have achieved.
 
 ![The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.](../../results/prefix_cache_reversal.png){width=60%}
 

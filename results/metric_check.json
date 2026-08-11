@@ -1,0 +1,112 @@
+{
+  "panels": {
+    "A (clvb_zipf, n=1000, 60 trials)": {
+      "n_trials": 60,
+      "rows": [
+        {
+          "algorithm": "Ranking",
+          "mean_of_ratios": 0.94816830983125,
+          "ci95": 0.002421063953728528,
+          "ratio_of_means": 0.9481264212503707,
+          "difference": 4.188858087927905e-05
+        },
+        {
+          "algorithm": "MPD/perfect",
+          "mean_of_ratios": 0.9892535841521575,
+          "ci95": 0.0012495887416652158,
+          "ratio_of_means": 0.989223214579969,
+          "difference": 3.0369572188493343e-05
+        },
+        {
+          "algorithm": "MPD/adversarial",
+          "mean_of_ratios": 0.9081782953620323,
+          "ci95": 0.0027243049143636723,
+          "ratio_of_means": 0.9081171934218766,
+          "difference": 6.110194015573889e-05
+        },
+        {
+          "algorithm": "Feldman(MPD)/perfect",
+          "mean_of_ratios": 0.9807309743218328,
+          "ci95": 0.0015781042591919137,
+          "ratio_of_means": 0.9807204297531555,
+          "difference": 1.0544568677217647e-05
+        },
+        {
+          "algorithm": "Feldman(MPD)/adversarial",
+          "mean_of_ratios": 0.9763592440072485,
+          "ci95": 0.001699073898269748,
+          "ratio_of_means": 0.9763372112184029,
+          "difference": 2.203278884560511e-05
+        }
+      ]
+    },
+    "C (few-types r=8, n=2000, 50 trials)": {
+      "n_trials": 50,
+      "rows": [
+        {
+          "algorithm": "Ranking",
+          "mean_of_ratios": 0.99016,
+          "ci95": 0.000785219052239566,
+          "ratio_of_means": 0.99016,
+          "difference": 0.0
+        },
+        {
+          "algorithm": "FollowPrediction/garbage",
+          "mean_of_ratios": 0.4626300000000001,
+          "ci95": 0.0260675610489359,
+          "ratio_of_means": 0.46263,
+          "difference": 1.1102230246251565e-16
+        },
+        {
+          "algorithm": "TestAndMatch(Choo)/perfect",
+          "mean_of_ratios": 1.0,
+          "ci95": 0.0,
+          "ratio_of_means": 1.0,
+          "difference": 0.0
+        },
+        {
+          "algorithm": "TestAndMatch(Choo)/garbage",
+          "mean_of_ratios": 0.9894700000000001,
+          "ci95": 0.0011347464210122035,
+          "ratio_of_means": 0.98947,
+          "difference": 1.1102230246251565e-16
+        }
+      ]
+    }
+  },
+  "paired": [
+    {
+      "comparison": "Panel A: MPD(adversarial) vs Ranking",
+      "difference": -0.03999001446921768,
+      "independent_halfwidth": 0.0036446382446642996,
+      "paired_halfwidth": 0.0021072680066532125,
+      "tightening": 1.7295561044713796,
+      "corr": 0.6703448806736682
+    },
+    {
+      "comparison": "Panel A: Feldman(MPD) perfect vs adversarial",
+      "difference": 0.004371730314584341,
+      "independent_halfwidth": 0.002318893090390589,
+      "paired_halfwidth": 0.0008946174824892431,
+      "tightening": 2.5920498266346716,
+      "corr": 0.8534848451225856
+    },
+    {
+      "comparison": "Panel C: FollowPrediction(garbage) vs Ranking",
+      "difference": -0.52753,
+      "independent_halfwidth": 0.02607938473200624,
+      "paired_halfwidth": 0.026194840435475073,
+      "tightening": 0.995592425777388,
+      "corr": -0.14742861051509137
+    },
+    {
+      "comparison": "Panel C: TestAndMatch(perfect) vs Ranking",
+      "difference": 0.00983999999999998,
+      "independent_halfwidth": 0.000785219052239566,
+      "paired_halfwidth": 0.0007852190522395657,
+      "tightening": 1.0000000000000002,
+      "corr": null
+    }
+  ],
+  "max_abs_estimator_difference": 6.110194015573889e-05
+}

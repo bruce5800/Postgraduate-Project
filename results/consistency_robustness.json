@@ -9,12 +9,12 @@
         "consistency": 0.9892535841521575
       },
       "Feldman(MPD)": {
-        "robustness": 0.9763926963782908,
-        "consistency": 0.9805983655870495
+        "robustness": 0.9763592440072485,
+        "consistency": 0.9807309743218328
       },
       "JailletLu(MPD)": {
-        "robustness": 0.9739540368062911,
-        "consistency": 0.9765830864478688
+        "robustness": 0.9744187647302699,
+        "consistency": 0.9771678430387513
       },
       "Ranking": {
         "robustness": 0.94816830983125,
@@ -32,12 +32,12 @@
         "consistency": 0.931728911426584
       },
       "Feldman(MPD)": {
-        "robustness": 0.8962436218514571,
-        "consistency": 0.9055967894012641
+        "robustness": 0.8961904241101984,
+        "consistency": 0.9054928330464042
       },
       "JailletLu(MPD)": {
-        "robustness": 0.8984013536446233,
-        "consistency": 0.9034019430081385
+        "robustness": 0.8987504107695059,
+        "consistency": 0.904035154349279
       },
       "Ranking": {
         "robustness": 0.890100057718701,

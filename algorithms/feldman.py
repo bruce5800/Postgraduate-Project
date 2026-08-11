@@ -18,28 +18,38 @@ import numpy as np
 
 # ----------------------------- preprocessing ------------------------------
 
+_SRC, _SNK = -1, -2      # integer node labels: see _build_flow_network
+
+
 def _build_flow_network(type_adj: list[list[int]], n_right: int) -> nx.DiGraph:
-    """s → r (cap 2), r → ℓ (cap 1) for each edge, ℓ → t (cap 2)."""
+    """s → r (cap 2), r → ℓ (cap 1) for each edge, ℓ → t (cap 2).
+
+    Nodes are plain integers (source -1, sink -2, resource r, type n_right+ℓ).
+    The max-flow *value* is unique but its *decomposition* is not, and NetworkX
+    picks one by iterating node containers; Python randomizes string hashes per
+    process, so string/tuple node labels made the chosen decomposition — and
+    every number derived from it — differ between runs of the same script.
+    """
     g = nx.DiGraph()
     n_left = len(type_adj)
     for r in range(n_right):
-        g.add_edge("s", ("r", r), capacity=2)
+        g.add_edge(_SRC, r, capacity=2)
     for l in range(n_left):
-        g.add_edge(("l", l), "t", capacity=2)
+        g.add_edge(n_right + l, _SNK, capacity=2)
     for l, neighbors in enumerate(type_adj):
         for r in neighbors:
-            g.add_edge(("r", r), ("l", l), capacity=1)
+            g.add_edge(r, n_right + l, capacity=1)
     return g
 
 
 def _max_flow_unit_edges(type_adj: list[list[int]], n_right: int) -> list[tuple[int, int]]:
     """Return list of (r, ℓ) such that f(r → ℓ) = 1 in the max flow."""
     g = _build_flow_network(type_adj, n_right)
-    _, flow = nx.maximum_flow(g, "s", "t")
+    _, flow = nx.maximum_flow(g, _SRC, _SNK)
     edges: list[tuple[int, int]] = []
     for l, neighbors in enumerate(type_adj):
         for r in neighbors:
-            if flow.get(("r", r), {}).get(("l", l), 0) == 1:
+            if flow.get(r, {}).get(n_right + l, 0) == 1:
                 edges.append((r, l))
     return edges
 

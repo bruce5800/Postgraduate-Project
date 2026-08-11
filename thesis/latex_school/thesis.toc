@@ -45,19 +45,19 @@
 \contentsline {chapter}{\numberline {9}Application Case Study: AI-Inference Serving}{45}{chapter.9}%
 \contentsline {section}{\numberline {9.1}The serving instantiation}{45}{section.9.1}%
 \contentsline {section}{\numberline {9.2}A probe for a genuinely new result, and its negative}{48}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Chapter summary}{48}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{49}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Summary}{49}{section.10.1}%
-\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{50}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Limitations}{52}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Future work}{53}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Closing}{53}{section.10.5}%
-\contentsline {chapter}{\numberline {A}Reproduction Guide}{55}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Environment and principles}{55}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{56}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Reproduction commands}{58}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{59}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Data provenance}{60}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Outlook verification snippets (§10.2)}{61}{section.A.6}%
-\contentsline {chapter}{\nonumberline Bibliography}{62}{chapter*.3}%
+\contentsline {section}{\numberline {9.3}Chapter summary}{49}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{50}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Summary}{50}{section.10.1}%
+\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{51}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Limitations}{53}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Future work}{54}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Closing}{54}{section.10.5}%
+\contentsline {chapter}{\numberline {A}Reproduction Guide}{56}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Environment and principles}{56}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{57}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Reproduction commands}{59}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{60}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Data provenance}{61}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Outlook verification snippets (§10.2)}{62}{section.A.6}%
+\contentsline {chapter}{\nonumberline Bibliography}{64}{chapter*.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

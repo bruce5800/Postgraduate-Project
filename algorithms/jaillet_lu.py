@@ -19,18 +19,26 @@ import numpy as np
 
 # ---------------------------- preprocessing -------------------------------
 
+_SRC, _SNK = -1, -2      # integer node labels: see _solve_cap3_flow
+
+
 def _solve_cap3_flow(type_adj: list[list[int]], n_right: int) -> dict:
-    """Solve max flow on the cap-3 network. Returns nx flow_dict."""
+    """Solve max flow on the cap-3 network. Returns nx flow_dict.
+
+    Nodes are plain integers (source -1, sink -2, resource r, type n_right+ℓ) so
+    that the flow *decomposition* NetworkX returns is stable across processes;
+    with string/tuple labels it varied with Python's per-process string hashing.
+    """
     g = nx.DiGraph()
     n_left = len(type_adj)
     for r in range(n_right):
-        g.add_edge("s", ("r", r), capacity=3)
+        g.add_edge(_SRC, r, capacity=3)
     for l in range(n_left):
-        g.add_edge(("l", l), "t", capacity=3)
+        g.add_edge(n_right + l, _SNK, capacity=3)
     for l, nbrs in enumerate(type_adj):
         for r in nbrs:
-            g.add_edge(("r", r), ("l", l), capacity=2)
-    _, flow = nx.maximum_flow(g, "s", "t")
+            g.add_edge(r, n_right + l, capacity=2)
+    _, flow = nx.maximum_flow(g, _SRC, _SNK)
     return flow
 
 
@@ -49,7 +57,7 @@ def jaillet_lu_preprocess(
     rp: list[list[float]] = [[] for _ in range(n_left)]
     for l, nbrs in enumerate(type_adj):
         for r in nbrs:
-            f_val = flow.get(("r", r), {}).get(("l", l), 0)
+            f_val = flow.get(r, {}).get(n_right + l, 0)
             if f_val > 0:  # f_val ∈ {1, 2}
                 rn[l].append(r)
                 rp[l].append(f_val / 3.0)
