@@ -17,7 +17,7 @@ proof-of-concept the original authors also fall back to (Section 2.2).
 We sweep advice error \(\ell_1(p,q)\) on few-types instances
 (\(n=2000\), \(r=8\), prefix \(k=200\), 40 trials) and compare blind
 FollowPrediction, TestAndMatch (Choo and BEM variants), and the Ranking
-floor (\textbf{Figure 3}). The picture is textbook. FollowPrediction
+floor (\textbf{Figure 2}). The picture is textbook. FollowPrediction
 degrades \emph{linearly}, from \(1.000\) at perfect advice to \(0.453\)
 at \(\ell_1\!\approx\!1.1\) --- well \emph{below} the advice-free floor
 (\(\approx 0.99\)). TestAndMatch instead stays on the \textbf{upper
@@ -25,9 +25,7 @@ envelope}: it captures the benefit when advice is good and, when advice
 is bad, its prefix test rejects it and it falls back to Ranking, never
 crashing (BEM \(0.998\to0.969\); Choo \(1.000\to0.991\) across the same
 sweep). This is the adaptive counterpart of the structural robustness of
-Section 3: the engineered mechanism
-
-that MPD lacked.
+Section 3: the engineered mechanism that MPD lacked.
 
 \begin{figure}
 \centering
@@ -44,7 +42,7 @@ What does the ``test then maybe fall back'' machinery cost, and does a
 better test make a better decision? We sweep the prefix (testing) size
 \(k\) at \emph{borderline} advice (\(\eta=0.15\), true
 \(\ell_1\!\approx\!0.16\)) --- the regime where the test must work
-hardest (\textbf{Figure 4}). Counter-intuitively, \textbf{a larger, more
+hardest (\textbf{Figure 3}). Counter-intuitively, \textbf{a larger, more
 accurate test makes the \emph{worse} decision}: as \(k\) grows
 \(25\to100\to200\to800\), the ratio \emph{falls} \(0.992\to0.981\to
 0.969\to0.956\) and the misjudgement rate (against an empirical oracle:
@@ -71,10 +69,8 @@ correctly measures \(\ell_1\approx0.16<\tau\) and so \textbf{accepts}
 the mildly-bad advice the worst-case threshold deems acceptable --- and
 underperforms the baseline. On strong-baseline inputs the
 worst-case-calibrated threshold is too \emph{lenient}, and improving the
-test's
-
-accuracy only makes the algorithm follow that miscalibrated threshold
-more faithfully.
+test's accuracy only makes the algorithm follow that miscalibrated
+threshold more faithfully.
 
 \subsection{Recalibration, and the resolution limit it
 exposes}
@@ -96,9 +92,7 @@ is \emph{smaller than the empirical-\(\ell_1\) estimator's own noise
 floor} (\(\approx 0.05\)--\(0.13\) at this prefix and support), so the
 test can never confidently \emph{accept} --- it rejects everything,
 including perfect advice, and effectively always plays the baseline. In
-other
-
-words:
+other words:
 
 \begin{quote}
 On strong-baseline instances, no practical empirical-\(\ell_1\)
@@ -151,7 +145,7 @@ public information. A public-information early exit (fall back without
 spending the prefix when even a \emph{correct} advice would not beat the
 baseline) restores parity with Choo et al.'s \(\hat n/n\le\beta\) exit.
 
-\textbf{Figure 5} repeats the envelope sweep with the payoff rule added,
+\textbf{Figure 4} repeats the envelope sweep with the payoff rule added,
 against both the worst-case and the recalibrated thresholds. The three
 rules now separate cleanly. At mildly bad advice --- where the
 worst-case threshold follows the crash (\(0.948\) and \(0.937\) at
@@ -166,9 +160,8 @@ the resolution \emph{any} rule can achieve at \(k=200\) --- by the
 budget--stakes scaling of Section 7, with this family's payoff estimator
 carrying per-sample variance of order one, resolving stakes of \(0.02\)
 takes \(k \approx 1/0.02^2 = 2500 > n\) --- the law binds our rule too,
-and the right behavior at
-
-unresolvable stakes is exactly this safe-either-way coin flip.
+and the right behavior at unresolvable stakes is exactly this
+safe-either-way coin flip.
 
 \begin{figure}
 \centering
@@ -180,7 +173,7 @@ rule tracks the upper envelope within the resolution the budget--stakes
 law allows.}
 \end{figure}
 
-\textbf{Figure 6} is the head-to-head that summarizes the section. At
+\textbf{Figure 5} is the head-to-head that summarizes the section. At
 borderline advice (\(\eta=0.15\)), growing the prefix from \(k=25\) to
 \(800\) drives the worst-case threshold's misjudgement \emph{up} from
 \(0.07\) to \(1.00\) (ratio \(0.987\to0.922\)) --- §5.2's pathology in
@@ -224,14 +217,13 @@ mid-stream reveals a penalty specific to irrevocable problems. With
 perfect advice, eager switching scores \(0.927\) --- \emph{below both}
 the pure follower (\(1.000\)) and the pure baseline (\(0.958\); verified
 in \texttt{tests/test\_combiner\_small.py}) --- because switching from
-Ranking to Mimic mid-run lands the
-
-committed matching in an \emph{incompatible hybrid}: the Mimic plan's
-slots are already half-consumed by the Ranking phase, and the Ranking
-progress is abandoned. In an irrevocable problem the follow/fallback
-decision must be made \emph{before} the bulk of the commitments, not
-adapted across them --- which is precisely why Choo/BEM test on a prefix
-and then \emph{commit}, rather than switching dynamically as the
-caching-style combiner does. The dynamic combiner that is cheap
-worst-case insurance for caching does not port cleanly to matching, and
-the unified benchmark shows why.
+Ranking to Mimic mid-run lands the committed matching in an
+\emph{incompatible hybrid}: the Mimic plan's slots are already
+half-consumed by the Ranking phase, and the Ranking progress is
+abandoned. In an irrevocable problem the follow/fallback decision must
+be made \emph{before} the bulk of the commitments, not adapted across
+them --- which is precisely why Choo/BEM test on a prefix and then
+\emph{commit}, rather than switching dynamically as the caching-style
+combiner does. The dynamic combiner that is cheap worst-case insurance
+for caching does not port cleanly to matching, and the unified benchmark
+shows why.

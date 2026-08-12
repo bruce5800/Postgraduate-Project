@@ -5,7 +5,7 @@ claim "order matters". Our contribution = (i) the bound is loose (~16–75×), (
 saturates, (iii) Kendall-τ is the governing measure onto which the four error models
 collapse. Numbers from scripts/run_order_vs_theory.py (n=1000, Zipf exp=1.0, 40 trials):
 loss / n−LIS / Kendall-τ at η=1 — random_flip 21.6/665.8/0.50, systematic_bias 0/0/0,
-adversarial 41.7/673/1.0, distribution_drift 8.1/611/0.29. Figure 2 = order_vs_theory.png.
+adversarial 41.7/673/1.0, distribution_drift 8.1/611/0.29. Figure 1 = order_vs_theory.png.
 -->
 
 # 4. What Governs the Loss: Order-Error and ACI's Bound
@@ -43,7 +43,7 @@ Our contribution is to characterize *how the bound behaves* and *which order mea
 predicts the realized loss*. We sweep the four structured error models across strength and
 record, per model and level, three quantities on the same instances: the actual MPD
 matching loss, ACI's $n-\mathrm{LIS}$, and the normalized Kendall-$\tau$ order error
-(**Figure 2**; $n=1000$, Zipf exponent $1.0$, 40 trials).
+(**Figure 1**; $n=1000$, Zipf exponent $1.0$, 40 trials).
 
 ![Order error, not magnitude, governs MPD's loss: (a) realized loss sits far below the $n-\mathrm{LIS}$ bound at every point; (b) the four error models collapse onto the Kendall-$\tau$ axis.](../../results/order_vs_theory.png){width=100%}
 
@@ -60,7 +60,7 @@ quote: loose by roughly 16x (adversarial) to 75x (distribution-drift)
 note: 没说这个倍数是怎么取的：界除以损失的均值，还是在某个误差强度上取的比。松紧程度是本节的贡献之一，审稿人需要能复核。
 fix: 写明口径：ratio of the bound to the realized loss at each model's strongest corruption level。
 -->
-(adversarial) to $75\times$ (distribution-drift). Figure 2(a) plots loss against
+(adversarial) to $75\times$ (distribution-drift). Figure 1(a) plots loss against
 $n-\mathrm{LIS}$ with the $y=x$ bound; all points lie close to the axis.
 
 **(ii) $n-\mathrm{LIS}$ saturates and cannot distinguish error structures.** For every
@@ -71,7 +71,7 @@ upper bound that is (almost) always $\approx n$, it carries little information a
 prediction is actually more harmful.
 
 **(iii) Kendall-$\tau$ is the governing order measure, and the error models collapse onto
-it.** Plotting the realized loss against the Kendall-$\tau$ order error (Figure 2(b)), the
+it.** Plotting the realized loss against the Kendall-$\tau$ order error (Figure 1(b)), the
 four structured error models fall on a single increasing curve: loss rises monotonically
 with Kendall-$\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
 $8.1\to21.6\to41.7$ in loss), with `systematic_bias` pinned at $\tau=0$ and zero loss. The

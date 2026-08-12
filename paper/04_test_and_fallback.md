@@ -2,8 +2,8 @@
 Draft §5 — test-and-fallback in depth (C4). Numbers from scripts/run_choo_bem.py,
 run_recalibration.py, run_directional_test.py, tests/test_combiner_small.py
 (docs/PHASE3C_REPORT.md, UNIFIED_BENCHMARK.md §3, results/directional_test.json).
-Figures: choo_bem_envelope (Fig 3), choo_bem_prefix (Fig 4), directional_envelope (Fig 5),
-directional_prefix (Fig 6). Guardrails: empirical-L1 surrogate flagged in §2; combiner
+Figures: choo_bem_envelope (Fig 2), choo_bem_prefix (Fig 3), directional_envelope (Fig 4),
+directional_prefix (Fig 5). Guardrails: empirical-L1 surrogate flagged in §2; combiner
 benchmarked not claimed; §5.4's resolution-limited capture at perfect advice stated
 honestly (the budget–stakes law binds our own rule too).
 This section is the EMPIRICAL bridge to §7 — §5.3's resolution limit is the ℓ₁-specific
@@ -26,7 +26,7 @@ authors also fall back to (Section 2.2).
 
 We sweep advice error $\ell_1(p,q)$ on few-types instances ($n=2000$, $r=8$, prefix
 $k=200$, 40 trials) and compare blind FollowPrediction, TestAndMatch (Choo and BEM
-variants), and the Ranking floor (**Figure 3**). The picture is textbook.
+variants), and the Ranking floor (**Figure 2**). The picture is textbook.
 FollowPrediction degrades *linearly*, from $1.000$ at perfect advice to $0.453$ at
 $\ell_1\!\approx\!1.1$ — well *below* the advice-free floor ($\approx 0.99$). TestAndMatch
 instead stays on the **upper envelope**: it captures the benefit when advice is good and,
@@ -52,7 +52,7 @@ that MPD lacked.
 What does the "test then maybe fall back" machinery cost, and does a better test make a
 better decision? We sweep the prefix (testing) size $k$ at *borderline* advice
 ($\eta=0.15$, true $\ell_1\!\approx\!0.16$) — the regime where the test must work hardest
-(**Figure 4**). Counter-intuitively, **a larger, more accurate test makes the *worse*
+(**Figure 3**). Counter-intuitively, **a larger, more accurate test makes the *worse*
 decision**: as $k$ grows $25\to100\to200\to800$, the ratio *falls* $0.992\to0.981\to
 0.969\to0.956$ and the misjudgement rate (against an empirical oracle: should we have
 followed, given that following actually underperformed the baseline here?) *rises*
@@ -147,7 +147,7 @@ computed from the prefix and public information. A public-information early exit
 back without spending the prefix when even a *correct* advice would not beat the
 baseline) restores parity with Choo et al.'s $\hat n/n\le\beta$ exit.
 
-**Figure 5** repeats the envelope sweep with the payoff rule added, against both the
+**Figure 4** repeats the envelope sweep with the payoff rule added, against both the
 worst-case and the recalibrated thresholds. The three rules now separate cleanly. At
 mildly bad advice — where the worst-case threshold follows the crash ($0.948$ and $0.937$
 at $\ell_1\approx0.10$ and $0.21$, misjudging $100\%$ and $63\%$ of instances) — the
@@ -173,7 +173,7 @@ unresolvable stakes is exactly this safe-either-way coin flip.
 
 ![The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget–stakes law allows.](../../results/directional_envelope.png){width=85%}
 
-**Figure 6** is the head-to-head that summarizes the section. At borderline advice
+**Figure 5** is the head-to-head that summarizes the section. At borderline advice
 ($\eta=0.15$), growing the prefix from $k=25$ to $800$ drives the worst-case threshold's
 misjudgement *up* from $0.07$ to $1.00$ (ratio $0.987\to0.922$) — §5.2's pathology in
 full — while the payoff rule's misjudgement falls monotonically from $0.53$ to $0.00$

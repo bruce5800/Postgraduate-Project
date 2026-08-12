@@ -440,79 +440,61 @@ panels chosen to span the regimes each family was designed for.}{}
 
 \section{3.1 Design}\label{design}
 
-\revpair{The families consume different prediction objects, so we drive each with
-its own corruption knob and present them in parallel panels (Section
-2.3); the shared harness --- graphs, \(\mathrm{OPT}\), CI methodology,
-and the advice-free floor --- is what makes the panels comparable.}{}
+\revpair{The families consume different prediction objects, so each is driven by
+its own corruption knob and reported in a parallel panel (Section 2.3);
+the shared harness --- graphs, \(\mathrm{OPT}\), CI methodology, and the
+advice-free floor --- is what makes the panels comparable.}{}
+
+\revpair{\textbf{Instance format and notation.} Every panel uses the instance
+format of Section 2.1: \(n\) offline resources, \(r\) online request
+types, and \(m\) arrivals drawn i.i.d. from the type distribution;
+throughout this section \(m=n\), so requests and resources are balanced.
+The panels differ \emph{only} in the type graph connecting requests to
+resources --- that single change is what moves the input between the
+regimes the two prediction families were designed for. The three are
+chosen so that a \emph{degree} predictor has strong signal, weak signal,
+and no role at all, respectively:}{}
 
 \revpair{\begin{itemize}
 \tightlist
 \item
-  \textbf{Panel A --- clvb\_zipf} (\(n=1000\), 60 trials): heavy-tailed
-  offline degrees, the regime where degree predictions carry signal.
+  \textbf{Panel A --- heavy-tailed degrees (Zipf)} (\(n=1000\), 60
+  trials): \revhl{revMust}{resource degrees follow a Zipf power law}\revhlid{revMust}{2-01} with exponent
+  \(1.0\) --- a few resources are heavily contended while most are
+  rarely eligible. This heavy-tailed profile gives a \emph{degree}
+  predictor genuine signal to carry.
 \item
   \textbf{Panel B --- left-regular \(d{=}5\)} (\(n=1000\), 60 trials):
-  near-homogeneous degrees, where predictions have little to add.
+  each arriving request connects to exactly \(d=5\) uniformly random
+  resources, so resource degrees are nearly homogeneous --- the hard
+  case for this family, where a degree predictor has almost no signal
+  left to carry.
 \item
-  \textbf{Panel C --- few-types \(r{=}8\)} (\(n=2000\), 50 trials):
-  near-perfect-matchable, the calibrated regime for the type-histogram
-  test-and-fallback algorithms.
+  \textbf{Panel C --- few-types \(r{=}8\)} (\(n=2000\), 50 trials): only
+  \(r=8\) distinct request types, each arriving \(\approx n/r=250\)
+  times on average --- the near-perfect-matchable, few-types regime the
+  \emph{histogram}-advice algorithms are calibrated for; their
+  test-and-fallback test inspects a prefix of \(k=200\) arrivals.
 \end{itemize}}{}
 
-\revpair{For the degree-prediction panels the quality columns are \emph{perfect}
-(true degrees), \emph{noisy} (random-flip at strength \(\tfrac12\)),
-\emph{adversarial} (order-reversing), and \emph{garbage} (fully random
-\(\equiv\) Ranking predictor). For the advice panel the columns are
+\revpair{Panels A and B thus exercise the degree-prediction family (MPD and its
+augmentations); Panel C exercises the histogram-advice family
+(FollowPrediction, TestAndMatch, and the combiner).}{}
+
+\revpair{\textbf{Shared methodology.} Paired trials, independent random streams
+and confidence intervals are exactly as in Section 2.5; the
+panel-specific parameters are the ones listed above, and the intervals
+are tight throughout (\(\pm0.001\)--\(0.003\)). The quality columns
+instantiate the error models of Section 2.3 --- degree panels:
+\emph{perfect} (true realized degrees), \emph{noisy} (random-flip at
+strength \(\tfrac12\)), \emph{adversarial} (order-reversing reflection),
+\emph{garbage} (independent random \(\mu\), \(\equiv\) Ranking); advice
+panel: the true histogram blended toward a concentrated random target by
 \(\eta\in\{0,0.3,0.6,1.0\}\) (\emph{perfect / mild / bad / garbage}).
-Confidence intervals are tight throughout (\(\pm 0.001\)--\(0.003\)); we
-omit them from the prose and report them in Table 1.}{}
-
-\revpair{\textbf{Table 1} (the three panels, 95\% CI) and \textbf{Figure 1}
-(grouped bars) are the section's data. The salient rows:}{}
-
-{\footnotesize\setlength{\tabcolsep}{3pt}
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1579}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-perfect
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-noisy
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-adversarial
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-garbage
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\emph{Panel A --- clvb\_zipf} & & & & \\
-Ranking (floor) & 0.948 & --- & --- & --- \\
-MinDegree (oracle) & 0.996 & --- & --- & --- \\
-MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
-Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
-JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
-Feldman / JailletLu (base) & 0.887 / 0.900 & --- & --- & --- \\
-\emph{Panel B --- left-regular \(d{=}5\)} & & & & \\
-Greedy = Ranking (floor) & 0.890 & --- & --- & --- \\
-MinDegree (oracle) & 0.966 & --- & --- & --- \\
-MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
-Feldman(MPD) / JailletLu(MPD) & 0.906 / 0.904 & 0.902 / 0.903 & 0.896 /
-0.899 & 0.900 / 0.901 \\
-Feldman / JailletLu (base) & 0.760 / 0.788 & --- & --- & --- \\
-\end{longtable}
-}
-}
-
-\revpair{}{\revcard{revMust}{2-01 · P4 体例校对 · 必改 · 代码名进正文}{%
-\textbf{原文}\hspace{0.4em}\textquotedblleft Panel A - clvb\_zipf\textquotedblright\par
+The two sets of columns are \emph{not} commensurable --- they corrupt
+different prediction objects with different knobs --- so only
+within-panel comparisons carry meaning. \textbf{Table 1} presents each
+panel's ratios beside its bar chart; the findings follow in Section 3.2.}{\revcard{revMust}{2-01 · P4 体例校对 · 必改 · 代码名进正文}{%
 \textbf{问题}\hspace{0.4em}clvb\_zipf 是生成器标识符，带下划线出现在表里。审稿人不知道 clvb 是什么，也看不出这个面板测的是什么。\par
 \textbf{建议}\hspace{0.4em}改成可读名（heavy-tailed degrees (Zipf)），把脚本标识符放进复现附录。}
 \revcard{revMust}{2-02 · P4 体例校对 · 必改 · 三个 floor 不可比}{%
@@ -520,29 +502,78 @@ Feldman / JailletLu (base) & 0.760 / 0.788 & --- & --- & --- \\
 \textbf{问题}\hspace{0.4em}三个面板的 floor 是三个不同的数，来自不同图族，表里没有任何提示；两族的质量列语义也不同却同名并排。审稿人第一反应是横向比较。\par
 \textbf{建议}\hspace{0.4em}表注加一句：floor 是 Ranking 在该面板自身图族上的比值，面板之间不可比；两族的质量列同样只在面板内部可比。}}
 
-{\footnotesize\setlength{\tabcolsep}{3pt}
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}lrrrr@{}}
-\toprule\noalign{}
-& perfect & mild & bad & garbage \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\emph{Panel C --- few-types \(r{=}8\)} & & & & \\
+\begin{table}[H]
+\caption{The unified benchmark. Each panel's competitive ratios (means over paired
+trials; every 95\% CI $\le 0.003$) sit beside their bar chart (error bars: 95\% CIs;
+dashed line: advice-free floor; dotted: oracle ceiling). Bold marks the worst column of
+each unguarded prediction-follower; all three fall below their own panel's floor. That
+floor is instance-dependent --- it is Ranking's ratio on that panel's graph family, not a
+constant --- so the three floors ($0.948$, $0.890$, $0.990$) are not comparable with one
+another, and neither are the quality columns across the two prediction families
+(Section 2.3).}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel A --- heavy-tailed (Zipf)} & perfect & noisy & advers. & garbage \\
+\midrule
+Ranking (floor) & 0.948 & --- & --- & --- \\
+MinDegree (oracle) & 0.996 & --- & --- & --- \\
+MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
+Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
+JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
+Feldman (base) & 0.887 & --- & --- & --- \\
+JailletLu (base) & 0.900 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelA.png}
+\end{minipage}
+
+\medskip
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel B --- left-regular $d{=}5$} & perfect & noisy & advers. & garbage \\
+\midrule
+Greedy $=$ Ranking (floor) & 0.890 & --- & --- & --- \\
+MinDegree (oracle) & 0.966 & --- & --- & --- \\
+MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
+Feldman(MPD) & 0.906 & 0.902 & 0.896 & 0.900 \\
+JailletLu(MPD) & 0.904 & 0.903 & 0.899 & 0.901 \\
+Feldman (base) & 0.760 & --- & --- & --- \\
+JailletLu (base) & 0.788 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelB.png}
+\end{minipage}
+
+\medskip
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel C --- few-types $r{=}8$} & perfect & mild & bad & garbage \\
+\midrule
 Ranking (floor) & 0.990 & --- & --- & --- \\
-MPD (true degrees) & 0.999 & --- & --- & --- \\
+MinDegree (oracle) & 0.999 & --- & --- & --- \\
 FollowPrediction & 1.000 & 0.832 & 0.679 & \textbf{0.472} \\
 TestAndMatch (Choo) & 1.000 & 0.984 & 0.989 & 0.990 \\
 TestAndMatch (BEM) & 0.998 & 0.988 & 0.988 & 0.968 \\
 Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
-\end{longtable}
-}
-}
-
-\revpair{\revfigure{../../results/unified_benchmark.png}{The unified benchmark (Table 1) as grouped bars: competitive
-ratio by algorithm and advice quality, one group per panel; the
-advice-free floor and oracle ceiling bracket every bar.}}{}
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelC.png}
+\end{minipage}
+\end{table}
 
 \section{3.2 Four findings}\label{four-findings}
 
@@ -635,7 +666,7 @@ subsequence --- a pure \emph{order} quantity. In particular a monotone
 structured error models across strength and record, per model and level,
 three quantities on the same instances: the actual MPD matching loss,
 ACI's \(n-\mathrm{LIS}\), and the normalized Kendall-\(\tau\) order
-error (\textbf{Figure 2}; \(n=1000\), Zipf exponent \(1.0\), 40 trials).}{}
+error (\textbf{Figure 1}; \(n=1000\), Zipf exponent \(1.0\), 40 trials).}{}
 
 \revpair{\revfigure{../../results/order_vs_theory.png}{Order error, not magnitude, governs MPD's loss: (a) realized
 loss sits far below the \(n-\mathrm{LIS}\) bound at every point; (b) the
@@ -645,7 +676,7 @@ four error models collapse onto the Kendall-\(\tau\) axis.}}{}
 \revhl{revShould}{The realized loss sits far}\revhlid{revShould}{3-02} below the \(n-\mathrm{LIS}\) upper bound at
 every point --- by roughly \(16\times\)}{\revcard{revShould}{3-02 · P2 领域审稿人 · 建议 · 倍数口径}{%
 \textbf{问题}\hspace{0.4em}没说这个倍数是怎么取的：界除以损失的均值，还是在某个误差强度上取的比。松紧程度是本节的贡献之一，审稿人需要能复核。\par
-\textbf{建议}\hspace{0.4em}写明口径：ratio of the bound to the realized loss at each model's strongest corruption level。 --> (adversarial) to \$75\textbackslash{}times\$ (distribution-drift). Figure 2(a) plots loss against}}
+\textbf{建议}\hspace{0.4em}写明口径：ratio of the bound to the realized loss at each model's strongest corruption level。 --> (adversarial) to \$75\textbackslash{}times\$ (distribution-drift). Figure 1(a) plots loss against}}
 
 \revpair{\textbf{(ii) \(n-\mathrm{LIS}\) saturates and cannot distinguish error
 structures.} For every non-trivial error the quantity is pinned near its
@@ -658,7 +689,7 @@ harmful.}{}
 
 \revpair{\textbf{(iii) Kendall-\(\tau\) is the governing order measure, and the
 error models collapse onto it.} Plotting the realized loss against the
-Kendall-\(\tau\) order error (Figure 2(b)), \revhl{revMust}{the four structured error
+Kendall-\(\tau\) order error (Figure 1(b)), \revhl{revMust}{the four structured error
 models fall on a single increasing curve}\revhlid{revMust}{3-03}: loss rises monotonically with
 Kendall-\(\tau\) (\(0.29\to0.50\to1.0\) for drift, random-flip,
 adversarial, tracking \(8.1\to21.6\to41.7\) in loss), with
@@ -702,7 +733,7 @@ proof-of-concept the original authors also fall back to (Section 2.2).}{}
 \revpair{We sweep advice error \(\ell_1(p,q)\) on few-types instances
 (\(n=2000\), \(r=8\), prefix \(k=200\), 40 trials) and compare blind
 FollowPrediction, TestAndMatch (Choo and BEM variants), and the Ranking
-floor (\textbf{Figure 3}). The picture is textbook. FollowPrediction
+floor (\textbf{Figure 2}). The picture is textbook. FollowPrediction
 degrades \emph{linearly}, from \(1.000\) at perfect advice to \(0.453\)
 at \(\ell_1\!\approx\!1.1\) --- well \emph{below} the advice-free floor
 (\(\approx 0.99\)). TestAndMatch instead stays on the \textbf{upper
@@ -725,7 +756,7 @@ inputs}\label{a-threshold-that-is-too-lenient-on-average-case-inputs}
 better test make a better decision? We sweep the prefix (testing) size
 \(k\) at \emph{borderline} advice (\(\eta=0.15\), true
 \(\ell_1\!\approx\!0.16\)) --- the regime where the test must work
-hardest (\textbf{Figure 4}). Counter-intuitively, \textbf{a larger, more
+hardest (\textbf{Figure 3}). Counter-intuitively, \textbf{a larger, more
 accurate test makes the \emph{worse} decision}: as \(k\) grows
 \(25\to100\to200\to800\), the ratio \emph{falls} \(0.992\to0.981\to
 0.969\to0.956\) and the misjudgement rate (against an empirical oracle:
@@ -827,7 +858,7 @@ public information. A public-information early exit (fall back without
 spending the prefix when even a \emph{correct} advice would not beat the
 baseline) restores parity with Choo et al.'s \(\hat n/n\le\beta\) exit.}{}
 
-\revpair{\textbf{Figure 5} repeats the envelope sweep with the payoff rule added,
+\revpair{\textbf{Figure 4} repeats the envelope sweep with the payoff rule added,
 against both the worst-case and the recalibrated thresholds. The three
 rules now separate cleanly. At mildly bad advice --- where the
 worst-case threshold follows the crash (\(0.948\) and \(0.937\) at
@@ -852,7 +883,7 @@ threshold never captures at perfect advice, and the constant-free payoff
 rule tracks the upper envelope within the resolution the budget--stakes
 law allows.}}{}
 
-\revpair{\textbf{Figure 6} is the head-to-head that summarizes the section. At
+\revpair{\textbf{Figure 5} is the head-to-head that summarizes the section. At
 borderline advice (\(\eta=0.15\)), growing the prefix from \(k=25\) to
 \(800\) drives the worst-case threshold's misjudgement \emph{up} from
 \(0.07\) to \(1.00\) (ratio \(0.987\to0.922\)) --- §5.2's pathology in
@@ -910,7 +941,7 @@ predictor: last-window historical statistics. Real Wikipedia daily
 pageviews give a live day (the truth) and earlier days (a 1-, 7-, or
 30-day-stale forecast), so the prediction error is genuine temporal
 drift; we map the trace onto a fixed serving topology and \revhl{revMust}{consume the
-forecast}\revhlid{revMust}{5-01} through the degree route (MPD) (\textbf{Figure 7};
+forecast}\revhlid{revMust}{5-01} through the degree route (MPD) (\textbf{Figure 6};
 \texttt{docs/REAL\_PREDICTOR.md}).}{\revcard{revMust}{5-01 · P7 复现审稿人 · 必改 · 指向仓库内部文档}{%
 \textbf{问题}\hspace{0.4em}第 6 节正文三次把读者指向仓库里的 markdown 笔记。审稿人只有 PDF，这些指向对他们等于不存在；而它们支撑的是本节的主要数字。\par
 \textbf{建议}\hspace{0.4em}凡支撑正文数字的，摘进复现附录；其余删掉。脚本路径可以保留（artifact 里有），docs/*.md 不行。}}
@@ -943,7 +974,7 @@ algorithms of Sections 3 and 5 are for.}{}
 \revpair{We re-run the degree-prediction roster of Section 3 on the six
 Network-Repository graphs (two Facebook social, two C. elegans
 biological, two economic input-output), across the same quality columns,
-with 95\% CIs (\textbf{Figure 8};
+with 95\% CIs (\textbf{Figure 7};
 \texttt{docs/REALWORLD\_ROBUSTNESS.md}).}{}
 
 \revpair{\revfigure{../../results/realworld_robustness.png}{The six real-world graphs: unguarded following falls below the
@@ -1327,7 +1358,7 @@ information needed to decide does not exist inside the instance.
 \(\rho_{\mathrm{base}}\approx0.99\), \(n=2000\)) the threshold is
 \(g^{*}\approx 0.003\), and the measured upsides are \(<0.01\) (F3) ---
 the empirical wall sits in the regime the corollary governs. This is the
-\textbf{scissors} of \textbf{Figure 9}
+\textbf{scissors} of \textbf{Figure 8}
 (\texttt{results/impossibility\_frontier.png}), now with the correct
 mechanism: the \emph{potential} upside (perfect advice minus baseline)
 grows as the baseline weakens, while the upside a feasible test can
@@ -1360,7 +1391,7 @@ itself: holding the true error at \(\ell_1\approx0.11\) and growing the
 support from \(r=8\) to \(512\) at fixed \(k=200\), the plug-in estimate
 inflates from \(0.17\) to \(1.22\) --- twelve times the truth --- while
 the payoff rule of §5.4 keeps deciding, staying within the prefix cost
-of the floor at both good and bad advice (\textbf{Figure 10}).}{}
+of the floor at both good and bad advice (\textbf{Figure 9}).}{}
 
 \revpair{\revfigure{../../results/directional_rsweep.png}{The blindness curve on the benchmark generator: at fixed true
 \(\ell_1\approx0.11\) and \(k=200\), the plug-in \(\hat\ell_1\) inflates

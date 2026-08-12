@@ -30,8 +30,34 @@ LABEL2KEY = {
 alt = '|'.join(LABEL2KEY)
 LABEL_RE = re.compile(r'\[((?:%s)(?:,\s*(?:%s))*)\]' % (alt, alt))
 
+def strip_comments(text):
+    """Delete HTML comment blocks (author notes, REV annotations).
+
+    A comment block written *inside* a paragraph is preceded by a blank line but
+    followed immediately by prose; deleting only its own lines would leave that blank
+    line behind and split the paragraph in the PDF.  So when prose resumes right after
+    the block, the preceding blank line(s) go too and the paragraph stays whole.
+    """
+    lines, out, i = text.split('\n'), [], 0
+    while i < len(lines):
+        stripped = lines[i].lstrip()
+        if stripped.startswith('<!--'):
+            j = i
+            while j < len(lines) and '-->' not in lines[j]:
+                j += 1
+            if j < len(lines) and not lines[j].split('-->', 1)[1].strip():
+                if j + 1 < len(lines) and lines[j + 1].strip():   # prose resumes
+                    while out and not out[-1].strip():
+                        out.pop()
+                i = j + 1
+                continue
+        out.append(re.sub(r'<!--.*?-->', '', lines[i]))
+        i += 1
+    return re.sub(r'<!--.*?-->', '', '\n'.join(out), flags=re.S)
+
+
 def preprocess(text):
-    text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
+    text = strip_comments(text)
     text = re.sub(r'^(#+) (\d+(?:\.\d+)*)\.?\s+', r'\1 ', text, flags=re.M)
     text = LABEL_RE.sub(lambda m: r'\cite{%s}' % ','.join(
         LABEL2KEY[l.strip()] for l in m.group(1).split(',')), text)

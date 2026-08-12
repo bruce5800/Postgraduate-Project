@@ -3,10 +3,10 @@ Draft §6 — external validity (C2 support). Numbers:
  §6.1 real predictor: scripts/run_real_predictor.py (Wikipedia), docs/REAL_PREDICTOR.md.
       staleness 1/7/30d: hist-Kτ .38/.45/.49 → induced μ-Kτ .19/.27/.32; MPD base .923/.925/.925,
       real .957/.948/.938, oracle .973/.973/.975; gap-capture 68/47/27%; Follow .68/.48/.36;
-      cost 0.108ms = 2.1% of OPT. Figure 7 = real_predictor.png.
+      cost 0.108ms = 2.1% of OPT. Figure 6 = real_predictor.png.
  §6.2 six real graphs: scripts/run_realworld_robustness.py, docs/REALWORLD_ROBUSTNESS.md.
       F1 6/6; F3 mean +.049, smallest on econ; F2 clean social/bio, partial 2 econ; F4 dramatic.
-      Figure 8 = realworld_robustness.png.
+      Figure 7 = realworld_robustness.png.
  §6.3 learning negative (M0–M3): docs/RANK_LEARNING_M0_M3.md. rank≡MSE on real features (τ .126=.126).
 Guardrails: F2 "qualitatively 6/6, strictly 4/6" (don't round up); learning result is an honest negative.
 -->
@@ -23,7 +23,7 @@ We replace the synthetic error knob with the cheapest realistic predictor: last-
 historical statistics. Real Wikipedia daily pageviews give a live day (the truth) and
 earlier days (a 1-, 7-, or 30-day-stale forecast), so the prediction error is genuine
 temporal drift; we map the trace onto a fixed serving topology and consume the forecast
-through the degree route (MPD) (**Figure 7**; `docs/REAL_PREDICTOR.md`).
+through the degree route (MPD) (**Figure 6**; `docs/REAL_PREDICTOR.md`).
 
 <!--REV
 id: 5-01
@@ -56,7 +56,7 @@ exactly what the robust algorithms of Sections 3 and 5 are for.
 
 We re-run the degree-prediction roster of Section 3 on the six Network-Repository graphs
 (two Facebook social, two C. elegans biological, two economic input-output), across the
-same quality columns, with 95% CIs (**Figure 8**; `docs/REALWORLD_ROBUSTNESS.md`).
+same quality columns, with 95% CIs (**Figure 7**; `docs/REALWORLD_ROBUSTNESS.md`).
 
 ![The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety — the benchmark's findings are universal, not generator artifacts.](../../results/realworld_robustness.png){width=100%}
 

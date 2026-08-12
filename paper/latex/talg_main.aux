@@ -31,37 +31,25 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Experimental methodology and reproducibility}{5}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}The Unified Benchmark}{5}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Design}{5}{subsection.3.1}\protected@file@percent }
-\gdef \LT@i {\LT@entry 
-    {1}{66.58092pt}\LT@entry 
-    {1}{92.09401pt}\LT@entry 
-    {1}{92.09401pt}\LT@entry 
-    {1}{92.09401pt}\LT@entry 
-    {1}{87.09401pt}}
-\gdef \LT@ii {\LT@entry 
-    {3}{93.20435pt}\LT@entry 
-    {1}{35.67694pt}\LT@entry 
-    {3}{28.72pt}\LT@entry 
-    {3}{28.72pt}\LT@entry 
-    {1}{34.03398pt}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The unified benchmark (Table 1) as grouped bars: competitive ratio by algorithm and advice quality, one group per panel; the advice-free floor and oracle ceiling bracket every bar.}}{7}{figure.caption.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The unified benchmark. Each panel's competitive ratios (means over paired trials; every 95\% CI $\le 0.003$) sit beside their bar chart (error bars: 95\% CIs; dashed line: advice-free floor; dotted: oracle ceiling). Bold marks the worst column of each unguarded prediction-follower; all three fall below their own panel's floor. That floor is instance-dependent --- it is Ranking's ratio on that panel's graph family, not a constant --- so the three floors ($0.948$, $0.890$, $0.990$) are not comparable with one another, and neither are the quality columns across the two prediction families (Section 2.3).}}{7}{table.caption.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Four findings}{7}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Takeaway}{8}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}What Governs the Loss: Order-Error and ACI's Bound}{8}{section.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Order error, not magnitude, governs MPD's loss: (a) realized loss sits far below the \(n-\mathrm  {LIS}\) bound at every point; (b) the four error models collapse onto the Kendall-\(\tau \) axis.}}{9}{figure.caption.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Order error, not magnitude, governs MPD's loss: (a) realized loss sits far below the \(n-\mathrm  {LIS}\) bound at every point; (b) the four error models collapse onto the Kendall-\(\tau \) axis.}}{9}{figure.caption.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}Test-and-Fallback in Depth}{9}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}The robustness envelope}{9}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}}{10}{figure.caption.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}}{10}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}The robustness envelope}{10}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}A threshold that is too lenient on average-case inputs}{10}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Recalibration, and the resolution limit it exposes}{10}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the \emph  {worse} decision.}}{11}{figure.caption.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the \emph  {worse} decision.}}{11}{figure.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Recalibration, and the resolution limit it exposes}{11}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Testing the payoff instead: a decision rule with no constants}{12}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{12}{subsection.5.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget--stakes law allows.}}{13}{figure.caption.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Borderline advice (\(\eta =0.15\)): as the prefix grows, the worst-case threshold's misjudgement rises to \(1.0\) while the payoff rule's falls to \(0.0\) --- more data helps exactly when the statistic is the decision-relevant one.}}{13}{figure.caption.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.}}{14}{figure.caption.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget--stakes law allows.}}{13}{figure.caption.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Borderline advice (\(\eta =0.15\)): as the prefix grows, the worst-case threshold's misjudgement rises to \(1.0\) while the payoff rule's falls to \(0.0\) --- more data helps exactly when the statistic is the decision-relevant one.}}{13}{figure.caption.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.}}{14}{figure.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{14}{subsection.5.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}External Validity}{14}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}A real, cheap predictor}{14}{subsection.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings are universal, not generator artifacts.}}{15}{figure.caption.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings are universal, not generator artifacts.}}{15}{figure.caption.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Six real-world graphs}{15}{subsection.6.2}\protected@file@percent }
 \citation{canonne2022tolerance,valiant2011unseen,jiao2018l1}
 \citation{choo2024imperfect,bem2026testmatch}
@@ -78,15 +66,15 @@
 \@writefile{toc}{\contentsline {section}{\numberline {7}A Budget--Stakes Law: What a Sublinear Test Can and Cannot Buy}{16}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}The test-and-fallback class}{17}{subsection.7.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}The master trade-off (rigorous)}{17}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}The construction and the affine law}{17}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}The construction and the affine law}{18}{subsection.7.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.4}The payoff identity: the stakes are a per-sample observable}{18}{subsection.7.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.5}The budget--stakes law}{19}{subsection.7.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.6}The wall, quantified: strong baselines price the test out of the horizon}{19}{subsection.7.6}\protected@file@percent }
 \citation{choo2024imperfect,bem2026testmatch}
 \citation{canonne2022tolerance}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The budget--stakes scissors: as the baseline weakens (left), the potential upside of perfect advice grows, while the upside a feasible test can safely capture stays pinned near zero --- the empirical test's resolution sits far above the break-even margin wherever the upside exists.}}{20}{figure.caption.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The budget--stakes scissors: as the baseline weakens (left), the potential upside of perfect advice grows, while the upside a feasible test can safely capture stays pinned near zero --- the empirical test's resolution sits far above the break-even margin wherever the upside exists.}}{20}{figure.caption.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Why the field's rules hit the wall earlier: distance-testing is the wrong statistic}{20}{subsection.7.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The blindness curve on the benchmark generator: at fixed true \(\ell _1\approx 0.11\) and \(k=200\), the plug-in \(\hat  \ell _1\) inflates with the support size while the payoff rule keeps deciding at both good (left) and bad (right) advice.}}{21}{figure.caption.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The blindness curve on the benchmark generator: at fixed true \(\ell _1\approx 0.11\) and \(k=200\), the plug-in \(\hat  \ell _1\) inflates with the support size while the payoff rule keeps deciding at both good (left) and bad (right) advice.}}{21}{figure.caption.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.8}Scope and honesty}{21}{subsection.7.8}\protected@file@percent }
 \citation{lykouris2018caching}
 \citation{weizhang2020tradeoffs}
@@ -106,8 +94,9 @@
 \bibstyle{ACM-Reference-Format}
 \bibdata{refs_clean}
 \bibcite{aci2022mpd}{{1}{2022}{{Aamand et~al\mbox  {.}}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Limitations and Conclusion}{23}{section.10}\protected@file@percent }
 \bibcite{antoniadis2025switching}{{2}{2025}{{Antoniadis et~al\mbox  {.}}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Limitations and Conclusion}{23}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{23}{section*.13}\protected@file@percent }
 \bibcite{balcan2020datadriven}{{3}{2020}{{Balcan}}{{}}}
 \bibcite{bhattacharyya2025product}{{4}{2025}{{Bhattacharyya et~al\mbox  {.}}}{{}}}
 \bibcite{borodin2018experimental}{{5}{2020}{{Borodin et~al\mbox  {.}}}{{}}}
@@ -133,6 +122,5 @@
 \newlabel{tocindent3}{0pt}
 \newlabel{tocindent4}{0pt}
 \newlabel{tocindent5}{0pt}
-\@writefile{toc}{\contentsline {section}{References}{24}{section*.13}\protected@file@percent }
 \newlabel{TotPages}{{24}{24}{}{page.24}{}}
 \gdef \@abspage@last{24}

@@ -2,8 +2,8 @@
 Draft §7 — the budget–stakes law (C5, Direction C — REVISED 2026-07-27). THE CENTERPIECE.
 Sources: docs/T1_PROOF_SKELETON.md (Lemma 1), T1_W1_single_cell.md (cell constants),
 T1_W2_W3a_closeout.md (affine law), T1_WITNESS_GAP.md (payoff identity, refutation of the
-tolerant-testing route, T1' both halves). Figure 9 = impossibility_frontier.png,
-Figure 10 = directional_rsweep.png (§7.7).
+tolerant-testing route, T1' both halves). Figure 8 = impossibility_frontier.png,
+Figure 9 = directional_rsweep.png (§7.7).
 Verification scripts: scripts/verify_witness_gap.py (payoff identity, directional test,
 plug-in-l1 blindness), plus the W1/W3a checks referenced in Appendix.
 
@@ -297,7 +297,7 @@ $$g^{*} \;=\; \sigma/\sqrt n \;=\; \sqrt{2(1-\rho_{\mathrm{base}})/n}\,:$$
 
 At the parameters of our benchmark (§3: $\rho_{\mathrm{base}}\approx0.99$, $n=2000$) the
 threshold is $g^{*}\approx 0.003$, and the measured upsides are $<0.01$ (F3) — the
-empirical wall sits in the regime the corollary governs. This is the **scissors** of **Figure 9**
+empirical wall sits in the regime the corollary governs. This is the **scissors** of **Figure 8**
 (`results/impossibility_frontier.png`), now with the correct mechanism: the *potential*
 upside (perfect advice minus baseline) grows as the baseline weakens, while the upside a
 feasible test can safely capture is pinned by the $\sqrt{(1-\rho_{\mathrm{base}})/n}$
@@ -329,7 +329,7 @@ explained. The same blindness is measurable on the benchmark generator itself: h
 the true error at $\ell_1\approx0.11$ and growing the support from $r=8$ to $512$ at
 fixed $k=200$, the plug-in estimate inflates from $0.17$ to $1.22$ — twelve times the
 truth — while the payoff rule of §5.4 keeps deciding, staying within the prefix cost of
-the floor at both good and bad advice (**Figure 10**).
+the floor at both good and bad advice (**Figure 9**).
 
 ![The blindness curve on the benchmark generator: at fixed true $\ell_1\approx0.11$ and $k=200$, the plug-in $\hat\ell_1$ inflates with the support size while the payoff rule keeps deciding at both good (left) and bad (right) advice.](../../results/directional_rsweep.png){width=100%}
 

@@ -149,16 +149,14 @@ anchor what follows: the baseline slack \emph{is} half the specialist
 mass, \[1-\rho_{\mathrm{base}} \;=\; \sigma^2/2,\] and the maximum
 stakes (the full upside) are
 \(\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}} = \sum_i\theta_i\varepsilon_i/N
-\le 2\varepsilon_{\max}\,(1-\rho_{\mathrm{base}})\): *the upside is at
-most an
-
-\(\varepsilon\)-fraction of the baseline slack.* That the same
-\(\sigma^2\) measures both the slack and the noise is not a coincidence
---- it is the law. The canonical (verified) instantiation takes
-\(\theta_i=\theta\), \(\varepsilon_i=\varepsilon\) and a wrong-direction
-fraction \(\varphi=\tfrac14\) (good: \(\ell_1 = a\), gain \(\delta\))
-versus \(\varphi=\tfrac34\) (bad: \(\ell_1 = b\), loss \(\Delta\)), with
-\(\delta=\Delta=\ell_1^\star/4\).
+\le 2\varepsilon_{\max}\,(1-\rho_{\mathrm{base}})\): \emph{the upside is
+at most an \(\varepsilon\)-fraction of the baseline slack.} That the
+same \(\sigma^2\) measures both the slack and the noise is not a
+coincidence --- it is the law. The canonical (verified) instantiation
+takes \(\theta_i=\theta\), \(\varepsilon_i=\varepsilon\) and a
+wrong-direction fraction \(\varphi=\tfrac14\) (good: \(\ell_1 = a\),
+gain \(\delta\)) versus \(\varphi=\tfrac34\) (bad: \(\ell_1 = b\), loss
+\(\Delta\)), with \(\delta=\Delta=\ell_1^\star/4\).
 
 \subsection{The payoff identity: the stakes are a per-sample
 observable}
@@ -289,15 +287,13 @@ At the parameters of our benchmark (§3:
 \(\rho_{\mathrm{base}}\approx0.99\), \(n=2000\)) the threshold is
 \(g^{*}\approx 0.003\), and the measured upsides are \(<0.01\) (F3) ---
 the empirical wall sits in the regime the corollary governs. This is the
-\textbf{scissors} of \textbf{Figure 9}
+\textbf{scissors} of \textbf{Figure 8}
 (\texttt{results/impossibility\_frontier.png}), now with the correct
 mechanism: the \emph{potential} upside (perfect advice minus baseline)
 grows as the baseline weakens, while the upside a feasible test can
 safely capture is pinned by the \(\sqrt{(1-\rho_{\mathrm{base}})/n}\)
-resolution --- **the structure that makes the baseline strong is the
-structure that starves
-
-the test of signal.**
+resolution --- \textbf{the structure that makes the baseline strong is
+the structure that starves the test of signal.}
 
 \begin{figure}
 \centering
@@ -327,7 +323,7 @@ benchmark generator itself: holding the true error at
 fixed \(k=200\), the plug-in estimate inflates from \(0.17\) to \(1.22\)
 --- twelve times the truth --- while the payoff rule of §5.4 keeps
 deciding, staying within the prefix cost of the floor at both good and
-bad advice (\textbf{Figure 10}).
+bad advice (\textbf{Figure 9}).
 
 \begin{figure}
 \centering
@@ -382,8 +378,7 @@ test is analyzed here only on the cell family; a dedicated novelty pass
 rule in the adjacent literatures --- the nearest lines test distances,
 switch on regret, or select algorithms from whole-instance samples (§9)
 --- though the statistical skeleton of the upper half is, deliberately,
-classical. We credit Choo et al.~for the constructive
-
-baseline-coupling their threshold already exhibits; our contribution is
-the two-sided, rule-independent budget law, the payoff/distance
-separation, and the quantified wall.
+classical. We credit Choo et al.~for the constructive baseline-coupling
+their threshold already exhibits; our contribution is the two-sided,
+rule-independent budget law, the payoff/distance separation, and the
+quantified wall.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.9)  12 AUG 2026 17:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.9)  13 AUG 2026 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -694,14 +694,18 @@ Underfull \hbox (badness 3138) in paragraph at lines 422--422
 [7]
 
 [8]
+File: ../../results/unified_benchmark_panelA.png Graphic file (type bmp)
+<../../results/unified_benchmark_panelA.png>
+File: ../../results/unified_benchmark_panelB.png Graphic file (type bmp)
+<../../results/unified_benchmark_panelB.png>
+File: ../../results/unified_benchmark_panelC.png Graphic file (type bmp)
+<../../results/unified_benchmark_panelC.png>
+
 
 [9
 
 ]
-File: ../../results/unified_benchmark.png Graphic file (type bmp)
-<../../results/unified_benchmark.png>
-
-Underfull \hbox (badness 1478) in paragraph at lines 572--572
+Underfull \hbox (badness 1478) in paragraph at lines 603--603
 []\TU/lmr/bx/n/9 (F2) Two distinct robustness mechanisms, with different
  []
 
@@ -710,7 +714,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 572--572
 [10]
 
 [11]
-Underfull \hbox (badness 2035) in paragraph at lines 631--631
+Underfull \hbox (badness 2035) in paragraph at lines 662--662
 \TU/lmr/m/n/8 error model (a monotone rescale) has Kendall-
  []
 
@@ -732,7 +736,7 @@ File: ../../results/choo_bem_prefix.png Graphic file (type bmp)
 [14
 
 ]
-Underfull \hbox (badness 1540) in paragraph at lines 786--786
+Underfull \hbox (badness 1540) in paragraph at lines 817--817
 []\TU/lmr/m/n/9 On strong-baseline instances, no practical empirical-$\OML/cmm/
 m/it/9 `[]$
  []
@@ -748,13 +752,13 @@ File: ../../results/directional_envelope.png Graphic file (type bmp)
 File: ../../results/directional_prefix.png Graphic file (type bmp)
 <../../results/directional_prefix.png>
 
-Underfull \hbox (badness 1077) in paragraph at lines 876--876
+Underfull \hbox (badness 1077) in paragraph at lines 907--907
 []\TU/lmr/m/n/9 The honest costs: when advice is bad but not worthless-if-true,
 
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 876--876
+Underfull \hbox (badness 1072) in paragraph at lines 907--907
 \TU/lmr/m/n/9 the payoff rule pays the same prefix cost as its competitors ($\O
 MS/cmsy/m/n/9 ^^Y
  []
@@ -775,12 +779,12 @@ File: ../../results/realworld_robustness.png Graphic file (type bmp)
 ]
 
 [20]
-Underfull \hbox (badness 1776) in paragraph at lines 1030--1030
+Underfull \hbox (badness 1776) in paragraph at lines 1061--1061
 \TU/lmr/m/n/9 elementary — Bernstein/Hoeffding upper, Hellinger + Lemma 1
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 1030--1030
+Underfull \hbox (badness 1337) in paragraph at lines 1061--1061
 \TU/lmr/m/n/9 magnitude-free achievability, organized around the specialist mas
 s
  []
@@ -800,7 +804,7 @@ x-text;!
 
 
 [21]
-Underfull \hbox (badness 3930) in paragraph at lines 1062--1062
+Underfull \hbox (badness 3930) in paragraph at lines 1093--1093
 []\TU/SongtiSCLight(0)/b/n/8 问 题 \TU/lmr/m/n/8 Theorem 1(i) \TU/SongtiSCLight(0
 )/m/n/8 给 的 不 可 能 性 门 槛 是 \TU/lmr/m/n/8 k =
  []
@@ -810,30 +814,30 @@ Underfull \hbox (badness 3930) in paragraph at lines 1062--1062
 [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1147
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1178
 []\TU/lmr/m/it/9 Proof. \TU/lmr/m/n/9 Conditioning on $\OML/cmm/m/it/9 D$ \TU/l
 mr/m/n/9 under $\OML/cmm/m/it/9 G$\TU/lmr/m/n/9 , $\U/msb/m/n/9 E[]\OT1/cmr/m/n
 /9 [\OML/cmm/m/it/9 A[]\OT1/cmr/m/n/9 ]/[] =
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 1192--1192
+Underfull \hbox (badness 2368) in paragraph at lines 1223--1223
 \TU/SongtiSCLight(0)/m/n/8 为 它 同 时 是 决 策 统 计 量 的 方 差 上 界，| \TU/lmr/m/n/8 sigma 
 \TU/SongtiSCLight(0)/m/n/8 即 其
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 1192--1192
+Underfull \hbox (badness 1789) in paragraph at lines 1223--1223
 \TU/lmr/m/n/8 the baseline slack.* That the same $\sigma^2$
  []
 
 
-Underfull \hbox (badness 2065) in paragraph at lines 1192--1192
+Underfull \hbox (badness 2065) in paragraph at lines 1223--1223
 \TU/lmr/m/n/8 measures both the slack and the noise is not
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 1192--1192
+Underfull \hbox (badness 3503) in paragraph at lines 1223--1223
 \TU/lmr/m/n/8 a coincidence  |\TU/SongtiSCLight(0)/m/n/8 —| \TU/lmr/m/n/8 it is
  the law. The canoni-
  []
@@ -841,13 +845,13 @@ Underfull \hbox (badness 3503) in paragraph at lines 1192--1192
 
 
 [23]
-Underfull \hbox (badness 1259) in paragraph at lines 1217--1217
+Underfull \hbox (badness 1259) in paragraph at lines 1248--1248
 \TU/lmr/m/n/9 sweeps, \TU/lmtt/m/n/9 scripts/verify_witness_gap.py\TU/lmr/m/n/9
  , and for ran-
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 1217--1217
+Underfull \hbox (badness 1067) in paragraph at lines 1248--1248
 \TU/lmr/m/n/9 dom heterogeneous and magnitude-mismatched profiles,
  []
 
@@ -855,25 +859,25 @@ Underfull \hbox (badness 1067) in paragraph at lines 1217--1217
 
 [24]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 1284.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 1315.
 
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <5> not available
-(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 1284
+(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 1315
 .
 
 
 [25]
-Underfull \hbox (badness 4713) in paragraph at lines 1324--1324
+Underfull \hbox (badness 4713) in paragraph at lines 1355--1355
 []\TU/lmr/bx/n/9 Corollary (uncapturable upsides). \TU/lmr/m/n/9 On strong-
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 1324--1324
+Underfull \hbox (badness 5490) in paragraph at lines 1355--1355
 \TU/lmr/m/n/9 baseline families, every advice upside smaller than
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 1338--1338
+Underfull \hbox (badness 1259) in paragraph at lines 1369--1369
 []\TU/SongtiSCLight(0)/b/n/8 问 题 \TU/SongtiSCLight(0)/m/n/8 这 是 全 文 最 强、|  也 最 
 会 被 引 用 的 一 句。|  它 由」|
  []
@@ -891,7 +895,7 @@ File: ../../results/directional_rsweep.png Graphic file (type bmp)
 [28
 
 ]
-Underfull \hbox (badness 2591) in paragraph at lines 1478--1478
+Underfull \hbox (badness 2591) in paragraph at lines 1509--1509
 []\TU/lmr/bx/n/9 Learning-augmented algorithms. \TU/lmr/m/n/9 The consistency/r
 obustness
  []
@@ -911,12 +915,12 @@ L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 10634 strings out of 475359
- 281625 string characters out of 5761897
- 683455 words of memory out of 5000000
- 33391 multiletter control sequences out of 15000+600000
- 567152 words of font info for 116 fonts, out of 8000000 for 9000
+ 10656 strings out of 475359
+ 282600 string characters out of 5761897
+ 683286 words of memory out of 5000000
+ 33411 multiletter control sequences out of 15000+600000
+ 567560 words of font info for 118 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 93i,11n,112p,913b,477s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,12n,112p,913b,477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on review_main.pdf (30 pages).

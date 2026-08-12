@@ -1,9 +1,10 @@
 <!--
 Draft §3 The unified benchmark (markdown; LaTeX later). Numbers are the actual run
 (scripts/run_unified_benchmark.py; results/unified_benchmark_tables.md &
-unified_benchmark.png). CIs are 95% half-widths (±.001–.003, tight). Guardrails:
-combiner benchmarked not claimed; prediction-object heterogeneity stated openly.
-Table 1 = the three panels; Figure 1 = the grouped bars.
+unified_benchmark_panel{A,B,C}.png). CIs are 95% half-widths (±.001–.003, tight).
+Guardrails: combiner benchmarked not claimed; prediction-object heterogeneity stated
+openly. Table 1 = the three panels, each beside its own bar chart (layout synced with
+thesis Table 4.1; the combined unified_benchmark.png is no longer used here).
 -->
 
 # 3. The Unified Benchmark
@@ -15,50 +16,54 @@ for.
 
 ## 3.1 Design
 
-The families consume different prediction objects, so we drive each with its own
-corruption knob and present them in parallel panels (Section 2.3); the shared harness —
-graphs, $\mathrm{OPT}$, CI methodology, and the advice-free floor — is what makes the
-panels comparable.
+The families consume different prediction objects, so each is driven by its own corruption
+knob and reported in a parallel panel (Section 2.3); the shared harness — graphs,
+$\mathrm{OPT}$, CI methodology, and the advice-free floor — is what makes the panels
+comparable.
 
-- **Panel A — clvb_zipf** ($n=1000$, 60 trials): heavy-tailed offline degrees, the regime
-  where degree predictions carry signal.
-- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): near-homogeneous degrees,
-  where predictions have little to add.
-- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials): near-perfect-matchable, the
-  calibrated regime for the type-histogram test-and-fallback algorithms.
+**Instance format and notation.** Every panel uses the instance format of Section 2.1: $n$
+offline resources, $r$ online request types, and $m$ arrivals drawn i.i.d. from the type
+distribution; throughout this section $m=n$, so requests and resources are balanced. The
+panels differ *only* in the type graph connecting requests to resources — that single
+change is what moves the input between the regimes the two prediction families were
+designed for. The three are chosen so that a *degree* predictor has strong signal, weak
+signal, and no role at all, respectively:
 
-For the degree-prediction panels the quality columns are *perfect* (true degrees),
-*noisy* (random-flip at strength $\tfrac12$), *adversarial* (order-reversing), and
-*garbage* (fully random $\equiv$ Ranking predictor). For the advice panel the columns are
-$\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). Confidence intervals are
-tight throughout ($\pm 0.001$–$0.003$); we omit them from the prose and report them in
-Table 1.
+- **Panel A — heavy-tailed degrees (Zipf)** ($n=1000$, 60 trials): resource degrees follow
+  a Zipf power law with exponent $1.0$ — a few resources are heavily contended while most
+  are rarely eligible. This heavy-tailed profile gives a *degree* predictor genuine signal
+  to carry.
+- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
+  to exactly $d=5$ uniformly random resources, so resource degrees are nearly homogeneous
+  — the hard case for this family, where a degree predictor has almost no signal left to
+  carry.
+- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials): only $r=8$ distinct request
+  types, each arriving $\approx n/r=250$ times on average — the near-perfect-matchable,
+  few-types regime the *histogram*-advice algorithms are calibrated for; their
+  test-and-fallback test inspects a prefix of $k=200$ arrivals.
 
-**Table 1** (the three panels, 95% CI) and **Figure 1** (grouped bars) are the section's
-data. The salient rows:
+Panels A and B thus exercise the degree-prediction family (MPD and its augmentations);
+Panel C exercises the histogram-advice family (FollowPrediction, TestAndMatch, and the
+combiner).
 
-| | perfect | noisy | adversarial | garbage |
-|---|---:|---:|---:|---:|
-| *Panel A — clvb_zipf* | | | | |
-| Ranking (floor) | 0.948 | — | — | — |
-| MinDegree (oracle) | 0.996 | — | — | — |
-| MPD | 0.989 | 0.956 | **0.908** | 0.946 |
-| Feldman(MPD) | 0.981 | 0.979 | 0.976 | 0.978 |
-| JailletLu(MPD) | 0.977 | 0.976 | 0.974 | 0.975 |
-| Feldman / JailletLu (base) | 0.887 / 0.900 | — | — | — |
-| *Panel B — left-regular $d{=}5$* | | | | |
-| Greedy = Ranking (floor) | 0.890 | — | — | — |
-| MinDegree (oracle) | 0.966 | — | — | — |
-| MPD | 0.932 | 0.906 | **0.854** | 0.888 |
-| Feldman(MPD) / JailletLu(MPD) | 0.906 / 0.904 | 0.902 / 0.903 | 0.896 / 0.899 | 0.900 / 0.901 |
-| Feldman / JailletLu (base) | 0.760 / 0.788 | — | — | — |
+**Shared methodology.** Paired trials, independent random streams and confidence intervals
+are exactly as in Section 2.5; the panel-specific parameters are the ones listed above, and
+the intervals are tight throughout ($\pm0.001$–$0.003$). The quality columns instantiate
+the error models of Section 2.3 — degree panels: *perfect* (true realized degrees), *noisy*
+(random-flip at strength $\tfrac12$), *adversarial* (order-reversing reflection), *garbage*
+(independent random $\mu$, $\equiv$ Ranking); advice panel: the true histogram blended
+toward a concentrated random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad /
+garbage*). The two sets of columns are *not* commensurable — they corrupt different
+prediction objects with different knobs — so only within-panel comparisons carry meaning.
+**Table 1** presents each panel's ratios beside its bar chart; the findings follow in
+Section 3.2.
 
 <!--REV
 id: 2-01
 role: P4 体例校对
 level: 必改
 kind: 代码名进正文
-mark: -
+mark: resource degrees follow a Zipf power law
 quote: Panel A - clvb_zipf
 note: clvb_zipf 是生成器标识符，带下划线出现在表里。审稿人不知道 clvb 是什么，也看不出这个面板测的是什么。
 fix: 改成可读名（heavy-tailed degrees (Zipf)），把脚本标识符放进复现附录。
@@ -75,17 +80,80 @@ note: 三个面板的 floor 是三个不同的数，来自不同图族，表里�
 fix: 表注加一句：floor 是 Ranking 在该面板自身图族上的比值，面板之间不可比；两族的质量列同样只在面板内部可比。
 -->
 
-| | perfect | mild | bad | garbage |
-|---|---:|---:|---:|---:|
-| *Panel C — few-types $r{=}8$* | | | | |
-| Ranking (floor) | 0.990 | — | — | — |
-| MPD (true degrees) | 0.999 | — | — | — |
-| FollowPrediction | 1.000 | 0.832 | 0.679 | **0.472** |
-| TestAndMatch (Choo) | 1.000 | 0.984 | 0.989 | 0.990 |
-| TestAndMatch (BEM) | 0.998 | 0.988 | 0.988 | 0.968 |
-| Combiner *(benchmark)* | 0.990 | 0.990 | 0.990 | 0.990 |
+```{=latex}
+\begin{table}[H]
+\caption{The unified benchmark. Each panel's competitive ratios (means over paired
+trials; every 95\% CI $\le 0.003$) sit beside their bar chart (error bars: 95\% CIs;
+dashed line: advice-free floor; dotted: oracle ceiling). Bold marks the worst column of
+each unguarded prediction-follower; all three fall below their own panel's floor. That
+floor is instance-dependent --- it is Ranking's ratio on that panel's graph family, not a
+constant --- so the three floors ($0.948$, $0.890$, $0.990$) are not comparable with one
+another, and neither are the quality columns across the two prediction families
+(Section 2.3).}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel A --- heavy-tailed (Zipf)} & perfect & noisy & advers. & garbage \\
+\midrule
+Ranking (floor) & 0.948 & --- & --- & --- \\
+MinDegree (oracle) & 0.996 & --- & --- & --- \\
+MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
+Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
+JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
+Feldman (base) & 0.887 & --- & --- & --- \\
+JailletLu (base) & 0.900 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelA.png}
+\end{minipage}
 
-![The unified benchmark (Table 1) as grouped bars: competitive ratio by algorithm and advice quality, one group per panel; the advice-free floor and oracle ceiling bracket every bar.](../../results/unified_benchmark.png){width=100%}
+\medskip
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel B --- left-regular $d{=}5$} & perfect & noisy & advers. & garbage \\
+\midrule
+Greedy $=$ Ranking (floor) & 0.890 & --- & --- & --- \\
+MinDegree (oracle) & 0.966 & --- & --- & --- \\
+MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
+Feldman(MPD) & 0.906 & 0.902 & 0.896 & 0.900 \\
+JailletLu(MPD) & 0.904 & 0.903 & 0.899 & 0.901 \\
+Feldman (base) & 0.760 & --- & --- & --- \\
+JailletLu (base) & 0.788 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelB.png}
+\end{minipage}
+
+\medskip
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\emph{Panel C --- few-types $r{=}8$} & perfect & mild & bad & garbage \\
+\midrule
+Ranking (floor) & 0.990 & --- & --- & --- \\
+MinDegree (oracle) & 0.999 & --- & --- & --- \\
+FollowPrediction & 1.000 & 0.832 & 0.679 & \textbf{0.472} \\
+TestAndMatch (Choo) & 1.000 & 0.984 & 0.989 & 0.990 \\
+TestAndMatch (BEM) & 0.998 & 0.988 & 0.988 & 0.968 \\
+Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\includegraphics[width=\linewidth]{../../results/unified_benchmark_panelC.png}
+\end{minipage}
+\end{table}
+```
 
 ## 3.2 Four findings
 
