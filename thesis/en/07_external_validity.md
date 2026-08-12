@@ -8,8 +8,10 @@ Guardrails: F2 "qualitatively 6/6, strictly 4/6"; §7.3 learning result is an ho
 # Chapter 7. External Validity
 
 Chapters 4–6 use synthetic graphs and a synthetic error knob. Is the picture real? We stress
-it three ways: a genuine, cheap predictor on a real request trace (§7.1); the six real-world
-graphs (§7.2); and whether *learning* the predictor changes anything (§7.3).
+it three ways, each replacing one synthetic ingredient with its real counterpart: §7.1
+replaces the synthetic error with genuine temporal drift from a real request trace, §7.2
+replaces the synthetic graphs with six real ones, and §7.3 replaces the hand-made predictor
+with a learned one.
 
 <!--REV
 id: 7-01
@@ -125,8 +127,9 @@ note: strictly 给了判据（spread 倍数），qualitatively 没有。两个�
 fix: 给出 qualitatively 的判据：例如 the augmentations' spread is smaller than naive MPD's on all six。两个判据都写死。
 -->
 
-The structural-robustness finding **F2 holds qualitatively on all six** (the augmentations
-are always less sensitive to prediction quality than naive MPD) and *strictly* on the four
+The structural-robustness finding **F2 holds qualitatively on all six** — the augmentations'
+spread across quality columns is smaller than naive MPD's on every graph — and *strictly*,
+by the stronger criterion that the spread is at most half of MPD's, on the four
 social/bio graphs (spread $0.22$–$0.29\times$ MPD's); on the two dense economic graphs the
 protection is only *partial* — the augmentation cushions the adversarial drop ($0.939$ vs
 naive MPD's $0.893$) but cannot clear the unusually high $0.965$ floor, dipping $\approx0.03$
@@ -157,7 +160,7 @@ note: 图注用颜色指代算法（red / green / blue），但没有说明六�
 fix: 图注写明：one panel per graph, shared vertical axis (or: axes differ; see values in text)。这一句决定了读者能不能横向读这张图。
 -->
 
-![F1–F3 on six real graphs: naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.](../../results/realworld_robustness.png){width=100%}
+![F1–F3 on six real graphs, one panel per graph (axis ranges differ between panels — the graphs' floors do too, so read each panel against its own dashed floor rather than across panels). Naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.](../../results/realworld_robustness.png){width=100%}
 
 ## 7.3 Does learning the predictor help?
 
@@ -185,7 +188,9 @@ fix: 定正本：第 8 章是正本（那里有完整的 M0 到 M3 过程），7
 
 On real predictors, real graphs, and a learned predictor, the same wall stands: the
 advice-free baseline is near-optimal, unguarded following is unsafe, and predictions buy
-downside protection rather than performance. Having established the wall empirically across
+downside protection rather than performance — with one instructive boundary, the two dense
+economic graphs of §7.2, where the augmentation cannot quite clear an unusually high
+floor. Having established the wall empirically across
 every setting we could reach, Chapter 8 reports the directions that tried to get past it,
 and the concluding outlook (§10.2) explains why it is forced.
 

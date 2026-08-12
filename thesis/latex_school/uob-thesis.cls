@@ -59,7 +59,7 @@
 
 %% Set page style and recalculate type area
 
-\KOMAoptions{headinclude=true, DIV=10}
+\KOMAoptions{headinclude=true, DIV=13}
 
 \renewcommand*{\partpagestyle}{empty}
 \pagestyle{scrheadings}

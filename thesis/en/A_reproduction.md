@@ -83,6 +83,9 @@ fix: 改成实际验证过的范围：verified bit-stable on NumPy 1.26 and 2.x�
 | Outlook checks (§A.6) | `scripts/verify_witness_gap.py` | console output | seconds |
 | Real-world Borodin Tables 3/4 (validation) $\dagger$ | `scripts/run_realworld.py` | `results/realworld.json` | ~few min |
 
+Runtimes are wall-clock on one machine (Apple M4 Pro, 12 cores); the scripts are
+single-threaded apart from NumPy's own vectorization, so they scale with single-core speed.
+
 <!--REV
 id: AP-03
 role: R4 体例校对
@@ -114,7 +117,7 @@ for t in tests/test_*.py; do python3 "$t"; done
 
 # regenerate the headline results (fast ones):
 python3 scripts/run_unified_benchmark.py        # Table 4.1 (data)
-python3 scripts/plot_unified_panels.py          # Table 4.1 (panel charts)
+python3 scripts/plot_unified_panels.py          # Table 4.1 (panel charts; needs the line above)
 python3 scripts/run_order_vs_theory.py          # Fig 5.1
 python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
@@ -123,7 +126,7 @@ python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
 python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
 python3 scripts/run_serving_slo_probe.py        # Fig 8.3
-python3 scripts/run_consistency_robustness.py   # Fig 4.1 (replots Table 4.1)
+python3 scripts/run_consistency_robustness.py   # Fig 4.1 (needs run_unified_benchmark first)
 python3 scripts/run_metric_check.py             # §3.1 and §3.5 methodology checks
 
 # the long (max-flow / Hopcroft–Karp-bound) sweeps:
@@ -245,9 +248,10 @@ There are three checks, each a short simulation of the rare-resource constructio
    at contention $\theta=0.6$ and advice bias $0.3$ the simulated per-cell advantage is
    $\pm0.119$, against a predicted $\pm\theta\cdot0.3 = \pm0.12$.
 2. **The conversion law.** The expected ratio when the advice is followed matches
-   $\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ — it falls off linearly in the advice's
-   $\ell_1$ error — again to three decimals. This is what makes the stakes $\delta$ of
-   §10.2 a linear function of the advice error rather than an arbitrary quantity.
+   $\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$, where $\rho_{\mathrm{perfect}}$ is the
+   ratio under perfect advice — it falls off linearly in the advice's $\ell_1$ error — again
+   to three decimals. In the language of §10.2 this is what makes the *stakes* $\delta$ a
+   linear function of the advice error.
 3. **The two budget–stakes ingredients.** The directional statistic's accuracy at a fixed
    prefix length does not degrade as $n$ grows, and the plug-in $\ell_1$ estimate becomes
    blind — indistinguishable between good and bad advice — once $k \ll r$. Both are produced

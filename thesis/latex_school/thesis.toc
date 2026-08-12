@@ -3,61 +3,61 @@
 \contentsline {section}{\numberline {1.1}Background and motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Research objectives}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Contributions}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Thesis organization}{4}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Background and Related Work}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Online bipartite matching and competitive analysis}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The known-i.i.d. model}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Learning-augmented algorithms}{8}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Predictions for online bipartite matching}{9}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Distribution testing}{10}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Positioning of this thesis}{11}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Model, Algorithms, and Methodology}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}The known-i.i.d. model, precisely}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Algorithms}{15}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Prediction objects and structured error models}{16}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Consistency and robustness}{17}{section.3.4}%
-\contentsline {section}{\numberline {3.5}The experimental harness}{17}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Fidelity check: reproducing Borodin et al.}{18}{section.3.6}%
-\contentsline {chapter}{\numberline {4}The Unified Benchmark}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Design}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Four findings}{24}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Chapter summary}{25}{section.4.3}%
-\contentsline {chapter}{\numberline {5}What Governs the Loss: Order Error and ACI's Bound}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}What is already known (ACI)}{26}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Our characterization}{27}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Chapter summary}{28}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Test-and-Fallback in Depth}{29}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The robustness envelope}{29}{section.6.1}%
-\contentsline {section}{\numberline {6.2}A threshold that is too lenient on average-case inputs}{30}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Recalibration, and the resolution limit it exposes}{31}{section.6.3}%
-\contentsline {section}{\numberline {6.4}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{33}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Chapter summary}{34}{section.6.5}%
-\contentsline {chapter}{\numberline {7}External Validity}{35}{chapter.7}%
-\contentsline {section}{\numberline {7.1}A real, cheap predictor}{35}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Six real-world graphs}{36}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Does learning the predictor help?}{37}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Chapter summary}{38}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Exploratory Directions and Negative Results}{39}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Learning to rank the predictor (a negative result)}{39}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Rescuing the serving application with a with-predictions result (a negative probe)}{42}{section.8.2}%
-\contentsline {section}{\numberline {8.3}A literature review that redirected the work}{43}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Synthesis: the negatives point to the same wall}{44}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Application Case Study: AI-Inference Serving}{45}{chapter.9}%
-\contentsline {section}{\numberline {9.1}The serving instantiation}{45}{section.9.1}%
-\contentsline {section}{\numberline {9.2}A probe for a genuinely new result, and its negative}{48}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Chapter summary}{49}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{50}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Summary}{50}{section.10.1}%
-\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{51}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Limitations}{53}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Future work}{54}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Closing}{54}{section.10.5}%
-\contentsline {chapter}{\numberline {A}Reproduction Guide}{56}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Environment and principles}{56}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{57}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Reproduction commands}{59}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{60}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Data provenance}{61}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Outlook verification snippets (§10.2)}{62}{section.A.6}%
-\contentsline {chapter}{\nonumberline Bibliography}{64}{chapter*.3}%
+\contentsline {section}{\numberline {1.4}Thesis organization}{3}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Background and Related Work}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Online bipartite matching and competitive analysis}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The known-i.i.d. model}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Learning-augmented algorithms}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Predictions for online bipartite matching}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Distribution testing}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Positioning of this thesis}{9}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Model, Algorithms, and Methodology}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The known-i.i.d. model, precisely}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algorithms}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Prediction objects and structured error models}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Consistency and robustness}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The experimental harness}{15}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Fidelity check: reproducing Borodin et al.}{15}{section.3.6}%
+\contentsline {chapter}{\numberline {4}The Unified Benchmark}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Design}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Four findings}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Chapter summary}{22}{section.4.3}%
+\contentsline {chapter}{\numberline {5}What Governs the Loss: Order Error and What the Known Bound Does Not Say}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}What is already known (ACI)}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Our characterization}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Chapter summary}{25}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Test-and-Fallback in Depth}{26}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The robustness envelope}{26}{section.6.1}%
+\contentsline {section}{\numberline {6.2}A threshold that is too lenient on average-case inputs}{27}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Recalibration, and the resolution limit it exposes}{28}{section.6.3}%
+\contentsline {section}{\numberline {6.4}The dynamic combiner is dominated, and shows why matching needs test-then-commit}{29}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Chapter summary}{31}{section.6.5}%
+\contentsline {chapter}{\numberline {7}External Validity}{32}{chapter.7}%
+\contentsline {section}{\numberline {7.1}A real, cheap predictor}{32}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Six real-world graphs}{33}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Does learning the predictor help?}{35}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Chapter summary}{35}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Exploratory Directions and Negative Results}{36}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Learning to rank the predictor (a negative result)}{36}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Rescuing the serving application with a with-predictions result (a negative probe)}{38}{section.8.2}%
+\contentsline {section}{\numberline {8.3}A literature review that redirected the work}{40}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Synthesis: the negatives point to the same wall}{40}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Application Case Study: AI-Inference Serving}{42}{chapter.9}%
+\contentsline {section}{\numberline {9.1}The serving instantiation}{42}{section.9.1}%
+\contentsline {section}{\numberline {9.2}A probe for a genuinely new result, and its negative}{45}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Chapter summary}{45}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{46}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Summary}{46}{section.10.1}%
+\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{47}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Limitations}{48}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Future work}{49}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Closing}{50}{section.10.5}%
+\contentsline {chapter}{\numberline {A}Reproduction Guide}{51}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Environment and principles}{51}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{52}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Reproduction commands}{53}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{54}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Data provenance}{55}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Outlook verification snippets (§10.2)}{56}{section.A.6}%
+\contentsline {chapter}{\nonumberline Bibliography}{58}{chapter*.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

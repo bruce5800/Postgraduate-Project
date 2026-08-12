@@ -82,13 +82,13 @@ on the resources, **GreedyWithPermutation** matches each arrival to its availabl
 of minimum rank. This makes the algorithm family a single code path parameterized by the
 rank, which is important both for a fair comparison and for the theory.
 
-- **Advice-free baselines.** SimpleGreedy (identity rank); **Ranking** (uniformly random
-  rank; the baseline); and the stochastic-matching algorithms Feldman and Jaillet–Lu, which
-  precompute a suggested matching by max-flow — Feldman via a cap-$\{2,1,2\}$ flow network
-  and a blue/red decomposition of the unit-flow subgraph, Jaillet–Lu via a cap-$\{3,2,3\}$
-  network yielding a fractional solution $f^\star\in\{0,\tfrac13,\tfrac23\}$ and per-type
-  list distributions. Each has a *non-greedy* variant (follow the suggestion only) and a
-  *greedy* variant (fall back to any available neighbor).
+- **Advice-free baselines.** SimpleGreedy (identity rank), **Ranking** (uniformly random
+  rank; the baseline), and the stochastic-matching algorithms Feldman and Jaillet–Lu, which
+  precompute a suggested matching by max-flow: Feldman from a cap-$\{2,1,2\}$ network, whose
+  unit-flow subgraph splits into a *blue* and a *red* matching; Jaillet–Lu from a
+  cap-$\{3,2,3\}$ network, whose fractional solution gives a per-type list of resources to
+  try in order. Each of the two has a *non-greedy* variant (follow the suggestion only) and
+  a *greedy* variant (fall back to any available neighbor).
 
 <!--REV
 id: 3-03
@@ -116,7 +116,7 @@ fix: 每条压成两句：一句说它是什么，一句说它在本文里的角
   ascending predicted degree $\mu\in\mathbb R^R$. Constant $\mu$ gives Ranking; the true
   realized degrees give the consistency ceiling (MinDegree). The **augmentations**
   Feldman(MPD) and JailletLu(MPD) use the MPD rank only as the tie-break of the greedy
-  fallback, so the worst-case-optimal base matching carries the load.
+  fallback.
 
 <!--REV
 id: 3-05
@@ -128,14 +128,19 @@ note: 这句话解释了第 4 章 F2 的全部机制（结构性鲁棒为什么�
 fix: 把它提成一个独立小段，并说清楚后果：因为建议只影响并列时的选择，预测再差也动不了主体匹配 - 这既是它不会崩的原因，也是它吃不到上升空间的原因。
 -->
 
-- **Type-histogram advice and test-and-fallback.** From a count vector $\hat c$ over types
-  we build an advice matching $\hat M$ (a maximum matching of $\hat c$ copies) and record its
-  per-type partners. **FollowPrediction** *mimics* $\hat M$ — routes every arrival to its
-  type's advice partner; **TestAndMatch** (Choo and BEM variants) *mimics* over a
-  length-$k$ prefix, tests the empirical $\ell_1$ distance
-  between the prefix type frequencies and $q=\hat c/\lVert\hat c\rVert_1$ against a threshold
-  $\tau$, then continues or falls back to Ranking. We also port the Chłędowski-style dynamic
-  **combiner** as a benchmarked baseline (not a contribution).
+- **Type-histogram advice and test-and-fallback.** From a count vector $\hat c$ over types we
+  build an advice matching $\hat M$ and record its per-type partners. **FollowPrediction**
+  routes every arrival to its type's predicted partner; **TestAndMatch** (Choo and BEM) does
+  the same over a length-$k$ prefix, tests the empirical $\ell_1$ distance between the prefix
+  frequencies and $q=\hat c/\lVert\hat c\rVert_1$ against a threshold $\tau$, then continues
+  or falls back to Ranking. The Chłędowski-style dynamic **combiner** is ported as a
+  benchmarked baseline, not a contribution.
+
+This last point is the whole mechanism behind the structural robustness of Chapter 4, so it
+is worth stating plainly: because the prediction only decides between otherwise equivalent
+choices, the worst-case-optimal base matching carries the load and an arbitrarily bad
+prediction cannot move it. That is why the augmentations never crash — and equally why they
+cannot capture the upside when the prediction is good.
 
 <!--REV
 id: 3-06
@@ -190,7 +195,10 @@ fix: 在这里就写明这一点（the panels are not commensurable across famil
 ## 3.4 Consistency and robustness
 
 For a prediction-consuming algorithm, **consistency** is its ratio under perfect advice and
-**robustness** is its worst-case ratio under adversarial advice. A useful algorithm is
+**robustness** is its worst-case ratio under adversarial advice. Operationally we cannot
+sweep every adversarial prediction, so in the experiments robustness is reported as the
+minimum over our corruption levels — an upper bound on the true worst case, and therefore a
+generous reading of an algorithm's safety. A useful algorithm is
 consistent *and* never (much) below $\rho_{\mathrm{base}}$; the tension between the two is
 the subject of Chapter 6 and of the outlook in §10.2.
 
@@ -271,8 +279,9 @@ We reproduced the core four algorithms (six greedy/non-greedy variants) on two r
 families at $n=1000$, $m=n$, 100 trials per parameter value (matching the paper's setup),
 under a single master seed.
 
-**Erdős–Rényi (edge probability $c/n$; the paper's Fig. 9, partial).** Sweeping $c$
-reproduces the characteristic U-shape and its hard case: SimpleGreedy attains its minimum
+**Erdős–Rényi (edge probability $c/n$; the paper's Fig. 9, partial).** All five of the
+paper's qualitative claims that we checked reproduce, with absolute differences below
+$0.02$. In detail: sweeping $c$ reproduces the characteristic U-shape and its hard case, SimpleGreedy attains its minimum
 $0.864$ at $c\approx4.9$, and the greedy variants of the complex algorithms their minima
 $\approx0.884$ at $c\approx5.3$. Ranking is indistinguishable from SimpleGreedy (maximum
 difference $0.0017$ across all 75 values — the paper omits Ranking's curve for exactly this
@@ -303,9 +312,9 @@ complex variants $\approx$ SimpleGreedy asymptotically.
 non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in
 *both* families — $0.730$ and $0.760$ respectively, within $0.001$ across families — and
 both sit *above* their worst-case theoretical bounds ($0.670$ and $0.729$) by $+0.06$ and
-$+0.03$. This hints at a universal "average-case asymptotic constant" distinct from the
-worst-case guarantee — an early, concrete instance of the thesis's recurring theme that the
-average case is far more benign than the worst case, which the prediction-error sweeps of
+$+0.03$. The two families happen to converge to the same value here; we do not investigate whether
+that is universal. It is, in any case, an early and concrete instance of the thesis's
+recurring theme that the average case is far more benign than the worst case, which the prediction-error sweeps of
 later chapters probe in earnest.
 
 <!--REV

@@ -4,7 +4,7 @@ scripts/run_order_vs_theory.py). CRITICAL guardrail preserved: credit ACI Cor. D
 claim order matters. Cross-refs fixed (§3→Ch4, §6→Ch7). Figure 5.1 = order_vs_theory.png.
 -->
 
-# Chapter 5. What Governs the Loss: Order Error and ACI's Bound
+# Chapter 5. What Governs the Loss: Order Error and What the Known Bound Does Not Say
 
 Chapter 4 showed that on average-case inputs the loss of a degree-prediction algorithm is
 small. This chapter asks what *governs* that loss. MinPredictedDegree matches by ascending
@@ -34,7 +34,7 @@ distinct from the type distribution $p$ of §3.1 — $w[\mu]$ is that vector lis
 order $\mu$ induces, and $\mathrm{LIS}$ is the length of its longest non-decreasing
 subsequence: a pure *order* quantity. In particular a monotone (order-preserving) predictor
 leaves $w[\mu]$ already sorted, so $n-\mathrm{LIS}=0$ and the loss is zero. Thus *order-dependence* and *the zero-effect of a monotone bias* are ACI's results,
-not ours; our `systematic_bias` error model (a monotone rescale) has Kendall-$\tau\equiv0$ by
+not ours; our systematic-bias error model (a monotone rescale) has Kendall-$\tau\equiv0$ by
 construction and, consistently, leaves MPD's ratio exactly unchanged across the benchmark
 (Chapter 4) — an empirical confirmation of ACI's statement, not a new finding.
 
@@ -63,7 +63,8 @@ fix: 保留 5.1 末的这一处（它在证据旁边，最有说服力），5.3 
 
 We sweep the four structured error models across strength and record, per model and level on
 the same instances, three quantities: the actual MPD matching loss, ACI's $n-\mathrm{LIS}$,
-and the normalized Kendall-$\tau$ order error (**Figure 5.1**; $n=1000$, Zipf exponent
+and the normalized Kendall-$\tau$ order error — reported on $[0,1]$, where $0$ means the
+predicted order is exactly right and $1$ that it is exactly reversed (**Figure 5.1**; $n=1000$, Zipf exponent
 $1.0$, 40 trials).
 
 <!--REV
@@ -80,7 +81,8 @@ fix: 给出定义式或一句话：we report tau normalized to [0,1], where 0 me
 ![Order error governs the loss: the realized loss lies far below ACI's $n-\mathrm{LIS}$ bound (a) and collapses onto Kendall-$\tau$ across all four error models (b).](../../results/order_vs_theory.png){width=100%}
 
 **(i) ACI's $n-\mathrm{LIS}$ bound is correct but very loose.** The realized loss lies far
-below the bound at every point — by roughly $16\times$ (adversarial) to $75\times$
+below the bound at every point. Taking the ratio of the bound to the realized loss at each
+model's strongest corruption level, it is loose by roughly $16\times$ (adversarial) to $75\times$
 (distribution-drift); all points hug the axis in Figure 5.1(a).
 
 <!--REV
@@ -94,7 +96,8 @@ fix: 写明口径：ratio of the bound to the realized loss, at the strongest co
 -->
 
 **(ii) $n-\mathrm{LIS}$ saturates and cannot distinguish error structures.** For every
-non-trivial error it is pinned near its maximum ($\approx610$–$673$ for $n=1000$), even
+non-trivial error it is pinned near its maximum ($\approx610$–$673$ out of a possible $n=1000$, against
+realized losses of $8$ to $42$), even
 though the true losses differ by a factor of five across models ($8.1$ drift, $21.6$
 random-flip, $41.7$ adversarial). As a bound that is almost always $\approx n$, it carries
 little information about which prediction is more harmful.
@@ -112,7 +115,7 @@ fix: 补一句参照：out of a maximum of n = 1000, and against realized losses
 **(iii) Kendall-$\tau$ is the governing order measure, and the models collapse onto it.**
 Plotted against Kendall-$\tau$ (Figure 5.1(b)), the four models fall on one increasing curve
 — loss rises with $\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
-$8.1\to21.6\to41.7$), with `systematic_bias` pinned at $\tau=0$, zero loss. The collapse is
+$8.1\to21.6\to41.7$), with systematic bias pinned at $\tau=0$, zero loss. The collapse is
 not only visual: pooling all four models and all error levels (44 points), the rank
 correlation between Kendall-$\tau$ and the realized loss is Spearman $\rho=0.979$ (Pearson
 $r=0.992$), and within each non-degenerate model it is $0.97$ or above. The quantity that
@@ -131,12 +134,13 @@ fix: 给一个统计量：例如四个模型合并后的 Spearman 相关系数�
 
 ## 5.3 Chapter summary
 
-We do not claim that order rather than magnitude governs MPD — ACI's Appendix D establishes
-that, along with the zero-effect of a monotone bias. What we add is a precise empirical
-characterization: ACI's $n-\mathrm{LIS}$ bound is loose by one to nearly two orders of
+What this chapter adds — order-dependence itself being ACI's result (§5.1) — is a precise
+empirical characterization of how much the known bound actually says: ACI's $n-\mathrm{LIS}$ bound is loose by one to nearly two orders of
 magnitude and saturates, whereas Kendall-$\tau$ predicts the realized loss and unifies the
 four error structures. This both sharpens the theory's practical content and justifies the
-single order-error axis used when the predictor is stressed on real data (Chapter 7).
+single order-error axis used when the predictor is stressed on real data. It is also why
+Chapter 7 can explain a cheap historical predictor's success by its order fidelity alone,
+and why Chapter 8 tried — and failed — to train a predictor for order directly.
 
 <!--REV
 id: 5-08

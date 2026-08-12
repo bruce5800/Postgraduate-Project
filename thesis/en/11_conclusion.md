@@ -13,10 +13,12 @@ building a common experimental foundation and then explaining what it revealed. 
 harness — validated against the published Borodin et al. study (Chapter 3) — we compared the
 advice-free baselines, MinPredictedDegree and its augmentations, and the test-and-fallback
 algorithms, across synthetic graphs, six real-world graphs, and real request traces
-(Chapters 4–7). Across every setting the same picture appeared: the advice-free baseline is
-already near-optimal on average-case inputs, so the *consistency* upside of a good prediction
-is small; unguarded prediction-following crashes *below* the baseline under bad predictions;
-and the value of the sophisticated algorithms is downside protection, delivered by either a
+(Chapters 4–7).
+
+Across every setting the same picture appeared: the advice-free baseline is already
+near-optimal on average-case inputs, so the *consistency* upside of a good prediction is
+small; unguarded prediction-following crashes *below* the baseline under bad predictions; and
+the value of the sophisticated algorithms is downside protection, delivered by either a
 structural or an adaptive robustness mechanism with distinct trade-offs. We sharpened the
 sub-questions — that the (small) loss is governed by a Kendall-$\tau$ order error rather than
 magnitude (Chapter 5, crediting the prior order-dependence result of ACI), and that the
@@ -84,7 +86,8 @@ fix: 两件事：一是把界定提到节首第一句，用最直白的话讲清
 > sharing the *same* advice, such that following the advice gains $\delta$ under $G$ and
 > loses $\Delta$ under $\mathrm{Bd}$ relative to the advice-free baseline, and let
 > $\gamma_k$ be the total-variation distance between the laws of their length-$k$
-> prefixes. Then every test-and-fallback algorithm — deciding by *any* measurable rule on
+> prefixes — informally, the best accuracy any test can reach when it sees only the first
+> $k$ arrivals. Then every test-and-fallback algorithm — deciding by *any* measurable rule on
 > its prefix — satisfies
 > $$(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),$$
 > where $\eta_c$ is the fraction of the upside it forgoes under $G$ and $\eta_r$ its
@@ -175,13 +178,12 @@ fix: 把前提写进 10.2 断言所在的那一句：on the rare-resource (decom
 Two honest notes bound the scope of this outlook. First, the budget law cuts both ways:
 where the stakes are large (a weak baseline), the directional statistic is cheap and
 following good advice is easy — the wall is a statement about strong-baseline,
-average-case inputs, not about testing in general. In particular, a tempting stronger
-conjecture — that the near-linear sample cost of *tolerant distribution testing* (§2.5)
-blocks every sublinear rule outright — is false: it is refuted by the same directional
-statistic, and the $\ell_1$-threshold blindness of §6.3 is a property of testing the
-*distance* rather than the *payoff*. Second, this thesis claims here only the inequality
-displayed above and the quantitative reading of its own experiments; the two-sided law,
-its proofs, and its exact scope are the subject of the companion work.
+average-case inputs, not about testing in general. In particular the wall is not a consequence of distribution testing being
+expensive — a directional statistic is cheap — but of the stakes being small; the
+$\ell_1$-threshold blindness of §6.3 comes from testing the *distance* rather than the
+*payoff*. Second, this thesis claims only the inequality displayed above and the quantitative
+reading of its own experiments; the two-sided law and its exact scope are not established
+here (§10.3).
 
 <!--REV
 id: 10-10
@@ -205,9 +207,9 @@ fix: 只在 10.3 limitations 保留一次（那里是它该在的位置），其
 
 ## 10.3 Limitations
 
-- **Input model.** We work in the known-i.i.d. model. Because Known-I.I.D. $\le$
-  Random-Order in difficulty, the algorithms' guarantees carry over, but the empirical wall
-  is an *average-case* statement; we do not claim it for adversarial arrival order.
+- **Input model.** We work in the known-i.i.d. model. Because every known-i.i.d. instance is
+  also a random-order instance, guarantees proved in the random-order model carry over to
+  ours (but not conversely, §2.1); the empirical wall, however, is an *average-case* statement; we do not claim it for adversarial arrival order.
 - **Test model.** Following the original authors, the test-and-fallback experiments use an
   empirical-$\ell_1$ surrogate for the (unimplemented) distribution tester; §10.2 explains
   why the surrogate's blindness is structural rather than an implementation artifact.
@@ -269,11 +271,10 @@ help online matching, and these are the natural next directions.
 ## 10.5 Closing
 
 Predictions are a powerful tool for online algorithms, but this thesis is a study of their
-*limits* on one well-understood problem. On average-case online matching, the honest verdict
-is that a cheap, order-faithful predictor already captures nearly all there is to capture,
-that the sophisticated machinery earns its keep as insurance rather than as performance,
-and that finding out whether to trust a prediction costs more, on these inputs, than the
-prediction is worth. Recognizing where predictions cannot help is, we hope, as useful as
+*limits* on one well-understood problem. On average-case online matching, the honest verdict has three parts. A cheap,
+order-faithful predictor already captures nearly all there is to capture. The sophisticated
+machinery earns its keep as insurance rather than as performance. And finding out whether to
+trust a prediction costs more, on these inputs, than the prediction is worth. Recognizing where predictions cannot help is, we hope, as useful as
 knowing where they can.
 
 <!--REV

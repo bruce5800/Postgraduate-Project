@@ -49,9 +49,10 @@ capacity $c\cdot\deg(\ell)$; the relaxed problem decomposes by type into interva
 and is then solved exactly. The reported ratios are therefore lower bounds on the true
 competitive ratio — and the bound is tight, since a feasible offline assignment brackets the
 optimum to within $1.1\%$ of the arrival count at $c=3$, $0.4\%$ at $c=6$, and exactly at
-$c=12$. We instantiate this on three real traces (Wikipedia pageviews, an
-Azure LLM inference trace, and the Mooncake prefix-cache trace [@mooncake2024]) and across
-four serving concerns.
+$c=12$. We exercise the instantiation on a synthetic serving topology (Figure 9.1, where the
+prediction quality can be swept directly) and on two real traces: an Azure LLM inference
+trace (Figure 9.2) and the Mooncake prefix-cache trace [@mooncake2024] (Figure 9.3). A third
+real trace, Wikipedia pageviews, drives the predictor study of §7.1.
 
 <!--REV
 id: 9-02
@@ -75,12 +76,13 @@ note: 同一句里 b-matching 的 b 与容量 c 指的是同一件事，却用�
 fix: 统一用 c，并写明 b-matching with all capacities equal to c；或者反过来全用 b。图注同步。
 -->
 
-![Capacity as robustness: blindly following the forecast crashes goodput — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
+![Capacity as robustness (synthetic serving topology: 200 replicas, 40 request types of degree 8, 800 arrivals, 25 trials per point): blindly following the forecast crashes the competitive ratio — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
 
 **Capacity as robustness** (**Figure 9.1**). Increasing the capacity $c$ smooths the
   effect of a bad prediction: a capacity-aware baseline stays safe, while *blindly* trusting
-  a traffic forecast degrades *further* as capacity grows. Capacity is thus a *substitute*
-  for algorithmic robustness — the systems analogue of the robustness-insurance thesis.
+  a traffic forecast degrades *further* as capacity grows. Over the capacity range we swept, added capacity buys the same protection that the
+  adaptive test does — the systems analogue of the robustness-insurance thesis, and a
+  reminder that the cheaper of the two is a provisioning decision, not an algorithmic one.
 
 <!--REV
 id: 9-04
@@ -113,14 +115,17 @@ fix: 降为观察加条件：over the capacity range we swept, added capacity bu
   is not merely better than the forecast-following one — it is within $2\%$ of what perfect
   hindsight could have achieved.
 
-![The cache-affinity reversal (Mooncake trace): stable placement beats reactive routing for KV-cache reuse.](../../results/prefix_cache_reversal.png){width=60%}
+![The cache-affinity reversal (Mooncake trace, 16 replicas, cache capacity swept from 200 to 4000 blocks): stable placement beats reactive routing for KV-cache reuse. The vertical axis is the KV-cache hit fraction, not a competitive ratio.](../../results/prefix_cache_reversal.png){width=60%}
 
 **Cache-affinity routing** (**Figure 9.3**). For prefix-cache-aware routing, a *stable*
   affinity router beats a reactive one — the reverse of the traffic-forecast case, because
   cache locality rewards persistence [@preble2024].
 
 Each of these recovers an established systems result cleanly, demonstrating that the
-framework instantiates the problem faithfully.
+framework instantiates the problem faithfully. They also line up into one observation: the
+first two say *react rather than forecast*, the third says the opposite, and the difference
+is the objective — cache locality rewards persistence where load balancing rewards
+responsiveness.
 
 <!--REV
 id: 9-06
@@ -154,10 +159,8 @@ fix: 本节压到两句（结论加指向），正本留在 8.2；删掉其中�
 
 ## 9.3 Chapter summary
 
-The serving instantiation shows the framework reaches a live systems problem and recovers its
-established results — capacity as a robustness substitute, live load over stale forecasts,
-stability for cache locality — and that even a tail objective does not open a genuine
-with-predictions win.
+The abstraction reaches a live systems problem and recovers its established results, and
+even a tail objective does not open a genuine with-predictions win.
 
 <!--REV
 id: 9-08

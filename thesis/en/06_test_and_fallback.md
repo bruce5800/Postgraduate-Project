@@ -8,11 +8,12 @@ envelope, 6.2 = prefix sweep, 6.3 = recalibration, 6.4 = testing-wall frontier.
 # Chapter 6. Test-and-Fallback in Depth
 
 The test-and-fallback algorithms are the adaptive robustness mechanism of Chapter 4. This
-chapter gives their first empirical study: the robustness envelope they achieve (§6.1), a
-counter-intuitive failure of the acceptance threshold (§6.2), its recalibration and the
-resolution limit that recalibration exposes (§6.3) — a limit that persists across the whole
-difficulty range and anchors the theoretical outlook of §10.2 — and a benchmark of the
-dynamic combiner that explains the *commit-once* structure (§6.4). Two naming conventions
+chapter gives their first empirical study in four parts: the robustness envelope they achieve
+(§6.1), a counter-intuitive failure of the acceptance threshold (§6.2), its recalibration
+(§6.3), and a benchmark of the dynamic combiner that explains the *commit-once* structure
+(§6.4). The resolution limit that recalibration exposes in §6.3 is this chapter's interface
+to the conclusion: it persists across the whole difficulty range, and §10.2 reads it
+quantitatively. Two naming conventions
 apply throughout. **FollowPrediction** is the unguarded follower, which mimics the advice
 matching without testing it; **TestAndMatch** is the test-and-fallback scheme in general, of
 which **Choo** and **BEM** are the two published instantiations — they share the
@@ -42,12 +43,13 @@ fix: 拆成两句：一句列四项（各一个短语），一句单独说 6.3 �
 
 ## 6.1 The robustness envelope
 
-Sweeping advice error $\ell_1(p,q)$ on few-types instances ($n=2000$, $r=8$, prefix $k=200$,
-40 trials; **Figure 6.1**), FollowPrediction degrades *linearly* from $1.000$ at perfect
+Sweeping advice error $\ell_1(p,q)$ on few-types instances ($n=2000$ arrivals, $r=8$ request
+types, a tested prefix of $k=200$ arrivals, 40 trials; **Figure 6.1**), FollowPrediction degrades *linearly* from $1.000$ at perfect
 advice to $0.453$ at $\ell_1\!\approx\!1.1$ — well *below* the advice-free floor
 ($\approx0.99$). TestAndMatch instead stays on the **upper envelope**: it captures the
 benefit when advice is good and, when advice is bad, its prefix test rejects it and it falls
-back to Ranking, never crashing (BEM $0.998\to0.969$; Choo $1.000\to0.991$). This is the
+back to Ranking, never dropping below the advice-free floor at any point of this sweep
+(BEM $0.998\to0.969$; Choo $1.000\to0.991$). This is the
 adaptive counterpart of the structural robustness of Chapter 4.
 
 <!--REV
@@ -91,8 +93,9 @@ rejects the borderline advice, landing safely on the floor — it is right for t
 reason, rejecting because it is noisy rather than because the advice is bad. A large,
 accurate prefix measures $\ell_1\approx0.16<\tau$ correctly and therefore accepts the
 mildly-bad advice that the worst-case threshold deems acceptable, underperforming the
-baseline. On strong-baseline inputs the worst-case threshold is too lenient, and a more
-accurate test only follows it more faithfully.
+baseline. On strong-baseline inputs, in other words, the threshold is calibrated against the
+wrong baseline, and the size of the prefix decides only how faithfully the algorithm obeys
+it.
 
 <!--REV
 id: 6-05
@@ -150,14 +153,18 @@ threshold holds misjudgement $0.00$ at every prefix and ratio $\approx0.986$. Bu
 recalibration exposes a deeper limit.
 At perfect advice the worst-case threshold scores $1.000$ while the recalibrated one scores
 only $0.987$: the recalibrated $\tau\approx2(1-\hat\beta)\approx0.028$ is *smaller than the
-empirical-$\ell_1$ estimator's noise floor* ($\approx0.05$–$0.13$), so it can never
+empirical-$\ell_1$ estimator's noise floor* — the $\ell_1$ distance between a length-$k$
+prefix's type frequencies and the true histogram under *perfect* advice, i.e. pure sampling
+noise, which falls as $k$ grows and spans $\approx0.13$ down to $\approx0.05$ over the prefix
+lengths swept here — so it can never
 confidently *accept* — it rejects everything, including perfect advice, and always plays the
 baseline. In short:
 
-> On strong-baseline instances, no practical empirical-$\ell_1$ threshold can both capture
-> the consistency upside and stay safe: the upside is tiny and sits *below the estimator's
-> resolution*. The worst-case threshold over-accepts; the recalibrated one over-rejects; a
-> better tester only follows whichever threshold more faithfully.
+> On strong-baseline instances, among thresholds of this form and at the prefix lengths we
+> can afford, none both captures the consistency upside and stays safe: the upside is tiny
+> and sits *below the estimator's resolution*. The worst-case threshold over-accepts; the
+> recalibrated one over-rejects; a better tester only follows whichever threshold more
+> faithfully.
 
 <!--REV
 id: 6-09
@@ -211,7 +218,7 @@ this chapter is therefore not one badly calibrated threshold. The upside and the
 resolution move together — and the concluding outlook (§10.2) gives this coupling a
 quantitative form: the prefix needed to decide scales as the inverse square of the stakes.
 
-![The testing-wall frontier: as the baseline weakens (left), the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
+![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
 
 <!--REV
 id: 6-13

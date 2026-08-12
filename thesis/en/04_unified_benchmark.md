@@ -24,9 +24,10 @@ offline resources, $r$ online request types, and $m$ arrivals drawn i.i.d. from 
 distribution; throughout this chapter $m=n$, so requests and resources are balanced. The
 panels differ *only* in the type graph connecting requests to resources — that single
 change is what moves the input between the regimes the two prediction families were
-designed for:
+designed for. The three are chosen so that a *degree* predictor has strong signal, weak
+signal, and no role at all, respectively:
 
-- **Panel A — clvb_zipf** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
+- **Panel A — heavy-tailed degrees (Zipf)** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
   with exponent $1.0$ — a few resources are heavily contended while most are rarely
   eligible. This heavy-tailed profile gives a *degree* predictor genuine signal to carry.
 - **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
@@ -105,7 +106,7 @@ fix: 在表注里用一句话封死这个误读：columns are comparable within 
 \begin{minipage}[c]{0.60\linewidth}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
-\emph{Panel A --- clvb\_zipf} & perfect & noisy & advers. & garbage \\
+\emph{Panel A --- heavy-tailed (Zipf)} & perfect & noisy & advers. & garbage \\
 \midrule
 Ranking (floor) & 0.948 & --- & --- & --- \\
 MinDegree (oracle) & 0.996 & --- & --- & --- \\
@@ -215,7 +216,7 @@ envelope at both ends. The two mechanisms trade consistency for robustness in op
 trades — and the empty region beyond TestAndMatch toward the ideal top-right corner — are
 visible at a glance.
 
-![The consistency–robustness plane (the data of Table 4.1); dashed lines mark the advice-free floor, dotted the oracle ceiling. TestAndMatch sits nearest the ideal top-right corner.](../../results/consistency_robustness.png){width=100%}
+![The consistency–robustness plane (the data of Table 4.1). Horizontal axis: ratio under perfect advice. Vertical axis: ratio under the worst corruption level, the operational robustness of §3.4. Dashed lines mark the advice-free floor, dotted the oracle ceiling; TestAndMatch sits nearest the ideal top-right corner.](../../results/consistency_robustness.png){width=100%}
 
 <!--REV
 id: 4-07
@@ -239,7 +240,8 @@ fix: 图注写明：horizontal axis = ratio under perfect advice; vertical axis 
 
 **(F3) The consistency upside is small on average-case inputs; the spread lives on the
 bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and
-MPD-with-true-degrees is $0.999$ — under $0.01$ for any advice to add on the good side.
+MPD-with-true-degrees is $0.999$: the entire consistency headroom is $0.009\pm0.001$,
+smaller than most of the effects measured later in this thesis.
 Every wide gap in Panel C is a *downside* gap. This is the thesis in one panel; Chapter 6
 shows why no affordable test escapes it, and the concluding outlook (§10.2) why it is
 forced.
@@ -268,8 +270,8 @@ fix: 把它写成一个带不确定度的量：the entire consistency headroom i
 are tuned for the worst-case ratio and are the *weakest* advice-free entries on these
 average-case inputs (Panel B: $0.760$ / $0.788$, below Greedy's $0.890$); the MPD
 augmentation lifts them to $\approx0.90$. The prediction does *more* for the
-worst-case-designed algorithms than for greedy — a pairing visible only under a unified
-table.
+worst-case-designed algorithms than for greedy — a pairing that a unified table makes
+immediate.
 
 <!--REV
 id: 4-11
@@ -283,11 +285,9 @@ fix: 去掉 only：a pairing that a unified table makes immediate。观察本身
 
 ## 4.3 Chapter summary
 
-On average-case matching the advice-free baseline is already near-optimal, unguarded
-prediction-following is unsafe, and the value of the sophisticated algorithms is downside
-protection delivered by one of two mechanisms. Chapters 5–7 sharpen each part — what governs
-the (small) loss, what the adaptive test costs, and whether the picture survives on real
-data — and the concluding outlook (§10.2) explains why the wall is forced, not accidental.
+The value of a prediction here is downside protection, not performance. The next question
+is what governs the loss that remains — and Chapter 5 shows it is not the size of the
+prediction error but the order it induces.
 
 <!--REV
 id: 4-12

@@ -23,8 +23,9 @@ known in advance, while the vertices of the other side — the *online* requests
 at a time. On each arrival the algorithm sees the request's incident edges and must
 either match it to a currently unmatched neighbor or leave it unmatched, **immediately and
 irrevocably**. The goal is to maximize the size (or, in weighted variants, the value) of
-the matching. Performance is measured by the **competitive ratio**, the (expected) ratio
-between the algorithm's matching and an offline optimum on the same input.
+the matching. Performance is measured by the **competitive ratio**: the ratio between the algorithm's
+matching and an offline optimum on the same input, in expectation over both the random
+input and the algorithm's own randomness (§3.1 fixes the precise form we report).
 
 <!--REV
 id: 2-01
@@ -77,20 +78,23 @@ recurring request streams — where the population of requests is statistically 
 though individual arrivals are not.
 
 A line of work has pushed the worst-case (over type graphs) competitive ratio above the
-$1-1/e$ adversarial barrier: Feldman et al. [@feldman2009online] first beat it ($0.67$) via a
+$1-1/e$ adversarial barrier: Feldman et al. [@feldman2009online] first beat it ($0.670$) via a
 flow-based *blue/red* decomposition of a suggested matching; Manshadi, Oveis Gharan and
 Saberi [@manshadi2012online] and Jaillet–Lu [@jailletlu2014online] improved the ratio (to
 $\approx0.702$ and $\approx0.729$ respectively) using
 LP-based and list-based online policies; subsequent work refined it further. These are the
 "sophisticated" algorithms whose worst-case optimality motivates their use.
 
-Crucially for this thesis, Borodin, Karavasilis and Pankratov [@borodin2018experimental] conducted an
-experimental study of these algorithms and found that on *average-case* i.i.d. instances
-the picture is very different from the worst case: the simple algorithms (Greedy, Ranking)
-perform almost as well as the sophisticated ones, whose advantage is a worst-case, not a
-typical-case, phenomenon. This empirical observation — that on typical inputs the simple
-baseline is already near-optimal — is the seed of the thesis's central finding, and we
-reproduce a subset of it as validation (Chapter 3).
+Crucially for this thesis, Borodin, Karavasilis and Pankratov [@borodin2018experimental]
+conducted an experimental study of these algorithms and found that on *average-case* i.i.d.
+instances the picture is very different from the worst case: the simple algorithms (Greedy,
+Ranking) perform almost as well as the sophisticated ones, whose advantage is a worst-case,
+not a typical-case, phenomenon.
+
+One empirical observation in that line is the seed of this thesis: *on typical inputs the
+simple baseline is already near-optimal*. Everything that follows is an attempt to find out
+what a prediction can add to it, and we reproduce a subset of the study as validation
+(Chapter 3).
 
 <!--REV
 id: 2-03
@@ -125,18 +129,19 @@ two guarantees simultaneously:
 
 The paradigm was crystallized by Lykouris and Vassilvitskii [@lykouris2018caching] for competitive caching,
 who showed how to interpolate between trusting and ignoring a predictor while bounding both
-consistency and robustness. A large literature followed across ski rental, scheduling,
-and other online problems, including the *optimal* consistency/robustness trade-off
-analyses of Wei and Zhang [@weizhang2020tradeoffs], which establish problem-intrinsic Pareto frontiers
-between the two objectives. A recurring theme is that robustness is obtained by *hedging* —
-combining the predictor's advice with a safe default so that a bad prediction cannot cause
-catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak, Szabucki
-and Żołna [@chledowski2021caching], introduced in an experimental study of robust learning-augmented
-caching, is one such hedging mechanism; we port and benchmark it (Chapter 6). That paper is
-also the closest methodological template for this thesis's experimental half. Recent
-theoretical work further analyzes how the achievable ratio degrades *continuously* with
-prediction accuracy in a distributionally-robust formulation [@yoshinaga2026accuracy],
+consistency and robustness. A large literature followed across ski rental, scheduling and other online problems,
+including the *optimal* consistency/robustness trade-off analyses of Wei and Zhang
+[@weizhang2020tradeoffs], which establish problem-intrinsic Pareto frontiers between the two
+objectives. Recent work further analyzes how the achievable ratio degrades *continuously*
+with prediction accuracy in a distributionally-robust formulation [@yoshinaga2026accuracy],
 complementing the discrete consistency/robustness endpoints used here.
+
+Two items from this literature are load-bearing for us. The recurring mechanism is
+*hedging* — combining the prediction with a safe default so that a bad prediction cannot
+cause catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak,
+Szabucki and Żołna [@chledowski2021caching] is one such mechanism, which we port and
+benchmark (Chapter 6); their paper, an experimental study of robust learning-augmented
+caching, is also the closest methodological template for this thesis's experimental half.
 
 <!--REV
 id: 2-05
@@ -200,9 +205,8 @@ algorithm is $1$-consistent and $>\tfrac12$-robust), and neither proves a lower 
 the stochastic model. Notably, Choo et al.'s acceptance threshold already *couples* to the
 baseline competitive ratio $\beta$ — but constructively, inside the algorithm design, not
 as a lower bound. What that coupling costs — how large a prefix the follow/fallback
-decision fundamentally requires — is a question this thesis engages empirically
-(Chapter 6) and in a theoretical outlook (§10.2); the full formal development is deferred
-to companion work.
+decision fundamentally requires — is the question this thesis measures (Chapter 6) and then
+reads quantitatively (§10.2).
 
 <!--REV
 id: 2-08
@@ -227,7 +231,9 @@ fix: 本处删掉，只说本文做到哪一步（Chapter 6 measures it; 10.2 re
 ## 2.5 Distribution testing
 
 The test at the heart of the algorithms above is a question in **distribution testing**:
-given samples from an unknown distribution $p$ over a support of size $r$ and a known
+given samples from an unknown distribution $p$ over a support of size $r$ — the same $r$ as
+in our model, the number of request types, because the histogram advice is a distribution
+over types — and a known
 reference $q$, decide how far $p$ is from $q$. We measure that distance in $\ell_1$
 throughout, as the algorithms and our experiments do; it is *twice* the total-variation
 distance, and every threshold quoted in this thesis is an $\ell_1$ threshold. Two regimes
@@ -276,7 +282,8 @@ fix: 加半句点明：here r is the same r as in our model - the number of requ
 
 ## 2.6 Positioning of this thesis
 
-Against this background, three gaps stand out, which the thesis addresses in turn:
+Against this background, three gaps stand out. They correspond one-to-one to the three
+questions of §1.2, and the thesis addresses them in that order:
 
 1. **No unified empirical comparison.** The matching algorithms above were each studied in
    isolation, on their own input families and error models, and largely in theory; there is
@@ -287,7 +294,8 @@ Against this background, three gaps stand out, which the thesis addresses in tur
    not been measured. (Chapter 6.)
 3. **No quantification of what the prefix test costs.** No prior work measures — or bounds
    — how large a prefix the follow/fallback decision requires on strong-baseline instances,
-   where the upside to be captured is smallest. (Chapter 6 empirically; §10.2 in outlook.)
+   where the upside to be captured is smallest. The prior-art pass behind this claim is
+   described in §8.3. (Chapter 6 empirically; §10.2 in outlook.)
 
 The thesis closes the first two gaps experimentally and takes a first, quantified step at
 the third — an empirical resolution limit plus a theoretical outlook — arriving at a

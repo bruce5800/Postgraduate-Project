@@ -9,10 +9,8 @@ get past it} --- learning the predictor to squeeze out more performance
 (§8.1), finding a serving regime where predictions genuinely help
 (§8.2), and letting a systematic literature review point us to the
 highest-value contribution (§8.3). All three returned the same answer,
-and their convergence is what motivated the theorem. This chapter
-reports them honestly, including the negatives, because they are part of
-the evidence and because ruling out ambitious alternatives is itself a
-result.
+and their convergence is what motivated the theorem. Each is reported
+here with the evidence that closed it.
 
 \section{Learning to rank the predictor (a negative
 result)}
@@ -33,8 +31,9 @@ regression-trained one on the decision metric: matching ratio \(0.989\)
 predictor has \emph{worse} regression error to the truth (MSE \(87.6\)
 vs \(33.4\)) but better order (Kendall-\(\tau\) \(0.058\) vs \(0.255\)).
 The dissociation is real: the worse \emph{fit} gives the better
-\emph{decision}, confirming that regression is the wrong training
-objective when it matters.
+\emph{decision}. Regression is thus the wrong training objective
+whenever the features separate magnitude from order --- a condition M1
+and M3 below show to be rare.
 
 \begin{figure}
 \centering
@@ -47,21 +46,22 @@ the matching ratio (left) despite a worse regression fit (right).}
 the feature divergence and the graph difficulty, the rank-advantage is
 zero when features do not induce an order/magnitude conflict, and zero
 on easy instances where the baseline is already optimal (the wall,
-again). It peaks at only \(+1.3\%\) of the ratio on synthetic graphs; a
-more favorable framing is \emph{gap-capture}, where rank-training
-recovers essentially the full oracle gap while regression leaves about
-\(30\%\) of it unrealized --- but the gap itself is small.
+again). It peaks at only \(+1.3\%\) of the ratio on synthetic graphs;
+measured as gap-capture (§7.1) rather than as an absolute ratio,
+rank-training recovers essentially the full oracle gap while regression
+leaves about \(30\%\) of it unrealized --- but the gap itself is small.
 
 \textbf{M3 --- and it disappears on real features.} The decisive test
 uses genuine temporal features from real serving traces (per-resource
-reference counts over the previous windows) to predict the next window.
-Here the rank- and regression-trained predictors produce
-\emph{identical} order (Kendall-\(\tau\) \(0.126\) vs \(0.126\)) and
-identical matching ratio, across every topology and lag configuration
-tried. The order/magnitude divergence that powers rank-training is a
-property of \emph{engineered} features; realistic lagged-count features
-are co-linear noisy estimates of the same popularity, so regression
-already recovers the order as well as ranking does.
+reference counts over the previous windows) to predict the next window
+(150 context-length types over 500 replicas of degree 8, 40 windows,
+three lag features, a 60/40 train/test split). Here the rank- and
+regression-trained predictors produce \emph{identical} order
+(Kendall-\(\tau\) \(0.126\) vs \(0.126\)) and identical matching ratio.
+The order/magnitude divergence that powers rank-training is a property
+of \emph{engineered} features; realistic lagged-count features are
+co-linear noisy estimates of the same popularity, so regression already
+recovers the order as well as ranking does.
 
 \begin{figure}
 \centering
@@ -72,14 +72,14 @@ powers rank-training does not arise.}
 \end{figure}
 
 \textbf{Verdict.} Learning the predictor with a decision-aligned loss
-does not elevate to a standalone contribution: the win requires a
-feature divergence that does not arise in practice, and even where it
-does the payoff is bounded by the (small) baseline-to-oracle gap. The
-result is folded into the thesis as a negative that \emph{reinforces}
-the central finding --- once a predictor is order-faithful, which a
-cheap historical count already is (Chapter 7), neither a better
-algorithm nor a better-trained predictor buys much on average-case
-matching.
+does not change the picture of Chapters 4--7, and we report it as a
+negative result: the win requires a feature divergence that does not
+arise in practice, and even where it does the payoff is bounded by the
+(small) baseline-to-oracle gap. The result is folded into the thesis as
+a negative that \emph{reinforces} the central finding --- once a
+predictor is order-faithful, which a cheap historical count already is
+(Chapter 7), neither a better algorithm nor a better-trained predictor
+buys much on average-case matching.
 
 \section{Rescuing the serving application with a with-predictions result
 (a negative
@@ -88,12 +88,12 @@ probe)}
 The serving case study (Chapter 9) recovers established systems results
 and is therefore presented as a case study rather than a novelty claim.
 We asked whether a \emph{new} actionable with-predictions result could
-rescue it. The obstacle is again the wall: every serving variant we
-tried optimizes \emph{throughput} (goodput), and throughput is forgiving
---- under overload a reactive router fills capacity just as the optimum
-does, so predictions add nothing. The escape, if one exists, must be a
-different \emph{objective} on which the reactive baseline is genuinely
-far from optimal.
+rescue it. The escape, if one exists, must be a different
+\emph{objective} --- one on which the reactive baseline is genuinely far
+from optimal. The obstacle otherwise is again the wall: every serving
+variant we tried optimizes \emph{throughput} (goodput), and throughput
+is forgiving, since under overload a reactive router fills capacity just
+as the optimum does.
 
 We probed the most promising candidate: an \textbf{SLO / tail objective}
 --- protecting a tight-SLO class of requests from being dropped ---

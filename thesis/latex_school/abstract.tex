@@ -1,23 +1,27 @@
 Learning-augmented (``with-predictions'') algorithms for online
-bipartite matching have proliferated. One family consumes a prediction
-of how contended each resource will be. Another tests a prediction of
-the arrival mix on a short prefix of the requests --- a vanishing
-fraction of the instance --- before committing to follow it or to fall
-back on an advice-free baseline. These algorithms have been analyzed in
-isolation. We give the first unified experimental study. We place all of
-them on one harness: a common structured prediction-error model, a
-common optimum, and confidence intervals. We run it on synthetic graphs,
-six real-world graphs, and real request traces. Our central finding is
-that on average-case inputs the value of predictions is robustness
-insurance, not a performance lever. The advice-free baseline is already
-near-optimal, so the consistency upside of good advice is small, whereas
-unguarded prediction-following can crash far below the baseline; the
+bipartite matching, where requests arrive one at a time and each must be
+matched to a resource or dropped before the rest of the input is seen,
+have proliferated. One family consumes a prediction of how contended
+each resource will be. Another tests a prediction of the arrival mix on
+a short prefix of the requests --- a vanishing fraction of the instance
+--- before committing to follow it or to fall back on an advice-free
+baseline. These algorithms have been analyzed in isolation. We give the
+first unified experimental study. We place all of them on one harness: a
+common structured prediction-error model, a common optimum, and
+confidence intervals. We run it on synthetic graphs, six real-world
+graphs, and real request traces. Our central finding is that on
+average-case inputs the value of predictions is robustness insurance,
+not a performance lever. The advice-free baseline already reaches
+\(0.99\) of the offline optimum on our few-types instances, leaving
+under \(0.01\) for good advice to add, whereas unguarded
+prediction-following crashes to \(0.47\) on the same instances; the
 practical worth of the sophisticated algorithms is that they never
 crash. We close with a theoretical outlook --- one proved
 consistency/robustness trade-off inequality, and a quantitative reading
 of our own experiments under which the prefix needed to decide whether
 to trust advice scales as the inverse square of the advice's upside. The
 full formal development is separate work, and no theorem beyond the
-stated inequality is claimed here. Experiments and outlook deliver one
-message: on average-case matching, the advice's upside is smaller than
-the price of finding out whether to trust it.
+stated inequality is claimed here. Our experiments deliver one message
+and the outlook explains why it should be expected: on average-case
+matching, the advice's upside is smaller than the price of finding out
+whether to trust it.

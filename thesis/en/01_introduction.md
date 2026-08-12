@@ -17,12 +17,15 @@ exchange, and request routing in modern serving systems. Because decisions canno
 the difficulty lies entirely in committing well under uncertainty about the future.
 
 A recent and influential idea is to give such an algorithm a **prediction** about the input
-— a hint about which resources will be contended, or how many requests of each kind will
-arrive — and to ask for two guarantees at once: **consistency**, meaning near-optimal
-performance when the prediction is good, and **robustness**, meaning no worse than a
-prediction-free algorithm when the prediction is wrong. For online matching specifically,
+— which resources will be contended, or how many requests of each kind will arrive — and to
+ask for two guarantees at once: **consistency**, meaning near-optimal performance when the
+prediction is good, and **robustness**, meaning no worse than a prediction-free algorithm
+when the prediction is wrong. (We call the object a *prediction* throughout, and *advice*
+only where the question is whether to trust it; the two denote the same thing.) For online
+matching specifically,
 two families of such *learning-augmented* algorithms have appeared: MinPredictedDegree,
-which consumes a per-resource degree prediction, and a family of *test-and-fallback*
+which consumes a prediction of each resource's degree — how many kinds of request will
+compete for it, i.e. how contended it will be — and a family of *test-and-fallback*
 schemes, which test a request-type prediction on a short prefix of arrivals before deciding
 whether to trust it.
 
@@ -60,11 +63,13 @@ These algorithms come with attractive worst-case guarantees, yet — as this the
 demonstrates experimentally — their average-case behavior is strikingly muted: on realistic
 workloads the sophisticated predictions rarely *help*, while the algorithms' real value is
 that they do not *hurt*. This gap between the worst-case promise and the average-case
-reality is the puzzle that motivates this thesis. The algorithms had, moreover, only ever been studied *in
-isolation* — each on its own input model, against its own notion of prediction error, and
-largely through theory — so there was no common ground on which to compare them, quantify
-how much a prediction actually buys, or explain the gap. This thesis provides that common
-ground and, ultimately, an explanation.
+reality is the puzzle that motivates this thesis.
+
+Moreover, these algorithms had only ever been studied *in isolation* — each on its own
+input model and its own notion of prediction error, and largely through theory. There was
+therefore no common ground on which to compare them, to quantify how much a prediction
+actually buys, or to explain the gap. This thesis provides that common ground and,
+ultimately, an explanation.
 
 <!--REV
 id: 1-04
@@ -88,7 +93,9 @@ fix: 把 puzzle 那句单独成段作为本章的题眼，文献空白与本文�
 
 ## 1.2 Research objectives
 
-The thesis is organized around three questions:
+Performance is measured throughout as the ratio of the matching an algorithm produces to
+the offline optimum on the same instance (§3.1 makes this precise). The thesis is organized
+around three questions:
 
 1. **How do the learning-augmented online-matching algorithms actually compare**, head to
    head, under a single prediction-error model and on common inputs — and how much does a
@@ -123,10 +130,10 @@ fix: 在每条贡献后面用括号标出它回答哪个问题（Q1 / Q2 / Q3）
 
 ## 1.3 Contributions
 
-- **A unified experimental benchmark** (Chapter 4) that places the advice-free baselines,
-  MinPredictedDegree and its augmentations, and the test-and-fallback algorithms on one
-  harness — common graphs, a common structured prediction-error model, a common optimum, and
-  confidence intervals — the first head-to-head comparison of these families.
+- **A unified experimental benchmark** (Chapter 4): the first head-to-head comparison of
+  these families, on one experimental harness — a single code path in which every algorithm
+  sees the same graphs, predictions and optimum, with a *structured* error model (errors
+  follow the instance's structure, not i.i.d. noise) and confidence intervals.
 
 <!--REV
 id: 1-08
@@ -139,20 +146,16 @@ fix: harness 首次出现处加同位语：on a single experimental harness (one
 -->
 
 - **A characterization of predictions as robustness insurance** (Chapters 4, 7): unguarded
-  prediction-following crashes *below* the advice-free baseline under bad predictions; two
-  distinct mechanisms — structural (the augmentations) and adaptive (test-and-fallback) —
-  restore safety with different consistency/robustness trade-offs; and the consistency
-  upside is small on average-case inputs, so the value is downside protection. The picture
-  is validated on synthetic graphs, six real-world graphs, and real request traces,
-  including with a cheap, non-ML historical predictor.
+  following crashes *below* the advice-free baseline, two mechanisms — structural and
+  adaptive — restore safety with different trade-offs, and the consistency upside is small,
+  so the value is downside protection. Validated on synthetic graphs, six real-world graphs
+  and real traces, including with a cheap, non-ML historical predictor.
 
 - **An empirical engagement with the order-error theory** (Chapter 5): MinPredictedDegree's
-  loss is governed by a Kendall-$\tau$ order error — the fraction of resource pairs the
-  predictor ranks in the wrong relative order, so that only the ranking a predictor induces
-  matters and not the numbers it outputs — onto which several error models collapse.
-  We credit Aamand–Chen–Indyk's Appendix D for the order-dependence itself and contribute a
-  characterization of the known bound's looseness and saturation and of the right order
-  measure — not a rediscovery that order matters.
+  loss is governed by a Kendall-$\tau$ order error — the fraction of resource pairs ranked in
+  the wrong relative order — onto which several error models collapse. Order-dependence
+  itself is Aamand–Chen–Indyk's result; ours is the characterization of their bound's
+  looseness and saturation, and of the right order measure.
 
 <!--REV
 id: 1-09
@@ -176,9 +179,8 @@ fix: 保持原样。同样的写法建议复制到第 6 章（Choo/BEM 阈值是
 
 - **The first empirical study of test-and-fallback** (Chapter 6): its testing cost, a
   threshold-calibration pathology in which a *more accurate* test yields a *worse* decision,
-  its recalibration and the resolution limit that recalibration exposes, and a benchmark of
-  the dynamic combiner revealing an irrevocability penalty that explains why matching
-  requires *test-then-commit*.
+  the resolution limit that recalibration exposes, and an irrevocability penalty that
+  explains why matching requires *test-then-commit*.
 
 <!--REV
 id: 1-11
@@ -190,12 +192,11 @@ note: 一页里两处 first。这两条大概率站得住，但答辩时必然�
 fix: 正文保留 first，但在第 2.6 节确保有一句可核对的范围声明（检索了哪些库、到什么时间），并把这句准备成答辩的标准答案。
 -->
 
-- **A quantified account of why the wall stands** (Chapter 6). By the *wall* we mean the
-  recurring finding that on average-case inputs neither a better algorithm nor a better
-  prediction moves the competitive ratio appreciably. We trace it to a *resolution limit*:
-  no practical acceptance threshold can capture an upside that sits below the noise of the
-  estimator used to decide. The limit is not one badly calibrated threshold — it persists
-  across the whole difficulty range (Figure 6.4).
+- **A quantified account of why the wall stands** (Chapter 6). By the *wall* we mean that on
+  average-case inputs neither a better algorithm nor a better prediction moves the ratio
+  appreciably. We trace it to a *resolution limit* — no practical threshold can capture an
+  upside below its own estimator's noise — which persists across the whole difficulty range
+  (Figure 6.4).
 
 <!--REV
 id: 1-12
@@ -261,17 +262,16 @@ fix: 定一处为正本（建议 8.2，因为它属于负结果章），9.2 压�
 
 ## 1.4 Thesis organization
 
-Chapter 2 surveys the background: online matching and its input models, the
-learning-augmented paradigm, the specific prediction-based matching algorithms, and the
-distribution-testing results behind their tests. Chapter 3 fixes the model and
-methodology and validates the experimental harness by reproducing a subset of the Borodin et
-al. study. Chapter 4 presents the unified benchmark and its four findings. Chapter 5
-examines what governs the (small) loss — order error — and its relation to the known bound.
-Chapter 6 studies the test-and-fallback mechanism in depth. Chapter 7 tests external
-validity on real predictors and real graphs. Chapter 8 reports the exploratory directions
-and negative results. Chapter 9 presents the AI-inference serving case study. Chapter 10
-concludes: it summarizes the findings, gives a theoretical outlook on why the wall is
-forced (§10.2), and discusses limitations and future work. The recurring thesis,
+The chapters group by the three questions above. Chapters 2 and 3 build the common ground:
+the background (input models, the learning-augmented paradigm, the specific algorithms, and
+the distribution-testing results behind their tests) and then our own model, methodology and
+harness, validated by reproducing a subset of the Borodin et al. study. Chapters 4 to 7
+answer Q1 and Q2: the unified benchmark and its four findings (4), what governs the small
+loss (5), the test-and-fallback mechanism in depth (6), and external validity on real
+predictors and real graphs (7). Chapters 8 to 10 take up Q3 and the boundaries: the
+exploratory directions and their negative results (8), the AI-inference serving case study
+(9), and a conclusion that summarizes, gives a theoretical outlook on why the wall stands
+(§10.2), and states limitations and future work (10). The recurring thesis,
 established experimentally and then explained in outlook, is a single sentence: **on
 average-case online matching, predictions are robustness insurance rather than a
 performance lever — and the upside they offer is smaller than the price of finding out

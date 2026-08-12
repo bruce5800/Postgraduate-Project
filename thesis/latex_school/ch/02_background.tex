@@ -19,8 +19,10 @@ On each arrival the algorithm sees the request's incident edges and must
 either match it to a currently unmatched neighbor or leave it unmatched,
 \textbf{immediately and irrevocably}. The goal is to maximize the size
 (or, in weighted variants, the value) of the matching. Performance is
-measured by the \textbf{competitive ratio}, the (expected) ratio between
-the algorithm's matching and an offline optimum on the same input.
+measured by the \textbf{competitive ratio}: the ratio between the
+algorithm's matching and an offline optimum on the same input, in
+expectation over both the random input and the algorithm's own
+randomness (§3.1 fixes the precise form we report).
 
 The difficulty of the problem depends entirely on the assumed
 \emph{input model}:
@@ -67,7 +69,7 @@ arrivals are not.
 
 A line of work has pushed the worst-case (over type graphs) competitive
 ratio above the \(1-1/e\) adversarial barrier: Feldman et al.
-\autocite{feldman2009online} first beat it (\(0.67\)) via a flow-based
+\autocite{feldman2009online} first beat it (\(0.670\)) via a flow-based
 \emph{blue/red} decomposition of a suggested matching; Manshadi, Oveis
 Gharan and Saberi \autocite{manshadi2012online} and Jaillet--Lu
 \autocite{jailletlu2014online} improved the ratio (to \(\approx0.702\)
@@ -81,10 +83,13 @@ Crucially for this thesis, Borodin, Karavasilis and Pankratov
 these algorithms and found that on \emph{average-case} i.i.d. instances
 the picture is very different from the worst case: the simple algorithms
 (Greedy, Ranking) perform almost as well as the sophisticated ones,
-whose advantage is a worst-case, not a typical-case, phenomenon. This
-empirical observation --- that on typical inputs the simple baseline is
-already near-optimal --- is the seed of the thesis's central finding,
-and we reproduce a subset of it as validation (Chapter 3).
+whose advantage is a worst-case, not a typical-case, phenomenon.
+
+One empirical observation in that line is the seed of this thesis:
+\emph{on typical inputs the simple baseline is already near-optimal}.
+Everything that follows is an attempt to find out what a prediction can
+add to it, and we reproduce a subset of the study as validation (Chapter
+3).
 
 \section{Learning-augmented
 algorithms}
@@ -108,22 +113,23 @@ The paradigm was crystallized by Lykouris and Vassilvitskii
 \autocite{lykouris2018caching} for competitive caching, who showed how
 to interpolate between trusting and ignoring a predictor while bounding
 both consistency and robustness. A large literature followed across ski
-rental, scheduling, and other online problems, including the
+rental, scheduling and other online problems, including the
 \emph{optimal} consistency/robustness trade-off analyses of Wei and
 Zhang \autocite{weizhang2020tradeoffs}, which establish
-problem-intrinsic Pareto frontiers between the two objectives. A
-recurring theme is that robustness is obtained by \emph{hedging} ---
-combining the predictor's advice with a safe default so that a bad
-prediction cannot cause catastrophe. The blind-follow-with-switching
-\textbf{combiner} of Chłędowski, Polak, Szabucki and Żołna
-\autocite{chledowski2021caching}, introduced in an experimental study of
-robust learning-augmented caching, is one such hedging mechanism; we
-port and benchmark it (Chapter 6). That paper is also the closest
-methodological template for this thesis's experimental half. Recent
-theoretical work further analyzes how the achievable ratio degrades
+problem-intrinsic Pareto frontiers between the two objectives. Recent
+work further analyzes how the achievable ratio degrades
 \emph{continuously} with prediction accuracy in a
 distributionally-robust formulation \autocite{yoshinaga2026accuracy},
 complementing the discrete consistency/robustness endpoints used here.
+
+Two items from this literature are load-bearing for us. The recurring
+mechanism is \emph{hedging} --- combining the prediction with a safe
+default so that a bad prediction cannot cause catastrophe. The
+blind-follow-with-switching \textbf{combiner} of Chłędowski, Polak,
+Szabucki and Żołna \autocite{chledowski2021caching} is one such
+mechanism, which we port and benchmark (Chapter 6); their paper, an
+experimental study of robust learning-augmented caching, is also the
+closest methodological template for this thesis's experimental half.
 
 \section{Predictions for online bipartite
 matching}
@@ -166,20 +172,20 @@ stochastic model. Notably, Choo et al.'s acceptance threshold already
 \emph{couples} to the baseline competitive ratio \(\beta\) --- but
 constructively, inside the algorithm design, not as a lower bound. What
 that coupling costs --- how large a prefix the follow/fallback decision
-fundamentally requires --- is a question this thesis engages empirically
-(Chapter 6) and in a theoretical outlook (§10.2); the full formal
-development is deferred to companion work.
+fundamentally requires --- is the question this thesis measures (Chapter
+6) and then reads quantitatively (§10.2).
 
 \section{Distribution testing}
 
 The test at the heart of the algorithms above is a question in
 \textbf{distribution testing}: given samples from an unknown
-distribution \(p\) over a support of size \(r\) and a known reference
-\(q\), decide how far \(p\) is from \(q\). We measure that distance in
-\(\ell_1\) throughout, as the algorithms and our experiments do; it is
-\emph{twice} the total-variation distance, and every threshold quoted in
-this thesis is an \(\ell_1\) threshold. Two regimes must be
-distinguished:
+distribution \(p\) over a support of size \(r\) --- the same \(r\) as in
+our model, the number of request types, because the histogram advice is
+a distribution over types --- and a known reference \(q\), decide how
+far \(p\) is from \(q\). We measure that distance in \(\ell_1\)
+throughout, as the algorithms and our experiments do; it is \emph{twice}
+the total-variation distance, and every threshold quoted in this thesis
+is an \(\ell_1\) threshold. Two regimes must be distinguished:
 
 \begin{itemize}
 \tightlist
@@ -217,8 +223,9 @@ this point.
 
 \section{Positioning of this thesis}
 
-Against this background, three gaps stand out, which the thesis
-addresses in turn:
+Against this background, three gaps stand out. They correspond
+one-to-one to the three questions of §1.2, and the thesis addresses them
+in that order:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -238,7 +245,8 @@ addresses in turn:
   \textbf{No quantification of what the prefix test costs.} No prior
   work measures --- or bounds --- how large a prefix the follow/fallback
   decision requires on strong-baseline instances, where the upside to be
-  captured is smallest. (Chapter 6 empirically; §10.2 in outlook.)
+  captured is smallest. The prior-art pass behind this claim is
+  described in §8.3. (Chapter 6 empirically; §10.2 in outlook.)
 \end{enumerate}
 
 The thesis closes the first two gaps experimentally and takes a first,
