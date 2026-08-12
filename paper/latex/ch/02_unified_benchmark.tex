@@ -65,14 +65,14 @@ MinDegree (oracle) & 0.996 & --- & --- & --- \\
 MPD & 0.989 & 0.956 & \textbf{0.908} & 0.946 \\
 Feldman(MPD) & 0.981 & 0.979 & 0.976 & 0.978 \\
 JailletLu(MPD) & 0.977 & 0.976 & 0.974 & 0.975 \\
-Feldman / JailletLu (base) & 0.887 / 0.901 & --- & --- & --- \\
+Feldman / JailletLu (base) & 0.887 / 0.900 & --- & --- & --- \\
 \emph{Panel B --- left-regular \(d{=}5\)} & & & & \\
 Greedy = Ranking (floor) & 0.890 & --- & --- & --- \\
 MinDegree (oracle) & 0.966 & --- & --- & --- \\
 MPD & 0.932 & 0.906 & \textbf{0.854} & 0.888 \\
-Feldman(MPD) / JailletLu(MPD) & 0.906 / 0.903 & 0.903 / 0.902 & 0.896 /
-0.898 & 0.900 / 0.901 \\
-Feldman / JailletLu (base) & 0.758 / 0.789 & --- & --- & --- \\
+Feldman(MPD) / JailletLu(MPD) & 0.906 / 0.904 & 0.902 / 0.903 & 0.896 /
+0.899 & 0.900 / 0.901 \\
+Feldman / JailletLu (base) & 0.760 / 0.788 & --- & --- & --- \\
 \end{longtable}
 }
 
@@ -96,7 +96,7 @@ Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The unified benchmark (Table 1) as grouped bars: competitive ratio by algorithm and advice quality, one group per panel; the advice-free floor and oracle ceiling bracket every bar.}]{../../../results/unified_benchmark.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The unified benchmark (Table 1) as grouped bars: competitive ratio by algorithm and advice quality, one group per panel; the advice-free floor and oracle ceiling bracket every bar.}]{../../results/unified_benchmark.png}
 \caption{The unified benchmark (Table 1) as grouped bars: competitive
 ratio by algorithm and advice quality, one group per panel; the
 advice-free floor and oracle ceiling bracket every bar.}
@@ -112,6 +112,7 @@ MPD falls to \(0.908 < 0.948\) (Panel A, adversarial) and
 \(0.472 \ll 0.990\) (Panel C). A practitioner using either
 \emph{unguarded} is strictly worse off than using no prediction at all.
 Every \emph{robust} algorithm in the tables --- the augmentations,
+
 TestAndMatch, the combiner --- avoids this by construction, not by luck.
 
 \textbf{(F2) Two distinct robustness mechanisms, with different shapes.}
@@ -142,10 +143,12 @@ instance itself.
 \textbf{(F4) The augmentation rescues structurally weak base
 algorithms.} Feldman and Jaillet--Lu are tuned for the worst-case ratio
 and are the \emph{weakest} advice-free entries on these average-case
-inputs (Panel B: \(0.758\) / \(0.789\), well below Greedy's \(0.890\)).
+inputs (Panel B: \(0.760\) / \(0.788\), well below Greedy's \(0.890\)).
 The MPD augmentation lifts them to \(\approx 0.90\) --- the prediction
 does \emph{more} for the worst-case-designed algorithms than for greedy.
-This pairing is visible only under a unified table.
+This pairing is visible only under a
+
+unified table.
 
 \subsection{Takeaway}
 

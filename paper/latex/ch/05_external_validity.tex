@@ -17,7 +17,7 @@ forecast through the degree route (MPD) (\textbf{Figure 7};
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.}]{../../../results/real_predictor.png}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.}]{../../results/real_predictor.png}
 \caption{A cheap historical-count predictor on the Wikipedia trace:
 near-oracle ratio at every staleness level, never below the advice-free
 floor.}
@@ -52,7 +52,7 @@ with 95\% CIs (\textbf{Figure 8};
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings are universal, not generator artifacts.}]{../../../results/realworld_robustness.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings are universal, not generator artifacts.}]{../../results/realworld_robustness.png}
 \caption{The six real-world graphs: unguarded following falls below the
 advice-free floor on every graph, and the augmentation restores safety
 --- the benchmark's findings are universal, not generator artifacts.}
@@ -61,13 +61,14 @@ advice-free floor on every graph, and the augmentation restores safety
 The two load-bearing findings are universal. \textbf{F1 holds on all six
 graphs}: naive MPD fed an adversarial predictor falls \emph{below} the
 Ranking floor everywhere --- by \(0.07\) (Caltech36: \(0.843<0.913\)) to
-\(0.11\) (CE-PG: \(0.782<0.883\)). \textbf{F3 is universal and confirms
-its own logic}: the consistency upside (best prediction algorithm at
-perfect advice, over the floor) is small everywhere (mean \(+0.049\);
-range \(+0.022\)--\(+0.077\)), and it is \emph{smallest exactly where
-the baseline is strongest} --- the two dense economic graphs, with
-Ranking already \(0.965\)/\(0.977\), give the tiniest upsides
-(\(+0.035\)/\(+0.022\)).
+\(0.11\) (CE-PG: \(0.782<0.883\)). **F3 is universal and
+
+confirms its own logic**: the consistency upside (best prediction
+algorithm at perfect advice, over the floor) is small everywhere (mean
+\(+0.049\); range \(+0.022\)--\(+0.077\)), and it is \emph{smallest
+exactly where the baseline is strongest} --- the two dense economic
+graphs, with Ranking already \(0.965\)/\(0.977\), give the tiniest
+upsides (\(+0.035\)/\(+0.022\)).
 
 The structural-robustness finding \textbf{F2 holds qualitatively on all
 six} (the augmentations are always less sensitive to prediction quality
@@ -81,10 +82,12 @@ floor, dipping \(\approx0.03\) below it (spread ratio
 failure: those graphs are so dense that matching is nearly trivial
 (Ranking \(\approx0.97\), MinDegree \(=1.00\)), so there is neither
 upside to capture (F3) nor much downside to protect --- the mechanisms
-compress together where robustness does not matter. Finally, F4 is
-\emph{dramatic} here: the worst-case-designed Feldman/Jaillet--Lu are
-the weakest advice-free entries on the econ graphs (\(0.73\)--\(0.77\)),
-and the MPD augmentation lifts them to \(0.99\) --- a \(+0.26\) rescue.
+compress together
+
+where robustness does not matter. Finally, F4 is \emph{dramatic} here:
+the worst-case-designed Feldman/Jaillet--Lu are the weakest advice-free
+entries on the econ graphs (\(0.73\)--\(0.77\)), and the MPD
+augmentation lifts them to \(0.99\) --- a \(+0.26\) rescue.
 
 \subsection{\texorpdfstring{Does \emph{learning} the predictor help? A
 negative
@@ -105,12 +108,13 @@ and, decisively, \textbf{on real temporal features it disappears} ---
 trained on lagged counts from real serving traces, the rank- and
 regression-trained predictors produce \emph{identical} order
 (Kendall-\(\tau\) \(0.126\) vs \(0.126\)) and identical matching ratio,
-across every topology and lag we tried. The dissociation that powers
-order-aware training is a property of engineered features, not of
-realistic ones. The lesson reinforces the thesis: once a predictor is
-order-faithful --- which a cheap historical count already is (§6.1) ---
-neither a better algorithm nor a better-trained predictor buys much on
-average-case matching.
+across every topology and
+
+lag we tried. The dissociation that powers order-aware training is a
+property of engineered features, not of realistic ones. The lesson
+reinforces the thesis: once a predictor is order-faithful --- which a
+cheap historical count already is (§6.1) --- neither a better algorithm
+nor a better-trained predictor buys much on average-case matching.
 
 \subsection{Summary}
 

@@ -33,6 +33,16 @@ instead stays on the **upper envelope**: it captures the benefit when advice is 
 when advice is bad, its prefix test rejects it and it falls back to Ranking, never
 crashing (BEM $0.998\to0.969$; Choo $1.000\to0.991$ across the same sweep). This is the
 adaptive counterpart of the structural robustness of Section 3: the engineered mechanism
+
+<!--REV
+id: 4-01
+role: P2 领域审稿人
+level: 必改
+kind: 全称断言
+quote: its prefix test rejects it and it falls back to Ranking, never crashing
+note: never 是全称量词，证据是一条误差 sweep、一个图族、40 次重复。
+fix: 限定到证据范围：it does not fall below the advice-free floor at any point of this sweep。真正的全称结论交给 §7 的定理承担。
+-->
 that MPD lacked.
 
 ![The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.](../../results/choo_bem_envelope.png){width=70%}
@@ -59,6 +69,17 @@ the borderline advice, landing on the strong Ranking floor; a large, accurate pr
 correctly measures $\ell_1\approx0.16<\tau$ and so **accepts** the mildly-bad advice the
 worst-case threshold deems acceptable — and underperforms the baseline. On strong-baseline
 inputs the worst-case-calibrated threshold is too *lenient*, and improving the test's
+
+<!--REV
+id: 4-02
+role: P1 领域外审稿人
+level: 必改
+kind: 常数无出处
+mark: is calibrated to the
+quote: calibrated to the worst-case baseline $\beta\approx0.696$
+note: 0.696 凭空出现。领域外审稿人会问它是哪来的、为什么不是 1-1/e。它是本节机制解释的支点。
+fix: 补半句出处：随机到达序下 Ranking 的最坏情况比值，也是 Choo 等人给阈值取的值，并引 [Choo24]。
+-->
 accuracy only makes the algorithm follow that miscalibrated threshold more faithfully.
 
 ## 5.3 Recalibration, and the resolution limit it exposes
@@ -76,6 +97,16 @@ scores only $0.987$: the recalibrated threshold $\tau\approx 2(1-\hat\beta)\appr
 *smaller than the empirical-$\ell_1$ estimator's own noise floor* ($\approx 0.05$–$0.13$ at
 this prefix and support), so the test can never confidently *accept* — it rejects
 everything, including perfect advice, and effectively always plays the baseline. In other
+
+<!--REV
+id: 4-03
+role: P2 领域审稿人
+level: 建议
+kind: 估计量缺说明
+quote: smaller than the empirical-l1 estimator's own noise floor (approximately 0.05-0.13 at this prefix and support)
+note: 噪声底给了区间但没说怎么估的、随什么变化。它是 §5.3 到 §7 的桥。
+fix: 补一句定义：完美建议下长度 k 前缀的类型频率与真实直方图的 l1 距离，即纯采样噪声，随 k 增大而下降。
+-->
 words:
 
 > On strong-baseline instances, no practical empirical-$\ell_1$ threshold can both capture
@@ -128,6 +159,16 @@ upside ($\approx0.02$) lies below the resolution *any* rule can achieve at $k=20
 the budget–stakes scaling of Section 7, with this family's payoff estimator carrying
 per-sample variance of order one, resolving stakes of $0.02$ takes
 $k \approx 1/0.02^2 = 2500 > n$ — the law binds our rule too, and the right behavior at
+
+<!--REV
+id: 4-04
+role: P2 领域审稿人
+level: 必改
+kind: 把 sigma^2 悄悄设成 1
+quote: with this family's payoff estimator carrying per-sample variance of order one, resolving stakes of 0.02 takes k approx 1/0.02^2 = 2500
+note: §7 的预算是 sigma^2/g^2，这里直接写成 1/g^2，等于把 sigma^2 取成 1 而只用一个从句带过。审稿人会问：benchmark 家族的 sigma^2 到底是多少？这是把定理用到自己算法上的唯一一处，不能含糊。
+fix: 把 sigma^2 的取值（或它在该家族上的量级估计）写出来，公式写成 k approx sigma^2/g^2 并代入具体数字。
+-->
 unresolvable stakes is exactly this safe-either-way coin flip.
 
 ![The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget–stakes law allows.](../../results/directional_envelope.png){width=85%}
@@ -160,6 +201,17 @@ More instructively, an *eager* combiner that switches experts mid-stream reveals
 specific to irrevocable problems. With perfect advice, eager switching scores $0.927$ —
 *below both* the pure follower ($1.000$) and the pure baseline ($0.958$; verified in
 `tests/test_combiner_small.py`) — because switching from Ranking to Mimic mid-run lands the
+
+<!--REV
+id: 4-05
+role: P7 复现审稿人
+level: 必改
+kind: 用单元测试当证据
+mark: eager switching scores
+quote: eager switching scores 0.927 - below both the pure follower (1.000) and the pure baseline (0.958; verified in tests/test_combiner_small.py)
+note: 论文正文的数字引用了一个单元测试文件。实际规模是 n=600、r=6、单个种子、不做平均——全节其他数字都有实验设置，只有这一处没有，且它支撑的是」为何必须 test-then-commit」这一结论。
+fix: 写明它的地位与规模：a single-instance mechanism check (n=600, r=6, one seed, no averaging)，或升级为一次带置信区间的正式实验。脚本路径移到复现附录。
+-->
 committed matching in an *incompatible hybrid*: the Mimic plan's slots are already
 half-consumed by the Ranking phase, and the Ranking progress is abandoned. In an
 irrevocable problem the follow/fallback decision must be made *before* the bulk of the

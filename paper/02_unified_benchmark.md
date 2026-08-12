@@ -45,13 +45,35 @@ data. The salient rows:
 | MPD | 0.989 | 0.956 | **0.908** | 0.946 |
 | Feldman(MPD) | 0.981 | 0.979 | 0.976 | 0.978 |
 | JailletLu(MPD) | 0.977 | 0.976 | 0.974 | 0.975 |
-| Feldman / JailletLu (base) | 0.887 / 0.901 | — | — | — |
+| Feldman / JailletLu (base) | 0.887 / 0.900 | — | — | — |
 | *Panel B — left-regular $d{=}5$* | | | | |
 | Greedy = Ranking (floor) | 0.890 | — | — | — |
 | MinDegree (oracle) | 0.966 | — | — | — |
 | MPD | 0.932 | 0.906 | **0.854** | 0.888 |
-| Feldman(MPD) / JailletLu(MPD) | 0.906 / 0.903 | 0.903 / 0.902 | 0.896 / 0.898 | 0.900 / 0.901 |
-| Feldman / JailletLu (base) | 0.758 / 0.789 | — | — | — |
+| Feldman(MPD) / JailletLu(MPD) | 0.906 / 0.904 | 0.902 / 0.903 | 0.896 / 0.899 | 0.900 / 0.901 |
+| Feldman / JailletLu (base) | 0.760 / 0.788 | — | — | — |
+
+<!--REV
+id: 2-01
+role: P4 体例校对
+level: 必改
+kind: 代码名进正文
+mark: -
+quote: Panel A - clvb_zipf
+note: clvb_zipf 是生成器标识符，带下划线出现在表里。审稿人不知道 clvb 是什么，也看不出这个面板测的是什么。
+fix: 改成可读名（heavy-tailed degrees (Zipf)），把脚本标识符放进复现附录。
+-->
+
+<!--REV
+id: 2-02
+role: P4 体例校对
+level: 必改
+kind: 三个 floor 不可比
+mark: -
+quote: Ranking (floor) 0.948 / Greedy = Ranking (floor) 0.890 / Ranking (floor) 0.990
+note: 三个面板的 floor 是三个不同的数，来自不同图族，表里没有任何提示；两族的质量列语义也不同却同名并排。审稿人第一反应是横向比较。
+fix: 表注加一句：floor 是 Ranking 在该面板自身图族上的比值，面板之间不可比；两族的质量列同样只在面板内部可比。
+-->
 
 | | perfect | mild | bad | garbage |
 |---|---:|---:|---:|---:|
@@ -73,6 +95,16 @@ prediction is adversarial or garbage: MPD falls to $0.908 < 0.948$ (Panel A, adv
 and $0.854 < 0.890$ (Panel B), and FollowPrediction collapses to $0.472 \ll 0.990$
 (Panel C). A practitioner using either *unguarded* is strictly worse off than using no
 prediction at all. Every *robust* algorithm in the tables — the augmentations,
+
+<!--REV
+id: 2-03
+role: P2 领域审稿人
+level: 必改
+kind: 无条件断言
+quote: A practitioner using either unguarded is strictly worse off than using no prediction at all.
+note: strictly worse off 是无条件的，但同一张表里 MPD 在 perfect 与 noisy 两列都高于 floor。这句话能被自己的表格直接反驳。
+fix: 补条件：under adversarial or garbage advice。一个从句的事。
+-->
 TestAndMatch, the combiner — avoids this by construction, not by luck.
 
 **(F2) Two distinct robustness mechanisms, with different shapes.** *Structural*
@@ -97,9 +129,19 @@ the instance itself.
 
 **(F4) The augmentation rescues structurally weak base algorithms.** Feldman and
 Jaillet–Lu are tuned for the worst-case ratio and are the *weakest* advice-free entries on
-these average-case inputs (Panel B: $0.758$ / $0.789$, well below Greedy's $0.890$). The
+these average-case inputs (Panel B: $0.760$ / $0.788$, well below Greedy's $0.890$). The
 MPD augmentation lifts them to $\approx 0.90$ — the prediction does *more* for the
 worst-case-designed algorithms than for greedy. This pairing is visible only under a
+
+<!--REV
+id: 2-04
+role: P5 审稿意见预演
+level: 建议
+kind: 自我表扬
+quote: This pairing is visible only under a unified table.
+note: visible only 是对自己方法论的表扬，且容易被反驳（分别做两组实验也能看到）。审稿意见里这类句子是免费靶子。
+fix: 去掉 only：a pairing that a unified table makes immediate。
+-->
 unified table.
 
 ## 3.3 Takeaway

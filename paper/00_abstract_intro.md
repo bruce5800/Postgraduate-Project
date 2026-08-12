@@ -42,6 +42,70 @@ uncapturable by any rule at any prefix length, and the upsides we measure sit in
 range. Experiments and theory deliver one message: **on average-case matching, the
 advice's upside is smaller than the price of finding out whether to trust it.**
 
+<!--REV
+id: 0-01
+role: P2 领域审稿人
+level: 必改
+kind: sharpness 无条件陈述
+quote: For the test-and-fallback class we establish a sharp, two-sided budget-stakes law
+note: 摘要与引言都把这条律说成 sharp、two-sided、无条件。但 §7.5 的两侧只有在「赌注由常数比例的 specialist mass 以可比信号承载」（Cauchy–Schwarz 那步）时才相接，而 §7.8 自己承认在低信号 sliver 上两侧可以差 sigma^2*eps_W/g 倍，且该情形开放。审稿人对照 §7.8 读摘要，会直接写 the claimed sharpness is conditional and the condition is not stated up front。
+fix: 摘要与引言各加一个限定从句：sharp up to logarithms whenever the stakes are carried by a constant fraction of the specialist mass（并指向 §7.8 的开放情形）。宁可摘要保守，§7 再给完整版。
+-->
+
+<!--REV
+id: 0-02
+role: P4 体例校对
+level: 必改
+kind: 赌注符号三套
+mark: independent of the instance length
+quote: a prefix of length $\tilde\Theta(\sigma^2/g^2)$ ... the squared stakes $g$ ... $\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})$
+note: 同一个量在摘要与引言里有三个名字：g（stakes）、delta（引言末尾的 stakes cap）、以及 §7.5(ii) 的 delta/Delta（gain/loss）。审稿人读到 delta <= 2 eps (1-rho) 时会以为它和 g 是两个量。
+fix: 全文统一：g = 赌注（scenario pair 的 payoff gap），delta/Delta 只在 Lemma 1 的 gain/loss 语境里出现，并在首次出现处写明二者关系。引言那句 cap 改用 g。
+-->
+
+<!--REV
+id: 0-03
+role: P3 英语文字编辑
+level: 建议
+kind: 摘要过长
+mark: -
+quote: (摘要整体)
+note: 摘要约 430 词、单段、含四个带公式的从句。ACM/TALG 的摘要通常 200–250 词，且审稿人先读它决定要不要认真读。
+fix: 压到 250 词以内：前三句给问题与实验发现，中间两句给律与它买到什么，最后一句金句。公式只留 sigma^2/g^2 一个。
+-->
+
+<!--REV
+id: 0-04
+role: P3 英语文字编辑
+level: 建议
+kind: 表述歧义
+mark: divided by the squared stakes
+quote: divided by the squared stakes $g$
+note: 读作「被平方后的赌注 g 除」，但公式是 sigma^2/g^2，应是」除以赌注 g 的平方」。
+fix: 改成 divided by the square of the stakes $g$。
+-->
+
+<!--REV
+id: 0-05
+role: P5 审稿意见预演
+level: 建议
+kind: novelty 断言的可核查性
+quote: We give the first unified experimental study ... To our knowledge, both the budget-stakes law and the observation that payoff-testing strictly separates from distance-testing in an online algorithm are new
+note: 两处 first/new 都是可被单条反例推翻的断言，而支撑它们的检索范围只在 §7 与 §9 零散提及。这是单作者投稿最容易被要求补充的地方。
+fix: 在 §9 开头加一句可核对的范围声明（检索了哪些库与会议、关键词、截止时间），并让摘要与 §7 的 new 都指向它。
+-->
+
+<!--REV
+id: 0-06
+role: P6 初次读者
+level: 建议
+kind: 贡献列表过长
+mark: -
+quote: (C1)-(C5) 五条贡献
+note: 五条贡献占了近一页，C4 与 C5 各自内部又套了三到四个子项。审稿人常常只看这一页就形成初判。
+fix: 每条压到两到三行：一句说贡献是什么，一句说它在哪一节。C4 的实现细节（Jensen 偏差、bootstrap）移到 §5.4。
+-->
+
 ---
 
 ## 1. Introduction

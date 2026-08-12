@@ -108,3 +108,31 @@ are attributable to the prediction alone. Confidence intervals are 95% normal-ap
 half-widths over trials. The Phase-2 portion reproduces a subset of Borodin, Karavasilis &
 Pankratov [Bor18]; every figure and table in this paper is regenerated from a fixed seed by
 a single script, listed with its output in Appendix [REPRO].
+
+<!--REV
+id: 1-01
+role: P7 复现审稿人
+level: 必改
+kind: 未解析的交叉引用
+quote: listed with its output in Appendix [REPRO]
+note: 这是一个没被替换掉的占位符，它已经原样印进 talg_main.pdf 的正文（第 3 页）。而且论文里并没有复现附录——学位论文有，这篇没有。审稿人看到 Appendix [REPRO] 会立刻怀疑稿件的成熟度。
+fix: 两件事：把占位符换成真正的指向；并补一个简短的复现附录（图表→脚本映射、种子、外部数据获取方式）。学位论文附录 A 可以直接压缩移植。
+-->
+
+<!--REV
+id: 1-02
+role: P7 复现审稿人
+level: 建议
+kind: 外部数据前提
+quote: every figure and table in this paper is regenerated from a fixed seed by a single script
+note: 第 6、8 节的真实图与 trace 结果需要先获取外部数据，而这句话让审稿人以为克隆代码即可复现全部。artifact evaluation 会当场卡住。
+fix: 补半句区分自足脚本与需要外部数据的脚本，并给出后者的获取方式（与新增的复现附录合并）。
+-->
+
+One implementation detail is load-bearing for that claim. Three preprocessing steps —
+Feldman's and Jaillet--Lu's suggested matchings, and the serving advice $b$-matching — take
+a maximum flow and consume its *decomposition*, which, unlike the flow value, is not
+unique; the solver picks one by iterating node containers. We therefore label those
+networks' nodes with integers rather than strings, since Python randomises string hashes
+per process and string labels made the chosen decomposition, and every number derived from
+it, differ between runs of the same script.

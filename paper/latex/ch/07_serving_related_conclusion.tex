@@ -2,15 +2,20 @@
 Serving}
 
 To show the framework instantiates a contemporary problem, we cast
-request routing in an AI-inference serving system as online
-\(b\)-matching: resources are model replicas / cache shards with a
-capacity \(c\), arrivals are requests drawn from a (non-uniform, bursty)
-traffic distribution, an edge is a capability or cache affinity, and
-goodput is the competitive ratio against the \(b\)-matching optimum. We
-instantiate it on three real traces (Wikipedia pageviews, an Azure LLM
-inference trace, and the Mooncake prefix-cache trace) and across four
-serving concerns: capacity \(c\), stale traffic forecasts, dynamic
-service times, and prefix-cache-aware routing.
+request routing in an AI-inference serving system as online capacitated
+matching: resources are model replicas / cache shards serving up to
+\(c\) concurrent requests, arrivals are requests drawn from a
+(non-uniform, bursty) traffic distribution, and an edge is a capability
+or cache affinity. Two quantities must be kept apart: raw \emph{goodput}
+is the fraction of arrivals served, while the \emph{competitive ratio}
+is the number served divided by the capacitated optimum on the same
+realized instance; they coincide only when the optimum can serve every
+arrival, which under overload it cannot, so we report the competitive
+ratio. We instantiate the mapping across four serving concerns: capacity
+\(c\) (on a synthetic topology, where advice quality can be swept
+directly), stale traffic forecasts (Wikipedia pageviews), dynamic
+service times (an Azure LLM inference trace), and prefix-cache-aware
+routing (the Mooncake prefix-cache trace).
 
 We present this as a \textbf{case study, not a novelty claim} --- the
 systems facts we recover are established, and the ``with-predictions''
@@ -24,10 +29,10 @@ case. Because the literature (§9) suggested the with-predictions lens
 might yield a \emph{new} actionable serving result on a tail objective,
 we probed it: on an SLO/tail objective under bursty load, a
 non-predictive policy (static headroom or reactive-adaptive reservation)
-matches a clairvoyant oracle to within \(\le 3\%\) across every regime
-we swept (\texttt{docs/SERVING\_SLO\_PROBE.md}). We found no regime
-where foresight helps --- the tail objective is forgiving too, a third
-face of the paper's wall. Serving therefore stays a case study.
+comes within \(\le 3\%\) of a policy with perfect foresight across every
+regime we swept. We found no regime where foresight helps --- the tail
+objective is forgiving too, a third face of the paper's wall. Serving
+therefore stays a case study.
 
 \section{Related Work}
 
@@ -50,8 +55,9 @@ SemiTrust-and-Switch \cite{antoniadis2025switching}, and distributional
 advice of unknown quality is handled by hedging in ski rental
 \cite{cui2026skirental} and in Diakonikolas et al.'s sampling-access
 model --- none of these tests the payoff, and none commits once. The
-most closely related active line is the \emph{test-before-trust} program
-of Choo, Gouleakis and coauthors
+most closely related active line is the \emph{test-before-trust}
+
+program of Choo, Gouleakis and coauthors
 \cite{choo2024imperfect,bhattacharyya2025product}, which statistically
 validates advice before use --- always by distributional distance; our
 §5.4/§7.7 argue the decision-relevant statistic is the payoff instead.
@@ -94,23 +100,26 @@ use them as ground truth, not as contributions.
 
 \textbf{Limitations.} (i) We work in the known-i.i.d. model; since
 Known-IID \(\le\) Random-Order, the algorithms' guarantees carry, but
-our empirical wall is an average-case statement and we do not claim it
-for adversarial arrival order. (ii) Following the original authors, the
-test-and-fallback experiments use an empirical-\(\ell_1\) surrogate for
-the (unimplemented) distribution tester; the theory does \emph{not}
-inherit this modeling --- the law binds any rule --- and §7.7 separately
-explains the surrogate's blindness. (iii) The degree- and
-histogram-prediction families do not map onto every graph, which is why
-we report them in parallel panels rather than one table. (iv) Each real
-modality is exercised by one trace. (v) The budget--stakes law is proven
-on decomposable (disjoint-cell) families, where the payoff identity
-holds; whether a \emph{non}-decomposable family can push the budget
-above \(1/\delta^2\) is open, as is the novelty of payoff-estimating
-acceptance rules relative to the broader learning-augmented literature
-(a dedicated pass is in progress). An earlier draft claimed a
-tolerant-testing impossibility for any sublinear rule; that claim was
-refuted during its own witness step and the refutation is reported in
-§7.7.
+our empirical wall is an average-case statement and
+
+we do not claim it for adversarial arrival order. (ii) Following the
+original authors, the test-and-fallback experiments use an
+empirical-\(\ell_1\) surrogate for the (unimplemented) distribution
+tester; the theory does \emph{not} inherit this modeling --- the law
+binds any rule --- and §7.7 separately explains the surrogate's
+blindness. (iii) The degree- and histogram-prediction families do not
+map onto every graph, which is why we report them in parallel panels
+rather than one table. (iv) Each real modality is exercised by one
+trace. (v) The budget--stakes law is proven on decomposable
+(disjoint-cell) families, where the payoff identity holds; whether a
+\emph{non}-decomposable family can push the budget above \(1/\delta^2\)
+is open, as is the novelty of payoff-estimating acceptance rules
+relative to
+
+the broader learning-augmented literature (a dedicated pass is in
+progress). An earlier draft claimed a tolerant-testing impossibility for
+any sublinear rule; that claim was refuted during its own witness step
+and the refutation is reported in §7.7.
 
 \textbf{Conclusion.} We gave the first unified experimental study of
 learning-augmented online bipartite matching --- advice-free baselines,

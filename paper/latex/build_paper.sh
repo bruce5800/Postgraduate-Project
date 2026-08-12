@@ -49,7 +49,8 @@ def md2tex(md):
     tex = r.stdout.replace(r'\def\LTcaptype{none}', '')
     tex = re.sub(r'\\label\{[^}]*\}', '', tex)
     # md image paths are relative to docs/paper/; latex compiles from docs/paper/latex/
-    tex = tex.replace('../../results/', '../../../results/')
+    # figure paths in the markdown are relative to paper/*.md; pdflatex runs in
+    # paper/latex/, from which ../../results/ already resolves correctly.
     return tex
 
 FILES = ['00_abstract_intro', '01_setup', '02_unified_benchmark', '03_order_error',
@@ -69,7 +70,7 @@ for f in FILES:
         pathlib.Path(f'ch/{f}.tex').write_text(md2tex(text))
 print(f'fragments: {len(FILES)} sections + abstract')
 
-bib = pathlib.Path('../../references.bib').read_text()
+bib = pathlib.Path('../../docs/references.bib').read_text()
 bib = re.sub(r',?\s*note\s*=\s*\{[^{}]*\}', '', bib)   # notes are internal TODO markers
 pathlib.Path('refs_clean.bib').write_text(bib)
 print('refs_clean.bib regenerated')

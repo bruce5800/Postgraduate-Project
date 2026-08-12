@@ -140,3 +140,13 @@ over trials. The Phase-2 portion reproduces a subset of Borodin,
 Karavasilis \& Pankratov \cite{borodin2018experimental}; every figure
 and table in this paper is regenerated from a fixed seed by a single
 script, listed with its output in Appendix {[}REPRO{]}.
+
+One implementation detail is load-bearing for that claim. Three
+preprocessing steps --- Feldman's and Jaillet--Lu's suggested matchings,
+and the serving advice \(b\)-matching --- take a maximum flow and
+consume its \emph{decomposition}, which, unlike the flow value, is not
+unique; the solver picks one by iterating node containers. We therefore
+label those networks' nodes with integers rather than strings, since
+Python randomises string hashes per process and string labels made the
+chosen decomposition, and every number derived from it, differ between
+runs of the same script.

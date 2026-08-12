@@ -8,13 +8,17 @@ novelty claim; the SLO probe negative is stated honestly; limitations complete.
 # 8. Application Case Study: AI-Inference Serving
 
 To show the framework instantiates a contemporary problem, we cast request routing in an
-AI-inference serving system as online $b$-matching: resources are model replicas / cache
-shards with a capacity $c$, arrivals are requests drawn from a (non-uniform, bursty)
-traffic distribution, an edge is a capability or cache affinity, and goodput is the
-competitive ratio against the $b$-matching optimum. We instantiate it on three real traces
-(Wikipedia pageviews, an Azure LLM inference trace, and the Mooncake prefix-cache trace)
-and across four serving concerns: capacity $c$, stale traffic forecasts, dynamic service
-times, and prefix-cache-aware routing.
+AI-inference serving system as online capacitated matching: resources are model replicas /
+cache shards serving up to $c$ concurrent requests, arrivals are requests drawn from a
+(non-uniform, bursty) traffic distribution, and an edge is a capability or cache affinity.
+Two quantities must be kept apart: raw *goodput* is the fraction of arrivals served, while
+the *competitive ratio* is the number served divided by the capacitated optimum on the same
+realized instance; they coincide only when the optimum can serve every arrival, which under
+overload it cannot, so we report the competitive ratio. We instantiate the mapping across
+four serving concerns: capacity $c$ (on a synthetic topology, where advice quality can be
+swept directly), stale traffic forecasts (Wikipedia pageviews), dynamic service times (an
+Azure LLM inference trace), and prefix-cache-aware routing (the Mooncake prefix-cache
+trace).
 
 We present this as a **case study, not a novelty claim** — the systems facts we recover are
 established, and the "with-predictions" vocabulary is a re-labeling of them. The framework
@@ -25,9 +29,18 @@ stays safe); a live-load signal beats a stale forecast under dynamic service tim
 case. Because the literature (§9) suggested the with-predictions lens might yield a *new*
 actionable serving result on a tail objective, we probed it: on an SLO/tail objective under
 bursty load, a non-predictive policy (static headroom or reactive-adaptive reservation)
-matches a clairvoyant oracle to within $\le 3\%$ across every regime we swept
-(`docs/SERVING_SLO_PROBE.md`). We found no regime where foresight helps — the tail objective
+comes within $\le 3\%$ of a policy with perfect foresight across every regime we swept. We found no regime where foresight helps — the tail objective
 is forgiving too, a third face of the paper's wall. Serving therefore stays a case study.
+
+<!--REV
+id: 7-01
+role: P5 审稿意见预演
+level: 建议
+kind: 重复声明
+quote: We present this as a **case study, not a novelty claim** ... Serving therefore stays a case study.
+note: 同一节里两次声明本节不是贡献。诚实是对的，但两次会让审稿人问：那它为什么占一节。
+fix: 保留一次，并把这一节的正面价值写出来（它验证抽象能落到真实系统，并且是 §6.3 负结果的实验场）。
+-->
 
 # 9. Related Work
 
@@ -45,6 +58,16 @@ extends to prediction-quality-triggered frameworks such as SemiTrust-and-Switch 
 and distributional advice of unknown quality is handled by hedging in ski rental [CD26]
 and in Diakonikolas et al.'s sampling-access model — none of these tests the payoff, and
 none commits once. The most closely related active line is the *test-before-trust*
+
+<!--REV
+id: 7-02
+role: P2 领域审稿人
+level: 建议
+kind: 对文献的全称断言
+quote: none of these tests the payoff, and none commits once
+note: 对一整条文献线的全称否定。只要审稿人想到一个反例，这句话就成了扣分项——而 test-before-trust 那一线正是活跃的、且作者自己也说是直接对手。
+fix: 限定到检索到的范围：among the works we surveyed (§9), none tests the payoff。并与 0-05 的范围声明挂钩。
+-->
 program of Choo, Gouleakis and coauthors [Choo24, BCJG25], which statistically validates
 advice before use — always by distributional distance; our §5.4/§7.7 argue the
 decision-relevant statistic is the payoff instead.
@@ -80,6 +103,17 @@ contributions.
 
 **Limitations.** (i) We work in the known-i.i.d. model; since Known-IID $\le$ Random-Order,
 the algorithms' guarantees carry, but our empirical wall is an average-case statement and
+
+<!--REV
+id: 7-03
+role: P1 领域外审稿人
+level: 建议
+kind: 非标准记号
+mark: the algorithms' guarantees carry
+quote: since Known-IID $\le$ Random-Order
+note: 用小于等于号连接两个模型名是圈内速记，方向也容易读反。领域外审稿人会停顿。
+fix: 展开：every known-i.i.d. instance is also a random-order instance, so guarantees proved there carry over to ours, but not conversely。
+-->
 we do not claim it for adversarial arrival order. (ii) Following the original authors, the
 test-and-fallback experiments use an empirical-$\ell_1$ surrogate for the (unimplemented)
 distribution tester; the theory does *not* inherit this modeling — the law binds any
@@ -89,6 +123,17 @@ parallel panels rather than one table. (iv) Each real modality is exercised by o
 (v) The budget–stakes law is proven on decomposable (disjoint-cell) families, where the
 payoff identity holds; whether a *non*-decomposable family can push the budget above
 $1/\delta^2$ is open, as is the novelty of payoff-estimating acceptance rules relative to
+
+<!--REV
+id: 7-04
+role: P4 体例校对
+level: 必改
+kind: 与 §7 自相矛盾
+mark: whether a *non*-decomposable family
+quote: as is the novelty of payoff-estimating acceptance rules ... (a dedicated pass is in progress)
+note: §10 的局限说新颖性检索「正在进行中」，而 §7.8 与 §7 开头都说这次检索已经完成并给出了结论。同一篇稿子里两处直接冲突，审稿人一定会发现。
+fix: 统一口径：既然 §7 说已完成，§10 这一条要么删掉，要么改成「检索已完成、结论见 §9，但覆盖面有限」。
+-->
 the broader learning-augmented literature (a dedicated pass is in progress). An earlier
 draft claimed a tolerant-testing impossibility for any sublinear rule; that claim was
 refuted during its own witness step and the refutation is reported in §7.7.

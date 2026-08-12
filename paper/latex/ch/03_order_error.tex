@@ -20,6 +20,7 @@ ordered by \(\mu\) and \(\mathrm{LIS}\) is the longest non-decreasing
 subsequence --- a pure \emph{order} quantity. In particular a monotone
 (order-preserving) predictor has \(p[\mu]\) already sorted, so
 \(\mathrm{LIS}=n\), \(n-\mathrm{LIS}=0\), and the loss is zero. Thus
+
 \emph{order-dependence} and \emph{the zero-effect of a monotone bias}
 are ACI's results, not ours; our \texttt{systematic\_bias} error model
 (a monotone rescale) has Kendall-\(\tau\equiv 0\) \emph{by construction}
@@ -36,7 +37,7 @@ error (\textbf{Figure 2}; \(n=1000\), Zipf exponent \(1.0\), 40 trials).
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Order error, not magnitude, governs MPD's loss: (a) realized loss sits far below the n-\textbackslash mathrm\{LIS\} bound at every point; (b) the four error models collapse onto the Kendall-\textbackslash tau axis.}]{../../../results/order_vs_theory.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Order error, not magnitude, governs MPD's loss: (a) realized loss sits far below the n-\textbackslash mathrm\{LIS\} bound at every point; (b) the four error models collapse onto the Kendall-\textbackslash tau axis.}]{../../results/order_vs_theory.png}
 \caption{Order error, not magnitude, governs MPD's loss: (a) realized
 loss sits far below the \(n-\mathrm{LIS}\) bound at every point; (b) the
 four error models collapse onto the Kendall-\(\tau\) axis.}
@@ -44,9 +45,11 @@ four error models collapse onto the Kendall-\(\tau\) axis.}
 
 \textbf{(i) ACI's \(n-\mathrm{LIS}\) bound is correct but very loose.}
 The realized loss sits far below the \(n-\mathrm{LIS}\) upper bound at
-every point --- by roughly \(16\times\) (adversarial) to \(75\times\)
-(distribution-drift). Figure 2(a) plots loss against \(n-\mathrm{LIS}\)
-with the \(y=x\) bound; all points lie close to the axis.
+every point --- by roughly \(16\times\)
+
+(adversarial) to \(75\times\) (distribution-drift). Figure 2(a) plots
+loss against \(n-\mathrm{LIS}\) with the \(y=x\) bound; all points lie
+close to the axis.
 
 \textbf{(ii) \(n-\mathrm{LIS}\) saturates and cannot distinguish error
 structures.} For every non-trivial error the quantity is pinned near its
@@ -65,8 +68,9 @@ Kendall-\(\tau\) (\(0.29\to0.50\to1.0\) for drift, random-flip,
 adversarial, tracking \(8.1\to21.6\to41.7\) in loss), with
 \texttt{systematic\_bias} pinned at \(\tau=0\) and zero loss. The
 quantity that \emph{predicts} the loss --- and unifies the error models
---- is the Kendall-\(\tau\) order distance, which \(n-\mathrm{LIS}\)
-(saturated) cannot resolve.
+--- is the Kendall-\(\tau\)
+
+order distance, which \(n-\mathrm{LIS}\) (saturated) cannot resolve.
 
 \textbf{Takeaway (and scope).} We do not claim that order, rather than
 magnitude, governs MPD --- ACI's Appendix D establishes that, and the

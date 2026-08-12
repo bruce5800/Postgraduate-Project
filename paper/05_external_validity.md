@@ -25,6 +25,17 @@ earlier days (a 1-, 7-, or 30-day-stale forecast), so the prediction error is ge
 temporal drift; we map the trace onto a fixed serving topology and consume the forecast
 through the degree route (MPD) (**Figure 7**; `docs/REAL_PREDICTOR.md`).
 
+<!--REV
+id: 5-01
+role: P7 复现审稿人
+level: 必改
+kind: 指向仓库内部文档
+mark: consume the forecast
+quote: docs/REAL_PREDICTOR.md / docs/REALWORLD_ROBUSTNESS.md / docs/RANK_LEARNING_M0_M3.md
+note: 第 6 节正文三次把读者指向仓库里的 markdown 笔记。审稿人只有 PDF，这些指向对他们等于不存在；而它们支撑的是本节的主要数字。
+fix: 凡支撑正文数字的，摘进复现附录；其余删掉。脚本路径可以保留（artifact 里有），docs/*.md 不行。
+-->
+
 ![A cheap historical-count predictor on the Wikipedia trace: near-oracle ratio at every staleness level, never below the advice-free floor.](../../results/real_predictor.png){width=80%}
 
 Three facts emerge, all favorable and all honest. First, **the cost premise does not
@@ -52,6 +63,27 @@ same quality columns, with 95% CIs (**Figure 8**; `docs/REALWORLD_ROBUSTNESS.md`
 The two load-bearing findings are universal. **F1 holds on all six graphs**: naive MPD
 fed an adversarial predictor falls *below* the Ranking floor everywhere — by $0.07$
 (Caltech36: $0.843<0.913$) to $0.11$ (CE-PG: $0.782<0.883$). **F3 is universal and
+
+<!--REV
+id: 5-02
+role: P2 领域审稿人
+level: 必改
+kind: 算术与断言
+mark: fed an adversarial predictor falls
+quote: by 0.07 (Caltech36: 0.843<0.913) to 0.11 (CE-PG: 0.782<0.883)
+note: 两处问题。其一，0.883-0.782 = 0.101，四舍五入是 0.10 不是 0.11，而括号里的两个数就在同一句里，审稿人一眼能验算。其二，最小跌幅其实是 Reed98 的 0.063，不是 Caltech36 的 0.070。
+fix: 改成 by 0.06 (Reed98) to 0.10 (CE-PG)，或保留 Caltech36 作为例子但把区间端点写对。
+-->
+
+<!--REV
+id: 5-03
+role: P2 领域审稿人
+level: 必改
+kind: universal
+quote: F3 is universal and confirms its own logic
+note: universal 用在六个图的样本上过强，而紧接着就要说 F2 在其中两个图上只是部分成立。
+fix: 改成 holds on all six graphs we tested；机制解释（上升空间在基线最强处最小）才是这一节的价值。
+-->
 confirms its own logic**: the consistency upside (best prediction algorithm at perfect
 advice, over the floor) is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$), and
 it is *smallest exactly where the baseline is strongest* — the two dense economic graphs,
@@ -66,6 +98,16 @@ unusually high $0.965$ floor, dipping $\approx0.03$ below it (spread ratio $0.53
 This econ boundary is instructive rather than a failure: those graphs are so dense that
 matching is nearly trivial (Ranking $\approx0.97$, MinDegree $=1.00$), so there is neither
 upside to capture (F3) nor much downside to protect — the mechanisms compress together
+
+<!--REV
+id: 5-04
+role: P5 审稿意见预演
+level: 建议
+kind: 自我辩护
+quote: This econ boundary is instructive rather than a failure
+note: 遇到不利结果先给自己定性，是审稿人最敏感的写法之一，反而会让人多看两眼这个边界。后面的解释本身已经充分。
+fix: 删掉这句评价，直接给解释：那两个图太稠密，匹配近乎平凡，既无上升空间可抓也无多少下行需保护——这是 F3 的机制在起作用，不是它的例外。
+-->
 where robustness does not matter. Finally, F4 is *dramatic* here: the worst-case-designed
 Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs ($0.73$–$0.77$),
 and the MPD augmentation lifts them to $0.99$ — a $+0.26$ rescue.
@@ -83,6 +125,16 @@ and zero on easy instances (F3 again), peaking at only $+1.3\%$ on synthetic gra
 decisively, **on real temporal features it disappears** — trained on lagged counts from
 real serving traces, the rank- and regression-trained predictors produce *identical* order
 (Kendall-$\tau$ $0.126$ vs $0.126$) and identical matching ratio, across every topology and
+
+<!--REV
+id: 5-05
+role: P2 领域审稿人
+level: 建议
+kind: 负结果的覆盖面
+quote: across every topology and lag we tried
+note: 这是本节最有分量的负结果，支撑它的是一句 every ... we tried，但配置清单没给。负结果的说服力全在覆盖面。
+fix: 把实际配置写进正文一句：150 个上下文长度类型、500 个度数为 8 的副本、40 个窗口、三个滞后特征、60/40 划分；若确实扫过多组拓扑与滞后，把清单也列出来。
+-->
 lag we tried. The dissociation that powers order-aware training is a property of engineered
 features, not of realistic ones. The lesson reinforces the thesis: once a predictor is
 order-faithful — which a cheap historical count already is (§6.1) — neither a better

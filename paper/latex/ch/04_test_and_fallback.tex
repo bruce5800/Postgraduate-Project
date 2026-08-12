@@ -25,11 +25,13 @@ envelope}: it captures the benefit when advice is good and, when advice
 is bad, its prefix test rejects it and it falls back to Ranking, never
 crashing (BEM \(0.998\to0.969\); Choo \(1.000\to0.991\) across the same
 sweep). This is the adaptive counterpart of the structural robustness of
-Section 3: the engineered mechanism that MPD lacked.
+Section 3: the engineered mechanism
+
+that MPD lacked.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}]{../../../results/choo_bem_envelope.png}
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={The robustness envelope: blind FollowPrediction crashes below the advice-free floor as advice error grows; TestAndMatch stays on the upper envelope.}]{../../results/choo_bem_envelope.png}
 \caption{The robustness envelope: blind FollowPrediction crashes below
 the advice-free floor as advice error grows; TestAndMatch stays on the
 upper envelope.}
@@ -51,7 +53,7 @@ the baseline here?) \emph{rises} \(0.00\to0.13\to0.33\to0.60\).
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the worse decision.}]{../../../results/choo_bem_prefix.png}
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio,alt={Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the worse decision.}]{../../results/choo_bem_prefix.png}
 \caption{Testing cost at borderline advice: under the
 worst-case-calibrated threshold, a larger and more accurate prefix test
 makes the \emph{worse} decision.}
@@ -69,8 +71,10 @@ correctly measures \(\ell_1\approx0.16<\tau\) and so \textbf{accepts}
 the mildly-bad advice the worst-case threshold deems acceptable --- and
 underperforms the baseline. On strong-baseline inputs the
 worst-case-calibrated threshold is too \emph{lenient}, and improving the
-test's accuracy only makes the algorithm follow that miscalibrated
-threshold more faithfully.
+test's
+
+accuracy only makes the algorithm follow that miscalibrated threshold
+more faithfully.
 
 \subsection{Recalibration, and the resolution limit it
 exposes}
@@ -92,7 +96,9 @@ is \emph{smaller than the empirical-\(\ell_1\) estimator's own noise
 floor} (\(\approx 0.05\)--\(0.13\) at this prefix and support), so the
 test can never confidently \emph{accept} --- it rejects everything,
 including perfect advice, and effectively always plays the baseline. In
-other words:
+other
+
+words:
 
 \begin{quote}
 On strong-baseline instances, no practical empirical-\(\ell_1\)
@@ -160,12 +166,13 @@ the resolution \emph{any} rule can achieve at \(k=200\) --- by the
 budget--stakes scaling of Section 7, with this family's payoff estimator
 carrying per-sample variance of order one, resolving stakes of \(0.02\)
 takes \(k \approx 1/0.02^2 = 2500 > n\) --- the law binds our rule too,
-and the right behavior at unresolvable stakes is exactly this
-safe-either-way coin flip.
+and the right behavior at
+
+unresolvable stakes is exactly this safe-either-way coin flip.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio,alt={The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget--stakes law allows.}]{../../../results/directional_envelope.png}
+\includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio,alt={The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget--stakes law allows.}]{../../results/directional_envelope.png}
 \caption{The envelope sweep with the payoff rule added: the worst-case
 threshold follows the crash at mildly bad advice, the recalibrated
 threshold never captures at perfect advice, and the constant-free payoff
@@ -185,7 +192,7 @@ In one sentence: \textbf{test the payoff, not the prediction.}
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Borderline advice (\textbackslash eta=0.15): as the prefix grows, the worst-case threshold's misjudgement rises to 1.0 while the payoff rule's falls to 0.0 --- more data helps exactly when the statistic is the decision-relevant one.}]{../../../results/directional_prefix.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Borderline advice (\textbackslash eta=0.15): as the prefix grows, the worst-case threshold's misjudgement rises to 1.0 while the payoff rule's falls to 0.0 --- more data helps exactly when the statistic is the decision-relevant one.}]{../../results/directional_prefix.png}
 \caption{Borderline advice (\(\eta=0.15\)): as the prefix grows, the
 worst-case threshold's misjudgement rises to \(1.0\) while the payoff
 rule's falls to \(0.0\) --- more data helps exactly when the statistic
@@ -217,13 +224,14 @@ mid-stream reveals a penalty specific to irrevocable problems. With
 perfect advice, eager switching scores \(0.927\) --- \emph{below both}
 the pure follower (\(1.000\)) and the pure baseline (\(0.958\); verified
 in \texttt{tests/test\_combiner\_small.py}) --- because switching from
-Ranking to Mimic mid-run lands the committed matching in an
-\emph{incompatible hybrid}: the Mimic plan's slots are already
-half-consumed by the Ranking phase, and the Ranking progress is
-abandoned. In an irrevocable problem the follow/fallback decision must
-be made \emph{before} the bulk of the commitments, not adapted across
-them --- which is precisely why Choo/BEM test on a prefix and then
-\emph{commit}, rather than switching dynamically as the caching-style
-combiner does. The dynamic combiner that is cheap worst-case insurance
-for caching does not port cleanly to matching, and the unified benchmark
-shows why.
+Ranking to Mimic mid-run lands the
+
+committed matching in an \emph{incompatible hybrid}: the Mimic plan's
+slots are already half-consumed by the Ranking phase, and the Ranking
+progress is abandoned. In an irrevocable problem the follow/fallback
+decision must be made \emph{before} the bulk of the commitments, not
+adapted across them --- which is precisely why Choo/BEM test on a prefix
+and then \emph{commit}, rather than switching dynamically as the
+caching-style combiner does. The dynamic combiner that is cheap
+worst-case insurance for caching does not port cleanly to matching, and
+the unified benchmark shows why.

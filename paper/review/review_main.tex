@@ -1,0 +1,71 @@
+% Annotated review copy: original text left, annotation cards right.
+% Built by build_review.sh (rev2tex.py generates body.tex). Never the submitted PDF.
+\documentclass[10pt,UTF8,fontset=macnew]{ctexrep}
+\usepackage[a4paper,top=1.7cm,bottom=1.7cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable,booktabs,array}
+\newcounter{none}   % pandoc: unnumbered tables
+\usepackage{calc}   % pandoc: \real{} in table column widths
+\usepackage{amsmath,amssymb}
+\usepackage{soul}
+
+% headings unnumbered — the markdown headings carry the thesis's own numbers
+\setcounter{secnumdepth}{-\maxdimen}
+\ctexset{
+  chapter/format = {\raggedright\bfseries\large},
+  chapter/beforeskip = {-10pt}, chapter/afterskip = {12pt},
+  section/format = {\raggedright\bfseries\normalsize},
+  section/beforeskip = {10pt}, section/afterskip = {4pt},
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\linespread{1.03}
+\emergencystretch=1.5em
+\pagestyle{plain}
+
+\definecolor{revMust}{RGB}{176,32,32}
+\definecolor{revShould}{RGB}{190,110,0}
+\definecolor{revNice}{RGB}{70,100,145}
+
+\newlength{\revleftw}\setlength{\revleftw}{10.2cm}
+\newlength{\revrightw}\setlength{\revrightw}{6.9cm}
+\newlength{\revgap}\setlength{\revgap}{0.5cm}
+\newlength{\revrowskip}\setlength{\revrowskip}{5pt}
+
+% pandoc fragment helpers
+\providecommand{\qed}{\ensuremath{\square}}          % acmart/amsthm provides it in the real build
+\providecommand{\texorpdfstring}[2]{#1}   % pandoc emits it in marked-up headings
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% one row: original text left, annotation cards right (either may be empty)
+\newcommand{\revpair}[2]{%
+  \par\noindent
+  \begin{minipage}[t]{\revleftw}\vspace{0pt}\small #1\end{minipage}%
+  \kern\revgap%
+  \begin{minipage}[t]{\revrightw}\vspace{0pt}\footnotesize #2\end{minipage}%
+  \par\vspace{\revrowskip}%
+}
+
+% quoted span inside the original: tinted background (soul breaks across lines), inline id
+\newcommand{\revhl}[2]{{\sethlcolor{#1!15!white}\hl{#2}}}
+\newcommand{\revhlid}[2]{\textsuperscript{\tiny\sffamily\bfseries\color{#1}#2}}
+
+% annotation card
+\newcommand{\revcard}[3]{%
+  \par\noindent{\color{#1}\rule{\linewidth}{0.9pt}}\par\nobreak\vspace{1pt}%
+  \noindent{\bfseries\sffamily\color{#1}#2\par}\nobreak\vspace{1pt}%
+  \noindent{\color{#1!88!black}#3\par}\vspace{6pt}%
+}
+
+% non-float figure (floats are illegal inside a minipage)
+\newcommand{\revfigure}[2]{%
+  \par\vspace{3pt}\noindent\begin{center}%
+  \includegraphics[width=\linewidth,keepaspectratio]{#1}\par\vspace{2pt}%
+  {\scriptsize\itshape #2}\end{center}\vspace{3pt}%
+}
+
+\begin{document}
+\input{body}
+\end{document}

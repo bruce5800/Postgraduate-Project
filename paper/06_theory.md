@@ -48,6 +48,16 @@ instances the required prefix exceeds the entire horizon — any upside smaller 
 $\approx 2\sqrt{(1-\rho_{\mathrm{base}})/n}$ is uncapturable at *every* $k\le n$, and the
 upsides we measured in §3–§5 sit in exactly that range.
 
+<!--REV
+id: 6-01
+role: P2 领域审稿人
+level: 必改
+kind: sharp 的条件被省略
+quote: and this is *sharp*: below $k^*$ no decision rule whatsoever can be simultaneously consistent and robust (Theorem 1(i)), while at $k^*$ an explicit rule succeeds
+note: Theorem 1(i) 给的不可能性门槛是 k = o(1/(eps_W * g))，不是 o(sigma^2/g^2)；两者只在 Cauchy-Schwarz 那一步的条件下相接，而 §7.8 承认在低信号 sliver 上可差 sigma^2*eps_W/g 倍。本节开头把 sharp 说成无条件的，审稿人读到 §7.8 会认为前面在过度宣称。
+fix: 本节开头就把条件写出来：sharp up to logarithms whenever the stakes are carried, at comparable signal levels, by a constant fraction of the specialist mass；并直接指向 §7.8 的开放情形。
+-->
+
 En route we record an honest negative of independent interest (§7.7): the natural
 conjecture — that the $\tilde\Theta(r/\log r)$ hardness of *tolerant distribution testing*
 [CJKL22, VV11, JHW18] makes the follow/fallback decision itself hard for any rule at
@@ -144,6 +154,17 @@ $$1-\rho_{\mathrm{base}} \;=\; \sigma^2/2,$$
 and the maximum stakes (the full upside) are
 $\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}} = \sum_i\theta_i\varepsilon_i/N
 \le 2\varepsilon_{\max}\,(1-\rho_{\mathrm{base}})$: *the upside is at most an
+
+<!--REV
+id: 6-02
+role: P1 领域外审稿人
+level: 建议
+kind: 记号易误读
+mark: the probability that a random arrival is a specialist
+quote: $\sigma^2 := \sum_i \theta_i / N$
+note: sigma^2 被定义为一个概率（随机到达是 specialist 的概率），却写成一个平方；文中从未定义 sigma 本身，直到 §7.6 才出现 g* = sigma/sqrt(n)。领域外审稿人会去找 sigma 的定义。
+fix: 在定义处点明：我们把它记作 sigma^2 是因为它同时是决策统计量的方差上界，sigma 即其平方根，§7.6 会用到。
+-->
 $\varepsilon$-fraction of the baseline slack.* That the same $\sigma^2$ measures both
 the slack and the noise is not a coincidence — it is the law. The canonical (verified)
 instantiation takes $\theta_i=\theta$, $\varepsilon_i=\varepsilon$ and a wrong-direction
@@ -176,6 +197,17 @@ $\mathbb E[c]$, while by the cell constants its follow-advantage is
 $\theta_i(s_i-\tfrac12)\hat d_i$. Sum over cells and divide by
 $\mathrm{OPT}=N$. $\qed$
 
+<!--REV
+id: 6-03
+role: P2 领域审稿人
+level: 建议
+kind: 闭式常数无推导
+mark: cell $i$ has
+quote: In closed form (verified numerically), cell $i$ has OPT = 1 + theta_i, baseline 1 + theta_i/2
+note: 整节的定量结论都建立在这三个 cell 常数上，正文只说「闭式（数值验证过）」而不给推导。审稿人要么自己推一遍，要么要求补附录。
+fix: 把两行推导放进附录，正文指过去；数值验证保留但不作为唯一依据。
+-->
+
 ## 7.5 The budget–stakes law
 
 > **Theorem 1 (budget–stakes law, heterogeneous).** On any cell family with profile
@@ -202,10 +234,30 @@ $\mathrm{OPT}=N$. $\qed$
 > $$k^* \;=\; \tilde\Theta\!\big(\sigma^2/g^2\big),$$
 > which at homogeneous parameters is the earlier $\tilde\Theta(\theta/\delta^2)$.
 
+<!--REV
+id: 6-04
+role: P4 体例校对
+level: 必改
+kind: 赌注符号在定理内部就不一致
+quote: payoff gap $g=\frac2N\sum_{i\in W}\theta_i\varepsilon_i$ ... on which following gains $\ge\delta$ and loses $\ge\Delta$ ... $k \ge C(\sigma^2/\min(\delta,\Delta)^2)$
+note: Theorem 1 的 (i) 用 g、(ii) 用 delta/Delta，而结论写成 sigma^2/g^2。三者的关系（g 与 min(delta,Delta) 是否同阶）没有写明，读者无法确认两侧真的在比较同一个量。
+fix: 在定理陈述前统一符号，并写明 (i) 的 g 与 (ii) 的 min(delta,Delta) 在何种意义下同阶——这正是两侧能相接的关键，不能留给读者推断。
+-->
+
 *Proof of (ii).* By Lemma 2, $\mathbb E[c] \ge 2\delta$ under the gain scenario and
 $\le -2\Delta$ under the loss scenario, for any truth profile;
 $\mathrm{Var}(c) \le \mathbb P(\text{specialist}) = \sigma^2$; Bernstein's inequality
 gives error $\exp(-\Omega(k\min(\delta,\Delta)^2/\sigma^2))$ on both sides. $\qed$
+
+<!--REV
+id: 6-05
+role: P5 审稿意见预演
+level: 必改
+kind: 主定理只有证明草图
+quote: *Proof sketch of (i).*
+note: 本文的核心定理，下界一侧只给了 proof sketch（耦合、每样本 Hellinger、张量化、代入 Lemma 1）。TALG 的审稿人对主定理通常要求完整证明；作者自己的 PROOF STATUS 备注里也写着」typeset the two short proofs in the appendix」，这件事还没做。
+fix: 把 (i) 的完整证明写进附录：耦合的构造、per-sample Hellinger 的那步等式如何得到、张量化与 joint convexity 的引用出处，以及 o(1) 的含义。既然作者自己说这两个证明很短，补上的成本远小于被要求 major revision 的成本。
+-->
 
 *Proof sketch of (i).* Couple the two scenarios; the per-sample laws differ only on the
 specialists of the flipped cells, and the per-sample squared Hellinger distance is exactly
@@ -250,6 +302,17 @@ empirical wall sits in the regime the corollary governs. This is the **scissors*
 upside (perfect advice minus baseline) grows as the baseline weakens, while the upside a
 feasible test can safely capture is pinned by the $\sqrt{(1-\rho_{\mathrm{base}})/n}$
 resolution — **the structure that makes the baseline strong is the structure that starves
+
+<!--REV
+id: 6-06
+role: P2 领域审稿人
+level: 必改
+kind: 推论继承了未声明的条件
+mark: is uncapturable by any
+quote: Corollary (uncapturable upsides): every advice upside smaller than Theta(sqrt((1-rho_base)/n)) is uncapturable by any test-and-fallback rule at any prefix length k <= n
+note: 这是全文最强、也最会被引用的一句。它由」Theorem 1 places the feasibility frontier at g ~ sigma/sqrt(k)」推出，而这个 frontier 的」and no further」方向来自 (i)，因而继承了 §7.5 那个 Cauchy-Schwarz 条件；推论本身却是无条件陈述的。
+fix: 把条件写进推论（on families where the two sides of Theorem 1 meet），或把它降为 under the conditions of Theorem 1。这一处不改，§7.8 的诚实声明会与推论直接冲突。
+-->
 the test of signal.**
 
 ![The budget–stakes scissors: as the baseline weakens (left), the potential upside of perfect advice grows, while the upside a feasible test can safely capture stays pinned near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
@@ -305,5 +368,15 @@ dedicated novelty pass (recorded in the project archive) found no payoff-testing
 acceptance rule in the adjacent literatures — the nearest lines test distances, switch on
 regret, or select algorithms from whole-instance samples (§9) — though the statistical
 skeleton of the upper half is, deliberately, classical. We credit Choo et al. for the constructive
+
+<!--REV
+id: 6-07
+role: P5 审稿意见预演
+level: 建议
+kind: 不可核查的出处
+quote: a dedicated novelty pass (recorded in the project archive) found no payoff-testing acceptance rule
+note: project archive 对审稿人不存在。而这句支撑的是本文第二项新颖性主张。
+fix: 把检索范围写进 §9（库、关键词、截止时间），正文指向 §9 而不是 archive。
+-->
 baseline-coupling their threshold already exhibits; our contribution is the two-sided,
 rule-independent budget law, the payoff/distance separation, and the quantified wall.
