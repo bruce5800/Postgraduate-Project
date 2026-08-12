@@ -214,11 +214,10 @@ fix: 写明操作化定义：in the experiments we report the minimum over our c
 
 ## 3.5 The experimental harness
 
-The harness is a small, dependency-light Python codebase (NumPy, SciPy, NetworkX). All
-randomness comes from independent, reproducible streams obtained by NumPy's spawn mechanism
-— by default four streams (graph, instance, Ranking, Jaillet–Lu), with additional streams
-spawned for prediction generation and perturbation, so adding an algorithm never disturbs
-existing results. We use **paired trials**: within a comparison, every algorithm and error
+The harness is a small, dependency-light Python codebase (NumPy, SciPy, NetworkX). Every
+source of randomness draws from its own independent, reproducible stream, so that within a
+comparison the *only* thing that varies is the prediction and adding an algorithm never
+disturbs existing results (Appendix A.1 lists the streams). We use **paired trials**: within a comparison, every algorithm and error
 level reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so
 differences are attributable to the prediction alone. Reported ratios are means over trials
 with 95% normal-approximation confidence intervals, computed per algorithm and error level.

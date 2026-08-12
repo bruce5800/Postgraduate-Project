@@ -82,7 +82,9 @@ $\ell_1\!\approx\!0.16$) — where the test works hardest (**Figure 6.2**) — a
 accurate test makes the *worse* decision: as $k$ grows $25\to800$, the ratio falls
 $0.992\to0.956$ and the misjudgement rate rises $0.00\to0.60$.
 
-The mechanism has two halves. First, the acceptance threshold $\tau$ is calibrated to
+The mechanism has two halves; the threshold is Choo and BEM's own, and what follows is our
+characterization of how it behaves off its design point. First, the acceptance threshold
+$\tau$ is calibrated to
 $\beta$, the competitive ratio the advice-free baseline is *proved* to achieve — here
 $\beta\approx0.696$, Ranking's worst-case ratio under random arrival order, the value Choo
 et al. instantiate their threshold with [@choo2024imperfect]. On these instances the
@@ -287,7 +289,8 @@ decision is fundamentally limited on strong-baseline inputs: no empirical-$\ell_
 both captures the upside and stays safe (§6.3), and dynamic switching is dominated by
 test-then-commit (§6.4). The resolution limit of §6.3 — and its persistence across the
 whole difficulty range (Figure 6.4) — is the empirical anchor of the theoretical outlook
-in §10.2.
+in §10.2; Figure 6.4 is the figure to remember from this chapter. The next chapter asks
+whether any of this survives outside synthetic instances.
 
 <!--REV
 id: 6-17

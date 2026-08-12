@@ -191,20 +191,19 @@ Chapter 6 and of the outlook in §10.2.
 \section{The experimental harness}
 
 The harness is a small, dependency-light Python codebase (NumPy, SciPy,
-NetworkX). All randomness comes from independent, reproducible streams
-obtained by NumPy's spawn mechanism --- by default four streams (graph,
-instance, Ranking, Jaillet--Lu), with additional streams spawned for
-prediction generation and perturbation, so adding an algorithm never
-disturbs existing results. We use \textbf{paired trials}: within a
-comparison, every algorithm and error level reuses the same graph,
-arrival sequence, \(\mathrm{OPT}\), and tie-break seed, so differences
-are attributable to the prediction alone. Reported ratios are means over
-trials with 95\% normal-approximation confidence intervals, computed per
-algorithm and error level. Those per-algorithm intervals under-use the
-pairing: a comparison between two algorithms is really a \emph{paired
-difference}, whose interval is narrower whenever the two respond to the
-same instances in the same direction. We measured this on the
-comparisons the thesis actually draws
+NetworkX). Every source of randomness draws from its own independent,
+reproducible stream, so that within a comparison the \emph{only} thing
+that varies is the prediction and adding an algorithm never disturbs
+existing results (Appendix A.1 lists the streams). We use \textbf{paired
+trials}: within a comparison, every algorithm and error level reuses the
+same graph, arrival sequence, \(\mathrm{OPT}\), and tie-break seed, so
+differences are attributable to the prediction alone. Reported ratios
+are means over trials with 95\% normal-approximation confidence
+intervals, computed per algorithm and error level. Those per-algorithm
+intervals under-use the pairing: a comparison between two algorithms is
+really a \emph{paired difference}, whose interval is narrower whenever
+the two respond to the same instances in the same direction. We measured
+this on the comparisons the thesis actually draws
 (\texttt{scripts/run\_metric\_check.py}, §A.2). Where the per-instance
 ratios are positively correlated the paired interval is
 \(1.7\)--\(2.6\times\) narrower (correlations \(0.67\) and \(0.85\));

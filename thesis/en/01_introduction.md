@@ -130,7 +130,7 @@ fix: 在每条贡献后面用括号标出它回答哪个问题（Q1 / Q2 / Q3）
 
 ## 1.3 Contributions
 
-- **A unified experimental benchmark** (Chapter 4): the first head-to-head comparison of
+- **A unified experimental benchmark** (Chapter 4; Q1): the first head-to-head comparison of
   these families, on one experimental harness — a single code path in which every algorithm
   sees the same graphs, predictions and optimum, with a *structured* error model (errors
   follow the instance's structure, not i.i.d. noise) and confidence intervals.
@@ -145,13 +145,15 @@ note: harness 是工程口语，学位论文里第一次出现应给个定义；
 fix: harness 首次出现处加同位语：on a single experimental harness (one code path in which every algorithm sees the same instances, the same predictions, and the same optimum)。structured 补一句：errors are injected along the structure of the instance rather than as i.i.d. noise。
 -->
 
-- **A characterization of predictions as robustness insurance** (Chapters 4, 7): unguarded
+- **A characterization of predictions as robustness insurance** (Chapters 4, 7; Q1):
+  unguarded
   following crashes *below* the advice-free baseline, two mechanisms — structural and
   adaptive — restore safety with different trade-offs, and the consistency upside is small,
   so the value is downside protection. Validated on synthetic graphs, six real-world graphs
   and real traces, including with a cheap, non-ML historical predictor.
 
-- **An empirical engagement with the order-error theory** (Chapter 5): MinPredictedDegree's
+- **An empirical engagement with the order-error theory** (Chapter 5; Q1):
+  MinPredictedDegree's
   loss is governed by a Kendall-$\tau$ order error — the fraction of resource pairs ranked in
   the wrong relative order — onto which several error models collapse. Order-dependence
   itself is Aamand–Chen–Indyk's result; ours is the characterization of their bound's
@@ -177,7 +179,7 @@ note: 归属写得很干净，明确区分了前人已有的结论与本文的�
 fix: 保持原样。同样的写法建议复制到第 6 章（Choo/BEM 阈值是他们的，pathology 是你的）和第 5 章。
 -->
 
-- **The first empirical study of test-and-fallback** (Chapter 6): its testing cost, a
+- **The first empirical study of test-and-fallback** (Chapter 6; Q2): its testing cost, a
   threshold-calibration pathology in which a *more accurate* test yields a *worse* decision,
   the resolution limit that recalibration exposes, and an irrevocability penalty that
   explains why matching requires *test-then-commit*.
@@ -192,7 +194,8 @@ note: 一页里两处 first。这两条大概率站得住，但答辩时必然�
 fix: 正文保留 first，但在第 2.6 节确保有一句可核对的范围声明（检索了哪些库、到什么时间），并把这句准备成答辩的标准答案。
 -->
 
-- **A quantified account of why the wall stands** (Chapter 6). By the *wall* we mean that on
+- **A quantified account of why the wall stands** (Chapter 6; Q3). By the *wall* we mean
+  that on
   average-case inputs neither a better algorithm nor a better prediction moves the ratio
   appreciably. We trace it to a *resolution limit* — no practical threshold can capture an
   upside below its own estimator's noise — which persists across the whole difficulty range
@@ -271,11 +274,9 @@ loss (5), the test-and-fallback mechanism in depth (6), and external validity on
 predictors and real graphs (7). Chapters 8 to 10 take up Q3 and the boundaries: the
 exploratory directions and their negative results (8), the AI-inference serving case study
 (9), and a conclusion that summarizes, gives a theoretical outlook on why the wall stands
-(§10.2), and states limitations and future work (10). The recurring thesis,
-established experimentally and then explained in outlook, is a single sentence: **on
-average-case online matching, predictions are robustness insurance rather than a
-performance lever — and the upside they offer is smaller than the price of finding out
-whether to trust them.**
+(§10.2), and states limitations and future work (10). One sentence recurs throughout, and
+§10.1 states it in full: **on average-case online matching, predictions are robustness
+insurance rather than a performance lever.**
 
 <!--REV
 id: 1-17

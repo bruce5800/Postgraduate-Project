@@ -183,45 +183,24 @@ differences \(\le 0.02\) accepted).
 non-greedy/greedy):
 
 { % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\begin{longtable}[]{@{}rrrrrrr@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedleft
-\(c\)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-SG
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Rk
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-F-NG
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-F-G
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-J-NG
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-J-G
-\end{minipage} \\
+\(c\) & SG & Rk & F-NG & F-G & J-NG & J-G \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0.10 & 0.9995 & 0.9994 & 1.0000 & 1.0000 & 0.9991 & 1.0000 \\
-1.90 & 0.9362 & 0.9363 & 0.9039 & 0.9639 & 0.9199 & 0.9609 \\
-\textbf{4.90} & \textbf{0.8640} & 0.8655 & 0.7638 & \textbf{0.8842} &
-0.7955 & \textbf{0.8856} \\
-8.90 & 0.9094 & 0.9088 & 0.7304 & 0.9122 & 0.7651 & 0.9126 \\
-14.90 & 0.9487 & 0.9486 & 0.7301 & 0.9487 & 0.7601 & 0.9476 \\
+0.10 & 1.000 & 0.999 & 1.000 & 1.000 & 0.999 & 1.000 \\
+1.90 & 0.936 & 0.936 & 0.904 & 0.964 & 0.920 & 0.961 \\
+\textbf{4.90} & \textbf{0.864} & 0.866 & 0.764 & \textbf{0.884} & 0.795
+& \textbf{0.886} \\
+8.90 & 0.909 & 0.909 & 0.730 & 0.912 & 0.765 & 0.913 \\
+14.90 & 0.949 & 0.949 & 0.730 & 0.949 & 0.760 & 0.948 \\
 \end{longtable}
 }
 
-Per-algorithm minima (ER): SG 0.8640 @ \(c\)=4.9; Rk 0.8649 @ 4.7; F-NG
-0.7278 @ 14.5; F-G 0.8837 @ 5.3; J-NG 0.7586 @ 13.9; J-G 0.8836 @ 5.3.
+Per-algorithm minima (ER): SG 0.864 @ \(c\)=4.9; Rk 0.865 @ 4.7; F-NG
+0.728 @ 14.5; F-G 0.884 @ 5.3; J-NG 0.759 @ 13.9; J-G 0.884 @ 5.3.
 
 \textbf{Random left-regular, competitive ratio at selected \(d\):}
 
@@ -233,12 +212,11 @@ Per-algorithm minima (ER): SG 0.8640 @ \(c\)=4.9; Rk 0.8649 @ 4.7; F-NG
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-1 & 1.0000 & 1.0000 & 0.9845 & 1.0000 & 0.9845 & 1.0000 \\
-2 & 0.9539 & 0.9537 & 0.8769 & 0.9679 & 0.8945 & 0.9659 \\
-\textbf{5} & \textbf{0.8905} & 0.8900 & 0.7582 & 0.9002 & 0.7876 &
-0.9008 \\
-10 & 0.9275 & 0.9278 & 0.7333 & 0.9278 & 0.7657 & 0.9284 \\
-30 & 0.9770 & 0.9767 & 0.7302 & 0.9759 & 0.7600 & 0.9755 \\
+1 & 1.000 & 1.000 & 0.985 & 1.000 & 0.985 & 1.000 \\
+2 & 0.954 & 0.954 & 0.877 & 0.968 & 0.894 & 0.966 \\
+\textbf{5} & \textbf{0.890} & 0.890 & 0.758 & 0.900 & 0.788 & 0.901 \\
+10 & 0.927 & 0.928 & 0.733 & 0.928 & 0.766 & 0.928 \\
+30 & 0.977 & 0.977 & 0.730 & 0.976 & 0.760 & 0.976 \\
 \end{longtable}
 }
 

@@ -94,7 +94,7 @@ note: 这个映射是本节外部效度的关键一步（真实 trace 怎么变�
 fix: 补两句说明映射规则，或指向附录 A.5；并说明映射方式的选择是否影响结论（是否试过别的映射）。
 -->
 
-![A real, cheap predictor (Wikipedia trace): the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=80%}
+![The figure to remember from this chapter: a real, cheap predictor (Wikipedia trace) — the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=80%}
 
 ## 7.2 Six real-world graphs
 

@@ -281,7 +281,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.270 \end{figure}
+l.269 \end{figure}
                    <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
 
 [17
@@ -332,21 +332,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.102 
        <../../results/choo_bem_envelope.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.116 \end{figure}
+l.118 \end{figure}
                    <../../results/choo_bem_prefix.png>]
 [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.166 
+l.168 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
 [30
@@ -365,14 +365,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 
+l.84 
       <../../results/real_predictor.png>]
 [34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.107 
+l.108 
        <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
 [35]
@@ -576,16 +576,16 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
-Overfull \hbox (0.11234pt too wide) in alignment at lines 193--211
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 211--213
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 213--220
- [] [] [] [] [] [] [] 
-
 [54]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.2 on input line 199.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.3 on input line 220.
+
+
 [55])
 [56]
 [57]
@@ -593,6 +593,10 @@ chapter without number
 
 [58]
 [59]
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+
 [60] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
@@ -613,7 +617,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2464998 bytes).
+Output written on thesis.pdf (70 pages, 2465272 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -623,8 +627,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'refs_clean.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'refs_clean.bib'
-INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
 INFO - No sort tailoring available for locale 'en-US'
 INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
@@ -912,7 +916,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.270 \end{figure}
+l.269 \end{figure}
                    <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
 
 [17
@@ -963,21 +967,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.102 
        <../../results/choo_bem_envelope.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.116 \end{figure}
+l.118 \end{figure}
                    <../../results/choo_bem_prefix.png>]
 [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.166 
+l.168 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
 [30
@@ -996,14 +1000,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 
+l.84 
       <../../results/real_predictor.png>]
 [34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.107 
+l.108 
        <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
 [35]
@@ -1207,15 +1211,6 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
-Overfull \hbox (0.11234pt too wide) in alignment at lines 193--211
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 211--213
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 213--220
- [] [] [] [] [] [] [] 
-
 [54]
 [55])
 [56]
@@ -1244,7 +1239,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2465008 bytes).
+Output written on thesis.pdf (70 pages, 2465293 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1529,7 +1524,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.270 \end{figure}
+l.269 \end{figure}
                    <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
 
 [17
@@ -1580,21 +1575,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.100 
+l.102 
        <../../results/choo_bem_envelope.png>]
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.116 \end{figure}
+l.118 \end{figure}
                    <../../results/choo_bem_prefix.png>]
 [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.166 
+l.168 
        <../../results/recalibration_prefix.png>])
 (./ch/07_external_validity.tex
 [30
@@ -1613,14 +1608,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.83 
+l.84 
       <../../results/real_predictor.png>]
 [34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.107 
+l.108 
        <../../results/realworld_robustness.png>])
 (./ch/08_exploratory_negatives.tex
 [35]
@@ -1824,15 +1819,6 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
-Overfull \hbox (0.11234pt too wide) in alignment at lines 193--211
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 211--213
- [] [] [] [] [] [] [] 
-
-Overfull \hbox (0.11234pt too wide) in alignment at lines 213--220
- [] [] [] [] [] [] [] 
-
 [54]
 [55])
 [56]
@@ -1861,5 +1847,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2465008 bytes).
+Output written on thesis.pdf (70 pages, 2465293 bytes).
 Transcript written on thesis.log.

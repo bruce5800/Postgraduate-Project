@@ -17,14 +17,16 @@ algorithms, across synthetic graphs, six real-world graphs, and real request tra
 
 Across every setting the same picture appeared: the advice-free baseline is already
 near-optimal on average-case inputs, so the *consistency* upside of a good prediction is
-small; unguarded prediction-following crashes *below* the baseline under bad predictions; and
-the value of the sophisticated algorithms is downside protection, delivered by either a
-structural or an adaptive robustness mechanism with distinct trade-offs. We sharpened the
-sub-questions — that the (small) loss is governed by a Kendall-$\tau$ order error rather than
-magnitude (Chapter 5, crediting the prior order-dependence result of ACI), and that the
-adaptive test has a threshold-calibration pathology and a resolution limit (Chapter 6) — and
-we honestly reported the directions that did *not* pan out: learning the predictor for extra
-performance, and finding a serving regime where predictions genuinely help (Chapter 8).
+small; unguarded prediction-following crashes *below* the baseline under bad predictions;
+and the value of the sophisticated algorithms is downside protection, delivered by either a
+structural or an adaptive robustness mechanism with distinct trade-offs.
+
+Two sub-questions were sharpened along the way. The (small) loss is governed by a
+Kendall-$\tau$ order error rather than by magnitude, order-dependence itself being a prior
+result of Aamand, Chen and Indyk (Chapter 5). The adaptive test has a threshold-calibration
+pathology and a resolution limit (Chapter 6). We also report two directions that did not
+work: learning the predictor for extra performance, and finding a serving regime where
+predictions genuinely help (Chapter 8).
 
 <!--REV
 id: 10-01

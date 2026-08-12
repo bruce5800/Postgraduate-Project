@@ -160,7 +160,9 @@ fix: 本节压到两句（结论加指向），正本留在 8.2；删掉其中�
 ## 9.3 Chapter summary
 
 The abstraction reaches a live systems problem and recovers its established results, and
-even a tail objective does not open a genuine with-predictions win.
+even a tail objective does not open a genuine with-predictions win. What remains is to ask
+whether the wall these chapters keep meeting is an accident of our inputs or something
+forced — the question the conclusion takes up.
 
 <!--REV
 id: 9-08
