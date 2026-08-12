@@ -2,8 +2,13 @@
 
 # 复现指南
 
-本文中每个定量结果都由单个脚本从固定种子重生成。本附录将每张图与表映射到其脚本，给出命令与运行时间，
-列出第3章推迟至此的完整 Phase-2 复现表，并记录数据来源。
+本文中每个定量结果都由单个脚本从固定种子重生成。这些脚本须分为两类。多数是**自足的**：它们自行生成
+合成实例，在一份干净的代码检出上开箱即跑。其余的——第7、8、9章的真实图与真实 trace 结果——需要先把外部
+数据放到 `data/` 下；这些数据不随代码分发，A.5 节记录了每个数据集是什么、从哪里来。下面的映射表中以
+匕首号（$\dagger$）标出第二类脚本。
+
+本附录将每张图与表映射到其脚本，给出命令与运行时间，列出第3章推迟至此的完整 Phase-2 复现表，并记录
+数据来源。
 
 ## 环境与原则
 
@@ -14,6 +19,10 @@
 - **配对试验：** 在一次比较中，每个算法与误差水平复用同一图、到达序列、`OPT` 与平局种子，故差异可
   归因于预测本身。
 - **置信区间：** 试验上的 95% 正态近似半宽。
+- **流分解。** 有三处预处理——Feldman、Jaillet–Lu 与服务端的建议 $b$-匹配——取一个最大流并消费它的
+  **分解**；与流的值不同，分解并不唯一。它们的网络用整数而非字符串标注节点，使 NetworkX 返回的分解在
+  多次运行间稳定；用字符串标注时，它会随 Python 每进程的字符串哈希而变，由此派生的每个数字都会在同一
+  个脚本的两次运行之间发生变化。
 - 每个脚本写出 `results/<name>.json`（原始均值/置信区间）与 `results/<name>.png`（图），并打印逐步进度。
 
 ## 图/表 → 脚本映射
@@ -22,20 +31,24 @@
 |---|---|---|---|
 | 图 3.1（ER U 曲线） | `scripts/run_er_full.py` | `results/er_full.{json,png}` | ~20 分钟 |
 | 图 3.2（左正则） | `scripts/run_left_regular.py` | `results/left_regular.{json,png}` | ~10 分钟 |
+| 3.1 / 3.5 节方法学核对 | `scripts/run_metric_check.py` | `results/metric_check.json` | ~90 秒 |
 | **表 4.1**（统一基准） | `scripts/run_unified_benchmark.py`，再 `plot_unified_panels.py` | `results/unified_benchmark.{json,png}`、`unified_benchmark_panel{A,B,C}.png`、`unified_benchmark_tables.md` | ~100 秒 |
 | 图 4.1（一致性–鲁棒性平面） | `scripts/run_consistency_robustness.py` | `results/consistency_robustness.{json,png}` | ~1 秒 |
 | 图 5.1（顺序误差 vs ACI） | `scripts/run_order_vs_theory.py` | `results/order_vs_theory.{json,png}` | ~30 秒 |
 | 图 6.1（包络）、图 6.2（前缀扫描） | `scripts/run_choo_bem.py` | `results/choo_bem_{envelope,prefix}.png` | ~20 分钟 |
 | 图 6.3、重校准（6.3 节） | `scripts/run_recalibration.py` | `results/recalibration_*.png` | ~1.5 分钟 |
-| 图 7.1（真实预测器） | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 秒 |
-| 图 7.2（六个真实图） | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 秒 |
+| 图 6.4（检验之墙边界） | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 秒 |
+| 图 7.1（真实预测器）$\dagger$ | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 秒 |
+| 图 7.2（六个真实图）$\dagger$ | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 秒 |
 | 图 8.1（M0 rank vs MSE） | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 秒 |
 | M1 扫描（8.1 节，无图） | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 秒 |
-| 图 8.2（M3 真实 trace 学习） | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 秒 |
+| 图 8.2（M3 真实 trace 学习）$\dagger$ | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 秒 |
 | 图 8.3（服务 SLO 探针） | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 秒 |
-| 图 6.4（检验之墙边界） | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 秒 |
-| 图 9.1–9.3、服务（第9章） | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png`、`prefix_cache_*.png` 等 | 不一 |
-| 真实图 Borodin 表 3/4（验证） | `scripts/run_realworld.py` | `results/realworld.json` | ~数分钟 |
+| 图 9.1–9.3、服务（第9章）$\dagger$ | `scripts/run_serving*.py`、`run_prefix_cache.py` | `results/serving_*.png`、`prefix_cache_*.png` 等 | 不一 |
+| 10.2 节展望核对（A.6 节） | `scripts/verify_witness_gap.py` | 控制台输出 | 数秒 |
+| 真实图 Borodin 表 3/4（验证）$\dagger$ | `scripts/run_realworld.py` | `results/realworld.json` | ~数分钟 |
+
+运行时间为单机墙钟（Apple M4 Pro，12 核）；除 NumPy 自身的向量化外脚本为单线程，因此随单核速度伸缩。
 
 ## 复现命令
 
@@ -46,8 +59,9 @@ for t in tests/test_*.py; do python3 "$t"; done
 
 # 重生成主要结果（快脚本）：
 python3 scripts/run_unified_benchmark.py        # 表 4.1（数据）
-python3 scripts/plot_unified_panels.py          # 表 4.1（面板小图）
-python3 scripts/run_consistency_robustness.py   # 图 4.1（重绘表 4.1）
+python3 scripts/plot_unified_panels.py          # 表 4.1（面板小图；需先跑上一行）
+python3 scripts/run_consistency_robustness.py   # 图 4.1（需先跑 run_unified_benchmark）
+python3 scripts/run_metric_check.py             # 3.1 与 3.5 节的方法学核对
 python3 scripts/run_order_vs_theory.py          # 图 5.1
 python3 scripts/run_real_predictor.py           # 图 7.1
 python3 scripts/run_realworld_robustness.py     # 图 7.2
@@ -66,56 +80,64 @@ python3 scripts/run_choo_bem.py                 # 图 6.1、6.2 (~20 分钟)
 ## 完整 Phase-2 复现表（自 3.6 节推迟）
 
 设定：$n=1000$、$m=n$、每参数值 100 次试验、种子 0。目标是与 Borodin 等人**定性**一致（Python/NetworkX
-对该文 C++/Edmonds–Karp；接受绝对差 $\le 0.02$）。
+对该文 C++/Edmonds–Karp；接受绝对差 $\le 0.02$，故比值一律给到三位小数）。
 
 **Erdős–Rényi，选定 $c$ 处的竞争比**（SG=SimpleGreedy，Rk=Ranking，F/J=Feldman/Jaillet–Lu，
 -NG/-G=非贪婪/贪婪）：
 
 | $c$ | SG | Rk | F-NG | F-G | J-NG | J-G |
 |---:|---:|---:|---:|---:|---:|---:|
-| 0.10 | 0.9995 | 0.9994 | 1.0000 | 1.0000 | 0.9991 | 1.0000 |
-| 1.90 | 0.9362 | 0.9363 | 0.9033 | 0.9637 | 0.9202 | 0.9602 |
-| **4.90** | **0.8640** | 0.8655 | 0.7648 | **0.8845** | 0.7949 | **0.8854** |
-| 8.90 | 0.9094 | 0.9088 | 0.7314 | 0.9123 | 0.7662 | 0.9120 |
-| 14.90 | 0.9487 | 0.9486 | 0.7290 | 0.9488 | 0.7640 | 0.9483 |
+| 0.10 | 1.000 | 0.999 | 1.000 | 1.000 | 0.999 | 1.000 |
+| 1.90 | 0.936 | 0.936 | 0.904 | 0.964 | 0.920 | 0.961 |
+| **4.90** | **0.864** | 0.866 | 0.764 | **0.884** | 0.795 | **0.886** |
+| 8.90 | 0.909 | 0.909 | 0.730 | 0.912 | 0.765 | 0.913 |
+| 14.90 | 0.949 | 0.949 | 0.730 | 0.949 | 0.760 | 0.948 |
 
-各算法最小值（ER）：SG 0.8640 @ $c$=4.9；Rk 0.8649 @ 4.7；F-NG 0.7288 @ 13.5；F-G 0.8833 @ 5.3；
-J-NG 0.7616 @ 14.1；J-G 0.8839 @ 5.3。
+各算法最小值（ER）：SG 0.864 @ $c$=4.9；Rk 0.865 @ 4.7；F-NG 0.728 @ 14.5；F-G 0.884 @ 5.3；
+J-NG 0.759 @ 13.9；J-G 0.884 @ 5.3。
 
 **随机左正则，选定 $d$ 处的竞争比：**
 
 | $d$ | SG | Rk | F-NG | F-G | J-NG | J-G |
 |---:|---:|---:|---:|---:|---:|---:|
-| 1 | 1.0000 | 1.0000 | 0.9845 | 1.0000 | 0.9845 | 1.0000 |
-| 2 | 0.9539 | 0.9537 | 0.8769 | 0.9679 | 0.8945 | 0.9659 |
-| **5** | **0.8905** | 0.8900 | 0.7595 | 0.9008 | 0.7909 | 0.9022 |
-| 10 | 0.9275 | 0.9278 | 0.7317 | 0.9276 | 0.7677 | 0.9290 |
-| 30 | 0.9770 | 0.9767 | 0.7308 | 0.9757 | 0.7633 | 0.9754 |
+| 1 | 1.000 | 1.000 | 0.985 | 1.000 | 0.985 | 1.000 |
+| 2 | 0.954 | 0.954 | 0.877 | 0.968 | 0.895 | 0.966 |
+| **5** | **0.890** | 0.890 | 0.758 | 0.900 | 0.788 | 0.901 |
+| 10 | 0.928 | 0.928 | 0.733 | 0.928 | 0.766 | 0.928 |
+| 30 | 0.977 | 0.977 | 0.730 | 0.976 | 0.760 | 0.976 |
 
 **论断核对清单（全部验证 $\checkmark$）：** 贪婪最小值在 $c\approx4.9$ / $d=5$ 附近；Ranking $\approx$
-SimpleGreedy（ER 最大差 0.0017、LR 0.005——该文正因此省略 Ranking 曲线）；非贪婪变体随 $c,d$ 增大
-单调退化；贪婪复杂变体渐近 $\approx$ SimpleGreedy；$c$=14.9 处非贪婪的排序（J-NG 0.764 > F-NG 0.729）
-与该文最坏情况界的排序一致。一个跨族观察：非贪婪算法在两族中收敛到相同的渐近常数（Feldman 0.729、
-Jaillet–Lu 0.764，相差在 0.002 内），高于其最坏情况界 +0.06 / +0.03——是平均情况比最坏情况温和的
-一个早期实例。
+SimpleGreedy（ER 最大差 0.0017、LR 0.0013——该文正因此省略 Ranking 曲线）；非贪婪变体随 $c,d$ 增大
+单调退化；贪婪复杂变体渐近 $\approx$ SimpleGreedy；$c$=14.9 处非贪婪的排序（J-NG 0.760 > F-NG 0.730）
+与该文最坏情况界的排序一致。跨族来看，非贪婪算法收敛到相同的渐近常数（Feldman 0.730、Jaillet–Lu
+0.760，相差在 0.001 内），高于其最坏情况界 +0.06 / +0.03；3.6 节给出对这一观察的解读。
 
 ## 数据来源
 
 真实数据本地存放于 `data/` 下（体量大；不纳入版本控制）。
 
-- **真实图（第7章、3.6 节验证）：** 六个 Network Repository 图——`socfb-Caltech36`、`socfb-Reed98`、
+- **真实图（第7章、3.6 节验证）：** 六个取自 Network Repository（`networkrepository.com`）的图——`socfb-Caltech36`、`socfb-Reed98`、
   `bio-CE-GN`、`bio-CE-PG`、`econ-beause`、`econ-mbeaflw`——为 MatrixMarket `.mtx` / 空白分隔 `.edges`，
   化简为简单无向图，并经随机平衡划分（Borodin 表 3）或复制双重覆盖（表 4）转为二部图。
-- **Trace（第7、8、9章）：** 四天的 Wikipedia "每日热门文章" JSON（`data/trace/wiki/`，用作直播日 vs
-  1/7/30 天陈旧的预测）；Azure LLM 推理 trace（`data/trace/azure_llm/`，带时间戳的上下文/生成 token
-  计数）；Mooncake 会话 trace（`data/trace/mooncake/`，每请求的前缀缓存块 `hash_ids`）。
+- **Trace（第7、8、9章）：** 四天的 Wikipedia "每日热门文章"，取自 Wikimedia REST 页面浏览 API
+  （`data/trace/wiki/`，用作直播日 vs 1/7/30 天陈旧的预测）；取自微软公开 Azure 数据集发布的 Azure LLM
+  推理 trace（`data/trace/azure_llm/`，带时间戳的上下文/生成 token 计数）；以及随 [@mooncake2024] 发布
+  的 Mooncake 会话 trace（`data/trace/mooncake/`，每请求的前缀缓存块 `hash_ids`）。Wikipedia trace 是
+  一个活数据源的快照而非静态基准，因此精确复现需要同一份快照，而不仅仅是同一个 API。
 
 ## 展望验证片段（10.2 节）
 
-10.2 节展望背后的量均经数值验证。稀缺资源构造的单 cell 常数（每 cell 的 OPT、基线，以及优势/$\ell_1$
-公式）与精确的仿射转换律 $\mathbb E[\text{follow-ratio}] = \rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$
-由记录于项目笔记（`docs/T1_W1_single_cell.md`、`T1_W2_W3a_closeout.md`）的简短模拟验证到三位小数；
-例如在 $\theta=0.6$、偏置 $|s-\tfrac12|=0.3$ 时，模拟得每 cell 优势 $\pm0.119$ 与公式
-$\pm\theta|s-\tfrac12|=\pm0.12$ 吻合。预算–赌注论断——方向性统计量在与 $n$ 无关的固定前缀长度下的
-准确率、以及插入式 $\ell_1$ 估计在 $k\ll r$ 时的失明——由 `scripts/verify_witness_gap.py` 验证
-（`docs/T1_WITNESS_GAP.md`）。这些支撑该展望；形式化发展是本文之外的后续工作。
+10.2 节展望中引用的每一个量，在被使用之前都经过数值核对。共有三项核对，每项都是对稀缺资源构造的一次
+简短模拟。
+
+1. **单 cell 常数。** 每 cell 的最优、每 cell 的基线，以及优势与 $\ell_1$ 的闭式表达，与模拟吻合到三位
+   小数。例如在争用率 $\theta=0.6$、建议偏置 $0.3$ 时，模拟得每 cell 优势为 $\pm0.119$，而预测值为
+   $\pm\theta\cdot0.3=\pm0.12$。
+2. **转换律。** 跟随建议时的期望比值与 $\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$ 吻合（其中
+   $\rho_{\mathrm{perfect}}$ 是完美建议下的比值）——即它随建议的 $\ell_1$ 误差线性下降——同样精确到
+   三位小数。用 10.2 节的语言说，正是这一点使**赌注** $\delta$ 成为建议误差的线性函数。
+3. **预算–赌注的两个成分。** 方向性统计量在固定前缀长度下的准确率不随 $n$ 增大而退化；而插入式
+   $\ell_1$ 估计在 $k \ll r$ 时变得失明——即无法区分好建议与坏建议。二者都由
+   `scripts/verify_witness_gap.py` 产生（A.2 节）。
+
+这些核对使 10.2 节的**解读**成立，但它们不是对它的证明。形式化发展是本文之外的独立工作。
