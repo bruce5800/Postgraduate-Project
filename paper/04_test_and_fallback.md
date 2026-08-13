@@ -30,8 +30,11 @@ variants), and the Ranking floor (**Figure 2**). The picture is textbook.
 FollowPrediction degrades *linearly*, from $1.000$ at perfect advice to $0.453$ at
 $\ell_1\!\approx\!1.1$ — well *below* the advice-free floor ($\approx 0.99$). TestAndMatch
 instead stays on the **upper envelope**: it captures the benefit when advice is good and,
-when advice is bad, its prefix test rejects it and it falls back to Ranking, never
-crashing (BEM $0.998\to0.969$; Choo $1.000\to0.991$ across the same sweep). This is the
+when advice is bad, its prefix test rejects it and it falls back to Ranking. Across this
+sweep neither variant gives up more than $0.02$ against the advice-free floor, versus
+FollowPrediction's $0.54$ (BEM $0.998\to0.969$; Choo $1.000\to0.991$). That is a
+statement about this sweep — one graph family, 40 trials; the rule-independent version
+is Theorem 1. This is the
 adaptive counterpart of the structural robustness of Section 3: the engineered mechanism
 
 <!--REV
@@ -61,7 +64,10 @@ $0.00\to0.13\to0.33\to0.60$.
 ![Testing cost at borderline advice: under the worst-case-calibrated threshold, a larger and more accurate prefix test makes the *worse* decision.](../../results/choo_bem_prefix.png){width=70%}
 
 The mechanism is a real and reportable finding. The Choo/BEM acceptance threshold $\tau$
-is calibrated to the *worst-case* baseline $\beta\approx0.696$. But on these average-case
+is calibrated to the *worst-case* baseline $\beta\approx0.696$ — the competitive ratio of
+Ranking under random arrival order [MY11], and the value Choo et al. plug into their
+threshold [Choo24]; it is not $1-1/e$, which is the adversarial-order guarantee. But on
+these average-case
 instances the baseline is $\approx0.99$ (Section 3, F3), so the *empirical* break-even —
 the advice error at which following stops beating the baseline — sits at $\ell_1\approx0$,
 far below $\tau$. A small, noisy prefix over-estimates $\ell_1$ and *accidentally rejects*
@@ -120,7 +126,7 @@ specific to the empirical-$\ell_1$ statistic — §7.7 shows that class is blind
 structural reason (the plug-in distance saturates at $k \ll r$ regardless of advice
 quality) — but the deeper point holds for *any* test on a sublinear prefix: the
 follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$ — baseline slack
-over squared stakes — and on strong-baseline instances like these the stakes are so
+over the square of the stakes — and on strong-baseline instances like these the stakes are so
 small that the price exceeds the horizon. Section 5 is the empirical shadow; Section 7 is the law. But the
 resolution limit is a property of the *statistic*, not of testing itself — the next
 subsection builds the rule the law suggests, and it behaves differently.
@@ -154,11 +160,24 @@ at $\ell_1\approx0.10$ and $0.21$, misjudging $100\%$ and $63\%$ of instances) �
 payoff rule stays at the floor ($0.989/0.990$, misjudgement $3\%/0\%$). At perfect advice
 — where the recalibrated threshold *never* follows (misjudgement $100\%$, §5.3) — the
 payoff rule captures the upside in ${\sim}40\%$ of instances and lands safely on the
-floor otherwise. That partial capture is the honest ceiling, not a defect: the family's
-upside ($\approx0.02$) lies below the resolution *any* rule can achieve at $k=200$ — by
-the budget–stakes scaling of Section 7, with this family's payoff estimator carrying
-per-sample variance of order one, resolving stakes of $0.02$ takes
-$k \approx 1/0.02^2 = 2500 > n$ — the law binds our rule too, and the right behavior at
+floor otherwise. That partial capture is the honest ceiling, not a defect: at $k=200$ the
+family's upside sits *at* the rule's resolution rather than above it. Rather than assume
+the variance, we measured it (`scripts/measure_payoff_variance.py`, Appendix A): drawing
+prefixes of length $k$ under perfect advice, the decision statistic's standard deviation
+is $0.026/0.022/0.019/0.016/0.012$ at $k=50/100/200/400/800$; holding the prefix fixed
+and varying only the simulation seed accounts for under $4\%$ of that variance at
+$k=200$ and $k=800$, so these are sampling numbers. Against this family's stakes
+($g\approx0.02$) that is a signal-to-noise ratio of $1.1$ at $k=200$ — precisely the
+regime in which a rule follows good advice sometimes and falls back otherwise. Nor does
+lengthening the prefix rescue it within the instance: a $16$-fold longer prefix
+($50\to800$) buys only a $2.1$-fold reduction in noise, leaving the margin at order one
+across the entire range we measured. We note
+one caveat in transferring Section 7 here: $k\cdot\mathrm{Var}$ is not constant over that
+sweep ($0.033$ to $0.122$), so the $\sigma^2/k$ form proven on the cell family does not
+describe this estimator verbatim — the plug-in is a kinked functional of the prefix
+histogram, not a mean of per-sample observables — which is why we quote the measurement
+rather than the formula. The law's *qualitative* content binds our rule too, and the
+right behavior at
 
 <!--REV
 id: 4-04
@@ -169,7 +188,7 @@ quote: with this family's payoff estimator carrying per-sample variance of order
 note: §7 的预算是 sigma^2/g^2，这里直接写成 1/g^2，等于把 sigma^2 取成 1 而只用一个从句带过。审稿人会问：benchmark 家族的 sigma^2 到底是多少？这是把定理用到自己算法上的唯一一处，不能含糊。
 fix: 把 sigma^2 的取值（或它在该家族上的量级估计）写出来，公式写成 k approx sigma^2/g^2 并代入具体数字。
 -->
-unresolvable stakes is exactly this safe-either-way coin flip.
+barely-resolvable stakes is exactly this safe-either-way coin flip.
 
 ![The envelope sweep with the payoff rule added: the worst-case threshold follows the crash at mildly bad advice, the recalibrated threshold never captures at perfect advice, and the constant-free payoff rule tracks the upper envelope within the resolution the budget–stakes law allows.](../../results/directional_envelope.png){width=85%}
 
@@ -198,9 +217,11 @@ never crashes, but captures *none* of the consistency upside — strictly domina
 TestAndMatch on the good-advice side and equal to it on the bad side.
 
 More instructively, an *eager* combiner that switches experts mid-stream reveals a penalty
-specific to irrevocable problems. With perfect advice, eager switching scores $0.927$ —
-*below both* the pure follower ($1.000$) and the pure baseline ($0.958$; verified in
-`tests/test_combiner_small.py`) — because switching from Ranking to Mimic mid-run lands the
+specific to irrevocable problems. On a single-instance mechanism check ($n=600$, $r=6$,
+one seed, no averaging — a demonstration of the mechanism, not a measurement of its size),
+eager switching under perfect advice scores $0.927$, *below both* the pure follower
+($1.000$) and the pure baseline ($0.958$), because switching from Ranking to Mimic
+mid-run lands the
 
 <!--REV
 id: 4-05

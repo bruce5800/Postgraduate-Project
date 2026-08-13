@@ -20,7 +20,7 @@ LABEL2KEY = {
     'LV18':   'lykouris2018caching',   'WZ20':   'weizhang2020tradeoffs',
     'ACI22':  'aci2022mpd',            'Choo24': 'choo2024imperfect',
     'BEM26':  'bem2026testmatch',      'Chl21':  'chledowski2021caching',
-    'Bor18':  'borodin2018experimental',
+    'Bor18':  'borodin2018experimental', 'MY11': 'mahdianyan2011',
     'CJKL22': 'canonne2022tolerance',  'VV11':   'valiant2011unseen',
     'JHW18':  'jiao2018l1',
     'GR17':   'gupta2017pac',          'Bal20':  'balcan2020datadriven',
@@ -81,7 +81,7 @@ def md2tex(md):
 
 FILES = ['00_abstract_intro', '01_setup', '02_unified_benchmark', '03_order_error',
          '04_test_and_fallback', '05_external_validity', '06_theory',
-         '07_serving_related_conclusion']
+         '07_serving_related_conclusion', '08_appendix']
 for f in FILES:
     text = preprocess(pathlib.Path(f'../{f}.md').read_text())
     if f == '00_abstract_intro':

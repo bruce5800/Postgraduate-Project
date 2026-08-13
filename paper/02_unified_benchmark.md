@@ -161,8 +161,10 @@ Combiner \emph{(benchmark)} & 0.990 & 0.990 & 0.990 & 0.990 \\
 unguarded prediction-followers dive under the advice-free Ranking floor once the
 prediction is adversarial or garbage: MPD falls to $0.908 < 0.948$ (Panel A, adversarial)
 and $0.854 < 0.890$ (Panel B), and FollowPrediction collapses to $0.472 \ll 0.990$
-(Panel C). A practitioner using either *unguarded* is strictly worse off than using no
-prediction at all. Every *robust* algorithm in the tables — the augmentations,
+(Panel C). Under adversarial or garbage advice, then, a practitioner using either
+*unguarded* is worse off than using no prediction at all — at perfect and noisy advice
+the same algorithms sit above the floor. Every *robust* algorithm in the tables — the
+augmentations,
 
 <!--REV
 id: 2-03

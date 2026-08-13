@@ -12,8 +12,8 @@ predictor: last-window historical statistics. Real Wikipedia daily
 pageviews give a live day (the truth) and earlier days (a 1-, 7-, or
 30-day-stale forecast), so the prediction error is genuine temporal
 drift; we map the trace onto a fixed serving topology and consume the
-forecast through the degree route (MPD) (\textbf{Figure 6};
-\texttt{docs/REAL\_PREDICTOR.md}).
+forecast through the degree route (MPD) (\textbf{Figure 6}; setup and
+per-staleness numbers in Appendix A).
 
 \begin{figure}
 \centering
@@ -47,26 +47,27 @@ algorithms of Sections 3 and 5 are for.
 We re-run the degree-prediction roster of Section 3 on the six
 Network-Repository graphs (two Facebook social, two C. elegans
 biological, two economic input-output), across the same quality columns,
-with 95\% CIs (\textbf{Figure 7};
-\texttt{docs/REALWORLD\_ROBUSTNESS.md}).
+with 95\% CIs (\textbf{Figure 7}; graph sources and per-graph tables in
+Appendix A).
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings are universal, not generator artifacts.}]{../../results/realworld_robustness.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety --- the benchmark's findings survive on real topologies, not only on the generator.}]{../../results/realworld_robustness.png}
 \caption{The six real-world graphs: unguarded following falls below the
 advice-free floor on every graph, and the augmentation restores safety
---- the benchmark's findings are universal, not generator artifacts.}
+--- the benchmark's findings survive on real topologies, not only on the
+generator.}
 \end{figure}
 
-The two load-bearing findings are universal. \textbf{F1 holds on all six
-graphs}: naive MPD fed an adversarial predictor falls \emph{below} the
-Ranking floor everywhere --- by \(0.07\) (Caltech36: \(0.843<0.913\)) to
-\(0.11\) (CE-PG: \(0.782<0.883\)). \textbf{F3 is universal and confirms
-its own logic}: the consistency upside (best prediction algorithm at
-perfect advice, over the floor) is small everywhere (mean \(+0.049\);
-range \(+0.022\)--\(+0.077\)), and it is \emph{smallest exactly where
-the baseline is strongest} --- the two dense economic graphs, with
-Ranking already \(0.965\)/\(0.977\), give the tiniest upsides
+Both load-bearing findings hold on all six graphs. \textbf{F1}: naive
+MPD fed an adversarial predictor falls \emph{below} the Ranking floor
+everywhere --- by \(0.06\) (Reed98: \(0.841<0.904\)) to \(0.10\) (CE-PG:
+\(0.782<0.883\)). \textbf{F3 holds on all six, and confirms its own
+logic}: the consistency upside (best prediction algorithm at perfect
+advice, over the floor) is small everywhere (mean \(+0.049\); range
+\(+0.022\)--\(+0.077\)), and it is \emph{smallest exactly where the
+baseline is strongest} --- the two dense economic graphs, with Ranking
+already \(0.965\)/\(0.977\), give the tiniest upsides
 (\(+0.035\)/\(+0.022\)).
 
 The structural-robustness finding \textbf{F2 holds qualitatively on all
@@ -92,18 +93,18 @@ result}{Does learning the predictor help? A negative result}}
 
 Because MPD consumes the predictor only through its order (Section 4),
 one might train the predictor with an order-aware (rank) loss rather
-than regression. We test this and report an honest negative
-(\texttt{docs/RANK\_LEARNING\_M0\_M3.md}). With \emph{deliberately
-divergent} synthetic features --- one carrying magnitude, one carrying
-order --- rank-training does beat regression sharply (matching ratio
-\(0.989\approx\) oracle vs \(0.974\), with rank-training having
-\emph{worse} regression error but better order). But the advantage is
-gated by two things that both vanish in practice: it is zero when
-features do not induce an order/magnitude divergence and zero on easy
-instances (F3 again), peaking at only \(+1.3\%\) on synthetic graphs;
-and, decisively, \textbf{on real temporal features it disappears} ---
-trained on lagged counts from real serving traces, the rank- and
-regression-trained predictors produce \emph{identical} order
+than regression. We test this and report an honest negative (training
+setup and the full configuration list in Appendix A). With
+\emph{deliberately divergent} synthetic features --- one carrying
+magnitude, one carrying order --- rank-training does beat regression
+sharply (matching ratio \(0.989\approx\) oracle vs \(0.974\), with
+rank-training having \emph{worse} regression error but better order).
+But the advantage is gated by two things that both vanish in practice:
+it is zero when features do not induce an order/magnitude divergence and
+zero on easy instances (F3 again), peaking at only \(+1.3\%\) on
+synthetic graphs; and, decisively, \textbf{on real temporal features it
+disappears} --- trained on lagged counts from real serving traces, the
+rank- and regression-trained predictors produce \emph{identical} order
 (Kendall-\(\tau\) \(0.126\) vs \(0.126\)) and identical matching ratio,
 across every topology and lag we tried. The dissociation that powers
 order-aware training is a property of engineered features, not of

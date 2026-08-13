@@ -107,7 +107,10 @@ reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so 
 are attributable to the prediction alone. Confidence intervals are 95% normal-approximation
 half-widths over trials. The Phase-2 portion reproduces a subset of Borodin, Karavasilis &
 Pankratov [Bor18]; every figure and table in this paper is regenerated from a fixed seed by
-a single script, listed with its output in Appendix [REPRO].
+a single script, listed with its output in Appendix A. Most of those scripts are
+self-contained and run on a clean checkout; the real-graph and real-trace results of
+Sections 6 and 8 first require external data, whose provenance and retrieval are
+recorded in Appendix A.4.
 
 <!--REV
 id: 1-01

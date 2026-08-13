@@ -23,7 +23,8 @@ We replace the synthetic error knob with the cheapest realistic predictor: last-
 historical statistics. Real Wikipedia daily pageviews give a live day (the truth) and
 earlier days (a 1-, 7-, or 30-day-stale forecast), so the prediction error is genuine
 temporal drift; we map the trace onto a fixed serving topology and consume the forecast
-through the degree route (MPD) (**Figure 6**; `docs/REAL_PREDICTOR.md`).
+through the degree route (MPD) (**Figure 6**; setup and per-staleness numbers in
+Appendix A).
 
 <!--REV
 id: 5-01
@@ -56,13 +57,14 @@ exactly what the robust algorithms of Sections 3 and 5 are for.
 
 We re-run the degree-prediction roster of Section 3 on the six Network-Repository graphs
 (two Facebook social, two C. elegans biological, two economic input-output), across the
-same quality columns, with 95% CIs (**Figure 7**; `docs/REALWORLD_ROBUSTNESS.md`).
+same quality columns, with 95% CIs (**Figure 7**; graph sources and per-graph tables in
+Appendix A).
 
-![The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety — the benchmark's findings are universal, not generator artifacts.](../../results/realworld_robustness.png){width=100%}
+![The six real-world graphs: unguarded following falls below the advice-free floor on every graph, and the augmentation restores safety — the benchmark's findings survive on real topologies, not only on the generator.](../../results/realworld_robustness.png){width=100%}
 
-The two load-bearing findings are universal. **F1 holds on all six graphs**: naive MPD
-fed an adversarial predictor falls *below* the Ranking floor everywhere — by $0.07$
-(Caltech36: $0.843<0.913$) to $0.11$ (CE-PG: $0.782<0.883$). **F3 is universal and
+Both load-bearing findings hold on all six graphs. **F1**: naive MPD
+fed an adversarial predictor falls *below* the Ranking floor everywhere — by $0.06$
+(Reed98: $0.841<0.904$) to $0.10$ (CE-PG: $0.782<0.883$). **F3 holds on all six, and
 
 <!--REV
 id: 5-02
@@ -116,7 +118,7 @@ and the MPD augmentation lifts them to $0.99$ — a $+0.26$ rescue.
 
 Because MPD consumes the predictor only through its order (Section 4), one might train the
 predictor with an order-aware (rank) loss rather than regression. We test this and report
-an honest negative (`docs/RANK_LEARNING_M0_M3.md`). With *deliberately divergent* synthetic
+an honest negative (training setup and the full configuration list in Appendix A). With *deliberately divergent* synthetic
 features — one carrying magnitude, one carrying order — rank-training does beat regression
 sharply (matching ratio $0.989\approx$ oracle vs $0.974$, with rank-training having *worse*
 regression error but better order). But the advantage is gated by two things that both

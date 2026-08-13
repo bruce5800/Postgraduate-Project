@@ -19,7 +19,9 @@ affine law carry over unchanged. GENERALIZED 2026-07-28: heterogeneous profiles
 sigma^2 = sum theta_i/N with the exact identity 1-rho_base = sigma^2/2; verified by
 scripts/verify_budget_stakes_hetero.py (see docs/T1_HETERO_GENERAL.md). Remaining before
 submission (single-author as of 2026-07-28): the author's own line-by-line verification
-of this section; typeset the two short proofs in the appendix. Novelty pass DONE
+of this section. Proof of (i) typeset in Appendix B 2026-08-13 (from the sketch here
+plus T1_HETERO_GENERAL fact 3) — NEEDS THE AUTHOR'S CHECK; (ii)'s Bernstein proof is
+already inline. Novelty pass DONE
 2026-07-29 (docs/NOVELTY_PAYOFF_TEST.md) — no payoff-testing acceptance rule found in the
 adjacent lines; positioning debts (test-before-trust, data-driven selection, Wald) paid
 in the intro paragraph and §9.
@@ -39,12 +41,17 @@ the test-and-fallback algorithms — no acceptance threshold both captures the (
 and stays safe (§5.3). This section quantifies the wall. The result is a two-sided
 **budget–stakes law**: on a natural instance family, deciding whether to follow the advice
 requires a prefix of length $k^* = \tilde\Theta(\sigma^2/g^2)$ — the instance's
-specialist mass (exactly twice its baseline slack) divided by the squared stakes $g$ —
-and this is *sharp*: below $k^*$
-**no** decision rule whatsoever can be simultaneously consistent and robust (Theorem 1(i)),
-while at $k^*$ an explicit, embarrassingly simple rule succeeds (Theorem 1(ii)). The
+specialist mass (exactly twice its baseline slack) divided by the square of the stakes
+$g$ — with **no** decision rule whatsoever simultaneously consistent and robust below the
+budget (Theorem 1(i)) and an explicit, embarrassingly simple rule succeeding at it
+(Theorem 1(ii)). The two sides meet, up to logarithms, whenever the stakes are carried at
+comparable signal levels by a constant fraction of the specialist mass — the condition
+under which "$k^*$" names one quantity rather than two; when instead the stakes hide in a
+vanishing sliver of low-signal cells the sides can separate, and we leave that regime open
+(§7.8). The
 corollary is the wall: stakes are capped by the baseline slack, so on strong-baseline
-instances the required prefix exceeds the entire horizon — any upside smaller than
+instances meeting that condition the required prefix exceeds the entire horizon — any
+upside smaller than
 $\approx 2\sqrt{(1-\rho_{\mathrm{base}})/n}$ is uncapturable at *every* $k\le n$, and the
 upsides we measured in §3–§5 sit in exactly that range.
 
@@ -186,9 +193,10 @@ $$c(X) \;=\; \begin{cases} +1 & X \text{ is the advice-favored specialist of its
 > $$\mathbb E_p[c] \;=\; \frac2N\sum_i \theta_i\,(s_i-\tfrac12)\,\hat d_i
 > \;=\; 2\cdot\frac{\mathbb E_p[\mathrm{Mimic}]-\mathbb E_p[B]}{\mathrm{OPT}}.$$
 > *The expected advantage of following the advice is half the mean of a bounded, per-sample
-> observable.* (Verified to three decimals for homogeneous wrong-fraction sweeps,
-> `scripts/verify_witness_gap.py`, and for random heterogeneous and
-> magnitude-mismatched profiles, `scripts/verify_budget_stakes_hetero.py`.)
+> observable.* (Verified to three decimals by `verify_witness_gap.py` for
+> homogeneous wrong-fraction sweeps, and by
+> `verify_budget_stakes_hetero.py` for random heterogeneous and
+> magnitude-mismatched profiles.)
 
 *Proof.* The advice-favored and disfavored specialists of cell $i$ have masses
 $\theta_i\,(\tfrac12\pm(s_i-\tfrac12)\hat d_i)/N$, where $\hat d_i$ is the advice
@@ -209,6 +217,17 @@ fix: 把两行推导放进附录，正文指过去；数值验证保留但不作
 -->
 
 ## 7.5 The budget–stakes law
+
+**Symbols.** One quantity carries the stakes and one pair carries its two directions.
+For a scenario pair $(G,\mathrm{Bd})$ sharing an advice, $g$ is the **payoff gap** — the
+difference in follow-advantage between the two scenarios — while $\delta$ and $\Delta$ are
+the gain under $G$ and the loss under $\mathrm{Bd}$ separately, the objects Lemma 1 is
+stated in. By definition $g=\delta+\Delta$, so $\min(\delta,\Delta)\le g/2$ always, with
+equality exactly when the pair is **balanced**. The flip pairs of (i) are balanced —
+flipping the cells of $W$ moves each $s_i$ symmetrically about $\tfrac12$, giving
+$\delta=\Delta=g/2$ — so on them $\min(\delta,\Delta)=\Theta(g)$ and the two halves below
+constrain the same quantity. On an unbalanced pair (ii) is governed by the smaller of the
+two directions, and it is $\min(\delta,\Delta)$, not $g$, that sets the budget.
 
 > **Theorem 1 (budget–stakes law, heterogeneous).** On any cell family with profile
 > $\{(\theta_i,\varepsilon_i)\}$ and specialist mass $\sigma^2$:
@@ -259,19 +278,20 @@ note: 本文的核心定理，下界一侧只给了 proof sketch（耦合、每�
 fix: 把 (i) 的完整证明写进附录：耦合的构造、per-sample Hellinger 的那步等式如何得到、张量化与 joint convexity 的引用出处，以及 o(1) 的含义。既然作者自己说这两个证明很短，补上的成本远小于被要求 major revision 的成本。
 -->
 
-*Proof sketch of (i).* Couple the two scenarios; the per-sample laws differ only on the
-specialists of the flipped cells, and the per-sample squared Hellinger distance is exactly
-$\sum_{i\in W}\tfrac{2\theta_i}{N}\big(1-\sqrt{1-4\varepsilon_i^2}\big)
+*Proof of (i), in outline (in full in Appendix B).* Couple the two scenarios; the
+per-sample laws differ only on the specialists of the flipped cells, and the per-sample
+squared Hellinger distance is exactly
+$H^2 = \sum_{i\in W}\tfrac{2\theta_i}{N}\big(1-\sqrt{1-4\varepsilon_i^2}\big)
 \in [4,8]\cdot\sum_{i\in W}\theta_i\varepsilon_i^2/N \le 4\,\varepsilon_W\,g$.
-By tensorization and joint convexity, $\gamma_k \le \sqrt{2k\,H^2_{\mathrm{per}}} = o(1)$
-whenever $k = o(1/(\varepsilon_W g))$, and Lemma 1 forces
-$\eta_c+\eta_r\ge 1-o(1)$. $\qed$
+Tensorizing the Bhattacharyya coefficient and passing to total variation gives
+$\gamma_k \le \sqrt{k\,H^2} = o(1)$ whenever $k = o(1/(\varepsilon_W g))$, and Lemma 1
+turns that into $\eta_c+\eta_r\ge 1-o(1)$. $\qed$
 
 Numerically (§`verify_witness_gap.py`, $\theta=0.6$, $\varepsilon=0.3$, $\delta=0.056$):
 the directional test reaches $\eta_c+\eta_r \approx 0.06$ at $k=100$ and $0.007$ at
 $k=200$, and stays flat as $n$ grows from $3{,}200$ to $320{,}000$ at fixed $k=200$ —
 the budget really is $n$-free once the stakes are constant. The heterogeneous claims are
-verified separately (`scripts/verify_budget_stakes_hetero.py`): the payoff identity holds
+verified separately (`verify_budget_stakes_hetero.py`): the payoff identity holds
 for random profiles and for magnitude-mismatched truths; $1-\rho_{\mathrm{base}}=
 \sigma^2/2$ exactly; the per-sample Hellinger distance sits inside its $[4,8]$ bounds;
 and three families with $\sigma^2\in\{0.13,0.24,0.42\}$ produce decision-error curves
@@ -290,10 +310,14 @@ resolves stakes down to $\sigma/\sqrt k$ and no further. With the whole instance
 prefix ($k=n$), the constant-free threshold is
 $$g^{*} \;=\; \sigma/\sqrt n \;=\; \sqrt{2(1-\rho_{\mathrm{base}})/n}\,:$$
 
-> **Corollary (uncapturable upsides).** On strong-baseline families, every advice upside
-> smaller than $\Theta\big(\sqrt{(1-\rho_{\mathrm{base}})/n}\,\big)$ is uncapturable by any
+> **Corollary (uncapturable upsides).** On strong-baseline families satisfying the
+> matching condition of Theorem 1 — the stakes carried at comparable signal levels by a
+> constant fraction of the specialist mass — every advice upside smaller than
+> $\Theta\big(\sqrt{(1-\rho_{\mathrm{base}})/n}\,\big)$ is uncapturable by any
 > test-and-fallback rule at any prefix length $k \le n$ — the information needed to decide
-> does not exist inside the instance.
+> does not exist inside the instance. (Theorem 1(ii) — stakes above the frontier *are*
+> resolvable — is unconditional; it is the impossibility direction, and hence this
+> corollary, that inherits the condition.)
 
 At the parameters of our benchmark (§3: $\rho_{\mathrm{base}}\approx0.99$, $n=2000$) the
 threshold is $g^{*}\approx 0.003$, and the measured upsides are $<0.01$ (F3) — the
@@ -364,8 +388,8 @@ observable on *every* such family, so no decomposable construction can restore a
 super-$1/\delta^2$ barrier. Whether a *non-decomposable* family — long-range
 dependence making the payoff a genuinely hard functional — can separate the budget from
 $1/\delta^2$ is open. The directional test is analyzed here only on the cell family; a
-dedicated novelty pass (recorded in the project archive) found no payoff-testing
-acceptance rule in the adjacent literatures — the nearest lines test distances, switch on
+dedicated novelty pass — whose venues, keywords and cut-off are stated in §9 — found no
+payoff-testing acceptance rule in the adjacent literatures — the nearest lines test distances, switch on
 regret, or select algorithms from whole-instance samples (§9) — though the statistical
 skeleton of the upper half is, deliberately, classical. We credit Choo et al. for the constructive
 

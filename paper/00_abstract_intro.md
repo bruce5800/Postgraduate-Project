@@ -25,12 +25,14 @@ not a performance lever**: the advice-free baseline is already near-optimal, so 
 *consistency* upside of good advice is small, whereas unguarded prediction-following can
 crash far below the baseline — and the practical worth of the sophisticated algorithms
 is precisely that they never do. We then prove what the wall *costs*. For the
-test-and-fallback class we establish a sharp, two-sided **budget–stakes law**: deciding
+test-and-fallback class we establish a two-sided **budget–stakes law**: deciding
 whether to follow the advice requires — and, via an explicit one-line rule, only
 requires — a prefix of length $\tilde\Theta(\sigma^2/g^2)$: the instance's specialist
-mass $\sigma^2$ (exactly twice its baseline slack) divided by the squared stakes $g$
-(what good advice gains over the baseline), independent of the instance length. The
-lower half binds *every* decision rule;
+mass $\sigma^2$ (exactly twice its baseline slack) divided by the square of the stakes
+$g$ (what good advice gains over the baseline), independent of the instance length. The
+two halves meet, up to logarithms, whenever the stakes are carried at comparable signal
+levels by a constant fraction of that mass; one low-signal regime is left open and is
+stated as such. The lower half binds *every* decision rule;
 the upper half refutes the natural conjecture that the hardness of tolerant distribution
 testing blocks all sublinear rules — the decision-relevant statistic is the *payoff* of
 following, which is exponentially cheaper to test than the prediction's distance — a
@@ -175,7 +177,10 @@ class. Informally:
 > exactly twice the baseline slack. Below $k^*$, *no* decision rule is simultaneously
 > consistent and robust; at $k^*$, an explicit one-line rule is.
 
-The lower half is information-theoretic — it binds *any* measurable rule on the prefix,
+The two bounds meet up to logarithms whenever the stakes are carried, at comparable
+signal levels, by a constant fraction of the contested mass — the condition under which
+"$k^*$" names a single quantity; §7.8 records the low-signal regime in which the two
+sides can still separate, which we leave open. The lower half is information-theoretic — it binds *any* measurable rule on the prefix,
 not merely the empirical-distance threshold used in practice — via a master
 consistency/robustness inequality and a Hellinger computation. The upper half is a
 **directional test**: classify each prefix arrival as agreeing or disagreeing with the
@@ -188,7 +193,8 @@ decision impossible for every sublinear rule: the advice's *distance* to the tru
 indeed hard to test, and the field's empirical-$\ell_1$ thresholds are provably blind at
 sublinear prefixes, but the decision-relevant *payoff* is not. The wall then re-emerges
 exactly where the experiments live: stakes are capped by the baseline slack
-($\delta \le 2\varepsilon(1-\rho_{\mathrm{base}})$), so on strong-baseline instances the
+($g \le 2\varepsilon_{\max}(1-\rho_{\mathrm{base}})$, with $\varepsilon_{\max}$ the
+largest per-cell signal), so on strong-baseline instances the
 budget $k^*$ exceeds the horizon itself — every upside below
 $\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ is uncapturable at *any* feasible prefix, and
 the upsides measured in Sections 3–6 sit in that range.
@@ -222,9 +228,10 @@ survives; positioning vs test-before-trust / algorithm-selection / Wald added in
   pathologies — its misjudgement *falls* with prefix size exactly where the thresholds'
   *rises* — and a benchmark of the dynamic combiner exhibiting an irrevocability penalty
   that explains why matching needs *test-then-commit* (Section 5).
-- **(C5) The budget–stakes law.** A sharp two-sided law for test-and-fallback: the
+- **(C5) The budget–stakes law.** A two-sided law for test-and-fallback — the two sides
+  meeting up to logarithms under a stated signal condition (§7.5, §7.8): the
   follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$
-  (baseline slack over squared stakes) for *any*
+  (baseline slack over the square of the stakes) for *any*
   rule (lower bound), and an explicit directional test achieves it (upper bound). A
   payoff identity separates cheap payoff-testing from provably hard distance-testing —
   refuting, and reporting honestly, the natural tolerant-testing impossibility — and the

@@ -20,10 +20,12 @@ theorem* in the literature, and we are explicit about what is prior and what is 
 
 **What is already known (ACI).** Aamand, Chen & Indyk [ACI22, Appendix D] prove, for
 MinPredictedDegree on the CLV-B model, that the matching loss relative to the true
-expected degrees is at most $n - \mathrm{LIS}(p[\mu])$, where $p[\mu]$ is the true weights
-ordered by $\mu$ and $\mathrm{LIS}$ is the longest non-decreasing subsequence — a pure
-*order* quantity. In particular a monotone (order-preserving) predictor has $p[\mu]$
-already sorted, so $\mathrm{LIS}=n$, $n-\mathrm{LIS}=0$, and the loss is zero. Thus
+expected degrees is at most $n - \mathrm{LIS}(w[\mu])$, where $w$ is the vector of true
+CLV-B weights (unrelated to the type distribution $p$ of Section 2.1), $w[\mu]$ is $w$
+ordered by the prediction $\mu$, and $\mathrm{LIS}$ is the longest non-decreasing
+subsequence — a pure *order* quantity. In particular a monotone (order-preserving)
+predictor has $w[\mu]$ already sorted, so $\mathrm{LIS}=n$, $n-\mathrm{LIS}=0$, and the
+loss is zero. Thus
 
 <!--REV
 id: 3-01
@@ -74,7 +76,12 @@ prediction is actually more harmful.
 it.** Plotting the realized loss against the Kendall-$\tau$ order error (Figure 1(b)), the
 four structured error models fall on a single increasing curve: loss rises monotonically
 with Kendall-$\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
-$8.1\to21.6\to41.7$ in loss), with `systematic_bias` pinned at $\tau=0$ and zero loss. The
+$8.1\to21.6\to41.7$ in loss), with `systematic_bias` pinned at $\tau=0$ and zero loss.
+Pooling all four models and all eleven corruption levels (44 points), the rank
+correlation between Kendall-$\tau$ and realized loss is $\rho_S = 0.979$ and the linear
+correlation is $r = 0.992$; within each individually non-degenerate model — the three
+whose $\tau$ actually varies — $\rho_S$ is $0.973$, $0.991$ and $1.000$. Collapse onto
+one curve is therefore a measured fact, not a visual impression. The
 quantity that *predicts* the loss — and unifies the error models — is the Kendall-$\tau$
 
 <!--REV

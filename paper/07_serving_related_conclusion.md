@@ -48,6 +48,21 @@ Algorithm attributions are given where each algorithm is introduced (§2), and t
 positioning of our budget–stakes law against prior testing and tradeoff results is in §7;
 here we place the remaining landscape.
 
+**Scope of our novelty claims.** Both claims we mark as new — the budget–stakes law, and
+the observation that testing the *payoff* separates from testing the prediction's distance
+— rest on a targeted search rather than an exhaustive one, and we state its extent so it
+can be checked. We searched the learning-augmented / algorithms-with-predictions
+literature through **April 2026**, over DBLP, arXiv (cs.DS, cs.LG) and Google Scholar,
+for prefix- or sample-based acceptance rules — keywords *test-before-trust*, *advice
+testing*, *trust the prediction*, *test-then-commit*, *prediction validation*,
+*consistency–robustness trade-off*, *tolerant testing* — and read in depth the four
+nearest lines (test-before-trust; switching and combining frameworks; distributional
+advice of unknown quality; data-driven algorithm selection), including the
+test-before-trust group's own April-2026 survey talk of their programme. We found no
+acceptance rule that estimates the payoff of following. A citation trace of every work
+citing [Choo24] would be the completionist step and we have not performed it; the claims
+should be read as scoped to this search.
+
 **Learning-augmented algorithms.** The consistency/robustness framework originates with
 competitive caching with predictions [LV18] and the optimal-tradeoff analyses that followed
 [WZ20]; our thesis — that on average-case matching the value is robustness, not consistency
@@ -56,8 +71,8 @@ necessary. The direct experimental-study template is Chłędowski et al. [Chl21]
 whose blind-follow-with-switching combiner we benchmark (§5.5); the switching genre
 extends to prediction-quality-triggered frameworks such as SemiTrust-and-Switch [ASSS25],
 and distributional advice of unknown quality is handled by hedging in ski rental [CD26]
-and in Diakonikolas et al.'s sampling-access model — none of these tests the payoff, and
-none commits once. The most closely related active line is the *test-before-trust*
+and in Diakonikolas et al.'s sampling-access model — among the works covered by the
+search above, none tests the payoff and none commits once. The most closely related active line is the *test-before-trust*
 
 <!--REV
 id: 7-02
@@ -122,7 +137,7 @@ histogram-prediction families do not map onto every graph, which is why we repor
 parallel panels rather than one table. (iv) Each real modality is exercised by one trace.
 (v) The budget–stakes law is proven on decomposable (disjoint-cell) families, where the
 payoff identity holds; whether a *non*-decomposable family can push the budget above
-$1/\delta^2$ is open, as is the novelty of payoff-estimating acceptance rules relative to
+$1/\delta^2$ is open. Our novelty claim for payoff-estimating acceptance rules rests on
 
 <!--REV
 id: 7-04
@@ -134,7 +149,9 @@ quote: as is the novelty of payoff-estimating acceptance rules ... (a dedicated 
 note: §10 的局限说新颖性检索「正在进行中」，而 §7.8 与 §7 开头都说这次检索已经完成并给出了结论。同一篇稿子里两处直接冲突，审稿人一定会发现。
 fix: 统一口径：既然 §7 说已完成，§10 这一条要么删掉，要么改成「检索已完成、结论见 §9，但覆盖面有限」。
 -->
-the broader learning-augmented literature (a dedicated pass is in progress). An earlier
+the search reported in §9: that search is complete, but bounded by the venues,
+keywords and cut-off stated there, so we present the claim as scoped rather than
+exhaustive. An earlier
 draft claimed a tolerant-testing impossibility for any sublinear rule; that claim was
 refuted during its own witness step and the refutation is reported in §7.7.
 

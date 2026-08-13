@@ -41,6 +41,26 @@ Algorithm attributions are given where each algorithm is introduced
 testing and tradeoff results is in §7; here we place the remaining
 landscape.
 
+\textbf{Scope of our novelty claims.} Both claims we mark as new --- the
+budget--stakes law, and the observation that testing the \emph{payoff}
+separates from testing the prediction's distance --- rest on a targeted
+search rather than an exhaustive one, and we state its extent so it can
+be checked. We searched the learning-augmented /
+algorithms-with-predictions literature through \textbf{April 2026}, over
+DBLP, arXiv (cs.DS, cs.LG) and Google Scholar, for prefix- or
+sample-based acceptance rules --- keywords \emph{test-before-trust},
+\emph{advice testing}, \emph{trust the prediction},
+\emph{test-then-commit}, \emph{prediction validation},
+\emph{consistency--robustness trade-off}, \emph{tolerant testing} ---
+and read in depth the four nearest lines (test-before-trust; switching
+and combining frameworks; distributional advice of unknown quality;
+data-driven algorithm selection), including the test-before-trust
+group's own April-2026 survey talk of their programme. We found no
+acceptance rule that estimates the payoff of following. A citation trace
+of every work citing \cite{choo2024imperfect} would be the completionist
+step and we have not performed it; the claims should be read as scoped
+to this search.
+
 \textbf{Learning-augmented algorithms.} The consistency/robustness
 framework originates with competitive caching with predictions
 \cite{lykouris2018caching} and the optimal-tradeoff analyses that
@@ -54,9 +74,9 @@ genre extends to prediction-quality-triggered frameworks such as
 SemiTrust-and-Switch \cite{antoniadis2025switching}, and distributional
 advice of unknown quality is handled by hedging in ski rental
 \cite{cui2026skirental} and in Diakonikolas et al.'s sampling-access
-model --- none of these tests the payoff, and none commits once. The
-most closely related active line is the \emph{test-before-trust} program
-of Choo, Gouleakis and coauthors
+model --- among the works covered by the search above, none tests the
+payoff and none commits once. The most closely related active line is
+the \emph{test-before-trust} program of Choo, Gouleakis and coauthors
 \cite{choo2024imperfect,bhattacharyya2025product}, which statistically
 validates advice before use --- always by distributional distance; our
 §5.4/§7.7 argue the decision-relevant statistic is the payoff instead.
@@ -110,12 +130,13 @@ we report them in parallel panels rather than one table. (iv) Each real
 modality is exercised by one trace. (v) The budget--stakes law is proven
 on decomposable (disjoint-cell) families, where the payoff identity
 holds; whether a \emph{non}-decomposable family can push the budget
-above \(1/\delta^2\) is open, as is the novelty of payoff-estimating
-acceptance rules relative to the broader learning-augmented literature
-(a dedicated pass is in progress). An earlier draft claimed a
-tolerant-testing impossibility for any sublinear rule; that claim was
-refuted during its own witness step and the refutation is reported in
-§7.7.
+above \(1/\delta^2\) is open. Our novelty claim for payoff-estimating
+acceptance rules rests on the search reported in §9: that search is
+complete, but bounded by the venues, keywords and cut-off stated there,
+so we present the claim as scoped rather than exhaustive. An earlier
+draft claimed a tolerant-testing impossibility for any sublinear rule;
+that claim was refuted during its own witness step and the refutation is
+reported in §7.7.
 
 \textbf{Conclusion.} We gave the first unified experimental study of
 learning-augmented online bipartite matching --- advice-free baselines,

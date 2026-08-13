@@ -16,17 +16,20 @@ lever}: the advice-free baseline is already near-optimal, so the
 prediction-following can crash far below the baseline --- and the
 practical worth of the sophisticated algorithms is precisely that they
 never do. We then prove what the wall \emph{costs}. For the
-test-and-fallback class we establish a sharp, two-sided
-\textbf{budget--stakes law}: deciding whether to follow the advice
-requires --- and, via an explicit one-line rule, only requires --- a
-prefix of length \(\tilde\Theta(\sigma^2/g^2)\): the instance's
-specialist mass \(\sigma^2\) (exactly twice its baseline slack) divided
-by the squared stakes \(g\) (what good advice gains over the baseline),
-independent of the instance length. The lower half binds \emph{every}
-decision rule; the upper half refutes the natural conjecture that the
-hardness of tolerant distribution testing blocks all sublinear rules ---
-the decision-relevant statistic is the \emph{payoff} of following, which
-is exponentially cheaper to test than the prediction's distance --- a
+test-and-fallback class we establish a two-sided \textbf{budget--stakes
+law}: deciding whether to follow the advice requires --- and, via an
+explicit one-line rule, only requires --- a prefix of length
+\(\tilde\Theta(\sigma^2/g^2)\): the instance's specialist mass
+\(\sigma^2\) (exactly twice its baseline slack) divided by the square of
+the stakes \(g\) (what good advice gains over the baseline), independent
+of the instance length. The two halves meet, up to logarithms, whenever
+the stakes are carried at comparable signal levels by a constant
+fraction of that mass; one low-signal regime is left open and is stated
+as such. The lower half binds \emph{every} decision rule; the upper half
+refutes the natural conjecture that the hardness of tolerant
+distribution testing blocks all sublinear rules --- the
+decision-relevant statistic is the \emph{payoff} of following, which is
+exponentially cheaper to test than the prediction's distance --- a
 prescription we validate on the benchmark, where a constant-free
 payoff-testing rule avoids the threshold pathologies of the deployed
 tests. Because the stakes are capped by the baseline slack, on
