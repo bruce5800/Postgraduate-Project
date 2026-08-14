@@ -1,7 +1,7 @@
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(./talg_main.tex
+(./talg_final.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
@@ -36,7 +36,6 @@ ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
 (/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
 (/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
@@ -109,7 +108,7 @@ Special comment 'acks'
 Excluding 'CCSXML' comment. Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef) (./talg_main.aux)
+ef) (./talg_final.aux)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
@@ -119,8 +118,8 @@ ef) (./talg_main.aux)
 ) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
-(./talg_main.out)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_final.out)
+(./talg_final.out)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -139,48 +138,46 @@ ty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
 (./ch/00_abstract_intro.tex
 [1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
-gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
+tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
 enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
-Underfull \vbox (badness 3690) has occurred while \output is active
+Underfull \vbox (badness 3396) has occurred while \output is active
 [3.3]
-Underfull \vbox (badness 5403) has occurred while \output is active
 [4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
 ) (./ch/02_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
 [5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [6.6]
-Underfull \vbox (badness 1533) has occurred while \output is active
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-[8.8]
 
 Class acmart Warning: A possible image without description on input line 44.
 
-) (./ch/04_test_and_fallback.tex
+
+Underfull \vbox (badness 1377) has occurred while \output is active
+[8.8]) (./ch/04_test_and_fallback.tex
+Underfull \vbox (badness 5388) has occurred while \output is active
 [9.9 <../../results/order_vs_theory.png>]
 
 Class acmart Warning: A possible image without description on input line 39.
 
 
-Underfull \vbox (badness 2229) has occurred while \output is active
-[10.10 <../../results/choo_bem_envelope.png>]
+[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 61.
 
 
-[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_prefix.png>]
+[11.11 <../../results/choo_bem_prefix.png>]
 [12.12]
 
 Class acmart Warning: A possible image without description on input line 196.
@@ -188,57 +185,87 @@ Class acmart Warning: A possible image without description on input line 196.
 
 Class acmart Warning: A possible image without description on input line 215.
 
-
-[13.13 <../../results/directional_envelope.png>])
-(./ch/05_external_validity.tex
-Underfull \vbox (badness 4001) has occurred while \output is active
-[14.14 <../../results/directional_prefix.png>]
+) (./ch/05_external_validity.tex
+[13.13 <../../results/directional_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
+[14.14 <../../results/directional_prefix.png>]
+
 Class acmart Warning: A possible image without description on input line 62.
 
 
-[15.15 <../../results/real_predictor.png>]
-[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
-[17.17]
+[15.15 <../../results/real_predictor.png>]) (./ch/06_theory.tex
+[16.16 <../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
+[18.18]
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
-[20.20]
 
 Class acmart Warning: A possible image without description on input line 330.
 
 
+[20.20]
+
 Class acmart Warning: A possible image without description on input line 359.
 
 
-[21.21 <../../results/impossibility_frontier.png>])
-(./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
-[22.22 <../../results/directional_rsweep.png>]
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23])
-[24.24] (./ch/08_appendix.tex
-Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
-\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
-0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
-nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
-LF/m/n/9 (-20) ,
-
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
-
-[25.25]
+[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
+weep.png>]) (./ch/07_serving_related_conclusion.tex
+[22.22]
 Underfull \vbox (badness 10000) has occurred while \output is active
+[23.23]) (./ch/08_appendix.tex
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
+
+[24.24]
+Overfull \hbox (24.48923pt too wide) in paragraph at lines 88--90
+\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
+
+Overfull \hbox (4.48923pt too wide) in paragraph at lines 102--103
+[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
+
+Overfull \hbox (14.48923pt too wide) in paragraph at lines 105--105
+[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
+
+Overfull \hbox (19.48923pt too wide) in paragraph at lines 113--114
+[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
+
+Overfull \hbox (24.23923pt too wide) in paragraph at lines 113--114
+\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
+[25.25]
+Overfull \hbox (31.28987pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
+\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
+\T1/zi4/m/n/10 run_consistency_robustness.py
+
+Overfull \hbox (7.70992pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
+ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
+zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
+
+Overfull \hbox (39.11617pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
+l charts; needs the line above)[] 
+
+Overfull \hbox (40.78624pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
+ctional test, plug-in blindness[] 
+
+Overfull \hbox (29.15706pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
+ profiles, slack identity[] 
+
+Overfull \hbox (5.80669pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/measure_payoff_variance.py     # decision-stat
+istic sd quoted in 5.4[] 
+
 [26.26]
-[27.27]) (./talg_main.bbl
+[27.27]) (./talg_final.bbl
 [28.28])
 
 Class acmart Warning: Some images may lack descriptions.
@@ -256,7 +283,11 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[29.29] (./talg_main.aux) )
+[29.29] (./talg_final.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -276,10 +307,10 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (29 pages, 1605322 bytes).
-Transcript written on talg_main.log.
+Output written on talg_final.pdf (29 pages, 1602494 bytes).
+Transcript written on talg_final.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
-The top-level auxiliary file: talg_main.aux
+The top-level auxiliary file: talg_final.aux
 The style file: ACM-Reference-Format.bst
 Database file #1: refs_clean.bib
 Warning--empty publisher in aci2022mpd
@@ -331,7 +362,7 @@ Warning--page numbers missing in both pages and numpages fields in weizhang2020t
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(./talg_main.tex
+(./talg_final.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
@@ -366,7 +397,6 @@ ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
 (/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
 (/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
@@ -439,7 +469,7 @@ Special comment 'acks'
 Excluding 'CCSXML' comment. Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef) (./talg_main.aux)
+ef) (./talg_final.aux)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
@@ -449,8 +479,8 @@ ef) (./talg_main.aux)
 ) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
-(./talg_main.out)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_final.out)
+(./talg_final.out)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -469,48 +499,46 @@ ty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
 (./ch/00_abstract_intro.tex
 [1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
-gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
+tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
 enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
-Underfull \vbox (badness 3690) has occurred while \output is active
+Underfull \vbox (badness 3396) has occurred while \output is active
 [3.3]
-Underfull \vbox (badness 5403) has occurred while \output is active
 [4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
 ) (./ch/02_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
 [5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [6.6]
-Underfull \vbox (badness 1533) has occurred while \output is active
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-[8.8]
 
 Class acmart Warning: A possible image without description on input line 44.
 
-) (./ch/04_test_and_fallback.tex
+
+Underfull \vbox (badness 1377) has occurred while \output is active
+[8.8]) (./ch/04_test_and_fallback.tex
+Underfull \vbox (badness 5388) has occurred while \output is active
 [9.9 <../../results/order_vs_theory.png>]
 
 Class acmart Warning: A possible image without description on input line 39.
 
 
-Underfull \vbox (badness 2229) has occurred while \output is active
-[10.10 <../../results/choo_bem_envelope.png>]
+[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 61.
 
 
-[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_prefix.png>]
+[11.11 <../../results/choo_bem_prefix.png>]
 [12.12]
 
 Class acmart Warning: A possible image without description on input line 196.
@@ -518,57 +546,87 @@ Class acmart Warning: A possible image without description on input line 196.
 
 Class acmart Warning: A possible image without description on input line 215.
 
-
-[13.13 <../../results/directional_envelope.png>])
-(./ch/05_external_validity.tex
-Underfull \vbox (badness 4001) has occurred while \output is active
-[14.14 <../../results/directional_prefix.png>]
+) (./ch/05_external_validity.tex
+[13.13 <../../results/directional_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
+[14.14 <../../results/directional_prefix.png>]
+
 Class acmart Warning: A possible image without description on input line 62.
 
 
-[15.15 <../../results/real_predictor.png>]
-[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
-[17.17]
+[15.15 <../../results/real_predictor.png>]) (./ch/06_theory.tex
+[16.16 <../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
+[18.18]
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
-[20.20]
 
 Class acmart Warning: A possible image without description on input line 330.
 
 
+[20.20]
+
 Class acmart Warning: A possible image without description on input line 359.
 
 
-[21.21 <../../results/impossibility_frontier.png>])
-(./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
-[22.22 <../../results/directional_rsweep.png>]
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23])
-[24.24] (./ch/08_appendix.tex
-Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
-\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
-0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
-nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
-LF/m/n/9 (-20) ,
-
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
-
-[25.25]
+[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
+weep.png>]) (./ch/07_serving_related_conclusion.tex
+[22.22]
 Underfull \vbox (badness 10000) has occurred while \output is active
+[23.23]) (./ch/08_appendix.tex
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
+
+[24.24]
+Overfull \hbox (24.48923pt too wide) in paragraph at lines 88--90
+\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
+
+Overfull \hbox (4.48923pt too wide) in paragraph at lines 102--103
+[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
+
+Overfull \hbox (14.48923pt too wide) in paragraph at lines 105--105
+[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
+
+Overfull \hbox (19.48923pt too wide) in paragraph at lines 113--114
+[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
+
+Overfull \hbox (24.23923pt too wide) in paragraph at lines 113--114
+\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
+[25.25]
+Overfull \hbox (31.28987pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
+\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
+\T1/zi4/m/n/10 run_consistency_robustness.py
+
+Overfull \hbox (7.70992pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
+ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
+zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
+
+Overfull \hbox (39.11617pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
+l charts; needs the line above)[] 
+
+Overfull \hbox (40.78624pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
+ctional test, plug-in blindness[] 
+
+Overfull \hbox (29.15706pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
+ profiles, slack identity[] 
+
+Overfull \hbox (5.80669pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/measure_payoff_variance.py     # decision-stat
+istic sd quoted in 5.4[] 
+
 [26.26]
-[27.27]) (./talg_main.bbl
+[27.27]) (./talg_final.bbl
 [28.28])
 
 Class acmart Warning: Some images may lack descriptions.
@@ -586,7 +644,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[29.29] (./talg_main.aux) )
+[29.29] (./talg_final.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -606,12 +664,12 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (29 pages, 1605322 bytes).
-Transcript written on talg_main.log.
+Output written on talg_final.pdf (29 pages, 1602496 bytes).
+Transcript written on talg_final.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(./talg_main.tex
+(./talg_final.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
@@ -646,7 +704,6 @@ ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
 (/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
 (/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
@@ -719,7 +776,7 @@ Special comment 'acks'
 Excluding 'CCSXML' comment. Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef) (./talg_main.aux)
+ef) (./talg_final.aux)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
@@ -729,8 +786,8 @@ ef) (./talg_main.aux)
 ) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
-(./talg_main.out)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_final.out)
+(./talg_final.out)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -749,48 +806,46 @@ ty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
 (./ch/00_abstract_intro.tex
 [1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
-gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
+tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
 enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
-Underfull \vbox (badness 3690) has occurred while \output is active
+Underfull \vbox (badness 3396) has occurred while \output is active
 [3.3]
-Underfull \vbox (badness 5403) has occurred while \output is active
 [4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
 ) (./ch/02_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
 [5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [6.6]
-Underfull \vbox (badness 1533) has occurred while \output is active
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-[8.8]
 
 Class acmart Warning: A possible image without description on input line 44.
 
-) (./ch/04_test_and_fallback.tex
+
+Underfull \vbox (badness 1377) has occurred while \output is active
+[8.8]) (./ch/04_test_and_fallback.tex
+Underfull \vbox (badness 5388) has occurred while \output is active
 [9.9 <../../results/order_vs_theory.png>]
 
 Class acmart Warning: A possible image without description on input line 39.
 
 
-Underfull \vbox (badness 2229) has occurred while \output is active
-[10.10 <../../results/choo_bem_envelope.png>]
+[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 61.
 
 
-[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_prefix.png>]
+[11.11 <../../results/choo_bem_prefix.png>]
 [12.12]
 
 Class acmart Warning: A possible image without description on input line 196.
@@ -798,57 +853,87 @@ Class acmart Warning: A possible image without description on input line 196.
 
 Class acmart Warning: A possible image without description on input line 215.
 
-
-[13.13 <../../results/directional_envelope.png>])
-(./ch/05_external_validity.tex
-Underfull \vbox (badness 4001) has occurred while \output is active
-[14.14 <../../results/directional_prefix.png>]
+) (./ch/05_external_validity.tex
+[13.13 <../../results/directional_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
+[14.14 <../../results/directional_prefix.png>]
+
 Class acmart Warning: A possible image without description on input line 62.
 
 
-[15.15 <../../results/real_predictor.png>]
-[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
-[17.17]
+[15.15 <../../results/real_predictor.png>]) (./ch/06_theory.tex
+[16.16 <../../results/realworld_robustness.png>]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 Underfull \vbox (badness 10000) has occurred while \output is active
-[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
+[18.18]
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
-[20.20]
 
 Class acmart Warning: A possible image without description on input line 330.
 
 
+[20.20]
+
 Class acmart Warning: A possible image without description on input line 359.
 
 
-[21.21 <../../results/impossibility_frontier.png>])
-(./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
-[22.22 <../../results/directional_rsweep.png>]
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23])
-[24.24] (./ch/08_appendix.tex
-Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
-\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
-0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
-nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
-LF/m/n/9 (-20) ,
-
-Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
-[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
-talg-submission-2026-08 
-
-[25.25]
+[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
+weep.png>]) (./ch/07_serving_related_conclusion.tex
+[22.22]
 Underfull \vbox (badness 10000) has occurred while \output is active
+[23.23]) (./ch/08_appendix.tex
+Overfull \hbox (83.1775pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/10 https://github.com/bruce5800/Postgraduate-Project/releases/tag
+/talg-submission-2026-08 
+
+[24.24]
+Overfull \hbox (24.48923pt too wide) in paragraph at lines 88--90
+\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
+
+Overfull \hbox (4.48923pt too wide) in paragraph at lines 102--103
+[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
+
+Overfull \hbox (14.48923pt too wide) in paragraph at lines 105--105
+[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
+
+Overfull \hbox (19.48923pt too wide) in paragraph at lines 113--114
+[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
+
+Overfull \hbox (24.23923pt too wide) in paragraph at lines 113--114
+\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
+[25.25]
+Overfull \hbox (31.28987pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
+\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
+\T1/zi4/m/n/10 run_consistency_robustness.py
+
+Overfull \hbox (7.70992pt too wide) in paragraph at lines 131--135
+\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
+ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
+zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
+
+Overfull \hbox (39.11617pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
+l charts; needs the line above)[] 
+
+Overfull \hbox (40.78624pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
+ctional test, plug-in blindness[] 
+
+Overfull \hbox (29.15706pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
+ profiles, slack identity[] 
+
+Overfull \hbox (5.80669pt too wide) in paragraph at lines 154--154
+[]\T1/zi4/m/n/10 python3 scripts/measure_payoff_variance.py     # decision-stat
+istic sd quoted in 5.4[] 
+
 [26.26]
-[27.27]) (./talg_main.bbl
+[27.27]) (./talg_final.bbl
 [28.28])
 
 Class acmart Warning: Some images may lack descriptions.
@@ -866,7 +951,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[29.29] (./talg_main.aux) )
+[29.29] (./talg_final.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -886,5 +971,5 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_main.pdf (29 pages, 1605322 bytes).
-Transcript written on talg_main.log.
+Output written on talg_final.pdf (29 pages, 1602496 bytes).
+Transcript written on talg_final.log.
