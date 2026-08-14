@@ -107,10 +107,15 @@ reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so 
 are attributable to the prediction alone. Confidence intervals are 95% normal-approximation
 half-widths over trials. The Phase-2 portion reproduces a subset of Borodin, Karavasilis &
 Pankratov [Bor18]; every figure and table in this paper is regenerated from a fixed seed by
-a single script, listed with its output in Appendix A. Most of those scripts are
-self-contained and run on a clean checkout; the real-graph and real-trace results of
-Sections 6 and 8 first require external data, whose provenance and retrieval are
-recorded in Appendix A.4.
+a single script, listed with its output in Appendix A. The code, the request traces and
+our own result files are available as a citable artifact archive, `talg-artifact.zip`,
+at
+
+> `https://github.com/bruce5800/Postgraduate-Project/releases/tag/talg-submission-2026-08`
+
+Everything in the paper runs on that archive as it stands, with one exception: the six
+real graphs of Section 6.2 are third-party datasets we cannot redistribute and must be
+downloaded first. Appendix A.4 records their provenance and retrieval.
 
 <!--REV
 id: 1-01

@@ -6,31 +6,8 @@ tolerant-testing route, T1' both halves). Figure 8 = impossibility_frontier.png,
 Figure 9 = directional_rsweep.png (§7.7).
 Verification scripts: scripts/verify_witness_gap.py (payoff identity, directional test,
 plug-in-l1 blindness), plus the W1/W3a checks referenced in Appendix.
-
-[PROOF STATUS — for the authors, delete before submission]
-The earlier draft stated a sublinear-test impossibility for ANY rule at k = o(n/log n) via
-a reduction to tolerant identity testing. That theorem is FALSE — attempting the witness
-step refuted it (see docs/T1_WITNESS_GAP.md): on the cell family the follow-payoff equals
-half the mean of a per-sample observable, so a directional rule succeeds at k = O(log n).
-This section now states what is true instead: a sharp budget–stakes law (Theorem 1, both
-halves elementary — Bernstein/Hoeffding upper, Hellinger + Lemma 1 lower). Lemma 1 and the
-affine law carry over unchanged. GENERALIZED 2026-07-28: heterogeneous profiles
-(theta_i, eps_i) + magnitude-free achievability, organized around the specialist mass
-sigma^2 = sum theta_i/N with the exact identity 1-rho_base = sigma^2/2; verified by
-scripts/verify_budget_stakes_hetero.py (see docs/T1_HETERO_GENERAL.md). Remaining before
-submission (single-author as of 2026-07-28): the author's own line-by-line verification
-of this section. Proof of (i) typeset in Appendix B 2026-08-13 (from the sketch here
-plus T1_HETERO_GENERAL fact 3) — NEEDS THE AUTHOR'S CHECK; (ii)'s Bernstein proof is
-already inline. Novelty pass DONE
-2026-07-29 (docs/NOVELTY_PAYOFF_TEST.md) — no payoff-testing acceptance rule found in the
-adjacent lines; positioning debts (test-before-trust, data-driven selection, Wald) paid
-in the intro paragraph and §9.
-
-Differentiation to defend (put up front): Choo's threshold τ=2(n̂/n−β)−ε couples to the
-baseline β CONSTRUCTIVELY; our lower bound is information-theoretic (any prefix rule).
-And our positive result says the field's ℓ₁-testing lens is the wrong statistic on
-average-case inputs — the decision-relevant functional (the payoff) is exponentially
-cheaper to test than the distribution distance.
+Proof of Theorem 1(i) is typeset in Appendix B (08_appendix.md); (ii)'s Bernstein proof
+is inline below.
 -->
 
 # 7. A Budget–Stakes Law: What a Sublinear Test Can and Cannot Buy

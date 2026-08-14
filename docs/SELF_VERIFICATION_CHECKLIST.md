@@ -111,6 +111,14 @@ This is the part you must OWN completely; every proof is short.
 - [✅] C11. **§5.4 rule internals**: explain the Jensen bias (why naive plug-in rejects
       perfect advice), why the bootstrap anchors at p̂ not q, and what the early exit
       tests. Reread `algorithms/test_and_match.py::directional_test_and_match`. (~45 min)
+- [ ] C12. **Appendix B read-through** (added 2026-08-13, after C1–C11 were signed off).
+      The proof of Theorem 1(i) was typeset into Appendix B from the §7.5 sketch plus
+      `T1_HETERO_GENERAL.md` fact 3; the mathematics is what you already verified in C7,
+      so this is a *fidelity* check, not a re-derivation: read the appendix against your
+      C7 notes and confirm every step is the one you checked, that the Hellinger
+      convention is used consistently (H² = Σ(√p−√q)², so TV ≤ √(k·H²_per)), and that
+      the o(1) is the one Lemma 1 needs. Anything you would phrase differently, rephrase
+      — it goes out under your name. (~30 min)
 
 ## D. Citation & related-work integrity (~2 h)
 

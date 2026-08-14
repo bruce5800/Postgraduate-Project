@@ -139,10 +139,18 @@ alone. Confidence intervals are 95\% normal-approximation half-widths
 over trials. The Phase-2 portion reproduces a subset of Borodin,
 Karavasilis \& Pankratov \cite{borodin2018experimental}; every figure
 and table in this paper is regenerated from a fixed seed by a single
-script, listed with its output in Appendix A. Most of those scripts are
-self-contained and run on a clean checkout; the real-graph and
-real-trace results of Sections 6 and 8 first require external data,
-whose provenance and retrieval are recorded in Appendix A.4.
+script, listed with its output in Appendix A. The code, the request
+traces and our own result files are available as a citable artifact
+archive, \texttt{talg-artifact.zip}, at
+
+\begin{quote}
+\texttt{https://github.com/bruce5800/Postgraduate-Project/releases/tag/talg-submission-2026-08}
+\end{quote}
+
+Everything in the paper runs on that archive as it stands, with one
+exception: the six real graphs of Section 6.2 are third-party datasets
+we cannot redistribute and must be downloaded first. Appendix A.4
+records their provenance and retrieval.
 
 One implementation detail is load-bearing for that claim. Three
 preprocessing steps --- Feldman's and Jaillet--Lu's suggested matchings,

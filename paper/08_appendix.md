@@ -7,12 +7,23 @@ Figure numbers here must match the built PDF (Fig 1-9, Table 1) — see build_pa
 
 # Reproduction
 
-Every number in this paper is regenerated from a fixed seed by a single script. Two classes
-must be distinguished. Most scripts are **self-contained**: they generate their own
-synthetic instances and run as-is on a clean checkout. The rest — the real-graph and
-real-trace results of Sections 6 and 8 — first need external data placed under `data/`,
-which we do not redistribute; §A.4 records what each dataset is and where it comes from.
-A dagger ($\dagger$) marks that second class in the map below.
+**Artifact.** The code, the request traces and the result files behind every figure and
+table are packaged as `talg-artifact.zip`, released at
+
+> `https://github.com/bruce5800/Postgraduate-Project/releases/tag/talg-submission-2026-08`
+
+Unpack it and run the commands below from its root; `README.md` inside repeats the
+essentials. `results/` holds our own outputs, so a fresh run can be diffed against them
+directly.
+
+Every number in this paper is regenerated from a fixed seed by a single script. Almost
+everything runs on a clean checkout of the artifact: the synthetic experiments generate
+their own instances, and the request traces behind Sections 6.1, 6.3 and 8 are small
+enough that we ship them with the artifact under `data/trace/`. One class is the
+exception — the six real graphs of Section 6.2 (and the Phase-2 reproduction that reuses
+them) are third-party datasets we do not redistribute, so they must be downloaded into
+`data/realworld/` first. A dagger ($\dagger$) marks that class, and only that class, in
+the map below; §A.4 says what each dataset is and where it comes from.
 
 ## Environment and conventions
 
@@ -49,12 +60,12 @@ Each row names a *stem*. Unless the row says otherwise, its script is
 | **Figs. 4, 5, 9** (payoff rule; $r$-sweep) | `directional_test` | 12 min |
 | §5.4 decision-statistic variance | `measure_payoff_variance.py` (not a `run_` script) | 30 min |
 | §5.5 eager-combiner mechanism check | `tests/test_combiner_small.py` (console) | 2 s |
-| **Fig. 6** (real predictor) $\dagger$ | `real_predictor` | 15 s |
+| **Fig. 6** (real predictor) | `real_predictor` | 15 s |
 | **Fig. 7** (six real graphs) $\dagger$ | `realworld_robustness`, plus its `_tables.md` | 65 s |
-| §6.3 rank vs regression training | `rank_vs_mse_mve`, `rank_when_it_matters`, `rank_real_trace` $\dagger$ | 40 s |
+| §6.3 rank vs regression training | `rank_vs_mse_mve`, `rank_when_it_matters`, `rank_real_trace` | 40 s |
 | **Fig. 8** (budget–stakes scissors) | `impossibility_frontier` | 6 s |
 | §7 numerical verification | `scripts/verify_witness_gap.py` and `verify_budget_stakes_hetero.py` (console) | seconds |
-| §8 serving case study $\dagger$ | `serving`, `serving_trace`, `serving_dynamic`, `prefix_cache`, `serving_slo_probe` | varies |
+| §8 serving case study | `serving`, `serving_trace`, `serving_dynamic`, `prefix_cache`, `serving_slo_probe` | varies |
 | Phase-2 reproduction of [Bor18] | `er_full`, `left_regular`, `realworld` $\dagger$ | 35 min |
 
 Scripts live under `scripts/` and write to `results/`; all are run from the project root.
@@ -76,18 +87,22 @@ python3 scripts/run_directional_test.py        # Figs 4, 5, 9
 python3 scripts/run_impossibility_frontier.py  # Fig 8
 python3 scripts/verify_witness_gap.py          # Lemma 2, directional test, plug-in blindness
 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous profiles, slack identity
-python3 scripts/measure_payoff_variance.py     # sigma^2 quoted in 5.4
+python3 scripts/measure_payoff_variance.py     # decision-statistic sd quoted in 5.4
 python3 scripts/run_choo_bem.py                # Figs 2, 3   (~20 min)
 
-# require data/ (see A.4)
+# run on the traces shipped in data/trace/
 python3 scripts/run_real_predictor.py          # Fig 6
-python3 scripts/run_realworld_robustness.py    # Fig 7
 python3 scripts/run_rank_real_trace.py         # 6.3, real-feature arm
+
+# require data/realworld/ to be downloaded first (see A.4)
+python3 scripts/run_realworld_robustness.py    # Fig 7
 ```
 
 ## Data provenance
 
-External data lives under `data/` and is not redistributed with the code.
+The request traces ship with the artifact under `data/trace/`. The third-party graph
+datasets do not, and must be placed under `data/realworld/` before the daggered scripts
+will run.
 
 - **Real graphs (Section 6.2).** Six graphs from the Network Repository
   (networkrepository.com): socfb-Caltech36, socfb-Reed98, bio-CE-GN, bio-CE-PG,

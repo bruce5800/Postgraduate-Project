@@ -1,7 +1,7 @@
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(./talg_final.tex
+(./talg_main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
@@ -36,6 +36,7 @@ ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
 (/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
 (/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
@@ -108,8 +109,7 @@ Special comment 'acks'
 Excluding 'CCSXML' comment. Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef)
-No file talg_final.aux.
+ef) (./talg_main.aux)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
@@ -119,7 +119,8 @@ No file talg_final.aux.
 ) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
+(./talg_main.out)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -136,147 +137,50 @@ ty
 (./ch/abstract.tex
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
-
-LaTeX Warning: Reference `TotPages' on page 1 undefined on input line 49.
-
 (./ch/00_abstract_intro.tex
-
-Package natbib Warning: Citation `kvv1990ranking' on page 1 undefined on input 
-line 9.
-
-
-Package natbib Warning: Citation `feldman2009online' on page 1 undefined on inp
-ut line 11.
-
-
-Package natbib Warning: Citation `jailletlu2014online' on page 1 undefined on i
-nput line 11.
-
-
 [1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
-tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
+gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
 enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-
-Package natbib Warning: Citation `lykouris2018caching' on page 2 undefined on i
-nput line 19.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 2 undefined on
- input line 19.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 2 undefined on input line
- 21.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 2 undefined on inp
-ut line 25.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 2 undefined on inpu
-t line 26.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 2 undefined on
- input line 47.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active
-[2.2]
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 3 undefined on 
-input line 104.
-
-) (./ch/01_setup.tex
-Underfull \vbox (badness 3396) has occurred while \output is active
+[2.2]) (./ch/01_setup.tex
+Underfull \vbox (badness 3690) has occurred while \output is active
 [3.3]
-
-Package natbib Warning: Citation `hopcroftkarp1973' on page 4 undefined on inpu
-t line 23.
-
-
-Package natbib Warning: Citation `kvv1990ranking' on page 4 undefined on input 
-line 26.
-
-
-Package natbib Warning: Citation `kvv1990ranking' on page 4 undefined on input 
-line 43.
-
-
-Package natbib Warning: Citation `feldman2009online' on page 4 undefined on inp
-ut line 46.
-
-
-Package natbib Warning: Citation `jailletlu2014online' on page 4 undefined on i
-nput line 47.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 4 undefined on input line
- 53.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 4 undefined on inp
-ut line 70.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 4 undefined on inpu
-t line 70.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 4 undefined on input line
- 78.
-
-
-[4.4]
-
-Package natbib Warning: Citation `chledowski2021caching' on page 5 undefined on
- input line 85.
-
-
-Package natbib Warning: Citation `borodin2018experimental' on page 5 undefined 
-on input line 140.
-
+Underfull \vbox (badness 5403) has occurred while \output is active
+[4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
 ) (./ch/02_unified_benchmark.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
-[5.5]
+[5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [6.6]
+Underfull \vbox (badness 1533) has occurred while \output is active
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
+[8.8]
 
 Class acmart Warning: A possible image without description on input line 44.
 
-
-Underfull \vbox (badness 1377) has occurred while \output is active
-[8.8{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}])
-(./ch/04_test_and_fallback.tex
-Underfull \vbox (badness 5388) has occurred while \output is active
+) (./ch/04_test_and_fallback.tex
 [9.9 <../../results/order_vs_theory.png>]
 
 Class acmart Warning: A possible image without description on input line 39.
 
 
-[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_envelope.png>]
+Underfull \vbox (badness 2229) has occurred while \output is active
+[10.10 <../../results/choo_bem_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 61.
 
 
-Package natbib Warning: Citation `mahdianyan2011' on page 11 undefined on input
- line 66.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 11 undefined on in
-put line 67.
-
-
-[11.11 <../../results/choo_bem_prefix.png>]
+[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_prefix.png>]
 [12.12]
 
 Class acmart Warning: A possible image without description on input line 196.
@@ -284,236 +188,58 @@ Class acmart Warning: A possible image without description on input line 196.
 
 Class acmart Warning: A possible image without description on input line 215.
 
-) (./ch/05_external_validity.tex
-[13.13 <../../results/directional_envelope.png>]
+
+[13.13 <../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 4001) has occurred while \output is active
+[14.14 <../../results/directional_prefix.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
-[14.14 <../../results/directional_prefix.png>]
-
-Class acmart Warning: A possible image without description on input line 60.
+Class acmart Warning: A possible image without description on input line 62.
 
 
-[15.15 <../../results/real_predictor.png> <../../results/realworld_robustness.p
-ng>]) (./ch/06_theory.tex
-[16.16]
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 17 undefined on
- input line 31.
-
-
-Package natbib Warning: Citation `valiant2011unseen' on page 17 undefined on in
-put line 31.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 17 undefined on input lin
-e 31.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 35.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 17 undefined on inp
-ut line 35.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 41.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 17 undefined on inp
-ut line 42.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 17 undefined o
-n input line 51.
-
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 17 undefined on
- input line 53.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 62.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 17 undefine
-d on input line 62.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 17 undefined o
-n input line 65.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 17 undefined
- on input line 65.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 17 undefined on input l
-ine 68.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 17 undefined on
- input line 68.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 17 undefined on i
-nput line 73.
-
+[15.15 <../../results/real_predictor.png>]
+[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
+[17.17]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
-[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-[18.18]
+Underfull \vbox (badness 1558) has occurred while \output is active
 [19.19]
+Underfull \vbox (badness 6300) has occurred while \output is active
+[20.20]
 
 Class acmart Warning: A possible image without description on input line 330.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 20 undefined on in
-put line 336.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 20 undefined on inp
-ut line 336.
 
 
 Class acmart Warning: A possible image without description on input line 359.
 
 
-Package natbib Warning: Citation `canonne2022tolerance' on page 20 undefined on
- input line 363.
+[21.21 <../../results/impossibility_frontier.png>])
+(./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 5189) has occurred while \output is active
+[22.22 <../../results/directional_rsweep.png>]
+Underfull \vbox (badness 4048) has occurred while \output is active
+[23.23])
+[24.24] (./ch/08_appendix.tex
+Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
+\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
+0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
+nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
+LF/m/n/9 (-20) ,
 
-
-[20.20]) (./ch/07_serving_related_conclusion.tex
-[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
-weep.png>]
-
-Package natbib Warning: Citation `choo2024imperfect' on page 22 undefined on in
-put line 60.
-
-
-[22.22]
-
-Package natbib Warning: Citation `lykouris2018caching' on page 23 undefined on 
-input line 66.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 23 undefined o
-n input line 67.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 23 undefined o
-n input line 71.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 23 undefined
- on input line 74.
-
-
-Package natbib Warning: Citation `cui2026skirental' on page 23 undefined on inp
-ut line 76.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
-put line 80.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 23 undefine
-d on input line 80.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 23 undefined on input l
-ine 87.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 23 undefined on
- input line 87.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 23 undefined on i
-nput line 88.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 23 undefined on input lin
-e 98.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
-put line 99.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 23 undefined on inp
-ut line 99.
-
-
-Package natbib Warning: Citation `borodin2018experimental' on page 23 undefined
- on input line 101.
-
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 23 undefined on
- input line 105.
-
-
-Package natbib Warning: Citation `valiant2011unseen' on page 23 undefined on in
-put line 105.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 23 undefined on input lin
-e 106.
-
-
-Underfull \vbox (badness 5756) has occurred while \output is active
-[23.23]) (./ch/08_appendix.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
-[24.24]
-Overfull \hbox (24.48923pt too wide) in paragraph at lines 74--76
-\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
-
-Overfull \hbox (4.48923pt too wide) in paragraph at lines 88--89
-[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
-
-Overfull \hbox (14.48923pt too wide) in paragraph at lines 91--91
-[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
-
-Overfull \hbox (19.48923pt too wide) in paragraph at lines 101--102
-[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
-
-Overfull \hbox (24.23923pt too wide) in paragraph at lines 101--102
-\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
-
-Package natbib Warning: Citation `borodin2018experimental' on page 25 undefined
- on input line 106.
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
 
 [25.25]
-Overfull \hbox (31.28987pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
-\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
-\T1/zi4/m/n/10 run_consistency_robustness.py
-
-Overfull \hbox (7.70992pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
-ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
-zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
-
-Overfull \hbox (39.11617pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
-l charts; needs the line above)[] 
-
-Overfull \hbox (40.78624pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
-ctional test, plug-in blindness[] 
-
-Overfull \hbox (29.15706pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
- profiles, slack identity[] 
-
-[26.26])
-No file talg_final.bbl.
-
-Package natbib Warning: There were undefined citations.
-
+Underfull \vbox (badness 10000) has occurred while \output is active
+[26.26]
+[27.27]) (./talg_main.bbl
+[28.28])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -530,19 +256,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[27.27] (./talg_final.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `talg_final.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
- )
+[29.29] (./talg_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -562,10 +276,10 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_final.pdf (27 pages, 1583596 bytes).
-Transcript written on talg_final.log.
+Output written on talg_main.pdf (29 pages, 1605322 bytes).
+Transcript written on talg_main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
-The top-level auxiliary file: talg_final.aux
+The top-level auxiliary file: talg_main.aux
 The style file: ACM-Reference-Format.bst
 Database file #1: refs_clean.bib
 Warning--empty publisher in aci2022mpd
@@ -617,7 +331,7 @@ Warning--page numbers missing in both pages and numpages fields in weizhang2020t
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
-(./talg_final.tex
+(./talg_main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
@@ -652,6 +366,7 @@ ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
 (/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
 (/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
@@ -724,7 +439,7 @@ Special comment 'acks'
 Excluding 'CCSXML' comment. Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef) (./talg_final.aux)
+ef) (./talg_main.aux)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
@@ -734,573 +449,8 @@ ef) (./talg_final.aux)
 ) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
 (/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_final.out)
-(./talg_final.out)
-(/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
-ty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-))
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/upquote/upquote.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/ltcaption.sty)
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/t1linuxbiolinumt-tlf.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ts1linuxlibertinet-tlf.fd)
-(./ch/abstract.tex
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
-(./ch/00_abstract_intro.tex
-
-Package natbib Warning: Citation `kvv1990ranking' on page 1 undefined on input 
-line 9.
-
-
-Package natbib Warning: Citation `feldman2009online' on page 1 undefined on inp
-ut line 11.
-
-
-Package natbib Warning: Citation `jailletlu2014online' on page 1 undefined on i
-nput line 11.
-
-
-[1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
-tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
-enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
-/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
-s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
-huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
-
-Package natbib Warning: Citation `lykouris2018caching' on page 2 undefined on i
-nput line 19.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 2 undefined on
- input line 19.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 2 undefined on input line
- 21.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 2 undefined on inp
-ut line 25.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 2 undefined on inpu
-t line 26.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 2 undefined on
- input line 47.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active
-[2.2]
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 3 undefined on 
-input line 104.
-
-) (./ch/01_setup.tex
-Underfull \vbox (badness 3396) has occurred while \output is active
-[3.3]
-
-Package natbib Warning: Citation `hopcroftkarp1973' on page 4 undefined on inpu
-t line 23.
-
-
-Package natbib Warning: Citation `kvv1990ranking' on page 4 undefined on input 
-line 26.
-
-
-Package natbib Warning: Citation `kvv1990ranking' on page 4 undefined on input 
-line 43.
-
-
-Package natbib Warning: Citation `feldman2009online' on page 4 undefined on inp
-ut line 46.
-
-
-Package natbib Warning: Citation `jailletlu2014online' on page 4 undefined on i
-nput line 47.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 4 undefined on input line
- 53.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 4 undefined on inp
-ut line 70.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 4 undefined on inpu
-t line 70.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 4 undefined on input line
- 78.
-
-
-[4.4]
-
-Package natbib Warning: Citation `chledowski2021caching' on page 5 undefined on
- input line 85.
-
-
-Package natbib Warning: Citation `borodin2018experimental' on page 5 undefined 
-on input line 140.
-
-) (./ch/02_unified_benchmark.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
-[5.5]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[6.6]
-[7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
-ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
-(./ch/03_order_error.tex
-(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
-
-Class acmart Warning: A possible image without description on input line 44.
-
-
-Underfull \vbox (badness 1377) has occurred while \output is active
-[8.8{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}])
-(./ch/04_test_and_fallback.tex
-Underfull \vbox (badness 5388) has occurred while \output is active
-[9.9 <../../results/order_vs_theory.png>]
-
-Class acmart Warning: A possible image without description on input line 39.
-
-
-[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_envelope.png>]
-
-Class acmart Warning: A possible image without description on input line 61.
-
-
-Package natbib Warning: Citation `mahdianyan2011' on page 11 undefined on input
- line 66.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 11 undefined on in
-put line 67.
-
-
-[11.11 <../../results/choo_bem_prefix.png>]
-[12.12]
-
-Class acmart Warning: A possible image without description on input line 196.
-
-
-Class acmart Warning: A possible image without description on input line 215.
-
-) (./ch/05_external_validity.tex
-[13.13 <../../results/directional_envelope.png>]
-
-Class acmart Warning: A possible image without description on input line 24.
-
-
-[14.14 <../../results/directional_prefix.png>]
-
-Class acmart Warning: A possible image without description on input line 60.
-
-
-[15.15 <../../results/real_predictor.png> <../../results/realworld_robustness.p
-ng>]) (./ch/06_theory.tex
-[16.16]
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 17 undefined on
- input line 31.
-
-
-Package natbib Warning: Citation `valiant2011unseen' on page 17 undefined on in
-put line 31.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 17 undefined on input lin
-e 31.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 35.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 17 undefined on inp
-ut line 35.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 41.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 17 undefined on inp
-ut line 42.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 17 undefined o
-n input line 51.
-
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 17 undefined on
- input line 53.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 17 undefined on in
-put line 62.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 17 undefine
-d on input line 62.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 17 undefined o
-n input line 65.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 17 undefined
- on input line 65.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 17 undefined on input l
-ine 68.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 17 undefined on
- input line 68.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 17 undefined on i
-nput line 73.
-
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
-[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
-}]
-[18.18]
-[19.19]
-
-Class acmart Warning: A possible image without description on input line 330.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 20 undefined on in
-put line 336.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 20 undefined on inp
-ut line 336.
-
-
-Class acmart Warning: A possible image without description on input line 359.
-
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 20 undefined on
- input line 363.
-
-
-[20.20]) (./ch/07_serving_related_conclusion.tex
-[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
-weep.png>]
-
-Package natbib Warning: Citation `choo2024imperfect' on page 22 undefined on in
-put line 60.
-
-
-[22.22]
-
-Package natbib Warning: Citation `lykouris2018caching' on page 23 undefined on 
-input line 66.
-
-
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 23 undefined o
-n input line 67.
-
-
-Package natbib Warning: Citation `chledowski2021caching' on page 23 undefined o
-n input line 71.
-
-
-Package natbib Warning: Citation `antoniadis2025switching' on page 23 undefined
- on input line 74.
-
-
-Package natbib Warning: Citation `cui2026skirental' on page 23 undefined on inp
-ut line 76.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
-put line 80.
-
-
-Package natbib Warning: Citation `bhattacharyya2025product' on page 23 undefine
-d on input line 80.
-
-
-Package natbib Warning: Citation `gupta2017pac' on page 23 undefined on input l
-ine 87.
-
-
-Package natbib Warning: Citation `balcan2020datadriven' on page 23 undefined on
- input line 87.
-
-
-Package natbib Warning: Citation `wald1947sequential' on page 23 undefined on i
-nput line 88.
-
-
-Package natbib Warning: Citation `aci2022mpd' on page 23 undefined on input lin
-e 98.
-
-
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
-put line 99.
-
-
-Package natbib Warning: Citation `bem2026testmatch' on page 23 undefined on inp
-ut line 99.
-
-
-Package natbib Warning: Citation `borodin2018experimental' on page 23 undefined
- on input line 101.
-
-
-Package natbib Warning: Citation `canonne2022tolerance' on page 23 undefined on
- input line 105.
-
-
-Package natbib Warning: Citation `valiant2011unseen' on page 23 undefined on in
-put line 105.
-
-
-Package natbib Warning: Citation `jiao2018l1' on page 23 undefined on input lin
-e 106.
-
-
-Underfull \vbox (badness 5756) has occurred while \output is active
-[23.23]) (./ch/08_appendix.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
-[24.24]
-Overfull \hbox (24.48923pt too wide) in paragraph at lines 74--76
-\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
-
-Overfull \hbox (4.48923pt too wide) in paragraph at lines 88--89
-[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
-
-Overfull \hbox (14.48923pt too wide) in paragraph at lines 91--91
-[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
-
-Overfull \hbox (19.48923pt too wide) in paragraph at lines 101--102
-[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
-
-Overfull \hbox (24.23923pt too wide) in paragraph at lines 101--102
-\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
-
-Package natbib Warning: Citation `borodin2018experimental' on page 25 undefined
- on input line 106.
-
-[25.25]
-Overfull \hbox (31.28987pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
-\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
-\T1/zi4/m/n/10 run_consistency_robustness.py
-
-Overfull \hbox (7.70992pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
-ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
-zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
-
-Overfull \hbox (39.11617pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
-l charts; needs the line above)[] 
-
-Overfull \hbox (40.78624pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
-ctional test, plug-in blindness[] 
-
-Overfull \hbox (29.15706pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
- profiles, slack identity[] 
-
-[26.26]) (./talg_final.bbl
-[27.27])
-
-Package natbib Warning: There were undefined citations.
-
-
-Class acmart Warning: Some images may lack descriptions.
-(acmart)              ACM is committed to complying with the upcoming US ADA ht
-tps://accessiblyapp.com/accessibility-compliance/ada/ and European Accessibilit
-y Act (EAA) https://accessiblyapp.com/accessibility-compliance/eaa/ regulations
- by actively working to ensure our publications and application services are ac
-cessible to individuals with disabilities, adhering to the WCAG guidelines to p
-rovide a seamless experience for all users, and regularly reviewing our accessi
-bility practices to maintain compliance with evolving standards. 
-(acmart)              To this end, we strongly encourage our authors to provide
- alternative text and captions for images and multimedia content. It is also im
-portant to optimize color contrast for the visually impaired. Taking these impo
-rtant steps when creating your papers will ensure that the widest possible audi
-ence can ingest your work..
-
-
-[28.28] (./talg_final.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `talg_final.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
- )
-(see the transcript file for additional information)</Users/lizhuolun/Library/t
-exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
-ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/newtx/LibertineMathMI5.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library/
-texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/tex
-mf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/tex
-mf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/te
-xmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/t
-exmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Library
-/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Librar
-y/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/fo
-nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
-/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
-x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
-></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_final.pdf (28 pages, 1596157 bytes).
-Transcript written on talg_final.log.
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
- restricted \write18 enabled.
-entering extended mode
-(./talg_final.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
-(/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
-Document Class: acmart 2025/08/27 v2.16 Typesetting articles for the Associatio
-n for Computing Machinery
-(/Users/lizhuolun/Library/texmf/tex/latex/xkeyval/xkeyval.sty
-(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkeyval.tex
-(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkvutils.tex
-(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/keyval.tex))))
-(/Users/lizhuolun/Library/texmf/tex/generic/xstring/xstring.sty
-(/Users/lizhuolun/Library/texmf/tex/generic/xstring/xstring.tex))
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amscls/amsart.cls
-Document Class: amsart 2020/05/29 v2.20.6
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsmath.sty
-For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amstext.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsgen.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsbsy.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsopn.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
-(/Users/lizhuolun/Library/texmf/tex/latex/etoolbox/etoolbox.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-pdftex.d
-ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/booktabs/booktabs.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/totpages/totpages.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
-(/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
-sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty)
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
-ing.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hpdftex.def
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
-k.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
-r.sty))) (./hyperxmp.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphicx.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def)))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/xcolor/xcolor.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/geometry/geometry.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/ncctools/manyfoot.sty
-(/Users/lizhuolun/Library/texmf/tex/latex/ncctools/nccfoots.sty))
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/cmap/cmap.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
- (/Users/lizhuolun/Library/texmf/tex/latex/libertine/libertine.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifxetex.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifluatex.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/textcomp.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty)
-(/Users/lizhuolun/Library/texmf/tex/latex/fontaxes/fontaxes.sty
-(/Users/lizhuolun/Library/texmf/tex/latex/fontaxes/fontaxes-v1.sty))
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/LinLibertine_I.tex))
-(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/zi4.sty
-`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/newtxmath.sty
-`newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/ifthen.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/oberdiek/centernot.sty)
-(/Users/lizhuolun/Library/texmf/tex/generic/kastrup/binhex.tex)
-amsthm NOT loaded
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption3.sty
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption-ams-smf.sto)
-)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty)
-(/Users/lizhuolun/Library/texmf/tex/latex/comment/comment.sty
-Excluding comment 'comment') Excluding comment 'CCSXML'
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
-Special comment 'acks'
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/t1linuxlibertinet-tlf.fd))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/longtable.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/calc.sty)
-Excluding 'CCSXML' comment. Include comment 'screenonly'
-Excluding comment 'printonly' Include comment 'anonsuppress'
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
-ef) (./talg_final.aux)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmxntxexx.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxlibertinet-tlf.fd)<
-<ot1.cmap>> (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
-(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_final.out)
-(./talg_final.out)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
+(./talg_main.out)
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 )
@@ -1319,45 +469,48 @@ ty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
 (./ch/00_abstract_intro.tex
 [1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25
-tcsq.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76gpa5.
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
+gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
 enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
 /Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
 s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
 huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [2.2]) (./ch/01_setup.tex
-Underfull \vbox (badness 3396) has occurred while \output is active
+Underfull \vbox (badness 3690) has occurred while \output is active
 [3.3]
-[4.4]) (./ch/02_unified_benchmark.tex
+Underfull \vbox (badness 5403) has occurred while \output is active
+[4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
+) (./ch/02_unified_benchmark.tex
 Underfull \vbox (badness 10000) has occurred while \output is active
-[5.5]
+[5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active
 [6.6]
+Underfull \vbox (badness 1533) has occurred while \output is active
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
+[8.8]
 
 Class acmart Warning: A possible image without description on input line 44.
 
-
-Underfull \vbox (badness 1377) has occurred while \output is active
-[8.8{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}])
-(./ch/04_test_and_fallback.tex
-Underfull \vbox (badness 5388) has occurred while \output is active
+) (./ch/04_test_and_fallback.tex
 [9.9 <../../results/order_vs_theory.png>]
 
 Class acmart Warning: A possible image without description on input line 39.
 
 
-[10.10{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
-} <../../results/choo_bem_envelope.png>]
+Underfull \vbox (badness 2229) has occurred while \output is active
+[10.10 <../../results/choo_bem_envelope.png>]
 
 Class acmart Warning: A possible image without description on input line 61.
 
 
-[11.11 <../../results/choo_bem_prefix.png>]
+[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_prefix.png>]
 [12.12]
 
 Class acmart Warning: A possible image without description on input line 196.
@@ -1365,25 +518,29 @@ Class acmart Warning: A possible image without description on input line 196.
 
 Class acmart Warning: A possible image without description on input line 215.
 
-) (./ch/05_external_validity.tex
-[13.13 <../../results/directional_envelope.png>]
+
+[13.13 <../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 4001) has occurred while \output is active
+[14.14 <../../results/directional_prefix.png>]
 
 Class acmart Warning: A possible image without description on input line 24.
 
 
-[14.14 <../../results/directional_prefix.png>]
-
-Class acmart Warning: A possible image without description on input line 60.
+Class acmart Warning: A possible image without description on input line 62.
 
 
-[15.15 <../../results/real_predictor.png> <../../results/realworld_robustness.p
-ng>]) (./ch/06_theory.tex
-[16.16]
+[15.15 <../../results/real_predictor.png>]
+[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
+[17.17]
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
-[17.17{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-[18.18]
+Underfull \vbox (badness 1558) has occurred while \output is active
 [19.19]
+Underfull \vbox (badness 6300) has occurred while \output is active
+[20.20]
 
 Class acmart Warning: A possible image without description on input line 330.
 
@@ -1391,53 +548,28 @@ Class acmart Warning: A possible image without description on input line 330.
 Class acmart Warning: A possible image without description on input line 359.
 
 
-[20.20]) (./ch/07_serving_related_conclusion.tex
-[21.21 <../../results/impossibility_frontier.png> <../../results/directional_rs
-weep.png>]
-[22.22]
-Underfull \vbox (badness 5756) has occurred while \output is active
-[23.23]) (./ch/08_appendix.tex
-Underfull \vbox (badness 10000) has occurred while \output is active
-[24.24]
-Overfull \hbox (24.48923pt too wide) in paragraph at lines 74--76
-\T1/zi4/m/n/10 scripts/plot_unified_panels.py 
+[21.21 <../../results/impossibility_frontier.png>])
+(./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 5189) has occurred while \output is active
+[22.22 <../../results/directional_rsweep.png>]
+Underfull \vbox (badness 4048) has occurred while \output is active
+[23.23])
+[24.24] (./ch/08_appendix.tex
+Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
+\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
+0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
+nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
+LF/m/n/9 (-20) ,
 
-Overfull \hbox (4.48923pt too wide) in paragraph at lines 88--89
-[]|\T1/zi4/m/n/10 measure_payoff_variance.py 
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
 
-Overfull \hbox (14.48923pt too wide) in paragraph at lines 91--91
-[]|\T1/zi4/m/n/10 tests/test_combiner_small.py 
-
-Overfull \hbox (19.48923pt too wide) in paragraph at lines 101--102
-[]|\T1/zi4/m/n/10 scripts/verify_witness_gap.py 
-
-Overfull \hbox (24.23923pt too wide) in paragraph at lines 101--102
-\T1/zi4/m/n/10 verify_budget_stakes_hetero.py 
 [25.25]
-Overfull \hbox (31.28987pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) Two de-pen-den-cies are not self-evident: 
-\T1/zi4/m/n/10 plot_unified_panels.py \T1/LinuxLibertineT-TLF/m/n/10 (-20) and 
-\T1/zi4/m/n/10 run_consistency_robustness.py
-
-Overfull \hbox (7.70992pt too wide) in paragraph at lines 119--123
-\T1/LinuxLibertineT-TLF/m/n/10 (-20) both con-sume \T1/zi4/m/n/10 results/unifi
-ed_benchmark.json \T1/LinuxLibertineT-TLF/m/n/10 (-20) and must run af-ter \T1/
-zi4/m/n/10 run_unified_benchmark.py\T1/LinuxLibertineT-TLF/m/n/10 (-20) .
-
-Overfull \hbox (39.11617pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/plot_unified_panels.py         # Table 1 (pane
-l charts; needs the line above)[] 
-
-Overfull \hbox (40.78624pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_witness_gap.py          # Lemma 2, dire
-ctional test, plug-in blindness[] 
-
-Overfull \hbox (29.15706pt too wide) in paragraph at lines 140--140
-[]\T1/zi4/m/n/10 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous
- profiles, slack identity[] 
-
-[26.26]) (./talg_final.bbl
-[27.27])
+Underfull \vbox (badness 10000) has occurred while \output is active
+[26.26]
+[27.27]) (./talg_main.bbl
+[28.28])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -1454,7 +586,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[28.28] (./talg_final.aux) )
+[29.29] (./talg_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -1474,5 +606,285 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on talg_final.pdf (28 pages, 1599458 bytes).
-Transcript written on talg_final.log.
+Output written on talg_main.pdf (29 pages, 1605322 bytes).
+Transcript written on talg_main.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./talg_main.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/Users/lizhuolun/Library/texmf/tex/latex/acmart/acmart.cls
+Document Class: acmart 2025/08/27 v2.16 Typesetting articles for the Associatio
+n for Computing Machinery
+(/Users/lizhuolun/Library/texmf/tex/latex/xkeyval/xkeyval.sty
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkeyval.tex
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/xkvutils.tex
+(/Users/lizhuolun/Library/texmf/tex/generic/xkeyval/keyval.tex))))
+(/Users/lizhuolun/Library/texmf/tex/generic/xstring/xstring.sty
+(/Users/lizhuolun/Library/texmf/tex/generic/xstring/xstring.tex))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
+(/Users/lizhuolun/Library/texmf/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-pdftex.d
+ef) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg)
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/totpages/totpages.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/environ/environ.sty
+(/Users/lizhuolun/Library/texmf/tex/latex/trimspaces/trimspaces.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty)
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty))) (./hyperxmp.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/ncctools/manyfoot.sty
+(/Users/lizhuolun/Library/texmf/tex/latex/ncctools/nccfoots.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+ (/Users/lizhuolun/Library/texmf/tex/latex/libertine/libertine.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty)
+(/Users/lizhuolun/Library/texmf/tex/latex/fontaxes/fontaxes.sty
+(/Users/lizhuolun/Library/texmf/tex/latex/fontaxes/fontaxes-v1.sty))
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/LinLibertine_I.tex))
+(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/Users/lizhuolun/Library/texmf/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption-ams-smf.sto)
+)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty)
+(/Users/lizhuolun/Library/texmf/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/t1linuxlibertinet-tlf.fd))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/calc.sty)
+Excluding 'CCSXML' comment. Include comment 'screenonly'
+Excluding comment 'printonly' Include comment 'anonsuppress'
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
+ef) (./talg_main.aux)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/omlnxlmi.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxexa.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmsntxsy.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/lmxntxexx.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxlibertinet-tlf.fd)<
+<ot1.cmap>> (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
+) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxmia.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsym.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/newtx/untxsyc.fd) (./talg_main.out)
+(./talg_main.out)
+(/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
+ty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/ltcaption.sty)
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/t1linuxbiolinumt-tlf.fd)
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ts1linuxlibertinet-tlf.fd)
+(./ch/abstract.tex
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg))
+(./ch/00_abstract_intro.tex
+[1.1{/Users/lizhuolun/Library/texlive/2025basic/texmf-var/fonts/map/pdftex/updm
+ap/pdftex.map}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_76
+gpa5.enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_25tcsq.
+enc}{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{
+/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/User
+s/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/Users/liz
+huolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
+Underfull \vbox (badness 10000) has occurred while \output is active
+[2.2]) (./ch/01_setup.tex
+Underfull \vbox (badness 3690) has occurred while \output is active
+[3.3]
+Underfull \vbox (badness 5403) has occurred while \output is active
+[4.4] (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd)
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
+) (./ch/02_unified_benchmark.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+[5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+Underfull \vbox (badness 10000) has occurred while \output is active
+[6.6]
+Underfull \vbox (badness 1533) has occurred while \output is active
+[7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
+ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
+(./ch/03_order_error.tex
+[8.8]
+
+Class acmart Warning: A possible image without description on input line 44.
+
+) (./ch/04_test_and_fallback.tex
+[9.9 <../../results/order_vs_theory.png>]
+
+Class acmart Warning: A possible image without description on input line 39.
+
+
+Underfull \vbox (badness 2229) has occurred while \output is active
+[10.10 <../../results/choo_bem_envelope.png>]
+
+Class acmart Warning: A possible image without description on input line 61.
+
+
+[11.11{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
+} <../../results/choo_bem_prefix.png>]
+[12.12]
+
+Class acmart Warning: A possible image without description on input line 196.
+
+
+Class acmart Warning: A possible image without description on input line 215.
+
+
+[13.13 <../../results/directional_envelope.png>])
+(./ch/05_external_validity.tex
+Underfull \vbox (badness 4001) has occurred while \output is active
+[14.14 <../../results/directional_prefix.png>]
+
+Class acmart Warning: A possible image without description on input line 24.
+
+
+Class acmart Warning: A possible image without description on input line 62.
+
+
+[15.15 <../../results/real_predictor.png>]
+[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
+[17.17]
+(/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
+}]
+Underfull \vbox (badness 1558) has occurred while \output is active
+[19.19]
+Underfull \vbox (badness 6300) has occurred while \output is active
+[20.20]
+
+Class acmart Warning: A possible image without description on input line 330.
+
+
+Class acmart Warning: A possible image without description on input line 359.
+
+
+[21.21 <../../results/impossibility_frontier.png>])
+(./ch/07_serving_related_conclusion.tex
+Underfull \vbox (badness 5189) has occurred while \output is active
+[22.22 <../../results/directional_rsweep.png>]
+Underfull \vbox (badness 4048) has occurred while \output is active
+[23.23])
+[24.24] (./ch/08_appendix.tex
+Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
+\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
+0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
+nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
+LF/m/n/9 (-20) ,
+
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
+
+[25.25]
+Underfull \vbox (badness 10000) has occurred while \output is active
+[26.26]
+[27.27]) (./talg_main.bbl
+[28.28])
+
+Class acmart Warning: Some images may lack descriptions.
+(acmart)              ACM is committed to complying with the upcoming US ADA ht
+tps://accessiblyapp.com/accessibility-compliance/ada/ and European Accessibilit
+y Act (EAA) https://accessiblyapp.com/accessibility-compliance/eaa/ regulations
+ by actively working to ensure our publications and application services are ac
+cessible to individuals with disabilities, adhering to the WCAG guidelines to p
+rovide a seamless experience for all users, and regularly reviewing our accessi
+bility practices to maintain compliance with evolving standards. 
+(acmart)              To this end, we strongly encourage our authors to provide
+ alternative text and captions for images and multimedia content. It is also im
+portant to optimize color contrast for the visually impaired. Taking these impo
+rtant steps when creating your papers will ensure that the widest possible audi
+ence can ingest your work..
+
+
+[29.29] (./talg_main.aux) )
+(see the transcript file for additional information)</Users/lizhuolun/Library/t
+exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
+ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
+y/texmf/fonts/type1/public/newtx/LibertineMathMI5.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/newtx/LibertineMathMI7.pfb></Users/lizhuolun/Library/
+texmf/fonts/type1/public/newtx/LibertineMathRM.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumT.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTB.pfb></Users/lizhuolun/Library/tex
+mf/fonts/type1/public/libertine/LinBiolinumTBO.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinBiolinumTI.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineT.pfb></Users/lizhuolun/Library/te
+xmf/fonts/type1/public/libertine/LinLibertineTB.pfb></Users/lizhuolun/Library/t
+exmf/fonts/type1/public/libertine/LinLibertineTBI.pfb></Users/lizhuolun/Library
+/texmf/fonts/type1/public/libertine/LinLibertineTI.pfb></Users/lizhuolun/Librar
+y/texmf/fonts/type1/public/newtx/NewTXMI.pfb></Users/lizhuolun/Library/texmf/fo
+nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
+/public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
+x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
+></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
+Output written on talg_main.pdf (29 pages, 1605322 bytes).
+Transcript written on talg_main.log.

@@ -1,10 +1,7 @@
 <!--
-Draft §Abstract + §1 of the combined paper (markdown; LaTeX template later).
-Honesty guardrails kept: order-error credits ACI; serving = case study; combiner =
-benchmarked baseline, not claimed; theory = the budget–stakes law (REVISED 2026-07-27:
-the witness step refuted the earlier tolerant-testing impossibility — see
-docs/T1_WITNESS_GAP.md and §7). Advisor pass + a novelty pass on payoff-estimating
-acceptance rules remain before submission.
+§Abstract + §1. Standing guardrails for edits here: order-error credits ACI; serving is
+a case study, not a claim; the combiner is a benchmarked baseline, not ours; the theory
+claim is the budget-stakes law and nothing stronger.
 -->
 
 # The Limits of Predictions for Online Bipartite Matching: A Unified Experimental Study and a Budget–Stakes Law
@@ -198,15 +195,6 @@ largest per-cell signal), so on strong-baseline instances the
 budget $k^*$ exceeds the horizon itself — every upside below
 $\Theta(\sqrt{(1-\rho_{\mathrm{base}})/n})$ is uncapturable at *any* feasible prefix, and
 the upsides measured in Sections 3–6 sit in that range.
-<!-- [PROOF STATUS] Both halves are elementary (Bernstein upper; Hellinger + master
-inequality lower) and are stated with proofs/sketches in §7; numerical verification in
-scripts/verify_witness_gap.py. The earlier tolerant-testing impossibility was refuted
-during its own witness step (docs/T1_WITNESS_GAP.md) — the refutation is reported
-honestly in §7.7. Remaining before submission (single-author, 2026-07-28): the author's
-own line-by-line verification pass; venue LLM-disclosure policy check. Novelty pass on
-payoff-testing acceptance rules DONE 2026-07-29 (docs/NOVELTY_PAYOFF_TEST.md): claim
-survives; positioning vs test-before-trust / algorithm-selection / Wald added in §7 and
-§9. -->
 
 **Contributions.**
 - **(C1) The first unified benchmark** of learning-augmented online-matching algorithms —

@@ -1,13 +1,27 @@
 \section{Reproduction}
 
+\textbf{Artifact.} The code, the request traces and the result files
+behind every figure and table are packaged as
+\texttt{talg-artifact.zip}, released at
+
+\begin{quote}
+\texttt{https://github.com/bruce5800/Postgraduate-Project/releases/tag/talg-submission-2026-08}
+\end{quote}
+
+Unpack it and run the commands below from its root; \texttt{README.md}
+inside repeats the essentials. \texttt{results/} holds our own outputs,
+so a fresh run can be diffed against them directly.
+
 Every number in this paper is regenerated from a fixed seed by a single
-script. Two classes must be distinguished. Most scripts are
-\textbf{self-contained}: they generate their own synthetic instances and
-run as-is on a clean checkout. The rest --- the real-graph and
-real-trace results of Sections 6 and 8 --- first need external data
-placed under \texttt{data/}, which we do not redistribute; §A.4 records
-what each dataset is and where it comes from. A dagger (\(\dagger\))
-marks that second class in the map below.
+script. Almost everything runs on a clean checkout of the artifact: the
+synthetic experiments generate their own instances, and the request
+traces behind Sections 6.1, 6.3 and 8 are small enough that we ship them
+with the artifact under \texttt{data/trace/}. One class is the exception
+--- the six real graphs of Section 6.2 (and the Phase-2 reproduction
+that reuses them) are third-party datasets we do not redistribute, so
+they must be downloaded into \texttt{data/realworld/} first. A dagger
+(\(\dagger\)) marks that class, and only that class, in the map below;
+§A.4 says what each dataset is and where it comes from.
 
 \subsection{Environment and
 conventions}
@@ -89,20 +103,18 @@ all eleven levels & --- \\
 (not a \texttt{run\_} script) & 30 min \\
 §5.5 eager-combiner mechanism check &
 \texttt{tests/test\_combiner\_small.py} (console) & 2 s \\
-\textbf{Fig. 6} (real predictor) \(\dagger\) & \texttt{real\_predictor}
-& 15 s \\
+\textbf{Fig. 6} (real predictor) & \texttt{real\_predictor} & 15 s \\
 \textbf{Fig. 7} (six real graphs) \(\dagger\) &
 \texttt{realworld\_robustness}, plus its \texttt{\_tables.md} & 65 s \\
 §6.3 rank vs regression training & \texttt{rank\_vs\_mse\_mve},
-\texttt{rank\_when\_it\_matters}, \texttt{rank\_real\_trace} \(\dagger\)
-& 40 s \\
+\texttt{rank\_when\_it\_matters}, \texttt{rank\_real\_trace} & 40 s \\
 \textbf{Fig. 8} (budget--stakes scissors) &
 \texttt{impossibility\_frontier} & 6 s \\
 §7 numerical verification & \texttt{scripts/verify\_witness\_gap.py} and
 \texttt{verify\_budget\_stakes\_hetero.py} (console) & seconds \\
-§8 serving case study \(\dagger\) & \texttt{serving},
-\texttt{serving\_trace}, \texttt{serving\_dynamic},
-\texttt{prefix\_cache}, \texttt{serving\_slo\_probe} & varies \\
+§8 serving case study & \texttt{serving}, \texttt{serving\_trace},
+\texttt{serving\_dynamic}, \texttt{prefix\_cache},
+\texttt{serving\_slo\_probe} & varies \\
 Phase-2 reproduction of \cite{borodin2018experimental} &
 \texttt{er\_full}, \texttt{left\_regular}, \texttt{realworld}
 \(\dagger\) & 35 min \\
@@ -130,19 +142,22 @@ python3 scripts/run_directional_test.py        # Figs 4, 5, 9
 python3 scripts/run_impossibility_frontier.py  # Fig 8
 python3 scripts/verify_witness_gap.py          # Lemma 2, directional test, plug-in blindness
 python3 scripts/verify_budget_stakes_hetero.py # heterogeneous profiles, slack identity
-python3 scripts/measure_payoff_variance.py     # sigma^2 quoted in 5.4
+python3 scripts/measure_payoff_variance.py     # decision-statistic sd quoted in 5.4
 python3 scripts/run_choo_bem.py                # Figs 2, 3   (~20 min)
 
-# require data/ (see A.4)
+# run on the traces shipped in data/trace/
 python3 scripts/run_real_predictor.py          # Fig 6
-python3 scripts/run_realworld_robustness.py    # Fig 7
 python3 scripts/run_rank_real_trace.py         # 6.3, real-feature arm
+
+# require data/realworld/ to be downloaded first (see A.4)
+python3 scripts/run_realworld_robustness.py    # Fig 7
 \end{verbatim}
 
 \subsection{Data provenance}
 
-External data lives under \texttt{data/} and is not redistributed with
-the code.
+The request traces ship with the artifact under \texttt{data/trace/}.
+The third-party graph datasets do not, and must be placed under
+\texttt{data/realworld/} before the daggered scripts will run.
 
 \begin{itemize}
 \tightlist

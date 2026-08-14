@@ -25,15 +25,17 @@ floor.}
 
 Three facts emerge, all favorable and all honest. First, \textbf{the
 cost premise does not bite}: the predictor is a linear-time count
-(\(\mu = A\,p\) over historical frequencies), \(0.108\) ms per instance
---- about \(2\%\) of the cost of computing \(\mathrm{OPT}\) once --- not
-an ML inference. Second, \textbf{the benefit is real, partial, and never
-harmful}: a stale forecast captures \(27\%\)--\(68\%\) of the achievable
-oracle gap (falling with staleness) and \emph{always} stays above the
-forecast-free baseline (\(0.938\)--\(0.957\) vs \(0.923\)--\(0.925\),
-even at 30 days). Third, and explaining why, \textbf{topology
-aggregation makes the cheap predictor order-faithful}: the induced
-degree predictor's order error is only Kendall-\(\tau\approx
+(\(\mu = A\,p\) over historical frequencies), not an ML inference ---
+building it costs about \(0.11\) ms per instance against \(4.4\) ms to
+compute \(\mathrm{OPT}\) once on the same machine, i.e.~some \(2.5\%\)
+of the optimum it is helping to approach (wall-clock, Appendix A).
+Second, \textbf{the benefit is real, partial, and never harmful}: a
+stale forecast captures \(27\%\)--\(68\%\) of the achievable oracle gap
+(falling with staleness) and \emph{always} stays above the forecast-free
+baseline (\(0.938\)--\(0.957\) vs \(0.923\)--\(0.925\), even at 30
+days). Third, and explaining why, \textbf{topology aggregation makes the
+cheap predictor order-faithful}: the induced degree predictor's order
+error is only Kendall-\(\tau\approx
 0.19\)--\(0.32\), roughly \emph{half} the raw type-histogram's
 (\(0.38\)--\(0.49\)) --- and since MPD depends only on order (Section
 4), the aggregated degree route survives real drift. Consuming the

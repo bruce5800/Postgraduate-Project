@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  13 AUG 2026 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 AUG 2026 01:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1147,31 +1147,49 @@ Underfull \vbox (badness 5403) has occurred while \output is active []
 
 
 
-[4.4]) (./ch/02_unified_benchmark.tex
+[4.4]
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 14
+4.
+ (/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 9.0pt on input line 144.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `zi4' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 147--148
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
+ []
+
+) (./ch/02_unified_benchmark.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[5.5]
+[5.5{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 74.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 81.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 7.0pt on input line 85.
-<../../results/unified_benchmark_panelA.png, id=252, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelA.png, id=253, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelA.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelA.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelA.png  used on in
 put line 94.
 (pdftex.def)             Requested size: 154.80193pt x 119.9697pt.
-<../../results/unified_benchmark_panelB.png, id=254, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelB.png, id=255, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelB.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelB.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelB.png  used on in
 put line 115.
 (pdftex.def)             Requested size: 154.80193pt x 119.9697pt.
-<../../results/unified_benchmark_panelC.png, id=255, 289.08pt x 224.037pt>
+<../../results/unified_benchmark_panelC.png, id=256, 289.08pt x 224.037pt>
 File: ../../results/unified_benchmark_panelC.png Graphic file (type png)
 <use ../../results/unified_benchmark_panelC.png>
 Package pdftex.def Info: ../../results/unified_benchmark_panelC.png  used on in
@@ -1190,21 +1208,8 @@ Underfull \vbox (badness 1533) has occurred while \output is active []
 [7.7 <../../results/unified_benchmark_panelA.png> <../../results/unified_benchm
 ark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/03_order_error.tex
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 26
-.
 
-(/Users/lizhuolun/Library/texmf/tex/latex/inconsolata/t1zi4.fd
-File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 26.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `zi4' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-
-[8.8{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+[8.8]
 <../../results/order_vs_theory.png, id=275, 788.9475pt x 360.74776pt>
 File: ../../results/order_vs_theory.png Graphic file (type png)
 <use ../../results/order_vs_theory.png>
@@ -1296,10 +1301,10 @@ Class acmart Warning: A possible image without description on input line 24.
 File: ../../results/realworld_robustness.png Graphic file (type png)
 <use ../../results/realworld_robustness.png>
 Package pdftex.def Info: ../../results/realworld_robustness.png  used on input 
-line 55.
+line 57.
 (pdftex.def)             Requested size: 429.99072pt x 240.99374pt.
 
-Class acmart Warning: A possible image without description on input line 60.
+Class acmart Warning: A possible image without description on input line 62.
 
 
 
@@ -1307,15 +1312,12 @@ Class acmart Warning: A possible image without description on input line 60.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/it' in size <9> not ava
 ilable
 (Font)              Font shape `T1/LinuxBiolinumT-TLF/b/sl' tried instead on in
-put line 92.
+put line 94.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
-(Font)              scaled to size 9.0pt on input line 92.
-) (./ch/06_theory.tex
-
-[16.16 <../../results/realworld_robustness.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+(Font)              scaled to size 9.0pt on input line 94.
 
 
+[16.16 <../../results/realworld_robustness.png>]) (./ch/06_theory.tex
 
 [17.17]
 LaTeX Font Info:    Trying to load font information for OT1+LinuxBiolinumT-TLF 
@@ -1394,19 +1396,35 @@ Underfull \vbox (badness 4048) has occurred while \output is active []
 
 [23.23])
 
-[24.24] (./ch/08_appendix.tex [25.25]
+[24.24] (./ch/08_appendix.tex
+Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
+\T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
+0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
+nd ta-ble are pack-aged as \T1/zi4/m/n/9 talg-artifact.zip\T1/LinuxLibertineT-T
+LF/m/n/9 (-20) ,
+ []
 
-[26.26]
+
+Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
+[]\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
+talg-submission-2026-08 
+ []
+
+
+
+[25.25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+[26.26]
+
 [27.27]) (./talg_main.bbl
+
+[28.28]
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 116.
-
-
-[28.28])
+)
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -1435,11 +1453,11 @@ Package rerunfilecheck Info: File `talg_main.out' has not changed.
 Here is how much of TeX's memory you used:
  21901 strings out of 474654
  362625 string characters out of 5750568
- 777175 words of memory out of 5000000
+ 778175 words of memory out of 5000000
  43432 multiletter control sequences out of 15000+600000
  802742 words of font info for 673 fonts, out of 8000000 for 9000
  480 hyphenation exceptions out of 8191
- 90i,17n,131p,1006b,756s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1006b,711s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/lizhuolun/Library/texmf/fonts/type1/public/inconsolata/Inconsolata-zi
 4r.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI
 .pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI5.
@@ -1459,7 +1477,7 @@ lun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library/
 texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts
 /type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publi
 c/newtx/txsys.pfb>
-Output written on talg_main.pdf (29 pages, 1603878 bytes).
+Output written on talg_main.pdf (29 pages, 1605322 bytes).
 PDF statistics:
  563 PDF objects out of 1000 (max. 8388607)
  461 compressed objects within 5 object streams

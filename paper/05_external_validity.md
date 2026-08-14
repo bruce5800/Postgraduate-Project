@@ -3,7 +3,8 @@ Draft §6 — external validity (C2 support). Numbers:
  §6.1 real predictor: scripts/run_real_predictor.py (Wikipedia), docs/REAL_PREDICTOR.md.
       staleness 1/7/30d: hist-Kτ .38/.45/.49 → induced μ-Kτ .19/.27/.32; MPD base .923/.925/.925,
       real .957/.948/.938, oracle .973/.973/.975; gap-capture 68/47/27%; Follow .68/.48/.36;
-      cost 0.108ms = 2.1% of OPT. Figure 6 = real_predictor.png.
+      cost ~0.11ms = 2.5% of OPT (wall-clock, drifts between runs — keep it rounded).
+      Figure 6 = real_predictor.png.
  §6.2 six real graphs: scripts/run_realworld_robustness.py, docs/REALWORLD_ROBUSTNESS.md.
       F1 6/6; F3 mean +.049, smallest on econ; F2 clean social/bio, partial 2 econ; F4 dramatic.
       Figure 7 = realworld_robustness.png.
@@ -41,8 +42,9 @@ fix: 凡支撑正文数字的，摘进复现附录；其余删掉。脚本路径
 
 Three facts emerge, all favorable and all honest. First, **the cost premise does not
 bite**: the predictor is a linear-time count ($\mu = A\,p$ over historical frequencies),
-$0.108$ ms per instance — about $2\%$ of the cost of computing $\mathrm{OPT}$ once — not an
-ML inference. Second, **the benefit is real, partial, and never harmful**: a stale
+not an ML inference — building it costs about $0.11$ ms per instance against $4.4$ ms to
+compute $\mathrm{OPT}$ once on the same machine, i.e. some $2.5\%$ of the optimum it is
+helping to approach (wall-clock, Appendix A). Second, **the benefit is real, partial, and never harmful**: a stale
 forecast captures $27\%$–$68\%$ of the achievable oracle gap (falling with staleness) and
 *always* stays above the forecast-free baseline ($0.938$–$0.957$ vs $0.923$–$0.925$, even
 at 30 days). Third, and explaining why, **topology aggregation makes the cheap predictor
