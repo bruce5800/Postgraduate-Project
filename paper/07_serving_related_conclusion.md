@@ -87,20 +87,28 @@ program of Choo, Gouleakis and coauthors [Choo24, BCJG25], which statistically v
 advice before use — always by distributional distance; our §5.4/§7.7 argue the
 decision-relevant statistic is the payoff instead.
 
-**Algorithm selection and sequential testing.** Choosing between two policies from
-samples at gap $g$ costs $O(1/g^2)$ observations by uniform convergence — the classical
-engine of data-driven algorithm selection [GR17, Bal20] and, earlier, of sequential
-analysis [Wald47]. The delta here is not that engine: in those settings each sample is a
-whole instance whose performance is directly observable, whereas a prefix of a *single*
-matching instance does not, in general, reveal a policy's full-horizon value. The payoff
-identity (Lemma 2) is the structural fact that makes it observable per-arrival on the
-hard family, and the bootstrap calibration of §5.4 is what survives of it on benchmark
-instances with capacity kinks.
+**Algorithm selection, best-arm identification, and sequential testing.** Choosing
+between two policies from samples at gap $g$ costs $\Theta(1/g^2)$ observations — the
+classical engine of sequential analysis [Wald47], of data-driven algorithm selection
+[GR17, Bal20], of two-armed best-arm identification [MT04, KCG16], and of off-policy
+evaluation [DLL11]. We import that engine and claim no novelty for it. The delta is the
+*observation model*: in algorithm selection each sample is a whole instance with directly
+observable performance; a bandit pull directly reveals the pulled arm's reward; off-policy
+evaluation consumes logged actions with known propensities. Our prefix is none of these —
+it is a **passive stream of arrivals**, containing no actions and no rewards of either
+policy. That such a stream reveals a policy pair's full-horizon value gap at all, at rate
+$\sigma^2/g^2$ and — by the law's lower half — provably no faster under *any* rule, is
+the content of the payoff identity and of Theorem 1, not of the statistics; and the
+bootstrap calibration of §5.4 is what survives of the identity on benchmark instances
+with capacity kinks.
 
 **Online matching with predictions.** MinPredictedDegree [ACI22] and the test-and-fallback
 schemes [Choo24, BEM26] are the algorithms we unify and, for the latter, bound; each was
-previously studied in isolation. Borodin et al. [Bor18] is the advice-free experimental
-foundation our benchmark extends.
+previously studied in isolation. Blending designs for the fractional relaxation [CJS25]
+optimize the robustness–consistency Pareto frontier directly and test nothing — 
+complementary to, and untouched by, the budget–stakes law, which prices the *decision to
+test*. Borodin et al. [Bor18] is the advice-free experimental foundation our benchmark
+extends.
 
 **Distribution testing.** Tolerant identity testing [CJKL22, VV11] and $\ell_1$-distance
 estimation [JHW18] enter our story as the explanation of why the field's

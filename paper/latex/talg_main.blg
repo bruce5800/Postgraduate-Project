@@ -34,8 +34,14 @@ Warning--page numbers missing in both pages and numpages fields in chledowski202
 Warning--empty publisher in choo2024imperfect
 Warning--empty address in choo2024imperfect
 Warning--page numbers missing in both pages and numpages fields in choo2024imperfect
+Warning--empty publisher in choo2025fractional
+Warning--empty address in choo2025fractional
+Warning--page numbers missing in both pages and numpages fields in choo2025fractional
 Warning--no number and no volume in cui2026skirental
 Warning--page numbers missing in both pages and numpages fields in cui2026skirental
+Warning--empty publisher in dudik2011doubly
+Warning--empty address in dudik2011doubly
+Warning--page numbers missing in both pages and numpages fields in dudik2011doubly
 Warning--empty publisher in feldman2009online
 Warning--empty address in feldman2009online
 Warning--page numbers missing in both pages and numpages fields in feldman2009online
@@ -57,45 +63,45 @@ Warning--empty address in wald1947sequential
 Warning--empty publisher in weizhang2020tradeoffs
 Warning--empty address in weizhang2020tradeoffs
 Warning--page numbers missing in both pages and numpages fields in weizhang2020tradeoffs
-You've used 21 entries,
+You've used 25 entries,
             6273 wiz_defined-function locations,
-            1619 strings with 21525 characters,
-and the built_in function-call counts, 21864 in all, are:
-= -- 2568
-> -- 675
+            1638 strings with 22174 characters,
+and the built_in function-call counts, 26231 in all, are:
+= -- 3142
+> -- 799
 < -- 0
-+ -- 237
-- -- 244
-* -- 1474
-:= -- 2068
-add.period$ -- 96
-call.type$ -- 21
-change.case$ -- 141
-chr.to.int$ -- 21
-cite$ -- 66
-duplicate$ -- 2086
-empty$ -- 1478
-format.name$ -- 320
-if$ -- 5340
++ -- 280
+- -- 285
+* -- 1768
+:= -- 2460
+add.period$ -- 114
+call.type$ -- 25
+change.case$ -- 168
+chr.to.int$ -- 25
+cite$ -- 76
+duplicate$ -- 2493
+empty$ -- 1767
+format.name$ -- 377
+if$ -- 6451
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 91
-newline$ -- 197
-num.names$ -- 149
-pop$ -- 999
+missing$ -- 109
+newline$ -- 227
+num.names$ -- 177
+pop$ -- 1183
 preamble$ -- 1
-purify$ -- 309
+purify$ -- 368
 quote$ -- 0
-skip$ -- 718
+skip$ -- 856
 stack$ -- 0
-substring$ -- 1338
-swap$ -- 134
+substring$ -- 1631
+swap$ -- 164
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 517
-warning$ -- 45
-while$ -- 116
+type$ -- 609
+warning$ -- 51
+while$ -- 138
 width$ -- 0
-write$ -- 412
-(There were 45 warnings)
+write$ -- 484
+(There were 51 warnings)

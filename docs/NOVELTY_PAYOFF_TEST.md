@@ -56,3 +56,32 @@ bhattacharyya2025product, antoniadis2025switching, cui2026skirental); paper §7 
 §7.8 "literature pass in progress" placeholders resolved with the differentiated
 positioning; §9 related work gains an "algorithm selection and sequential testing"
 paragraph. This note is the record; searches run 2026-07-29.
+
+---
+
+## Second pass — adversarial, targeted at sequential analysis / BAI / OPE (2026-08-14)
+
+Motivated by the review note ranking "classical statistics in new clothes" as the #1
+kill risk, and by the first pass's known hole (best-arm identification uncovered).
+
+**Searches:** passive-observation policy selection lower bounds; BAI × learning-augmented
+acceptance rules; off-policy evaluation for two-policy comparison on logged/passive data.
+
+**Findings:**
+1. **BAI is uniformly an *active-pull* model** (Mannor–Tsitsiklis 2004 lower bound;
+   Kaufmann–Cappé–Garivier 2016 canonical characterization; fixed-budget/confidence
+   variants, restless, linear — all pull arms and observe the pulled arm's reward). No
+   passive-stream variant found in which neither actions nor rewards are observed.
+2. **OPE** consumes logged *actions with propensities* from a behavior policy (Dudík–
+   Langford–Li 2011 and successors) — again not our observation model.
+3. **New same-domain paper found and cited:** Choo–Jin–Shin, *Learning-Augmented Online
+   Bipartite Fractional Matching*, NeurIPS 2025 (arXiv:2505.19252) — blending/Pareto
+   design for the fractional relaxation, no testing; complementary, now cited in §9.
+   (Second active front from the Choo group — reinforces the arXiv-urgency call.)
+
+**Verdict unchanged, defense sharpened:** no prior work extracts a policy pair's value
+gap from a *passive arrival stream* (no actions, no rewards) or proves a rule-independent
+rate for it. The paper now says this in three places: abstract (deliberately-classical
+pre-emption sentence), §7 intro (BAI clause with the active-vs-passive distinction), §9
+(rewritten "Algorithm selection, best-arm identification, and sequential testing"
+paragraph). New citations: MT04, KCG16, DLL11, CJS25.

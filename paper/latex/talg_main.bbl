@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{21}
+\begin{thebibliography}{25}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -137,6 +137,16 @@
 \newblock
 
 
+\bibitem[Choo et~al\mbox{.}(2025)]%
+        {choo2025fractional}
+\bibfield{author}{\bibinfo{person}{Davin Choo}, \bibinfo{person}{Billy Jin},
+  {and} \bibinfo{person}{Yongho Shin}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Learning-Augmented Online Bipartite Fractional
+  Matching}. In \bibinfo{booktitle}{\emph{Advances in Neural Information
+  Processing Systems (NeurIPS)}}.
+\newblock
+
+
 \bibitem[Cui and Dinitz(2026)]%
         {cui2026skirental}
 \bibfield{author}{\bibinfo{person}{Qiming Cui} {and} \bibinfo{person}{Michael
@@ -145,6 +155,17 @@
   Unknown Quality}.
 \newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2602.21104}}
   (\bibinfo{year}{2026}).
+\newblock
+
+
+\bibitem[Dud{\'i}k et~al\mbox{.}(2011)]%
+        {dudik2011doubly}
+\bibfield{author}{\bibinfo{person}{Miroslav Dud{\'i}k}, \bibinfo{person}{John
+  Langford}, {and} \bibinfo{person}{Lihong Li}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Doubly Robust Policy Evaluation and Learning}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 28th International Conference on
+  Machine Learning (ICML)}}.
 \newblock
 
 
@@ -212,6 +233,19 @@
 \newblock
 
 
+\bibitem[Kaufmann et~al\mbox{.}(2016)]%
+        {kaufmann2016complexity}
+\bibfield{author}{\bibinfo{person}{Emilie Kaufmann}, \bibinfo{person}{Olivier
+  Capp{\'e}}, {and} \bibinfo{person}{Aur{\'e}lien Garivier}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{On the Complexity of Best-Arm Identification in
+  Multi-Armed Bandit Models}.
+\newblock \bibinfo{journal}{\emph{Journal of Machine Learning Research}}
+  \bibinfo{volume}{17}, \bibinfo{number}{1} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{1--42}.
+\newblock
+
+
 \bibitem[Lykouris and Vassilvitskii(2018)]%
         {lykouris2018caching}
 \bibfield{author}{\bibinfo{person}{Thodoris Lykouris} {and}
@@ -228,6 +262,17 @@
 \newblock \showarticletitle{Online Bipartite Matching with Random Arrivals: An
   Approach Based on Strongly Factor-Revealing LPs}. In
   \bibinfo{booktitle}{\emph{STOC}}.
+\newblock
+
+
+\bibitem[Mannor and Tsitsiklis(2004)]%
+        {mannortsitsiklis2004}
+\bibfield{author}{\bibinfo{person}{Shie Mannor} {and} \bibinfo{person}{John~N.
+  Tsitsiklis}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{The Sample Complexity of Exploration in the
+  Multi-Armed Bandit Problem}.
+\newblock \bibinfo{journal}{\emph{Journal of Machine Learning Research}}
+  \bibinfo{volume}{5} (\bibinfo{year}{2004}), \bibinfo{pages}{623--648}.
 \newblock
 
 

@@ -34,7 +34,9 @@ the upper half refutes the natural conjecture that the hardness of tolerant dist
 testing blocks all sublinear rules — the decision-relevant statistic is the *payoff* of
 following, which is exponentially cheaper to test than the prediction's distance — a
 prescription we validate on the benchmark, where a constant-free payoff-testing rule
-avoids the threshold pathologies of the deployed tests. Because
+avoids the threshold pathologies of the deployed tests. The statistics throughout is
+deliberately classical; the contribution is the structural identity under which a passive
+arrival stream — no actions, no rewards — reveals a policy pair's payoff gap at all. Because
 the stakes are capped by the baseline slack, on strong-baseline instances the price
 exceeds the horizon: upsides below $\approx\sqrt{(1-\rho_{\mathrm{base}})/n}$ are
 uncapturable by any rule at any prefix length, and the upsides we measure sit in that

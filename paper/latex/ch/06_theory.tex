@@ -67,11 +67,16 @@ on prediction quality or regret rather than committing on a payoff test,
 and matching's irrevocability breaks them (§5.5); data-driven algorithm
 selection \cite{gupta2017pac,balcan2020datadriven} chooses among
 algorithms from samples of \emph{whole instances} with observable
-per-instance performance, whereas here a single instance's prefix must
-reveal a policy's full-horizon value --- which is what the payoff
-identity provides; and the \(1/g^2\) budget echoes classical sequential
-analysis \cite{wald1947sequential}, whose engine --- not its novelty ---
-Lemma 2 imports into matching.
+per-instance performance, and best-arm identification prices the same
+two-way choice at \(\Theta(1/g^2)\) \emph{active pulls} whose rewards
+are directly observed \cite{mannortsitsiklis2004,kaufmann2016complexity}
+--- whereas here a single instance's prefix is a passive arrival stream,
+containing neither actions nor rewards, and it must nonetheless reveal a
+policy pair's full-horizon value gap --- which is precisely what the
+payoff identity provides and what the lower half shows no rule can
+extract faster; and the \(1/g^2\) budget itself echoes classical
+sequential analysis \cite{wald1947sequential}, whose engine --- not its
+novelty --- Lemma 2 imports into matching.
 
 \subsection{The test-and-fallback
 class}

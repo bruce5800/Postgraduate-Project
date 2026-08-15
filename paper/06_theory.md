@@ -71,10 +71,13 @@ wrong one on average-case inputs; switching frameworks [Chl21, ASSS25] switch dy
 on prediction quality or regret rather than committing on a payoff test, and matching's
 irrevocability breaks them (§5.5); data-driven algorithm selection [GR17, Bal20] chooses
 among algorithms from samples of *whole instances* with observable per-instance
-performance, whereas here a single instance's prefix must reveal a policy's full-horizon
-value — which is what the payoff identity provides; and the $1/g^2$ budget echoes
-classical sequential analysis [Wald47], whose engine — not its novelty — Lemma 2 imports
-into matching.
+performance, and best-arm identification prices the same two-way choice at
+$\Theta(1/g^2)$ *active pulls* whose rewards are directly observed [MT04, KCG16] —
+whereas here a single instance's prefix is a passive arrival stream, containing neither
+actions nor rewards, and it must nonetheless reveal a policy pair's full-horizon value
+gap — which is precisely what the payoff identity provides and what the lower half shows
+no rule can extract faster; and the $1/g^2$ budget itself echoes classical sequential
+analysis [Wald47], whose engine — not its novelty — Lemma 2 imports into matching.
 
 ## 7.1 The test-and-fallback class
 

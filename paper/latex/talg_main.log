@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  14 AUG 2026 02:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  15 AUG 2026 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1133,7 +1133,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 81.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3690) has occurred while \output is active []
 
 
 
@@ -1321,29 +1321,26 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/sl' will be
 
 [17.17]
 LaTeX Font Info:    Trying to load font information for OT1+LinuxBiolinumT-TLF 
-on input line 82.
+on input line 87.
 
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd
 File: OT1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for OT1/L
 inuxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 82.
+(Font)              scaled to size 9.0pt on input line 87.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 82.
+(Font)              scaled to size 6.6pt on input line 87.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 82.
+(Font)              scaled to size 5.5pt on input line 87.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 145.
+(Font)              scaled to size 6.6pt on input line 150.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 145.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              scaled to size 5.5pt on input line 150.
 
 
 [18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
@@ -1358,28 +1355,28 @@ Underfull \vbox (badness 6300) has occurred while \output is active []
 
 
 [20.20]
-<../../results/impossibility_frontier.png, id=377, 1006.962pt x 398.08725pt>
+<../../results/impossibility_frontier.png, id=381, 1006.962pt x 398.08725pt>
 File: ../../results/impossibility_frontier.png Graphic file (type png)
 <use ../../results/impossibility_frontier.png>
 Package pdftex.def Info: ../../results/impossibility_frontier.png  used on inpu
-t line 324.
+t line 329.
 (pdftex.def)             Requested size: 430.00441pt x 169.99576pt.
 
 
-Class acmart Warning: A possible image without description on input line 330.
+Class acmart Warning: A possible image without description on input line 335.
 
-<../../results/directional_rsweep.png, id=380, 672.71326pt x 335.45325pt>
+<../../results/directional_rsweep.png, id=384, 672.71326pt x 335.45325pt>
 File: ../../results/directional_rsweep.png Graphic file (type png)
 <use ../../results/directional_rsweep.png>
 Package pdftex.def Info: ../../results/directional_rsweep.png  used on input li
-ne 354.
+ne 359.
 (pdftex.def)             Requested size: 430.0115pt x 214.42828pt.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 358.
+(Font)              scaled to size 8.0pt on input line 363.
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 358.
+(Font)              scaled to size 6.0pt on input line 363.
 
-Class acmart Warning: A possible image without description on input line 359.
+Class acmart Warning: A possible image without description on input line 364.
 
 
 
@@ -1411,15 +1408,21 @@ talg-submission-2026-08
  []
 
 
+Underfull \vbox (badness 1231) has occurred while \output is active []
+
+
 
 [25.25]
+
+[26.26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[26.26]
-
 [27.27]) (./talg_main.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [28.28]
 LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
@@ -1451,13 +1454,13 @@ Package rerunfilecheck Info: File `talg_main.out' has not changed.
 (rerunfilecheck)             Checksum: ECB5C544B1F5C0244177768BD08A3D25;9964.
  ) 
 Here is how much of TeX's memory you used:
- 21901 strings out of 474654
- 362625 string characters out of 5750568
- 778175 words of memory out of 5000000
- 43432 multiletter control sequences out of 15000+600000
- 802742 words of font info for 673 fonts, out of 8000000 for 9000
+ 21917 strings out of 474654
+ 363038 string characters out of 5750568
+ 778326 words of memory out of 5000000
+ 43444 multiletter control sequences out of 15000+600000
+ 802848 words of font info for 673 fonts, out of 8000000 for 9000
  480 hyphenation exceptions out of 8191
- 90i,17n,131p,1006b,711s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,131p,1006b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/lizhuolun/Library/texmf/fonts/type1/public/inconsolata/Inconsolata-zi
 4r.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI
 .pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/LibertineMathMI5.
@@ -1477,10 +1480,10 @@ lun/Library/texmf/fonts/type1/public/newtx/txexs.pfb></Users/lizhuolun/Library/
 texmf/fonts/type1/public/newtx/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts
 /type1/public/newtx/txsym.pfb></Users/lizhuolun/Library/texmf/fonts/type1/publi
 c/newtx/txsys.pfb>
-Output written on talg_main.pdf (29 pages, 1605322 bytes).
+Output written on talg_main.pdf (29 pages, 1607310 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 461 compressed objects within 5 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 473 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
  129949 words of extra memory for PDF output out of 154059 (max. 10000000)
 
