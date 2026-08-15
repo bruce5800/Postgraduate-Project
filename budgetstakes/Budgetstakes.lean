@@ -1,3 +1,4 @@
 import Budgetstakes.Basic
 import Budgetstakes.PayoffIdentity
 import Budgetstakes.AffineLaw
+import Budgetstakes.MasterTradeoff
