@@ -1,0 +1,253 @@
+% References for the combined paper. Author lists, titles, and venues verified against
+% arXiv/publisher pages on 2026-07-29 (see docs/SELF_VERIFICATION_CHECKLIST.md item D).
+
+% ---------- the experimental foundation & classical algorithms ----------
+@article{borodin2018experimental,
+  title   = {An Experimental Study of Algorithms for Online Bipartite Matching},
+  author  = {Borodin, Allan and Karavasilis, Christodoulos and Pankratov, Denis},
+  journal = {ACM Journal of Experimental Algorithmics},
+  volume  = {25},
+  year    = {2020}
+}
+@inproceedings{kvv1990ranking,
+  title     = {An Optimal Algorithm for On-line Bipartite Matching},
+  author    = {Karp, Richard M. and Vazirani, Umesh V. and Vazirani, Vijay V.},
+  booktitle = {STOC},
+  year      = {1990}
+}
+@inproceedings{mahdianyan2011,
+  title     = {Online Bipartite Matching with Random Arrivals: An Approach Based on Strongly Factor-Revealing LPs},
+  author    = {Mahdian, Mohammad and Yan, Qiqi},
+  booktitle = {STOC},
+  year      = {2011}
+}
+@inproceedings{feldman2009online,
+  title     = {Online Stochastic Matching: Beating 1-1/e},
+  author    = {Feldman, Jon and Mehta, Aranyak and Mirrokni, Vahab and Muthukrishnan, S.},
+  booktitle = {FOCS},
+  year      = {2009}
+}
+@article{jailletlu2014online,
+  title   = {Online Stochastic Matching: New Algorithms with Better Bounds},
+  author  = {Jaillet, Patrick and Lu, Xin},
+  journal = {Mathematics of Operations Research},
+  volume  = {39},
+  number  = {3},
+  pages   = {624--646},
+  year    = {2014}
+}
+@article{manshadi2012online,
+  title   = {Online Stochastic Matching: Online Actions Based on Offline Statistics},
+  author  = {Manshadi, Vahideh H. and Oveis Gharan, Shayan and Saberi, Amin},
+  journal = {Mathematics of Operations Research},
+  volume  = {37},
+  number  = {4},
+  pages   = {559--573},
+  year    = {2012}
+}
+@article{hopcroftkarp1973,
+  title   = {An $n^{5/2}$ Algorithm for Maximum Matchings in Bipartite Graphs},
+  author  = {Hopcroft, John E. and Karp, Richard M.},
+  journal = {SIAM Journal on Computing},
+  year    = {1973}
+}
+
+% ---------- learning-augmented matching (the algorithms we benchmark) ----------
+@inproceedings{aci2022mpd,
+  title     = {(Optimal) Online Bipartite Matching with Degree Information},
+  author    = {Aamand, Anders and Chen, Justin Y. and Indyk, Piotr},
+  booktitle = {NeurIPS},
+  year      = {2022}
+}
+@inproceedings{choo2024imperfect,
+  title     = {Online Bipartite Matching with Imperfect Advice},
+  author    = {Choo, Davin and Gouleakis, Themis and Ling, Chun Kai and Bhattacharyya, Arnab},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning (ICML)},
+  year      = {2024}
+}
+@inproceedings{bem2026testmatch,
+  title     = {Learning-Augmented Online Bipartite Matching in the Random Arrival Order Model},
+  author    = {Burathep, Kunanon and Erlebach, Thomas and Moses, Jr., William K.},
+  booktitle = {Proceedings of the 51st International Conference on Current Trends in Theory and Practice of Computer Science (SOFSEM)},
+  year      = {2026}
+}
+
+% ---------- learning-augmented algorithms: template, tradeoffs, combiner ----------
+@inproceedings{chledowski2021caching,
+  title     = {Robust Learning-Augmented Caching: An Experimental Study},
+  author    = {Ch{\l}{\k{e}}dowski, Jakub and Polak, Adam and Szabucki, Bartosz and {\.Z}o{\l}na, Konrad},
+  booktitle = {ICML},
+  year      = {2021}
+}
+@inproceedings{lykouris2018caching,
+  title     = {Competitive Caching with Machine Learned Advice},
+  author    = {Lykouris, Thodoris and Vassilvitskii, Sergei},
+  booktitle = {ICML},
+  year      = {2018}
+}
+@incollection{mitzenmacher2020algorithms,
+  title     = {Algorithms with Predictions},
+  author    = {Mitzenmacher, Michael and Vassilvitskii, Sergei},
+  booktitle = {Beyond the Worst-Case Analysis of Algorithms},
+  editor    = {Roughgarden, Tim},
+  publisher = {Cambridge University Press},
+  pages     = {646--662},
+  year      = {2020}
+}
+@inproceedings{weizhang2020tradeoffs,
+  title     = {Optimal Robustness-Consistency Trade-offs for Learning-Augmented Online Algorithms},
+  author    = {Wei, Alexander and Zhang, Fred},
+  booktitle = {NeurIPS},
+  year      = {2020}
+}
+@article{yoshinaga2026accuracy,
+  title   = {Analyzing the Effect of Prediction Accuracy on the Distributionally-Robust Competitive Ratio},
+  author  = {Yoshinaga, Toru and Kawase, Yasushi},
+  journal = {arXiv preprint arXiv:2601.06813},
+  year    = {2026}
+}
+
+% ---------- distribution testing (the theory-section engine) ----------
+@inproceedings{canonne2022tolerance,
+  title     = {The Price of Tolerance in Distribution Testing},
+  author    = {Canonne, Cl{\'e}ment L. and Jain, Ayush and Kamath, Gautam and Li, Jerry},
+  booktitle = {COLT},
+  year      = {2022},
+  note      = {arXiv:2106.13414; tolerant identity testing = $\tilde{\Theta}(n/\log n)$ at constant tolerance}
+}
+@article{jiao2018l1,
+  title   = {Minimax Estimation of the $L_1$ Distance},
+  author  = {Jiao, Jiantao and Han, Yanjun and Weissman, Tsachy},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {64},
+  number  = {10},
+  pages   = {6672--6706},
+  year    = {2018}
+}
+@inproceedings{valiant2011unseen,
+  title     = {Estimating the Unseen: An $n/\log n$-sample Estimator for Entropy and Support Size, Shown Optimal via New CLTs},
+  author    = {Valiant, Gregory and Valiant, Paul},
+  booktitle = {STOC},
+  year      = {2011}
+}
+@article{paninski2008coincidence,
+  title   = {A Coincidence-Based Test for Uniformity Given Very Sparsely Sampled Discrete Data},
+  author  = {Paninski, Liam},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {54},
+  number  = {10},
+  pages   = {4750--4755},
+  year    = {2008}
+}
+@article{valiant2017automatic,
+  title   = {An Automatic Inequality Prover and Instance Optimal Identity Testing},
+  author  = {Valiant, Gregory and Valiant, Paul},
+  journal = {SIAM Journal on Computing},
+  volume  = {46},
+  number  = {1},
+  pages   = {429--455},
+  year    = {2017}
+}
+
+% ---------- serving case study (optional §8) ----------
+@article{preble2024,
+  title   = {Preble: Efficient Distributed Prompt Scheduling for LLM Serving},
+  author  = {Srivatsa, Vikranth and He, Zijian and Abhyankar, Reyna and Li, Dongming and Zhang, Yiying},
+  journal = {arXiv preprint arXiv:2407.00023},
+  year    = {2024}
+}
+@article{mooncake2024,
+  title   = {Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving},
+  author  = {Qin, Ruoyu and Li, Zheming and He, Weiran and Zhang, Mingxing and Wu, Yongwei and Zheng, Weimin and Xu, Xinran},
+  journal = {arXiv preprint arXiv:2407.00079},
+  year    = {2024}
+}
+@article{sageserve2025,
+  title   = {SageServe: Optimizing {LLM} Serving on Cloud Data Centers with Forecast Aware Auto-Scaling},
+  author  = {Jaiswal, Shashwat and Jain, Kunal and Simmhan, Yogesh and Parayil, Anjaly and Mallick, Ankur and Wang, Rujia and {St.~Amant}, Renee and Bansal, Chetan and R{\"u}hle, Victor and Kulkarni, Anoop and Kofsky, Steve and Rajmohan, Saravan},
+  journal = {Proceedings of the ACM on Measurement and Analysis of Computing Systems},
+  volume  = {9},
+  number  = {3},
+  year    = {2025}
+}
+
+@article{gupta2017pac,
+  author  = {Gupta, Rishi and Roughgarden, Tim},
+  title   = {A {PAC} Approach to Application-Specific Algorithm Selection},
+  journal = {SIAM Journal on Computing},
+  volume  = {46},
+  number  = {3},
+  pages   = {992--1017},
+  year    = {2017}
+}
+
+@incollection{balcan2020datadriven,
+  author    = {Balcan, Maria-Florina},
+  title     = {Data-Driven Algorithm Design},
+  booktitle = {Beyond the Worst-Case Analysis of Algorithms},
+  editor    = {Roughgarden, Tim},
+  publisher = {Cambridge University Press},
+  pages     = {626--645},
+  year      = {2020}
+}
+
+@book{wald1947sequential,
+  author    = {Wald, Abraham},
+  title     = {Sequential Analysis},
+  publisher = {John Wiley \& Sons},
+  year      = {1947}
+}
+
+@inproceedings{bhattacharyya2025product,
+  author    = {Bhattacharyya, Arnab and Choo, Davin and John, Philips George and Gouleakis, Themis},
+  title     = {Product Distribution Learning with Imperfect Advice},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025}
+}
+
+@article{antoniadis2025switching,
+  author  = {Antoniadis, Antonios and Shahheidar, Ali and Shahkarami, Golnoosh and Soltani, Abolfazl},
+  title   = {A Switching Framework for Online Interval Scheduling with Predictions},
+  journal = {arXiv preprint arXiv:2511.16194},
+  year    = {2025}
+}
+
+@article{cui2026skirental,
+  author  = {Cui, Qiming and Dinitz, Michael},
+  title   = {Ski Rental with Distributional Predictions of Unknown Quality},
+  journal = {arXiv preprint arXiv:2602.21104},
+  year    = {2026}
+}
+
+@article{mannortsitsiklis2004,
+  author  = {Mannor, Shie and Tsitsiklis, John N.},
+  title   = {The Sample Complexity of Exploration in the Multi-Armed Bandit Problem},
+  journal = {Journal of Machine Learning Research},
+  volume  = {5},
+  pages   = {623--648},
+  year    = {2004}
+}
+
+@article{kaufmann2016complexity,
+  author  = {Kaufmann, Emilie and Capp{\'e}, Olivier and Garivier, Aur{\'e}lien},
+  title   = {On the Complexity of Best-Arm Identification in Multi-Armed Bandit Models},
+  journal = {Journal of Machine Learning Research},
+  volume  = {17},
+  number  = {1},
+  pages   = {1--42},
+  year    = {2016}
+}
+
+@inproceedings{dudik2011doubly,
+  author    = {Dud{\'i}k, Miroslav and Langford, John and Li, Lihong},
+  title     = {Doubly Robust Policy Evaluation and Learning},
+  booktitle = {Proceedings of the 28th International Conference on Machine Learning (ICML)},
+  year      = {2011}
+}
+
+@inproceedings{choo2025fractional,
+  author    = {Choo, Davin and Jin, Billy and Shin, Yongho},
+  title     = {Learning-Augmented Online Bipartite Fractional Matching},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025}
+}

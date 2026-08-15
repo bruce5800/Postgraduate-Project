@@ -1,0 +1,44 @@
+Learning-augmented (``with-predictions'') algorithms for online
+bipartite matching have proliferated: MinPredictedDegree consumes a
+per-node degree predictor, and a family of \emph{test-and-fallback}
+schemes tests a type-histogram prediction on a sublinear prefix of the
+arrivals before committing to follow it or to fall back on an
+advice-free baseline. These algorithms have been analyzed in isolation
+--- on different input models, against different error models, and
+largely in theory. We give the first unified experimental study, placing
+all of them on a single harness with a common structured
+prediction-error model, a common optimum, and confidence intervals,
+across synthetic graphs, six real-world graphs, and real request traces.
+Our central finding is that, on average-case (known-i.i.d.) inputs, the
+value of predictions is \textbf{robustness insurance, not a performance
+lever}: the advice-free baseline is already near-optimal, so the
+\emph{consistency} upside of good advice is small, whereas unguarded
+prediction-following can crash far below the baseline --- and the
+practical worth of the sophisticated algorithms is precisely that they
+never do. We then prove what the wall \emph{costs}. For the
+test-and-fallback class we establish a two-sided \textbf{budget--stakes
+law}: deciding whether to follow the advice requires --- and, via an
+explicit one-line rule, only requires --- a prefix of length
+\(\tilde\Theta(\sigma^2/g^2)\): the instance's specialist mass
+\(\sigma^2\) (exactly twice its baseline slack) divided by the square of
+the stakes \(g\) (what good advice gains over the baseline), independent
+of the instance length. The two halves meet, up to logarithms, whenever
+the stakes are carried at comparable signal levels by a constant
+fraction of that mass; one low-signal regime is left open and is stated
+as such. The lower half binds \emph{every} decision rule; the upper half
+refutes the natural conjecture that the hardness of tolerant
+distribution testing blocks all sublinear rules --- the
+decision-relevant statistic is the \emph{payoff} of following, which is
+exponentially cheaper to test than the prediction's distance --- a
+prescription we validate on the benchmark, where a constant-free
+payoff-testing rule avoids the threshold pathologies of the deployed
+tests. The statistics throughout is deliberately classical; the
+contribution is the structural identity under which a passive arrival
+stream --- no actions, no rewards --- reveals a policy pair's payoff gap
+at all. Because the stakes are capped by the baseline slack, on
+strong-baseline instances the price exceeds the horizon: upsides below
+\(\approx\sqrt{(1-\rho_{\mathrm{base}})/n}\) are uncapturable by any
+rule at any prefix length, and the upsides we measure sit in that range.
+Experiments and theory deliver one message: \textbf{on average-case
+matching, the advice's upside is smaller than the price of finding out
+whether to trust it.}
