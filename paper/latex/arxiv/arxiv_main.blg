@@ -63,45 +63,45 @@ Warning--empty address in wald1947sequential
 Warning--empty publisher in weizhang2020tradeoffs
 Warning--empty address in weizhang2020tradeoffs
 Warning--page numbers missing in both pages and numpages fields in weizhang2020tradeoffs
-You've used 25 entries,
+You've used 27 entries,
             6273 wiz_defined-function locations,
-            1638 strings with 22176 characters,
-and the built_in function-call counts, 26231 in all, are:
-= -- 3142
-> -- 799
+            1651 strings with 22438 characters,
+and the built_in function-call counts, 28341 in all, are:
+= -- 3473
+> -- 833
 < -- 0
-+ -- 280
-- -- 285
-* -- 1768
-:= -- 2460
-add.period$ -- 114
-call.type$ -- 25
-change.case$ -- 168
-chr.to.int$ -- 25
-cite$ -- 76
-duplicate$ -- 2493
-empty$ -- 1767
-format.name$ -- 377
-if$ -- 6451
++ -- 288
+- -- 299
+* -- 1886
+:= -- 2644
+add.period$ -- 124
+call.type$ -- 27
+change.case$ -- 178
+chr.to.int$ -- 27
+cite$ -- 78
+duplicate$ -- 2689
+empty$ -- 1907
+format.name$ -- 391
+if$ -- 7010
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 109
-newline$ -- 227
-num.names$ -- 177
-pop$ -- 1183
+missing$ -- 117
+newline$ -- 243
+num.names$ -- 191
+pop$ -- 1249
 preamble$ -- 1
-purify$ -- 368
+purify$ -- 394
 quote$ -- 0
-skip$ -- 856
+skip$ -- 920
 stack$ -- 0
-substring$ -- 1631
-swap$ -- 164
+substring$ -- 1813
+swap$ -- 184
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 609
+type$ -- 641
 warning$ -- 51
-while$ -- 138
+while$ -- 158
 width$ -- 0
-write$ -- 484
+write$ -- 522
 (There were 51 warnings)

@@ -28,6 +28,7 @@ LABEL2KEY = {
     'ASSS25': 'antoniadis2025switching', 'CD26': 'cui2026skirental',
     'MT04':   'mannortsitsiklis2004',  'KCG16': 'kaufmann2016complexity',
     'DLL11':  'dudik2011doubly',       'CJS25': 'choo2025fractional',
+    'Hoe63':  'hoeffding1963probability', 'Ser74': 'serfling1974probability',
 }
 alt = '|'.join(LABEL2KEY)
 LABEL_RE = re.compile(r'\[((?:%s)(?:,\s*(?:%s))*)\]' % (alt, alt))

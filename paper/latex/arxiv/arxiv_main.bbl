@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -190,6 +190,18 @@
 \newblock
 
 
+\bibitem[Hoeffding(1963)]%
+        {hoeffding1963probability}
+\bibfield{author}{\bibinfo{person}{Wassily Hoeffding}.}
+  \bibinfo{year}{1963}\natexlab{}.
+\newblock \showarticletitle{Probability Inequalities for Sums of Bounded Random
+  Variables}.
+\newblock \bibinfo{journal}{\emph{J. Amer. Statist. Assoc.}}
+  \bibinfo{volume}{58}, \bibinfo{number}{301} (\bibinfo{year}{1963}),
+  \bibinfo{pages}{13--30}.
+\newblock
+
+
 \bibitem[Hopcroft and Karp(1973)]%
         {hopcroftkarp1973}
 \bibfield{author}{\bibinfo{person}{John~E. Hopcroft} {and}
@@ -273,6 +285,18 @@
   Multi-Armed Bandit Problem}.
 \newblock \bibinfo{journal}{\emph{Journal of Machine Learning Research}}
   \bibinfo{volume}{5} (\bibinfo{year}{2004}), \bibinfo{pages}{623--648}.
+\newblock
+
+
+\bibitem[Serfling(1974)]%
+        {serfling1974probability}
+\bibfield{author}{\bibinfo{person}{Robert~J. Serfling}.}
+  \bibinfo{year}{1974}\natexlab{}.
+\newblock \showarticletitle{Probability Inequalities for the Sum in Sampling
+  without Replacement}.
+\newblock \bibinfo{journal}{\emph{The Annals of Statistics}}
+  \bibinfo{volume}{2}, \bibinfo{number}{1} (\bibinfo{year}{1974}),
+  \bibinfo{pages}{39--48}.
 \newblock
 
 

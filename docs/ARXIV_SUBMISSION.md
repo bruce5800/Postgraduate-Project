@@ -1,6 +1,6 @@
 # arXiv 提交流程（为本论文定制，2026-08-14）
 
-投稿包已生成并本地验证：`paper/latex/arxiv/arxiv_submission.tar.gz`（29 页、12 图、
+投稿包已生成并本地验证：`paper/latex/arxiv/arxiv_submission.tar.gz`（31 页、12 图、
 0 未解析引用、1.1MB；`build_arxiv.sh` 随时可重新生成）。以下按顺序走。
 
 ## 0. 提交前的四件小事（约 20 分钟）
@@ -8,20 +8,20 @@
 - [ ] **补作者信息**：`paper/latex/talg_main.tex` 第 21/26 行 —— 确认注册姓名拼写、
       把 `zhuolun66@gmail.com` 换成 Bristol 邮箱（arXiv 与期刊都以此为准）。改完重跑
       `./build_arxiv.sh`。
-- [ ] **加 LLM 使用披露**（诚实原则 + 自查清单 E5 项）。建议在 `talg_main.tex` 的
-      `\bibliography` 前加（**措辞以你本人口吻陈述，请先审改再用**）：
+- [x] **LLM 使用披露已加入** `talg_main.tex`（`\begin{acks}` 块，位于附录与参考文献之间，
+      2026-08-21）。**措辞以你本人口吻陈述，提交前请审改**；当前文本：
 
-      \begin{acks}
-      Large language model assistance (Anthropic's Claude) was used throughout
-      this project — for code, drafting, and analysis. All results were
-      independently verified by the author: the experiments via the released
-      seeded artifact, and the theory line by line, with the core identities
-      additionally machine-checked in Lean 4 (available in the project
-      repository). Any remaining errors are the author's own.
-      \end{acks}
+      Large language model assistance (Anthropic's Claude) was used throughout this
+      project — for code, drafting, analysis, and the Lean proof scripts. All results
+      were independently verified by the author: the experiments through the released
+      seeded artifact, the theory line by line, and the statistical chain of Section 7
+      additionally by the Lean 4 kernel (Appendix C; 66 theorems and lemmas, no sorry).
+      Any remaining errors are the author's own.
 
-- [ ] **若披露里提及 Lean**：先把 `budgetstakes/` 推到 GitHub 仓库主分支，保证声明
-      属实、链接可达。
+- [ ] **Lean 声明要属实**：(a) 把 `budgetstakes/` 推到 GitHub 主分支（CI 会自动跑
+      `lake build`）；(b) 附录 A 现在写明 artifact 含 `budgetstakes/`——现有 release tag
+      `talg-submission-2026-08` 是 Lean 之前切的，**需重新打包 `talg-artifact.zip`（含
+      `budgetstakes/`，不含 `.lake/`）并更新/新建 release tag**，再核对附录 A 的 URL。
 - [ ] 最后重跑一次 `./build_arxiv.sh`，目检 `arxiv/arxiv_main.pdf` 首页。
 
 ## 1. 账号与背书（首次投稿者最大的坑，可能需要数天提前量）
@@ -53,7 +53,7 @@
   一遍引号/破折号；数学可保留 `$...$`）。
 - **Primary category**: `cs.DS`；**Cross-list**: `cs.LG`（learning-augmented 读者
   群在那边——Choo24 一脉都是 ICML/NeurIPS）。
-- **Comments 栏**（可选但建议）: "29 pages, 9 figures. Code and seeded artifact:
+- **Comments 栏**（可选但建议）: "31 pages, 9 figures. Code and seeded artifact:
   https://github.com/bruce5800/Postgraduate-Project"
 - MSC/ACM class：可留空。
 

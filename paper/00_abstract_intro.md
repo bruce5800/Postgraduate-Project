@@ -35,7 +35,8 @@ testing blocks all sublinear rules — the decision-relevant statistic is the *p
 following, which is exponentially cheaper to test than the prediction's distance — a
 prescription we validate on the benchmark, where a constant-free payoff-testing rule
 avoids the threshold pathologies of the deployed tests. The statistics throughout is
-deliberately classical; the contribution is the structural identity under which a passive
+deliberately classical — and, for that reason, machine-checked end to end in Lean 4 at the
+abstract level; the contribution is the structural identity under which a passive
 arrival stream — no actions, no rewards — reveals a policy pair's payoff gap at all. Because
 the stakes are capped by the baseline slack, on strong-baseline instances the price
 exceeds the horizon: upsides below $\approx\sqrt{(1-\rho_{\mathrm{base}})/n}$ are
@@ -222,7 +223,8 @@ the upsides measured in Sections 3–6 sit in that range.
   meeting up to logarithms under a stated signal condition (§7.5, §7.8): the
   follow/fallback decision costs a prefix of $\tilde\Theta(\sigma^2/g^2)$
   (baseline slack over the square of the stakes) for *any*
-  rule (lower bound), and an explicit directional test achieves it (upper bound). A
+  rule (lower bound), and an explicit directional test achieves it (upper bound); both
+  halves are machine-checked in Lean 4 at the abstract level (Appendix C). A
   payoff identity separates cheap payoff-testing from provably hard distance-testing —
   refuting, and reporting honestly, the natural tolerant-testing impossibility — and the
   corollary quantifies the wall: on strong-baseline instances, upsides below

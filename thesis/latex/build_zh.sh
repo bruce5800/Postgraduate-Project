@@ -18,6 +18,9 @@ preprocess() {
     | sed -e 's/≈/$\\approx$/g' -e 's/✓/$\\checkmark$/g'
 }
 
+# 正文页码从 1 重新开始（前置部分为罗马数字，见 frontmatter_zh.tex），
+# 使执行摘要中引用的页码与正文实际印出的页码一致。
+printf '\n\n```{=latex}\n\\clearpage\n\\pagenumbering{arabic}\n```\n\n' >> "$tmp"
 included=""
 for c in $CHAPTERS; do
   if [ -f "../zh/$c.md" ]; then
@@ -32,7 +35,7 @@ if [ -f "../zh/A_reproduction.md" ]; then
 fi
 echo "chapters included:$included"
 
-pandoc "$tmp" --metadata-file=meta_zh.yaml -H header.tex \
+pandoc "$tmp" --metadata-file=meta_zh.yaml -H header.tex -H frontmatter_zh.tex \
   --top-level-division=chapter --number-sections --toc --toc-depth=1 \
   --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main_zh.pdf > build_zh.log 2>&1 || {

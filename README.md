@@ -33,14 +33,14 @@ All chapters live as markdown (edit those, not the TeX) and build three ways:
 | English draft (43 pp) | `thesis/en/*.md` | `thesis/latex/build.sh` | `thesis/latex/main.pdf` |
 | 中文草稿 (42 pp) | `thesis/zh/*.md` | `thesis/latex/build_zh.sh` | `thesis/latex/main_zh.pdf` |
 | **Bristol template (68 pp)** | `thesis/en/*.md` | `thesis/latex_school/build_school.sh` | `thesis/latex_school/thesis.pdf` |
-| **TALG Empirical Track paper (ACM acmart, 20 pp)** | `docs/paper/*.md` | `docs/paper/latex/build_paper.sh` | `docs/paper/latex/talg_main.pdf` |
+| **TALG Empirical Track paper (ACM acmart, 20 pp)** | `paper/*.md` | `paper/latex/build_paper.sh` | `paper/latex/talg_main.pdf` |
 
 10 chapters + Appendix A (reproduction guide). The former theory chapter was cut from the
 thesis (2026-07-27) and survives as a one-page outlook (§10.2); the full theory lives in
-the paper drafts (`docs/paper/06_theory.md`).
+the paper drafts (`paper/06_theory.md`).
 Citations are pandoc `[@key]` resolved against [`docs/references.bib`](docs/references.bib)
 (citeproc for the drafts, biblatex/biber + the template's ACM-numeric style for the school
-build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/paper/`.
+build). The venue-paper drafts (§-numbered, submission-oriented) are in `paper/`.
 
 ## Findings at a glance
 
@@ -76,7 +76,8 @@ build). The venue-paper drafts (§-numbered, submission-oriented) are in `docs/p
 | A (M0–M3) | Learning-to-rank the predictor | closed as an honest negative — [`docs/RANK_LEARNING_M0_M3.md`](docs/RANK_LEARNING_M0_M3.md) |
 | SLO probe | A with-predictions serving rescue on a tail objective | closed as an honest negative — [`docs/SERVING_SLO_PROBE.md`](docs/SERVING_SLO_PROBE.md) |
 | C (T1) | Impossibility theorem → budget–stakes law | original theorem **refuted at its witness step** (payoff identity ⟹ counter-algorithm, verified); replaced by the two-sided budget–stakes law in the paper; thesis keeps a one-page outlook — [`docs/T1_WITNESS_GAP.md`](docs/T1_WITNESS_GAP.md) |
-| Writing | Paper drafts (`docs/paper/`) + full thesis (3 builds) + interactive explainer | done (drafts; school-template TODOs listed in `thesis/latex_school/thesis.tex`) |
+| Lean | Machine-check the budget–stakes law (Lean 4 + Mathlib, finite-probability route) | **66 theorems, 0 sorries**: payoff/slack/affine identities, exact master trade-off, both halves of the law (abstract core), σ²-sharp scaling at Chebyshev grade, random-order model — [`budgetstakes/`](budgetstakes/), [`docs/LEAN_SCOUTING.md`](docs/LEAN_SCOUTING.md) |
+| Writing | Paper drafts (`paper/`) + full thesis (3 builds) + interactive explainer | done (drafts; school-template TODOs listed in `thesis/latex_school/thesis.tex`) |
 
 ## Directory layout
 
@@ -94,12 +95,13 @@ matching-experiments/
 ├── scripts/                    # experiment drivers; every figure/table has one script
 ├── results/                    # JSON + PNG outputs (seeded, reproducible)
 ├── data/                       # real graphs + traces (large; not in version control)
+├── paper/                      # venue-paper §-drafts + latex/ (TALG acmart, arXiv bundle)
+├── budgetstakes/               # Lean 4 formalization (lake project; 66 theorems, 0 sorries)
 ├── thesis/
 │   ├── en/ zh/                 # chapter markdown (source of truth)
 │   ├── latex/                  # draft builds (pandoc+xelatex): main.pdf, main_zh.pdf
 │   └── latex_school/           # University of Bristol template build: thesis.pdf
 └── docs/
-    ├── paper/                  # venue-paper §-drafts
     ├── interactive/            # the impossibility-theorem interactive explainer
     ├── references.bib          # single bibliography for all builds
     ├── advisor_talk/           # meeting scripts

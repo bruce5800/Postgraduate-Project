@@ -124,8 +124,10 @@ contributions.
 
 # 10. Limitations and Conclusion
 
-**Limitations.** (i) We work in the known-i.i.d. model; since Known-IID $\le$ Random-Order,
-the algorithms' guarantees carry, but our empirical wall is an average-case statement and
+**Limitations.** (i) The experiments are in the known-i.i.d. model. Every known-i.i.d.
+instance is also a random-order instance, so guarantees proved in the random-order model
+carry over to ours but not conversely; the law itself does extend to random order
+(Remark, §7.8), but our empirical wall is an average-case statement and
 
 <!--REV
 id: 7-03

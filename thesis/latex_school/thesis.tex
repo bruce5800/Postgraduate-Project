@@ -31,6 +31,20 @@
 \setcounter{topnumber}{3}
 \setcounter{totalnumber}{4}
 
+%% The MSc project unit requires an EXECUTIVE SUMMARY of strictly one page (see
+%% Document.pdf) rather than a plain abstract: same layout as the template's abstract
+%% environment, different heading.
+\RenewDocumentEnvironment{abstract}{+b}{%
+  \recalctypearea
+  \thispagestyle{empty}
+  \begin{center}
+    {\Large\bfseries Executive Summary}\\
+  \end{center}
+  \bigskip
+  {#1}
+  \cleardoubleoddemptypage
+}{}
+
 %%%%%%%%%%%%%%%%%%%
 %% AUTHOR DETAILS %
 %%%%%%%%%%%%%%%%%%%

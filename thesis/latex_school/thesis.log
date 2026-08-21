@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  12 AUG 2026 15:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  21 AUG 2026 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,48 +1085,48 @@ LaTeX Warning: Unused global option(s):
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-Package scrbase Info: activating english \partname on input line 52.
-Package scrbase Info: activating english \chaptername on input line 52.
-Package scrbase Info: activating english \appendixname on input line 52.
-Package scrbase Info: activating english \figurename on input line 52.
-Package scrbase Info: activating english \tablename on input line 52.
-Package scrbase Info: activating english \contentsname on input line 52.
-Package scrbase Info: activating english \listfigurename on input line 52.
-Package scrbase Info: activating english \listtablename on input line 52.
-Package scrbase Info: activating english \bibname on input line 52.
-Package scrbase Info: activating english \indexname on input line 52.
-LaTeX Info: Redefining \microtypecontext on input line 52.
-Package microtype Info: Applying patch `item' on input line 52.
-Package microtype Info: Applying patch `toc' on input line 52.
-Package microtype Info: Applying patch `eqnum' on input line 52.
-Package microtype Info: Applying patch `footnote' on input line 52.
-Package microtype Info: Applying patch `verbatim' on input line 52.
-LaTeX Info: Redefining \microtypesetup on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+Package scrbase Info: activating english \partname on input line 66.
+Package scrbase Info: activating english \chaptername on input line 66.
+Package scrbase Info: activating english \appendixname on input line 66.
+Package scrbase Info: activating english \figurename on input line 66.
+Package scrbase Info: activating english \tablename on input line 66.
+Package scrbase Info: activating english \contentsname on input line 66.
+Package scrbase Info: activating english \listfigurename on input line 66.
+Package scrbase Info: activating english \listtablename on input line 66.
+Package scrbase Info: activating english \bibname on input line 66.
+Package scrbase Info: activating english \indexname on input line 66.
+LaTeX Info: Redefining \microtypecontext on input line 66.
+Package microtype Info: Applying patch `item' on input line 66.
+Package microtype Info: Applying patch `toc' on input line 66.
+Package microtype Info: Applying patch `eqnum' on input line 66.
+Package microtype Info: Applying patch `footnote' on input line 66.
+Package microtype Info: Applying patch `verbatim' on input line 66.
+LaTeX Info: Redefining \microtypesetup on input line 66.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 52.
+LaTeX Info: Redefining \showhyphens on input line 66.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1159,7 +1159,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 52.
+Package hyperref Info: Link coloring ON on input line 66.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -1171,7 +1171,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 52.
+(scrbook)           before \begin{document} on input line 66.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1219,9 +1219,9 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 
 (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 52.
-Package biblatex Info: Reference segment=0 on input line 52.
-Package hyperref Info: Option `pageanchor' set `false' on input line 55.
+Package biblatex Info: Reference section=0 on input line 66.
+Package biblatex Info: Reference segment=0 on input line 66.
+Package hyperref Info: Option `pageanchor' set `false' on input line 69.
 
 
 Package typearea Warning: \typearea used at group level 7.
@@ -1229,7 +1229,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 57.
+(typearea)                outside all groups on input line 71.
 
 
 Package typearea Warning: Bad type area settings!
@@ -1255,33 +1255,33 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 57.
+(typearea)              on input line 71.
 Package typearea Info: Using dirty hack to recalculate internal output
-(typearea)             dimensions of LaTeX on input line 57.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-7.
+(typearea)             dimensions of LaTeX on input line 71.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
+1.
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-57.
+71.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-57.
+71.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 57.
+(Font)              <14.4> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 57.
+(Font)              <10> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 57.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
+(Font)              <7> on input line 71.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1290,7 +1290,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1302,16 +1302,16 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 <UoB_RGB_24.jpg, id=4, 742.9356pt x 215.1237pt>
 File: UoB_RGB_24.jpg Graphic file (type jpg)
 <use UoB_RGB_24.jpg>
-Package pdftex.def Info: UoB_RGB_24.jpg  used on input line 57.
+Package pdftex.def Info: UoB_RGB_24.jpg  used on input line 71.
 (pdftex.def)             Requested size: 229.81076pt x 66.54321pt.
 
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 57.
+(Font)              <10.95> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 57.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 57.
+(Font)              <6> on input line 71.
 
 Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                At least 20.4pt needed,
@@ -1320,8 +1320,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-7.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
+1.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active []
@@ -1339,7 +1339,7 @@ Package typearea Warning: \typearea used at group level 2.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 61.
+(typearea)                outside all groups on input line 75.
 
 
 Package typearea Warning: Bad type area settings!
@@ -1365,33 +1365,40 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 71.40001pt
 (typearea)              \baselineskip   = 20.40001pt
-(typearea)              on input line 61.
+(typearea)              on input line 75.
 Package typearea Info: Using dirty hack to recalculate internal output
-(typearea)             dimensions of LaTeX on input line 61.
-(./abstract.tex)
+(typearea)             dimensions of LaTeX on input line 75.
+(./abstract.tex
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+5.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
 
 [2
 
 
 {/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/loc
-al/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+al/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/te
+xlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/20
+25basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
 [3
 
 ]
-<sig.png, id=21, 502.87875pt x 101.37875pt>
+<sig.png, id=24, 502.87875pt x 101.37875pt>
 File: sig.png Graphic file (type png)
 <use sig.png>
-Package pdftex.def Info: sig.png  used on input line 101.
+Package pdftex.def Info: sig.png  used on input line 115.
 (pdftex.def)             Requested size: 113.81102pt x 22.9438pt.
 
 
 [4
 
  <./sig.png>]
-Package hyperref Info: Option `pageanchor' set `true' on input line 103.
-Package tocbasic Info: character protrusion at toc deactivated on input line 11
-0.
+Package hyperref Info: Option `pageanchor' set `true' on input line 117.
+Package tocbasic Info: character protrusion at toc deactivated on input line 12
+4.
  (./thesis.toc
 
 [1
@@ -1407,11 +1414,10 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 11
 
 
 
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Package tocbasic Info: character protrusion at lof deactivated on input line 11
-2.
-
-(./thesis.lof
+[3]
+Package tocbasic Info: character protrusion at lof deactivated on input line 12
+6.
+ (./thesis.lof
 
 [4
 
@@ -1435,14 +1441,8 @@ n input line 1.
 
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
-4.
- (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
-[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
-(./ch/02_background.tex
+[2]) (./ch/02_background.tex
 
 [3]
 
@@ -2100,7 +2100,7 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 Here is how much of TeX's memory you used:
  32979 strings out of 474654
  670195 string characters out of 5750568
- 1678868 words of memory out of 5000000
+ 1678874 words of memory out of 5000000
  55034 multiletter control sequences out of 15000+600000
  656615 words of font info for 274 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -2124,7 +2124,7 @@ l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/tex
 live/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
 local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb>
-Output written on thesis.pdf (70 pages, 2465293 bytes).
+Output written on thesis.pdf (70 pages, 2466262 bytes).
 PDF statistics:
  948 PDF objects out of 1000 (max. 8388607)
  786 compressed objects within 8 object streams

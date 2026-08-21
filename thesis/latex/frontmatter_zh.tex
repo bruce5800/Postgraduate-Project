@@ -1,0 +1,9 @@
+% 中文构建的前置部分（仅由 build_zh.sh 引入；header.tex 由中英两个构建共用）。
+% ctexrep 的 abstract 环境是 titlepage，会重置页码计数器，使摘要中引用的页码失效；
+% 这里改为普通的、带页码的一页，并让前置部分用罗马数字、正文从阿拉伯数字 1 重新开始
+% （build_zh.sh 在正文起始处输出 \pagenumbering{arabic}）。
+\renewcommand{\abstractname}{执行摘要}
+\renewenvironment{abstract}
+  {\clearpage\begin{center}\bfseries\large\abstractname\end{center}\par\nobreak}
+  {\clearpage}
+\AtBeginDocument{\pagenumbering{roman}}

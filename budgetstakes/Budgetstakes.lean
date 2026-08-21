@@ -4,3 +4,4 @@ import Budgetstakes.AffineLaw
 import Budgetstakes.MasterTradeoff
 import Budgetstakes.Chernoff
 import Budgetstakes.Hellinger
+import Budgetstakes.RandomOrder

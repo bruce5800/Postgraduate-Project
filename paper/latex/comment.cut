@@ -1,0 +1,6 @@
+Large language model assistance (Anthropic's Claude) was used throughout this project ---
+for code, drafting, analysis, and the Lean proof scripts. All results were independently
+verified by the author: the experiments through the released seeded artifact, the theory
+line by line, and the statistical chain of Section~7 additionally by the Lean~4 kernel
+(Appendix~C; 66 theorems and lemmas, no \texttt{sorry}). Any remaining errors are the
+author's own.

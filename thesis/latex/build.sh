@@ -22,13 +22,16 @@ preprocess() {
     | sed -e 's/≈/$\\approx$/g' -e 's/✓/$\\checkmark$/g'
 }
 
+# Body pages are numbered from 1 (front matter is roman, see header.tex) so that the
+# page references in the executive summary match the printed numbers.
+printf '\n\n```{=latex}\n\\clearpage\n\\pagenumbering{arabic}\n```\n\n' >> "$tmp"
 for c in $CHAPTERS; do preprocess "../en/$c.md" >> "$tmp"; printf '\n\n' >> "$tmp"; done
 # References chapter (citeproc fills the #refs div; unnumbered, placed before the appendix):
 printf '\n\n# References {.unnumbered}\n\n::: {#refs}\n:::\n\n' >> "$tmp"
 printf '\n\n```{=latex}\n\\appendix\n```\n\n' >> "$tmp"
 preprocess "../en/A_reproduction.md" >> "$tmp"
 
-pandoc "$tmp" --metadata-file=meta.yaml -H header.tex \
+pandoc "$tmp" --metadata-file=meta.yaml -H header.tex -H frontmatter.tex \
   --top-level-division=chapter --number-sections --toc --toc-depth=1 \
   --citeproc --csl=numeric.csl --bibliography=../../docs/references.bib \
   --pdf-engine=xelatex -o main.pdf > build.log 2>&1 || {

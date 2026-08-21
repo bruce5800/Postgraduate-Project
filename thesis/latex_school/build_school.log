@@ -193,7 +193,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 57.
+(typearea)                outside all groups on input line 71.
 
 
 Package typearea Warning: Bad type area settings!
@@ -218,8 +218,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-7.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
+1.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
@@ -232,7 +232,7 @@ Package typearea Warning: \typearea used at group level 2.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 61.
+(typearea)                outside all groups on input line 75.
 
 
 Package typearea Warning: Bad type area settings!
@@ -242,23 +242,24 @@ Package typearea Warning: Bad type area settings!
 (typearea)                You should e.g. decrease DIV, increase fontsize
 (typearea)                or change papersize.
 
-(./abstract.tex)
+(./abstract.tex (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+))
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/l
-ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/
+texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/
+2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
 [2])
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-(./thesis.lof
+[3] (./thesis.lof
 [4]
 [5])
 [6] (./ch/01_introduction.tex
 chapter 1.
 
-[1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
-[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
-(./ch/02_background.tex
+[1]
+[2]) (./ch/02_background.tex
 [3]
 [4]
 chapter 2.
@@ -577,15 +578,6 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
  Ÿ3.5 methodology checks[] 
 
 [54]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table A.2 on input line 199.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table A.3 on input line 220.
-
-
 [55])
 [56]
 [57]
@@ -593,10 +585,6 @@ chapter without number
 
 [58]
 [59]
-
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
-
-
 [60] (./thesis.aux) )
 (see the transcript file for additional information)</usr/local/texlive/2025bas
 ic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/te
@@ -617,7 +605,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2465272 bytes).
+Output written on thesis.pdf (70 pages, 2466262 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -828,7 +816,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 57.
+(typearea)                outside all groups on input line 71.
 
 
 Package typearea Warning: Bad type area settings!
@@ -853,8 +841,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-7.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
+1.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
@@ -867,7 +855,7 @@ Package typearea Warning: \typearea used at group level 2.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 61.
+(typearea)                outside all groups on input line 75.
 
 
 Package typearea Warning: Bad type area settings!
@@ -877,23 +865,24 @@ Package typearea Warning: Bad type area settings!
 (typearea)                You should e.g. decrease DIV, increase fontsize
 (typearea)                or change papersize.
 
-(./abstract.tex)
+(./abstract.tex (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+))
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/l
-ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/
+texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/
+2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
 [2])
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-(./thesis.lof
+[3] (./thesis.lof
 [4]
 [5])
 [6] (./ch/01_introduction.tex
 chapter 1.
 
-[1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
-[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
-(./ch/02_background.tex
+[1]
+[2]) (./ch/02_background.tex
 [3]
 [4]
 chapter 2.
@@ -1239,7 +1228,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2465293 bytes).
+Output written on thesis.pdf (70 pages, 2466262 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1436,7 +1425,7 @@ Package typearea Warning: \typearea used at group level 7.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 57.
+(typearea)                outside all groups on input line 71.
 
 
 Package typearea Warning: Bad type area settings!
@@ -1461,8 +1450,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=20.4pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-7.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
+1.
 
 
 Overfull \vbox (20.4pt too high) has occurred while \output is active [1{/Users
@@ -1475,7 +1464,7 @@ Package typearea Warning: \typearea used at group level 2.
 (typearea)                environments, math mode, boxes, etc. may result in
 (typearea)                many type setting problems.
 (typearea)                You should move the command \typearea
-(typearea)                outside all groups on input line 61.
+(typearea)                outside all groups on input line 75.
 
 
 Package typearea Warning: Bad type area settings!
@@ -1485,23 +1474,24 @@ Package typearea Warning: Bad type area settings!
 (typearea)                You should e.g. decrease DIV, increase fontsize
 (typearea)                or change papersize.
 
-(./abstract.tex)
+(./abstract.tex (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+))
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/l
-ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+ocal/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/
+texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/
+2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 [3]
 [4 <./sig.png>] (./thesis.toc
 [1]
 [2])
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-(./thesis.lof
+[3] (./thesis.lof
 [4]
 [5])
 [6] (./ch/01_introduction.tex
 chapter 1.
 
-[1] (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd)
-[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
-(./ch/02_background.tex
+[1]
+[2]) (./ch/02_background.tex
 [3]
 [4]
 chapter 2.
@@ -1847,5 +1837,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2465293 bytes).
+Output written on thesis.pdf (70 pages, 2466262 bytes).
 Transcript written on thesis.log.

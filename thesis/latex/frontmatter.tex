@@ -1,0 +1,10 @@
+% English-build front matter (included by build.sh only; header.tex is shared with build_zh.sh).
+% Bristol MSc requires an executive summary of at most one page that cites page numbers, so
+% (a) the summary is typeset as an ordinary numbered page rather than report.cls's
+% titlepage-style `abstract`, which silently restarts the page counter, and (b) the front
+% matter is roman while the body restarts at arabic 1 (build.sh emits \pagenumbering{arabic}).
+\renewcommand{\abstractname}{Executive Summary}
+\renewenvironment{abstract}
+  {\clearpage\begin{center}\bfseries\large\abstractname\end{center}\par\nobreak}
+  {\clearpage}
+\AtBeginDocument{\pagenumbering{roman}}

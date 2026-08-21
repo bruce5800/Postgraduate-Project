@@ -13,7 +13,8 @@ table are packaged as `talg-artifact.zip`, released at
 > `https://github.com/bruce5800/Postgraduate-Project/releases/tag/talg-submission-2026-08`
 
 Unpack it and run the commands below from its root; `README.md` inside repeats the
-essentials. `results/` holds our own outputs, so a fresh run can be diffed against them
+essentials. The artifact also contains `budgetstakes/`, the Lean 4 development of
+Appendix C (`lake build` replays the check). `results/` holds our own outputs, so a fresh run can be diffed against them
 directly.
 
 Every number in this paper is regenerated from a fixed seed by a single script. Almost
@@ -167,6 +168,10 @@ $h^2(P^{\otimes k},Q^{\otimes k}) \le k\,h^2(P,Q)$.
 $\mathrm{TV}\le h\sqrt{2-h^{2}}\le\sqrt2\,h$ gives
 $$\gamma_k \;\le\; \sqrt2\,h(P^{\otimes k},Q^{\otimes k}) \;\le\; \sqrt{2k\,h^2(P,Q)}
 \;=\; \sqrt{k\,H^2(P,Q)} \;\le\; \sqrt{4k\,\varepsilon_W\,g}.$$
+Steps 3–4, chained with Lemma 1, are machine-checked in the form
+$(1-\eta_c)\le\eta_r+\sqrt{2k\,(1-\mathrm{BC}(P,Q))}$ for arbitrary finite $P,Q$ and
+every $[0,1]$-valued rule on the $k$-prefix (`Scenario.master_tradeoff_iid`, Appendix C);
+Steps 1–2 are the explicit evaluation on the family.
 
 *Step 5 (conclusion).* If $k=o\!\big(1/(\varepsilon_W g)\big)$ then
 $k\,\varepsilon_W g\to0$, so $\gamma_k\to0$: the prefix is asymptotically uninformative
@@ -185,3 +190,40 @@ flipped mass, so that ratio is $\Theta(1)$ — and the two sides agree up to log
 exactly when the stakes are carried, at comparable signal levels, by a constant fraction
 of the specialist mass. When instead they hide in a vanishing sliver of low-signal cells
 the ratio can diverge; that regime is open (Section 7.8).
+
+# Machine-checked statements
+
+The statistical chain behind Section 7 is formalized in Lean 4 (v4.33.0) over Mathlib, in
+the `budgetstakes/` directory of the artifact: seven files, 66 theorems and lemmas, no
+`sorry`. `lake build` replays the check in about a minute once the Mathlib cache is
+fetched, and the repository's continuous integration runs it on every commit. The
+development is deliberately self-contained — a distribution is a vector of real weights on
+a finite type, expectations are finite sums, and independence enters through a single
+combinatorial identity, $\sum_{x\in\Omega^k}\prod_i g(x_i)=\big(\sum_\omega g(\omega)\big)^k$ —
+so that a reader can audit it without measure theory. The table maps the paper's
+statements to theorem names.
+
+| Statement in the paper | Lean theorem | Form proved |
+|------|----------|----------|
+| Lemma 2 (payoff identity), §7.4 | `CellFamily.payoff_identity` | heterogeneous profile, arbitrary truth biases, from the cell constants |
+| $1-\rho_{\mathrm{base}}=\sigma^2/2$, §7.3 | `CellFamily.`\allowbreak`slack_eq_half_specialistMass` | exact |
+| affine law and $\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}}\le 2\varepsilon_{\max}(1-\rho_{\mathrm{base}})$, §7.3 | `CellFamily.affine_law`, `CellFamily.`\allowbreak`rhoPerfect_sub_rhoBase_le_slack` | exact |
+| Lemma 1 (master trade-off), §7.2 | `Scenario.master_tradeoff` | exact, no $o(1)$: $(1-\eta_c)\le\eta_r+\mathrm{TV}$ for every $[0,1]$-valued rule on a finite prefix space |
+| Theorem 1(ii), upper half | `FinDist.`\allowbreak`iid_prob_sum_nonpos_le` | finite Chernoff, $P^{\otimes k}(\sum c\le0)\le e^{-k\mu^2/4}$ for $\lvert c\rvert\le1$, $\mu=\mathbb E[c]$; with $\mu\ge2\min(\delta,\Delta)$ this is error $\le e^{-k\min(\delta,\Delta)^2}$ |
+| Theorem 1(ii), $\sigma^2$-scaling | `FinDist.`\allowbreak`iid_prob_sum_nonpos_le_cheb` | exact prefix variance $k\,\mathrm{Var}(c)$ and Chebyshev, error $\le\mathrm{Var}(c)/(k\mu^2)$; with $\mathrm{Var}(c)\le\mathbb E[c^2]=\sigma^2$ this is $\sigma^2/(4k\min(\delta,\Delta)^2)$ |
+| Theorem 1(i): Appendix B Steps 3–4 chained with Lemma 1 | `Scenario.`\allowbreak`master_tradeoff_iid` | $(1-\eta_c)\le\eta_r+\sqrt{2k\,(1-\mathrm{BC}(P,Q))}$ for arbitrary finite $P,Q$ and every rule on the $k$-prefix (tensorization `bc_iid`, comparison `tvDist_iid_le`) |
+| Remark in §7.8 (random order), lower half | `FinDist.`\allowbreak`shuffled_iid_expect` | a uniformly shuffled i.i.d. sample has the product law |
+| Remark in §7.8 (random order), upper half | `RandomOrder.`\allowbreak`ro_prob_sum_nonpos_le` | without-replacement prefix sum: variance $\le k\,\mathbb E_{\mathrm{pop}}[c^2]$, error $\le\mathbb E_{\mathrm{pop}}[c^2]/(k\mu^2)$ |
+
+What is *not* formalized, so that the certificate is not over-read: (a) the cell constants
+of §7.3 ($\mathrm{OPT}=1+\theta_i$, baseline $1+\theta_i/2$, follow gain
+$\theta_i\lvert s_i-\tfrac12\rvert$), which the development takes as the definition of the
+model; (b) Steps 1–2 of Appendix B — the explicit evaluation
+$1-\mathrm{BC}=\tfrac1N\sum_{i\in W}\theta_i\big(1-\sqrt{1-4\varepsilon_i^2}\big)$ and the
+$[2t,4t]$ bounds — two lines of algebra on the page; (c) Bernstein's inequality, i.e. the
+$\sigma^2$-dependence *inside the exponent* of Theorem 1(ii) (the $\sigma^2$ scaling is
+certified at Chebyshev grade only); (d) the $o(1)$ bookkeeping of the prefix's own $O(k/n)$
+contribution, which the formal statements avoid by defining values as post-decision
+ratios; and (e) exponential tails under random order, which we cite rather than reprove.
+Nothing about the matching algorithms themselves is formalized: the development is about
+the statistics of testing advice, which is what the law is.

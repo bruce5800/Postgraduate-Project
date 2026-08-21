@@ -38,9 +38,20 @@ echo "fragments: $(ls ch/*.tex | wc -l | tr -d ' ') chapters"
 # abstract.tex from latex/meta.yaml's "abstract: |" block
 python3 - <<'EOF'
 import re, subprocess, pathlib
-meta = pathlib.Path('../latex/meta.yaml').read_text()
-m = re.search(r'^abstract: \|\n((?:  .*\n?)+)', meta, re.M)
-text = '\n'.join(l[2:] for l in m.group(1).splitlines())
+meta = pathlib.Path('../latex/meta.yaml').read_text().splitlines()
+# The block runs to the first non-blank line that is not indented; blank lines are part
+# of it (an earlier regex stopped at the first blank line and silently dropped every
+# paragraph after the opening one).
+start = meta.index('abstract: |') + 1
+body = []
+for line in meta[start:]:
+    if line.strip() == '':
+        body.append('')
+    elif line.startswith('  '):
+        body.append(line[2:])
+    else:
+        break
+text = '\n'.join(body).strip('\n') + '\n'
 tex = subprocess.run(['pandoc', '-f', 'markdown', '-t', 'latex'],
                      input=text, capture_output=True, text=True, check=True).stdout
 pathlib.Path('abstract.tex').write_text(tex)

@@ -107,6 +107,11 @@ forces $P_G(\mathsf F)\ge 1-\eta_c-o(1)$. Symmetrically $P_{\mathrm{Bd}}(\mathsf
 +o(1)$. Since $D$ is a function of $(X_{1:k},\sigma)$ and $\sigma$ is identical,
 $|P_G(\mathsf F)-P_{\mathrm{Bd}}(\mathsf F)|\le\gamma_k$; chaining gives the claim. $\qed$
 
+In the form that sets the prefix's own $O(k/n)$ aside by defining values as post-decision
+ratios, the inequality is exact — $(1-\eta_c)\le\eta_r+\gamma_k$ with no $o(1)$ — for
+every finite prefix space and every $[0,1]$-valued rule; that is the form machine-checked
+in Appendix C (`Scenario.master_tradeoff`).
+
 With an *uninformative* prefix ($\gamma_k=o(1)$) one cannot be both near-fully-consistent
 ($\eta_c\to0$) and robust ($\eta_r\to0$). Everything below is a computation of how large
 $k$ must be before the prefix becomes informative — and (the half the earlier draft
@@ -127,15 +132,16 @@ the advice's *direction* is right, where $s_i = \tfrac12 \pm \varepsilon_i$ is t
 specialist bias and $\varepsilon_i$ the signal; the advice-to-truth distance is
 $\ell_1=2\theta_i\lvert s_i-\hat s_i\rvert$ per cell.
 
-These aggregate cleanly. Summing over cells yields an **exact affine law** (proven; verified
-to three decimals):
+These aggregate cleanly. Summing over cells yields an **exact affine law** (proven, and
+machine-checked from the cell constants, Appendix C; verified to three decimals):
 $$\mathbb E[\text{follow-ratio}] \;=\; \rho_{\mathrm{perfect}} - \tfrac12\,\ell_1(p,q),
 \qquad \ell_1^\star \;=\; 2\big(\rho_{\mathrm{perfect}}-\rho_{\mathrm{base}}\big),$$
 where $\rho_{\mathrm{perfect}}$ is the all-correct-direction ratio and $\ell_1^\star$ the
 break-even. The quantity that organizes everything is the family's **specialist mass**
 $$\sigma^2 \;:=\; \frac{\sum_i \theta_i}{N}, \qquad N=\sum_i(1+\theta_i)=\mathrm{OPT}$$
 — the probability that a random arrival is a specialist, and (below) the variance bound
-on the decision statistic. Two exact identities anchor what follows: the baseline slack
+on the decision statistic. Two exact identities (both machine-checked, Appendix C) anchor
+what follows: the baseline slack
 *is* half the specialist mass,
 $$1-\rho_{\mathrm{base}} \;=\; \sigma^2/2,$$
 and the maximum stakes (the full upside) are
@@ -173,7 +179,8 @@ $$c(X) \;=\; \begin{cases} +1 & X \text{ is the advice-favored specialist of its
 > $$\mathbb E_p[c] \;=\; \frac2N\sum_i \theta_i\,(s_i-\tfrac12)\,\hat d_i
 > \;=\; 2\cdot\frac{\mathbb E_p[\mathrm{Mimic}]-\mathbb E_p[B]}{\mathrm{OPT}}.$$
 > *The expected advantage of following the advice is half the mean of a bounded, per-sample
-> observable.* (Verified to three decimals by `verify_witness_gap.py` for
+> observable.* (Machine-checked from the cell constants — `CellFamily.payoff_identity`,
+> Appendix C; verified to three decimals by `verify_witness_gap.py` for
 > homogeneous wrong-fraction sweeps, and by
 > `verify_budget_stakes_hetero.py` for random heterogeneous and
 > magnitude-mismatched profiles.)
@@ -247,6 +254,12 @@ fix: 在定理陈述前统一符号，并写明 (i) 的 g 与 (ii) 的 min(delta
 $\le -2\Delta$ under the loss scenario, for any truth profile;
 $\mathrm{Var}(c) \le \mathbb P(\text{specialist}) = \sigma^2$; Bernstein's inequality
 gives error $\exp(-\Omega(k\min(\delta,\Delta)^2/\sigma^2))$ on both sides. $\qed$
+(Explicit constants, machine-checked in Appendix C:
+`iid_prob_sum_nonpos_le` gives, without the variance refinement, error at most
+$e^{-k\min(\delta,\Delta)^2}$; `iid_prob_sum_nonpos_le_cheb` gives the
+$\sigma^2$-scaling at Chebyshev grade, error at most
+$\sigma^2/(4k\min(\delta,\Delta)^2)$; Bernstein's exponential $\sigma^2$-dependence is
+the one step of the upper half taken from the textbook rather than the kernel.)
 
 <!--REV
 id: 6-05
@@ -265,7 +278,8 @@ $H^2 = \sum_{i\in W}\tfrac{2\theta_i}{N}\big(1-\sqrt{1-4\varepsilon_i^2}\big)
 \in [4,8]\cdot\sum_{i\in W}\theta_i\varepsilon_i^2/N \le 4\,\varepsilon_W\,g$.
 Tensorizing the Bhattacharyya coefficient and passing to total variation gives
 $\gamma_k \le \sqrt{k\,H^2} = o(1)$ whenever $k = o(1/(\varepsilon_W g))$, and Lemma 1
-turns that into $\eta_c+\eta_r\ge 1-o(1)$. $\qed$
+turns that into $\eta_c+\eta_r\ge 1-o(1)$ (these last steps, chained with Lemma 1, are
+machine-checked: `Scenario.master_tradeoff_iid`, Appendix C). $\qed$
 
 Numerically (§`verify_witness_gap.py`, $\theta=0.6$, $\varepsilon=0.3$, $\delta=0.056$):
 the directional test reaches $\eta_c+\eta_r \approx 0.06$ at $k=100$ and $0.007$ at
@@ -358,7 +372,13 @@ and $\ell_1$ stops being the decision-relevant quantity.
 Both halves of Theorem 1 use only elementary tools (Bernstein; Hellinger tensorization
 plus Lemma 1) — deliberately: the earlier, stronger-sounding route through tolerant-testing
 lower bounds is closed by §7.7, and we consider the refutation itself part of the
-contribution. The law now allows fully heterogeneous cell profiles, and its achievability
+contribution. The tools are elementary enough that the entire chain — the three identities
+of §7.3–7.4, Lemma 1 in exact form, and both halves of the law at the abstract level (a
+finite Chernoff bound above, Hellinger tensorization below) — is formalized in Lean 4 over
+Mathlib and accepted by its kernel: 66 theorems and lemmas, no `sorry`, shipped in the
+artifact (Appendix C). We offer the kernel certificate in place of heavier machinery, and
+list there what the formalization does *not* cover — the cell constants, the explicit
+Hellinger evaluation on the family, and Bernstein's $\sigma^2$-dependent exponent. The law now allows fully heterogeneous cell profiles, and its achievability
 side holds for arbitrary (magnitude-mismatched) truth distributions — neither homogeneity
 nor the matched-magnitude advice model is load-bearing. Its two sides can separate, by
 the factor $\sigma^2\varepsilon_W/g \ge 1$, when a scenario pair's stakes hide in an
@@ -384,3 +404,21 @@ fix: 把检索范围写进 §9（库、关键词、截止时间），正文指�
 -->
 baseline-coupling their threshold already exhibits; our contribution is the two-sided,
 rule-independent budget law, the payoff/distance separation, and the quantified wall.
+
+**Remark (random order).** The law's scaling is not tied to i.i.d. arrivals. In the
+random-order model — a fixed population of $n$ arrivals presented in a uniformly random
+order, the algorithm deciding on the first $k$ — both halves persist. *Lower half:* an
+adversary who draws the population i.i.d. from $P$ (respectively $Q$) and presents it in
+random order presents exactly the product law, because a uniformly shuffled i.i.d. sample
+is i.i.d. (`shuffled_iid_expect`, Appendix C); Theorem 1(i) therefore binds every
+random-order rule as stated, up to the $o(1)$ by which the stakes of a random population
+concentrate at their mean. *Upper half:* on a fixed population the payoff identity holds
+pathwise (the favored-minus-disfavored specialist count is twice the realized
+follow-advantage, and $\mathrm{OPT}=n$), and the directional statistic is a sum without
+replacement whose variance is at most $k\,\mathbb E_{\mathrm{pop}}[c^2]=k\sigma^2_{\mathrm{pop}}$
+(the finite-population correction only helps), so the directional test errs with
+probability at most $\sigma^2_{\mathrm{pop}}/(4k\min(\delta,\Delta)^2)$
+(`ro_prob_sum_nonpos_le`, Appendix C) — the same budget, at Chebyshev grade; the
+exponential form follows from Hoeffding's without-replacement theorem [Hoe63] (or
+Serfling's sharpening [Ser74]), which we cite rather than reprove. What does *not*
+transfer is the empirical wall of §3–§6, which is an average-case statement.

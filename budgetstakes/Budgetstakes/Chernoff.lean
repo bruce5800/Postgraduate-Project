@@ -21,7 +21,7 @@ Bernstein-type bound (Stage 6).
 
 Design: no measure theory. Independence enters through exactly one
 combinatorial identity, `sum_prod_eq_pow`
-(`∑ x : Fin k → Ω, ∏ i, g (x i) = (∑ ω, g ω)^k`), proved by induction; the
+(`∑ x : Fin k → Ω, ∏ i, g (x i) = (∑ ω, g ω)^k`), via `Finset.prod_univ_sum`; the
 pointwise MGF bound is `e^y ≤ 1 + y + y²` for `|y| ≤ 1`
 (`Real.abs_exp_sub_one_sub_le`), and the tilt is fixed at `t = μ/2`.
 -/

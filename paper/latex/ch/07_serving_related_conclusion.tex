@@ -128,12 +128,14 @@ use them as ground truth, not as contributions.
 
 \section{Limitations and Conclusion}
 
-\textbf{Limitations.} (i) We work in the known-i.i.d. model; since
-Known-IID \(\le\) Random-Order, the algorithms' guarantees carry, but
-our empirical wall is an average-case statement and we do not claim it
-for adversarial arrival order. (ii) Following the original authors, the
-test-and-fallback experiments use an empirical-\(\ell_1\) surrogate for
-the (unimplemented) distribution tester; the theory does \emph{not}
+\textbf{Limitations.} (i) The experiments are in the known-i.i.d. model.
+Every known-i.i.d. instance is also a random-order instance, so
+guarantees proved in the random-order model carry over to ours but not
+conversely; the law itself does extend to random order (Remark, §7.8),
+but our empirical wall is an average-case statement and we do not claim
+it for adversarial arrival order. (ii) Following the original authors,
+the test-and-fallback experiments use an empirical-\(\ell_1\) surrogate
+for the (unimplemented) distribution tester; the theory does \emph{not}
 inherit this modeling --- the law binds any rule --- and §7.7 separately
 explains the surrogate's blindness. (iii) The degree- and
 histogram-prediction families do not map onto every graph, which is why

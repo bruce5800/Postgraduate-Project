@@ -370,68 +370,71 @@ nput line 78.
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 [18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
 [20.20]
 
-Class acmart Warning: A possible image without description on input line 335.
+Class acmart Warning: A possible image without description on input line 353.
 
 
 Package natbib Warning: Citation `choo2024imperfect' on page 21 undefined on in
-put line 341.
+put line 359.
 
 
 Package natbib Warning: Citation `bem2026testmatch' on page 21 undefined on inp
-ut line 341.
+ut line 359.
 
 
-Class acmart Warning: A possible image without description on input line 364.
+Class acmart Warning: A possible image without description on input line 382.
 
 
 Package natbib Warning: Citation `canonne2022tolerance' on page 21 undefined on
- input line 368.
+ input line 386.
 
 
-[21.21 <./figs/impossibility_frontier.png>])
-(./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
+[21.21 <./figs/impossibility_frontier.png>]
 [22.22 <./figs/directional_rsweep.png>]
 
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
+Package natbib Warning: Citation `hoeffding1963probability' on page 23 undefine
+d on input line 462.
+
+
+Package natbib Warning: Citation `serfling1974probability' on page 23 undefined
+ on input line 463.
+
+) (./ch/07_serving_related_conclusion.tex
+[23.23]
+
+Package natbib Warning: Citation `choo2024imperfect' on page 24 undefined on in
 put line 60.
 
 
-Package natbib Warning: Citation `lykouris2018caching' on page 23 undefined on 
+Package natbib Warning: Citation `lykouris2018caching' on page 24 undefined on 
 input line 66.
 
 
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 23 undefined o
+Package natbib Warning: Citation `weizhang2020tradeoffs' on page 24 undefined o
 n input line 67.
 
 
-Package natbib Warning: Citation `chledowski2021caching' on page 23 undefined o
+Package natbib Warning: Citation `chledowski2021caching' on page 24 undefined o
 n input line 71.
 
 
-Package natbib Warning: Citation `antoniadis2025switching' on page 23 undefined
+Package natbib Warning: Citation `antoniadis2025switching' on page 24 undefined
  on input line 74.
 
 
-Package natbib Warning: Citation `cui2026skirental' on page 23 undefined on inp
+Package natbib Warning: Citation `cui2026skirental' on page 24 undefined on inp
 ut line 76.
 
 
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
+Package natbib Warning: Citation `choo2024imperfect' on page 24 undefined on in
 put line 80.
 
 
-Package natbib Warning: Citation `bhattacharyya2025product' on page 23 undefine
+Package natbib Warning: Citation `bhattacharyya2025product' on page 24 undefine
 d on input line 80.
 
-
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23]
 
 Package natbib Warning: Citation `wald1947sequential' on page 24 undefined on i
 nput line 87.
@@ -488,8 +491,9 @@ put line 116.
 Package natbib Warning: Citation `jiao2018l1' on page 24 undefined on input lin
 e 117.
 
-)
-[24.24] (./ch/08_appendix.tex
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[24.24]) (./ch/08_appendix.tex
 Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
 \T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
 0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
@@ -500,16 +504,16 @@ Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
 []\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
 talg-submission-2026-08 
 
-Underfull \vbox (badness 1231) has occurred while \output is active
 [25.25]
 
 Package natbib Warning: Citation `borodin2018experimental' on page 26 undefined
- on input line 118.
-
+ on input line 120.
 
 [26.26]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[27.27])
+[27.27]
+[28.28] [29.29]) Processing 'acks' comment.
+Comment 'acks' writing to comment.cut. Straight input of comment.cut.
+(./comment.cut)
 No file arxiv_main.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -530,7 +534,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[28.28] (./arxiv_main.aux)
+[30.30] (./arxiv_main.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -559,7 +563,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on arxiv_main.pdf (28 pages, 1581612 bytes).
+Output written on arxiv_main.pdf (30 pages, 1596363 bytes).
 Transcript written on arxiv_main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025)
 The top-level auxiliary file: arxiv_main.aux
@@ -989,68 +993,71 @@ nput line 78.
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 [18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
 [20.20]
 
-Class acmart Warning: A possible image without description on input line 335.
+Class acmart Warning: A possible image without description on input line 353.
 
 
 Package natbib Warning: Citation `choo2024imperfect' on page 21 undefined on in
-put line 341.
+put line 359.
 
 
 Package natbib Warning: Citation `bem2026testmatch' on page 21 undefined on inp
-ut line 341.
+ut line 359.
 
 
-Class acmart Warning: A possible image without description on input line 364.
+Class acmart Warning: A possible image without description on input line 382.
 
 
 Package natbib Warning: Citation `canonne2022tolerance' on page 21 undefined on
- input line 368.
+ input line 386.
 
 
-[21.21 <./figs/impossibility_frontier.png>])
-(./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
+[21.21 <./figs/impossibility_frontier.png>]
 [22.22 <./figs/directional_rsweep.png>]
 
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
+Package natbib Warning: Citation `hoeffding1963probability' on page 23 undefine
+d on input line 462.
+
+
+Package natbib Warning: Citation `serfling1974probability' on page 23 undefined
+ on input line 463.
+
+) (./ch/07_serving_related_conclusion.tex
+[23.23]
+
+Package natbib Warning: Citation `choo2024imperfect' on page 24 undefined on in
 put line 60.
 
 
-Package natbib Warning: Citation `lykouris2018caching' on page 23 undefined on 
+Package natbib Warning: Citation `lykouris2018caching' on page 24 undefined on 
 input line 66.
 
 
-Package natbib Warning: Citation `weizhang2020tradeoffs' on page 23 undefined o
+Package natbib Warning: Citation `weizhang2020tradeoffs' on page 24 undefined o
 n input line 67.
 
 
-Package natbib Warning: Citation `chledowski2021caching' on page 23 undefined o
+Package natbib Warning: Citation `chledowski2021caching' on page 24 undefined o
 n input line 71.
 
 
-Package natbib Warning: Citation `antoniadis2025switching' on page 23 undefined
+Package natbib Warning: Citation `antoniadis2025switching' on page 24 undefined
  on input line 74.
 
 
-Package natbib Warning: Citation `cui2026skirental' on page 23 undefined on inp
+Package natbib Warning: Citation `cui2026skirental' on page 24 undefined on inp
 ut line 76.
 
 
-Package natbib Warning: Citation `choo2024imperfect' on page 23 undefined on in
+Package natbib Warning: Citation `choo2024imperfect' on page 24 undefined on in
 put line 80.
 
 
-Package natbib Warning: Citation `bhattacharyya2025product' on page 23 undefine
+Package natbib Warning: Citation `bhattacharyya2025product' on page 24 undefine
 d on input line 80.
 
-
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23]
 
 Package natbib Warning: Citation `wald1947sequential' on page 24 undefined on i
 nput line 87.
@@ -1107,8 +1114,9 @@ put line 116.
 Package natbib Warning: Citation `jiao2018l1' on page 24 undefined on input lin
 e 117.
 
-)
-[24.24] (./ch/08_appendix.tex
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[24.24]) (./ch/08_appendix.tex
 Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
 \T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
 0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
@@ -1119,18 +1127,17 @@ Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
 []\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
 talg-submission-2026-08 
 
-Underfull \vbox (badness 1231) has occurred while \output is active
 [25.25]
 
 Package natbib Warning: Citation `borodin2018experimental' on page 26 undefined
- on input line 118.
-
+ on input line 120.
 
 [26.26]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[27.27]) (./arxiv_main.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active
-[28.28])
+[27.27]
+[28.28] [29.29]) Processing 'acks' comment.
+Comment 'acks' writing to comment.cut. Straight input of comment.cut.
+(./comment.cut) (./arxiv_main.bbl
+[30.30])
 
 Package natbib Warning: There were undefined citations.
 
@@ -1150,7 +1157,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[29.29] (./arxiv_main.aux
+[31.31] (./arxiv_main.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
@@ -1184,7 +1191,7 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on arxiv_main.pdf (29 pages, 1595056 bytes).
+Output written on arxiv_main.pdf (31 pages, 1610045 bytes).
 Transcript written on arxiv_main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1389,24 +1396,21 @@ Class acmart Warning: A possible image without description on input line 62.
 (/Users/lizhuolun/Library/texmf/tex/latex/libertine/ot1linuxbiolinumt-tlf.fd)
 [18.18{/Users/lizhuolun/Library/texmf/fonts/enc/dvips/libertine/lbtn_edcawa.enc
 }]
-Underfull \vbox (badness 1558) has occurred while \output is active
 [19.19]
-Underfull \vbox (badness 6300) has occurred while \output is active
 [20.20]
 
-Class acmart Warning: A possible image without description on input line 335.
+Class acmart Warning: A possible image without description on input line 353.
 
 
-Class acmart Warning: A possible image without description on input line 364.
+Class acmart Warning: A possible image without description on input line 382.
 
 
-[21.21 <./figs/impossibility_frontier.png>])
+[21.21 <./figs/impossibility_frontier.png>]
+[22.22 <./figs/directional_rsweep.png>])
 (./ch/07_serving_related_conclusion.tex
-Underfull \vbox (badness 5189) has occurred while \output is active
-[22.22 <./figs/directional_rsweep.png>]
-Underfull \vbox (badness 4048) has occurred while \output is active
-[23.23])
-[24.24] (./ch/08_appendix.tex
+[23.23]
+Underfull \vbox (badness 10000) has occurred while \output is active
+[24.24]) (./ch/08_appendix.tex
 Overfull \hbox (8.39005pt too wide) in paragraph at lines 3--6
 \T1/LinuxLibertineT-TLF/b/n/9 (-20) Artifact. \T1/LinuxLibertineT-TLF/m/n/9 (-2
 0) The code, the re-quest traces and the re-sult files be-hind ev-ery fig-ure a
@@ -1417,13 +1421,12 @@ Overfull \hbox (14.46333pt too wide) in paragraph at lines 8--9
 []\T1/zi4/m/n/9 https://github.com/bruce5800/Postgraduate-Project/releases/tag/
 talg-submission-2026-08 
 
-Underfull \vbox (badness 1231) has occurred while \output is active
-[25.25]
-[26.26]
-Underfull \vbox (badness 10000) has occurred while \output is active
-[27.27]) (./arxiv_main.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active
-[28.28])
+[25.25] [26.26]
+[27.27]
+[28.28] [29.29]) Processing 'acks' comment.
+Comment 'acks' writing to comment.cut. Straight input of comment.cut.
+(./comment.cut) (./arxiv_main.bbl
+[30.30])
 
 Class acmart Warning: Some images may lack descriptions.
 (acmart)              ACM is committed to complying with the upcoming US ADA ht
@@ -1440,7 +1443,7 @@ rtant steps when creating your papers will ensure that the widest possible audi
 ence can ingest your work..
 
 
-[29.29] (./arxiv_main.aux) )
+[31.31] (./arxiv_main.aux) )
 (see the transcript file for additional information)</Users/lizhuolun/Library/t
 exmf/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/lizhuolun/Libr
 ary/texmf/fonts/type1/public/newtx/LibertineMathMI.pfb></Users/lizhuolun/Librar
@@ -1460,5 +1463,5 @@ nts/type1/public/newtx/NewTXMI7.pfb></Users/lizhuolun/Library/texmf/fonts/type1
 /public/newtx/txexs.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newt
 x/txmiaX.pfb></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsym.pfb
 ></Users/lizhuolun/Library/texmf/fonts/type1/public/newtx/txsys.pfb>
-Output written on arxiv_main.pdf (29 pages, 1598627 bytes).
+Output written on arxiv_main.pdf (31 pages, 1613786 bytes).
 Transcript written on arxiv_main.log.

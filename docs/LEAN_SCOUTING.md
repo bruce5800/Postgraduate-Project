@@ -46,3 +46,38 @@
    一般测度世界）；备选：对有限 iid 直接手推 Chernoff（多项式 MGF，Finset 可证）。
 2. `Real.sqrt` 不等式操作（Stage 5 的 [2t,4t]）繁琐但无深度。
 3. 渐近语句一律重写为显式常数的非渐近版——论文 §7.5 的表述届时应同步收紧（好事）。
+
+---
+
+## 状态更新（2026-08-21）：Stage 0–5 + 7 完成，66 条定理、零 sorry
+
+| 阶段 | 文件 | 定理数 | 结果 |
+|---|---|---|---|
+| 1 | `PayoffIdentity.lean` | 4 | payoff 恒等式、σ² 恒等式 |
+| 2 | `AffineLaw.lean` | 7 | 仿射律 + 推论 |
+| 3 | `MasterTradeoff.lean` | 8 | TV 耦合界；主权衡不等式（**精确、非渐近**） |
+| 4 | `Chernoff.lean` | 9 | 有限 Chernoff `exp(−kμ²/4)`（Thm 1(ii) 弱常数版） |
+| 5 | `Hellinger.lean` | 11 | BC 张量化、`TV ≤ √(2k(1−bc))`、`master_tradeoff_iid`（Thm 1(i) 抽象核心） |
+| 7 | `RandomOrder.lean` | 27 | 方差 + Chebyshev；iid 前缀和方差精确值 `k·Var(c)` ⇒ **σ²-锐利标度（Chebyshev 级）**；iid 前缀的置换不变性（下界向 random-order 的 Yao 式转移）；**random-order 模型**：均匀置换、可交换性（仅用传递性、零计数）、有限总体方差 `≤ k·E_pop[c²]`、`Pr(∑≤0) ≤ E_pop[c²]/(kμ²)` |
+
+实际用时远低于侦察估计：全部 6 个阶段约 1.5 个工作日；"有限世界路线"（自定义 `FinDist`，
+`sum_prod_eq_pow` 一条恒等式承载全部独立性）是决定性选择。Stage 4 预想的"PMF↔测度桥接
+卡点"根本没出现——因为根本没接 Mathlib 的 SubGaussian。
+
+### T3 / T4 / T5 能否"用 Lean 试证"——诚实评估
+
+前提要说清：**Lean 只能验证已有的证明，不能发现定理**；它对付的是"信任缺口"，不是"工具
+初等"。"工具初等"是审稿人对*概念深度*的质疑，能正面回应它的只有（a）定理类的一般性、
+（b）双侧紧性、（c）诚实的定位；形式化的作用是让 (a)(b) 的**每一条声明都不可辩驳**。
+
+| 项 | 数学是否已有 | Lean 可行性 | 结论 |
+|---|---|---|---|
+| **T5 random-order** | 下界：Yao 式归约（iid 总体的随机次序前缀仍是 iid）——**已有**；上界：无放回前缀和的浓度 | 下界转移引理 + Chebyshev 级上界 **已形式化（Stage 7）**；指数尾需 Hoeffding 凸序定理/Serfling（Maclaurin 端点不等式 `e_k/C(n,k) ≤ (e_1/n)^k`），约 1–2 周、有风险 | ✅ 骨架已机器验证；指数尾列为可选 |
+| **T3 gadget 类推广** | **没有**：常数大小 gadget 的期望 payoff 是到达分布的非线性泛函（含 Binomial 到达计数），方向统计量要从逐样本线性量换成 plug-in/U-统计量，方差分析待做 | 抽象框架（`Scenario`/`master_tradeoff`/`iid`/Chebyshev）已是 gadget-无关的，随时可接；但 **Lean 不能替代纸面上 2–4 周的数学** | ⏸ 先做数学，再形式化（1–2 周） |
+| **T4 一般图** | 开放问题（研究级，2–6 个月、无保证） | 不是 Lean 的用武之地；至多在找到分离构造后形式化 | ✖ 不纳入 |
+
+### 对投稿的直接含义
+- 论文 Limitations (i)（"我们在 known-i.i.d. 模型"）可以升级为一个有形式化背书的 remark：
+  定律的**标度**在 random-order 下成立（下界 Yao 归约，上界 Chebyshev 级）。
+- 信任叙事最终形态："the budget–stakes law is machine-checked in Lean 4 on both sides at the
+  abstract level, and its scaling is machine-checked under random order; 66 theorems, 0 sorries."
