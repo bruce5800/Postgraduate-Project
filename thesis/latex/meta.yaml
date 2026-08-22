@@ -40,6 +40,6 @@ abstract: |
   - I gave the first empirical study of test-and-fallback --- a pathology in which a *more
     accurate* test decides *worse*, and a resolution limit (pages 26--31) --- and established
     external validity on six real graphs and a cheap non-ML predictor (pages 32--35).
-  - I report two negative results (pages 36--45) and prove a consistency/robustness trade-off
+  - I report two negative results (pages 36--44) and prove a consistency/robustness trade-off
     inequality putting the uncapturable upside at $\approx0.004$ for the benchmark's
-    parameters --- the order of those measured (pages 46--50).
+    parameters --- the order of those measured (pages 45--50).

@@ -221,16 +221,12 @@ disturbs existing results (Appendix A.1 lists the streams). We use **paired tria
 level reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so
 differences are attributable to the prediction alone. Reported ratios are means over trials
 with 95% normal-approximation confidence intervals, computed per algorithm and error level.
-Those per-algorithm intervals under-use the pairing: a comparison between two algorithms is
-really a *paired difference*, whose interval is narrower whenever the two respond to the same
-instances in the same direction. We measured this on the comparisons the thesis actually
-draws (`scripts/run_metric_check.py`, §A.2). Where the per-instance ratios are positively
-correlated the paired interval is $1.7$–$2.6\times$ narrower (correlations $0.67$ and
-$0.85$); where they are not — blind following against Ranking under garbage advice, whose
-correlation is $-0.15$ — pairing does not help and the per-algorithm interval is the honest
-one. Every comparison the thesis draws survives under the wider convention; the narrowest
-margin is Feldman(MPD)'s $+0.0044$ against a $\pm0.0023$ per-algorithm interval, which the
-pairing tightens to $\pm0.0009$. Nothing in the thesis turns on which convention is used. Every figure and table in the thesis is
+Those per-algorithm intervals are the conservative choice: they under-use the pairing, since
+a comparison between two algorithms is really a *paired difference*, whose interval is
+narrower whenever the two respond to the same instances in the same direction. Every
+comparison the thesis draws survives under the wider convention — the narrowest margin being
+Feldman(MPD)'s $+0.0044$ against a $\pm0.0023$ per-algorithm interval — so nothing in the
+thesis turns on which is used; §A.2 reports the measured correlations and paired intervals. Every figure and table in the thesis is
 regenerated from a fixed seed by a single script (Appendix A).
 
 <!--REV
@@ -298,14 +294,14 @@ note: 这一段把六个数字和三条结论混排在一句里，而复现章�
 fix: 先给一句结论（all five qualitative claims reproduce, with absolute differences below 0.02），再列证据。这样跳读的人一眼就拿到了本节的作用。
 -->
 
-![Erdős–Rényi reproduction: the characteristic U-shape, greedy minima near $c\approx4.9$, non-greedy degradation as $c$ grows.](../../results/er_full.png){width=85%}
+![Erdős–Rényi reproduction: the characteristic U-shape, greedy minima near $c\approx4.9$, non-greedy degradation as $c$ grows.](../../results/er_full.png){width=65%}
 
 **Random left-regular (left-degree $d$; the paper's Fig. 18, partial).** The pattern
 repeats with the hard case at $d=5$ (SimpleGreedy minimum $0.890$), Ranking $\approx$
 SimpleGreedy (max difference $0.0013$), non-greedy degradation as $d$ grows, and greedy
 complex variants $\approx$ SimpleGreedy asymptotically.
 
-![Random left-regular reproduction: the hard case at $d=5$, Greedy $\approx$ Ranking.](../../results/left_regular.png){width=85%}
+![Random left-regular reproduction: the hard case at $d=5$, Greedy $\approx$ Ranking.](../../results/left_regular.png){width=65%}
 
 **A cross-family observation.** Combining the two sweeps surfaces a non-obvious fact: the
 non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in

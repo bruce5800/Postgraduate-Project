@@ -183,7 +183,7 @@ note: 非预测策略跑赢了全知策略，这在逻辑上就说明全知策�
 fix: 把这句改成对照组局限的证据并就地说明原因（全知策略按未来 burst 预留，反而在中等负载下预留过多）。诚实处理这一点会显著提高本节的可信度。
 -->
 
-![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=75%}
+![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=60%}
 
 **Verdict.** The tail objective is forgiving too — a third face of the wall, after
 throughput (Chapters 4–7) and predictor-learning (§8.1). We found no natural regime where
@@ -204,25 +204,22 @@ fix: 定 8.2 为正本（它属于负结果章），9.2 压到两句并写 we su
 
 ## 8.3 A literature review that redirected the work
 
-Deciding *which* of our findings were genuinely novel — and worth developing — required a
-systematic prior-art review rather than intuition. We searched the prior art from several
-independent starting points and checked each candidate-novelty claim against the primary
-papers rather than against their abstracts. The review returned honest, sometimes deflating,
-verdicts. It confirmed that the unified experimental
-benchmark and the empirical study of test-and-fallback are unoccupied and worth leading
-with; that the order-error finding is *partially* pre-empted by ACI's Appendix D and must be
-reframed as a tightness/measure characterization rather than a discovery (Chapter 5); and
-that the serving results are largely re-derivations of established systems facts, warranting
-their demotion to a case study (§8.2, Chapter 9). A second, focused prior-art pass on the
-theory question confirmed that no prior work quantifies the cost of the prefix test on
-strong-baseline instances, while flagging the one risk any such result must defend against
-(Choo et al.'s constructive baseline-coupling) — both inputs to the outlook of §10.2 and
-to the companion theoretical work it defers to.
+Deciding *which* of our findings were genuinely novel required a systematic prior-art review
+rather than intuition: we searched from several independent starting points and checked each
+candidate claim against the primary papers rather than their abstracts. The verdicts were
+sometimes deflating. The unified benchmark and the empirical study of test-and-fallback are
+unoccupied and worth leading with; the order-error finding is *partially* pre-empted by ACI's
+Appendix D and had to be reframed as a tightness/measure characterization rather than a
+discovery (Chapter 5); and the serving results are largely re-derivations of established
+systems facts, warranting their demotion to a case study (§8.2, Chapter 9). A focused second
+pass confirmed that no prior work quantifies the cost of the prefix test on strong-baseline
+instances, while flagging the one risk any such result must defend against (Choo et al.'s
+constructive baseline-coupling), an input to the outlook of §10.2.
 
-This review is itself part of the research process reported here: it turned an
-undifferentiated pile of findings into a prioritized contribution, redirected effort away
-from low-value elaborations (weighted-value variants, more baseline comparisons) and toward
-the theory question, and enforced the honesty guardrails carried throughout the thesis.
+The review is itself part of the research process reported here: it turned an undifferentiated
+pile of findings into a prioritized contribution, redirected effort away from low-value
+elaborations toward the theory question, and enforced the honesty guardrails carried
+throughout the thesis.
 
 <!--REV
 id: 8-11
@@ -252,10 +249,9 @@ The three explorations point the same way. A better-trained predictor does not h
 features (§8.1); a with-predictions lens does not rescue serving even on a tail objective
 (§8.2); and the literature review confirmed there was no easy performance win to be had
 (§8.3). Together with the throughput wall of Chapters 4–7, they show the phenomenon is not
-confined to one objective, one algorithm, or one dataset — it recurs everywhere we pushed.
-That robustness of the empirical finding is precisely what suggested it might be *forced*
-rather than accidental — the question the concluding outlook (§10.2) takes up, and which
-the companion theoretical work in preparation pursues in full.
+confined to one objective, one algorithm or one dataset: it recurs everywhere we pushed, and
+that robustness is what suggested the wall might be *forced* rather than accidental — the
+question the concluding outlook (§10.2) takes up.
 
 <!--REV
 id: 8-13

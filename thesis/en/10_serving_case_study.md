@@ -115,7 +115,7 @@ fix: 降为观察加条件：over the capacity range we swept, added capacity bu
   is not merely better than the forecast-following one — it is within $2\%$ of what perfect
   hindsight could have achieved.
 
-![The cache-affinity reversal (Mooncake trace, 16 replicas, cache capacity swept from 200 to 4000 blocks): stable placement beats reactive routing for KV-cache reuse. The vertical axis is the KV-cache hit fraction, not a competitive ratio.](../../results/prefix_cache_reversal.png){width=60%}
+![The cache-affinity reversal (Mooncake trace, 16 replicas, cache capacity swept from 200 to 4000 blocks): stable placement beats reactive routing for KV-cache reuse. The vertical axis is the KV-cache hit fraction, not a competitive ratio.](../../results/prefix_cache_reversal.png){width=50%}
 
 **Cache-affinity routing** (**Figure 9.3**). For prefix-cache-aware routing, a *stable*
   affinity router beats a reactive one — the reverse of the traffic-forecast case, because

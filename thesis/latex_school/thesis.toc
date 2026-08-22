@@ -42,22 +42,23 @@
 \contentsline {section}{\numberline {8.2}Rescuing the serving application with a with-predictions result (a negative probe)}{38}{section.8.2}%
 \contentsline {section}{\numberline {8.3}A literature review that redirected the work}{40}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Synthesis: the negatives point to the same wall}{40}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Application Case Study: AI-Inference Serving}{42}{chapter.9}%
-\contentsline {section}{\numberline {9.1}The serving instantiation}{42}{section.9.1}%
-\contentsline {section}{\numberline {9.2}A probe for a genuinely new result, and its negative}{45}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Chapter summary}{45}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{46}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Summary}{46}{section.10.1}%
-\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{47}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Limitations}{48}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Future work}{49}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Closing}{50}{section.10.5}%
+\contentsline {chapter}{\numberline {9}Application Case Study: AI-Inference Serving}{41}{chapter.9}%
+\contentsline {section}{\numberline {9.1}The serving instantiation}{41}{section.9.1}%
+\contentsline {section}{\numberline {9.2}A probe for a genuinely new result, and its negative}{44}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Chapter summary}{44}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{45}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Summary}{45}{section.10.1}%
+\contentsline {section}{\numberline {10.2}A theoretical outlook: the price of testing advice}{46}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Critical evaluation}{47}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Limitations}{49}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Future work}{50}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Closing}{50}{section.10.6}%
 \contentsline {chapter}{\numberline {A}Reproduction Guide}{51}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Environment and principles}{51}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Figure / table \ensuremath {\rightarrow } script map}{52}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Reproduction commands}{53}{section.A.3}%
+\contentsline {section}{\numberline {A.3}Reproduction commands}{54}{section.A.3}%
 \contentsline {section}{\numberline {A.4}Full Phase-2 reproduction tables (deferred from §3.6)}{54}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Data provenance}{55}{section.A.5}%
+\contentsline {section}{\numberline {A.5}Data provenance}{56}{section.A.5}%
 \contentsline {section}{\numberline {A.6}Outlook verification snippets (§10.2)}{56}{section.A.6}%
 \contentsline {chapter}{\nonumberline Bibliography}{58}{chapter*.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

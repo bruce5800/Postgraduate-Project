@@ -140,6 +140,18 @@ Runtimes are wall-clock on one machine (Apple M4 Pro, 12 cores); the
 scripts are single-threaded apart from NumPy's own vectorization, so
 they scale with single-core speed.
 
+\textbf{Interval convention (deferred from §3.5).}
+\texttt{run\_metric\_check.py} also compares the per-algorithm
+confidence intervals the thesis reports against paired-difference
+intervals on the same trials. Where the per-instance ratios are
+positively correlated the paired interval is \(1.7\)--\(2.6\times\)
+narrower (correlations \(0.67\) and \(0.85\)); where they are not ---
+blind following against Ranking under garbage advice, correlation
+\(-0.15\) --- pairing does not help and the per-algorithm interval is
+the honest one. The narrowest margin in the thesis, Feldman(MPD)'s
+\(+0.0044\) against a \(\pm0.0023\) per-algorithm interval, tightens to
+\(\pm0.0009\) under pairing.
+
 \section{Reproduction commands}
 
 \begin{verbatim}

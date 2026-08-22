@@ -282,9 +282,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 \end{figure}
-                   <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-
+l.278 \textbf{Verdict.}
+                        The harness reproduces the published qualitative <../..
+/results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
@@ -402,25 +402,24 @@ has been already used, duplicate ignored
 l.136 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
-[41]
 chapter 9.
 
-[42]
-[43
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.90 
       <../../results/serving_envelope.png>]
-[44
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.123 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
-[45
+[44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -430,10 +429,11 @@ l.1 \chapter
 ng>]
 chapter 10.
 
+[45]
 [46]
 [47]
-[48])
-[49] (./ch/A_reproduction.tex
+[48]
+[49]) (./ch/A_reproduction.tex
 [50]
 chapter A.
 
@@ -565,21 +565,21 @@ Overfull \hbox (20.56677pt too wide) in paragraph at lines 134--134
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 [52]
 [53]
-Overfull \hbox (92.25691pt too wide) in paragraph at lines 168--168
+Overfull \hbox (92.25691pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts; needs the line above)[] 
 
-Overfull \hbox (75.01071pt too wide) in paragraph at lines 168--168
+Overfull \hbox (75.01071pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (needs run_unified_benchmark first)[] 
 
-Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
+Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
 [54]
-[55])
-[56]
+[55]
+[56])
 [57]
 chapter without number
 
@@ -605,7 +605,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2466262 bytes).
+Output written on thesis.pdf (70 pages, 2500750 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -615,8 +615,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'refs_clean.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'refs_clean.bib'
-INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
 INFO - No sort tailoring available for locale 'en-US'
 INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
@@ -905,9 +905,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 \end{figure}
-                   <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-
+l.278 \textbf{Verdict.}
+                        The harness reproduces the published qualitative <../..
+/results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
@@ -1025,25 +1025,24 @@ has been already used, duplicate ignored
 l.136 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
-[41]
 chapter 9.
 
-[42]
-[43
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.90 
       <../../results/serving_envelope.png>]
-[44
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.123 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
-[45
+[44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1053,10 +1052,11 @@ l.1 \chapter
 ng>]
 chapter 10.
 
+[45]
 [46]
 [47]
-[48])
-[49] (./ch/A_reproduction.tex
+[48]
+[49]) (./ch/A_reproduction.tex
 [50]
 chapter A.
 
@@ -1188,21 +1188,21 @@ Overfull \hbox (20.56677pt too wide) in paragraph at lines 134--134
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 [52]
 [53]
-Overfull \hbox (92.25691pt too wide) in paragraph at lines 168--168
+Overfull \hbox (92.25691pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts; needs the line above)[] 
 
-Overfull \hbox (75.01071pt too wide) in paragraph at lines 168--168
+Overfull \hbox (75.01071pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (needs run_unified_benchmark first)[] 
 
-Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
+Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
 [54]
-[55])
-[56]
+[55]
+[56])
 [57]
 chapter without number
 
@@ -1228,7 +1228,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2466262 bytes).
+Output written on thesis.pdf (70 pages, 2500750 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1514,9 +1514,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 \end{figure}
-                   <../../results/er_full.png>]) (./ch/04_unified_benchmark.tex
-
+l.278 \textbf{Verdict.}
+                        The harness reproduces the published qualitative <../..
+/results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
@@ -1634,25 +1634,24 @@ has been already used, duplicate ignored
 l.136 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
-[41]
 chapter 9.
 
-[42]
-[43
+[41]
+[42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.90 
       <../../results/serving_envelope.png>]
-[44
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.123 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
-[45
+[44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1662,10 +1661,11 @@ l.1 \chapter
 ng>]
 chapter 10.
 
+[45]
 [46]
 [47]
-[48])
-[49] (./ch/A_reproduction.tex
+[48]
+[49]) (./ch/A_reproduction.tex
 [50]
 chapter A.
 
@@ -1797,21 +1797,21 @@ Overfull \hbox (20.56677pt too wide) in paragraph at lines 134--134
 []|\T1/lmtt/m/n/10.95 results/realworld.json|  
 [52]
 [53]
-Overfull \hbox (92.25691pt too wide) in paragraph at lines 168--168
+Overfull \hbox (92.25691pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/plot_unified_panels.py          # Table 4.
 1 (panel charts; needs the line above)[] 
 
-Overfull \hbox (75.01071pt too wide) in paragraph at lines 168--168
+Overfull \hbox (75.01071pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_consistency_robustness.py   # Fig 4.1 
 (needs run_unified_benchmark first)[] 
 
-Overfull \hbox (11.77464pt too wide) in paragraph at lines 168--168
+Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 []\T1/lmtt/m/n/10.95 python3 scripts/run_metric_check.py             # Ÿ3.1 and
  Ÿ3.5 methodology checks[] 
 
 [54]
-[55])
-[56]
+[55]
+[56])
 [57]
 chapter without number
 
@@ -1837,5 +1837,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2466262 bytes).
+Output written on thesis.pdf (70 pages, 2500750 bytes).
 Transcript written on thesis.log.

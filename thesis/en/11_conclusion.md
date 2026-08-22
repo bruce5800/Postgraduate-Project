@@ -66,13 +66,10 @@ price of finding out whether to trust them.**
 
 ## 10.2 A theoretical outlook: the price of testing advice
 
-This section does two things and nothing more: it proves one inequality, and then reads our
-own experiments through it. Nothing beyond that inequality is claimed as a theorem, and the
-reading that follows it is an interpretation of measurements rather than a proof.
-
-With the scope fixed: the experiments say that no *practical* acceptance threshold captures
-the upside safely (§6.3, Figure 6.4). The question here is whether a decision rule of some
-*other* kind could, on the inputs where the wall stands.
+This section proves one inequality and then reads our own experiments through it; nothing
+beyond that inequality is claimed as a theorem. The experiments say that no *practical*
+acceptance threshold captures the upside safely (§6.3, Figure 6.4); the question here is
+whether a decision rule of some *other* kind could.
 
 <!--REV
 id: 10-04
@@ -107,32 +104,26 @@ fix: 给一句直觉：gamma_k, the total variation distance between the two pre
 -->
 
 The proof is a short conditioning argument: capturing the upside forces the algorithm to
-follow with high probability under $G$; robustness forces fallback under $\mathrm{Bd}$;
-and no function of the prefix can behave differently on two prefix distributions that are
-statistically $\gamma_k$-close. The inequality thus converts "consistent *and* robust"
-into a question about *sample complexity*: how long must the prefix be before it
-distinguishes advice worth following from advice worth rejecting?
+follow under $G$, robustness forces it to fall back under $\mathrm{Bd}$, and no function of
+the prefix can behave differently on two prefix distributions that are statistically
+$\gamma_k$-close. "Consistent *and* robust" thus becomes a question of *sample complexity*:
+how long a prefix is needed to tell advice worth following from advice worth rejecting?
 
-The reading applies to the rare-resource instances that produce Figure 6.4 — a
-*decomposable* family, in which the instance splits into independent cells and the advice
-acts on each of them separately — and it is a **budget–stakes** relation. Write $\delta$
-for the *stakes*: what good advice gains over the baseline. In the companion development,
-which is not proved here, the decision costs a prefix of
-$k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of the stakes, scaled by a
-contention parameter $\theta$ that on these instances is of the same order as the baseline
-slack $1-\rho_{\mathrm{base}}$ — and that budget is met by a simple *directional* statistic
-(do the prefix arrivals agree with the advice's predictions more often than they contradict
-them?). The stakes are in turn capped by the same slack, $\delta = O(1-\rho_{\mathrm{base}})$:
-advice can only win what the baseline leaves on the table. Substituting, the reading predicts
-that on strong-baseline instances the required prefix exceeds the whole instance — that an
-upside below $\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)$ would not be captured by
-any rule at any prefix length $k \le n$. At the parameters of Chapter 4
-($\rho_{\mathrm{base}}\approx0.99$, $n=2000$) that threshold is $\approx0.004$, and the
-upsides we measured are of exactly this order (F3): the empirical wall sits where the
-reading says it should. Whether the same relation holds beyond decomposable families is
-open (§10.4). This is Figure 6.4 read quantitatively: the potential upside and
-the capturable upside separate as the baseline strengthens, because the stakes shrink
-faster than the test's resolution improves.
+On the rare-resource instances that produce Figure 6.4 — a *decomposable* family, in which
+the instance splits into independent cells that the advice acts on separately — the answer
+takes the form of a **budget–stakes** relation. Write $\delta$ for the *stakes*: what good
+advice gains over the baseline. Under a budget law that this thesis does not prove, the
+decision costs a prefix of $k^* = \tilde\Theta(\theta/\delta^2)$ — the inverse square of the
+stakes, scaled by a contention parameter $\theta$ of the same order as the baseline slack
+$1-\rho_{\mathrm{base}}$ — and is met by a simple *directional* statistic (do the prefix
+arrivals agree with the advice more often than they contradict it?). The stakes are themselves
+capped by that slack, since advice can only win what the baseline leaves on the table.
+Substituting, an upside below $\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)$ would not
+be captured by any rule at any prefix length $k \le n$. At Chapter 4's parameters
+($\rho_{\mathrm{base}}\approx0.99$, $n=2000$) that is $\approx0.004$ — exactly the order of
+the upsides we measured (F3). The empirical wall sits where the reading says it should:
+potential and capturable upside separate as the baseline strengthens, because the stakes
+shrink faster than the test's resolution improves.
 
 <!--REV
 id: 10-06
@@ -177,15 +168,13 @@ note: decomposable 这个适用范围前提，第一次出现是在 10.4 的 fut
 fix: 把前提写进 10.2 断言所在的那一句：on the rare-resource (decomposable) instances that produce Figure 6.4 ...。10.4 那句就变成自然的延伸而不是事后补丁。
 -->
 
-Two honest notes bound the scope of this outlook. First, the budget law cuts both ways:
-where the stakes are large (a weak baseline), the directional statistic is cheap and
-following good advice is easy — the wall is a statement about strong-baseline,
-average-case inputs, not about testing in general. In particular the wall is not a consequence of distribution testing being
-expensive — a directional statistic is cheap — but of the stakes being small; the
-$\ell_1$-threshold blindness of §6.3 comes from testing the *distance* rather than the
-*payoff*. Second, this thesis claims only the inequality displayed above and the quantitative
-reading of its own experiments; the two-sided law and its exact scope are not established
-here (§10.3).
+Two notes bound this. The relation cuts both ways: where the stakes are large (a weak
+baseline) the directional statistic is cheap and following good advice is easy, so the wall is
+a statement about strong-baseline average-case inputs, not about testing in general — and it
+follows from the stakes being small rather than from distribution testing being expensive, the
+$\ell_1$-threshold blindness of §6.3 coming from testing the *distance* rather than the
+*payoff*. And only the displayed inequality is claimed here: the budget law itself, and whether
+it extends beyond decomposable families, is not established in this thesis (§10.4, §10.5).
 
 <!--REV
 id: 10-10
@@ -207,7 +196,71 @@ note: companion work 在全篇出现四次（1.3、10.2 两次、10.3）。每�
 fix: 只在 10.3 limitations 保留一次（那里是它该在的位置），其余三处改成本文不做什么的直述句，不提外部稿件。
 -->
 
-## 10.3 Limitations
+## 10.3 Critical evaluation
+
+This section assesses how far the three objectives of §1.2 were met, and which of the
+project's design choices look like the right ones in hindsight.
+
+**Against the objectives.** *Q1 — how the learning-augmented algorithms compare, and what a
+prediction buys — is met in full.* Chapter 4 puts both families on one harness and answers
+the question numerically: on the few-types instances the entire consistency headroom is
+$0.009\pm0.001$, while the downside a bad prediction opens reaches $0.52$, and Chapter 7
+shows the same ordering survives real predictors and real graphs. *Q2 — the failure modes of
+test-and-fallback — is met with one qualification.* Chapter 6 delivers the testing cost, the
+threshold-calibration pathology, the resolution limit and the irrevocability penalty; but the
+test measured is the empirical-$\ell_1$ surrogate the original authors specify, not an
+implemented tolerant tester, so these are strictly the failure modes of the mechanism *as
+published* rather than of every rule that could inspect a prefix. Section 10.2 argues the
+blindness is structural rather than an implementation artifact, and that argument is an
+interpretation of our measurements, not itself a measurement. *Q3 — whether the wall is
+necessary — is the objective this thesis falls furthest short of.* What is delivered is a
+proved trade-off inequality plus a quantitative reading that places the wall where the
+experiments find it ($\approx0.004$ at the benchmark's parameters, the order of the upsides
+actually measured). What is not delivered is a theorem that the wall is forced. Q3 is
+bracketed, not closed, and the thesis says so wherever the outlook is used.
+
+**The choices, with hindsight.** Three look clearly right. Injecting error along the
+*structure* of the instance rather than as i.i.d. noise (§3.3) is the single most productive
+methodological decision in the project: i.i.d. noise would have blurred the magnitude/order
+distinction and Chapter 5's collapse onto Kendall-$\tau$ would not have been visible at all.
+Validating the harness against Borodin et al. before building anything on it (§3.6) cost
+about a week and bought the right to attribute every later difference to the algorithms
+rather than to the infrastructure. And reducing the theoretical claim to the one inequality
+that is actually proved, rather than asserting the fuller law, is what keeps Q3's answer
+defensible; the alternative would have been a theorem the thesis could not support.
+
+Three look more debatable. Working exclusively in the known-i.i.d. model is right for
+comparability — it is the model both families are defined in — but it is also the model in
+which the advice-free baseline is strongest, so the choice partly *pre-selected* the headline
+finding. Figure 6.4 answers the objection by sweeping baseline strength across the whole
+difficulty range, but that sweep was a response to the finding rather than the benchmark's
+primary axis; designed again, instance difficulty would be a first-class dimension from the
+start rather than a follow-up. Evaluating matching size alone is the choice that most limits
+the reach of the conclusion: the wall is a statement about goodput, and the single probe on a
+tail objective (§8.2) arrived late and closed only the simplest such attempt. A second
+objective carried through the entire benchmark would have bounded the claim far better than a
+late probe does. Finally, the harness's Python implementation capped instances at
+$n\approx2000$; this was a good trade for reproducibility, but §10.2's reading predicts a
+capturable-upside threshold scaling as $1/\sqrt{n}$, so larger instances would have tested
+that prediction where it is sharpest.
+
+One process lesson is worth recording. The learning-to-rank exploration (§8.1) ran its
+synthetic stages M0 and M1 before M3, the test on real temporal features — and M3, which is
+both the cheaper experiment and the decisive one, is what settled the question negatively.
+Running the realistic test first would have reached the same conclusion for a fraction of the
+work. The same ordering error is easy to repeat: a mechanism demonstrated on engineered
+inputs invites elaboration on engineered inputs, when the useful next question is whether the
+mechanism arises outside them at all.
+
+**Overall.** Two objectives are met in full and the third in bounded form; the experimental
+contribution is the solid part of the thesis and the theoretical one is deliberately narrow.
+The result least likely to be overturned is the wall itself, which recurred across every
+algorithm, error model, graph family and predictor we varied. What remains genuinely
+uncertain is whether it survives the two dimensions we did *not* vary — a different objective
+and a non-average-case arrival order — which is precisely why those two head the future work
+of §10.5.
+
+## 10.4 Limitations
 
 - **Input model.** We work in the known-i.i.d. model. Because every known-i.i.d. instance is
   also a random-order instance, guarantees proved in the random-order model carry over to
@@ -222,7 +275,7 @@ fix: 只在 10.3 limitations 保留一次（那里是它该在的位置），其
 - **Objective.** We evaluate matching size (goodput) only. On objectives where the
   advice-free baseline is *not* near-optimal — tail latency, per-type fairness, migration or
   recompute cost — the picture could differ; our one probe in that direction (§8.2) closed
-  the simplest such attempt but not the space (§10.4).
+  the simplest such attempt but not the space (§10.5).
 - **Theory scope.** The thesis deliberately confines its theory to the outlook of §10.2 —
   one proved trade-off inequality and a quantitative reading of the experiments. The full
   budget–stakes law is companion work in preparation, and no theorem beyond the stated
@@ -249,7 +302,7 @@ note: 用小于等于号连接两个模型名是圈内速记，写在限制一�
 fix: 展开成一句话：because every known i.i.d. instance is also a random order instance, guarantees proved in the random order model carry over to ours (but not conversely)。方向讲明确。
 -->
 
-## 10.4 Future work
+## 10.5 Future work
 
 The thesis brackets, rather than resolves, the settings in which predictions might genuinely
 help online matching, and these are the natural next directions.
@@ -270,7 +323,7 @@ help online matching, and these are the natural next directions.
   reuses online decisions as samples, can beat the stakes-squared budget of §10.2 is an
   open and practically motivated question.
 
-## 10.5 Closing
+## 10.6 Closing
 
 Predictions are a powerful tool for online algorithms, but this thesis is a study of their
 *limits* on one well-understood problem. On average-case online matching, the honest verdict has three parts. A cheap,

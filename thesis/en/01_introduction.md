@@ -274,7 +274,7 @@ loss (5), the test-and-fallback mechanism in depth (6), and external validity on
 predictors and real graphs (7). Chapters 8 to 10 take up Q3 and the boundaries: the
 exploratory directions and their negative results (8), the AI-inference serving case study
 (9), and a conclusion that summarizes, gives a theoretical outlook on why the wall stands
-(§10.2), and states limitations and future work (10). One sentence recurs throughout, and
+(§10.2), evaluates the project critically against these objectives (§10.3), and states limitations and future work (10). One sentence recurs throughout, and
 §10.1 states it in full: **on average-case online matching, predictions are robustness
 insurance rather than a performance lever.**
 
