@@ -67,13 +67,15 @@ pathlib.Path('refs_clean.bib').write_text(bib)
 EOF
 echo "refs_clean.bib regenerated (note fields stripped)"
 
-# word count (main-matter fragments only, per regulations it's the body count)
+# word count: body chapters ONLY — ch/*.tex would sweep in the appendix, but the regulations
+# count the body. texcount if it is installed; otherwise count the words pandoc actually
+# renders from the same chapters, which is far closer than stripping TeX with a regex.
 if command -v texcount >/dev/null 2>&1; then
-  wc_total=$(texcount -total -sum -q ch/*.tex 2>/dev/null | awk '/Sum count/{print $NF}')
+  body_tex=""; for c in $CHAPTERS; do body_tex="$body_tex ch/$c.tex"; done
+  wc_total=$(texcount -total -sum -q $body_tex 2>/dev/null | awk '/Sum count/{print $NF}')
 else
-  # approximation: strip TeX commands/math and count words (verify with texcount before submission)
-  wc_total="$(sed -E -e 's/\\[a-zA-Z]+(\[[^]]*\])?(\{[^{}]*\})?//g' -e 's/[{}$&%]//g' ch/*.tex \
-    | wc -w | tr -d ' ') (approx.)"
+  wc_total=$(for c in $CHAPTERS; do sed -e '/<!--/,/-->/d' "../en/$c.md"; done \
+    | pandoc -f markdown -t plain --wrap=none 2>/dev/null | wc -w | tr -d ' ')
 fi
 echo "\\newcommand{\\uobwordcount}{${wc_total:-TODO}}" > wordcount.tex
 echo "word count: ${wc_total:-TODO}"
