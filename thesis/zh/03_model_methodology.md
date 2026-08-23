@@ -118,11 +118,11 @@ $\mathrm{OPT}$ 与平局种子，因此差异可归因于预测本身。所报�
 低于 $0.02$。具体而言：扫描 $c$ 复现了特征性的 U 形及其困难情形，
 SimpleGreedy 在 $c\approx4.9$ 取最小值 $0.864$，复杂算法的贪婪变体在 $c\approx5.3$ 取其最小值
 $\approx0.884$。Ranking 与 SimpleGreedy 无法区分（全部 75 个值上最大差为 $0.0017$，该文正因此省略
-Ranking 的曲线），非贪婪变体随 $c$ 增大单调退化（Feldman $0.986\to0.730$，Jaillet–Lu $0.985\to0.760$）。
+Ranking 的曲线），非贪婪变体随 $c$ 增大单调退化（Feldman $0.986\to0.730$，Jaillet–Lu $0.985\to0.760$）。所核对的五条定性论断全部成立（**图 3.1**）。
 
 ![Erdős–Rényi 复现：特征 U 形，贪心最小值在 $c\approx4.9$ 附近，非贪婪随 $c$ 增大退化。](../../results/er_full.png){width=65%}
 
-**随机左正则（左度数 $d$；该文图 18，部分）。** 图景在困难情形 $d=5$（SimpleGreedy 最小值 $0.890$）
+**随机左正则（左度数 $d$；该文图 18，部分；图 3.2）。** 图景在困难情形 $d=5$（SimpleGreedy 最小值 $0.890$）
 重复出现，Ranking $\approx$ SimpleGreedy（最大差 $0.0013$），非贪婪随 $d$ 增大退化，贪婪复杂变体渐近
 $\approx$ SimpleGreedy。
 

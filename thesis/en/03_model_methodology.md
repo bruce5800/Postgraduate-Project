@@ -282,7 +282,7 @@ $\approx0.884$ at $c\approx5.3$. Ranking is indistinguishable from SimpleGreedy 
 difference $0.0017$ across all 75 values; the paper omits Ranking's curve for exactly this
 reason), and the non-greedy variants degrade monotonically as $c$ grows ($0.986\to0.730$ for
 Feldman, $0.985\to0.760$ for Jaillet–Lu). Every one of the paper's five prose claims we
-checked holds.
+checked holds (**Figure 3.1**).
 
 <!--REV
 id: 3-13
@@ -296,8 +296,8 @@ fix: 先给一句结论（all five qualitative claims reproduce, with absolute d
 
 ![Erdős–Rényi reproduction: the characteristic U-shape, greedy minima near $c\approx4.9$, non-greedy degradation as $c$ grows.](../../results/er_full.png){width=65%}
 
-**Random left-regular (left-degree $d$; the paper's Fig. 18, partial).** The pattern
-repeats with the hard case at $d=5$ (SimpleGreedy minimum $0.890$), Ranking $\approx$
+**Random left-regular (left-degree $d$; the paper's Fig. 18, partial; Figure 3.2).** The
+pattern repeats with the hard case at $d=5$ (SimpleGreedy minimum $0.890$), Ranking $\approx$
 SimpleGreedy (max difference $0.0013$), non-greedy degradation as $d$ grows, and greedy
 complex variants $\approx$ SimpleGreedy asymptotically.
 

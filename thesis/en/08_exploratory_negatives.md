@@ -45,7 +45,7 @@ suggests a concrete way to do better: rather than training a predictor to minimi
 train it with an *order-aware* loss (a pairwise rank loss) so it optimizes the quantity
 the algorithm actually uses. We investigated this in three steps.
 
-**M0: the mechanism exists.** With deliberately *divergent* synthetic features (one feature
+**M0: the mechanism exists** (**Figure 8.1**). With deliberately *divergent* synthetic features (one feature
 carrying magnitude, another carrying order), a rank-trained linear predictor sharply beats a
 regression-trained one on the decision metric: matching ratio $0.989$ (essentially the
 oracle) versus $0.974$, while the rank-trained predictor has *worse* regression error to the
@@ -84,7 +84,7 @@ note: gap-capture 在 7.1 用过一次、这里再用一次，两处都没有定
 fix: 统一在 7.1 给定义，这里直接用；并把 a more favorable framing 改成中性说法：measured as gap-capture rather than as absolute ratio。
 -->
 
-**M3: it disappears on real features.** The decisive test uses genuine temporal
+**M3: it disappears on real features** (**Figure 8.2**). The decisive test uses genuine temporal
 features from real serving traces (per-resource reference counts over the previous windows)
 to predict the next window (150 context-length types over 500 replicas of degree 8, 40
 windows, three lag features, a 60/40 train/test split). Here the rank- and
@@ -155,7 +155,7 @@ tight, because in the moderate regime a trivial static reservation of one slot d
 tight-SLO violations to near zero and *beats* the clairvoyant reference outright, reserving
 for the actual future burst over-reserves there. What the sweep does establish is
 one-directional and still useful: across every regime (overload level, uniform vs bursty
-tight-SLO demand), the best non-predictive policy comes within $\le 3\%$ of a policy that
+tight-SLO demand), the best non-predictive policy comes within $\le 3\%$ (**Figure 8.3**) of a policy that
 knows the future exactly, so the particular thing a forecast would supply is not what these
 policies are missing. Two reasons, both robust to the sweep: protecting a tight-SLO minority
 needs only a small static
