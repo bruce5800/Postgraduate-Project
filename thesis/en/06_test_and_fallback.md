@@ -16,7 +16,7 @@ to the conclusion: it persists across the whole difficulty range, and §10.2 rea
 quantitatively. Two naming conventions
 apply throughout. **FollowPrediction** is the unguarded follower, which mimics the advice
 matching without testing it; **TestAndMatch** is the test-and-fallback scheme in general, of
-which **Choo** and **BEM** are the two published instantiations — they share the
+which **Choo** and **BEM** are the two published instantiations. They share the
 test-then-commit structure and differ in how the acceptance threshold is set. The $\ell_1$
 test is the empirical surrogate the original authors also fall back to (Chapter 3).
 
@@ -45,7 +45,7 @@ fix: 拆成两句：一句列四项（各一个短语），一句单独说 6.3 �
 
 Sweeping advice error $\ell_1(p,q)$ on few-types instances ($n=2000$ arrivals, $r=8$ request
 types, a tested prefix of $k=200$ arrivals, 40 trials; **Figure 6.1**), FollowPrediction degrades *linearly* from $1.000$ at perfect
-advice to $0.453$ at $\ell_1\!\approx\!1.1$ — well *below* the advice-free floor
+advice to $0.453$ at $\ell_1\!\approx\!1.1$, well *below* the advice-free floor
 ($\approx0.99$). TestAndMatch instead stays on the **upper envelope**: it captures the
 benefit when advice is good and, when advice is bad, its prefix test rejects it and it falls
 back to Ranking, never dropping below the advice-free floor at any point of this sweep
@@ -78,20 +78,20 @@ fix: 限定到证据范围：it does not fall below the advice free floor at any
 ## 6.2 A threshold that is too lenient on average-case inputs
 
 Sweeping the prefix (testing) size $k$ at *borderline* advice ($\eta=0.15$, true
-$\ell_1\!\approx\!0.16$) — where the test works hardest (**Figure 6.2**) — a larger, more
+$\ell_1\!\approx\!0.16$), where the test works hardest (**Figure 6.2**), a larger, more
 accurate test makes the *worse* decision: as $k$ grows $25\to800$, the ratio falls
 $0.992\to0.956$ and the misjudgement rate rises $0.00\to0.60$.
 
 The mechanism has two halves; the threshold is Choo and BEM's own, and what follows is our
 characterization of how it behaves off its design point. First, the acceptance threshold
 $\tau$ is calibrated to
-$\beta$, the competitive ratio the advice-free baseline is *proved* to achieve — here
+$\beta$, the competitive ratio the advice-free baseline is *proved* to achieve: here
 $\beta\approx0.696$, Ranking's worst-case ratio under random arrival order, the value Choo
 et al. instantiate their threshold with [@choo2024imperfect]. On these instances the
 realized baseline is instead $\approx0.99$ (F3), so the empirical break-even sits at
 $\ell_1\approx0$, far below $\tau$. Second, the prefix interacts with that gap in opposite
 directions at the two ends of the sweep. A small, noisy prefix over-estimates $\ell_1$ and
-rejects the borderline advice, landing safely on the floor — it is right for the wrong
+rejects the borderline advice, landing safely on the floor, but it is right for the wrong
 reason, rejecting because it is noisy rather than because the advice is bad. A large,
 accurate prefix measures $\ell_1\approx0.16<\tau$ correctly and therefore accepts the
 mildly-bad advice that the worst-case threshold deems acceptable, underperforming the
@@ -155,11 +155,11 @@ threshold holds misjudgement $0.00$ at every prefix and ratio $\approx0.986$. Bu
 recalibration exposes a deeper limit.
 At perfect advice the worst-case threshold scores $1.000$ while the recalibrated one scores
 only $0.987$: the recalibrated $\tau\approx2(1-\hat\beta)\approx0.028$ is *smaller than the
-empirical-$\ell_1$ estimator's noise floor* — the $\ell_1$ distance between a length-$k$
+empirical-$\ell_1$ estimator's noise floor*: the $\ell_1$ distance between a length-$k$
 prefix's type frequencies and the true histogram under *perfect* advice, i.e. pure sampling
 noise, which falls as $k$ grows and spans $\approx0.13$ down to $\approx0.05$ over the prefix
-lengths swept here — so it can never
-confidently *accept* — it rejects everything, including perfect advice, and always plays the
+lengths swept here, so it can never
+confidently *accept*: it rejects everything, including perfect advice, and always plays the
 baseline. In short:
 
 > On strong-baseline instances, among thresholds of this form and at the prefix lengths we
@@ -212,15 +212,15 @@ fix: 补一句：the range spans k from 25 to 800 (noise falls as k grows); it i
 ![Recalibration removes the threshold pathology: misjudgement holds at zero at every prefix size, versus climbing toward $1.0$ under the worst-case threshold.](../../results/recalibration_prefix.png){width=50%}
 
 **Figure 6.4** widens this finding from one threshold to the whole difficulty range.
-Sweeping the number of types — the knob that sets the baseline strength — the *potential*
+Sweeping the number of types, the knob that sets the baseline strength, the *potential*
 upside of perfect advice grows as the baseline weakens, but the upside a sublinear-prefix
 test can *safely capture* stays pinned near zero: the empirical test's resolution (its
 noise floor) sits far above the break-even margin wherever an upside exists. The wall of
 this chapter is therefore not one badly calibrated threshold. The upside and the testing
-resolution move together — and the concluding outlook (§10.2) gives this coupling a
+resolution move together, and the concluding outlook (§10.2) gives this coupling a
 quantitative form: the prefix needed to decide scales as the inverse square of the stakes.
 
-![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero — the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
+![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero, because the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
 
 <!--REV
 id: 6-13
@@ -239,8 +239,8 @@ of test-and-fallback. In its robust tuning the combiner sits exactly on the floo
 few-types family of §6.1 ($0.990$ across all advice quality): it never crashes but captures
 none of the consistency upside, strictly dominated by TestAndMatch. More instructively, an
 *eager* combiner that switches mid-stream reveals a penalty specific to irrevocable
-problems. On a smaller instance used as a mechanism check — $n=600$, $r=6$, a single seed
-with no averaging, one of the hand-verifiable scripts of Appendix A.3 — eager switching
+problems. On a smaller instance used as a mechanism check ($n=600$, $r=6$, a single seed
+with no averaging, one of the hand-verifiable scripts of Appendix A.3), eager switching
 under perfect advice scores $0.927$, below both the pure follower ($1.000$) and Ranking on
 that same instance ($0.958$), because switching from Ranking to advice-following mid-run
 lands the committed matching in an *incompatible hybrid*. Being one instance, this figure
@@ -287,8 +287,8 @@ fix: 删掉 mimic，或写成 (called mimic in the implementation)。正文只�
 Test-and-fallback delivers the adaptive robustness envelope of §6.1, but its accept/reject
 decision is fundamentally limited on strong-baseline inputs: no empirical-$\ell_1$ threshold
 both captures the upside and stays safe (§6.3), and dynamic switching is dominated by
-test-then-commit (§6.4). The resolution limit of §6.3 — and its persistence across the
-whole difficulty range (Figure 6.4) — is the empirical anchor of the theoretical outlook
+test-then-commit (§6.4). The resolution limit of §6.3, and its persistence across the
+whole difficulty range (Figure 6.4), is the empirical anchor of the theoretical outlook
 in §10.2; Figure 6.4 is the figure to remember from this chapter. The next chapter asks
 whether any of this survives outside synthetic instances.
 

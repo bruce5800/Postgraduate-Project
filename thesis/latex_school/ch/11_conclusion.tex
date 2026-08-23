@@ -4,9 +4,9 @@
 
 This thesis studied learning-augmented algorithms for online bipartite
 matching by first building a common experimental foundation and then
-explaining what it revealed. On a single harness --- validated against
-the published Borodin et al.~study (Chapter 3) --- we compared the
-advice-free baselines, MinPredictedDegree and its augmentations, and the
+explaining what it revealed. On a single harness, validated against the
+published Borodin et al.~study (Chapter 3), we compared the advice-free
+baselines, MinPredictedDegree and its augmentations, and the
 test-and-fallback algorithms, across synthetic graphs, six real-world
 graphs, and real request traces (Chapters 4--7).
 
@@ -48,13 +48,12 @@ instance distributions sharing the \emph{same} advice, such that
 following the advice gains \(\delta\) under \(G\) and loses \(\Delta\)
 under \(\mathrm{Bd}\) relative to the advice-free baseline, and let
 \(\gamma_k\) be the total-variation distance between the laws of their
-length-\(k\) prefixes --- informally, the best accuracy any test can
-reach when it sees only the first \(k\) arrivals. Then every
-test-and-fallback algorithm --- deciding by \emph{any} measurable rule
-on its prefix --- satisfies \[(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),\]
-where \(\eta_c\) is the fraction of the upside it forgoes under \(G\)
-and \(\eta_r\) its robustness loss under \(\mathrm{Bd}\) as a fraction
-of \(\Delta\).
+length-\(k\) prefixes, i.e.~the best accuracy any test can reach when it
+sees only the first \(k\) arrivals. Then every test-and-fallback
+algorithm, deciding by \emph{any} measurable rule on its prefix,
+satisfies \[(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),\] where \(\eta_c\) is
+the fraction of the upside it forgoes under \(G\) and \(\eta_r\) its
+robustness loss under \(\mathrm{Bd}\) as a fraction of \(\Delta\).
 \end{quote}
 
 The proof is a short conditioning argument: capturing the upside forces
@@ -65,15 +64,15 @@ differently on two prefix distributions that are statistically
 question of \emph{sample complexity}: how long a prefix is needed to
 tell advice worth following from advice worth rejecting?
 
-On the rare-resource instances that produce Figure 6.4 --- a
+On the rare-resource instances that produce Figure 6.4 (a
 \emph{decomposable} family, in which the instance splits into
-independent cells that the advice acts on separately --- the answer
-takes the form of a \textbf{budget--stakes} relation. Write \(\delta\)
-for the \emph{stakes}: what good advice gains over the baseline. Under a
-budget law that this thesis does not prove, the decision costs a prefix
-of \(k^* = \tilde\Theta(\theta/\delta^2)\) --- the inverse square of the
+independent cells that the advice acts on separately), the answer takes
+the form of a \textbf{budget--stakes} relation. Write \(\delta\) for the
+\emph{stakes}: what good advice gains over the baseline. Under a budget
+law that this thesis does not prove, the decision costs a prefix of
+\(k^* = \tilde\Theta(\theta/\delta^2)\), the inverse square of the
 stakes, scaled by a contention parameter \(\theta\) of the same order as
-the baseline slack \(1-\rho_{\mathrm{base}}\) --- and is met by a simple
+the baseline slack \(1-\rho_{\mathrm{base}}\), and is met by a simple
 \emph{directional} statistic (do the prefix arrivals agree with the
 advice more often than they contradict it?). The stakes are themselves
 capped by that slack, since advice can only win what the baseline leaves
@@ -81,16 +80,16 @@ on the table. Substituting, an upside below
 \(\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)\) would not be
 captured by any rule at any prefix length \(k \le n\). At Chapter 4's
 parameters (\(\rho_{\mathrm{base}}\approx0.99\), \(n=2000\)) that is
-\(\approx0.004\) --- exactly the order of the upsides we measured (F3).
-The empirical wall sits where the reading says it should: potential and
+\(\approx0.004\), exactly the order of the upsides we measured (F3). The
+empirical wall sits where the reading says it should: potential and
 capturable upside separate as the baseline strengthens, because the
 stakes shrink faster than the test's resolution improves.
 
 Two notes bound this. The relation cuts both ways: where the stakes are
 large (a weak baseline) the directional statistic is cheap and following
 good advice is easy, so the wall is a statement about strong-baseline
-average-case inputs, not about testing in general --- and it follows
-from the stakes being small rather than from distribution testing being
+average-case inputs, not about testing in general; and it follows from
+the stakes being small rather than from distribution testing being
 expensive, the \(\ell_1\)-threshold blindness of §6.3 coming from
 testing the \emph{distance} rather than the \emph{payoff}. And only the
 displayed inequality is claimed here: the budget law itself, and whether
@@ -103,14 +102,14 @@ This section assesses how far the three objectives of §1.2 were met, and
 which of the project's design choices look like the right ones in
 hindsight.
 
-\textbf{Against the objectives.} \emph{Q1 --- how the learning-augmented
-algorithms compare, and what a prediction buys --- is met in full.}
-Chapter 4 puts both families on one harness and answers the question
+\textbf{Against the objectives.} \emph{Q1 (how the learning-augmented
+algorithms compare, and what a prediction buys) is met in full.} Chapter
+4 puts both families on one harness and answers the question
 numerically: on the few-types instances the entire consistency headroom
 is \(0.009\pm0.001\), while the downside a bad prediction opens reaches
 \(0.52\), and Chapter 7 shows the same ordering survives real predictors
-and real graphs. \emph{Q2 --- the failure modes of test-and-fallback ---
-is met with one qualification.} Chapter 6 delivers the testing cost, the
+and real graphs. \emph{Q2 (the failure modes of test-and-fallback) is
+met with one qualification.} Chapter 6 delivers the testing cost, the
 threshold-calibration pathology, the resolution limit and the
 irrevocability penalty; but the test measured is the
 empirical-\(\ell_1\) surrogate the original authors specify, not an
@@ -118,8 +117,8 @@ implemented tolerant tester, so these are strictly the failure modes of
 the mechanism \emph{as published} rather than of every rule that could
 inspect a prefix. Section 10.2 argues the blindness is structural rather
 than an implementation artifact, and that argument is an interpretation
-of our measurements, not itself a measurement. \emph{Q3 --- whether the
-wall is necessary --- is the objective this thesis falls furthest short
+of our measurements, not itself a measurement. \emph{Q3 (whether the
+wall is necessary) is the objective this thesis falls furthest short
 of.} What is delivered is a proved trade-off inequality plus a
 quantitative reading that places the wall where the experiments find it
 (\(\approx0.004\) at the benchmark's parameters, the order of the
@@ -142,9 +141,9 @@ defensible; the alternative would have been a theorem the thesis could
 not support.
 
 Three look more debatable. Working exclusively in the known-i.i.d. model
-is right for comparability --- it is the model both families are defined
-in --- but it is also the model in which the advice-free baseline is
-strongest, so the choice partly \emph{pre-selected} the headline
+is right for comparability, since it is the model both families are
+defined in, but it is also the model in which the advice-free baseline
+is strongest, so the choice partly \emph{pre-selected} the headline
 finding. Figure 6.4 answers the objection by sweeping baseline strength
 across the whole difficulty range, but that sweep was a response to the
 finding rather than the benchmark's primary axis; designed again,
@@ -162,8 +161,8 @@ instances would have tested that prediction where it is sharpest.
 
 One process lesson is worth recording. The learning-to-rank exploration
 (§8.1) ran its synthetic stages M0 and M1 before M3, the test on real
-temporal features --- and M3, which is both the cheaper experiment and
-the decisive one, is what settled the question negatively. Running the
+temporal features, and M3, which is both the cheaper experiment and the
+decisive one, is what settled the question negatively. Running the
 realistic test first would have reached the same conclusion for a
 fraction of the work. The same ordering error is easy to repeat: a
 mechanism demonstrated on engineered inputs invites elaboration on
@@ -176,9 +175,9 @@ thesis and the theoretical one is deliberately narrow. The result least
 likely to be overturned is the wall itself, which recurred across every
 algorithm, error model, graph family and predictor we varied. What
 remains genuinely uncertain is whether it survives the two dimensions we
-did \emph{not} vary --- a different objective and a non-average-case
-arrival order --- which is precisely why those two head the future work
-of §10.5.
+did \emph{not} vary, a different objective and a non-average-case
+arrival order, which is precisely why those two head the future work of
+§10.5.
 
 \section{Limitations}
 
@@ -206,12 +205,12 @@ of §10.5.
 \item
   \textbf{Objective.} We evaluate matching size (goodput) only. On
   objectives where the advice-free baseline is \emph{not} near-optimal
-  --- tail latency, per-type fairness, migration or recompute cost ---
-  the picture could differ; our one probe in that direction (§8.2)
-  closed the simplest such attempt but not the space (§10.5).
+  (tail latency, per-type fairness, migration or recompute cost), the
+  picture could differ; our one probe in that direction (§8.2) closed
+  the simplest such attempt but not the space (§10.5).
 \item
   \textbf{Theory scope.} The thesis deliberately confines its theory to
-  the outlook of §10.2 --- one proved trade-off inequality and a
+  the outlook of §10.2: one proved trade-off inequality and a
   quantitative reading of the experiments. The full budget--stakes law
   is companion work in preparation, and no theorem beyond the stated
   inequality is claimed here.
@@ -229,20 +228,21 @@ natural next directions.
   \textbf{Beyond average-case inputs.} The wall is an average-case
   phenomenon. Adversarial or non-stationary arrival orders, where the
   advice-free baseline is provably far from optimal, are where
-  predictions should carry real value --- and where a \emph{positive}
+  predictions should carry real value, and where a \emph{positive}
   counterpart to this thesis's wall might be proved.
 \item
   \textbf{Beyond throughput.} Objectives on which the baseline is not
-  near-optimal --- tail latency, per-type fairness, migration or
-  recompute cost --- may admit genuine with-predictions gains that the
-  goodput objective forecloses; our serving SLO probe (Chapter 8) closed
-  the simplest such attempt but not the space.
+  near-optimal (tail latency, per-type fairness, migration or recompute
+  cost) may admit genuine with-predictions gains that the goodput
+  objective forecloses; our serving SLO probe (Chapter 8) closed the
+  simplest such attempt but not the space.
 \item
   \textbf{Completing the theory.} Finishing the companion budget--stakes
-  development --- the sharp two-sided law, the directional statistic as
-  its matching upper bound, and its exact scope (decomposable families;
-  whether a non-decomposable family can push the budget higher is open)
-  --- would turn the outlook of §10.2 into a tight characterization.
+  development, i.e.~the sharp two-sided law, the directional statistic
+  as its matching upper bound, and its exact scope (decomposable
+  families; whether a non-decomposable family can push the budget higher
+  is open), would turn the outlook of §10.2 into a tight
+  characterization.
 \item
   \textbf{Better tests, honestly.} Whether a super-linear or amortized
   test, or a test that reuses online decisions as samples, can beat the

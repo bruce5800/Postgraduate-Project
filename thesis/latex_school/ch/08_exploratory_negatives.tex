@@ -5,7 +5,7 @@ The experimental chapters (4--7) establish a wall: on average-case
 matching the advice-free baseline is near-optimal, so predictions are
 robustness insurance rather than a performance lever. Before accepting
 the wall as final, we pursued three directions that each \emph{tried to
-get past it} --- learning the predictor to squeeze out more performance
+get past it}: learning the predictor to squeeze out more performance
 (§8.1), finding a serving regime where predictions genuinely help
 (§8.2), and letting a systematic literature review point us to the
 highest-value contribution (§8.3). All three returned the same answer,
@@ -19,11 +19,11 @@ Chapter 5 shows that MPD consumes its predictor only through the
 \emph{order} it induces. This suggests a concrete way to do better:
 rather than training a predictor to minimize its \emph{regression} error
 to the true degrees (the standard ``predict-then-optimize'' objective),
-train it with an \emph{order-aware} loss --- a pairwise rank loss --- so
-it optimizes the quantity the algorithm actually uses. We investigated
-this in three steps.
+train it with an \emph{order-aware} loss (a pairwise rank loss) so it
+optimizes the quantity the algorithm actually uses. We investigated this
+in three steps.
 
-\textbf{M0 --- the mechanism exists.} With deliberately \emph{divergent}
+\textbf{M0: the mechanism exists.} With deliberately \emph{divergent}
 synthetic features (one feature carrying magnitude, another carrying
 order), a rank-trained linear predictor sharply beats a
 regression-trained one on the decision metric: matching ratio \(0.989\)
@@ -32,8 +32,8 @@ predictor has \emph{worse} regression error to the truth (MSE \(87.6\)
 vs \(33.4\)) but better order (Kendall-\(\tau\) \(0.058\) vs \(0.255\)).
 The dissociation is real: the worse \emph{fit} gives the better
 \emph{decision}. Regression is thus the wrong training objective
-whenever the features separate magnitude from order --- a condition M1
-and M3 below show to be rare.
+whenever the features separate magnitude from order, a condition M1 and
+M3 below show to be rare.
 
 \begin{figure}
 \centering
@@ -42,17 +42,17 @@ and M3 below show to be rare.
 the matching ratio (left) despite a worse regression fit (right).}
 \end{figure}
 
-\textbf{M1 --- but the advantage is doubly gated, and small.} Sweeping
-the feature divergence and the graph difficulty, the rank-advantage is
-zero when features do not induce an order/magnitude conflict, and zero
-on easy instances where the baseline is already optimal (the wall,
-again). It peaks at only \(+1.3\%\) of the ratio on synthetic graphs;
-measured as gap-capture (§7.1) rather than as an absolute ratio,
-rank-training recovers essentially the full oracle gap while regression
-leaves about \(30\%\) of it unrealized --- but the gap itself is small.
+\textbf{M1: the advantage is doubly gated, and small.} Sweeping the
+feature divergence and the graph difficulty, the rank-advantage is zero
+when features do not induce an order/magnitude conflict, and zero on
+easy instances where the baseline is already optimal (the wall, again).
+It peaks at only \(+1.3\%\) of the ratio on synthetic graphs; measured
+as gap-capture (§7.1) rather than as an absolute ratio, rank-training
+recovers essentially the full oracle gap while regression leaves about
+\(30\%\) of it unrealized, but the gap itself is small.
 
-\textbf{M3 --- and it disappears on real features.} The decisive test
-uses genuine temporal features from real serving traces (per-resource
+\textbf{M3: it disappears on real features.} The decisive test uses
+genuine temporal features from real serving traces (per-resource
 reference counts over the previous windows) to predict the next window
 (150 context-length types over 500 replicas of degree 8, 40 windows,
 three lag features, a 60/40 train/test split). Here the rank- and
@@ -65,10 +65,10 @@ recovers the order as well as ranking does.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable --- the engineered divergence that powers rank-training does not arise.}]{../../results/rank_real_trace.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable; the engineered divergence that powers rank-training does not arise.}]{../../results/rank_real_trace.png}
 \caption{M3 (Azure trace, real temporal features): rank- and MSE-trained
-predictors are indistinguishable --- the engineered divergence that
-powers rank-training does not arise.}
+predictors are indistinguishable; the engineered divergence that powers
+rank-training does not arise.}
 \end{figure}
 
 \textbf{Verdict.} Learning the predictor with a decision-aligned loss
@@ -76,10 +76,10 @@ does not change the picture of Chapters 4--7, and we report it as a
 negative result: the win requires a feature divergence that does not
 arise in practice, and even where it does the payoff is bounded by the
 (small) baseline-to-oracle gap. The result is folded into the thesis as
-a negative that \emph{reinforces} the central finding --- once a
-predictor is order-faithful, which a cheap historical count already is
-(Chapter 7), neither a better algorithm nor a better-trained predictor
-buys much on average-case matching.
+a negative that \emph{reinforces} the central finding: once a predictor
+is order-faithful, which a cheap historical count already is (Chapter
+7), neither a better algorithm nor a better-trained predictor buys much
+on average-case matching.
 
 \section{Rescuing the serving application with a with-predictions result
 (a negative
@@ -89,17 +89,17 @@ The serving case study (Chapter 9) recovers established systems results
 and is therefore presented as a case study rather than a novelty claim.
 We asked whether a \emph{new} actionable with-predictions result could
 rescue it. The escape, if one exists, must be a different
-\emph{objective} --- one on which the reactive baseline is genuinely far
+\emph{objective}, one on which the reactive baseline is genuinely far
 from optimal. The obstacle otherwise is again the wall: every serving
 variant we tried optimizes \emph{throughput} (goodput), and throughput
 is forgiving, since under overload a reactive router fills capacity just
 as the optimum does.
 
 We probed the most promising candidate: an \textbf{SLO / tail objective}
---- protecting a tight-SLO class of requests from being dropped ---
-under bursty, non-stationary load, exactly the regime where a reactive
-policy, lacking foresight, might fail. Using an event-driven simulator
-we compared non-predictive policies (static capacity reservation; a
+(protecting a tight-SLO class of requests from being dropped) under
+bursty, non-stationary load, exactly the regime where a reactive policy,
+lacking foresight, might fail. Using an event-driven simulator we
+compared non-predictive policies (static capacity reservation; a
 reactive-adaptive policy that reserves based on \emph{observed} recent
 load) against a \textbf{clairvoyant reference} that reserves based on
 the \emph{actual future} burst. Two caveats belong with that design. The
@@ -108,26 +108,25 @@ objective, so it \emph{estimates} what foresight is worth rather than
 bounding it; and the estimate is visibly not tight, because in the
 moderate regime a trivial static reservation of one slot drives
 tight-SLO violations to near zero and \emph{beats} the clairvoyant
-reference outright --- reserving for the actual future burst
-over-reserves there. What the sweep does establish is one-directional
-and still useful: across every regime --- overload level, uniform vs
-bursty tight-SLO demand --- the best non-predictive policy comes within
-\(\le 3\%\) of a policy that knows the future exactly, so the particular
-thing a forecast would supply is not what these policies are missing.
-Two reasons, both robust to the sweep: protecting a tight-SLO minority
-needs only a small static headroom, no forecast; and bursts are
-persistent enough that reacting to observed load is almost as good as
-forecasting it.
+reference outright, reserving for the actual future burst over-reserves
+there. What the sweep does establish is one-directional and still
+useful: across every regime (overload level, uniform vs bursty tight-SLO
+demand), the best non-predictive policy comes within \(\le 3\%\) of a
+policy that knows the future exactly, so the particular thing a forecast
+would supply is not what these policies are missing. Two reasons, both
+robust to the sweep: protecting a tight-SLO minority needs only a small
+static headroom, no forecast; and bursts are persistent enough that
+reacting to observed load is almost as good as forecasting it.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio,alt={Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent --- foresight does not help.}]{../../results/serving_slo_probe.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio,alt={Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent, so foresight does not help.}]{../../results/serving_slo_probe.png}
 \caption{Serving SLO probe: a non-predictive policy matches the
-clairvoyant oracle to within a few percent --- foresight does not help.}
+clairvoyant oracle to within a few percent, so foresight does not help.}
 \end{figure}
 
-\textbf{Verdict.} The tail objective is forgiving too --- a third face
-of the wall, after throughput (Chapters 4--7) and predictor-learning
+\textbf{Verdict.} The tail objective is forgiving too: a third face of
+the wall, after throughput (Chapters 4--7) and predictor-learning
 (§8.1). We found no natural regime where foresight helps, so serving
 remains a case study. A regime that would break the wall (a
 non-stationary or adversarial objective where the baseline is far from
@@ -169,5 +168,5 @@ review confirmed there was no easy performance win to be had (§8.3).
 Together with the throughput wall of Chapters 4--7, they show the
 phenomenon is not confined to one objective, one algorithm or one
 dataset: it recurs everywhere we pushed, and that robustness is what
-suggested the wall might be \emph{forced} rather than accidental --- the
+suggested the wall might be \emph{forced} rather than accidental: the
 question the concluding outlook (§10.2) takes up.

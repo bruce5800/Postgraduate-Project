@@ -3,11 +3,11 @@
 Every quantitative result in this thesis is regenerated from a fixed
 seed by a single script. Two classes of script must be distinguished.
 Most are \emph{self-contained}: they generate their own synthetic
-instances and run as-is on a clean checkout. The rest --- the real-graph
-and real-trace results of Chapters 7, 8 and 9 --- first need external
-data placed under \texttt{data/}; that data is not redistributed with
-the code, and §A.5 records what each dataset is and where it comes from.
-In the map below, a dagger (\(\dagger\)) marks the scripts of the second
+instances and run as-is on a clean checkout. The rest (the real-graph
+and real-trace results of Chapters 7, 8 and 9) first need external data
+placed under \texttt{data/}; that data is not redistributed with the
+code, and §A.5 records what each dataset is and where it comes from. In
+the map below, a dagger (\(\dagger\)) marks the scripts of the second
 class.
 
 This appendix maps each figure and table to its script, gives the
@@ -36,8 +36,8 @@ deferred from Chapter 3, and records data provenance.
   \textbf{Confidence intervals:} 95\% normal-approximation half-widths
   over trials.
 \item
-  \textbf{Flow decompositions.} Three preprocessing steps --- Feldman,
-  Jaillet--Lu, and the serving advice \(b\)-matching --- take a maximum
+  \textbf{Flow decompositions.} Three preprocessing steps (Feldman,
+  Jaillet--Lu, and the serving advice \(b\)-matching) take a maximum
   flow and consume its \emph{decomposition}, which, unlike the flow
   value, is not unique. Their networks label nodes with integers rather
   than strings, so that the decomposition NetworkX returns is stable
@@ -145,18 +145,18 @@ they scale with single-core speed.
 confidence intervals the thesis reports against paired-difference
 intervals on the same trials. Where the per-instance ratios are
 positively correlated the paired interval is \(1.7\)--\(2.6\times\)
-narrower (correlations \(0.67\) and \(0.85\)); where they are not ---
-blind following against Ranking under garbage advice, correlation
-\(-0.15\) --- pairing does not help and the per-algorithm interval is
-the honest one. The narrowest margin in the thesis, Feldman(MPD)'s
-\(+0.0044\) against a \(\pm0.0023\) per-algorithm interval, tightens to
-\(\pm0.0009\) under pairing.
+narrower (correlations \(0.67\) and \(0.85\)); where they are not (blind
+following against Ranking under garbage advice, correlation \(-0.15\))
+pairing does not help and the per-algorithm interval is the honest one.
+The narrowest margin in the thesis, Feldman(MPD)'s \(+0.0044\) against a
+\(\pm0.0023\) per-algorithm interval, tightens to \(\pm0.0009\) under
+pairing.
 
 \section{Reproduction commands}
 
 \begin{verbatim}
 # from the project root (matching-experiments/)
-# correctness anchors — 7 hand-verifiable test files, all pass:
+# correctness anchors: 7 hand-verifiable test files, all pass:
 for t in tests/test_*.py; do python3 "$t"; done
 
 # regenerate the headline results (fast ones):
@@ -234,8 +234,8 @@ Per-algorithm minima (ER): SG 0.864 @ \(c\)=4.9; Rk 0.865 @ 4.7; F-NG
 
 \textbf{Paper-claim checklist (all verified \(\checkmark\)):} greedy
 minima near \(c\approx4.9\) / \(d=5\); Ranking \(\approx\) SimpleGreedy
-(max diff 0.0017 ER, 0.0013 LR --- the paper omits Ranking's curve for
-this reason); non-greedy variants degrade monotonically as \(c,d\) grow;
+(max diff 0.0017 ER, 0.0013 LR; the paper omits Ranking's curve for this
+reason); non-greedy variants degrade monotonically as \(c,d\) grow;
 greedy complex variants \(\approx\) SimpleGreedy asymptotically; the
 \(c\)=14.9 non-greedy ordering (J-NG 0.760 \textgreater{} F-NG 0.730)
 matches the paper's worst-case-bound ordering. Across families, the
@@ -252,9 +252,9 @@ version control).
 \tightlist
 \item
   \textbf{Real graphs (Chapter 7, §3.6 validation):} six graphs from the
-  Network Repository (\texttt{networkrepository.com}) ---
+  Network Repository (\texttt{networkrepository.com}):
   \texttt{socfb-Caltech36}, \texttt{socfb-Reed98}, \texttt{bio-CE-GN},
-  \texttt{bio-CE-PG}, \texttt{econ-beause}, \texttt{econ-mbeaflw} ---
+  \texttt{bio-CE-PG}, \texttt{econ-beause}, \texttt{econ-mbeaflw},
   downloaded as MatrixMarket \texttt{.mtx} / whitespace \texttt{.edges},
   reduced to simple undirected graphs and converted to bipartite by
   random balanced partition (Borodin Table 3) or duplicating
@@ -293,15 +293,15 @@ the rare-resource construction.
 \item
   \textbf{The conversion law.} The expected ratio when the advice is
   followed matches \(\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)\),
-  where \(\rho_{\mathrm{perfect}}\) is the ratio under perfect advice
-  --- it falls off linearly in the advice's \(\ell_1\) error --- again
-  to three decimals. In the language of §10.2 this is what makes the
+  where \(\rho_{\mathrm{perfect}}\) is the ratio under perfect advice,
+  i.e.~it falls off linearly in the advice's \(\ell_1\) error, again to
+  three decimals. In the language of §10.2 this is what makes the
   \emph{stakes} \(\delta\) a linear function of the advice error.
 \item
   \textbf{The two budget--stakes ingredients.} The directional
   statistic's accuracy at a fixed prefix length does not degrade as
-  \(n\) grows, and the plug-in \(\ell_1\) estimate becomes blind ---
-  indistinguishable between good and bad advice --- once \(k \ll r\).
+  \(n\) grows, and the plug-in \(\ell_1\) estimate becomes blind,
+  i.e.~indistinguishable between good and bad advice, once \(k \ll r\).
   Both are produced by \texttt{scripts/verify\_witness\_gap.py} (§A.2).
 \end{enumerate}
 

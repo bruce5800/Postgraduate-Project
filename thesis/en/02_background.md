@@ -18,8 +18,8 @@ the outlook of §10.2 (§2.5), and the gaps in the literature this thesis addres
 
 ## 2.1 Online bipartite matching and competitive analysis
 
-In online bipartite matching, one side of a bipartite graph — the *offline* resources — is
-known in advance, while the vertices of the other side — the *online* requests — arrive one
+In online bipartite matching, one side of a bipartite graph (the *offline* resources) is
+known in advance, while the vertices of the other side (the *online* requests) arrive one
 at a time. On each arrival the algorithm sees the request's incident edges and must
 either match it to a currently unmatched neighbor or leave it unmatched, **immediately and
 irrevocably**. The goal is to maximize the size (or, in weighted variants, the value) of
@@ -41,8 +41,8 @@ The difficulty of the problem depends entirely on the assumed *input model*:
 
 - **Adversarial arrival order.** The requests and their order are chosen by an adversary.
   The seminal result of Karp, Vazirani and Vazirani [@kvv1990ranking] is that the randomized
-  **Ranking** algorithm — fix a uniformly random priority order on the resources and match
-  each request to its highest-priority available neighbor — achieves competitive ratio
+  **Ranking** algorithm (fix a uniformly random priority order on the resources and match
+  each request to its highest-priority available neighbor) achieves competitive ratio
   $1-1/e\approx0.632$, and that this is optimal for the adversarial model. Deterministic
   algorithms cannot beat $1/2$.
 - **Random arrival order.** The graph is adversarial but the requests arrive in a uniformly
@@ -54,7 +54,7 @@ The difficulty of the problem depends entirely on the assumed *input model*:
 These three models are nested in difficulty, and the direction matters throughout the
 thesis: every known-i.i.d. instance is also a random-order instance, and every random-order
 instance is an adversarial-order instance. A guarantee proved in a harder model therefore
-holds in an easier one — but not conversely, so a bound proved for adversarial order says
+holds in an easier one, but not conversely, so a bound proved for adversarial order says
 nothing about how *well* an algorithm does on known-i.i.d. inputs beyond that floor.
 
 <!--REV
@@ -73,8 +73,8 @@ fix: 展开成一句话：every known i.i.d. instance is also a random-order ins
 In the known-i.i.d. model there is a bipartite *type graph*: each online **type** $\ell$
 has a fixed neighborhood $N(\ell)$ among the offline resources, and an instance is generated
 by drawing $m$ arrivals independently from a known distribution $p$ over types. The type
-graph and $p$ are known; the realized sequence is not. This models settings — ad serving,
-recurring request streams — where the population of requests is statistically stable even
+graph and $p$ are known; the realized sequence is not. This models settings (ad serving,
+recurring request streams) where the population of requests is statistically stable even
 though individual arrivals are not.
 
 A line of work has pushed the worst-case (over type graphs) competitive ratio above the
@@ -137,7 +137,7 @@ with prediction accuracy in a distributionally-robust formulation [@yoshinaga202
 complementing the discrete consistency/robustness endpoints used here.
 
 Two items from this literature are load-bearing for us. The recurring mechanism is
-*hedging* — combining the prediction with a safe default so that a bad prediction cannot
+*hedging*: combining the prediction with a safe default so that a bad prediction cannot
 cause catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak,
 Szabucki and Żołna [@chledowski2021caching] is one such mechanism, which we port and
 benchmark (Chapter 6); their paper, an experimental study of robust learning-augmented
@@ -161,12 +161,12 @@ Two strands apply the with-predictions paradigm to online matching, differing in
 **Degree predictions: MinPredictedDegree.** Aamand, Chen and Indyk [@aci2022mpd] propose
 **MinPredictedDegree (MPD)**: given a prediction $\mu$ of each offline resource's degree
 (how contended it will be), match each arrival to its available neighbor of *minimum
-predicted degree* — i.e. protect the resources predicted to be rarest. MPD is robust by
+predicted degree*, i.e. protect the resources predicted to be rarest. MPD is robust by
 construction: a constant (useless) predictor reduces it to Ranking. A key structural fact,
 which the thesis engages in Chapter 5, is that MPD depends on $\mu$ *only through the order
 it induces*. The authors' Appendix D bounds the matching loss by an order quantity built in
 two steps: list the true degrees in the order the prediction suggests, then count how many
-of them are out of place — formally $n-\mathrm{LIS}$, where $\mathrm{LIS}$ is the length of
+of them are out of place: formally $n-\mathrm{LIS}$, where $\mathrm{LIS}$ is the length of
 the longest non-decreasing subsequence of that list. The count is zero exactly when the
 prediction gets the order right, so a monotone (order-preserving) prediction incurs zero
 loss.
@@ -196,16 +196,16 @@ fix: 把 5.1 的真实权重换个字母（例如 w[mu]），或在 5.1 就地�
 be a *histogram* $\hat c$ over request types (how many of each type will arrive). Choo et
 al. [@choo2024imperfect] introduce **TestAndMatch**: build a matching from $\hat c$ and Mimic it, but
 first spend a sublinear prefix of arrivals *testing* whether the observed type frequencies
-match $\hat c$ — using an $\ell_1$-distance tester adapted from Jiao, Han and Weissman
-[@jiao2018l1] — and fall back to Ranking if they do not. Burathep, Erlebach and Moses [@bem2026testmatch]
+match $\hat c$, using an $\ell_1$-distance tester adapted from Jiao, Han and Weissman
+[@jiao2018l1], and fall back to Ranking if they do not. Burathep, Erlebach and Moses [@bem2026testmatch]
 generalize this ("Test-and-Match+") to the random-arrival model and to imperfect knowledge
 of the matching size. Both papers give *upper* bounds (algorithms); their only lower bound
 (Choo et al.'s Theorem 3.1) is a generic *adversarial* indistinguishability result (no
 algorithm is $1$-consistent and $>\tfrac12$-robust), and neither proves a lower bound in
 the stochastic model. Notably, Choo et al.'s acceptance threshold already *couples* to the
-baseline competitive ratio $\beta$ — but constructively, inside the algorithm design, not
-as a lower bound. What that coupling costs — how large a prefix the follow/fallback
-decision fundamentally requires — is the question this thesis measures (Chapter 6) and then
+baseline competitive ratio $\beta$, but constructively, inside the algorithm design, not
+as a lower bound. What that coupling costs, i.e. how large a prefix the follow/fallback
+decision fundamentally requires, is the question this thesis measures (Chapter 6) and then
 reads quantitatively (§10.2).
 
 <!--REV
@@ -231,20 +231,20 @@ fix: 本处删掉，只说本文做到哪一步（Chapter 6 measures it; 10.2 re
 ## 2.5 Distribution testing
 
 The test at the heart of the algorithms above is a question in **distribution testing**:
-given samples from an unknown distribution $p$ over a support of size $r$ — the same $r$ as
+given samples from an unknown distribution $p$ over a support of size $r$ (the same $r$ as
 in our model, the number of request types, because the histogram advice is a distribution
-over types — and a known
+over types) and a known
 reference $q$, decide how far $p$ is from $q$. We measure that distance in $\ell_1$
 throughout, as the algorithms and our experiments do; it is *twice* the total-variation
 distance, and every threshold quoted in this thesis is an $\ell_1$ threshold. Two regimes
 must be distinguished:
 
-- **Identity (non-tolerant) testing** — distinguish $p=q$ from $\lVert p-q\rVert_1\ge
-  \varepsilon$ — has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [@paninski2008coincidence; @valiant2017automatic],
+- **Identity (non-tolerant) testing**, distinguishing $p=q$ from $\lVert p-q\rVert_1\ge
+  \varepsilon$, has sample complexity $\Theta(\sqrt r/\varepsilon^2)$ [@paninski2008coincidence; @valiant2017automatic],
   *sublinear* in the support size.
-- **Tolerant testing / distance estimation** — distinguish $\lVert p-q\rVert_1\le
+- **Tolerant testing / distance estimation**, distinguishing $\lVert p-q\rVert_1\le
   \varepsilon_1$ from $\ge\varepsilon_2$ for $0<\varepsilon_1<\varepsilon_2$, i.e. estimate
-  the distance rather than test equality — is provably *much harder*: Valiant and Valiant
+  the distance rather than test equality, is provably *much harder*: Valiant and Valiant
   [@valiant2011unseen] showed it requires $\Theta(r/\log r)$ samples, *near-linear* in the support.
   Jiao, Han and Weissman [@jiao2018l1] gave matching bounds for $\ell_1$-distance estimation, and
   Canonne, Jain, Kamath and Li [@canonne2022tolerance] precisely characterized the whole
@@ -254,7 +254,7 @@ must be distinguished:
 The near-quadratic gap between $\sqrt r$ (testing) and $r/\log r$ (tolerant testing)
 matters twice in this thesis. It is why the deployable versions of TestAndMatch fall back
 to an empirical surrogate for their tester, and it is why that surrogate is blind on large
-supports — the resolution limit measured in Chapter 6. Whether the barrier also dooms
+supports: the resolution limit measured in Chapter 6. Whether the barrier also dooms
 every *other* decision rule turns out to be subtler than it first appears; the concluding
 outlook (§10.2) returns to this point.
 
@@ -292,13 +292,13 @@ questions of §1.2, and the thesis addresses them in that order:
    [@choo2024imperfect; @bem2026testmatch] has no deployable implementation (the authors themselves fall back to an
    empirical surrogate), and its testing cost, threshold calibration, and failure modes have
    not been measured. (Chapter 6.)
-3. **No quantification of what the prefix test costs.** No prior work measures — or bounds
-   — how large a prefix the follow/fallback decision requires on strong-baseline instances,
+3. **No quantification of what the prefix test costs.** No prior work measures, or bounds,
+   how large a prefix the follow/fallback decision requires on strong-baseline instances,
    where the upside to be captured is smallest. The prior-art pass behind this claim is
    described in §8.3. (Chapter 6 empirically; §10.2 in outlook.)
 
 The thesis closes the first two gaps experimentally and takes a first, quantified step at
-the third — an empirical resolution limit plus a theoretical outlook — arriving at a
+the third (an empirical resolution limit plus a theoretical outlook) arriving at a
 single unifying statement: *on average-case online matching, predictions are robustness
 insurance rather than a performance lever*, supported by experiments across synthetic
 graphs, real graphs, and real traces.

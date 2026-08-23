@@ -34,8 +34,8 @@ under paired trials (§3.5), since on a given instance every algorithm is divide
 exactly-computed optimum. It differs in principle from the ratio of expectations
 $\mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]$ that an experimental study might report
 instead, so we measured the gap: across nine algorithm-by-quality cells spanning both
-prediction families, the two conventions agree to within $6\times10^{-5}$ — two orders of
-magnitude below the confidence intervals we report — so no number in this thesis depends on
+prediction families, the two conventions agree to within $6\times10^{-5}$, two orders of
+magnitude below the confidence intervals we report, so no number in this thesis depends on
 the choice (`scripts/run_metric_check.py`, §A.2). The advice-free baseline throughout is KVV
 Ranking, whose ratio we write $\rho_{\mathrm{base}}$ (the **baseline strength**).
 
@@ -139,7 +139,7 @@ fix: 把它提成一个独立小段，并说清楚后果：因为建议只影响
 This last point is the whole mechanism behind the structural robustness of Chapter 4, so it
 is worth stating plainly: because the prediction only decides between otherwise equivalent
 choices, the worst-case-optimal base matching carries the load and an arbitrarily bad
-prediction cannot move it. That is why the augmentations never crash — and equally why they
+prediction cannot move it. That is why the augmentations never crash, and equally why they
 cannot capture the upside when the prediction is good.
 
 <!--REV
@@ -154,8 +154,8 @@ fix: 要么正文一律用 advice-following，把 mimic 放进括号说明一次
 
 ## 3.3 Prediction objects and structured error models
 
-The families consume different prediction objects — degree vectors $\mu$ and type
-histograms $\hat c$ — so each is corrupted by its own knob and reported in a parallel panel.
+The families consume different prediction objects (degree vectors $\mu$ and type
+histograms $\hat c$), so each is corrupted by its own knob and reported in a parallel panel.
 For $\mu$ we use four structured error models, each driven by a strength $\eta\in[0,1]$ and
 each returning both an $\ell_1$ *magnitude* error and a normalized **Kendall-$\tau$ order
 error**:
@@ -163,7 +163,7 @@ error**:
 | model | construction at strength $\eta$ | effect on the induced order |
 |---|---|---|
 | random-flip | independently, with probability $\eta$, replace an entry of $\mu$ by a uniform draw from $[\min\mu,\max\mu]$ | grows with $\eta$; $\eta=1$ is a constant-quality predictor, i.e. Ranking |
-| systematic-bias | monotone rescale $\mu\leftarrow\mu\cdot(1+\eta)$ | none — Kendall-$\tau\equiv0$ by construction, while the $\ell_1$ magnitude grows linearly |
+| systematic-bias | monotone rescale $\mu\leftarrow\mu\cdot(1+\eta)$ | none: Kendall-$\tau\equiv0$ by construction, while the $\ell_1$ magnitude grows linearly |
 | adversarial | reflect an $\eta$-fraction of entries, $\mu(R)\leftarrow(\min\mu+\max\mu)-\mu(R)$ | the most order-damaging perturbation at a given fraction; $\eta=1$ reverses the order |
 | distribution-drift | blend toward the degrees of an independently drawn graph of the same family, $\mu\leftarrow(1-\eta)\mu+\eta\mu_{\mathrm{alt}}$ | grows with $\eta$, but in a correlated way rather than entry-by-entry |
 
@@ -197,7 +197,7 @@ fix: 在这里就写明这一点（the panels are not commensurable across famil
 For a prediction-consuming algorithm, **consistency** is its ratio under perfect advice and
 **robustness** is its worst-case ratio under adversarial advice. Operationally we cannot
 sweep every adversarial prediction, so in the experiments robustness is reported as the
-minimum over our corruption levels — an upper bound on the true worst case, and therefore a
+minimum over our corruption levels, an upper bound on the true worst case and therefore a
 generous reading of an algorithm's safety. A useful algorithm is
 consistent *and* never (much) below $\rho_{\mathrm{base}}$; the tension between the two is
 the subject of Chapter 6 and of the outlook in §10.2.
@@ -224,8 +224,8 @@ with 95% normal-approximation confidence intervals, computed per algorithm and e
 Those per-algorithm intervals are the conservative choice: they under-use the pairing, since
 a comparison between two algorithms is really a *paired difference*, whose interval is
 narrower whenever the two respond to the same instances in the same direction. Every
-comparison the thesis draws survives under the wider convention — the narrowest margin being
-Feldman(MPD)'s $+0.0044$ against a $\pm0.0023$ per-algorithm interval — so nothing in the
+comparison the thesis draws survives under the wider convention (the narrowest margin being
+Feldman(MPD)'s $+0.0044$ against a $\pm0.0023$ per-algorithm interval), so nothing in the
 thesis turns on which is used; §A.2 reports the measured correlations and paired intervals. Every figure and table in the thesis is
 regenerated from a fixed seed by a single script (Appendix A).
 
@@ -279,7 +279,7 @@ paper's qualitative claims that we checked reproduce, with absolute differences 
 $0.02$. In detail: sweeping $c$ reproduces the characteristic U-shape and its hard case, SimpleGreedy attains its minimum
 $0.864$ at $c\approx4.9$, and the greedy variants of the complex algorithms their minima
 $\approx0.884$ at $c\approx5.3$. Ranking is indistinguishable from SimpleGreedy (maximum
-difference $0.0017$ across all 75 values — the paper omits Ranking's curve for exactly this
+difference $0.0017$ across all 75 values; the paper omits Ranking's curve for exactly this
 reason), and the non-greedy variants degrade monotonically as $c$ grows ($0.986\to0.730$ for
 Feldman, $0.985\to0.760$ for Jaillet–Lu). Every one of the paper's five prose claims we
 checked holds.
@@ -305,7 +305,7 @@ complex variants $\approx$ SimpleGreedy asymptotically.
 
 **A cross-family observation.** Combining the two sweeps surfaces a non-obvious fact: the
 non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in
-*both* families — $0.730$ and $0.760$ respectively, within $0.001$ across families — and
+*both* families ($0.730$ and $0.760$ respectively, within $0.001$ across families) and
 both sit *above* their worst-case theoretical bounds ($0.670$ and $0.729$) by $+0.06$ and
 $+0.03$. The two families happen to converge to the same value here; we do not investigate whether
 that is universal. It is, in any case, an early and concrete instance of the thesis's

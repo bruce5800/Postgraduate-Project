@@ -12,7 +12,7 @@ predicted degree, so it depends on the predictor $\mu$ *only through the order i
 on the resources: two predictors inducing the same order produce identical matchings, and a
 monotone rescaling of $\mu$ changes nothing. The right question is therefore not "how large
 is the error" but "which *order* error governs the loss, and how tightly." Answering it
-requires care, because the qualitative fact that order — not magnitude — matters is already
+requires care, because the qualitative fact that order, not magnitude, matters is already
 a theorem, and we are explicit about what is prior and what is ours.
 
 <!--REV
@@ -29,14 +29,14 @@ fix: 改成 Order Error and the Known Bound，或 Order Error: What the Known Bo
 
 Aamand, Chen and Indyk [@aci2022mpd, Appendix D] prove that on the CLV-B model, MinPredictedDegree's
 matching loss relative to the true expected degrees is at most $n-\mathrm{LIS}(w[\mu])$.
-Here $w$ is the vector of true expected degrees — written $w$ rather than $p$ to keep it
-distinct from the type distribution $p$ of §3.1 — $w[\mu]$ is that vector listed in the
+Here $w$ is the vector of true expected degrees (written $w$ rather than $p$ to keep it
+distinct from the type distribution $p$ of §3.1), $w[\mu]$ is that vector listed in the
 order $\mu$ induces, and $\mathrm{LIS}$ is the length of its longest non-decreasing
 subsequence: a pure *order* quantity. In particular a monotone (order-preserving) predictor
 leaves $w[\mu]$ already sorted, so $n-\mathrm{LIS}=0$ and the loss is zero. Thus *order-dependence* and *the zero-effect of a monotone bias* are ACI's results,
 not ours; our systematic-bias error model (a monotone rescale) has Kendall-$\tau\equiv0$ by
 construction and, consistently, leaves MPD's ratio exactly unchanged across the benchmark
-(Chapter 4) — an empirical confirmation of ACI's statement, not a new finding.
+(Chapter 4): an empirical confirmation of ACI's statement, not a new finding.
 
 <!--REV
 id: 5-02
@@ -63,7 +63,7 @@ fix: 保留 5.1 末的这一处（它在证据旁边，最有说服力），5.3 
 
 We sweep the four structured error models across strength and record, per model and level on
 the same instances, three quantities: the actual MPD matching loss, ACI's $n-\mathrm{LIS}$,
-and the normalized Kendall-$\tau$ order error — reported on $[0,1]$, where $0$ means the
+and the normalized Kendall-$\tau$ order error, reported on $[0,1]$, where $0$ means the
 predicted order is exactly right and $1$ that it is exactly reversed (**Figure 5.1**; $n=1000$, Zipf exponent
 $1.0$, 40 trials).
 
@@ -114,7 +114,7 @@ fix: 补一句参照：out of a maximum of n = 1000, and against realized losses
 
 **(iii) Kendall-$\tau$ is the governing order measure, and the models collapse onto it.**
 Plotted against Kendall-$\tau$ (Figure 5.1(b)), the four models fall on one increasing curve
-— loss rises with $\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
+: loss rises with $\tau$ ($0.29\to0.50\to1.0$ for drift, random-flip, adversarial, tracking
 $8.1\to21.6\to41.7$), with systematic bias pinned at $\tau=0$, zero loss. The collapse is
 not only visual: pooling all four models and all error levels (44 points), the rank
 correlation between Kendall-$\tau$ and the realized loss is Spearman $\rho=0.979$ (Pearson
@@ -134,13 +134,13 @@ fix: 给一个统计量：例如四个模型合并后的 Spearman 相关系数�
 
 ## 5.3 Chapter summary
 
-What this chapter adds — order-dependence itself being ACI's result (§5.1) — is a precise
+What this chapter adds, order-dependence itself being ACI's result (§5.1), is a precise
 empirical characterization of how much the known bound actually says: ACI's $n-\mathrm{LIS}$ bound is loose by one to nearly two orders of
 magnitude and saturates, whereas Kendall-$\tau$ predicts the realized loss and unifies the
 four error structures. This both sharpens the theory's practical content and justifies the
 single order-error axis used when the predictor is stressed on real data. It is also why
 Chapter 7 can explain a cheap historical predictor's success by its order fidelity alone,
-and why Chapter 8 tried — and failed — to train a predictor for order directly.
+and why Chapter 8 tried, and failed, to train a predictor for order directly.
 
 <!--REV
 id: 5-08

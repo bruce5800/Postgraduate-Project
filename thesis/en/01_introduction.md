@@ -11,21 +11,21 @@ credits ACI; serving = case study; combiner benchmarked; theory scope + proof-st
 
 Online bipartite matching is the canonical model of irrevocable sequential allocation.
 Resources are known in advance; requests arrive one at a time; each must be matched to an
-available compatible resource — or dropped — immediately, before the rest of the input is
+available compatible resource (or dropped) immediately, before the rest of the input is
 seen. It is the abstraction behind online advertising, ride-hailing dispatch, organ
 exchange, and request routing in modern serving systems. Because decisions cannot be undone,
 the difficulty lies entirely in committing well under uncertainty about the future.
 
 A recent and influential idea is to give such an algorithm a **prediction** about the input
-— which resources will be contended, or how many requests of each kind will arrive — and to
+(which resources will be contended, or how many requests of each kind will arrive), and to
 ask for two guarantees at once: **consistency**, meaning near-optimal performance when the
 prediction is good, and **robustness**, meaning no worse than a prediction-free algorithm
 when the prediction is wrong. (We call the object a *prediction* throughout, and *advice*
 only where the question is whether to trust it; the two denote the same thing.) For online
 matching specifically,
 two families of such *learning-augmented* algorithms have appeared: MinPredictedDegree,
-which consumes a prediction of each resource's degree — how many kinds of request will
-compete for it, i.e. how contended it will be — and a family of *test-and-fallback*
+which consumes a prediction of each resource's degree (how many kinds of request will
+compete for it, i.e. how contended it will be), and a family of *test-and-fallback*
 schemes, which test a request-type prediction on a short prefix of arrivals before deciding
 whether to trust it.
 
@@ -59,13 +59,13 @@ note: 这两个术语的处理方式（加粗 + 就地一句话释义 + 立刻�
 fix: 把它当成全文模板：后面每一个首次出现的核心术语（order error, harness, wall, stakes, resolution）都照这个格式处理一次。
 -->
 
-These algorithms come with attractive worst-case guarantees, yet — as this thesis
-demonstrates experimentally — their average-case behavior is strikingly muted: on realistic
+These algorithms come with attractive worst-case guarantees, yet, as this thesis
+demonstrates experimentally, their average-case behavior is strikingly muted: on realistic
 workloads the sophisticated predictions rarely *help*, while the algorithms' real value is
 that they do not *hurt*. This gap between the worst-case promise and the average-case
 reality is the puzzle that motivates this thesis.
 
-Moreover, these algorithms had only ever been studied *in isolation* — each on its own
+Moreover, these algorithms had only ever been studied *in isolation*: each on its own
 input model and its own notion of prediction error, and largely through theory. There was
 therefore no common ground on which to compare them, to quantify how much a prediction
 actually buys, or to explain the gap. This thesis provides that common ground and,
@@ -98,11 +98,11 @@ the offline optimum on the same instance (§3.1 makes this precise). The thesis 
 around three questions:
 
 1. **How do the learning-augmented online-matching algorithms actually compare**, head to
-   head, under a single prediction-error model and on common inputs — and how much does a
+   head, under a single prediction-error model and on common inputs, and how much does a
    prediction help, at what cost, on realistic data?
-2. **What are the failure modes of the adaptive test-and-fallback mechanism** — the cost of
+2. **What are the failure modes of the adaptive test-and-fallback mechanism**: the cost of
    its test, the calibration of its accept/reject decision, and where it goes wrong?
-3. **Why does the average-case experience differ so sharply from the worst-case promise** —
+3. **Why does the average-case experience differ so sharply from the worst-case promise**:
    is the observed wall an artifact of particular algorithms and generators, or is it
    *necessary*?
 
@@ -131,7 +131,7 @@ fix: 在每条贡献后面用括号标出它回答哪个问题（Q1 / Q2 / Q3）
 ## 1.3 Contributions
 
 - **A unified experimental benchmark** (Chapter 4; Q1): the first head-to-head comparison of
-  these families, on one experimental harness — a single code path in which every algorithm
+  these families, on one experimental harness: a single code path in which every algorithm
   sees the same graphs, predictions and optimum, with a *structured* error model (errors
   follow the instance's structure, not i.i.d. noise) and confidence intervals.
 
@@ -147,15 +147,15 @@ fix: harness 首次出现处加同位语：on a single experimental harness (one
 
 - **A characterization of predictions as robustness insurance** (Chapters 4, 7; Q1):
   unguarded
-  following crashes *below* the advice-free baseline, two mechanisms — structural and
-  adaptive — restore safety with different trade-offs, and the consistency upside is small,
+  following crashes *below* the advice-free baseline, two mechanisms (structural and
+  adaptive) restore safety with different trade-offs, and the consistency upside is small,
   so the value is downside protection. Validated on synthetic graphs, six real-world graphs
   and real traces, including with a cheap, non-ML historical predictor.
 
 - **An empirical engagement with the order-error theory** (Chapter 5; Q1):
   MinPredictedDegree's
-  loss is governed by a Kendall-$\tau$ order error — the fraction of resource pairs ranked in
-  the wrong relative order — onto which several error models collapse. Order-dependence
+  loss is governed by a Kendall-$\tau$ order error, the fraction of resource pairs ranked in
+  the wrong relative order, onto which several error models collapse. Order-dependence
   itself is Aamand–Chen–Indyk's result; ours is the characterization of their bound's
   looseness and saturation, and of the right order measure.
 
@@ -197,8 +197,8 @@ fix: 正文保留 first，但在第 2.6 节确保有一句可核对的范围声�
 - **A quantified account of why the wall stands** (Chapter 6; Q3). By the *wall* we mean
   that on
   average-case inputs neither a better algorithm nor a better prediction moves the ratio
-  appreciably. We trace it to a *resolution limit* — no practical threshold can capture an
-  upside below its own estimator's noise — which persists across the whole difficulty range
+  appreciably. We trace it to a *resolution limit* (no practical threshold can capture an
+  upside below its own estimator's noise) that persists across the whole difficulty range
   (Figure 6.4).
 
 <!--REV
@@ -245,10 +245,10 @@ fix: 每条压到 3 到 4 行：首句一句话说清贡献是什么，细节交
 -->
 
 Alongside these, the thesis documents (Chapter 8) the exploratory directions it pursued and
-the negative results they returned — an attempt to *learn* the predictor for extra
-performance, and an attempt to find a serving regime where predictions genuinely help —
-both of which reinforce the central finding; the question they raise — is the wall forced?
-— is taken up in the concluding outlook (§10.2). That outlook is a discussion rather than a
+the negative results they returned: an attempt to *learn* the predictor for extra
+performance, and an attempt to find a serving regime where predictions genuinely help. Both
+reinforce the central finding, and the question they raise — is the wall forced? — is taken
+up in the concluding outlook (§10.2). That outlook is a discussion rather than a
 further contribution: it proves one consistency/robustness trade-off inequality and then
 reads our own experiments through it. No theorem beyond that inequality is claimed anywhere
 in this thesis.

@@ -14,15 +14,15 @@ linkcolor: black
 abstract: |
   Online bipartite matching is the canonical model of irrevocable sequential allocation:
   resources are known in advance, requests arrive one at a time, and each must be matched to a
-  free compatible resource --- or dropped --- before the rest of the input is seen. It
+  free compatible resource (or dropped) before the rest of the input is seen. It
   underlies online advertising, ride-hailing dispatch and request routing. A recent line of
   work hands such an algorithm a *prediction* about the input, asking for near-optimal
   performance when it is good (*consistency*) and no loss when it is wrong (*robustness*).
 
   Two such families exist, but each had been analysed in isolation and almost entirely in
   worst-case theory, so what a prediction is worth was unknown. This project puts them on one
-  harness --- same graphs, arrivals, optimum and paired seeds, four structured error models,
-  95% confidence intervals --- validated against a published study, then run on synthetic
+  harness (same graphs, arrivals, optimum and paired seeds, four structured error models, 95%
+  confidence intervals), validated against a published study and then run on synthetic
   families, six real-world graphs and real traces. The answer is
   the same everywhere: the advice-free baseline is already near-optimal ($0.990$ of the offline
   optimum), leaving good advice under $0.01$ to add, whereas unguarded prediction-following
@@ -34,12 +34,12 @@ abstract: |
   - I created the first unified benchmark of the two families, implementing the published
     algorithms of Aamand--Chen--Indyk, Choo et al. and Burathep--Erlebach--Moses on a common
     error model and optimum; every wide gap it shows is a *downside* gap (pages 18--22).
-  - I characterised what governs the residual loss --- a Kendall-$\tau$ order error (Spearman
+  - I characterised what governs the residual loss: a Kendall-$\tau$ order error (Spearman
     $\rho=0.979$), with the known $n-\mathrm{LIS}$ bound loose by $16$--$75\times$;
     order-dependence is Aamand--Chen--Indyk's (pages 23--25).
-  - I gave the first empirical study of test-and-fallback --- a pathology in which a *more
-    accurate* test decides *worse*, and a resolution limit (pages 26--31) --- and established
+  - I gave the first empirical study of test-and-fallback (a pathology in which a *more
+    accurate* test decides *worse*, and a resolution limit; pages 26--31), and established
     external validity on six real graphs and a cheap non-ML predictor (pages 32--35).
   - I report two negative results (pages 36--44) and prove a consistency/robustness trade-off
     inequality putting the uncapturable upside at $\approx0.004$ for the benchmark's
-    parameters --- the order of those measured (pages 45--50).
+    parameters, exactly the order of those measured (pages 45--50).

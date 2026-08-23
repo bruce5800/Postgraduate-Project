@@ -38,12 +38,11 @@ differs in principle from the ratio of expectations
 \(\mathbb E[|\mathrm{ALG}|]/\mathbb E[|\mathrm{OPT}|]\) that an
 experimental study might report instead, so we measured the gap: across
 nine algorithm-by-quality cells spanning both prediction families, the
-two conventions agree to within \(6\times10^{-5}\) --- two orders of
-magnitude below the confidence intervals we report --- so no number in
-this thesis depends on the choice
-(\texttt{scripts/run\_metric\_check.py}, §A.2). The advice-free baseline
-throughout is KVV Ranking, whose ratio we write \(\rho_{\mathrm{base}}\)
-(the \textbf{baseline strength}).
+two conventions agree to within \(6\times10^{-5}\), two orders of
+magnitude below the confidence intervals we report, so no number in this
+thesis depends on the choice (\texttt{scripts/run\_metric\_check.py},
+§A.2). The advice-free baseline throughout is KVV Ranking, whose ratio
+we write \(\rho_{\mathrm{base}}\) (the \textbf{baseline strength}).
 
 The notation recurs throughout the thesis and is collected here for
 reference:
@@ -124,16 +123,16 @@ This last point is the whole mechanism behind the structural robustness
 of Chapter 4, so it is worth stating plainly: because the prediction
 only decides between otherwise equivalent choices, the
 worst-case-optimal base matching carries the load and an arbitrarily bad
-prediction cannot move it. That is why the augmentations never crash ---
+prediction cannot move it. That is why the augmentations never crash,
 and equally why they cannot capture the upside when the prediction is
 good.
 
 \section{Prediction objects and structured error
 models}
 
-The families consume different prediction objects --- degree vectors
-\(\mu\) and type histograms \(\hat c\) --- so each is corrupted by its
-own knob and reported in a parallel panel. For \(\mu\) we use four
+The families consume different prediction objects (degree vectors
+\(\mu\) and type histograms \(\hat c\)), so each is corrupted by its own
+knob and reported in a parallel panel. For \(\mu\) we use four
 structured error models, each driven by a strength \(\eta\in[0,1]\) and
 each returning both an \(\ell_1\) \emph{magnitude} error and a
 normalized \textbf{Kendall-\(\tau\) order error}:
@@ -159,7 +158,7 @@ random-flip & independently, with probability \(\eta\), replace an entry
 of \(\mu\) by a uniform draw from \([\min\mu,\max\mu]\) & grows with
 \(\eta\); \(\eta=1\) is a constant-quality predictor, i.e.~Ranking \\
 systematic-bias & monotone rescale \(\mu\leftarrow\mu\cdot(1+\eta)\) &
-none --- Kendall-\(\tau\equiv0\) by construction, while the \(\ell_1\)
+none: Kendall-\(\tau\equiv0\) by construction, while the \(\ell_1\)
 magnitude grows linearly \\
 adversarial & reflect an \(\eta\)-fraction of entries,
 \(\mu(R)\leftarrow(\min\mu+\max\mu)-\mu(R)\) & the most order-damaging
@@ -182,9 +181,9 @@ For a prediction-consuming algorithm, \textbf{consistency} is its ratio
 under perfect advice and \textbf{robustness} is its worst-case ratio
 under adversarial advice. Operationally we cannot sweep every
 adversarial prediction, so in the experiments robustness is reported as
-the minimum over our corruption levels --- an upper bound on the true
-worst case, and therefore a generous reading of an algorithm's safety. A
-useful algorithm is consistent \emph{and} never (much) below
+the minimum over our corruption levels, an upper bound on the true worst
+case and therefore a generous reading of an algorithm's safety. A useful
+algorithm is consistent \emph{and} never (much) below
 \(\rho_{\mathrm{base}}\); the tension between the two is the subject of
 Chapter 6 and of the outlook in §10.2.
 
@@ -204,11 +203,11 @@ intervals are the conservative choice: they under-use the pairing, since
 a comparison between two algorithms is really a \emph{paired
 difference}, whose interval is narrower whenever the two respond to the
 same instances in the same direction. Every comparison the thesis draws
-survives under the wider convention --- the narrowest margin being
+survives under the wider convention (the narrowest margin being
 Feldman(MPD)'s \(+0.0044\) against a \(\pm0.0023\) per-algorithm
-interval --- so nothing in the thesis turns on which is used; §A.2
-reports the measured correlations and paired intervals. Every figure and
-table in the thesis is regenerated from a fixed seed by a single script
+interval), so nothing in the thesis turns on which is used; §A.2 reports
+the measured correlations and paired intervals. Every figure and table
+in the thesis is regenerated from a fixed seed by a single script
 (Appendix A).
 
 \section{Fidelity check: reproducing Borodin et
@@ -237,7 +236,7 @@ reproduce, with absolute differences below \(0.02\). In detail: sweeping
 SimpleGreedy attains its minimum \(0.864\) at \(c\approx4.9\), and the
 greedy variants of the complex algorithms their minima \(\approx0.884\)
 at \(c\approx5.3\). Ranking is indistinguishable from SimpleGreedy
-(maximum difference \(0.0017\) across all 75 values --- the paper omits
+(maximum difference \(0.0017\) across all 75 values; the paper omits
 Ranking's curve for exactly this reason), and the non-greedy variants
 degrade monotonically as \(c\) grows (\(0.986\to0.730\) for Feldman,
 \(0.985\to0.760\) for Jaillet--Lu). Every one of the paper's five prose
@@ -265,14 +264,14 @@ Greedy \(\approx\) Ranking.}
 
 \textbf{A cross-family observation.} Combining the two sweeps surfaces a
 non-obvious fact: the non-greedy Feldman and Jaillet--Lu algorithms
-converge to the \emph{same} asymptotic ratio in \emph{both} families ---
-\(0.730\) and \(0.760\) respectively, within \(0.001\) across families
---- and both sit \emph{above} their worst-case theoretical bounds
-(\(0.670\) and \(0.729\)) by \(+0.06\) and \(+0.03\). The two families
-happen to converge to the same value here; we do not investigate whether
-that is universal. It is, in any case, an early and concrete instance of
-the thesis's recurring theme that the average case is far more benign
-than the worst case, which the prediction-error sweeps of later chapters
+converge to the \emph{same} asymptotic ratio in \emph{both} families
+(\(0.730\) and \(0.760\) respectively, within \(0.001\) across families)
+and both sit \emph{above} their worst-case theoretical bounds (\(0.670\)
+and \(0.729\)) by \(+0.06\) and \(+0.03\). The two families happen to
+converge to the same value here; we do not investigate whether that is
+universal. It is, in any case, an early and concrete instance of the
+thesis's recurring theme that the average case is far more benign than
+the worst case, which the prediction-error sweeps of later chapters
 probe in earnest.
 
 \textbf{Verdict.} The harness reproduces the published qualitative

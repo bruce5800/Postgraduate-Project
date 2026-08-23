@@ -9,8 +9,8 @@ snippets. Figure numbers match the thesis chapters. Runtimes are approximate (ma
 
 Every quantitative result in this thesis is regenerated from a fixed seed by a single
 script. Two classes of script must be distinguished. Most are *self-contained*: they
-generate their own synthetic instances and run as-is on a clean checkout. The rest — the
-real-graph and real-trace results of Chapters 7, 8 and 9 — first need external data placed
+generate their own synthetic instances and run as-is on a clean checkout. The rest (the
+real-graph and real-trace results of Chapters 7, 8 and 9) first need external data placed
 under `data/`; that data is not redistributed with the code, and §A.5 records what each
 dataset is and where it comes from. In the map below, a dagger ($\dagger$) marks the
 scripts of the second class.
@@ -41,8 +41,8 @@ fix: 在这里就分类说清楚：哪些脚本是自足的（合成数据，开
   graph, arrival sequence, `OPT`, and tie-break seed, so differences are attributable to the
   prediction alone.
 - **Confidence intervals:** 95% normal-approximation half-widths over trials.
-- **Flow decompositions.** Three preprocessing steps — Feldman, Jaillet–Lu, and the serving
-  advice $b$-matching — take a maximum flow and consume its *decomposition*, which, unlike
+- **Flow decompositions.** Three preprocessing steps (Feldman, Jaillet–Lu, and the serving
+  advice $b$-matching) take a maximum flow and consume its *decomposition*, which, unlike
   the flow value, is not unique. Their networks label nodes with integers rather than
   strings, so that the decomposition NetworkX returns is stable from run to run; with
   string labels it followed Python's per-process string hashing and every number derived
@@ -89,8 +89,8 @@ single-threaded apart from NumPy's own vectorization, so they scale with single-
 **Interval convention (deferred from §3.5).** `run_metric_check.py` also compares the
 per-algorithm confidence intervals the thesis reports against paired-difference intervals on
 the same trials. Where the per-instance ratios are positively correlated the paired interval
-is $1.7$–$2.6\times$ narrower (correlations $0.67$ and $0.85$); where they are not — blind
-following against Ranking under garbage advice, correlation $-0.15$ — pairing does not help
+is $1.7$–$2.6\times$ narrower (correlations $0.67$ and $0.85$); where they are not (blind
+following against Ranking under garbage advice, correlation $-0.15$) pairing does not help
 and the per-algorithm interval is the honest one. The narrowest margin in the thesis,
 Feldman(MPD)'s $+0.0044$ against a $\pm0.0023$ per-algorithm interval, tightens to
 $\pm0.0009$ under pairing.
@@ -121,7 +121,7 @@ fix: 表下加一行脚注给出测量环境（CPU、核数、是否并行）。
 
 ```bash
 # from the project root (matching-experiments/)
-# correctness anchors — 7 hand-verifiable test files, all pass:
+# correctness anchors: 7 hand-verifiable test files, all pass:
 for t in tests/test_*.py; do python3 "$t"; done
 
 # regenerate the headline results (fast ones):
@@ -199,7 +199,7 @@ fix: 统一到三位小数，或在表头说明为什么这里需要四位。
 | 30 | 0.977 | 0.977 | 0.730 | 0.976 | 0.760 | 0.976 |
 
 **Paper-claim checklist (all verified ✓):** greedy minima near $c\approx4.9$ / $d=5$;
-Ranking $\approx$ SimpleGreedy (max diff 0.0017 ER, 0.0013 LR — the paper omits Ranking's
+Ranking $\approx$ SimpleGreedy (max diff 0.0017 ER, 0.0013 LR; the paper omits Ranking's
 curve for this reason); non-greedy variants degrade monotonically as $c,d$ grow; greedy
 complex variants $\approx$ SimpleGreedy asymptotically; the $c$=14.9 non-greedy ordering
 (J-NG 0.760 > F-NG 0.730) matches the paper's worst-case-bound ordering. Across families,
@@ -223,8 +223,8 @@ fix: 附录只留数字，解读交给 3.6，并写 see 3.6。或者反过来。
 Real data is stored locally under `data/` (large; excluded from version control).
 
 - **Real graphs (Chapter 7, §3.6 validation):** six graphs from the Network Repository
-  (`networkrepository.com`) — `socfb-Caltech36`, `socfb-Reed98`, `bio-CE-GN`, `bio-CE-PG`,
-  `econ-beause`, `econ-mbeaflw` — downloaded as MatrixMarket `.mtx` / whitespace `.edges`,
+  (`networkrepository.com`): `socfb-Caltech36`, `socfb-Reed98`, `bio-CE-GN`, `bio-CE-PG`,
+  `econ-beause`, `econ-mbeaflw`, downloaded as MatrixMarket `.mtx` / whitespace `.edges`,
   reduced to simple undirected graphs and converted to bipartite by random balanced
   partition (Borodin Table 3) or duplicating double-cover (Table 4).
 - **Traces (Chapters 7, 8, 9):** Wikipedia "top articles per day" for four days, retrieved
@@ -258,12 +258,12 @@ There are three checks, each a short simulation of the rare-resource constructio
    $\pm0.119$, against a predicted $\pm\theta\cdot0.3 = \pm0.12$.
 2. **The conversion law.** The expected ratio when the advice is followed matches
    $\rho_{\mathrm{perfect}} - \tfrac12\ell_1(p,q)$, where $\rho_{\mathrm{perfect}}$ is the
-   ratio under perfect advice — it falls off linearly in the advice's $\ell_1$ error — again
+   ratio under perfect advice, i.e. it falls off linearly in the advice's $\ell_1$ error, again
    to three decimals. In the language of §10.2 this is what makes the *stakes* $\delta$ a
    linear function of the advice error.
 3. **The two budget–stakes ingredients.** The directional statistic's accuracy at a fixed
    prefix length does not degrade as $n$ grows, and the plug-in $\ell_1$ estimate becomes
-   blind — indistinguishable between good and bad advice — once $k \ll r$. Both are produced
+   blind, i.e. indistinguishable between good and bad advice, once $k \ll r$. Both are produced
    by `scripts/verify_witness_gap.py` (§A.2).
 
 These checks are what license the *reading* of §10.2; they are not a proof of it. The formal

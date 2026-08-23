@@ -32,10 +32,10 @@ onto a fixed serving topology and consume the forecast through the degree route 
 (**Figure 7.1**). Throughout this chapter we measure how much of the available benefit a
 predictor realizes by its **gap-capture**,
 $(\rho_{\mathrm{ALG}}-\rho_{\mathrm{base}})/(\rho_{\mathrm{oracle}}-\rho_{\mathrm{base}})$
-— the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
+, the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
 
 First, **the predictor is cheap**. The with-predictions literature usually pictures an
-expensive learned model; here it is a linear-time count — about $0.11$ ms per instance
+expensive learned model; here it is a linear-time count, about $0.11$ ms per instance
 against $4.4$ ms to compute $\mathrm{OPT}$ once, a few percent. These are the only
 wall-clock numbers in the thesis and are therefore machine-dependent; everything else is a
 ratio.
@@ -50,7 +50,7 @@ The induced degree predictor's order error is only Kendall-$\tau\approx0.19$–$
 the aggregated route survives real drift. Consuming the *same* forecast through the raw
 histogram is
 catastrophic: blind FollowPrediction collapses to $0.68\to0.36$, far below the $\approx0.92$
-baseline — exactly what the robust algorithms of Chapters 4 and 6 are for.
+baseline: exactly what the robust algorithms of Chapters 4 and 6 are for.
 
 <!--REV
 id: 7-02
@@ -94,7 +94,7 @@ note: 这个映射是本节外部效度的关键一步（真实 trace 怎么变�
 fix: 补两句说明映射规则，或指向附录 A.5；并说明映射方式的选择是否影响结论（是否试过别的映射）。
 -->
 
-![The figure to remember from this chapter: a real, cheap predictor (Wikipedia trace) — the aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=80%}
+![The figure to remember from this chapter: a real, cheap predictor (Wikipedia trace). The aggregated degree route survives staleness (b) because aggregation halves the order error (a); blind histogram-following decays.](../../results/real_predictor.png){width=80%}
 
 ## 7.2 Six real-world graphs
 
@@ -102,9 +102,9 @@ We re-run the degree-prediction roster of Chapter 4 on the six Network-Repositor
 Facebook social, two C. elegans biological, two economic input-output), across the same
 quality columns, with 95% CIs (**Figure 7.2**). The two load-bearing findings are universal.
 **F1 holds on all six**: naive MPD fed an adversarial predictor falls below the Ranking floor
-everywhere — by $0.06$ (Reed98) to $0.10$ (CE-PG). **F3 holds on all six, and confirms
+everywhere, by $0.06$ (Reed98) to $0.10$ (CE-PG). **F3 holds on all six, and confirms
 its own logic**: the consistency upside is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$)
-and smallest exactly where the baseline is strongest — the two dense economic graphs, with
+and smallest exactly where the baseline is strongest: the two dense economic graphs, with
 Ranking already $0.965$/$0.977$, give the tiniest upsides.
 
 <!--REV
@@ -127,17 +127,17 @@ note: strictly 给了判据（spread 倍数），qualitatively 没有。两个�
 fix: 给出 qualitatively 的判据：例如 the augmentations' spread is smaller than naive MPD's on all six。两个判据都写死。
 -->
 
-The structural-robustness finding **F2 holds qualitatively on all six** — the augmentations'
-spread across quality columns is smaller than naive MPD's on every graph — and *strictly*,
+The structural-robustness finding **F2 holds qualitatively on all six** (the augmentations'
+spread across quality columns is smaller than naive MPD's on every graph) and *strictly*,
 by the stronger criterion that the spread is at most half of MPD's, on the four
 social/bio graphs (spread $0.22$–$0.29\times$ MPD's); on the two dense economic graphs the
-protection is only *partial* — the augmentation cushions the adversarial drop ($0.939$ vs
+protection is only *partial*: the augmentation cushions the adversarial drop ($0.939$ vs
 naive MPD's $0.893$) but cannot clear the unusually high $0.965$ floor, dipping $\approx0.03$
 below it. Those two graphs are so dense that matching is nearly trivial (Ranking
 $\approx0.97$, MinDegree $=1.00$), so there is neither upside to capture (F3) nor much
 downside to protect: the boundary is F3's own mechanism at work, not an exception to it. Finally, F4 is *dramatic*: the
 worst-case-designed Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs
-($0.73$–$0.77$) and the augmentation lifts them to $0.99$ — a $+0.26$ rescue.
+($0.73$–$0.77$) and the augmentation lifts them to $0.99$, a $+0.26$ rescue.
 
 <!--REV
 id: 7-08
@@ -160,7 +160,7 @@ note: 图注用颜色指代算法（red / green / blue），但没有说明六�
 fix: 图注写明：one panel per graph, shared vertical axis (or: axes differ; see values in text)。这一句决定了读者能不能横向读这张图。
 -->
 
-![F1–F3 on six real graphs, one panel per graph (axis ranges differ between panels — the graphs' floors do too, so read each panel against its own dashed floor rather than across panels). Naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.](../../results/realworld_robustness.png){width=100%}
+![F1–F3 on six real graphs, one panel per graph (axis ranges differ between panels, as the graphs' floors do too, so read each panel against its own dashed floor rather than across panels). Naive MPD (red) dips below the Ranking floor everywhere; the structural augmentations (green/blue) stay flat.](../../results/realworld_robustness.png){width=100%}
 
 ## 7.3 Does learning the predictor help?
 
@@ -170,7 +170,7 @@ is real on deliberately engineered features but *disappears* on real temporal on
 rank- and regression-trained predictors induce the same order and reach the same ratio. The
 experiments, their numbers and the three-step argument behind them are in §8.1; what matters
 for external validity is only the consequence. Once a predictor
-is order-faithful — which a cheap historical count already is (§7.1) — neither a better
+is order-faithful, which a cheap historical count already is (§7.1), neither a better
 algorithm nor a better-trained predictor buys much on average-case matching.
 
 <!--REV
@@ -188,7 +188,7 @@ fix: 定正本：第 8 章是正本（那里有完整的 M0 到 M3 过程），7
 
 On real predictors, real graphs, and a learned predictor, the same wall stands: the
 advice-free baseline is near-optimal, unguarded following is unsafe, and predictions buy
-downside protection rather than performance — with one instructive boundary, the two dense
+downside protection rather than performance, with one instructive boundary: the two dense
 economic graphs of §7.2, where the augmentation cannot quite clear an unusually high
 floor. Having established the wall empirically across
 every setting we could reach, Chapter 8 reports the directions that tried to get past it,

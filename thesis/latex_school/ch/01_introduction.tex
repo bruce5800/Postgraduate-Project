@@ -5,16 +5,16 @@
 Online bipartite matching is the canonical model of irrevocable
 sequential allocation. Resources are known in advance; requests arrive
 one at a time; each must be matched to an available compatible resource
---- or dropped --- immediately, before the rest of the input is seen. It
-is the abstraction behind online advertising, ride-hailing dispatch,
-organ exchange, and request routing in modern serving systems. Because
+(or dropped) immediately, before the rest of the input is seen. It is
+the abstraction behind online advertising, ride-hailing dispatch, organ
+exchange, and request routing in modern serving systems. Because
 decisions cannot be undone, the difficulty lies entirely in committing
 well under uncertainty about the future.
 
 A recent and influential idea is to give such an algorithm a
-\textbf{prediction} about the input --- which resources will be
-contended, or how many requests of each kind will arrive --- and to ask
-for two guarantees at once: \textbf{consistency}, meaning near-optimal
+\textbf{prediction} about the input (which resources will be contended,
+or how many requests of each kind will arrive), and to ask for two
+guarantees at once: \textbf{consistency}, meaning near-optimal
 performance when the prediction is good, and \textbf{robustness},
 meaning no worse than a prediction-free algorithm when the prediction is
 wrong. (We call the object a \emph{prediction} throughout, and
@@ -22,24 +22,24 @@ wrong. (We call the object a \emph{prediction} throughout, and
 denote the same thing.) For online matching specifically, two families
 of such \emph{learning-augmented} algorithms have appeared:
 MinPredictedDegree, which consumes a prediction of each resource's
-degree --- how many kinds of request will compete for it, i.e.~how
-contended it will be --- and a family of \emph{test-and-fallback}
-schemes, which test a request-type prediction on a short prefix of
-arrivals before deciding whether to trust it.
+degree (how many kinds of request will compete for it, i.e.~how
+contended it will be), and a family of \emph{test-and-fallback} schemes,
+which test a request-type prediction on a short prefix of arrivals
+before deciding whether to trust it.
 
-These algorithms come with attractive worst-case guarantees, yet --- as
-this thesis demonstrates experimentally --- their average-case behavior
-is strikingly muted: on realistic workloads the sophisticated
-predictions rarely \emph{help}, while the algorithms' real value is that
-they do not \emph{hurt}. This gap between the worst-case promise and the
+These algorithms come with attractive worst-case guarantees, yet, as
+this thesis demonstrates experimentally, their average-case behavior is
+strikingly muted: on realistic workloads the sophisticated predictions
+rarely \emph{help}, while the algorithms' real value is that they do not
+\emph{hurt}. This gap between the worst-case promise and the
 average-case reality is the puzzle that motivates this thesis.
 
 Moreover, these algorithms had only ever been studied \emph{in
-isolation} --- each on its own input model and its own notion of
-prediction error, and largely through theory. There was therefore no
-common ground on which to compare them, to quantify how much a
-prediction actually buys, or to explain the gap. This thesis provides
-that common ground and, ultimately, an explanation.
+isolation}: each on its own input model and its own notion of prediction
+error, and largely through theory. There was therefore no common ground
+on which to compare them, to quantify how much a prediction actually
+buys, or to explain the gap. This thesis provides that common ground
+and, ultimately, an explanation.
 
 \section{Research objectives}
 
@@ -53,15 +53,15 @@ makes this precise). The thesis is organized around three questions:
 \item
   \textbf{How do the learning-augmented online-matching algorithms
   actually compare}, head to head, under a single prediction-error model
-  and on common inputs --- and how much does a prediction help, at what
+  and on common inputs, and how much does a prediction help, at what
   cost, on realistic data?
 \item
   \textbf{What are the failure modes of the adaptive test-and-fallback
-  mechanism} --- the cost of its test, the calibration of its
-  accept/reject decision, and where it goes wrong?
+  mechanism}: the cost of its test, the calibration of its accept/reject
+  decision, and where it goes wrong?
 \item
   \textbf{Why does the average-case experience differ so sharply from
-  the worst-case promise} --- is the observed wall an artifact of
+  the worst-case promise}: is the observed wall an artifact of
   particular algorithms and generators, or is it \emph{necessary}?
 \end{enumerate}
 
@@ -72,24 +72,24 @@ The first two are answered experimentally; the third, theoretically.
 \begin{itemize}
 \item
   \textbf{A unified experimental benchmark} (Chapter 4; Q1): the first
-  head-to-head comparison of these families, on one experimental harness
-  --- a single code path in which every algorithm sees the same graphs,
-  predictions and optimum, with a \emph{structured} error model (errors
-  follow the instance's structure, not i.i.d. noise) and confidence
-  intervals.
+  head-to-head comparison of these families, on one experimental
+  harness: a single code path in which every algorithm sees the same
+  graphs, predictions and optimum, with a \emph{structured} error model
+  (errors follow the instance's structure, not i.i.d. noise) and
+  confidence intervals.
 \item
   \textbf{A characterization of predictions as robustness insurance}
   (Chapters 4, 7; Q1): unguarded following crashes \emph{below} the
-  advice-free baseline, two mechanisms --- structural and adaptive ---
-  restore safety with different trade-offs, and the consistency upside
-  is small, so the value is downside protection. Validated on synthetic
-  graphs, six real-world graphs and real traces, including with a cheap,
-  non-ML historical predictor.
+  advice-free baseline, two mechanisms (structural and adaptive) restore
+  safety with different trade-offs, and the consistency upside is small,
+  so the value is downside protection. Validated on synthetic graphs,
+  six real-world graphs and real traces, including with a cheap, non-ML
+  historical predictor.
 \item
   \textbf{An empirical engagement with the order-error theory} (Chapter
   5; Q1): MinPredictedDegree's loss is governed by a Kendall-\(\tau\)
-  order error --- the fraction of resource pairs ranked in the wrong
-  relative order --- onto which several error models collapse.
+  order error, the fraction of resource pairs ranked in the wrong
+  relative order, onto which several error models collapse.
   Order-dependence itself is Aamand--Chen--Indyk's result; ours is the
   characterization of their bound's looseness and saturation, and of the
   right order measure.
@@ -103,21 +103,21 @@ The first two are answered experimentally; the third, theoretically.
   \textbf{A quantified account of why the wall stands} (Chapter 6; Q3).
   By the \emph{wall} we mean that on average-case inputs neither a
   better algorithm nor a better prediction moves the ratio appreciably.
-  We trace it to a \emph{resolution limit} --- no practical threshold
-  can capture an upside below its own estimator's noise --- which
-  persists across the whole difficulty range (Figure 6.4).
+  We trace it to a \emph{resolution limit} (no practical threshold can
+  capture an upside below its own estimator's noise) that persists
+  across the whole difficulty range (Figure 6.4).
 \end{itemize}
 
 Alongside these, the thesis documents (Chapter 8) the exploratory
-directions it pursued and the negative results they returned --- an
-attempt to \emph{learn} the predictor for extra performance, and an
-attempt to find a serving regime where predictions genuinely help ---
-both of which reinforce the central finding; the question they raise ---
-is the wall forced? --- is taken up in the concluding outlook (§10.2).
-That outlook is a discussion rather than a further contribution: it
-proves one consistency/robustness trade-off inequality and then reads
-our own experiments through it. No theorem beyond that inequality is
-claimed anywhere in this thesis.
+directions it pursued and the negative results they returned: an attempt
+to \emph{learn} the predictor for extra performance, and an attempt to
+find a serving regime where predictions genuinely help. Both reinforce
+the central finding, and the question they raise --- is the wall forced?
+--- is taken up in the concluding outlook (§10.2). That outlook is a
+discussion rather than a further contribution: it proves one
+consistency/robustness trade-off inequality and then reads our own
+experiments through it. No theorem beyond that inequality is claimed
+anywhere in this thesis.
 
 \section{Thesis organization}
 

@@ -9,9 +9,9 @@ study, NOT a novelty claim; the SLO-probe negative is in Ch 8, referenced here.
 The thesis's abstraction is not confined to classical matching markets; it instantiates a
 contemporary systems problem. This chapter casts request routing in an AI-inference serving
 system as online matching. It does two things. It tests whether the abstraction is rich
-enough to carry a live systems problem — the answer is that it recovers the field's
+enough to carry a live systems problem. The answer is that it recovers the field's
 established results, which is the strongest evidence available that the mapping is faithful
-— and it supplies the setting in which Chapter 8 probed, and failed to find, a regime where
+It also supplies the setting in which Chapter 8 probed, and failed to find, a regime where
 predictions genuinely help. Because the systems facts recovered below are already known, the
 chapter is a **case study rather than a novelty claim**; that decision follows the prior-art
 review of Chapter 8.
@@ -38,8 +38,8 @@ quantities must be kept apart. Raw **goodput** is the fraction of arriving reque
 served; the **competitive ratio** is the number served divided by the capacitated optimum on
 the same realized instance. They coincide only when the optimum can serve every arrival,
 which under overload it cannot, so we report the competitive ratio throughout. Figures 9.1
-and 9.2 both plot it; Figure 9.3 measures a different objective entirely — the KV-cache hit
-fraction — and is labelled accordingly.
+and 9.2 both plot it; Figure 9.3 measures a different objective entirely (the KV-cache hit
+fraction) and is labelled accordingly.
 
 For the dynamic experiment of Figure 9.2 that optimum is not a matching but a scheduling
 problem: admit a subset of the requests, each held on one compatible replica for its whole
@@ -47,7 +47,7 @@ service time, at most $c$ concurrent per replica. It is NP-hard in general, so w
 computable *upper* bound on it, obtained by relaxing the per-replica capacity to a per-type
 capacity $c\cdot\deg(\ell)$; the relaxed problem decomposes by type into interval scheduling
 and is then solved exactly. The reported ratios are therefore lower bounds on the true
-competitive ratio — and the bound is tight, since a feasible offline assignment brackets the
+competitive ratio, and the bound is tight, since a feasible offline assignment brackets the
 optimum to within $1.1\%$ of the arrival count at $c=3$, $0.4\%$ at $c=6$, and exactly at
 $c=12$. We exercise the instantiation on a synthetic serving topology (Figure 9.1, where the
 prediction quality can be swept directly) and on two real traces: an Azure LLM inference
@@ -76,12 +76,12 @@ note: 同一句里 b-matching 的 b 与容量 c 指的是同一件事，却用�
 fix: 统一用 c，并写明 b-matching with all capacities equal to c；或者反过来全用 b。图注同步。
 -->
 
-![Capacity as robustness (synthetic serving topology: 200 replicas, 40 request types of degree 8, 800 arrivals, 25 trials per point): blindly following the forecast crashes the competitive ratio — deeper at ample capacity ($c=8$) — while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
+![Capacity as robustness (synthetic serving topology: 200 replicas, 40 request types of degree 8, 800 arrivals, 25 trials per point): blindly following the forecast crashes the competitive ratio, deeper at ample capacity ($c=8$), while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
 
 **Capacity as robustness** (**Figure 9.1**). Increasing the capacity $c$ smooths the
   effect of a bad prediction: a capacity-aware baseline stays safe, while *blindly* trusting
   a traffic forecast degrades *further* as capacity grows. Over the capacity range we swept, added capacity buys the same protection that the
-  adaptive test does — the systems analogue of the robustness-insurance thesis, and a
+  adaptive test does: the systems analogue of the robustness-insurance thesis, and a
   reminder that the cheaper of the two is a provisioning decision, not an algorithmic one.
 
 <!--REV
@@ -112,19 +112,19 @@ fix: 降为观察加条件：over the capacity range we swept, added capacity bu
   least-loaded balancer reaches $0.98$–$1.00$ of the optimum at every capacity, while
   blindly following the forecast reaches only $0.58$–$0.91$, and the prefix test recovers
   most of the loss ($0.93$–$0.99$) at the cost of the prefix it spends. The reactive policy
-  is not merely better than the forecast-following one — it is within $2\%$ of what perfect
+  is not merely better than the forecast-following one; it is within $2\%$ of what perfect
   hindsight could have achieved.
 
 ![The cache-affinity reversal (Mooncake trace, 16 replicas, cache capacity swept from 200 to 4000 blocks): stable placement beats reactive routing for KV-cache reuse. The vertical axis is the KV-cache hit fraction, not a competitive ratio.](../../results/prefix_cache_reversal.png){width=50%}
 
 **Cache-affinity routing** (**Figure 9.3**). For prefix-cache-aware routing, a *stable*
-  affinity router beats a reactive one — the reverse of the traffic-forecast case, because
+  affinity router beats a reactive one, the reverse of the traffic-forecast case, because
   cache locality rewards persistence [@preble2024].
 
 Each of these recovers an established systems result cleanly, demonstrating that the
 framework instantiates the problem faithfully. They also line up into one observation: the
 first two say *react rather than forecast*, the third says the opposite, and the difference
-is the objective — cache locality rewards persistence where load balancing rewards
+is the objective: cache locality rewards persistence where load balancing rewards
 responsiveness.
 
 <!--REV
@@ -140,8 +140,8 @@ fix: 点破这条主线：the first two say react rather than forecast; the thir
 ## 9.2 A probe for a genuinely new result, and its negative
 
 We also asked whether the with-predictions lens yields a *new* actionable serving result on a
-tail rather than a throughput objective. It does not: on an SLO objective — protecting a
-tight-SLO class of requests under bursty load — a non-predictive policy comes within
+tail rather than a throughput objective. It does not: on an SLO objective (protecting a
+tight-SLO class of requests under bursty load), a non-predictive policy comes within
 $\le 3\%$ of one with perfect foresight across every regime swept. The experiment, its
 caveats and its two explanations are in §8.2. The consequence for this chapter is that we
 found no natural regime where foresight helps, so serving remains a case study.
@@ -162,7 +162,7 @@ fix: 本节压到两句（结论加指向），正本留在 8.2；删掉其中�
 The abstraction reaches a live systems problem and recovers its established results, and
 even a tail objective does not open a genuine with-predictions win. What remains is to ask
 whether the wall these chapters keep meeting is an accident of our inputs or something
-forced — the question the conclusion takes up.
+forced: the question the conclusion takes up.
 
 <!--REV
 id: 9-08

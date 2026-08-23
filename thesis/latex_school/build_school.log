@@ -282,7 +282,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 \textbf{Verdict.}
+l.277 \textbf{Verdict.}
                         The harness reproduces the published qualitative <../..
 /results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
@@ -301,7 +301,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.151 
+l.150 
        <../../results/unified_benchmark_panelA.png> <../../results/unified_benc
 hmark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/05_order_error.tex
@@ -392,14 +392,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.121 
+l.120 
        <../../results/rank_real_trace.png>]
 [39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.135 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
 chapter 9.
@@ -410,14 +410,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90 
+l.89 
       <../../results/serving_envelope.png>]
 [43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.123 
+l.122 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
 [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
@@ -579,6 +579,13 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 
 [54]
 [55]
+Overfull \hbox (48.31256pt too wide) in paragraph at lines 254--263
+\T1/lmr/m/n/10.95 (-20) (\T1/lmtt/m/n/10.95 networkrepository.com\T1/lmr/m/n/10
+.95 (-20) ): \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lm
+tt/m/n/10.95 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN
+\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) ,
+ \T1/lmtt/m/n/10.95 econ-beause\T1/lmr/m/n/10.95 (-20) ,
+
 [56])
 [57]
 chapter without number
@@ -605,7 +612,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2500734 bytes).
+Output written on thesis.pdf (70 pages, 2500036 bytes).
 Transcript written on thesis.log.
 INFO - This is Biber 2.21
 INFO - Logfile is 'thesis.blg'
@@ -905,7 +912,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 \textbf{Verdict.}
+l.277 \textbf{Verdict.}
                         The harness reproduces the published qualitative <../..
 /results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
@@ -924,7 +931,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.151 
+l.150 
        <../../results/unified_benchmark_panelA.png> <../../results/unified_benc
 hmark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/05_order_error.tex
@@ -1015,14 +1022,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.121 
+l.120 
        <../../results/rank_real_trace.png>]
 [39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.135 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
 chapter 9.
@@ -1033,14 +1040,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90 
+l.89 
       <../../results/serving_envelope.png>]
 [43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.123 
+l.122 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
 [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
@@ -1202,6 +1209,13 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 
 [54]
 [55]
+Overfull \hbox (48.31256pt too wide) in paragraph at lines 254--263
+\T1/lmr/m/n/10.95 (-20) (\T1/lmtt/m/n/10.95 networkrepository.com\T1/lmr/m/n/10
+.95 (-20) ): \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lm
+tt/m/n/10.95 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN
+\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) ,
+ \T1/lmtt/m/n/10.95 econ-beause\T1/lmr/m/n/10.95 (-20) ,
+
 [56])
 [57]
 chapter without number
@@ -1228,7 +1242,7 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2500734 bytes).
+Output written on thesis.pdf (70 pages, 2500036 bytes).
 Transcript written on thesis.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1514,7 +1528,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 \textbf{Verdict.}
+l.277 \textbf{Verdict.}
                         The harness reproduces the published qualitative <../..
 /results/er_full.png>]) (./ch/04_unified_benchmark.tex
 [17
@@ -1533,7 +1547,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.151 
+l.150 
        <../../results/unified_benchmark_panelA.png> <../../results/unified_benc
 hmark_panelB.png> <../../results/unified_benchmark_panelC.png>])
 (./ch/05_order_error.tex
@@ -1624,14 +1638,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.121 
+l.120 
        <../../results/rank_real_trace.png>]
 [39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.136 
+l.135 
        <../../results/serving_slo_probe.png>]) (./ch/10_serving_case_study.tex
 [40]
 chapter 9.
@@ -1642,14 +1656,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90 
+l.89 
       <../../results/serving_envelope.png>]
 [43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.123 
+l.122 
        <../../results/serving_dynamic.png>]) (./ch/11_conclusion.tex
 [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9.3}) 
@@ -1811,6 +1825,13 @@ Overfull \hbox (11.77464pt too wide) in paragraph at lines 180--180
 
 [54]
 [55]
+Overfull \hbox (48.31256pt too wide) in paragraph at lines 254--263
+\T1/lmr/m/n/10.95 (-20) (\T1/lmtt/m/n/10.95 networkrepository.com\T1/lmr/m/n/10
+.95 (-20) ): \T1/lmtt/m/n/10.95 socfb-Caltech36\T1/lmr/m/n/10.95 (-20) , \T1/lm
+tt/m/n/10.95 socfb-Reed98\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-GN
+\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m/n/10.95 bio-CE-PG\T1/lmr/m/n/10.95 (-20) ,
+ \T1/lmtt/m/n/10.95 econ-beause\T1/lmr/m/n/10.95 (-20) ,
+
 [56])
 [57]
 chapter without number
@@ -1837,5 +1858,5 @@ mf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025basic/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (70 pages, 2500734 bytes).
+Output written on thesis.pdf (70 pages, 2500036 bytes).
 Transcript written on thesis.log.

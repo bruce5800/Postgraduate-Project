@@ -11,7 +11,7 @@ Honesty is the point of this chapter — present negatives AS results.
 The experimental chapters (4–7) establish a wall: on average-case matching the advice-free
 baseline is near-optimal, so predictions are robustness insurance rather than a performance
 lever. Before accepting the wall as final, we pursued three directions that
-each *tried to get past it* — learning the predictor to squeeze out more performance
+each *tried to get past it*: learning the predictor to squeeze out more performance
 (§8.1), finding a serving regime where predictions genuinely help (§8.2), and letting a
 systematic literature review point us to the highest-value contribution (§8.3). All three
 returned the same answer, and their convergence is what motivated the theorem. Each is
@@ -42,16 +42,16 @@ fix: 改成正面陈述这一章提供什么：Each direction is reported with t
 Chapter 5 shows that MPD consumes its predictor only through the *order* it induces. This
 suggests a concrete way to do better: rather than training a predictor to minimize its
 *regression* error to the true degrees (the standard "predict-then-optimize" objective),
-train it with an *order-aware* loss — a pairwise rank loss — so it optimizes the quantity
+train it with an *order-aware* loss (a pairwise rank loss) so it optimizes the quantity
 the algorithm actually uses. We investigated this in three steps.
 
-**M0 — the mechanism exists.** With deliberately *divergent* synthetic features (one feature
+**M0: the mechanism exists.** With deliberately *divergent* synthetic features (one feature
 carrying magnitude, another carrying order), a rank-trained linear predictor sharply beats a
 regression-trained one on the decision metric: matching ratio $0.989$ (essentially the
 oracle) versus $0.974$, while the rank-trained predictor has *worse* regression error to the
 truth (MSE $87.6$ vs $33.4$) but better order (Kendall-$\tau$ $0.058$ vs $0.255$). The
 dissociation is real: the worse *fit* gives the better *decision*. Regression is thus the
-wrong training objective whenever the features separate magnitude from order — a condition
+wrong training objective whenever the features separate magnitude from order, a condition
 M1 and M3 below show to be rare.
 
 <!--REV
@@ -66,12 +66,12 @@ fix: 把限定写成可检验的条件：regression is the wrong objective when 
 
 ![M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).](../../results/rank_vs_mse_mve.png){width=100%}
 
-**M1 — but the advantage is doubly gated, and small.** Sweeping the feature divergence and
+**M1: the advantage is doubly gated, and small.** Sweeping the feature divergence and
 the graph difficulty, the rank-advantage is zero when features do not induce an
 order/magnitude conflict, and zero on easy instances where the baseline is already optimal
 (the wall, again). It peaks at only $+1.3\%$ of the ratio on synthetic graphs; measured as
 gap-capture (§7.1) rather than as an absolute ratio, rank-training recovers essentially the
-full oracle gap while regression leaves about $30\%$ of it unrealized — but the gap itself is
+full oracle gap while regression leaves about $30\%$ of it unrealized, but the gap itself is
 small.
 
 <!--REV
@@ -84,7 +84,7 @@ note: gap-capture 在 7.1 用过一次、这里再用一次，两处都没有定
 fix: 统一在 7.1 给定义，这里直接用；并把 a more favorable framing 改成中性说法：measured as gap-capture rather than as absolute ratio。
 -->
 
-**M3 — and it disappears on real features.** The decisive test uses genuine temporal
+**M3: it disappears on real features.** The decisive test uses genuine temporal
 features from real serving traces (per-resource reference counts over the previous windows)
 to predict the next window (150 context-length types over 500 replicas of degree 8, 40
 windows, three lag features, a 60/40 train/test split). Here the rank- and
@@ -104,13 +104,13 @@ note: 这是本章最有分量的一个负结果，支撑它的是一句 every c
 fix: 把清单写进正文一句或附录一行：topologies A/B/C, lags 1/7/30, two traces。审稿人接受负结果的前提是知道你找过多远。
 -->
 
-![M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable — the engineered divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
+![M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable; the engineered divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
 
 **Verdict.** Learning the predictor with a decision-aligned loss does not change the
 picture of Chapters 4–7, and we report it as a negative result: the win requires a feature divergence that does not arise in
 practice, and even where it does the payoff is bounded by the (small) baseline-to-oracle
 gap. The result is folded into the thesis as a negative that *reinforces* the central
-finding — once a predictor is order-faithful, which a cheap historical count already is
+finding: once a predictor is order-faithful, which a cheap historical count already is
 (Chapter 7), neither a better algorithm nor a better-trained predictor buys much on
 average-case matching.
 
@@ -128,7 +128,7 @@ fix: 换成对本论文的判断：this direction does not change the picture of
 
 The serving case study (Chapter 9) recovers established systems results and is therefore
 presented as a case study rather than a novelty claim. We asked whether a *new* actionable
-with-predictions result could rescue it. The escape, if one exists, must be a different *objective* — one on which the reactive
+with-predictions result could rescue it. The escape, if one exists, must be a different *objective*, one on which the reactive
 baseline is genuinely far from optimal. The obstacle otherwise is again the wall: every
 serving variant we tried optimizes *throughput* (goodput), and throughput is forgiving, since
 under overload a reactive router fills capacity just as the optimum does.
@@ -143,8 +143,8 @@ note: 这一段先讲动机再讲障碍再讲出路，读者要读到段末才�
 fix: 把 the escape must be a different objective 这句提到段首作为本节的论点，后面的论证跟着走。
 -->
 
-We probed the most promising candidate: an **SLO / tail objective** — protecting a tight-SLO
-class of requests from being dropped — under bursty, non-stationary load, exactly the regime
+We probed the most promising candidate: an **SLO / tail objective** (protecting a tight-SLO
+class of requests from being dropped) under bursty, non-stationary load, exactly the regime
 where a reactive policy, lacking foresight, might fail. Using an event-driven simulator we
 compared non-predictive policies (static capacity reservation; a reactive-adaptive policy
 that reserves based on *observed* recent load) against a **clairvoyant reference** that
@@ -152,10 +152,10 @@ reserves based on the *actual future* burst. Two caveats belong with that design
 reference has perfect foresight but is not a proven optimum for the SLO objective, so it
 *estimates* what foresight is worth rather than bounding it; and the estimate is visibly not
 tight, because in the moderate regime a trivial static reservation of one slot drives
-tight-SLO violations to near zero and *beats* the clairvoyant reference outright — reserving
+tight-SLO violations to near zero and *beats* the clairvoyant reference outright, reserving
 for the actual future burst over-reserves there. What the sweep does establish is
-one-directional and still useful: across every regime — overload level, uniform vs bursty
-tight-SLO demand — the best non-predictive policy comes within $\le 3\%$ of a policy that
+one-directional and still useful: across every regime (overload level, uniform vs bursty
+tight-SLO demand), the best non-predictive policy comes within $\le 3\%$ of a policy that
 knows the future exactly, so the particular thing a forecast would supply is not what these
 policies are missing. Two reasons, both robust to the sweep: protecting a tight-SLO minority
 needs only a small static
@@ -183,9 +183,9 @@ note: 非预测策略跑赢了全知策略，这在逻辑上就说明全知策�
 fix: 把这句改成对照组局限的证据并就地说明原因（全知策略按未来 burst 预留，反而在中等负载下预留过多）。诚实处理这一点会显著提高本节的可信度。
 -->
 
-![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent — foresight does not help.](../../results/serving_slo_probe.png){width=60%}
+![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent, so foresight does not help.](../../results/serving_slo_probe.png){width=60%}
 
-**Verdict.** The tail objective is forgiving too — a third face of the wall, after
+**Verdict.** The tail objective is forgiving too: a third face of the wall, after
 throughput (Chapters 4–7) and predictor-learning (§8.1). We found no natural regime where
 foresight helps, so serving remains a case study. A regime that would break the wall (a
 non-stationary or adversarial objective where the baseline is far from optimal) is exactly
@@ -250,7 +250,7 @@ features (§8.1); a with-predictions lens does not rescue serving even on a tail
 (§8.2); and the literature review confirmed there was no easy performance win to be had
 (§8.3). Together with the throughput wall of Chapters 4–7, they show the phenomenon is not
 confined to one objective, one algorithm or one dataset: it recurs everywhere we pushed, and
-that robustness is what suggested the wall might be *forced* rather than accidental — the
+that robustness is what suggested the wall might be *forced* rather than accidental: the
 question the concluding outlook (§10.2) takes up.
 
 <!--REV

@@ -15,27 +15,27 @@ the rest of the thesis.
 ## 4.1 Design
 
 The families consume different prediction objects, so each is driven by its own corruption
-knob and reported in a parallel panel (Chapter 3); the shared harness — graphs,
-$\mathrm{OPT}$, CI methodology, and the advice-free floor — is what makes the panels
+knob and reported in a parallel panel (Chapter 3); the shared harness (graphs,
+$\mathrm{OPT}$, CI methodology, and the advice-free floor) is what makes the panels
 comparable.
 
 **Instance format and notation.** Every panel uses the instance format of Chapter 3: $n$
 offline resources, $r$ online request types, and $m$ arrivals drawn i.i.d. from the type
 distribution; throughout this chapter $m=n$, so requests and resources are balanced. The
-panels differ *only* in the type graph connecting requests to resources — that single
+panels differ *only* in the type graph connecting requests to resources; that single
 change is what moves the input between the regimes the two prediction families were
 designed for. The three are chosen so that a *degree* predictor has strong signal, weak
 signal, and no role at all, respectively:
 
-- **Panel A — heavy-tailed degrees (Zipf)** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
-  with exponent $1.0$ — a few resources are heavily contended while most are rarely
+- **Panel A: heavy-tailed degrees (Zipf)** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
+  with exponent $1.0$, so a few resources are heavily contended while most are rarely
   eligible. This heavy-tailed profile gives a *degree* predictor genuine signal to carry.
-- **Panel B — left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
-  to exactly $d=5$ uniformly random resources, so resource degrees are nearly homogeneous
-  — the hard case of Chapter 3, where a degree predictor has almost no signal left to
+- **Panel B: left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
+  to exactly $d=5$ uniformly random resources, so resource degrees are nearly homogeneous:
+  the hard case of Chapter 3, where a degree predictor has almost no signal left to
   carry.
-- **Panel C — few-types $r{=}8$** ($n=2000$, 50 trials): only $r=8$ distinct request
-  types, each arriving $\approx n/r=250$ times on average — the near-perfect-matchable,
+- **Panel C: few-types $r{=}8$** ($n=2000$, 50 trials): only $r=8$ distinct request
+  types, each arriving $\approx n/r=250$ times on average: the near-perfect-matchable,
   few-types regime the *histogram*-advice algorithms are calibrated for; their
   test-and-fallback test inspects a prefix of $k=200$ arrivals.
 
@@ -68,12 +68,12 @@ fix: 在 bullet 前加一句把设计意图说穿：the three panels are chosen 
 are exactly as in §3.5; the panel-specific parameters are the ones listed above, and the
 intervals are tight throughout ($\pm0.001$–$0.003$). The quality columns instantiate the
 error models of
-§3.3 — degree panels: *perfect* (true realized degrees), *noisy* (random-flip at strength
+§3.3. Degree panels: *perfect* (true realized degrees), *noisy* (random-flip at strength
 $\tfrac12$), *adversarial* (order-reversing reflection), *garbage* (independent random
 $\mu$, $\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated
 random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). The two sets
-of columns are *not* commensurable — they corrupt different prediction objects with
-different knobs — so only within-panel comparisons carry meaning.
+of columns are *not* commensurable (they corrupt different prediction objects with
+different knobs), so only within-panel comparisons carry meaning.
 **Table 4.1** presents each panel's ratios beside its bar chart; the findings follow in
 §4.2.
 
@@ -201,19 +201,19 @@ fix: 在表注加一句：the floor is instance-dependent; it is Ranking's ratio
 unguarded prediction-followers dive under the advice-free Ranking floor once the prediction
 is adversarial or garbage: MPD falls to $0.908<0.948$ (Panel A) and $0.854<0.890$ (Panel
 B), and FollowPrediction collapses to $0.472\ll0.990$ (Panel C). Under adversarial or
-garbage advice, then, using either *unguarded* is worse than using no prediction at all. Every robust algorithm — the
-augmentations, TestAndMatch, the combiner — avoids this by construction.
+garbage advice, then, using either *unguarded* is worse than using no prediction at all. Every robust algorithm (the
+augmentations, TestAndMatch, the combiner) avoids this by construction.
 
 **(F2) Two distinct robustness mechanisms, with different shapes.** *Structural* robustness
 (Feldman(MPD), JailletLu(MPD)): the worst-case-optimal base matching carries the load and
-the prediction only breaks ties, so performance is nearly *flat* — Feldman(MPD) moves only
+the prediction only breaks ties, so performance is nearly *flat*: Feldman(MPD) moves only
 $0.981\!\to\!0.976$ from perfect to adversarial (Panel A). It cannot crash but caps the
 upside (never reaching the $0.996$ oracle). *Adaptive* robustness (TestAndMatch): test a
-sublinear prefix, then commit — capturing the upside when advice is good (Choo $1.000$) and
+sublinear prefix, then commit, capturing the upside when advice is good (Choo $1.000$) and
 holding the floor when it is bad ($0.990$). On Panel C it is the only algorithm on the upper
 envelope at both ends. The two mechanisms trade consistency for robustness in opposite ways;
 **Figure 4.1** plots every algorithm on the consistency–robustness plane, where the opposite
-trades — and the empty region beyond TestAndMatch toward the ideal top-right corner — are
+trades, and the empty region beyond TestAndMatch toward the ideal top-right corner, are
 visible at a glance.
 
 ![The consistency–robustness plane (the data of Table 4.1). Horizontal axis: ratio under perfect advice. Vertical axis: ratio under the worst corruption level, the operational robustness of §3.4. Dashed lines mark the advice-free floor, dotted the oracle ceiling; TestAndMatch sits nearest the ideal top-right corner.](../../results/consistency_robustness.png){width=100%}
@@ -270,7 +270,7 @@ fix: 把它写成一个带不确定度的量：the entire consistency headroom i
 are tuned for the worst-case ratio and are the *weakest* advice-free entries on these
 average-case inputs (Panel B: $0.760$ / $0.788$, below Greedy's $0.890$); the MPD
 augmentation lifts them to $\approx0.90$. The prediction does *more* for the
-worst-case-designed algorithms than for greedy — a pairing that a unified table makes
+worst-case-designed algorithms than for greedy, a pairing that a unified table makes
 immediate.
 
 <!--REV
@@ -286,7 +286,7 @@ fix: 去掉 only：a pairing that a unified table makes immediate。观察本身
 ## 4.3 Chapter summary
 
 The value of a prediction here is downside protection, not performance. The next question
-is what governs the loss that remains — and Chapter 5 shows it is not the size of the
+is what governs the loss that remains, and Chapter 5 shows it is not the size of the
 prediction error but the order it induces.
 
 <!--REV

@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'thesis.blg'
-[28] biber:342> INFO - === Sun Aug 23, 2026, 01:32:47
-[35] Biber.pm:421> INFO - Reading 'thesis.bcf'
-[70] Biber.pm:1002> INFO - Found 21 citekeys in bib section 0
+[28] biber:342> INFO - === Sun Aug 23, 2026, 02:12:12
+[34] Biber.pm:421> INFO - Reading 'thesis.bcf'
+[71] Biber.pm:1002> INFO - Found 21 citekeys in bib section 0
 [76] Biber.pm:4487> INFO - Processing section 0
 [81] Biber.pm:4678> INFO - Looking for bibtex file 'refs_clean.bib' for section 0
-[82] bibtex.pm:1713> INFO - LaTeX decoding ...
-[91] bibtex.pm:1519> INFO - Found BibTeX data source 'refs_clean.bib'
-[150] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[150] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[150] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[150] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[158] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[162] bbl.pm:779> INFO - Output to thesis.bbl
+[81] bibtex.pm:1713> INFO - LaTeX decoding ...
+[92] bibtex.pm:1519> INFO - Found BibTeX data source 'refs_clean.bib'
+[152] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[152] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[152] Biber.pm:4307> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[152] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[160] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[165] bbl.pm:779> INFO - Output to thesis.bbl
