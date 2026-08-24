@@ -292,16 +292,13 @@ questions of §1.2, and the thesis addresses them in that order:
    [@choo2024imperfect; @bem2026testmatch] has no deployable implementation (the authors themselves fall back to an
    empirical surrogate), and its testing cost, threshold calibration, and failure modes have
    not been measured. (Chapter 6.)
-3. **No quantification of what the prefix test costs.** No prior work measures, or bounds,
-   how large a prefix the follow/fallback decision requires on strong-baseline instances,
-   where the upside to be captured is smallest. The prior-art pass behind this claim is
-   described in §8.3. (Chapter 6 empirically; §10.2 in outlook.)
+3. **No quantification of what the prefix test costs.** No prior work measures, or bounds, how
+   large a prefix the follow/fallback decision requires on strong-baseline instances, where the
+   upside to be captured is smallest (§8.3 describes the prior-art pass behind this claim).
+   (Chapter 6 empirically; §10.2 in outlook.)
 
-The thesis closes the first two gaps experimentally and takes a first, quantified step at
-the third (an empirical resolution limit plus a theoretical outlook) arriving at a
-single unifying statement: *on average-case online matching, predictions are robustness
-insurance rather than a performance lever*, supported by experiments across synthetic
-graphs, real graphs, and real traces.
+The thesis closes the first two gaps experimentally and takes a first quantified step at the
+third.
 
 <!--REV
 id: 2-12

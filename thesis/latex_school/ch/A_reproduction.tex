@@ -128,6 +128,10 @@ Figs 9.1--9.3, serving (Ch 9) \(\dagger\) &
 \texttt{run\_serving\_dynamic.py}, \texttt{run\_prefix\_cache.py} &
 \texttt{results/serving\_*.png}, \texttt{prefix\_cache\_*.png} &
 varies \\
+Ladder, streaming (§A.7) & \texttt{scripts/run\_streaming\_ladder.py},
+then \texttt{plot\_streaming\_ladder.py} &
+\texttt{results/streaming\_ladder.\{json,png\}},
+\texttt{streaming\_ladder\_tables.md} & \textasciitilde40 s \\
 Outlook checks (§A.6) & \texttt{scripts/verify\_witness\_gap.py} &
 console output & seconds \\
 Real-world Borodin Tables 3/4 (validation) \(\dagger\) &
@@ -156,7 +160,7 @@ pairing.
 
 \begin{verbatim}
 # from the project root (matching-experiments/)
-# correctness anchors: 7 hand-verifiable test files, all pass:
+# correctness anchors: 8 hand-verifiable test files, all pass:
 for t in tests/test_*.py; do python3 "$t"; done
 
 # regenerate the headline results (fast ones):
@@ -172,6 +176,8 @@ python3 scripts/run_rank_real_trace.py          # Fig 8.2
 python3 scripts/run_serving_slo_probe.py        # Fig 8.3
 python3 scripts/run_consistency_robustness.py   # Fig 4.1 (needs run_unified_benchmark first)
 python3 scripts/run_metric_check.py             # §3.1 and §3.5 methodology checks
+python3 scripts/run_streaming_ladder.py         # §A.7 ladder (data)
+python3 scripts/plot_streaming_ladder.py        # §A.7 figure (needs the line above)
 
 # the long (max-flow / Hopcroft–Karp-bound) sweeps:
 python3 scripts/run_er_full.py                  # Fig 3.1  (~20 min)
@@ -308,3 +314,179 @@ the rare-resource construction.
 These checks are what license the \emph{reading} of §10.2; they are not
 a proof of it. The formal development is separate work outside this
 thesis.
+
+\section{The relaxation ladder: streaming and offline algorithms
+(§10.3)}
+
+The original project brief suggested extending the reproduction with
+\emph{streaming or offline algorithms}. Section 10.3 records that I
+substituted the learning-augmented family instead. This appendix carries
+out the suggested extension at reduced scope, and arranges it so that it
+speaks to the thesis's own question rather than sitting beside it:
+instead of a parallel benchmark, the streaming algorithms are placed on
+a \textbf{ladder of relaxations} of the same instance, so that the
+ladder measures \emph{which} of the online model's two constraints is
+the binding one.
+
+\textbf{The models.} The body works in online vertex arrival: an online
+node arrives, reveals its whole neighbourhood, and must be matched
+immediately and irrevocably. Memory is unlimited; revision is forbidden.
+The semi-streaming model \autocite{feigenbaum2005semistreaming} inverts
+both: the graph arrives as a stream of \emph{edges} in arbitrary order,
+working memory is \(O(n\,\mathrm{polylog}\,n)\) --- enough for a
+matching, not for the graph --- and the algorithm may take \(p\) passes,
+so for \(p>1\) earlier decisions can be revised. Ordered by what they
+permit:
+
+{ % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Model
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Memory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+May revise?
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sees whole edge set?
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+offline optimum & unlimited & yes & yes \\
+streaming, \(p\) passes & \(O(n)\) & once per extra pass & one pass at a
+time \\
+streaming, 1 pass & \(O(n)\) & no & yes, once \\
+online vertex arrival & unlimited & no & no \\
+\end{longtable}
+}
+
+\textbf{The algorithms.} One pass is greedy: take an edge whenever both
+endpoints are still free. The result is a maximal matching and so at
+least \(\mathrm{OPT}/2\) \autocite{feigenbaum2005semistreaming}. Each
+further pass is the standard length-3 augmentation pass
+\autocite{mcgregor2005matchings}, specialised to the bipartite case:
+during the pass, remember for each matched offline node one free online
+neighbour and for each matched online node one free offline neighbour
+(\(O(n)\) words in total), then commit a vertex-disjoint set of the
+augmentations they encode at the end of the pass. The offline rung needs
+no new code: the Hopcroft--Karp optimum is already the denominator of
+every ratio in this thesis. Nor does the brief's \emph{offline}
+suggestion need a separate entry: a single pass in a uniformly random
+edge order is exactly offline Greedy on a randomly permuted edge list.
+
+\textbf{Setup.} The same three synthetic families as Table 4.1 and the
+same six real graphs as §7.2 (random-partition conversion), the same
+instances, the same Hopcroft--Karp optimum and the same \(95\%\)
+interval convention. As a check that the ladder sits on the body's
+footing, its online rows reproduce Table 4.1 within the intervals:
+Greedy \(0.916\) against \(0.917\) on \texttt{clvb\_zipf} and \(0.889\)
+against \(0.890\) on \texttt{left\_regular}; MPD under a perfect
+prediction \(0.989\) against \(0.989\) and \(0.930\) against \(0.932\);
+Ranking identical to three decimals on all three panels. Full tables are
+machine-generated into \texttt{results/streaming\_ladder\_tables.md};
+the figure below plots four of the six rows.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The relaxation ladder. Grey and red are the online model (advice-free Greedy, and MPD given a perfect degree prediction); blue and green are semi-streaming at one and two passes. On seven of the nine graphs one extra pass buys more than a perfect prediction does.}]{../../results/streaming_ladder.png}
+\caption{The relaxation ladder. Grey and red are the online model
+(advice-free Greedy, and MPD given a perfect degree prediction); blue
+and green are semi-streaming at one and two passes. On seven of the nine
+graphs one extra pass buys more than a perfect prediction does.}
+\end{figure}
+
+\textbf{Reading 1: one pass is not a free lunch.} Relaxing memory while
+keeping a single pass is \emph{worse} than the online model on seven of
+the nine graphs: \(0.879\) against Greedy's \(0.964\) on CE-PG,
+\(0.932\) against \(0.982\) on CE-GN, \(0.865\) against \(0.889\) on
+\texttt{left\_regular}. Both produce maximal matchings, so both are
+above \(\mathrm{OPT}/2\); the difference is \emph{which} maximal
+matching. Vertex arrival groups a node's edges together, so a node is
+matched whenever it has any free neighbour when it arrives. A random
+edge order interleaves them, which lets an offline node be consumed by
+an online node that still had alternatives. The exception is
+\texttt{few\_types}, where one pass reaches \(0.978\) against Greedy's
+\(0.952\), for the reason Ranking also beats Greedy there (\(0.990\)):
+Greedy's fixed alphabetical tie-break concentrates arrivals on
+low-indexed offline nodes, and a random edge order breaks that tie at
+random instead.
+
+\textbf{Reading 2: the second pass is the lever.} One augmentation pass
+lifts every graph to within \(0.6\)--\(4.2\%\) of the offline optimum.
+The like-for-like comparison is the marginal one: each model has an
+entry that neither predicts nor revises (Greedy online, one pass in
+streaming), and we can ask what one added capability buys on top of it.
+The first column below is the online model's gain over Greedy; the other
+two are the streaming model's gain over its own single pass.
+
+{ % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Graph
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(+\) perfect prediction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(+\) 1 revision pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(+\) 2 revision passes
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{clvb\_zipf} & \(+0.074\) & \(+0.069\) & \(+0.072\) \\
+\texttt{left\_regular} & \(+0.042\) & \(+0.079\) & \(+0.087\) \\
+\texttt{few\_types} & \(+0.047\) & \(+0.013\) & \(+0.017\) \\
+Caltech36 & \(+0.013\) & \(+0.037\) & \(+0.041\) \\
+Reed98 & \(+0.009\) & \(+0.028\) & \(+0.029\) \\
+CE-GN & \(+0.017\) & \(+0.055\) & \(+0.063\) \\
+CE-PG & \(+0.033\) & \(+0.079\) & \(+0.099\) \\
+beause & \(+0.000\) & \(+0.005\) & \(+0.006\) \\
+mbeaw & \(+0.000\) & \(+0.001\) & \(+0.001\) \\
+\end{longtable}
+}
+
+One revision pass is worth more than a \emph{perfect} degree prediction
+on seven of the nine graphs, including all six real ones; the two
+exceptions are \texttt{clvb\_zipf}, where the two are within \(0.005\),
+and \texttt{few\_types}, the family engineered to be near-perfectly
+matchable with lumpy type counts, which is the one regime the advice
+algorithms were designed for.
+
+\textbf{Reading 3: what this says about the thesis's headline.} The body
+finds that predictions are robustness insurance rather than a
+performance lever, because the advice-free baseline is already close to
+the optimum. The ladder locates the residual gap. It is not an
+information deficit that a better predictor would fill; it is the
+irrevocability constraint whose price Chapter 6 measures directly. One
+more look at the same data --- no predictor, no training set, no advice,
+and less memory than the online algorithms are allowed --- recovers more
+of that gap than perfect degree information does, everywhere except the
+family built for degree information.
+
+\textbf{Scope, and what this is not.} A second pass is not an online
+algorithm. It requires the arrivals to still be available and the
+decisions not yet acted on, which is exactly what the motivating
+applications forbid: a dispatched rider or a served impression cannot be
+recalled. Where that is so, the prediction route is the only one of the
+two available, and the ladder says nothing against it. What the ladder
+measures is the \emph{size} of each route's upside, not its
+applicability --- and the finding is that the upside the prediction
+literature is chasing in this regime is no larger than the upside one
+revision buys. This is also a reduced-scope version of the brief's
+suggestion: one streaming algorithm family at up to three passes, no
+memory accounting, no comparison against the stronger
+\((1-\varepsilon)\)-approximation streaming algorithms, and a uniformly
+random rather than adversarial edge order. Section 10.5 states what a
+full arm would need.

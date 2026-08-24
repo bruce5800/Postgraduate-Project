@@ -30,16 +30,16 @@ abstract: |
   this thesis studies their limits, not a better algorithm.
 
   - I built the harness and validated it against the published study of Borodin, Karavasilis
-    and Pankratov before adding any prediction work (pages 11--17).
+    and Pankratov before adding any prediction work (pages 10--16).
   - I created the first unified benchmark of the two families, implementing the published
     algorithms of Aamand--Chen--Indyk, Choo et al. and Burathep--Erlebach--Moses on a common
-    error model and optimum; every wide gap it shows is a *downside* gap (pages 18--22).
+    error model and optimum; every wide gap it shows is a *downside* gap (pages 17--21).
   - I characterised what governs the residual loss: a Kendall-$\tau$ order error (Spearman
     $\rho=0.979$), with the known $n-\mathrm{LIS}$ bound loose by $16$--$75\times$;
-    order-dependence is Aamand--Chen--Indyk's (pages 23--25).
+    order-dependence is Aamand--Chen--Indyk's (pages 22--24).
   - I gave the first empirical study of test-and-fallback (a pathology in which a *more
-    accurate* test decides *worse*, and a resolution limit; pages 26--31), and established
-    external validity on six real graphs and a cheap non-ML predictor (pages 32--35).
-  - I report two negative results (pages 36--44) and prove a consistency/robustness trade-off
+    accurate* test decides *worse*, and a resolution limit; pages 25--30), and established
+    external validity on six real graphs and a cheap non-ML predictor (pages 31--34).
+  - I report two negative results (pages 35--43) and prove a consistency/robustness trade-off
     inequality putting the uncapturable upside at $\approx0.004$ for the benchmark's
-    parameters, exactly the order of those measured (pages 45--50).
+    parameters, exactly the order of those measured (pages 44--50).

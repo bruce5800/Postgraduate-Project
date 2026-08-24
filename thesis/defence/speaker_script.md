@@ -9,7 +9,7 @@ fontsize: 11pt
 speaker-notes pane, so you can present from PowerPoint's presenter view alone; this
 document adds the timing plan and the Q&A preparation.
 
-**Total:** 2,001 words ≈ **14.8 minutes at 135 wpm**. If you run fast, slow down on
+**Total:** 2,072 words ≈ **15.3 minutes at 135 wpm**. If you run fast, slow down on
 slides 6 and 8 — those are the two that carry the argument.
 
 ## Timing plan
@@ -45,10 +45,41 @@ to cut live, cut slide 9 down to the single 0.36-vs-0.92 sentence.
 
 ## Anticipated questions
 
+
 Ordered by how likely they are to come up. Each answer is grounded in a specific part of
 the thesis — give the section number, it is the strongest thing you can do in a viva.
 
-**1. "You say 'first unified benchmark' and 'first empirical study'. How do you know?"**
+**1. "The project brief suggested extending Borodin et al. with streaming or offline algorithms. Why did you not do that?"**
+
+> Because when I wrote the proposal the more valuable extension looked like the
+> learning-augmented family, whose theory had run well ahead of its experiments: the
+> literature was almost entirely theoretical, with no head-to-head experiment between the
+> algorithms. I put that substitution to you before starting rather than drifting into it,
+> and §10.3 says plainly that it is a substitution and not an addition.
+>
+> I have since done the suggested arm at reduced scope, in Appendix A.7, and built it so it
+> answers my own question rather than sitting beside it. Semi-streaming takes memory away
+> and gives revision back, so putting it on a ladder with the online model separates the two
+> constraints. Two results. One pass is *worse* than online Greedy on seven of the nine
+> graphs — vertex arrival groups a node's edges together and a random edge order does not.
+> But one revision pass buys more than a *perfect* degree prediction, again on seven of
+> nine and on all six real graphs. So the residual gap is irrevocability, not missing
+> information — which is Chapter 6's conclusion reached from the other side. The caveat I
+> would state before being asked: a second pass is not an online algorithm at all, so where
+> the decision is physically committed, prediction is the only route available. Backup slide
+> if you want the numbers.
+
+**2. "Your proposal made arrival order an independent variable — random, adversarial and real. Where is the adversarial arm?"**
+
+> It is not there, and §10.3 names it as the one proposal commitment I did not deliver.
+> Real temporal order is covered, through the Wikipedia and Azure traces in Chapters 7 and 9,
+> but the adversarial arm is missing. I want to be clear about why that matters rather than
+> minimise it: known-i.i.d. is the model in which the advice-free baseline is strongest, so
+> dropping the adversarial arm removed the one condition under which my own headline could
+> have been falsified. That is exactly why it is the first item of future work rather than a
+> routine extension.
+
+**3. "You say 'first unified benchmark' and 'first empirical study'. How do you know?"**
 
 > A systematic prior-art review, §8.3. I searched from several independent starting
 > points and checked each novelty claim against the primary papers rather than their
@@ -57,7 +88,7 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > serving results to a case study. The claims that survived that process are the two I
 > lead with. §2.6 states the gap the review found.
 
-**2. "Isn't the wall just an artefact of the instances you chose?"**
+**4. "Isn't the wall just an artefact of the instances you chose?"**
 
 > That is the right challenge, and I concede part of it in §10.3: known-i.i.d. is the
 > model in which the advice-free baseline is strongest, so the choice partly pre-selects
@@ -68,7 +99,7 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > objective — and it held both times. What I do *not* claim is that it holds for
 > adversarial arrival order; that is the first item of future work.
 
-**3. "§10.2 says no rule at any prefix length can capture the upside — but you also say you prove no theorem beyond one inequality. Which is it?"**
+**5. "§10.2 says no rule at any prefix length can capture the upside — but you also say you prove no theorem beyond one inequality. Which is it?"**
 
 > Two separate statements, and I should separate them cleanly. The inequality is proved:
 > for any two instance distributions sharing the same advice, forgone upside is bounded
@@ -77,16 +108,16 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > does not prove, and it applies to the decomposable rare-resource family that produces
 > Figure 6.4. Both limits are stated in §10.2 and again in §10.3.
 
-**4. "Why not implement an actual tolerant distribution tester?"**
+**6. "Why not implement an actual tolerant distribution tester?"**
 
-> Because the algorithms I am evaluating specify the empirical-ℓ₁ surrogate; substituting
+> Because the algorithms I am evaluating specify the empirical-ℓ1 surrogate; substituting
 > a different test would mean evaluating a different algorithm. §10.2 argues the
 > surrogate's blindness is structural rather than an implementation artefact — it tests
 > the *distance* rather than the *payoff*. But I accept the qualification: I have shown
 > the failure modes of the mechanism as published, not of every possible prefix rule, and
 > an implemented tolerant tester would strengthen the resolution-limit claim.
 
-**5. "0.009 of headroom sounds like a property of your few-types instances."**
+**7. "0.009 of headroom sounds like a property of your few-types instances."**
 
 > It is a property of strong baselines, and that is the point rather than an accident.
 > F3 holds on all six real graphs, with a mean upside of +0.049 — and it is smallest
@@ -95,7 +126,7 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > is precisely what Figure 6.4 shows, and precisely why the *capturable* upside still
 > does not.
 
-**6. "What should a systems engineer actually do with this?"**
+**8. "What should a systems engineer actually do with this?"**
 
 > Three things. Use a cheap order-faithful predictor rather than an expensive accurate
 > one — a linear-time historical count captured 27–68% of the available gap at 0.11 ms
@@ -105,14 +136,14 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > lever: over the capacity range I swept, added capacity buys the same protection the
 > adaptive test does (Figure 9.1).
 
-**7. "n = 2000 is small. Would the picture change at scale?"**
+**9. "n = 2000 is small. Would the picture change at scale?"**
 
 > The Python harness capped instance size, and I list that in §10.3. It is a real
 > limitation with a specific direction: §10.2's reading predicts the capturable-upside
 > threshold scales as 1/√n, so larger instances would make the wall *more* pronounced,
 > not less. Testing that is the cleanest single extension of the work.
 
-**8. "What is genuinely yours, as opposed to Aamand–Chen–Indyk's, Choo's, or BEM's?"**
+**10. "What is genuinely yours, as opposed to Aamand–Chen–Indyk's, Choo's, or BEM's?"**
 
 > Their algorithms and their guarantees are theirs; I implemented them from the papers and
 > adapted them to a common error model and optimum. Order-dependence is their theorem.
@@ -122,7 +153,7 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > threshold pathology and the resolution limit (Ch. 6); and the trade-off inequality of
 > §10.2.
 
-**9. "Your negative results — how do you know the implementation wasn't just weak?"**
+**11. "Your negative results — how do you know the implementation wasn't just weak?"**
 
 > M0 is the control. With engineered features where magnitude and order genuinely
 > diverge, rank-training does beat regression — 0.989 against 0.974 — while fitting the
@@ -131,7 +162,7 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > both predictors. The negative is conditional and I can name the condition, which is what
 > makes it a result rather than a failure.
 
-**10. "If the advice-free baseline is already at 0.99, why does this research area exist?"**
+**12. "If the advice-free baseline is already at 0.99, why does this research area exist?"**
 
 > Because the guarantees are worst-case and they are real: in the adversarial model no
 > deterministic algorithm beats 1/2 and Ranking is optimal at 1 − 1/e. The area is not
@@ -140,15 +171,16 @@ the thesis — give the section number, it is the strongest thing you can do in 
 > shows the same gap in miniature: Feldman and Jaillet–Lu sit 0.03–0.06 *above* their own
 > worst-case bounds on average-case inputs.
 
-**11. "What would you do differently?"**
+**13. "What would you do differently?"**
 
-> Three things, and they are in §10.3. Make instance difficulty a first-class axis of the
-> benchmark from the start rather than a follow-up to the finding. Carry a second
-> objective — tail latency — through the whole benchmark instead of adding it as a late
-> probe. And run the decisive realistic experiment before the synthetic ones: M3 is both
-> cheaper than M0 and M1 and the one that settled the question.
+> Three things, and they are in §10.3. Keep the adversarial arrival arm my proposal
+> promised — it is the one condition that could have falsified the headline, and dropping it
+> is the gap I most regret. Carry a second objective — tail latency — through the whole
+> benchmark instead of adding it as a late probe. And run the decisive realistic experiment
+> before the synthetic ones: M3 is both cheaper than M0 and M1 and the one that settled the
+> question.
 
-**12. "Where would predictions actually pay off?"**
+**14. "Where would predictions actually pay off?"**
 
 > Where the baseline is provably far from optimal, which is exactly where I did not look.
 > Adversarial or non-stationary arrival orders is the first candidate; objectives on which
@@ -283,17 +315,13 @@ On scope, because this is where I would expect you to push: only the inequality 
 
 ### Slide 12 — Critical evaluation
 
-Let me be explicit about how far the project got against its own objectives.
+Let me be explicit about how far the project got against its own aims, because I think that is the fair way to be examined.
 
-Q1 is met in full. Q2 is met with one qualification I would rather state than have you find: the test I measured is the surrogate the original authors specify, not an implemented tolerant tester. So these are strictly the failure modes of the mechanism as published.
+The brief I was given asked me to reproduce some of Borodin et al.'s experiments, extend them with additional algorithms, and compare on different graph types. The reproduction and the graph types are done. The extension went to the learning-augmented family rather than to the streaming or offline algorithms the brief named — I raised that substitution with my supervisor before starting, and Appendix A.7 has since supplied the suggested arm at reduced scope. It earns its place: one extra pass over the data buys more than a perfect prediction on seven of the nine graphs, which puts the residual gap in irrevocability rather than in missing information.
 
-Q3 is the one the thesis falls furthest short of — bracketed, not closed.
+Against my own proposal: RQ1, whether the theoretical ordering matches the practical one, is answered, and the answer is no — the worst-case-designed algorithms are the weakest advice-free entries here. RQ3, the real cost of the fallback mechanism, is answered most completely. RQ2, the shape of the error curves and where they cross, only in part.
 
-Four judgements with hindsight. The structured error models were the best decision in the project; independent noise would have averaged away the order effect entirely.
-
-Two are debatable. Known-i.i.d. is right for comparability, but it is also the model where the baseline is strongest, so the choice partly pre-selected my headline finding. And measuring only matching size is what most limits the conclusion's reach — a second objective should have run through the whole benchmark rather than arriving as a late probe.
-
-And a process lesson: I ran the synthetic stages before the real-feature test, when the real-feature test is both cheaper and decisive.
+And one thing I promised and did not deliver. My proposal made arrival order an independent variable, to be reported separately for random, adversarial and real order. I worked only in known-i.i.d. Real order appears through the traces, but there is no adversarial arm — and known-i.i.d. is exactly the model where my headline is most likely to hold. That removed the one condition that could have falsified it, which is why it heads the future work.
 
 ### Slide 13 — Conclusion
 
@@ -307,7 +335,7 @@ This is a study of the limits of a popular idea on one well-understood problem. 
 
 Thank you. I am happy to take questions.
 
-### Slide 14 — Backup — the full benchmark  *(backup, not presented)*
+### Slide 14 — Backup — the four findings on six real graphs  *(backup, not presented)*
 
 Backup slide. The four findings of the unified benchmark, re-run on six real-world graphs from Network Repository — two Facebook social, two C. elegans biological, two economic input-output.
 
@@ -315,7 +343,19 @@ F1 and F3, the two load-bearing findings, hold on all six. F2 holds qualitativel
 
 F4 is the most dramatic: the worst-case-designed algorithms are the weakest advice-free entries on these graphs, and the prediction lifts them by 0.26.
 
-### Slide 15 — Backup — limitations  *(backup, not presented)*
+### Slide 15 — Backup — the relaxation ladder  *(backup, not presented)*
+
+Backup slide: the relaxation ladder, Appendix A.7 — the arm the brief actually suggested, done at reduced scope after the main work.
+
+Semi-streaming means the graph arrives as a stream of edges, memory is O(n), and you may take several passes. Relative to online vertex arrival that takes memory away and gives revision back, so a ladder of the two separates the online model's two constraints.
+
+One pass is not a free lunch: it is worse than online Greedy on seven of the nine graphs — 0.879 against 0.964 on CE-PG. Both leave maximal matchings; what helps the online model is that vertex arrival groups a node's edges together, while a random edge order lets an offline node be taken by an online node that still had alternatives.
+
+The second pass is the lever. One revision pass beats a perfect degree prediction on seven of nine, including all six real graphs. So the residual gap is irrevocability rather than missing information — Chapter 6's conclusion from the other side.
+
+The honest caveat: a second pass is not an online algorithm. Where the decision is physically committed on arrival, prediction is the only one of the two routes available. The ladder measures the size of each route's upside, not its applicability.
+
+### Slide 16 — Backup — limitations  *(backup, not presented)*
 
 Backup slide: the limitations, as stated in the thesis.
 

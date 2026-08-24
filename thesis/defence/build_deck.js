@@ -443,31 +443,32 @@ function edge(s, x1, y1, x2, y2, color, dash) {
     x: M, y: 0.85, w: CW, h: 0.7, fontFace: HF, fontSize: 30, bold: true, color: PAPER, margin: 0,
   });
   const evals = [
-    ["1", "Q1 — met in full", "the benchmark answers it numerically, and it survives real predictors and real graphs", SAFE],
-    ["2", "Q2 — met, with one qualification", "the test measured is the surrogate the original authors specify, not an implemented tolerant tester", AMBER],
-    ["3", "Q3 — bracketed, not closed", "one proved inequality and a quantitative reading, not a theorem that the wall is forced", CRASH],
+    ["1", "The brief: met, with one substitution", "reproduction and graph types as asked; the extension went to learning-augmented, not streaming — Appendix A.7 now adds that arm", AMBER],
+    ["2", "My RQ1 and RQ3: met", "the theoretical ordering does not match the practical one; the fallback mechanism's real cost is measured in full", SAFE],
+    ["3", "RQ2: met in part", "the order-error curve is stronger than I asked for; where algorithms' curves cross is answered only qualitatively", AMBER],
+    ["4", "Not delivered: the adversarial arm", "my proposal made arrival order an independent variable — I worked only in known-i.i.d., the model where my headline is most likely to hold", CRASH],
   ];
   evals.forEach(([tag, verdict, why, c], i) => {
-    const y = 1.85 + i * 1.62;
-    card(s, M, y, 6.1, 1.4, TINT_D);
-    badge(s, M + 0.3, y + 0.45, tag, c, 0.5);
-    s.addText(verdict, { x: M + 1.0, y: y + 0.18, w: 4.9, h: 0.35, fontFace: HF, fontSize: 16, bold: true, color: PAPER, margin: 0 });
-    s.addText(why, { x: M + 1.0, y: y + 0.58, w: 4.9, h: 0.7, fontFace: BF, fontSize: 12, color: ON_DARK, margin: 0 });
+    const y = 1.8 + i * 1.28;
+    card(s, M, y, 6.1, 1.12, TINT_D);
+    badge(s, M + 0.3, y + 0.31, tag, c, 0.5);
+    s.addText(verdict, { x: M + 1.0, y: y + 0.12, w: 4.9, h: 0.32, fontFace: HF, fontSize: 15, bold: true, color: PAPER, margin: 0 });
+    s.addText(why, { x: M + 1.0, y: y + 0.46, w: 4.9, h: 0.6, fontFace: BF, fontSize: 11.5, color: ON_DARK, margin: 0 });
   });
 
-  s.addText("With hindsight", { x: 7.5, y: 1.85, w: 5, h: 0.4, fontFace: HF, fontSize: 20, bold: true, color: PAPER, margin: 0 });
+  s.addText("With hindsight", { x: 7.5, y: 1.8, w: 5, h: 0.4, fontFace: HF, fontSize: 20, bold: true, color: PAPER, margin: 0 });
   const hind = [
-    ["Right", "structured error models — i.i.d. noise would have hidden the order effect entirely", SAFE],
-    ["Debatable", "known-i.i.d. is the model where the baseline is strongest, so the choice partly pre-selected the headline", AMBER],
+    ["Right", "structured error models — the proposal's own design bet, and i.i.d. noise would have hidden the order effect entirely", SAFE],
+    ["Right", "validating against Borodin et al. before building anything on the harness", SAFE],
     ["Debatable", "measuring only matching size — a second objective should have run through the whole benchmark", AMBER],
     ["Process", "I ran the synthetic stages before the real-feature test; the cheaper, decisive experiment should have come first", PALE],
   ];
   hind.forEach(([tag, text, c], i) => {
-    const y = 2.45 + i * 1.1;
+    const y = 2.4 + i * 1.12;
     s.addText([
       { text: tag + "  ", options: { bold: true, color: c } },
       { text: text, options: { color: ON_DARK } },
-    ], { x: 7.5, y, w: 5.1, h: 0.95, fontFace: BF, fontSize: 12.5, margin: 0, valign: "top" });
+    ], { x: 7.5, y, w: 5.1, h: 0.98, fontFace: BF, fontSize: 12.5, margin: 0, valign: "top" });
   });
 }
 
@@ -526,6 +527,25 @@ function edge(s, x1, y1, x2, y2, color, dash) {
     const y = 1.7 + i * 1.25;
     s.addText(tag, { x: 7.6, y, w: 0.75, h: 0.35, fontFace: HF, fontSize: 16, bold: true, color: c, margin: 0 });
     s.addText(text, { x: 8.4, y: y - 0.02, w: 4.2, h: 1.1, fontFace: BF, fontSize: 12.5, color: TEXT, margin: 0 });
+  });
+}
+{
+  const s = lightSlide("Backup · the relaxation ladder", "For questions · Appendix A.7");
+  fig(s, R + "streaming_ladder.png", 2.63, M, 1.55, CW, 3.3);
+  s.addText("The brief suggested streaming or offline algorithms. Placed as a ladder of relaxations of the same instance, they separate the online model's two constraints — bounded memory, and no revision.", {
+    x: M, y: 4.95, w: CW, h: 0.5, fontFace: BF, fontSize: 13, color: MUTED, margin: 0,
+  });
+  const lad = [
+    ["One pass is not a free lunch", "edge arrival with O(n) memory is worse than online Greedy on seven of nine graphs — 0.879 against 0.964 on CE-PG. Both leave maximal matchings; grouping a node's edges together is what helps.", CRASH],
+    ["The second pass is the lever", "one revision pass beats a perfect degree prediction on seven of nine, including all six real graphs (CE-PG +0.079 against +0.033).", SAFE],
+    ["So the residual gap is irrevocability", "not missing information. But a second pass is not an online algorithm — where decisions are physically committed, prediction is the only route.", AMBER],
+  ];
+  lad.forEach(([h, d, c], i) => {
+    const y = 5.55 + i * 0.62;
+    s.addText([
+      { text: h + " — ", options: { bold: true, color: c } },
+      { text: d, options: { color: TEXT } },
+    ], { x: M, y, w: CW, h: 0.58, fontFace: BF, fontSize: 12, margin: 0, valign: "top" });
   });
 }
 {

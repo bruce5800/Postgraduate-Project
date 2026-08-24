@@ -2,3 +2,27 @@
 __pycache__/
 data/realworld/
 dist/
+
+# Node — only used to run thesis/defence/build_deck.js.
+# package.json and package-lock.json stay tracked so the deck can be rebuilt.
+node_modules/
+
+# LaTeX intermediates: rewritten by every build.sh / build_zh.sh / build_school.sh run.
+# The PDFs and the .tex sources stay tracked; only the scratch files go.
+*.aux
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# .bbl is scratch everywhere except the arXiv tarball, which must carry it
+# (arXiv does not run bibtex — see docs/ARXIV_SUBMISSION.md).
+*.bbl
+!paper/latex/arxiv/arxiv_main.bbl

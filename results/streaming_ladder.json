@@ -1,0 +1,296 @@
+{
+  "passes": 3,
+  "synthetic": [
+    {
+      "graph": "clvb_zipf",
+      "n_right": 1000,
+      "n_arrivals": 1000,
+      "n_trials": 40,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9155669126208708,
+          "ci95": 0.003222257689952806
+        },
+        "Ranking (online)": {
+          "mean": 0.9477817397281477,
+          "ci95": 0.003191093250731505
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.9892088020747865,
+          "ci95": 0.0015212492195283737
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.91875398581575,
+          "ci95": 0.0033791840746952725
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9881949121213255,
+          "ci95": 0.0015448200463089245
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9904186325766734,
+          "ci95": 0.0013876765152974753
+        }
+      }
+    },
+    {
+      "graph": "left_regular d=5",
+      "n_right": 1000,
+      "n_arrivals": 1000,
+      "n_trials": 40,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.8888529214210342,
+          "ci95": 0.0024661287193991225
+        },
+        "Ranking (online)": {
+          "mean": 0.8892697450177902,
+          "ci95": 0.0023620792279116297
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.9304863896420652,
+          "ci95": 0.0024049970708593404
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.8645101682437069,
+          "ci95": 0.002183762100956055
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9434519328496627,
+          "ci95": 0.0016739288691019795
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9516784875146683,
+          "ci95": 0.0014976912627702066
+        }
+      }
+    },
+    {
+      "graph": "few_types r=8",
+      "n_right": 2000,
+      "n_arrivals": 2000,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.95242,
+          "ci95": 0.004234718987921947
+        },
+        "Ranking (online)": {
+          "mean": 0.99048,
+          "ci95": 0.0010652739741493769
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.9993000000000002,
+          "ci95": 0.0001697409791417501
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.9781799999999999,
+          "ci95": 0.002028134407117375
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.99112,
+          "ci95": 0.001209919710834843
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9952,
+          "ci95": 0.0009382785656012119
+        }
+      }
+    }
+  ],
+  "realworld": [
+    {
+      "graph": "Caltech36",
+      "n_right": 385,
+      "n_arrivals": 769,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9863444101015558,
+          "ci95": 0.0022713031633204857
+        },
+        "Ranking (online)": {
+          "mean": 0.987096167315967,
+          "ci95": 0.002196829653446496
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.999455889046084,
+          "ci95": 0.00043540014028610696
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.956363725662763,
+          "ci95": 0.0038187108801876397
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9936665557597276,
+          "ci95": 0.001532246927236003
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9974889667701718,
+          "ci95": 0.0008088769182159873
+        }
+      }
+    },
+    {
+      "graph": "Reed98",
+      "n_right": 481,
+      "n_arrivals": 962,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9909500915740408,
+          "ci95": 0.001965349776514595
+        },
+        "Ranking (online)": {
+          "mean": 0.9909456731882906,
+          "ci95": 0.0019186210599626483
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 1.0,
+          "ci95": 0.0
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.9693946235727806,
+          "ci95": 0.0027850082135754783
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.997152462785396,
+          "ci95": 0.0009679148747876398
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9988794527709597,
+          "ci95": 0.0007768147675421317
+        }
+      }
+    },
+    {
+      "graph": "CE-GN",
+      "n_right": 1110,
+      "n_arrivals": 2220,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9817528792192693,
+          "ci95": 0.0016613367170661528
+        },
+        "Ranking (online)": {
+          "mean": 0.9818701880133925,
+          "ci95": 0.001597800140609831
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.9990487523838718,
+          "ci95": 0.0004124245971135923
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.9318470457070042,
+          "ci95": 0.002549279228870489
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9863909028307964,
+          "ci95": 0.001338694878520975
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9947783973262304,
+          "ci95": 0.0006348583387294432
+        }
+      }
+    },
+    {
+      "graph": "CE-PG",
+      "n_right": 936,
+      "n_arrivals": 1871,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9640373193513124,
+          "ci95": 0.002059591046421867
+        },
+        "Ranking (online)": {
+          "mean": 0.9656903360376201,
+          "ci95": 0.0025065230726358393
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 0.9967539019869297,
+          "ci95": 0.0008188592078641687
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.8790955299110064,
+          "ci95": 0.00354135810462619
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9580245990688079,
+          "ci95": 0.0032011964261294797
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 0.9778401214031014,
+          "ci95": 0.001925310530682562
+        }
+      }
+    },
+    {
+      "graph": "beause",
+      "n_right": 254,
+      "n_arrivals": 507,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9996850393700788,
+          "ci95": 0.00042732238244932807
+        },
+        "Ranking (online)": {
+          "mean": 0.9996850393700788,
+          "ci95": 0.00042732238244932807
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 1.0,
+          "ci95": 0.0
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.9943251016547834,
+          "ci95": 0.0016112744604732242
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 0.9995275590551183,
+          "ci95": 0.0005118570542595725
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 1.0,
+          "ci95": 0.0
+        }
+      }
+    },
+    {
+      "graph": "mbeaw",
+      "n_right": 244,
+      "n_arrivals": 487,
+      "n_trials": 25,
+      "rows": {
+        "Greedy (online)": {
+          "mean": 0.9998360655737705,
+          "ci95": 0.0003213114754098321
+        },
+        "Ranking (online)": {
+          "mean": 1.0,
+          "ci95": 0.0
+        },
+        "MPD, perfect prediction (online)": {
+          "mean": 1.0,
+          "ci95": 0.0
+        },
+        "Semi-streaming, 1 pass": {
+          "mean": 0.998851784389125,
+          "ci95": 0.000736650952707016
+        },
+        "Semi-streaming, 2 passes": {
+          "mean": 1.0,
+          "ci95": 0.0
+        },
+        "Semi-streaming, 3 passes": {
+          "mean": 1.0,
+          "ci95": 0.0
+        }
+      }
+    }
+  ],
+  "seconds": 37.0
+}
