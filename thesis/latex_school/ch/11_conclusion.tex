@@ -11,12 +11,11 @@ test-and-fallback algorithms, across synthetic graphs, six real-world
 graphs, and real request traces (Chapters 4--7).
 
 Across every setting the same picture appeared: the advice-free baseline
-is already near-optimal on average-case inputs, so the
-\emph{consistency} upside of a good prediction is small; unguarded
-prediction-following crashes \emph{below} the baseline under bad
-predictions; and the value of the sophisticated algorithms is downside
-protection, delivered by either a structural or an adaptive robustness
-mechanism with distinct trade-offs.
+is already near-optimal on average-case inputs, so the consistency
+upside of a good prediction is small; unguarded prediction-following
+crashes below the baseline under bad predictions; and the value of the
+sophisticated algorithms is downside protection, delivered by either a
+structural or an adaptive robustness mechanism with distinct trade-offs.
 
 Two sub-questions were sharpened along the way. The (small) loss is
 governed by a Kendall-\(\tau\) order error rather than by magnitude,
@@ -60,9 +59,9 @@ The proof is a short conditioning argument: capturing the upside forces
 the algorithm to follow under \(G\), robustness forces it to fall back
 under \(\mathrm{Bd}\), and no function of the prefix can behave
 differently on two prefix distributions that are statistically
-\(\gamma_k\)-close. ``Consistent \emph{and} robust'' thus becomes a
-question of \emph{sample complexity}: how long a prefix is needed to
-tell advice worth following from advice worth rejecting?
+\(\gamma_k\)-close. ``Consistent and robust'' thus becomes a question of
+\emph{sample complexity}: how long a prefix is needed to tell advice
+worth following from advice worth rejecting?
 
 On the rare-resource instances that produce Figure 6.4 (a
 \emph{decomposable} family, in which the instance splits into
@@ -120,29 +119,29 @@ my supervisor before starting and still think it was the right call.
 Appendix A.7 supplies the suggested arm at reduced scope, built as a
 ladder of relaxations rather than a parallel benchmark, and it earns its
 place: on seven of nine graphs one extra pass over the data buys more
-than a \emph{perfect} degree prediction does, which locates the residual
-gap in irrevocability rather than in missing information.
+than a perfect degree prediction does, which locates the residual gap in
+irrevocability rather than in missing information.
 
 \textbf{Against my own proposal.} The proposal set three research
 questions, and they map onto the thesis unevenly. \emph{RQ1, whether the
 ordering of algorithms by their proved guarantees matches their ordering
 in practice}, is answered, and the answer is no: the worst-case-designed
-Feldman and Jaillet--Lu are the \emph{weakest} advice-free entries on
+Feldman and Jaillet--Lu are the weakest advice-free entries on
 average-case inputs (\(0.760\) and \(0.788\) against Greedy's \(0.890\);
 \(0.73\)--\(0.77\) on the economic graphs), while sitting
-\(0.03\)--\(0.06\) \emph{above} their own worst-case bounds. That is
-Borodin et al.'s question inherited intact and answered in the
-with-predictions setting. \emph{RQ2, the shape of the
-performance--prediction-error curve and where different algorithms'
-curves cross}, is answered only in part. Chapter 5 delivers more than I
-asked for on one axis --- the curve against order error, onto which four
-error models collapse --- but Chapter 4 reports discrete quality columns
-rather than continuous curves, so the crossing question is answered
-qualitatively through the consistency--robustness plane rather than by
-locating crossings. \emph{RQ3, the real cost of the test-and-fallback
-mechanism}, is the most completely answered: its testing cost, its
-misjudgement rate under both the published and the recalibrated
-threshold, and the irrevocability penalty (Chapter 6).
+\(0.03\)--\(0.06\) above their own worst-case bounds. That is Borodin et
+al.'s question inherited intact and answered in the with-predictions
+setting. \emph{RQ2, the shape of the performance--prediction-error curve
+and where different algorithms' curves cross}, is answered only in part.
+Chapter 5 delivers more than I asked for on one axis --- the curve
+against order error, onto which four error models collapse --- but
+Chapter 4 reports discrete quality columns rather than continuous
+curves, so the crossing question is answered qualitatively through the
+consistency--robustness plane rather than by locating crossings.
+\emph{RQ3, the real cost of the test-and-fallback mechanism}, is the
+most completely answered: its testing cost, its misjudgement rate under
+both the published and the recalibrated threshold, and the
+irrevocability penalty (Chapter 6).
 
 \textbf{What I promised and did not deliver.} One gap is substantive.
 Section 6.2 of my proposal made arrival order an \emph{independent
@@ -227,10 +226,10 @@ I did not vary.
   \textbf{Data breadth.} Each real modality is exercised by one trace.
 \item
   \textbf{Objective.} We evaluate matching size (goodput) only. On
-  objectives where the advice-free baseline is \emph{not} near-optimal
-  (tail latency, per-type fairness, migration or recompute cost), the
-  picture could differ; our one probe in that direction (§8.2) closed
-  the simplest such attempt but not the space (§10.5).
+  objectives where the advice-free baseline is not near-optimal (tail
+  latency, per-type fairness, migration or recompute cost), the picture
+  could differ; our one probe in that direction (§8.2) closed the
+  simplest such attempt but not the space (§10.5).
 \item
   \textbf{Theory scope.} The thesis deliberately confines its theory to
   the outlook of §10.2: one proved trade-off inequality and a

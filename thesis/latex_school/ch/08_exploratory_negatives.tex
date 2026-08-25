@@ -15,13 +15,13 @@ here with the evidence that closed it.
 \section{Learning to rank the predictor (a negative
 result)}
 
-Chapter 5 shows that MPD consumes its predictor only through the
-\emph{order} it induces. This suggests a concrete way to do better:
-rather than training a predictor to minimize its \emph{regression} error
-to the true degrees (the standard ``predict-then-optimize'' objective),
-train it with an \emph{order-aware} loss (a pairwise rank loss) so it
-optimizes the quantity the algorithm actually uses. We investigated this
-in three steps.
+Chapter 5 shows that MPD consumes its predictor only through the order
+it induces. This suggests a concrete way to do better: rather than
+training a predictor to minimize its \emph{regression} error to the true
+degrees (the standard ``predict-then-optimize'' objective), train it
+with an \emph{order-aware} loss (a pairwise rank loss) so it optimizes
+the quantity the algorithm actually uses. We investigated this in three
+steps.
 
 \textbf{M0: the mechanism exists} (\textbf{Figure 8.1}). With
 deliberately \emph{divergent} synthetic features (one feature carrying
@@ -56,7 +56,7 @@ decisive test uses genuine temporal features from real serving traces
 (per-resource reference counts over the previous windows) to predict the
 next window (150 context-length types over 500 replicas of degree 8, 40
 windows, three lag features, a 60/40 train/test split). Here the rank-
-and regression-trained predictors produce \emph{identical} order
+and regression-trained predictors produce identical order
 (Kendall-\(\tau\) \(0.126\) vs \(0.126\)) and identical matching ratio.
 The order/magnitude divergence that powers rank-training is a property
 of \emph{engineered} features; realistic lagged-count features are
@@ -76,10 +76,10 @@ does not change the picture of Chapters 4--7, and we report it as a
 negative result: the win requires a feature divergence that does not
 arise in practice, and even where it does the payoff is bounded by the
 (small) baseline-to-oracle gap. The result is folded into the thesis as
-a negative that \emph{reinforces} the central finding: once a predictor
-is order-faithful, which a cheap historical count already is (Chapter
-7), neither a better algorithm nor a better-trained predictor buys much
-on average-case matching.
+a negative that reinforces the central finding: once a predictor is
+order-faithful, which a cheap historical count already is (Chapter 7),
+neither a better algorithm nor a better-trained predictor buys much on
+average-case matching.
 
 \section{Rescuing the serving application with a with-predictions result
 (a negative
@@ -87,13 +87,13 @@ probe)}
 
 The serving case study (Chapter 9) recovers established systems results
 and is therefore presented as a case study rather than a novelty claim.
-We asked whether a \emph{new} actionable with-predictions result could
-rescue it. The escape, if one exists, must be a different
-\emph{objective}, one on which the reactive baseline is genuinely far
-from optimal. The obstacle otherwise is again the wall: every serving
-variant we tried optimizes \emph{throughput} (goodput), and throughput
-is forgiving, since under overload a reactive router fills capacity just
-as the optimum does.
+We asked whether a new actionable with-predictions result could rescue
+it. The escape, if one exists, must be a different \emph{objective}, one
+on which the reactive baseline is genuinely far from optimal. The
+obstacle otherwise is again the wall: every serving variant we tried
+optimizes \emph{throughput} (goodput), and throughput is forgiving,
+since under overload a reactive router fills capacity just as the
+optimum does.
 
 We probed the most promising candidate: an \textbf{SLO / tail objective}
 (protecting a tight-SLO class of requests from being dropped) under
@@ -104,20 +104,20 @@ reactive-adaptive policy that reserves based on \emph{observed} recent
 load) against a \textbf{clairvoyant reference} that reserves based on
 the \emph{actual future} burst. Two caveats belong with that design. The
 reference has perfect foresight but is not a proven optimum for the SLO
-objective, so it \emph{estimates} what foresight is worth rather than
-bounding it; and the estimate is visibly not tight, because in the
-moderate regime a trivial static reservation of one slot drives
-tight-SLO violations to near zero and \emph{beats} the clairvoyant
-reference outright, reserving for the actual future burst over-reserves
-there. What the sweep does establish is one-directional and still
-useful: across every regime (overload level, uniform vs bursty tight-SLO
-demand), the best non-predictive policy comes within \(\le 3\%\)
-(\textbf{Figure 8.3}) of a policy that knows the future exactly, so the
-particular thing a forecast would supply is not what these policies are
-missing. Two reasons, both robust to the sweep: protecting a tight-SLO
-minority needs only a small static headroom, no forecast; and bursts are
-persistent enough that reacting to observed load is almost as good as
-forecasting it.
+objective, so it estimates what foresight is worth rather than bounding
+it; and the estimate is visibly not tight, because in the moderate
+regime a trivial static reservation of one slot drives tight-SLO
+violations to near zero and beats the clairvoyant reference outright,
+reserving for the actual future burst over-reserves there. What the
+sweep does establish is one-directional and still useful: across every
+regime (overload level, uniform vs bursty tight-SLO demand), the best
+non-predictive policy comes within \(\le 3\%\) (\textbf{Figure 8.3}) of
+a policy that knows the future exactly, so the particular thing a
+forecast would supply is not what these policies are missing. Two
+reasons, both robust to the sweep: protecting a tight-SLO minority needs
+only a small static headroom, no forecast; and bursts are persistent
+enough that reacting to observed load is almost as good as forecasting
+it.
 
 \begin{figure}
 \centering
@@ -137,7 +137,7 @@ work.
 \section{A literature review that redirected the
 work}
 
-Deciding \emph{which} of our findings were genuinely novel required a
+Deciding which of our findings were genuinely novel required a
 systematic prior-art review rather than intuition: we searched from
 several independent starting points and checked each candidate claim
 against the primary papers rather than their abstracts. The verdicts

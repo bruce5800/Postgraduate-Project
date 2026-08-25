@@ -46,7 +46,7 @@ $27\%$–$68\%$ gap-capture (falling with staleness) and always stays above the 
 
 Third, and this is why: **topology aggregation makes the cheap predictor order-faithful**.
 The induced degree predictor's order error is only Kendall-$\tau\approx0.19$–$0.32$, roughly
-*half* the raw histogram's ($0.38$–$0.49$), and since MPD depends only on order (Chapter 5),
+half the raw histogram's ($0.38$–$0.49$), and since MPD depends only on order (Chapter 5),
 the aggregated route survives real drift. Consuming the *same* forecast through the raw
 histogram is
 catastrophic: blind FollowPrediction collapses to $0.68\to0.36$, far below the $\approx0.92$
@@ -135,7 +135,7 @@ protection is only *partial*: the augmentation cushions the adversarial drop ($0
 naive MPD's $0.893$) but cannot clear the unusually high $0.965$ floor, dipping $\approx0.03$
 below it. Those two graphs are so dense that matching is nearly trivial (Ranking
 $\approx0.97$, MinDegree $=1.00$), so there is neither upside to capture (F3) nor much
-downside to protect: the boundary is F3's own mechanism at work, not an exception to it. Finally, F4 is *dramatic*: the
+downside to protect: the boundary is F3's own mechanism at work, not an exception to it. Finally, F4 is dramatic: the
 worst-case-designed Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs
 ($0.73$–$0.77$) and the augmentation lifts them to $0.99$, a $+0.26$ rescue.
 
@@ -166,7 +166,7 @@ fix: 图注写明：one panel per graph, shared vertical axis (or: axes differ; 
 
 Because MPD consumes the predictor only through order (Chapter 5), one might train it with a
 rank loss rather than regression. We tested this and report an honest negative: the advantage
-is real on deliberately engineered features but *disappears* on real temporal ones, where
+is real on deliberately engineered features but disappears on real temporal ones, where
 rank- and regression-trained predictors induce the same order and reach the same ratio. The
 experiments, their numbers and the three-step argument behind them are in §8.1; what matters
 for external validity is only the consequence. Once a predictor

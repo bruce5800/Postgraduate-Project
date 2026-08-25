@@ -18,11 +18,11 @@ advice-free floor) is what makes the panels comparable.
 format of Chapter 3: \(n\) offline resources, \(r\) online request
 types, and \(m\) arrivals drawn i.i.d. from the type distribution;
 throughout this chapter \(m=n\), so requests and resources are balanced.
-The panels differ \emph{only} in the type graph connecting requests to
+The panels differ only in the type graph connecting requests to
 resources; that single change is what moves the input between the
 regimes the two prediction families were designed for. The three are
-chosen so that a \emph{degree} predictor has strong signal, weak signal,
-and no role at all, respectively:
+chosen so that a degree predictor has strong signal, weak signal, and no
+role at all, respectively:
 
 \begin{itemize}
 \tightlist
@@ -30,8 +30,8 @@ and no role at all, respectively:
   \textbf{Panel A: heavy-tailed degrees (Zipf)} (\(n=1000\), 60 trials):
   resource degrees follow a Zipf power law with exponent \(1.0\), so a
   few resources are heavily contended while most are rarely eligible.
-  This heavy-tailed profile gives a \emph{degree} predictor genuine
-  signal to carry.
+  This heavy-tailed profile gives a degree predictor genuine signal to
+  carry.
 \item
   \textbf{Panel B: left-regular \(d{=}5\)} (\(n=1000\), 60 trials): each
   arriving request connects to exactly \(d=5\) uniformly random
@@ -42,7 +42,7 @@ and no role at all, respectively:
   \textbf{Panel C: few-types \(r{=}8\)} (\(n=2000\), 50 trials): only
   \(r=8\) distinct request types, each arriving \(\approx n/r=250\)
   times on average: the near-perfect-matchable, few-types regime the
-  \emph{histogram}-advice algorithms are calibrated for; their
+  histogram-advice algorithms are calibrated for; their
   test-and-fallback test inspects a prefix of \(k=200\) arrivals.
 \end{itemize}
 
@@ -60,8 +60,8 @@ degrees), \emph{noisy} (random-flip at strength \(\tfrac12\)),
 (independent random \(\mu\), \(\equiv\) Ranking); advice panel: the true
 histogram blended toward a concentrated random target by
 \(\eta\in\{0,0.3,0.6,1.0\}\) (\emph{perfect / mild / bad / garbage}).
-The two sets of columns are \emph{not} commensurable (they corrupt
-different prediction objects with different knobs), so only within-panel
+The two sets of columns are not commensurable (they corrupt different
+prediction objects with different knobs), so only within-panel
 comparisons carry meaning. \textbf{Table 4.1} presents each panel's
 ratios beside its bar chart; the findings follow in §4.2.
 
@@ -151,17 +151,17 @@ augmentations, TestAndMatch, the combiner) avoids this by construction.
 \textbf{(F2) Two distinct robustness mechanisms, with different shapes.}
 \emph{Structural} robustness (Feldman(MPD), JailletLu(MPD)): the
 worst-case-optimal base matching carries the load and the prediction
-only breaks ties, so performance is nearly \emph{flat}: Feldman(MPD)
-moves only \(0.981\!\to\!0.976\) from perfect to adversarial (Panel A).
-It cannot crash but caps the upside (never reaching the \(0.996\)
-oracle). \emph{Adaptive} robustness (TestAndMatch): test a sublinear
-prefix, then commit, capturing the upside when advice is good (Choo
-\(1.000\)) and holding the floor when it is bad (\(0.990\)). On Panel C
-it is the only algorithm on the upper envelope at both ends. The two
-mechanisms trade consistency for robustness in opposite ways;
-\textbf{Figure 4.1} plots every algorithm on the consistency--robustness
-plane, where the opposite trades, and the empty region beyond
-TestAndMatch toward the ideal top-right corner, are visible at a glance.
+only breaks ties, so performance is nearly flat: Feldman(MPD) moves only
+\(0.981\!\to\!0.976\) from perfect to adversarial (Panel A). It cannot
+crash but caps the upside (never reaching the \(0.996\) oracle).
+\emph{Adaptive} robustness (TestAndMatch): test a sublinear prefix, then
+commit, capturing the upside when advice is good (Choo \(1.000\)) and
+holding the floor when it is bad (\(0.990\)). On Panel C it is the only
+algorithm on the upper envelope at both ends. The two mechanisms trade
+consistency for robustness in opposite ways; \textbf{Figure 4.1} plots
+every algorithm on the consistency--robustness plane, where the opposite
+trades, and the empty region beyond TestAndMatch toward the ideal
+top-right corner, are visible at a glance.
 
 \begin{figure}
 \centering
@@ -184,11 +184,11 @@ why it is forced.
 
 \textbf{(F4) The augmentation rescues structurally weak base
 algorithms.} Feldman and Jaillet--Lu are tuned for the worst-case ratio
-and are the \emph{weakest} advice-free entries on these average-case
-inputs (Panel B: \(0.760\) / \(0.788\), below Greedy's \(0.890\)); the
-MPD augmentation lifts them to \(\approx0.90\). The prediction does
-\emph{more} for the worst-case-designed algorithms than for greedy, a
-pairing that a unified table makes immediate.
+and are the weakest advice-free entries on these average-case inputs
+(Panel B: \(0.760\) / \(0.788\), below Greedy's \(0.890\)); the MPD
+augmentation lifts them to \(\approx0.90\). The prediction does more for
+the worst-case-designed algorithms than for greedy, a pairing that a
+unified table makes immediate.
 
 \section{Chapter summary}
 

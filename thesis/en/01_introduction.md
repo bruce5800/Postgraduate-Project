@@ -104,7 +104,7 @@ around three questions:
    its test, the calibration of its accept/reject decision, and where it goes wrong?
 3. **Why does the average-case experience differ so sharply from the worst-case promise**:
    is the observed wall an artifact of particular algorithms and generators, or is it
-   *necessary*?
+   necessary?
 
 The first two are answered experimentally; the third, theoretically.
 
@@ -147,7 +147,7 @@ fix: harness 首次出现处加同位语：on a single experimental harness (one
 
 - **A characterization of predictions as robustness insurance** (Chapters 4, 7; Q1):
   unguarded
-  following crashes *below* the advice-free baseline, two mechanisms (structural and
+  following crashes below the advice-free baseline, two mechanisms (structural and
   adaptive) restore safety with different trade-offs, and the consistency upside is small,
   so the value is downside protection. Validated on synthetic graphs, six real-world graphs
   and real traces, including with a cheap, non-ML historical predictor.
@@ -245,7 +245,7 @@ fix: 每条压到 3 到 4 行：首句一句话说清贡献是什么，细节交
 -->
 
 Alongside these, the thesis documents (Chapter 8) the exploratory directions it pursued and
-the negative results they returned: an attempt to *learn* the predictor for extra
+the negative results they returned: an attempt to learn the predictor for extra
 performance, and an attempt to find a serving regime where predictions genuinely help. Both
 reinforce the central finding, and the question they raise — is the wall forced? — is taken
 up in the concluding outlook (§10.2). That outlook is a discussion rather than a

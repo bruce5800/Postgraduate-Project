@@ -22,21 +22,21 @@ comparable.
 **Instance format and notation.** Every panel uses the instance format of Chapter 3: $n$
 offline resources, $r$ online request types, and $m$ arrivals drawn i.i.d. from the type
 distribution; throughout this chapter $m=n$, so requests and resources are balanced. The
-panels differ *only* in the type graph connecting requests to resources; that single
+panels differ only in the type graph connecting requests to resources; that single
 change is what moves the input between the regimes the two prediction families were
-designed for. The three are chosen so that a *degree* predictor has strong signal, weak
+designed for. The three are chosen so that a degree predictor has strong signal, weak
 signal, and no role at all, respectively:
 
 - **Panel A: heavy-tailed degrees (Zipf)** ($n=1000$, 60 trials): resource degrees follow a Zipf power law
   with exponent $1.0$, so a few resources are heavily contended while most are rarely
-  eligible. This heavy-tailed profile gives a *degree* predictor genuine signal to carry.
+  eligible. This heavy-tailed profile gives a degree predictor genuine signal to carry.
 - **Panel B: left-regular $d{=}5$** ($n=1000$, 60 trials): each arriving request connects
   to exactly $d=5$ uniformly random resources, so resource degrees are nearly homogeneous:
   the hard case of Chapter 3, where a degree predictor has almost no signal left to
   carry.
 - **Panel C: few-types $r{=}8$** ($n=2000$, 50 trials): only $r=8$ distinct request
   types, each arriving $\approx n/r=250$ times on average: the near-perfect-matchable,
-  few-types regime the *histogram*-advice algorithms are calibrated for; their
+  few-types regime the histogram-advice algorithms are calibrated for; their
   test-and-fallback test inspects a prefix of $k=200$ arrivals.
 
 Panels A and B thus exercise the degree-prediction family (MPD and its augmentations);
@@ -72,7 +72,7 @@ error models of
 $\tfrac12$), *adversarial* (order-reversing reflection), *garbage* (independent random
 $\mu$, $\equiv$ Ranking); advice panel: the true histogram blended toward a concentrated
 random target by $\eta\in\{0,0.3,0.6,1.0\}$ (*perfect / mild / bad / garbage*). The two sets
-of columns are *not* commensurable (they corrupt different prediction objects with
+of columns are not commensurable (they corrupt different prediction objects with
 different knobs), so only within-panel comparisons carry meaning.
 **Table 4.1** presents each panel's ratios beside its bar chart; the findings follow in
 §4.2.
@@ -206,7 +206,7 @@ augmentations, TestAndMatch, the combiner) avoids this by construction.
 
 **(F2) Two distinct robustness mechanisms, with different shapes.** *Structural* robustness
 (Feldman(MPD), JailletLu(MPD)): the worst-case-optimal base matching carries the load and
-the prediction only breaks ties, so performance is nearly *flat*: Feldman(MPD) moves only
+the prediction only breaks ties, so performance is nearly flat: Feldman(MPD) moves only
 $0.981\!\to\!0.976$ from perfect to adversarial (Panel A). It cannot crash but caps the
 upside (never reaching the $0.996$ oracle). *Adaptive* robustness (TestAndMatch): test a
 sublinear prefix, then commit, capturing the upside when advice is good (Choo $1.000$) and
@@ -267,9 +267,9 @@ fix: 把它写成一个带不确定度的量：the entire consistency headroom i
 -->
 
 **(F4) The augmentation rescues structurally weak base algorithms.** Feldman and Jaillet–Lu
-are tuned for the worst-case ratio and are the *weakest* advice-free entries on these
+are tuned for the worst-case ratio and are the weakest advice-free entries on these
 average-case inputs (Panel B: $0.760$ / $0.788$, below Greedy's $0.890$); the MPD
-augmentation lifts them to $\approx0.90$. The prediction does *more* for the
+augmentation lifts them to $\approx0.90$. The prediction does more for the
 worst-case-designed algorithms than for greedy, a pairing that a unified table makes
 immediate.
 

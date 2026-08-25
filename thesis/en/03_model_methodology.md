@@ -28,7 +28,7 @@ and the *few-types* setting used for the histogram-advice experiments has $r\ll 
 
 The performance measure is the **competitive ratio**, computed per instance and then
 averaged: $\rho(\mathrm{ALG}) = \mathbb E\bigl[|\mathrm{ALG}|/|\mathrm{OPT}|\bigr]$, where
-$\mathrm{OPT}$ is a maximum matching of the *realized* instance, computed exactly by
+$\mathrm{OPT}$ is a maximum matching of the realized instance, computed exactly by
 Hopcroft–Karp [@hopcroftkarp1973]. Averaging per-instance ratios is the natural convention
 under paired trials (§3.5), since on a given instance every algorithm is divided by the same
 exactly-computed optimum. It differs in principle from the ratio of expectations
@@ -78,14 +78,14 @@ fix: 补一句理由：we report the ratio of expectations, following Borodin et
 ## 3.2 Algorithms
 
 All greedy-type algorithms are instances of one primitive: given a total order (**rank**)
-on the resources, **GreedyWithPermutation** matches each arrival to its available neighbor
+on the resources, GreedyWithPermutation matches each arrival to its available neighbor
 of minimum rank. This makes the algorithm family a single code path parameterized by the
 rank, which is important both for a fair comparison and for the theory.
 
-- **Advice-free baselines.** SimpleGreedy (identity rank), **Ranking** (uniformly random
+- **Advice-free baselines.** SimpleGreedy (identity rank), Ranking (uniformly random
   rank; the baseline), and the stochastic-matching algorithms Feldman and Jaillet–Lu, which
   precompute a suggested matching by max-flow: Feldman from a cap-$\{2,1,2\}$ network, whose
-  unit-flow subgraph splits into a *blue* and a *red* matching; Jaillet–Lu from a
+  unit-flow subgraph splits into a blue and a red matching; Jaillet–Lu from a
   cap-$\{3,2,3\}$ network, whose fractional solution gives a per-type list of resources to
   try in order. Each of the two has a *non-greedy* variant (follow the suggestion only) and
   a *greedy* variant (fall back to any available neighbor).
@@ -129,11 +129,11 @@ fix: 把它提成一个独立小段，并说清楚后果：因为建议只影响
 -->
 
 - **Type-histogram advice and test-and-fallback.** From a count vector $\hat c$ over types we
-  build an advice matching $\hat M$ and record its per-type partners. **FollowPrediction**
-  routes every arrival to its type's predicted partner; **TestAndMatch** (Choo and BEM) does
+  build an advice matching $\hat M$ and record its per-type partners. FollowPrediction
+  routes every arrival to its type's predicted partner; TestAndMatch (Choo and BEM) does
   the same over a length-$k$ prefix, tests the empirical $\ell_1$ distance between the prefix
   frequencies and $q=\hat c/\lVert\hat c\rVert_1$ against a threshold $\tau$, then continues
-  or falls back to Ranking. The Chłędowski-style dynamic **combiner** is ported as a
+  or falls back to Ranking. The Chłędowski-style dynamic combiner is ported as a
   benchmarked baseline, not a contribution.
 
 This last point is the whole mechanism behind the structural robustness of Chapter 4, so it
@@ -199,7 +199,7 @@ For a prediction-consuming algorithm, **consistency** is its ratio under perfect
 sweep every adversarial prediction, so in the experiments robustness is reported as the
 minimum over our corruption levels, an upper bound on the true worst case and therefore a
 generous reading of an algorithm's safety. A useful algorithm is
-consistent *and* never (much) below $\rho_{\mathrm{base}}$; the tension between the two is
+consistent and never (much) below $\rho_{\mathrm{base}}$; the tension between the two is
 the subject of Chapter 6 and of the outlook in §10.2.
 
 <!--REV
@@ -216,7 +216,7 @@ fix: 写明操作化定义：in the experiments we report the minimum over our c
 
 The harness is a small, dependency-light Python codebase (NumPy, SciPy, NetworkX). Every
 source of randomness draws from its own independent, reproducible stream, so that within a
-comparison the *only* thing that varies is the prediction and adding an algorithm never
+comparison the only thing that varies is the prediction and adding an algorithm never
 disturbs existing results (Appendix A.1 lists the streams). We use **paired trials**: within a comparison, every algorithm and error
 level reuses the same graph, arrival sequence, $\mathrm{OPT}$, and tie-break seed, so
 differences are attributable to the prediction alone. Reported ratios are means over trials
@@ -304,9 +304,9 @@ complex variants $\approx$ SimpleGreedy asymptotically.
 ![Random left-regular reproduction: the hard case at $d=5$, Greedy $\approx$ Ranking.](../../results/left_regular.png){width=65%}
 
 **A cross-family observation.** Combining the two sweeps surfaces a non-obvious fact: the
-non-greedy Feldman and Jaillet–Lu algorithms converge to the *same* asymptotic ratio in
-*both* families ($0.730$ and $0.760$ respectively, within $0.001$ across families) and
-both sit *above* their worst-case theoretical bounds ($0.670$ and $0.729$) by $+0.06$ and
+non-greedy Feldman and Jaillet–Lu algorithms converge to the same asymptotic ratio in
+both families ($0.730$ and $0.760$ respectively, within $0.001$ across families) and
+both sit above their worst-case theoretical bounds ($0.670$ and $0.729$) by $+0.06$ and
 $+0.03$. The two families happen to converge to the same value here; we do not investigate whether
 that is universal. It is, in any case, an early and concrete instance of the thesis's
 recurring theme that the average case is far more benign than the worst case, which the prediction-error sweeps of

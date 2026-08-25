@@ -14,8 +14,8 @@ chapter gives their first empirical study in four parts: the robustness envelope
 (§6.4). The resolution limit that recalibration exposes in §6.3 is this chapter's interface
 to the conclusion: it persists across the whole difficulty range, and §10.2 reads it
 quantitatively. Two naming conventions
-apply throughout. **FollowPrediction** is the unguarded follower, which mimics the advice
-matching without testing it; **TestAndMatch** is the test-and-fallback scheme in general, of
+apply throughout. FollowPrediction is the unguarded follower, which mimics the advice
+matching without testing it; TestAndMatch is the test-and-fallback scheme in general, of
 which **Choo** and **BEM** are the two published instantiations. They share the
 test-then-commit structure and differ in how the acceptance threshold is set. The $\ell_1$
 test is the empirical surrogate the original authors also fall back to (Chapter 3).
@@ -44,8 +44,8 @@ fix: 拆成两句：一句列四项（各一个短语），一句单独说 6.3 �
 ## 6.1 The robustness envelope
 
 Sweeping advice error $\ell_1(p,q)$ on few-types instances ($n=2000$ arrivals, $r=8$ request
-types, a tested prefix of $k=200$ arrivals, 40 trials; **Figure 6.1**), FollowPrediction degrades *linearly* from $1.000$ at perfect
-advice to $0.453$ at $\ell_1\!\approx\!1.1$, well *below* the advice-free floor
+types, a tested prefix of $k=200$ arrivals, 40 trials; **Figure 6.1**), FollowPrediction degrades linearly from $1.000$ at perfect
+advice to $0.453$ at $\ell_1\!\approx\!1.1$, well below the advice-free floor
 ($\approx0.99$). TestAndMatch instead stays on the **upper envelope**: it captures the
 benefit when advice is good and, when advice is bad, its prefix test rejects it and it falls
 back to Ranking, never dropping below the advice-free floor at any point of this sweep
@@ -156,7 +156,7 @@ recalibration exposes a deeper limit.
 At perfect advice the worst-case threshold scores $1.000$ while the recalibrated one scores
 only $0.987$: the recalibrated $\tau\approx2(1-\hat\beta)\approx0.028$ is *smaller than the
 empirical-$\ell_1$ estimator's noise floor*: the $\ell_1$ distance between a length-$k$
-prefix's type frequencies and the true histogram under *perfect* advice, i.e. pure sampling
+prefix's type frequencies and the true histogram under perfect advice, i.e. pure sampling
 noise, which falls as $k$ grows and spans $\approx0.13$ down to $\approx0.05$ over the prefix
 lengths swept here, so it can never
 confidently *accept*: it rejects everything, including perfect advice, and always plays the
@@ -220,7 +220,7 @@ this chapter is therefore not one badly calibrated threshold. The upside and the
 resolution move together, and the concluding outlook (§10.2) gives this coupling a
 quantitative form: the prefix needed to decide scales as the inverse square of the stakes.
 
-![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the *potential* upside of perfect advice grows, but the upside a sublinear test can *safely capture* stays near zero, because the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
+![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the potential upside of perfect advice grows, but the upside a sublinear test can safely capture stays near zero, because the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
 
 <!--REV
 id: 6-13
@@ -245,9 +245,9 @@ under perfect advice scores $0.927$, below both the pure follower ($1.000$) and 
 that same instance ($0.958$), because switching from Ranking to advice-following mid-run
 lands the committed matching in an *incompatible hybrid*. Being one instance, this figure
 illustrates the mechanism rather than measuring its size; note also that its $0.958$ is
-Ranking on *that* instance, not the $0.990$ floor of the family above. In an irrevocable problem the
-follow/fallback decision must be made *before* the bulk of the commitments, which is why
-Choo/BEM test a prefix and then *commit* rather than switching dynamically. The dynamic
+Ranking on that instance, not the $0.990$ floor of the family above. In an irrevocable problem the
+follow/fallback decision must be made before the bulk of the commitments, which is why
+Choo/BEM test a prefix and then commit rather than switching dynamically. The dynamic
 combiner that is cheap insurance for caching does not port cleanly to matching.
 
 <!--REV

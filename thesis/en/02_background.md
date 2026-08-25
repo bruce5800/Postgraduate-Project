@@ -41,21 +41,21 @@ The difficulty of the problem depends entirely on the assumed *input model*:
 
 - **Adversarial arrival order.** The requests and their order are chosen by an adversary.
   The seminal result of Karp, Vazirani and Vazirani [@kvv1990ranking] is that the randomized
-  **Ranking** algorithm (fix a uniformly random priority order on the resources and match
+  Ranking algorithm (fix a uniformly random priority order on the resources and match
   each request to its highest-priority available neighbor) achieves competitive ratio
   $1-1/e\approx0.632$, and that this is optimal for the adversarial model. Deterministic
   algorithms cannot beat $1/2$.
 - **Random arrival order.** The graph is adversarial but the requests arrive in a uniformly
   random order; this is strictly easier than adversarial order and admits ratios above
   $1-1/e$.
-- **Known-i.i.d.** Requests are drawn independently from a *known* distribution over request
+- **Known-i.i.d.** Requests are drawn independently from a known distribution over request
   types (§2.2); this is the average-case model and the one this thesis studies.
 
 These three models are nested in difficulty, and the direction matters throughout the
 thesis: every known-i.i.d. instance is also a random-order instance, and every random-order
 instance is an adversarial-order instance. A guarantee proved in a harder model therefore
 holds in an easier one, but not conversely, so a bound proved for adversarial order says
-nothing about how *well* an algorithm does on known-i.i.d. inputs beyond that floor.
+nothing about how well an algorithm does on known-i.i.d. inputs beyond that floor.
 
 <!--REV
 id: 2-02
@@ -86,7 +86,7 @@ LP-based and list-based online policies; subsequent work refined it further. The
 "sophisticated" algorithms whose worst-case optimality motivates their use.
 
 Crucially for this thesis, Borodin, Karavasilis and Pankratov [@borodin2018experimental]
-conducted an experimental study of these algorithms and found that on *average-case* i.i.d.
+conducted an experimental study of these algorithms and found that on average-case i.i.d.
 instances the picture is very different from the worst case: the simple algorithms (Greedy,
 Ranking) perform almost as well as the sophisticated ones, whose advantage is a worst-case,
 not a typical-case, phenomenon.
@@ -119,7 +119,7 @@ fix: 单独成段，并在句首点明它的地位：One experimental finding in
 
 ## 2.3 Learning-augmented algorithms
 
-The **algorithms-with-predictions** (or *learning-augmented*) paradigm, surveyed in
+The **algorithms-with-predictions** (or learning-augmented) paradigm, surveyed in
 [@mitzenmacher2020algorithms], equips an online algorithm with a prediction about the unknown input and asks for
 two guarantees simultaneously:
 
@@ -130,15 +130,15 @@ two guarantees simultaneously:
 The paradigm was crystallized by Lykouris and Vassilvitskii [@lykouris2018caching] for competitive caching,
 who showed how to interpolate between trusting and ignoring a predictor while bounding both
 consistency and robustness. A large literature followed across ski rental, scheduling and other online problems,
-including the *optimal* consistency/robustness trade-off analyses of Wei and Zhang
+including the optimal consistency/robustness trade-off analyses of Wei and Zhang
 [@weizhang2020tradeoffs], which establish problem-intrinsic Pareto frontiers between the two
-objectives. Recent work further analyzes how the achievable ratio degrades *continuously*
+objectives. Recent work further analyzes how the achievable ratio degrades continuously
 with prediction accuracy in a distributionally-robust formulation [@yoshinaga2026accuracy],
 complementing the discrete consistency/robustness endpoints used here.
 
 Two items from this literature are load-bearing for us. The recurring mechanism is
 *hedging*: combining the prediction with a safe default so that a bad prediction cannot
-cause catastrophe. The blind-follow-with-switching **combiner** of Chłędowski, Polak,
+cause catastrophe. The blind-follow-with-switching combiner of Chłędowski, Polak,
 Szabucki and Żołna [@chledowski2021caching] is one such mechanism, which we port and
 benchmark (Chapter 6); their paper, an experimental study of robust learning-augmented
 caching, is also the closest methodological template for this thesis's experimental half.
@@ -193,16 +193,16 @@ fix: 把 5.1 的真实权重换个字母（例如 w[mu]），或在 5.1 就地�
 -->
 
 **Type-histogram advice and test-and-fallback.** A second strand takes the prediction to
-be a *histogram* $\hat c$ over request types (how many of each type will arrive). Choo et
-al. [@choo2024imperfect] introduce **TestAndMatch**: build a matching from $\hat c$ and Mimic it, but
-first spend a sublinear prefix of arrivals *testing* whether the observed type frequencies
+be a histogram $\hat c$ over request types (how many of each type will arrive). Choo et
+al. [@choo2024imperfect] introduce TestAndMatch: build a matching from $\hat c$ and Mimic it, but
+first spend a sublinear prefix of arrivals testing whether the observed type frequencies
 match $\hat c$, using an $\ell_1$-distance tester adapted from Jiao, Han and Weissman
 [@jiao2018l1], and fall back to Ranking if they do not. Burathep, Erlebach and Moses [@bem2026testmatch]
 generalize this ("Test-and-Match+") to the random-arrival model and to imperfect knowledge
 of the matching size. Both papers give *upper* bounds (algorithms); their only lower bound
-(Choo et al.'s Theorem 3.1) is a generic *adversarial* indistinguishability result (no
+(Choo et al.'s Theorem 3.1) is a generic adversarial indistinguishability result (no
 algorithm is $1$-consistent and $>\tfrac12$-robust), and neither proves a lower bound in
-the stochastic model. Notably, Choo et al.'s acceptance threshold already *couples* to the
+the stochastic model. Notably, Choo et al.'s acceptance threshold already couples to the
 baseline competitive ratio $\beta$, but constructively, inside the algorithm design, not
 as a lower bound. What that coupling costs, i.e. how large a prefix the follow/fallback
 decision fundamentally requires, is the question this thesis measures (Chapter 6) and then
@@ -244,7 +244,7 @@ must be distinguished:
   *sublinear* in the support size.
 - **Tolerant testing / distance estimation**, distinguishing $\lVert p-q\rVert_1\le
   \varepsilon_1$ from $\ge\varepsilon_2$ for $0<\varepsilon_1<\varepsilon_2$, i.e. estimate
-  the distance rather than test equality, is provably *much harder*: Valiant and Valiant
+  the distance rather than test equality, is provably much harder: Valiant and Valiant
   [@valiant2011unseen] showed it requires $\Theta(r/\log r)$ samples, *near-linear* in the support.
   Jiao, Han and Weissman [@jiao2018l1] gave matching bounds for $\ell_1$-distance estimation, and
   Canonne, Jain, Kamath and Li [@canonne2022tolerance] precisely characterized the whole
@@ -255,7 +255,7 @@ The near-quadratic gap between $\sqrt r$ (testing) and $r/\log r$ (tolerant test
 matters twice in this thesis. It is why the deployable versions of TestAndMatch fall back
 to an empirical surrogate for their tester, and it is why that surrogate is blind on large
 supports: the resolution limit measured in Chapter 6. Whether the barrier also dooms
-every *other* decision rule turns out to be subtler than it first appears; the concluding
+every other decision rule turns out to be subtler than it first appears; the concluding
 outlook (§10.2) returns to this point.
 
 <!--REV

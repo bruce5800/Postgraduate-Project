@@ -39,7 +39,7 @@ fix: 改成正面陈述这一章提供什么：Each direction is reported with t
 
 ## 8.1 Learning to rank the predictor (a negative result)
 
-Chapter 5 shows that MPD consumes its predictor only through the *order* it induces. This
+Chapter 5 shows that MPD consumes its predictor only through the order it induces. This
 suggests a concrete way to do better: rather than training a predictor to minimize its
 *regression* error to the true degrees (the standard "predict-then-optimize" objective),
 train it with an *order-aware* loss (a pairwise rank loss) so it optimizes the quantity
@@ -88,7 +88,7 @@ fix: 统一在 7.1 给定义，这里直接用；并把 a more favorable framing
 features from real serving traces (per-resource reference counts over the previous windows)
 to predict the next window (150 context-length types over 500 replicas of degree 8, 40
 windows, three lag features, a 60/40 train/test split). Here the rank- and
-regression-trained predictors produce *identical* order (Kendall-$\tau$ $0.126$ vs $0.126$)
+regression-trained predictors produce identical order (Kendall-$\tau$ $0.126$ vs $0.126$)
 and identical matching ratio. The order/magnitude divergence that powers
 rank-training is a property of *engineered* features; realistic lagged-count features are
 co-linear noisy estimates of the same popularity, so regression already recovers the order
@@ -109,7 +109,7 @@ fix: 把清单写进正文一句或附录一行：topologies A/B/C, lags 1/7/30,
 **Verdict.** Learning the predictor with a decision-aligned loss does not change the
 picture of Chapters 4–7, and we report it as a negative result: the win requires a feature divergence that does not arise in
 practice, and even where it does the payoff is bounded by the (small) baseline-to-oracle
-gap. The result is folded into the thesis as a negative that *reinforces* the central
+gap. The result is folded into the thesis as a negative that reinforces the central
 finding: once a predictor is order-faithful, which a cheap historical count already is
 (Chapter 7), neither a better algorithm nor a better-trained predictor buys much on
 average-case matching.
@@ -127,7 +127,7 @@ fix: 换成对本论文的判断：this direction does not change the picture of
 ## 8.2 Rescuing the serving application with a with-predictions result (a negative probe)
 
 The serving case study (Chapter 9) recovers established systems results and is therefore
-presented as a case study rather than a novelty claim. We asked whether a *new* actionable
+presented as a case study rather than a novelty claim. We asked whether a new actionable
 with-predictions result could rescue it. The escape, if one exists, must be a different *objective*, one on which the reactive
 baseline is genuinely far from optimal. The obstacle otherwise is again the wall: every
 serving variant we tried optimizes *throughput* (goodput), and throughput is forgiving, since
@@ -150,9 +150,9 @@ compared non-predictive policies (static capacity reservation; a reactive-adapti
 that reserves based on *observed* recent load) against a **clairvoyant reference** that
 reserves based on the *actual future* burst. Two caveats belong with that design. The
 reference has perfect foresight but is not a proven optimum for the SLO objective, so it
-*estimates* what foresight is worth rather than bounding it; and the estimate is visibly not
+estimates what foresight is worth rather than bounding it; and the estimate is visibly not
 tight, because in the moderate regime a trivial static reservation of one slot drives
-tight-SLO violations to near zero and *beats* the clairvoyant reference outright, reserving
+tight-SLO violations to near zero and beats the clairvoyant reference outright, reserving
 for the actual future burst over-reserves there. What the sweep does establish is
 one-directional and still useful: across every regime (overload level, uniform vs bursty
 tight-SLO demand), the best non-predictive policy comes within $\le 3\%$ (**Figure 8.3**) of a policy that
@@ -204,7 +204,7 @@ fix: 定 8.2 为正本（它属于负结果章），9.2 压到两句并写 we su
 
 ## 8.3 A literature review that redirected the work
 
-Deciding *which* of our findings were genuinely novel required a systematic prior-art review
+Deciding which of our findings were genuinely novel required a systematic prior-art review
 rather than intuition: we searched from several independent starting points and checked each
 candidate claim against the primary papers rather than their abstracts. The verdicts were
 sometimes deflating. The unified benchmark and the empirical study of test-and-fallback are

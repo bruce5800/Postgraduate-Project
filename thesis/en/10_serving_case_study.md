@@ -44,7 +44,7 @@ fraction) and is labelled accordingly.
 For the dynamic experiment of Figure 9.2 that optimum is not a matching but a scheduling
 problem: admit a subset of the requests, each held on one compatible replica for its whole
 service time, at most $c$ concurrent per replica. It is NP-hard in general, so we divide by a
-computable *upper* bound on it, obtained by relaxing the per-replica capacity to a per-type
+computable upper bound on it, obtained by relaxing the per-replica capacity to a per-type
 capacity $c\cdot\deg(\ell)$; the relaxed problem decomposes by type into interval scheduling
 and is then solved exactly. The reported ratios are therefore lower bounds on the true
 competitive ratio, and the bound is tight, since a feasible offline assignment brackets the
@@ -79,8 +79,8 @@ fix: 统一用 c，并写明 b-matching with all capacities equal to c；或者�
 ![Capacity as robustness (synthetic serving topology: 200 replicas, 40 request types of degree 8, 800 arrivals, 25 trials per point): blindly following the forecast crashes the competitive ratio, deeper at ample capacity ($c=8$), while the adaptive test stays flat.](../../results/serving_envelope.png){width=70%}
 
 **Capacity as robustness** (**Figure 9.1**). Increasing the capacity $c$ smooths the
-  effect of a bad prediction: a capacity-aware baseline stays safe, while *blindly* trusting
-  a traffic forecast degrades *further* as capacity grows. Over the capacity range we swept, added capacity buys the same protection that the
+  effect of a bad prediction: a capacity-aware baseline stays safe, while blindly trusting
+  a traffic forecast degrades further as capacity grows. Over the capacity range we swept, added capacity buys the same protection that the
   adaptive test does: the systems analogue of the robustness-insurance thesis, and a
   reminder that the cheaper of the two is a provisioning decision, not an algorithmic one.
 
@@ -139,7 +139,7 @@ fix: 点破这条主线：the first two say react rather than forecast; the thir
 
 ## 9.2 A probe for a genuinely new result, and its negative
 
-We also asked whether the with-predictions lens yields a *new* actionable serving result on a
+We also asked whether the with-predictions lens yields a new actionable serving result on a
 tail rather than a throughput objective. It does not: on an SLO objective (protecting a
 tight-SLO class of requests under bursty load), a non-predictive policy comes within
 $\le 3\%$ of one with perfect foresight across every regime swept. The experiment, its

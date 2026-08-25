@@ -16,8 +16,8 @@ algorithms, across synthetic graphs, six real-world graphs, and real request tra
 (Chapters 4–7).
 
 Across every setting the same picture appeared: the advice-free baseline is already
-near-optimal on average-case inputs, so the *consistency* upside of a good prediction is
-small; unguarded prediction-following crashes *below* the baseline under bad predictions;
+near-optimal on average-case inputs, so the consistency upside of a good prediction is
+small; unguarded prediction-following crashes below the baseline under bad predictions;
 and the value of the sophisticated algorithms is downside protection, delivered by either a
 structural or an adaptive robustness mechanism with distinct trade-offs.
 
@@ -106,7 +106,7 @@ fix: 给一句直觉：gamma_k, the total variation distance between the two pre
 The proof is a short conditioning argument: capturing the upside forces the algorithm to
 follow under $G$, robustness forces it to fall back under $\mathrm{Bd}$, and no function of
 the prefix can behave differently on two prefix distributions that are statistically
-$\gamma_k$-close. "Consistent *and* robust" thus becomes a question of *sample complexity*:
+$\gamma_k$-close. "Consistent and robust" thus becomes a question of *sample complexity*:
 how long a prefix is needed to tell advice worth following from advice worth rejecting?
 
 On the rare-resource instances that produce Figure 6.4 (a *decomposable* family, in which
@@ -214,15 +214,15 @@ its theory had outrun its experiments and that a unified comparison was therefor
 valuable extension. I raised that substitution with my supervisor before starting and still
 think it was the right call. Appendix A.7 supplies the suggested arm at reduced scope, built as
 a ladder of relaxations rather than a parallel benchmark, and it earns its place: on seven of
-nine graphs one extra pass over the data buys more than a *perfect* degree prediction does,
+nine graphs one extra pass over the data buys more than a perfect degree prediction does,
 which locates the residual gap in irrevocability rather than in missing information.
 
 **Against my own proposal.** The proposal set three research questions, and they map onto the
 thesis unevenly. *RQ1, whether the ordering of algorithms by their proved guarantees matches
 their ordering in practice*, is answered, and the answer is no: the worst-case-designed
-Feldman and Jaillet–Lu are the *weakest* advice-free entries on average-case inputs ($0.760$
+Feldman and Jaillet–Lu are the weakest advice-free entries on average-case inputs ($0.760$
 and $0.788$ against Greedy's $0.890$; $0.73$–$0.77$ on the economic graphs), while sitting
-$0.03$–$0.06$ *above* their own worst-case bounds. That is Borodin et al.'s question inherited
+$0.03$–$0.06$ above their own worst-case bounds. That is Borodin et al.'s question inherited
 intact and answered in the with-predictions setting. *RQ2, the shape of the
 performance–prediction-error curve and where different algorithms' curves cross*, is answered
 only in part. Chapter 5 delivers more than I asked for on one axis — the curve against order
@@ -290,7 +290,7 @@ overturn it is the one I did not vary.
   table.
 - **Data breadth.** Each real modality is exercised by one trace.
 - **Objective.** We evaluate matching size (goodput) only. On objectives where the
-  advice-free baseline is *not* near-optimal (tail latency, per-type fairness, migration or
+  advice-free baseline is not near-optimal (tail latency, per-type fairness, migration or
   recompute cost), the picture could differ; our one probe in that direction (§8.2) closed
   the simplest such attempt but not the space (§10.5).
 - **Theory scope.** The thesis deliberately confines its theory to the outlook of §10.2:

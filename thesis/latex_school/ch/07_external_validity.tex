@@ -35,7 +35,7 @@ staleness) and always stays above the baseline (\(0.938\)--\(0.957\) vs
 
 Third, and this is why: \textbf{topology aggregation makes the cheap
 predictor order-faithful}. The induced degree predictor's order error is
-only Kendall-\(\tau\approx0.19\)--\(0.32\), roughly \emph{half} the raw
+only Kendall-\(\tau\approx0.19\)--\(0.32\), roughly half the raw
 histogram's (\(0.38\)--\(0.49\)), and since MPD depends only on order
 (Chapter 5), the aggregated route survives real drift. Consuming the
 \emph{same} forecast through the raw histogram is catastrophic: blind
@@ -78,9 +78,9 @@ augmentation cushions the adversarial drop (\(0.939\) vs naive MPD's
 nearly trivial (Ranking \(\approx0.97\), MinDegree \(=1.00\)), so there
 is neither upside to capture (F3) nor much downside to protect: the
 boundary is F3's own mechanism at work, not an exception to it. Finally,
-F4 is \emph{dramatic}: the worst-case-designed Feldman/Jaillet--Lu are
-the weakest advice-free entries on the econ graphs (\(0.73\)--\(0.77\))
-and the augmentation lifts them to \(0.99\), a \(+0.26\) rescue.
+F4 is dramatic: the worst-case-designed Feldman/Jaillet--Lu are the
+weakest advice-free entries on the econ graphs (\(0.73\)--\(0.77\)) and
+the augmentation lifts them to \(0.99\), a \(+0.26\) rescue.
 
 \begin{figure}
 \centering
@@ -98,11 +98,11 @@ help?}
 Because MPD consumes the predictor only through order (Chapter 5), one
 might train it with a rank loss rather than regression. We tested this
 and report an honest negative: the advantage is real on deliberately
-engineered features but \emph{disappears} on real temporal ones, where
-rank- and regression-trained predictors induce the same order and reach
-the same ratio. The experiments, their numbers and the three-step
-argument behind them are in §8.1; what matters for external validity is
-only the consequence. Once a predictor is order-faithful, which a cheap
+engineered features but disappears on real temporal ones, where rank-
+and regression-trained predictors induce the same order and reach the
+same ratio. The experiments, their numbers and the three-step argument
+behind them are in §8.1; what matters for external validity is only the
+consequence. Once a predictor is order-faithful, which a cheap
 historical count already is (§7.1), neither a better algorithm nor a
 better-trained predictor buys much on average-case matching.
 
