@@ -33,6 +33,83 @@ done
 # ^ pandoc marks caption-less longtables with \LTcaptype{none}; KOMA's longtable
 #   support evaluates that as a counter name and errors ("No counter 'none'").
 #   Our tables carry no captions, so dropping the marker changes nothing.
+
+# Appendix A.2 contains long monospaced script/output paths. Pandoc gives its four
+# columns equal widths and \texttt does not normally wrap, so the columns overprint.
+# Keep the Markdown as the source of truth, then tailor only this generated longtable:
+# give the path columns more room, shrink the table slightly, and allow code to wrap.
+python3 - <<'EOF'
+from pathlib import Path
+
+path = Path('ch/A_reproduction.tex')
+tex = path.read_text()
+section = tex.index(r'\section{\texorpdfstring{Figure / table')
+table_start = tex.index(r'\begin{longtable}', section)
+table_end = tex.index(r'\end{longtable}', table_start)
+block = tex[table_start:table_end]
+
+def code_to_path(text):
+    r"""Convert Pandoc's escaped \texttt{...} cells to breakable \path|...|."""
+    marker = r'\texttt{'
+    out = []
+    cursor = 0
+    while True:
+        start = text.find(marker, cursor)
+        if start < 0:
+            out.append(text[cursor:])
+            return ''.join(out)
+        out.append(text[cursor:start])
+        i = start + len(marker)
+        content_start = i
+        depth = 1
+        while i < len(text) and depth:
+            if text[i] == '\\':
+                i += 2
+                continue
+            if text[i] == '{':
+                depth += 1
+            elif text[i] == '}':
+                depth -= 1
+            i += 1
+        content = text[content_start:i - 1]
+        content = content.replace(r'\_', '_').replace(r'\{', '{').replace(r'\}', '}')
+        # Leave entries containing other LaTeX commands (for example \textless{}) alone.
+        if '\\' in content:
+            out.append(text[start:i])
+        else:
+            out.append(r'\path|' + content + '|')
+        cursor = i
+
+block = code_to_path(block)
+
+old_width = r'p{(\linewidth - 6\tabcolsep) * \real{0.2500}}'
+for width in ('0.2400', '0.2900', '0.3400', '0.1300'):
+    block = block.replace(
+        old_width,
+        rf'p{{(\linewidth - 6\tabcolsep) * \real{{{width}}}}}',
+        1,
+    )
+
+table_setup = (
+    r'\footnotesize' + '\n'
+    r'\linespread{1}\selectfont' + '\n'
+    r'\setlength{\tabcolsep}{3pt}' + '\n'
+)
+block = table_setup + block
+tex = tex[:table_start] + block + tex[table_end:]
+
+# Apply the same safe path conversion to ordinary inline filenames in the appendix.
+# Compact verbatim blocks locally so long annotated commands stay inside the margin.
+tex = code_to_path(tex)
+tex = tex.replace(
+    r'\begin{verbatim}',
+    '{\\footnotesize\\linespread{1}\\selectfont\n' + r'\begin{verbatim}',
+)
+tex = tex.replace(r'\end{verbatim}', r'\end{verbatim}' + '\n}')
+path.write_text(tex)
+EOF
+echo "appendix A.2 table: wrapping and column widths applied"
+
 echo "fragments: $(ls ch/*.tex | wc -l | tr -d ' ') chapters"
 
 # abstract.tex from latex/meta.yaml's "abstract: |" block

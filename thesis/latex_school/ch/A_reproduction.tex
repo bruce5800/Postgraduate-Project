@@ -5,7 +5,7 @@ seed by a single script. Two classes of script must be distinguished.
 Most are \emph{self-contained}: they generate their own synthetic
 instances and run as-is on a clean checkout. The rest (the real-graph
 and real-trace results of Chapters 7, 8 and 9) first need external data
-placed under \texttt{data/}; that data is not redistributed with the
+placed under \path|data/|; that data is not redistributed with the
 code, and §A.5 records what each dataset is and where it comes from. In
 the map below, a dagger (\(\dagger\)) marks the scripts of the second
 class.
@@ -23,13 +23,13 @@ deferred from Chapter 3, and records data provenance.
   Matplotlib (plots only).
 \item
   \textbf{Determinism:} all randomness derives from one master seed
-  (default \texttt{0}) via NumPy's \texttt{default\_rng(seed).spawn(k)},
+  (default \path|0|) via NumPy's \path|default_rng(seed).spawn(k)|,
   which yields independent, reproducible streams (graph, instance,
   algorithm randomness, prediction perturbation). Results are bit-stable
   across NumPy minor versions from 1.25 (BitGenerator-based spawning).
 \item
   \textbf{Paired trials:} within a comparison, every algorithm and error
-  level reuses the same graph, arrival sequence, \texttt{OPT}, and
+  level reuses the same graph, arrival sequence, \path|OPT|, and
   tie-break seed, so differences are attributable to the prediction
   alone.
 \item
@@ -54,11 +54,14 @@ deferred from Chapter 3, and records data provenance.
 map}{Figure / table  script map}}
 
 { % do not increment counter
+\footnotesize
+\linespread{1}\selectfont
+\setlength{\tabcolsep}{3pt}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2400}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2900}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3400}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1300}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Thesis object
@@ -73,69 +76,69 @@ Output
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Fig 3.1 (ER U-curve) & \texttt{scripts/run\_er\_full.py} &
-\texttt{results/er\_full.\{json,png\}} & \textasciitilde20 min \\
-Fig 3.2 (left-regular) & \texttt{scripts/run\_left\_regular.py} &
-\texttt{results/left\_regular.\{json,png\}} & \textasciitilde10 min \\
-§3.1 / §3.5 methodology checks & \texttt{scripts/run\_metric\_check.py}
-& \texttt{results/metric\_check.json} & \textasciitilde90 s \\
+Fig 3.1 (ER U-curve) & \path|scripts/run_er_full.py| &
+\path|results/er_full.{json,png}| & \textasciitilde20 min \\
+Fig 3.2 (left-regular) & \path|scripts/run_left_regular.py| &
+\path|results/left_regular.{json,png}| & \textasciitilde10 min \\
+§3.1 / §3.5 methodology checks & \path|scripts/run_metric_check.py|
+& \path|results/metric_check.json| & \textasciitilde90 s \\
 \textbf{Table 4.1} (unified benchmark) &
-\texttt{scripts/run\_unified\_benchmark.py}, then
-\texttt{plot\_unified\_panels.py} &
-\texttt{results/unified\_benchmark.\{json,png\}},
-\texttt{unified\_benchmark\_panel\{A,B,C\}.png},
-\texttt{unified\_benchmark\_tables.md} & \textasciitilde100 s \\
+\path|scripts/run_unified_benchmark.py|, then
+\path|plot_unified_panels.py| &
+\path|results/unified_benchmark.{json,png}|,
+\path|unified_benchmark_panel{A,B,C}.png|,
+\path|unified_benchmark_tables.md| & \textasciitilde100 s \\
 Fig 4.1 (consistency--robustness plane) &
-\texttt{scripts/run\_consistency\_robustness.py} &
-\texttt{results/consistency\_robustness.\{json,png\}} & \textasciitilde1
+\path|scripts/run_consistency_robustness.py| &
+\path|results/consistency_robustness.{json,png}| & \textasciitilde1
 s \\
 Fig 5.1 (order-error vs ACI) &
-\texttt{scripts/run\_order\_vs\_theory.py} &
-\texttt{results/order\_vs\_theory.\{json,png\}} & \textasciitilde30 s \\
+\path|scripts/run_order_vs_theory.py| &
+\path|results/order_vs_theory.{json,png}| & \textasciitilde30 s \\
 Fig 6.1 (envelope), Fig 6.2 (prefix sweep) &
-\texttt{scripts/run\_choo\_bem.py} &
-\texttt{results/choo\_bem\_\{envelope,prefix\}.png} & \textasciitilde20
+\path|scripts/run_choo_bem.py| &
+\path|results/choo_bem_{envelope,prefix}.png| & \textasciitilde20
 min \\
-Fig 6.3, recalibration (§6.3) & \texttt{scripts/run\_recalibration.py} &
-\texttt{results/recalibration\_*.png} & \textasciitilde1.5 min \\
+Fig 6.3, recalibration (§6.3) & \path|scripts/run_recalibration.py| &
+\path|results/recalibration_*.png| & \textasciitilde1.5 min \\
 Fig 6.4 (testing-wall frontier) &
-\texttt{scripts/run\_impossibility\_frontier.py} &
-\texttt{results/impossibility\_frontier.\{json,png\}} & \textasciitilde6
+\path|scripts/run_impossibility_frontier.py| &
+\path|results/impossibility_frontier.{json,png}| & \textasciitilde6
 s \\
 Fig 7.1 (real predictor) \(\dagger\) &
-\texttt{scripts/run\_real\_predictor.py} &
-\texttt{results/real\_predictor.\{json,png\}} & \textasciitilde15 s \\
+\path|scripts/run_real_predictor.py| &
+\path|results/real_predictor.{json,png}| & \textasciitilde15 s \\
 Fig 7.2 (six real graphs) \(\dagger\) &
-\texttt{scripts/run\_realworld\_robustness.py} &
-\texttt{results/realworld\_robustness.\{json,png\}} & \textasciitilde65
+\path|scripts/run_realworld_robustness.py| &
+\path|results/realworld_robustness.{json,png}| & \textasciitilde65
 s \\
-Fig 8.1 (M0 rank vs MSE) & \texttt{scripts/run\_rank\_vs\_mse\_mve.py} &
-\texttt{results/rank\_vs\_mse\_mve.\{json,png\}} & \textasciitilde10
+Fig 8.1 (M0 rank vs MSE) & \path|scripts/run_rank_vs_mse_mve.py| &
+\path|results/rank_vs_mse_mve.{json,png}| & \textasciitilde10
 s \\
 M1 sweep (§8.1, no figure) &
-\texttt{scripts/run\_rank\_when\_it\_matters.py} &
-\texttt{results/rank\_when\_it\_matters.\{json,png\}} &
+\path|scripts/run_rank_when_it_matters.py| &
+\path|results/rank_when_it_matters.{json,png}| &
 \textasciitilde20 s \\
 Fig 8.2 (M3 real-trace learning) \(\dagger\) &
-\texttt{scripts/run\_rank\_real\_trace.py} &
-\texttt{results/rank\_real\_trace.\{json,png\}} & \textasciitilde10 s \\
+\path|scripts/run_rank_real_trace.py| &
+\path|results/rank_real_trace.{json,png}| & \textasciitilde10 s \\
 Fig 8.3 (serving SLO probe) &
-\texttt{scripts/run\_serving\_slo\_probe.py} &
-\texttt{results/serving\_slo\_probe.\{json,png\}} & \textasciitilde1
+\path|scripts/run_serving_slo_probe.py| &
+\path|results/serving_slo_probe.{json,png}| & \textasciitilde1
 s \\
 Figs 9.1--9.3, serving (Ch 9) \(\dagger\) &
-\texttt{scripts/run\_serving.py}, \texttt{run\_serving\_trace.py},
-\texttt{run\_serving\_dynamic.py}, \texttt{run\_prefix\_cache.py} &
-\texttt{results/serving\_*.png}, \texttt{prefix\_cache\_*.png} &
+\path|scripts/run_serving.py|, \path|run_serving_trace.py|,
+\path|run_serving_dynamic.py|, \path|run_prefix_cache.py| &
+\path|results/serving_*.png|, \path|prefix_cache_*.png| &
 varies \\
-Ladder, streaming (§A.7) & \texttt{scripts/run\_streaming\_ladder.py},
-then \texttt{plot\_streaming\_ladder.py} &
-\texttt{results/streaming\_ladder.\{json,png\}},
-\texttt{streaming\_ladder\_tables.md} & \textasciitilde40 s \\
-Outlook checks (§A.6) & \texttt{scripts/verify\_witness\_gap.py} &
+Ladder, streaming (§A.7) & \path|scripts/run_streaming_ladder.py|,
+then \path|plot_streaming_ladder.py| &
+\path|results/streaming_ladder.{json,png}|,
+\path|streaming_ladder_tables.md| & \textasciitilde40 s \\
+Outlook checks (§A.6) & \path|scripts/verify_witness_gap.py| &
 console output & seconds \\
 Real-world Borodin Tables 3/4 (validation) \(\dagger\) &
-\texttt{scripts/run\_realworld.py} & \texttt{results/realworld.json} &
+\path|scripts/run_realworld.py| & \path|results/realworld.json| &
 \textasciitilde few min \\
 \end{longtable}
 }
@@ -145,7 +148,7 @@ scripts are single-threaded apart from NumPy's own vectorization, so
 they scale with single-core speed.
 
 \textbf{Interval convention (deferred from §3.5).}
-\texttt{run\_metric\_check.py} also compares the per-algorithm
+\path|run_metric_check.py| also compares the per-algorithm
 confidence intervals the thesis reports against paired-difference
 intervals on the same trials. Where the per-instance ratios are
 positively correlated the paired interval is \(1.7\)--\(2.6\times\)
@@ -158,6 +161,7 @@ pairing.
 
 \section{Reproduction commands}
 
+{\footnotesize\linespread{1}\selectfont
 \begin{verbatim}
 # from the project root (matching-experiments/)
 # correctness anchors: 8 hand-verifiable test files, all pass:
@@ -184,8 +188,9 @@ python3 scripts/run_er_full.py                  # Fig 3.1  (~20 min)
 python3 scripts/run_left_regular.py             # Fig 3.2  (~10 min)
 python3 scripts/run_choo_bem.py                 # Fig 6.1, 6.2 (~20 min)
 \end{verbatim}
+}
 
-All scripts hardcode seed \texttt{0} unless noted; re-running reproduces
+All scripts hardcode seed \path|0| unless noted; re-running reproduces
 the reported numbers.
 
 \section{Full Phase-2 reproduction tables (deferred from
@@ -251,29 +256,29 @@ by +0.06 / +0.03; §3.6 reads that observation.
 
 \section{Data provenance}
 
-Real data is stored locally under \texttt{data/} (large; excluded from
+Real data is stored locally under \path|data/| (large; excluded from
 version control).
 
 \begin{itemize}
 \tightlist
 \item
   \textbf{Real graphs (Chapter 7, §3.6 validation):} six graphs from the
-  Network Repository (\texttt{networkrepository.com}):
-  \texttt{socfb-Caltech36}, \texttt{socfb-Reed98}, \texttt{bio-CE-GN},
-  \texttt{bio-CE-PG}, \texttt{econ-beause}, \texttt{econ-mbeaflw},
-  downloaded as MatrixMarket \texttt{.mtx} / whitespace \texttt{.edges},
+  Network Repository (\path|networkrepository.com|):
+  \path|socfb-Caltech36|, \path|socfb-Reed98|, \path|bio-CE-GN|,
+  \path|bio-CE-PG|, \path|econ-beause|, \path|econ-mbeaflw|,
+  downloaded as MatrixMarket \path|.mtx| / whitespace \path|.edges|,
   reduced to simple undirected graphs and converted to bipartite by
   random balanced partition (Borodin Table 3) or duplicating
   double-cover (Table 4).
 \item
   \textbf{Traces (Chapters 7, 8, 9):} Wikipedia ``top articles per day''
   for four days, retrieved from the Wikimedia REST pageviews API
-  (\texttt{data/trace/wiki/}, used as live day vs 1/7/30-day-stale
+  (\path|data/trace/wiki/|, used as live day vs 1/7/30-day-stale
   forecasts); the Azure LLM inference trace from Microsoft's public
-  Azure dataset release (\texttt{data/trace/azure\_llm/},
+  Azure dataset release (\path|data/trace/azure_llm/|,
   context/generated token counts with timestamps); and the Mooncake
   conversation trace released with \autocite{mooncake2024}
-  (\texttt{data/trace/mooncake/}, per-request \texttt{hash\_ids} for
+  (\path|data/trace/mooncake/|, per-request \path|hash_ids| for
   prefix-cache blocks). The Wikipedia trace is a snapshot of a live
   source rather than a static benchmark, so exact reproduction needs the
   same snapshot, not merely the same API.
@@ -308,7 +313,7 @@ the rare-resource construction.
   statistic's accuracy at a fixed prefix length does not degrade as
   \(n\) grows, and the plug-in \(\ell_1\) estimate becomes blind,
   i.e.~indistinguishable between good and bad advice, once \(k \ll r\).
-  Both are produced by \texttt{scripts/verify\_witness\_gap.py} (§A.2).
+  Both are produced by \path|scripts/verify_witness_gap.py| (§A.2).
 \end{enumerate}
 
 These checks are what license the \emph{reading} of §10.2; they are not
@@ -385,11 +390,11 @@ same six real graphs as §7.2 (random-partition conversion), the same
 instances, the same Hopcroft--Karp optimum and the same \(95\%\)
 interval convention. As a check that the ladder sits on the body's
 footing, its online rows reproduce Table 4.1 within the intervals:
-Greedy \(0.916\) against \(0.917\) on \texttt{clvb\_zipf} and \(0.889\)
-against \(0.890\) on \texttt{left\_regular}; MPD under a perfect
+Greedy \(0.916\) against \(0.917\) on \path|clvb_zipf| and \(0.889\)
+against \(0.890\) on \path|left_regular|; MPD under a perfect
 prediction \(0.989\) against \(0.989\) and \(0.930\) against \(0.932\);
 Ranking identical to three decimals on all three panels. Full tables are
-machine-generated into \texttt{results/streaming\_ladder\_tables.md};
+machine-generated into \path|results/streaming_ladder_tables.md|;
 the figure below plots four of the six rows.
 
 \begin{figure}
@@ -405,13 +410,13 @@ graphs one extra pass buys more than a perfect prediction does.}
 keeping a single pass is \emph{worse} than the online model on seven of
 the nine graphs: \(0.879\) against Greedy's \(0.964\) on CE-PG,
 \(0.932\) against \(0.982\) on CE-GN, \(0.865\) against \(0.889\) on
-\texttt{left\_regular}. Both produce maximal matchings, so both are
+\path|left_regular|. Both produce maximal matchings, so both are
 above \(\mathrm{OPT}/2\); the difference is \emph{which} maximal
 matching. Vertex arrival groups a node's edges together, so a node is
 matched whenever it has any free neighbour when it arrives. A random
 edge order interleaves them, which lets an offline node be consumed by
 an online node that still had alternatives. The exception is
-\texttt{few\_types}, where one pass reaches \(0.978\) against Greedy's
+\path|few_types|, where one pass reaches \(0.978\) against Greedy's
 \(0.952\), for the reason Ranking also beats Greedy there (\(0.990\)):
 Greedy's fixed alphabetical tie-break concentrates arrivals on
 low-indexed offline nodes, and a random edge order breaks that tie at
@@ -445,9 +450,9 @@ Graph
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\texttt{clvb\_zipf} & \(+0.074\) & \(+0.069\) & \(+0.072\) \\
-\texttt{left\_regular} & \(+0.042\) & \(+0.079\) & \(+0.087\) \\
-\texttt{few\_types} & \(+0.047\) & \(+0.013\) & \(+0.017\) \\
+\path|clvb_zipf| & \(+0.074\) & \(+0.069\) & \(+0.072\) \\
+\path|left_regular| & \(+0.042\) & \(+0.079\) & \(+0.087\) \\
+\path|few_types| & \(+0.047\) & \(+0.013\) & \(+0.017\) \\
 Caltech36 & \(+0.013\) & \(+0.037\) & \(+0.041\) \\
 Reed98 & \(+0.009\) & \(+0.028\) & \(+0.029\) \\
 CE-GN & \(+0.017\) & \(+0.055\) & \(+0.063\) \\
@@ -459,8 +464,8 @@ mbeaw & \(+0.000\) & \(+0.001\) & \(+0.001\) \\
 
 One revision pass is worth more than a \emph{perfect} degree prediction
 on seven of the nine graphs, including all six real ones; the two
-exceptions are \texttt{clvb\_zipf}, where the two are within \(0.005\),
-and \texttt{few\_types}, the family engineered to be near-perfectly
+exceptions are \path|clvb_zipf|, where the two are within \(0.005\),
+and \path|few_types|, the family engineered to be near-perfectly
 matchable with lumpy type counts, which is the one regime the advice
 algorithms were designed for.
 
