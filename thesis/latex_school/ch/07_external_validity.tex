@@ -57,12 +57,13 @@ histogram-following decays.}
 We re-run the degree-prediction roster of Chapter 4 on the six
 Network-Repository graphs (two Facebook social, two C. elegans
 biological, two economic input-output), across the same quality columns,
-with 95\% CIs (\textbf{Figure 7.2}). The two load-bearing findings are
-universal. \textbf{F1 holds on all six}: naive MPD fed an adversarial
-predictor falls below the Ranking floor everywhere, by \(0.06\) (Reed98)
-to \(0.10\) (CE-PG). \textbf{F3 holds on all six, and confirms its own
-logic}: the consistency upside is small everywhere (mean \(+0.049\);
-range \(+0.022\)--\(+0.077\)) and smallest exactly where the baseline is
+with 95\% CIs (\textbf{Figure 7.2}). The two load-bearing findings hold
+across all six graphs tested. \textbf{F1 holds on all six}: naive MPD
+fed an adversarial predictor falls below the Ranking floor everywhere,
+by \(0.06\) (Reed98) to \(0.10\) (CE-PG). \textbf{F3 also holds on all
+six and is consistent with the proposed explanation}: the consistency
+upside is small on every graph (mean \(+0.049\); range
+\(+0.022\)--\(+0.077\)) and smallest exactly where the baseline is
 strongest: the two dense economic graphs, with Ranking already
 \(0.965\)/\(0.977\), give the tiniest upsides.
 
@@ -76,11 +77,12 @@ augmentation cushions the adversarial drop (\(0.939\) vs naive MPD's
 \(0.893\)) but cannot clear the unusually high \(0.965\) floor, dipping
 \(\approx0.03\) below it. Those two graphs are so dense that matching is
 nearly trivial (Ranking \(\approx0.97\), MinDegree \(=1.00\)), so there
-is neither upside to capture (F3) nor much downside to protect: the
-boundary is F3's own mechanism at work, not an exception to it. Finally,
-F4 is dramatic: the worst-case-designed Feldman/Jaillet--Lu are the
-weakest advice-free entries on the econ graphs (\(0.73\)--\(0.77\)) and
-the augmentation lifts them to \(0.99\), a \(+0.26\) rescue.
+is neither upside to capture (F3) nor much downside to protect. This
+pattern is consistent with the mechanism underlying F3 rather than
+contradicting it. Finally, F4 is dramatic: the worst-case-designed
+Feldman/Jaillet--Lu are the weakest advice-free entries on the econ
+graphs (\(0.73\)--\(0.77\)) and the augmentation lifts them to \(0.99\),
+a \(+0.26\) rescue.
 
 \begin{figure}
 \centering
@@ -108,11 +110,12 @@ better-trained predictor buys much on average-case matching.
 
 \section{Chapter summary}
 
-On real predictors, real graphs, and a learned predictor, the same wall
-stands: the advice-free baseline is near-optimal, unguarded following is
-unsafe, and predictions buy downside protection rather than performance,
-with one instructive boundary: the two dense economic graphs of §7.2,
-where the augmentation cannot quite clear an unusually high floor.
-Having established the wall empirically across every setting we could
-reach, Chapter 8 reports the directions that tried to get past it, and
-the concluding outlook (§10.2) explains why it is forced.
+On the real predictors, real graphs, and learned predictor examined
+here, the same broad pattern recurs: the advice-free baseline is
+near-optimal, unguarded following is unsafe, and predictions buy
+downside protection rather than performance, with one instructive
+boundary: the two dense economic graphs of §7.2, where the augmentation
+cannot quite clear an unusually high floor. Having observed the same
+broad pattern across the settings examined, Chapter 8 reports the
+directions that tried to get past it, and the concluding outlook (§10.2)
+offers a theoretical account of why it may recur.

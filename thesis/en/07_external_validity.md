@@ -100,10 +100,12 @@ fix: 补两句说明映射规则，或指向附录 A.5；并说明映射方式�
 
 We re-run the degree-prediction roster of Chapter 4 on the six Network-Repository graphs (two
 Facebook social, two C. elegans biological, two economic input-output), across the same
-quality columns, with 95% CIs (**Figure 7.2**). The two load-bearing findings are universal.
+quality columns, with 95% CIs (**Figure 7.2**). The two load-bearing findings hold across all
+six graphs tested.
 **F1 holds on all six**: naive MPD fed an adversarial predictor falls below the Ranking floor
-everywhere, by $0.06$ (Reed98) to $0.10$ (CE-PG). **F3 holds on all six, and confirms
-its own logic**: the consistency upside is small everywhere (mean $+0.049$; range $+0.022$–$+0.077$)
+everywhere, by $0.06$ (Reed98) to $0.10$ (CE-PG). **F3 also holds on all six and is
+consistent with the proposed explanation**: the consistency upside is small on every graph
+(mean $+0.049$; range $+0.022$–$+0.077$)
 and smallest exactly where the baseline is strongest: the two dense economic graphs, with
 Ranking already $0.965$/$0.977$, give the tiniest upsides.
 
@@ -135,7 +137,8 @@ protection is only *partial*: the augmentation cushions the adversarial drop ($0
 naive MPD's $0.893$) but cannot clear the unusually high $0.965$ floor, dipping $\approx0.03$
 below it. Those two graphs are so dense that matching is nearly trivial (Ranking
 $\approx0.97$, MinDegree $=1.00$), so there is neither upside to capture (F3) nor much
-downside to protect: the boundary is F3's own mechanism at work, not an exception to it. Finally, F4 is dramatic: the
+downside to protect. This pattern is consistent with the mechanism underlying F3 rather than
+contradicting it. Finally, F4 is dramatic: the
 worst-case-designed Feldman/Jaillet–Lu are the weakest advice-free entries on the econ graphs
 ($0.73$–$0.77$) and the augmentation lifts them to $0.99$, a $+0.26$ rescue.
 
@@ -186,13 +189,13 @@ fix: 定正本：第 8 章是正本（那里有完整的 M0 到 M3 过程），7
 
 ## 7.4 Chapter summary
 
-On real predictors, real graphs, and a learned predictor, the same wall stands: the
-advice-free baseline is near-optimal, unguarded following is unsafe, and predictions buy
+On the real predictors, real graphs, and learned predictor examined here, the same broad
+pattern recurs: the advice-free baseline is near-optimal, unguarded following is unsafe, and predictions buy
 downside protection rather than performance, with one instructive boundary: the two dense
 economic graphs of §7.2, where the augmentation cannot quite clear an unusually high
-floor. Having established the wall empirically across
-every setting we could reach, Chapter 8 reports the directions that tried to get past it,
-and the concluding outlook (§10.2) explains why it is forced.
+floor. Having observed the same broad pattern across the settings examined, Chapter 8
+reports the directions that tried to get past it, and the concluding outlook (§10.2) offers
+a theoretical account of why it may recur.
 
 <!--REV
 id: 7-11

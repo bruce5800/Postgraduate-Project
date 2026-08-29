@@ -89,10 +89,10 @@ features from real serving traces (per-resource reference counts over the previo
 to predict the next window (150 context-length types over 500 replicas of degree 8, 40
 windows, three lag features, a 60/40 train/test split). Here the rank- and
 regression-trained predictors produce identical order (Kendall-$\tau$ $0.126$ vs $0.126$)
-and identical matching ratio. The order/magnitude divergence that powers
-rank-training is a property of *engineered* features; realistic lagged-count features are
-co-linear noisy estimates of the same popularity, so regression already recovers the order
-as well as ranking does.
+and identical matching ratio. The order/magnitude divergence that powers rank-training
+arises in the *engineered* features used above. For the realistic lagged-count features
+examined here, the features appear to be co-linear noisy estimates of the same popularity,
+and regression recovers the order as well as ranking does.
 
 <!--REV
 id: 8-05
@@ -104,11 +104,12 @@ note: 这是本章最有分量的一个负结果，支撑它的是一句 every c
 fix: 把清单写进正文一句或附录一行：topologies A/B/C, lags 1/7/30, two traces。审稿人接受负结果的前提是知道你找过多远。
 -->
 
-![M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable; the engineered divergence that powers rank-training does not arise.](../../results/rank_real_trace.png){width=100%}
+![M3 (Azure trace, real temporal features): rank- and MSE-trained predictors are indistinguishable; the engineered divergence that powers rank-training does not arise in this experiment.](../../results/rank_real_trace.png){width=100%}
 
 **Verdict.** Learning the predictor with a decision-aligned loss does not change the
-picture of Chapters 4–7, and we report it as a negative result: the win requires a feature divergence that does not arise in
-practice, and even where it does the payoff is bounded by the (small) baseline-to-oracle
+picture of Chapters 4–7, and we report it as a negative result: in these experiments, the win
+requires a feature divergence that did not arise on the real trace, and even where it does
+the payoff is bounded by the (small) baseline-to-oracle
 gap. The result is folded into the thesis as a negative that reinforces the central
 finding: once a predictor is order-faithful, which a cheap historical count already is
 (Chapter 7), neither a better algorithm nor a better-trained predictor buys much on
@@ -183,11 +184,12 @@ note: 非预测策略跑赢了全知策略，这在逻辑上就说明全知策�
 fix: 把这句改成对照组局限的证据并就地说明原因（全知策略按未来 burst 预留，反而在中等负载下预留过多）。诚实处理这一点会显著提高本节的可信度。
 -->
 
-![Serving SLO probe: a non-predictive policy matches the clairvoyant oracle to within a few percent, so foresight does not help.](../../results/serving_slo_probe.png){width=60%}
+![Serving SLO probe: the best non-predictive policy comes within a few percent of the clairvoyant reference, suggesting little additional value from foresight in this sweep.](../../results/serving_slo_probe.png){width=60%}
 
-**Verdict.** The tail objective is forgiving too: a third face of the wall, after
-throughput (Chapters 4–7) and predictor-learning (§8.1). We found no natural regime where
-foresight helps, so serving remains a case study. A regime that would break the wall (a
+**Verdict.** The tail objective is also forgiving in the regimes examined: a third face of
+the wall, after throughput (Chapters 4–7) and predictor-learning (§8.1). We did not identify
+a benefit from foresight within this sweep, so serving remains a case study. A regime that
+would break the wall (a
 non-stationary or adversarial objective where the baseline is far from optimal) is exactly
 the kind of setting the thesis brackets as future work.
 
@@ -245,13 +247,13 @@ fix: 统一处理：凡是支撑正文数字的，摘进附录；凡是只为存
 
 ## 8.4 Synthesis: the negatives point to the same wall
 
-The three explorations point the same way. A better-trained predictor does not help on real
-features (§8.1); a with-predictions lens does not rescue serving even on a tail objective
-(§8.2); and the literature review confirmed there was no easy performance win to be had
-(§8.3). Together with the throughput wall of Chapters 4–7, they show the phenomenon is not
-confined to one objective, one algorithm or one dataset: it recurs everywhere we pushed, and
-that robustness is what suggested the wall might be *forced* rather than accidental: the
-question the concluding outlook (§10.2) takes up.
+The three explorations point the same way. A better-trained predictor did not help on the real
+features tested (§8.1); a with-predictions lens did not improve serving on the tail objective
+examined (§8.2); and the literature review did not identify an established route to an easy
+performance gain (§8.3). Together with the throughput results of Chapters 4–7, these findings
+show that the same pattern recurs across the objectives, algorithms and datasets examined.
+This recurrence motivates the possibility that the wall reflects a structural constraint
+rather than an accident, which the concluding outlook (§10.2) considers.
 
 <!--REV
 id: 8-13

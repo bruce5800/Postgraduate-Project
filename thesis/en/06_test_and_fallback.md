@@ -220,7 +220,7 @@ this chapter is therefore not one badly calibrated threshold. The upside and the
 resolution move together, and the concluding outlook (§10.2) gives this coupling a
 quantitative form: the prefix needed to decide scales as the inverse square of the stakes.
 
-![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the potential upside of perfect advice grows, but the upside a sublinear test can safely capture stays near zero, because the empirical test's resolution sits far above the break-even margin wherever the upside exists.](../../results/impossibility_frontier.png){width=100%}
+![The testing-wall frontier. Horizontal axis: baseline strength $\rho_{\mathrm{base}}$, swept by the number of request types (weaker baseline and larger $r$ to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the potential upside of perfect advice grows, but the upside captured safely by the sublinear tests examined remains near zero: at the tested points where upside exists, the empirical test's resolution lies above the break-even margin.](../../results/impossibility_frontier.png){width=100%}
 
 <!--REV
 id: 6-13
@@ -232,7 +232,7 @@ note: 这是全章最重要的一张图，图注却没说横轴是什么。as th
 fix: 图注首句直接交代坐标：horizontal axis: number of request types r (fewer types = weaker advice free baseline, shown left); vertical axis: ratio gain over the baseline。然后再讲结论。
 -->
 
-## 6.4 The dynamic combiner is dominated, and shows why matching needs test-then-commit
+## 6.4 The tested dynamic combiner is dominated, illustrating the case for test-then-commit
 
 We benchmark the Chłędowski-style dynamic combiner to contextualize the commit-once structure
 of test-and-fallback. In its robust tuning the combiner sits exactly on the floor of the
@@ -285,10 +285,11 @@ fix: 删掉 mimic，或写成 (called mimic in the implementation)。正文只�
 ## 6.5 Chapter summary
 
 Test-and-fallback delivers the adaptive robustness envelope of §6.1, but its accept/reject
-decision is fundamentally limited on strong-baseline inputs: no empirical-$\ell_1$ threshold
-both captures the upside and stays safe (§6.3), and dynamic switching is dominated by
-test-then-commit (§6.4). The resolution limit of §6.3, and its persistence across the
-whole difficulty range (Figure 6.4), is the empirical anchor of the theoretical outlook
+decision is limited on the strong-baseline inputs tested here: none of the
+empirical-$\ell_1$ thresholds examined both captures the upside and stays safe (§6.3), and
+the tested dynamic switching schemes are dominated by test-then-commit (§6.4). The
+resolution limit of §6.3, and its persistence across the tested difficulty range
+(Figure 6.4), is the empirical anchor of the theoretical outlook
 in §10.2; Figure 6.4 is the figure to remember from this chapter. The next chapter asks
 whether any of this survives outside synthetic instances.
 

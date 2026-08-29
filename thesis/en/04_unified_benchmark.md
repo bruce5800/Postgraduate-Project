@@ -243,8 +243,9 @@ bad-advice side.** On few-types the advice-free Ranking is already $0.990$ and
 MPD-with-true-degrees is $0.999$: the entire consistency headroom is $0.009\pm0.001$,
 smaller than most of the effects measured later in this thesis.
 Every wide gap in Panel C is a *downside* gap. This is the thesis in one panel; Chapter 6
-shows why no affordable test escapes it, and the concluding outlook (§10.2) why it is
-forced.
+shows why the affordable tests examined here struggle to capture the remaining upside, and
+the concluding outlook (§10.2) offers a theoretical interpretation of why this pattern may
+persist.
 
 <!--REV
 id: 4-09

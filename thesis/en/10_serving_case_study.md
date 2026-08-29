@@ -144,7 +144,8 @@ tail rather than a throughput objective. It does not: on an SLO objective (prote
 tight-SLO class of requests under bursty load), a non-predictive policy comes within
 $\le 3\%$ of one with perfect foresight across every regime swept. The experiment, its
 caveats and its two explanations are in §8.2. The consequence for this chapter is that we
-found no natural regime where foresight helps, so serving remains a case study.
+did not identify a benefit from foresight in the regimes examined, so serving remains a case
+study.
 
 <!--REV
 id: 9-07

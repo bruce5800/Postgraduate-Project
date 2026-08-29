@@ -131,17 +131,19 @@ square of the stakes.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The testing-wall frontier. Horizontal axis: baseline strength \textbackslash rho\_\{\textbackslash mathrm\{base\}\}, swept by the number of request types (weaker baseline and larger r to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the potential upside of perfect advice grows, but the upside a sublinear test can safely capture stays near zero, because the empirical test's resolution sits far above the break-even margin wherever the upside exists.}]{../../results/impossibility_frontier.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={The testing-wall frontier. Horizontal axis: baseline strength \textbackslash rho\_\{\textbackslash mathrm\{base\}\}, swept by the number of request types (weaker baseline and larger r to the left). Vertical axis: consistency upside over the baseline. As the baseline weakens, the potential upside of perfect advice grows, but the upside captured safely by the sublinear tests examined remains near zero: at the tested points where upside exists, the empirical test's resolution lies above the break-even margin.}]{../../results/impossibility_frontier.png}
 \caption{The testing-wall frontier. Horizontal axis: baseline strength
 \(\rho_{\mathrm{base}}\), swept by the number of request types (weaker
 baseline and larger \(r\) to the left). Vertical axis: consistency
 upside over the baseline. As the baseline weakens, the potential upside
-of perfect advice grows, but the upside a sublinear test can safely
-capture stays near zero, because the empirical test's resolution sits
-far above the break-even margin wherever the upside exists.}
+of perfect advice grows, but the upside captured safely by the sublinear
+tests examined remains near zero: at the tested points where upside
+exists, the empirical test's resolution lies above the break-even
+margin.}
 \end{figure}
 
-\section{The dynamic combiner is dominated, and shows why matching needs
+\section{The tested dynamic combiner is dominated, illustrating the case
+for
 test-then-commit}
 
 We benchmark the Chłędowski-style dynamic combiner to contextualize the
@@ -168,11 +170,12 @@ for caching does not port cleanly to matching.
 \section{Chapter summary}
 
 Test-and-fallback delivers the adaptive robustness envelope of §6.1, but
-its accept/reject decision is fundamentally limited on strong-baseline
-inputs: no empirical-\(\ell_1\) threshold both captures the upside and
-stays safe (§6.3), and dynamic switching is dominated by
-test-then-commit (§6.4). The resolution limit of §6.3, and its
-persistence across the whole difficulty range (Figure 6.4), is the
-empirical anchor of the theoretical outlook in §10.2; Figure 6.4 is the
-figure to remember from this chapter. The next chapter asks whether any
-of this survives outside synthetic instances.
+its accept/reject decision is limited on the strong-baseline inputs
+tested here: none of the empirical-\(\ell_1\) thresholds examined both
+captures the upside and stays safe (§6.3), and the tested dynamic
+switching schemes are dominated by test-then-commit (§6.4). The
+resolution limit of §6.3, and its persistence across the tested
+difficulty range (Figure 6.4), is the empirical anchor of the
+theoretical outlook in §10.2; Figure 6.4 is the figure to remember from
+this chapter. The next chapter asks whether any of this survives outside
+synthetic instances.

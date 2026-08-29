@@ -10,12 +10,13 @@ baselines, MinPredictedDegree and its augmentations, and the
 test-and-fallback algorithms, across synthetic graphs, six real-world
 graphs, and real request traces (Chapters 4--7).
 
-Across every setting the same picture appeared: the advice-free baseline
-is already near-optimal on average-case inputs, so the consistency
-upside of a good prediction is small; unguarded prediction-following
-crashes below the baseline under bad predictions; and the value of the
-sophisticated algorithms is downside protection, delivered by either a
-structural or an adaptive robustness mechanism with distinct trade-offs.
+Across the settings examined, the same broad picture appeared: the
+advice-free baseline is already near-optimal on these average-case
+inputs, so the consistency upside of a good prediction is small;
+unguarded prediction-following crashes below the baseline under bad
+predictions; and the value of the sophisticated algorithms is downside
+protection, delivered by either a structural or an adaptive robustness
+mechanism with distinct trade-offs.
 
 Two sub-questions were sharpened along the way. The (small) loss is
 governed by a Kendall-\(\tau\) order error rather than by magnitude,
@@ -27,10 +28,11 @@ serving regime where predictions genuinely help (Chapter 8).
 
 The recurring wall raises an obvious question: is it an accident of the
 inputs we chose, or is it forced? The next section gives our answer in
-outlook form. The single sentence that unifies the thesis is: \textbf{on
-average-case online matching, predictions are robustness insurance
-rather than a performance lever --- and the upside they offer is smaller
-than the price of finding out whether to trust them.}
+outlook form. The single sentence that unifies the thesis is: \textbf{in
+the average-case online-matching settings examined, predictions act
+primarily as robustness insurance rather than as a performance lever,
+and their measured upside is smaller than the observed price of deciding
+whether to trust them.}
 
 \section{A theoretical outlook: the price of testing
 advice}
@@ -75,14 +77,17 @@ the baseline slack \(1-\rho_{\mathrm{base}}\), and is met by a simple
 \emph{directional} statistic (do the prefix arrivals agree with the
 advice more often than they contradict it?). The stakes are themselves
 capped by that slack, since advice can only win what the baseline leaves
-on the table. Substituting, an upside below
-\(\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)\) would not be
-captured by any rule at any prefix length \(k \le n\). At Chapter 4's
-parameters (\(\rho_{\mathrm{base}}\approx0.99\), \(n=2000\)) that is
-\(\approx0.004\), exactly the order of the upsides we measured (F3). The
-empirical wall sits where the reading says it should: potential and
-capturable upside separate as the baseline strengthens, because the
-stakes shrink faster than the test's resolution improves.
+on the table. Under this unproved budget-law interpretation,
+substituting predicts that an upside below
+\(\Theta\bigl(\sqrt{(1-\rho_{\mathrm{base}})/n}\bigr)\) would remain
+beyond the reach of a prefix-based decision rule with \(k \le n\) on
+this decomposable instance family. At Chapter 4's parameters
+(\(\rho_{\mathrm{base}}\approx0.99\), \(n=2000\)), the predicted scale
+is \(\approx0.004\), the same order as the upsides measured in F3. The
+empirical wall is therefore consistent with this reading: potential and
+capturable upside separate as the baseline strengthens because the
+stakes shrink faster than the test's resolution improves. Verifying the
+prediction, including its scope beyond this family, remains future work.
 
 Two notes bound this. The relation cuts both ways: where the stakes are
 large (a weak baseline) the directional statistic is cheap and following
@@ -97,109 +102,85 @@ thesis (§10.4, §10.5).
 
 \section{Critical evaluation}
 
-This project began as a brief to reproduce and extend the experimental
-study of Borodin, Karavasilis and Pankratov, and was reframed in my own
-proposal before work started. This section assesses it against both, and
-then against the design choices I made along the way.
+This section assesses how far the three objectives of §1.2 were met, and
+which of the project's design choices look like the right ones in
+hindsight.
 
-\textbf{Against the original brief.} The brief asked for three things.
-\emph{Reproduce some of the experiments}: done, and done first (§3.6)
---- all five qualitative claims checked reproduce within \(0.02\),
-across a different implementation language and a different maximum-flow
-routine. \emph{Compare performance on different types of graph}: done
---- two synthetic families, plus six real-world graphs spanning social,
-biological and economic structure (§7.2), on which the two load-bearing
-findings hold universally. \emph{Extend by testing additional
-algorithms}: done, but \textbf{not primarily in the direction the brief
-suggested}. The brief named streaming or offline algorithms; my proposal
-substituted the learning-augmented family, on the argument that its
-theory had outrun its experiments and that a unified comparison was
-therefore the more valuable extension. I raised that substitution with
-my supervisor before starting and still think it was the right call.
-Appendix A.7 supplies the suggested arm at reduced scope, built as a
-ladder of relaxations rather than a parallel benchmark, and it earns its
-place: on seven of nine graphs one extra pass over the data buys more
-than a perfect degree prediction does, which locates the residual gap in
-irrevocability rather than in missing information.
+\textbf{Against the objectives.} \emph{Q1 (how the learning-augmented
+algorithms compare, and what a prediction buys) is met in full.} Chapter
+4 puts both families on one harness and answers the question
+numerically: on the few-types instances the entire consistency headroom
+is \(0.009\pm0.001\), while the downside a bad prediction opens reaches
+\(0.52\), and Chapter 7 shows the same ordering survives real predictors
+and real graphs. \emph{Q2 (the failure modes of test-and-fallback) is
+met with one qualification.} Chapter 6 delivers the testing cost, the
+threshold-calibration pathology, the resolution limit and the
+irrevocability penalty; but the test measured is the
+empirical-\(\ell_1\) surrogate the original authors specify, not an
+implemented tolerant tester, so these are strictly the failure modes of
+the mechanism \emph{as published} rather than of every rule that could
+inspect a prefix. Section 10.2 argues the blindness is structural rather
+than an implementation artifact, and that argument is an interpretation
+of our measurements, not itself a measurement. \emph{Q3 (whether the
+wall is necessary) is the objective this thesis falls furthest short
+of.} What is delivered is a proved trade-off inequality plus a
+quantitative reading that places the wall where the experiments find it
+(\(\approx0.004\) at the benchmark's parameters, the order of the
+upsides actually measured). What is not delivered is a theorem that the
+wall is forced. Q3 is bracketed, not closed, and the thesis says so
+wherever the outlook is used.
 
-\textbf{Against my own proposal.} The proposal set three research
-questions, and they map onto the thesis unevenly. \emph{RQ1, whether the
-ordering of algorithms by their proved guarantees matches their ordering
-in practice}, is answered, and the answer is no: the worst-case-designed
-Feldman and Jaillet--Lu are the weakest advice-free entries on
-average-case inputs (\(0.760\) and \(0.788\) against Greedy's \(0.890\);
-\(0.73\)--\(0.77\) on the economic graphs), while sitting
-\(0.03\)--\(0.06\) above their own worst-case bounds. That is Borodin et
-al.'s question inherited intact and answered in the with-predictions
-setting. \emph{RQ2, the shape of the performance--prediction-error curve
-and where different algorithms' curves cross}, is answered only in part.
-Chapter 5 delivers more than I asked for on one axis --- the curve
-against order error, onto which four error models collapse --- but
-Chapter 4 reports discrete quality columns rather than continuous
-curves, so the crossing question is answered qualitatively through the
-consistency--robustness plane rather than by locating crossings.
-\emph{RQ3, the real cost of the test-and-fallback mechanism}, is the
-most completely answered: its testing cost, its misjudgement rate under
-both the published and the recalibrated threshold, and the
-irrevocability penalty (Chapter 6).
-
-\textbf{What I promised and did not deliver.} One gap is substantive.
-Section 6.2 of my proposal made arrival order an \emph{independent
-variable}, to be reported separately for random, adversarial and real
-temporal order, on the correct grounds that random-arrival and
-adversarial-arrival are different models. The thesis works throughout in
-the known-i.i.d. model. Real temporal order does appear, through the
-Wikipedia and Azure traces of Chapters 7 and 9, but there is no
-adversarial arm. That omission matters more than it would have at
-proposal time, because the central finding is precisely that the
-advice-free baseline is near-optimal --- and known-i.i.d. is the model
-in which that is most true. Dropping the adversarial arm removed the one
-condition under which my own headline could have been falsified, which
-is why it heads the future work of §10.5 rather than appearing there as
-a routine extension. A second, smaller gap: the proposal listed runtime
-as an auxiliary metric, and the thesis reports one pair of wall-clock
-numbers (§7.1) rather than systematic timing.
-
-\textbf{The choices, with hindsight.} Three look right. Injecting error
-along the \emph{structure} of the instance rather than as i.i.d. noise
-was the proposal's own design bet (§5 there called it the core
-methodological idea) and it paid off exactly as intended: i.i.d. noise
-would have blurred the magnitude/order distinction and Chapter 5's
-collapse onto Kendall-\(\tau\) would not have been visible at all.
-Validating the harness against Borodin et al.~before building anything
-on it cost about a week and bought the right to attribute every later
+\textbf{The choices, with hindsight.} Three look clearly right.
+Injecting error along the \emph{structure} of the instance rather than
+as i.i.d. noise (§3.3) is the single most productive methodological
+decision in the project: i.i.d. noise would have blurred the
+magnitude/order distinction and Chapter 5's collapse onto
+Kendall-\(\tau\) would not have been visible at all. Validating the
+harness against Borodin et al.~before building anything on it (§3.6)
+cost about a week and bought the right to attribute every later
 difference to the algorithms rather than to the infrastructure. And
 reducing the theoretical claim to the one inequality that is actually
 proved, rather than asserting the fuller law, is what keeps Q3's answer
-defensible.
+defensible; the alternative would have been a theorem the thesis could
+not support.
 
-Two are debatable, beyond the arrival-order gap above. Evaluating
-matching size alone is the choice that most limits the reach of the
-conclusion: the wall is a statement about goodput, and the single probe
-on a tail objective (§8.2) arrived late and closed only the simplest
-such attempt. And the harness's Python implementation capped instances
-at \(n\approx2000\); this was a good trade for reproducibility, but
-§10.2's reading predicts a capturable-upside threshold scaling as
-\(1/\sqrt{n}\), so larger instances would have tested that prediction
-where it is sharpest.
+Three look more debatable. Working exclusively in the known-i.i.d. model
+is right for comparability, since it is the model both families are
+defined in, but it is also the model in which the advice-free baseline
+is strongest, so the choice partly \emph{pre-selected} the headline
+finding. Figure 6.4 answers the objection by sweeping baseline strength
+across the whole difficulty range, but that sweep was a response to the
+finding rather than the benchmark's primary axis; designed again,
+instance difficulty would be a first-class dimension from the start
+rather than a follow-up. Evaluating matching size alone is the choice
+that most limits the reach of the conclusion: the wall is a statement
+about goodput, and the single probe on a tail objective (§8.2) arrived
+late and closed only the simplest such attempt. A second objective
+carried through the entire benchmark would have bounded the claim far
+better than a late probe does. Finally, the harness's Python
+implementation capped instances at \(n\approx2000\); this was a good
+trade for reproducibility, but §10.2's reading predicts a
+capturable-upside threshold scaling as \(1/\sqrt{n}\), so larger
+instances would have tested that prediction where it is sharpest.
 
 One process lesson is worth recording. The learning-to-rank exploration
 (§8.1) ran its synthetic stages M0 and M1 before M3, the test on real
-temporal features, and M3 --- both the cheaper experiment and the
-decisive one --- is what settled the question negatively. Running the
+temporal features, and M3, which is both the cheaper experiment and the
+decisive one, is what settled the question negatively. Running the
 realistic test first would have reached the same conclusion for a
-fraction of the work.
+fraction of the work. The same ordering error is easy to repeat: a
+mechanism demonstrated on engineered inputs invites elaboration on
+engineered inputs, when the useful next question is whether the
+mechanism arises outside them at all.
 
-\textbf{Overall.} The brief is met, with one substitution I would defend
-and have since made good at reduced scope; two of my own three research
-questions are met in full and the third in part; and one proposal
-commitment, the adversarial arrival arm, was not delivered. The
-experimental contribution is the solid part of the thesis and the
-theoretical one is deliberately narrow. The result least likely to be
-overturned is the wall itself, which recurred across every algorithm,
-error model, graph family and predictor I varied --- and the honest
-counterpart is that the dimension most likely to overturn it is the one
-I did not vary.
+\textbf{Overall.} Two objectives are met in full and the third in
+bounded form; the experimental contribution is the solid part of the
+thesis and the theoretical one is deliberately narrow. The wall is the
+most consistently supported finding: it recurred across the algorithms,
+error models, graph families and predictors varied here. What remains
+genuinely uncertain is whether it survives the two dimensions we did
+\emph{not} vary, a different objective and a non-average-case arrival
+order, which is precisely why those two head the future work of §10.5.
 
 \section{Limitations}
 
@@ -281,11 +262,12 @@ natural next directions.
 \section{Closing}
 
 Predictions are a powerful tool for online algorithms, but this thesis
-is a study of their \emph{limits} on one well-understood problem. On
-average-case online matching, the honest verdict has three parts. A
-cheap, order-faithful predictor already captures nearly all there is to
-capture. The sophisticated machinery earns its keep as insurance rather
-than as performance. And finding out whether to trust a prediction costs
-more, on these inputs, than the prediction is worth. Recognizing where
-predictions cannot help is, we hope, as useful as knowing where they
-can.
+is a study of their \emph{limits} on one well-understood problem. In the
+average-case settings examined here, the evidence supports three
+conclusions. A cheap, order-faithful predictor captures most of the
+small improvement available over the baseline. The sophisticated
+machinery serves mainly as insurance rather than as a source of further
+performance. On the tested inputs, deciding whether to trust a
+prediction appears to cost more than the remaining improvement is worth.
+Recognizing where predictions cannot help is, we hope, as useful as
+knowing where they can.
