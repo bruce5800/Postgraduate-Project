@@ -85,8 +85,9 @@ fix: 两件事：一是把界定提到节首第一句，用最直白的话讲清
 > sharing the *same* advice, such that following the advice gains $\delta$ under $G$ and
 > loses $\Delta$ under $\mathrm{Bd}$ relative to the advice-free baseline, and let
 > $\gamma_k$ be the total-variation distance between the laws of their length-$k$
-> prefixes, i.e. the best accuracy any test can reach when it sees only the first
-> $k$ arrivals. Then every test-and-fallback algorithm, deciding by *any* measurable rule on
+> prefixes, equivalently the largest possible difference between their acceptance
+> probabilities for any test that sees only the first $k$ arrivals. Then every
+> test-and-fallback algorithm, deciding by *any* measurable rule on
 > its prefix, satisfies
 > $$(1-\eta_c)\;\le\;\eta_r+\gamma_k+o(1),$$
 > where $\eta_c$ is the fraction of the upside it forgoes under $G$ and $\eta_r$ its
@@ -200,84 +201,48 @@ fix: 只在 10.3 limitations 保留一次（那里是它该在的位置），其
 
 ## 10.3 Critical evaluation
 
-This section assesses how far the three objectives of §1.2 were met, and which of the
-project's design choices look like the right ones in hindsight.
+The three objectives of §1.2 were met to different degrees. Q1 is answered experimentally:
+Chapter 4 compares both algorithm families on one harness, and Chapter 7 checks that the main
+ordering persists with real predictors and graphs. Q2 is also answered, with an important
+qualification. Chapter 6 identifies the testing cost, threshold-calibration pathology,
+resolution limit, and irrevocability penalty of the published empirical-$\ell_1$ mechanism;
+these findings do not rule out every possible prefix test. Q3 receives a bounded answer: §10.2
+proves one trade-off inequality and gives a quantitative interpretation consistent with the
+measured scale, but does not prove that the wall is unavoidable.
 
-**Against the objectives.** *Q1 (how the learning-augmented algorithms compare, and what a
-prediction buys) is met in full.* Chapter 4 puts both families on one harness and answers
-the question numerically: on the few-types instances the entire consistency headroom is
-$0.009\pm0.001$, while the downside a bad prediction opens reaches $0.52$, and Chapter 7
-shows the same ordering survives real predictors and real graphs. *Q2 (the failure modes of
-test-and-fallback) is met with one qualification.* Chapter 6 delivers the testing cost, the
-threshold-calibration pathology, the resolution limit and the irrevocability penalty; but the
-test measured is the empirical-$\ell_1$ surrogate the original authors specify, not an
-implemented tolerant tester, so these are strictly the failure modes of the mechanism *as
-published* rather than of every rule that could inspect a prefix. Section 10.2 argues the
-blindness is structural rather than an implementation artifact, and that argument is an
-interpretation of our measurements, not itself a measurement. *Q3 (whether the wall is
-necessary) is the objective this thesis falls furthest short of.* What is delivered is a
-proved trade-off inequality plus a quantitative reading that places the wall where the
-experiments find it ($\approx0.004$ at the benchmark's parameters, the order of the upsides
-actually measured). What is not delivered is a theorem that the wall is forced. Q3 is
-bracketed, not closed, and the thesis says so wherever the outlook is used.
+Two design choices were especially valuable. Structurally targeted error models exposed the
+distinction between magnitude and order error, while validating the harness against Borodin
+et al. before extending it made later comparisons credible. Restricting the theoretical claim
+to the inequality actually proved also keeps the conclusion commensurate with the evidence.
 
-**The choices, with hindsight.** Three look clearly right. Injecting error along the
-*structure* of the instance rather than as i.i.d. noise (§3.3) is the single most productive
-methodological decision in the project: i.i.d. noise would have blurred the magnitude/order
-distinction and Chapter 5's collapse onto Kendall-$\tau$ would not have been visible at all.
-Validating the harness against Borodin et al. before building anything on it (§3.6) cost
-about a week and bought the right to attribute every later difference to the algorithms
-rather than to the infrastructure. And reducing the theoretical claim to the one inequality
-that is actually proved, rather than asserting the fuller law, is what keeps Q3's answer
-defensible; the alternative would have been a theorem the thesis could not support.
+The main trade-offs are equally clear. The known-i.i.d. model enables a clean comparison but
+also favours a strong advice-free baseline; matching size alone leaves open objectives such as
+tail latency and fairness; and the Python harness limited experiments to roughly $n=2000$,
+where the scaling interpretation of §10.2 is only weakly tested. The learning-to-rank study
+also suggests a practical process lesson: testing realistic features before elaborating
+synthetic mechanisms would have reached the negative conclusion more quickly.
 
-Three look more debatable. Working exclusively in the known-i.i.d. model is right for
-comparability, since it is the model both families are defined in, but it is also the model in
-which the advice-free baseline is strongest, so the choice partly *pre-selected* the headline
-finding. Figure 6.4 answers the objection by sweeping baseline strength across the whole
-difficulty range, but that sweep was a response to the finding rather than the benchmark's
-primary axis; designed again, instance difficulty would be a first-class dimension from the
-start rather than a follow-up. Evaluating matching size alone is the choice that most limits
-the reach of the conclusion: the wall is a statement about goodput, and the single probe on a
-tail objective (§8.2) arrived late and closed only the simplest such attempt. A second
-objective carried through the entire benchmark would have bounded the claim far better than a
-late probe does. Finally, the harness's Python implementation capped instances at
-$n\approx2000$; this was a good trade for reproducibility, but §10.2's reading predicts a
-capturable-upside threshold scaling as $1/\sqrt{n}$, so larger instances would have tested
-that prediction where it is sharpest.
-
-One process lesson is worth recording. The learning-to-rank exploration (§8.1) ran its
-synthetic stages M0 and M1 before M3, the test on real temporal features, and M3, which is
-both the cheaper experiment and the decisive one, is what settled the question negatively.
-Running the realistic test first would have reached the same conclusion for a fraction of the
-work. The same ordering error is easy to repeat: a mechanism demonstrated on engineered
-inputs invites elaboration on engineered inputs, when the useful next question is whether the
-mechanism arises outside them at all.
-
-**Overall.** Two objectives are met in full and the third in bounded form; the experimental
-contribution is the solid part of the thesis and the theoretical one is deliberately narrow.
-The wall is the most consistently supported finding: it recurred across the algorithms,
-error models, graph families and predictors varied here. What remains genuinely
-uncertain is whether it survives the two dimensions we did *not* vary, a different objective
-and a non-average-case arrival order, which is precisely why those two head the future work
-of §10.5.
+Overall, two objectives are met experimentally and the third in bounded form. The recurring
+wall is well supported across the settings varied here, but its survival under other objectives
+or non-average-case arrival orders remains uncertain.
 
 ## 10.4 Limitations
 
 - **Input model.** We work in the known-i.i.d. model. Because every known-i.i.d. instance is
   also a random-order instance, guarantees proved in the random-order model carry over to
-  ours (but not conversely, §2.1); the empirical wall, however, is an *average-case* statement; we do not claim it for adversarial arrival order.
+  ours (but not conversely, §2.1). The empirical wall is an *average-case* statement; we do
+  not claim it for adversarial arrival order.
 - **Test model.** Following the original authors, the test-and-fallback experiments use an
-  empirical-$\ell_1$ surrogate for the (unimplemented) distribution tester; §10.2 explains
-  why the surrogate's blindness is structural rather than an implementation artifact.
+  empirical-$\ell_1$ surrogate for the (unimplemented) distribution tester; §10.2 offers a
+  structural interpretation of why the surrogate becomes blind, rather than establishing
+  that claim as a separate theorem.
 - **Prediction-object heterogeneity.** The degree- and histogram-prediction families do not
   map onto every graph, which is why they are reported in parallel panels rather than one
   table.
 - **Data breadth.** Each real modality is exercised by one trace.
 - **Objective.** We evaluate matching size (goodput) only. On objectives where the
   advice-free baseline is not near-optimal (tail latency, per-type fairness, migration or
-  recompute cost), the picture could differ; our one probe in that direction (§8.2) closed
-  the simplest such attempt but not the space (§10.5).
+  recompute cost), the picture could differ; our probe in §8.2 does not close that space.
 - **Theory scope.** The thesis deliberately confines its theory to the outlook of §10.2:
   one proved trade-off inequality and a quantitative reading of the experiments. The full
   budget–stakes law is companion work in preparation, and no theorem beyond the stated
@@ -309,25 +274,17 @@ fix: 展开成一句话：because every known i.i.d. instance is also a random o
 The thesis brackets, rather than resolves, the settings in which predictions might genuinely
 help online matching, and these are the natural next directions.
 
-- **Beyond average-case inputs.** The wall is an average-case phenomenon. Adversarial or
-  non-stationary arrival orders, where the advice-free baseline is provably far from optimal,
-  are where predictions should carry real value, and where a *positive* counterpart to
-  this thesis's wall might be proved.
-- **Beyond throughput.** Objectives on which the baseline is not near-optimal (tail latency,
-  per-type fairness, migration or recompute cost) may admit genuine with-predictions gains
-  that the goodput objective forecloses; our serving SLO probe (Chapter 8) closed the
-  simplest such attempt but not the space.
-- **Completing the theory.** Finishing the companion budget–stakes development, i.e. the sharp
-  two-sided law, the directional statistic as its matching upper bound, and its exact scope
-  (decomposable families; whether a non-decomposable family can push the budget higher is
-  open), would turn the outlook of §10.2 into a tight characterization.
+- **Beyond average-case inputs.** Adversarial or non-stationary arrivals, where the baseline
+  can be far from optimal, may reveal a positive role for predictions.
+- **Beyond throughput.** Tail latency, fairness, migration, or recomputation cost may admit
+  gains that matching size does not; the SLO probe of Chapter 8 tests only one such case.
+- **Completing the theory.** A sharp two-sided budget–stakes law, its attainable test, and its
+  scope beyond decomposable families remain to be established. Tests that reuse online
+  decisions as samples are another practical direction.
 - **The full streaming and offline arm.** The ladder of Appendix A.7 is deliberately small.
   Completing it — memory accounting, the $(1-\varepsilon)$ multi-pass approximations, an
   adversarial edge order — would test whether revision keeps beating advice once the streaming
   algorithm is the strong one rather than the simplest one.
-- **Better tests, honestly.** Whether a super-linear or amortized test, or a test that
-  reuses online decisions as samples, can beat the stakes-squared budget of §10.2 is an
-  open and practically motivated question.
 
 ## 10.6 Closing
 

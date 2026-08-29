@@ -112,10 +112,10 @@ Fig 7.2 (six real graphs) \(\dagger\) &
 \path|scripts/run_realworld_robustness.py| &
 \path|results/realworld_robustness.{json,png}| & \textasciitilde65
 s \\
-Fig 8.1 (M0 rank vs MSE) & \path|scripts/run_rank_vs_mse_mve.py| &
+Fig 8.1 (M1 rank vs MSE) & \path|scripts/run_rank_vs_mse_mve.py| &
 \path|results/rank_vs_mse_mve.{json,png}| & \textasciitilde10
 s \\
-M1 sweep (§8.1, no figure) &
+M2 sweep (§8.1, no figure) &
 \path|scripts/run_rank_when_it_matters.py| &
 \path|results/rank_when_it_matters.{json,png}| &
 \textasciitilde20 s \\
@@ -175,7 +175,7 @@ python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
 python3 scripts/run_impossibility_frontier.py   # Fig 6.4
 python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
-python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
+python3 scripts/run_rank_when_it_matters.py     # M2 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
 python3 scripts/run_serving_slo_probe.py        # Fig 8.3
 python3 scripts/run_consistency_robustness.py   # Fig 4.1 (needs run_unified_benchmark first)

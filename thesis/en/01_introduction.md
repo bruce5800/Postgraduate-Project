@@ -65,11 +65,10 @@ workloads the sophisticated predictions rarely *help*, while the algorithms' rea
 that they do not *hurt*. This gap between the worst-case promise and the average-case
 reality is the puzzle that motivates this thesis.
 
-Moreover, these algorithms had only ever been studied *in isolation*: each on its own
-input model and its own notion of prediction error, and largely through theory. There was
-therefore no common ground on which to compare them, to quantify how much a prediction
-actually buys, or to explain the gap. This thesis provides that common ground and,
-ultimately, an explanation.
+Moreover, the published work we examined studied these algorithms separately: each on its
+own input model and its own notion of prediction error, and largely through theory. There
+was therefore no common empirical basis on which to compare them or quantify how much a
+prediction buys. This thesis provides that basis and investigates the gap.
 
 <!--REV
 id: 1-04
@@ -106,7 +105,9 @@ around three questions:
    is the observed wall an artifact of particular algorithms and generators, or is it
    necessary?
 
-The first two are answered experimentally; the third, theoretically.
+The first two are answered experimentally. The third receives a bounded theoretical
+treatment---one proved trade-off inequality and a quantitative interpretation---but is not
+closed.
 
 <!--REV
 id: 1-06
@@ -130,7 +131,7 @@ fix: 在每条贡献后面用括号标出它回答哪个问题（Q1 / Q2 / Q3）
 
 ## 1.3 Contributions
 
-- **A unified experimental benchmark** (Chapter 4; Q1): the first head-to-head comparison of
+- **A unified experimental benchmark** (Chapter 4; Q1): a head-to-head comparison of
   these families, on one experimental harness: a single code path in which every algorithm
   sees the same graphs, predictions and optimum, with a *structured* error model (errors
   follow the instance's structure, not i.i.d. noise) and confidence intervals.
@@ -179,7 +180,7 @@ note: 归属写得很干净，明确区分了前人已有的结论与本文的�
 fix: 保持原样。同样的写法建议复制到第 6 章（Choo/BEM 阈值是他们的，pathology 是你的）和第 5 章。
 -->
 
-- **The first empirical study of test-and-fallback** (Chapter 6; Q2): its testing cost, a
+- **An empirical study of test-and-fallback** (Chapter 6; Q2): its testing cost, a
   threshold-calibration pathology in which a *more accurate* test yields a *worse* decision,
   the resolution limit that recalibration exposes, and an irrevocability penalty that
   explains why matching requires *test-then-commit*.

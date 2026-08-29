@@ -31,8 +31,8 @@ statistics. Real Wikipedia daily pageviews give a live day (the truth) and earli
 onto a fixed serving topology and consume the forecast through the degree route (MPD)
 (**Figure 7.1**). Throughout this chapter we measure how much of the available benefit a
 predictor realizes by its **gap-capture**,
-$(\rho_{\mathrm{ALG}}-\rho_{\mathrm{base}})/(\rho_{\mathrm{oracle}}-\rho_{\mathrm{base}})$
-, the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
+$(\rho_{\mathrm{ALG}}-\rho_{\mathrm{base}})/(\rho_{\mathrm{oracle}}-\rho_{\mathrm{base}})$,
+the fraction of the baseline-to-oracle gap it closes. Three facts emerge.
 
 First, **the predictor is cheap**. The with-predictions literature usually pictures an
 expensive learned model; here it is a linear-time count, about $0.11$ ms per instance

@@ -19,27 +19,27 @@ abstract: |
   work hands such an algorithm a *prediction* about the input, asking for near-optimal
   performance when it is good (*consistency*) and no loss when it is wrong (*robustness*).
 
-  Two such families exist, but each had been analysed in isolation and almost entirely in
-  worst-case theory, so what a prediction is worth was unknown. This project puts them on one
+  We study two such families whose prior analyses used separate settings and focused largely
+  on worst-case theory, leaving their empirical comparison open. This project puts them on one
   harness (same graphs, arrivals, optimum and paired seeds, four structured error models, 95%
   confidence intervals), validated against a published study and then run on synthetic
-  families, six real-world graphs and real traces. The answer is
-  the same everywhere: the advice-free baseline is already near-optimal ($0.990$ of the offline
+  families, six real-world graphs and real traces. The same broad pattern recurs across the
+  settings examined: the advice-free baseline is already near-optimal ($0.990$ of the offline
   optimum), leaving good advice under $0.01$ to add, whereas unguarded prediction-following
-  collapses to $0.472$. Predictions here are **robustness insurance, not a performance lever**:
-  this thesis studies their limits, not a better algorithm.
+  collapses to $0.472$. In these experiments, predictions act primarily as **robustness
+  insurance rather than as a performance lever**.
 
   - I built the harness and validated it against the published study of Borodin, Karavasilis
     and Pankratov before adding any prediction work (pages 10--16).
-  - I created the first unified benchmark of the two families, implementing the published
+  - I created a unified benchmark of the two families, implementing the published
     algorithms of Aamand--Chen--Indyk, Choo et al. and Burathep--Erlebach--Moses on a common
     error model and optimum; every wide gap it shows is a *downside* gap (pages 17--21).
   - I characterised what governs the residual loss: a Kendall-$\tau$ order error (Spearman
     $\rho=0.979$), with the known $n-\mathrm{LIS}$ bound loose by $16$--$75\times$;
     order-dependence is Aamand--Chen--Indyk's (pages 22--24).
-  - I gave the first empirical study of test-and-fallback (a pathology in which a *more
+  - I conducted an empirical study of test-and-fallback (a pathology in which a *more
     accurate* test decides *worse*, and a resolution limit; pages 25--30), and established
     external validity on six real graphs and a cheap non-ML predictor (pages 31--34).
-  - I report two negative results (pages 35--43) and prove a consistency/robustness trade-off
-    inequality putting the uncapturable upside at $\approx0.004$ for the benchmark's
-    parameters, exactly the order of those measured (pages 44--50).
+  - I report two negative results (pages 35--43), prove a general consistency/robustness
+    trade-off inequality, and give a bounded interpretation---not a further theorem---that
+    predicts a scale of $\approx0.004$, the same order as the measured upsides (pages 45--50).

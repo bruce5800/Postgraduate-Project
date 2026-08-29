@@ -14,8 +14,8 @@ lever. Before accepting the wall as final, we pursued three directions that
 each *tried to get past it*: learning the predictor to squeeze out more performance
 (§8.1), finding a serving regime where predictions genuinely help (§8.2), and letting a
 systematic literature review point us to the highest-value contribution (§8.3). All three
-returned the same answer, and their convergence is what motivated the theorem. Each is
-reported here with the evidence that closed it.
+produced results consistent with the same wall, and their convergence motivated the
+theoretical outlook of §10.2. Each is reported here with the evidence behind that conclusion.
 
 <!--REV
 id: 8-01
@@ -45,14 +45,14 @@ suggests a concrete way to do better: rather than training a predictor to minimi
 train it with an *order-aware* loss (a pairwise rank loss) so it optimizes the quantity
 the algorithm actually uses. We investigated this in three steps.
 
-**M0: the mechanism exists** (**Figure 8.1**). With deliberately *divergent* synthetic features (one feature
+**M1: the mechanism exists** (**Figure 8.1**). With deliberately *divergent* synthetic features (one feature
 carrying magnitude, another carrying order), a rank-trained linear predictor sharply beats a
 regression-trained one on the decision metric: matching ratio $0.989$ (essentially the
 oracle) versus $0.974$, while the rank-trained predictor has *worse* regression error to the
 truth (MSE $87.6$ vs $33.4$) but better order (Kendall-$\tau$ $0.058$ vs $0.255$). The
 dissociation is real: the worse *fit* gives the better *decision*. Regression is thus the
 wrong training objective whenever the features separate magnitude from order, a condition
-M1 and M3 below show to be rare.
+M2 and M3 below show to be rare.
 
 <!--REV
 id: 8-03
@@ -64,9 +64,9 @@ note: when it matters 是一个事后加的限定，等于说在它成立的时�
 fix: 把限定写成可检验的条件：regression is the wrong objective when the features separate magnitude from order - a condition M1 and M3 show is rare。
 -->
 
-![M0: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).](../../results/rank_vs_mse_mve.png){width=100%}
+![M1: with divergent features, rank-training beats regression on the matching ratio (left) despite a worse regression fit (right).](../../results/rank_vs_mse_mve.png){width=100%}
 
-**M1: the advantage is doubly gated, and small.** Sweeping the feature divergence and
+**M2: the advantage is doubly gated, and small.** Sweeping the feature divergence and
 the graph difficulty, the rank-advantage is zero when features do not induce an
 order/magnitude conflict, and zero on easy instances where the baseline is already optimal
 (the wall, again). It peaks at only $+1.3\%$ of the ratio on synthetic graphs; measured as
@@ -91,7 +91,7 @@ windows, three lag features, a 60/40 train/test split). Here the rank- and
 regression-trained predictors produce identical order (Kendall-$\tau$ $0.126$ vs $0.126$)
 and identical matching ratio. The order/magnitude divergence that powers rank-training
 arises in the *engineered* features used above. For the realistic lagged-count features
-examined here, the features appear to be co-linear noisy estimates of the same popularity,
+examined here, the features appear to be collinear noisy estimates of the same popularity,
 and regression recovers the order as well as ranking does.
 
 <!--REV
@@ -209,8 +209,8 @@ fix: 定 8.2 为正本（它属于负结果章），9.2 压到两句并写 we su
 Deciding which of our findings were genuinely novel required a systematic prior-art review
 rather than intuition: we searched from several independent starting points and checked each
 candidate claim against the primary papers rather than their abstracts. The verdicts were
-sometimes deflating. The unified benchmark and the empirical study of test-and-fallback are
-unoccupied and worth leading with; the order-error finding is *partially* pre-empted by ACI's
+sometimes deflating. We did not identify a prior unified benchmark or empirical study of
+test-and-fallback, so those results are worth leading with; the order-error finding is *partially* pre-empted by ACI's
 Appendix D and had to be reframed as a tightness/measure characterization rather than a
 discovery (Chapter 5); and the serving results are largely re-derivations of established
 systems facts, warranting their demotion to a case study (§8.2, Chapter 9). A focused second
@@ -247,13 +247,10 @@ fix: 统一处理：凡是支撑正文数字的，摘进附录；凡是只为存
 
 ## 8.4 Synthesis: the negatives point to the same wall
 
-The three explorations point the same way. A better-trained predictor did not help on the real
-features tested (§8.1); a with-predictions lens did not improve serving on the tail objective
-examined (§8.2); and the literature review did not identify an established route to an easy
-performance gain (§8.3). Together with the throughput results of Chapters 4–7, these findings
-show that the same pattern recurs across the objectives, algorithms and datasets examined.
-This recurrence motivates the possibility that the wall reflects a structural constraint
-rather than an accident, which the concluding outlook (§10.2) considers.
+Across the three explorations, a better-trained predictor did not help on the real features
+tested (§8.1), the predictions lens did not improve the tail objective examined (§8.2), and
+the literature review found no established route to an easy gain (§8.3). Together with
+Chapters 4–7, this recurrence motivates the structural interpretation considered in §10.2.
 
 <!--REV
 id: 8-13

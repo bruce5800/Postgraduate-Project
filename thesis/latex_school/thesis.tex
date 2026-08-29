@@ -7,6 +7,12 @@
                          % two-sided copy, change to: twoside
 ]{uob-thesis}
 
+% KOMA otherwise prints captions as ``Figure 3.1.:''; use the conventional
+% ``Figure 3.1:'' form. Unique generated destination names also avoid duplicate
+% figure/table anchors in the PDF while preserving all links.
+\KOMAoptions{numbers=noenddot}
+\hypersetup{hypertexnames=false}
+
 \addbibresource{refs_clean.bib}  % generated: docs/references.bib minus note fields
 
 %% ---- pandoc fragment support (macros pandoc emits outside its own template) ----
@@ -52,12 +58,12 @@
 
 \title{The Limits of Predictions for Online Bipartite Matching}
 \subtitle{A Unified Experimental Study}
-\author{Zhuolun Li}   % TODO: confirm the exact registered name
+\author{Zhuolun Li}
 
-\DTMsavedate{thesisdate}{2026-07-13}
+\DTMsavedate{thesisdate}{2026-08-28}
 \date{\printdatewithoutmonth{thesisdate}}
 
-\degree{MSc~in~Computer~Science}                 % TODO: confirm the exact degree title
+\degree{MSc~in~Computer~Science}
 \school{School~of~Computer~Science}
 \faculty{Faculty~of~Science~and~Engineering}
 
@@ -75,11 +81,13 @@
   \input{abstract}         % generated from latex/meta.yaml by build_school.sh
 \end{abstract}
 
-%% Optional dedication/acknowledgements — write before submission.
+%% Optional dedication/acknowledgements.
 % \begin{dedication}
 % \end{dedication}
-% \begin{acknowledgements}
-% \end{acknowledgements}
+\begin{acknowledgements}
+I would like to thank my supervisor, Christian Konrad, for his guidance,
+thoughtful feedback, and support throughout this project.
+\end{acknowledgements}
 
 %% Mandatory.
 \begin{statement}
@@ -142,14 +150,14 @@ The information in this table counts as the references to my own publications if
 \input{ch/10_serving_case_study}
 \input{ch/11_conclusion}
 
-\appendix
-\input{ch/A_reproduction}
-
 %%%%%%%%%%%%%%%%
 %% BACK MATTER %
 %%%%%%%%%%%%%%%%
 
 \backmatter
 \printbibliography[heading=bibintoc]
+
+\appendix
+\input{ch/A_reproduction}
 
 \end{document}

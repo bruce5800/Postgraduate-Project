@@ -34,12 +34,12 @@ rarely \emph{help}, while the algorithms' real value is that they do not
 \emph{hurt}. This gap between the worst-case promise and the
 average-case reality is the puzzle that motivates this thesis.
 
-Moreover, these algorithms had only ever been studied \emph{in
-isolation}: each on its own input model and its own notion of prediction
-error, and largely through theory. There was therefore no common ground
-on which to compare them, to quantify how much a prediction actually
-buys, or to explain the gap. This thesis provides that common ground
-and, ultimately, an explanation.
+Moreover, the published work we examined studied these algorithms
+separately: each on its own input model and its own notion of prediction
+error, and largely through theory. There was therefore no common
+empirical basis on which to compare them or quantify how much a
+prediction buys. This thesis provides that basis and investigates the
+gap.
 
 \section{Research objectives}
 
@@ -65,13 +65,15 @@ makes this precise). The thesis is organized around three questions:
   particular algorithms and generators, or is it necessary?
 \end{enumerate}
 
-The first two are answered experimentally; the third, theoretically.
+The first two are answered experimentally. The third receives a bounded
+theoretical treatment---one proved trade-off inequality and a
+quantitative interpretation---but is not closed.
 
 \section{Contributions}
 
 \begin{itemize}
 \item
-  \textbf{A unified experimental benchmark} (Chapter 4; Q1): the first
+  \textbf{A unified experimental benchmark} (Chapter 4; Q1): a
   head-to-head comparison of these families, on one experimental
   harness: a single code path in which every algorithm sees the same
   graphs, predictions and optimum, with a \emph{structured} error model
@@ -94,11 +96,11 @@ The first two are answered experimentally; the third, theoretically.
   characterization of their bound's looseness and saturation, and of the
   right order measure.
 \item
-  \textbf{The first empirical study of test-and-fallback} (Chapter 6;
-  Q2): its testing cost, a threshold-calibration pathology in which a
-  \emph{more accurate} test yields a \emph{worse} decision, the
-  resolution limit that recalibration exposes, and an irrevocability
-  penalty that explains why matching requires \emph{test-then-commit}.
+  \textbf{An empirical study of test-and-fallback} (Chapter 6; Q2): its
+  testing cost, a threshold-calibration pathology in which a \emph{more
+  accurate} test yields a \emph{worse} decision, the resolution limit
+  that recalibration exposes, and an irrevocability penalty that
+  explains why matching requires \emph{test-then-commit}.
 \item
   \textbf{A quantified account of why the wall stands} (Chapter 6; Q3).
   By the \emph{wall} we mean that on average-case inputs neither a

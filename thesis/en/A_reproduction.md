@@ -75,8 +75,8 @@ fix: 改成实际验证过的范围：verified bit-stable on NumPy 1.26 and 2.x�
 | Fig 6.4 (testing-wall frontier) | `scripts/run_impossibility_frontier.py` | `results/impossibility_frontier.{json,png}` | ~6 s |
 | Fig 7.1 (real predictor) $\dagger$ | `scripts/run_real_predictor.py` | `results/real_predictor.{json,png}` | ~15 s |
 | Fig 7.2 (six real graphs) $\dagger$ | `scripts/run_realworld_robustness.py` | `results/realworld_robustness.{json,png}` | ~65 s |
-| Fig 8.1 (M0 rank vs MSE) | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 s |
-| M1 sweep (§8.1, no figure) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
+| Fig 8.1 (M1 rank vs MSE) | `scripts/run_rank_vs_mse_mve.py` | `results/rank_vs_mse_mve.{json,png}` | ~10 s |
+| M2 sweep (§8.1, no figure) | `scripts/run_rank_when_it_matters.py` | `results/rank_when_it_matters.{json,png}` | ~20 s |
 | Fig 8.2 (M3 real-trace learning) $\dagger$ | `scripts/run_rank_real_trace.py` | `results/rank_real_trace.{json,png}` | ~10 s |
 | Fig 8.3 (serving SLO probe) | `scripts/run_serving_slo_probe.py` | `results/serving_slo_probe.{json,png}` | ~1 s |
 | Figs 9.1–9.3, serving (Ch 9) $\dagger$ | `scripts/run_serving.py`, `run_serving_trace.py`, `run_serving_dynamic.py`, `run_prefix_cache.py` | `results/serving_*.png`, `prefix_cache_*.png` | varies |
@@ -133,7 +133,7 @@ python3 scripts/run_real_predictor.py           # Fig 7.1
 python3 scripts/run_realworld_robustness.py     # Fig 7.2
 python3 scripts/run_impossibility_frontier.py   # Fig 6.4
 python3 scripts/run_rank_vs_mse_mve.py          # Fig 8.1
-python3 scripts/run_rank_when_it_matters.py     # M1 (§8.1)
+python3 scripts/run_rank_when_it_matters.py     # M2 (§8.1)
 python3 scripts/run_rank_real_trace.py          # Fig 8.2
 python3 scripts/run_serving_slo_probe.py        # Fig 8.3
 python3 scripts/run_consistency_robustness.py   # Fig 4.1 (needs run_unified_benchmark first)

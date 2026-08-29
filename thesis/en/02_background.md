@@ -285,10 +285,11 @@ fix: 加半句点明：here r is the same r as in our model - the number of requ
 Against this background, three gaps stand out. They correspond one-to-one to the three
 questions of §1.2, and the thesis addresses them in that order:
 
-1. **No unified empirical comparison.** The matching algorithms above were each studied in
-   isolation, on their own input families and error models, and largely in theory; there is
-   no head-to-head experimental benchmark under a common harness. (Chapters 4–7.)
-2. **No empirical study of test-and-fallback.** The distribution test at the heart of
+1. **No unified empirical comparison found in the reviewed literature.** The matching
+   algorithms above were studied on their own input families and error models, and largely
+   in theory; we did not identify a head-to-head benchmark under a common harness.
+   (Chapters 4–7.)
+2. **No empirical study of test-and-fallback found in the reviewed literature.** The distribution test at the heart of
    [@choo2024imperfect; @bem2026testmatch] has no deployable implementation (the authors themselves fall back to an
    empirical surrogate), and its testing cost, threshold calibration, and failure modes have
    not been measured. (Chapter 6.)
@@ -296,10 +297,6 @@ questions of §1.2, and the thesis addresses them in that order:
    large a prefix the follow/fallback decision requires on strong-baseline instances, where the
    upside to be captured is smallest (§8.3 describes the prior-art pass behind this claim).
    (Chapter 6 empirically; §10.2 in outlook.)
-
-The thesis closes the first two gaps experimentally and takes a first quantified step at the
-third.
-
 <!--REV
 id: 2-12
 role: R4 体例校对

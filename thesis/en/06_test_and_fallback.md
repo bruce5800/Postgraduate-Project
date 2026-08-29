@@ -8,7 +8,7 @@ envelope, 6.2 = prefix sweep, 6.3 = recalibration, 6.4 = testing-wall frontier.
 # Chapter 6. Test-and-Fallback in Depth
 
 The test-and-fallback algorithms are the adaptive robustness mechanism of Chapter 4. This
-chapter gives their first empirical study in four parts: the robustness envelope they achieve
+chapter gives an empirical study in four parts: the robustness envelope they achieve
 (§6.1), a counter-intuitive failure of the acceptance threshold (§6.2), its recalibration
 (§6.3), and a benchmark of the dynamic combiner that explains the *commit-once* structure
 (§6.4). The resolution limit that recalibration exposes in §6.3 is this chapter's interface

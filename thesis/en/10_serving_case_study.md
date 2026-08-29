@@ -8,10 +8,10 @@ study, NOT a novelty claim; the SLO-probe negative is in Ch 8, referenced here.
 
 The thesis's abstraction is not confined to classical matching markets; it instantiates a
 contemporary systems problem. This chapter casts request routing in an AI-inference serving
-system as online matching. It does two things. It tests whether the abstraction is rich
-enough to carry a live systems problem. The answer is that it recovers the field's
-established results, which is the strongest evidence available that the mapping is faithful
-It also supplies the setting in which Chapter 8 probed, and failed to find, a regime where
+system as online matching. It does two things. First, it tests whether the abstraction is
+rich enough to carry a live systems problem; recovering established results provides
+evidence that the mapping is faithful. Second, it supplies the setting in which Chapter 8
+probed, and did not identify, a regime where
 predictions genuinely help. Because the systems facts recovered below are already known, the
 chapter is a **case study rather than a novelty claim**; that decision follows the prior-art
 review of Chapter 8.
@@ -140,7 +140,7 @@ fix: 点破这条主线：the first two say react rather than forecast; the thir
 ## 9.2 A probe for a genuinely new result, and its negative
 
 We also asked whether the with-predictions lens yields a new actionable serving result on a
-tail rather than a throughput objective. It does not: on an SLO objective (protecting a
+tail rather than a throughput objective. In this probe it did not: on an SLO objective (protecting a
 tight-SLO class of requests under bursty load), a non-predictive policy comes within
 $\le 3\%$ of one with perfect foresight across every regime swept. The experiment, its
 caveats and its two explanations are in §8.2. The consequence for this chapter is that we
@@ -161,7 +161,7 @@ fix: 本节压到两句（结论加指向），正本留在 8.2；删掉其中�
 ## 9.3 Chapter summary
 
 The abstraction reaches a live systems problem and recovers its established results, and
-even a tail objective does not open a genuine with-predictions win. What remains is to ask
+the tail-objective probe did not identify a genuine with-predictions win. What remains is to ask
 whether the wall these chapters keep meeting is an accident of our inputs or something
 forced: the question the conclusion takes up.
 

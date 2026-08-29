@@ -1,21 +1,20 @@
 \chapter{Test-and-Fallback in Depth}
 
 The test-and-fallback algorithms are the adaptive robustness mechanism
-of Chapter 4. This chapter gives their first empirical study in four
-parts: the robustness envelope they achieve (§6.1), a counter-intuitive
-failure of the acceptance threshold (§6.2), its recalibration (§6.3),
-and a benchmark of the dynamic combiner that explains the
-\emph{commit-once} structure (§6.4). The resolution limit that
-recalibration exposes in §6.3 is this chapter's interface to the
-conclusion: it persists across the whole difficulty range, and §10.2
-reads it quantitatively. Two naming conventions apply throughout.
-FollowPrediction is the unguarded follower, which mimics the advice
-matching without testing it; TestAndMatch is the test-and-fallback
-scheme in general, of which \textbf{Choo} and \textbf{BEM} are the two
-published instantiations. They share the test-then-commit structure and
-differ in how the acceptance threshold is set. The \(\ell_1\) test is
-the empirical surrogate the original authors also fall back to (Chapter
-3).
+of Chapter 4. This chapter gives an empirical study in four parts: the
+robustness envelope they achieve (§6.1), a counter-intuitive failure of
+the acceptance threshold (§6.2), its recalibration (§6.3), and a
+benchmark of the dynamic combiner that explains the \emph{commit-once}
+structure (§6.4). The resolution limit that recalibration exposes in
+§6.3 is this chapter's interface to the conclusion: it persists across
+the whole difficulty range, and §10.2 reads it quantitatively. Two
+naming conventions apply throughout. FollowPrediction is the unguarded
+follower, which mimics the advice matching without testing it;
+TestAndMatch is the test-and-fallback scheme in general, of which
+\textbf{Choo} and \textbf{BEM} are the two published instantiations.
+They share the test-then-commit structure and differ in how the
+acceptance threshold is set. The \(\ell_1\) test is the empirical
+surrogate the original authors also fall back to (Chapter 3).
 
 \section{The robustness envelope}
 

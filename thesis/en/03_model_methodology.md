@@ -136,11 +136,10 @@ fix: 把它提成一个独立小段，并说清楚后果：因为建议只影响
   or falls back to Ranking. The Chłędowski-style dynamic combiner is ported as a
   benchmarked baseline, not a contribution.
 
-This last point is the whole mechanism behind the structural robustness of Chapter 4, so it
-is worth stating plainly: because the prediction only decides between otherwise equivalent
-choices, the worst-case-optimal base matching carries the load and an arbitrarily bad
-prediction cannot move it. That is why the augmentations never crash, and equally why they
-cannot capture the upside when the prediction is good.
+This last point is the mechanism behind the structural robustness of Chapter 4. Because the
+prediction only decides between otherwise equivalent choices, the worst-case-optimal base
+matching carries most of the load and a bad prediction can affect only the tie-breaks. This
+limits the downside, but also caps the upside when the prediction is good.
 
 <!--REV
 id: 3-06
@@ -164,7 +163,7 @@ error**:
 |---|---|---|
 | random-flip | independently, with probability $\eta$, replace an entry of $\mu$ by a uniform draw from $[\min\mu,\max\mu]$ | grows with $\eta$; $\eta=1$ is a constant-quality predictor, i.e. Ranking |
 | systematic-bias | monotone rescale $\mu\leftarrow\mu\cdot(1+\eta)$ | none: Kendall-$\tau\equiv0$ by construction, while the $\ell_1$ magnitude grows linearly |
-| adversarial | reflect an $\eta$-fraction of entries, $\mu(R)\leftarrow(\min\mu+\max\mu)-\mu(R)$ | the most order-damaging perturbation at a given fraction; $\eta=1$ reverses the order |
+| adversarial | for an $\eta$-fraction of resources $u\in R$, reflect $\mu(u)\leftarrow(\min\mu+\max\mu)-\mu(u)$ | the most order-damaging perturbation at a given fraction; $\eta=1$ reverses the order |
 | distribution-drift | blend toward the degrees of an independently drawn graph of the same family, $\mu\leftarrow(1-\eta)\mu+\eta\mu_{\mathrm{alt}}$ | grows with $\eta$, but in a correlated way rather than entry-by-entry |
 
 For $\hat c$ we blend the realized counts toward a

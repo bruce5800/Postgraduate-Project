@@ -229,16 +229,18 @@ in that order:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{No unified empirical comparison.} The matching algorithms
-  above were each studied in isolation, on their own input families and
-  error models, and largely in theory; there is no head-to-head
-  experimental benchmark under a common harness. (Chapters 4--7.)
+  \textbf{No unified empirical comparison found in the reviewed
+  literature.} The matching algorithms above were studied on their own
+  input families and error models, and largely in theory; we did not
+  identify a head-to-head benchmark under a common harness. (Chapters
+  4--7.)
 \item
-  \textbf{No empirical study of test-and-fallback.} The distribution
-  test at the heart of \autocite{choo2024imperfect,bem2026testmatch} has
-  no deployable implementation (the authors themselves fall back to an
-  empirical surrogate), and its testing cost, threshold calibration, and
-  failure modes have not been measured. (Chapter 6.)
+  \textbf{No empirical study of test-and-fallback found in the reviewed
+  literature.} The distribution test at the heart of
+  \autocite{choo2024imperfect,bem2026testmatch} has no deployable
+  implementation (the authors themselves fall back to an empirical
+  surrogate), and its testing cost, threshold calibration, and failure
+  modes have not been measured. (Chapter 6.)
 \item
   \textbf{No quantification of what the prefix test costs.} No prior
   work measures, or bounds, how large a prefix the follow/fallback
@@ -246,6 +248,3 @@ in that order:
   captured is smallest (§8.3 describes the prior-art pass behind this
   claim). (Chapter 6 empirically; §10.2 in outlook.)
 \end{enumerate}
-
-The thesis closes the first two gaps experimentally and takes a first
-quantified step at the third.
