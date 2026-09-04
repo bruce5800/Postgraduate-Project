@@ -42,4 +42,4 @@ abstract: |
     external validity on six real graphs and a cheap non-ML predictor (pages 31--34).
   - I report two negative results (pages 35--43), prove a general consistency/robustness
     trade-off inequality, and give a bounded interpretation---not a further theorem---that
-    predicts a scale of $\approx0.004$, the same order as the measured upsides (pages 45--50).
+    predicts a scale of $\approx0.004$, the same order as the measured upsides (pages 45--46).
